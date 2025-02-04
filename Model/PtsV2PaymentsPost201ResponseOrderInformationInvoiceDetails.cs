@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails {\n");
-            sb.Append("  Level3TransmissionStatus: ").Append(Level3TransmissionStatus).Append("\n");
-            sb.Append("  SalesSlipNumber: ").Append(SalesSlipNumber).Append("\n");
+            if (Level3TransmissionStatus != null) sb.Append("  Level3TransmissionStatus: ").Append(Level3TransmissionStatus).Append("\n");
+            if (SalesSlipNumber != null) sb.Append("  SalesSlipNumber: ").Append(SalesSlipNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

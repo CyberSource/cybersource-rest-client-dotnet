@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TmsPaymentInstrumentProcessingInfoBankTransferOptions" /> class.
         /// </summary>
-        /// <param name="SECCode">Specifies the authorization method for the transaction.  #### TeleCheck Possible Values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry .</param>
+        /// <param name="SECCode">Specifies the authorization method for the transaction.  #### TeleCheck Possible Values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry  # For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) .</param>
         public TmsPaymentInstrumentProcessingInfoBankTransferOptions(string SECCode = default(string))
         {
             this.SECCode = SECCode;
         }
         
         /// <summary>
-        /// Specifies the authorization method for the transaction.  #### TeleCheck Possible Values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry 
+        /// Specifies the authorization method for the transaction.  #### TeleCheck Possible Values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry  # For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) 
         /// </summary>
-        /// <value>Specifies the authorization method for the transaction.  #### TeleCheck Possible Values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry </value>
+        /// <value>Specifies the authorization method for the transaction.  #### TeleCheck Possible Values: - &#x60;ARC&#x60;: account receivable conversion - &#x60;CCD&#x60;: corporate cash disbursement - &#x60;POP&#x60;: point of purchase conversion - &#x60;PPD&#x60;: prearranged payment and deposit entry - &#x60;TEL&#x60;: telephone-initiated entry - &#x60;WEB&#x60;: internet-initiated entry  # For details, see &#x60;ecp_sec_code&#x60; field description in the [Electronic Check Services Using the SCMP API Guide.](https://apps.cybersource.com/library/documentation/dev_guides/EChecks_SCMP_API/html/) </value>
         [DataMember(Name="SECCode", EmitDefaultValue=false)]
         public string SECCode { get; set; }
 
@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsPaymentInstrumentProcessingInfoBankTransferOptions {\n");
-            sb.Append("  SECCode: ").Append(SECCode).Append("\n");
+            if (SECCode != null) sb.Append("  SECCode: ").Append(SECCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformationIssuerInformation {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  BinLength: ").Append(BinLength).Append("\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (BinLength != null) sb.Append("  BinLength: ").Append(BinLength).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

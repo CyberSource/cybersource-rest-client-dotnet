@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1exportcomplianceinquiriesOrderInformationBillToCompany {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

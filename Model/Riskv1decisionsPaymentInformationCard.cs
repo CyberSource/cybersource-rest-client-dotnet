@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsPaymentInformationCard {\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Bin: ").Append(Bin).Append("\n");
-            sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
-            sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
+            if (Number != null) sb.Append("  Number: ").Append(Number).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Bin != null) sb.Append("  Bin: ").Append(Bin).Append("\n");
+            if (ExpirationMonth != null) sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
+            if (ExpirationYear != null) sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Boardingv1registrationsDocumentInformationSignedDocuments {\n");
-            sb.Append("  DocumentId: ").Append(DocumentId).Append("\n");
+            if (DocumentId != null) sb.Append("  DocumentId: ").Append(DocumentId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

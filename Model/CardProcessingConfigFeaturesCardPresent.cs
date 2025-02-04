@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardProcessingConfigFeaturesCardPresent {\n");
-            sb.Append("  Processors: ").Append(Processors).Append("\n");
-            sb.Append("  EnableTerminalIdLookup: ").Append(EnableTerminalIdLookup).Append("\n");
+            if (Processors != null) sb.Append("  Processors: ").Append(Processors).Append("\n");
+            if (EnableTerminalIdLookup != null) sb.Append("  EnableTerminalIdLookup: ").Append(EnableTerminalIdLookup).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

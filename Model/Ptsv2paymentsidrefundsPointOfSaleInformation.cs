@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidrefundsPointOfSaleInformation" /> class.
         /// </summary>
         /// <param name="Emv">Emv.</param>
-        public Ptsv2paymentsidrefundsPointOfSaleInformation(Ptsv2paymentsidcapturesPointOfSaleInformationEmv Emv = default(Ptsv2paymentsidcapturesPointOfSaleInformationEmv))
+        /// <param name="TerminalCategory">Indicates the type of terminal.   Possible values: - &#x60;AFD&#x60;: Automated Fuel Dispenser .</param>
+        public Ptsv2paymentsidrefundsPointOfSaleInformation(Ptsv2paymentsidcapturesPointOfSaleInformationEmv Emv = default(Ptsv2paymentsidcapturesPointOfSaleInformationEmv), string TerminalCategory = default(string))
         {
             this.Emv = Emv;
+            this.TerminalCategory = TerminalCategory;
         }
         
         /// <summary>
@@ -46,6 +48,13 @@ namespace CyberSource.Model
         public Ptsv2paymentsidcapturesPointOfSaleInformationEmv Emv { get; set; }
 
         /// <summary>
+        /// Indicates the type of terminal.   Possible values: - &#x60;AFD&#x60;: Automated Fuel Dispenser 
+        /// </summary>
+        /// <value>Indicates the type of terminal.   Possible values: - &#x60;AFD&#x60;: Automated Fuel Dispenser </value>
+        [DataMember(Name="terminalCategory", EmitDefaultValue=false)]
+        public string TerminalCategory { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -53,7 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidrefundsPointOfSaleInformation {\n");
-            sb.Append("  Emv: ").Append(Emv).Append("\n");
+            if (Emv != null) sb.Append("  Emv: ").Append(Emv).Append("\n");
+            if (TerminalCategory != null) sb.Append("  TerminalCategory: ").Append(TerminalCategory).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +104,11 @@ namespace CyberSource.Model
                     this.Emv == other.Emv ||
                     this.Emv != null &&
                     this.Emv.Equals(other.Emv)
+                ) && 
+                (
+                    this.TerminalCategory == other.TerminalCategory ||
+                    this.TerminalCategory != null &&
+                    this.TerminalCategory.Equals(other.TerminalCategory)
                 );
         }
 
@@ -110,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Emv != null)
                     hash = hash * 59 + this.Emv.GetHashCode();
+                if (this.TerminalCategory != null)
+                    hash = hash * 59 + this.TerminalCategory.GetHashCode();
                 return hash;
             }
         }

@@ -77,10 +77,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SAConfigContactInformation {\n");
-            sb.Append("  Phone: ").Append(Phone).Append("\n");
-            sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Phone != null) sb.Append("  Phone: ").Append(Phone).Append("\n");
+            if (CompanyName != null) sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

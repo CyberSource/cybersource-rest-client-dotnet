@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersEmbeddedDefaultPaymentInstrumentMerchantInformationMerchantDescriptor {\n");
-            sb.Append("  AlternateName: ").Append(AlternateName).Append("\n");
+            if (AlternateName != null) sb.Append("  AlternateName: ").Append(AlternateName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="FirstInstallmentDate">Date of the first installment payment. Format: YYMMDD. When you do not include this field, CyberSource sends a string of six zeros (000000) to the processor.  This field is supported only for Crediario installment payments in Brazil on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR9 - Position: 42-47 - Field: Date of First Installment .</param>
         /// <param name="FirstInstallmentAmount">Amount of the first installment payment. The issuer provides this value when the first installment payment is successful. This field is supported for Mastercard installment payments on CyberSource through VisaNet in all countries except Brazil,Croatia, Georgia, and Greece. The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 23-34 - Field: Amount of Each Installment .</param>
         /// <param name="InvoiceData">Invoice information that you want to provide to the issuer. This value is similar to a tracking number and is the same for all installment payments for one purchase.  This field is supported only for installment payments with Mastercard on CyberSource through VisaNet in Brazil.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR4 - Position: 51-70 - Field: Purchase Identification .</param>
-        /// <param name="PaymentType">Payment plan for the installments.  Possible values: - 0 (default): Regular installment. This value is not allowed for airline transactions. - 1: Installment payment with down payment. - 2: Installment payment without down payment. This value is supported only for airline transactions. - 3: Installment payment; down payment and boarding fee will follow. This value is supported only for airline transactions. - 4: Down payment only; regular installment payment will follow. - 5: Boarding fee only. This value is supported only for airline transactions.  This field is supported only for installment payments with Visa on CyberSource through VisaNet in Brazil.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR1 - Position: 9 - Field: Merchant Installment Supporting Information .</param>
+        /// <param name="PaymentType">Payment plan for the installments. This field is supported only for installment payments on Visa Platform Connect, RuPay and SPG-KSA seamless flow.  Possible values for a standing-instruction (SI) merchant-initiated transaction (MIT) with Diners Club or Mastercard in India or with an India-issued card: - 1: SI with a fixed amount. - 2: SI with a maximum amount. - 3: Other kind of SI.  Possible values for a type of Installment transaction for on-soil transaction in Kingdom of Saudi Arabia - 1: Registration or first transaction. - 2: Subsequent transaction.  Possible values for other kinds of installment payments: - 0 (default): Regular installment. This value is not allowed for airline transactions. - 1: Installment payment with down payment. - 2: Installment payment without down payment. This value is supported only for airline transactions. - 3: Installment payment; down payment and boarding fee will follow. This value is supported only for airline transactions. - 4: Down payment only; regular installment payment will follow. - 5: Boarding fee only. This value is supported only for airline transactions. - 6: SI de-registration on RuPay for the payer authentication seamless flow. .</param>
         /// <param name="AdditionalCosts">Additional costs charged by the issuer to fund the installment payments.  This field is included in the authorization reply for the Crediario eligibility request when the issuer approves the cardholder&#39;s request for Crediario installment payments in Brazil.  This field is supported only for Crediario installment payments in Brazil on **CyberSource through VisaNet**.  The value for this field corresponds to the following data in the TC 33 capture file1: - Record: CP01 TCR9 - Position: 128-139 - Field: Total Other Costs .</param>
         /// <param name="AdditionalCostsPercentage">Additional costs divided by the amount funded.  For example: - A value of 1.0 specifies 1%. - A value of 4.0 specifies 4%.  This field is included in the authorization reply for the Crediario eligibility request when the issuer approves the cardholder&#39;s request for Crediario installment payments in Brazil.  This field is supported only for Crediario installment payments in Brazil on **CyberSource through VisaNet**.  The value for this field corresponds to the following data in the TC 33 capture file1: - Record: CP01 TCR9 - Position: 140-143 - Field: Percent of Total Other Costs .</param>
         /// <param name="AmountFunded">Amount funded.  This field is included in the authorization reply for the Crediario eligibility request when the issuer approves the cardholder&#39;s request for Crediario installment payments in Brazil.  This field is supported only for Crediario installment payments in Brazil on **CyberSource through VisaNet**.  The value for this field corresponds to the following data in the TC 33 capture file1: - Record: CP01 TCR9 - Position: 48-59 - Field: Total Amount Funded .</param>
@@ -151,9 +151,9 @@ namespace CyberSource.Model
         public string InvoiceData { get; set; }
 
         /// <summary>
-        /// Payment plan for the installments.  Possible values: - 0 (default): Regular installment. This value is not allowed for airline transactions. - 1: Installment payment with down payment. - 2: Installment payment without down payment. This value is supported only for airline transactions. - 3: Installment payment; down payment and boarding fee will follow. This value is supported only for airline transactions. - 4: Down payment only; regular installment payment will follow. - 5: Boarding fee only. This value is supported only for airline transactions.  This field is supported only for installment payments with Visa on CyberSource through VisaNet in Brazil.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR1 - Position: 9 - Field: Merchant Installment Supporting Information 
+        /// Payment plan for the installments. This field is supported only for installment payments on Visa Platform Connect, RuPay and SPG-KSA seamless flow.  Possible values for a standing-instruction (SI) merchant-initiated transaction (MIT) with Diners Club or Mastercard in India or with an India-issued card: - 1: SI with a fixed amount. - 2: SI with a maximum amount. - 3: Other kind of SI.  Possible values for a type of Installment transaction for on-soil transaction in Kingdom of Saudi Arabia - 1: Registration or first transaction. - 2: Subsequent transaction.  Possible values for other kinds of installment payments: - 0 (default): Regular installment. This value is not allowed for airline transactions. - 1: Installment payment with down payment. - 2: Installment payment without down payment. This value is supported only for airline transactions. - 3: Installment payment; down payment and boarding fee will follow. This value is supported only for airline transactions. - 4: Down payment only; regular installment payment will follow. - 5: Boarding fee only. This value is supported only for airline transactions. - 6: SI de-registration on RuPay for the payer authentication seamless flow. 
         /// </summary>
-        /// <value>Payment plan for the installments.  Possible values: - 0 (default): Regular installment. This value is not allowed for airline transactions. - 1: Installment payment with down payment. - 2: Installment payment without down payment. This value is supported only for airline transactions. - 3: Installment payment; down payment and boarding fee will follow. This value is supported only for airline transactions. - 4: Down payment only; regular installment payment will follow. - 5: Boarding fee only. This value is supported only for airline transactions.  This field is supported only for installment payments with Visa on CyberSource through VisaNet in Brazil.  The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP07 TCR1 - Position: 9 - Field: Merchant Installment Supporting Information </value>
+        /// <value>Payment plan for the installments. This field is supported only for installment payments on Visa Platform Connect, RuPay and SPG-KSA seamless flow.  Possible values for a standing-instruction (SI) merchant-initiated transaction (MIT) with Diners Club or Mastercard in India or with an India-issued card: - 1: SI with a fixed amount. - 2: SI with a maximum amount. - 3: Other kind of SI.  Possible values for a type of Installment transaction for on-soil transaction in Kingdom of Saudi Arabia - 1: Registration or first transaction. - 2: Subsequent transaction.  Possible values for other kinds of installment payments: - 0 (default): Regular installment. This value is not allowed for airline transactions. - 1: Installment payment with down payment. - 2: Installment payment without down payment. This value is supported only for airline transactions. - 3: Installment payment; down payment and boarding fee will follow. This value is supported only for airline transactions. - 4: Down payment only; regular installment payment will follow. - 5: Boarding fee only. This value is supported only for airline transactions. - 6: SI de-registration on RuPay for the payer authentication seamless flow. </value>
         [DataMember(Name="paymentType", EmitDefaultValue=false)]
         public string PaymentType { get; set; }
 
@@ -270,31 +270,31 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidcapturesInstallmentInformation {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
-            sb.Append("  PlanType: ").Append(PlanType).Append("\n");
-            sb.Append("  Sequence: ").Append(Sequence).Append("\n");
-            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
-            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
-            sb.Append("  FirstInstallmentDate: ").Append(FirstInstallmentDate).Append("\n");
-            sb.Append("  FirstInstallmentAmount: ").Append(FirstInstallmentAmount).Append("\n");
-            sb.Append("  InvoiceData: ").Append(InvoiceData).Append("\n");
-            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
-            sb.Append("  AdditionalCosts: ").Append(AdditionalCosts).Append("\n");
-            sb.Append("  AdditionalCostsPercentage: ").Append(AdditionalCostsPercentage).Append("\n");
-            sb.Append("  AmountFunded: ").Append(AmountFunded).Append("\n");
-            sb.Append("  AmountRequestedPercentage: ").Append(AmountRequestedPercentage).Append("\n");
-            sb.Append("  AnnualFinancingCost: ").Append(AnnualFinancingCost).Append("\n");
-            sb.Append("  AnnualInterestRate: ").Append(AnnualInterestRate).Append("\n");
-            sb.Append("  Expenses: ").Append(Expenses).Append("\n");
-            sb.Append("  ExpensesPercentage: ").Append(ExpensesPercentage).Append("\n");
-            sb.Append("  Fees: ").Append(Fees).Append("\n");
-            sb.Append("  FeesPercentage: ").Append(FeesPercentage).Append("\n");
-            sb.Append("  Insurance: ").Append(Insurance).Append("\n");
-            sb.Append("  InsurancePercentage: ").Append(InsurancePercentage).Append("\n");
-            sb.Append("  MonthlyInterestRate: ").Append(MonthlyInterestRate).Append("\n");
-            sb.Append("  Taxes: ").Append(Taxes).Append("\n");
-            sb.Append("  TaxesPercentage: ").Append(TaxesPercentage).Append("\n");
+            if (Amount != null) sb.Append("  Amount: ").Append(Amount).Append("\n");
+            if (Frequency != null) sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            if (PlanType != null) sb.Append("  PlanType: ").Append(PlanType).Append("\n");
+            if (Sequence != null) sb.Append("  Sequence: ").Append(Sequence).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (TotalCount != null) sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
+            if (FirstInstallmentDate != null) sb.Append("  FirstInstallmentDate: ").Append(FirstInstallmentDate).Append("\n");
+            if (FirstInstallmentAmount != null) sb.Append("  FirstInstallmentAmount: ").Append(FirstInstallmentAmount).Append("\n");
+            if (InvoiceData != null) sb.Append("  InvoiceData: ").Append(InvoiceData).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (AdditionalCosts != null) sb.Append("  AdditionalCosts: ").Append(AdditionalCosts).Append("\n");
+            if (AdditionalCostsPercentage != null) sb.Append("  AdditionalCostsPercentage: ").Append(AdditionalCostsPercentage).Append("\n");
+            if (AmountFunded != null) sb.Append("  AmountFunded: ").Append(AmountFunded).Append("\n");
+            if (AmountRequestedPercentage != null) sb.Append("  AmountRequestedPercentage: ").Append(AmountRequestedPercentage).Append("\n");
+            if (AnnualFinancingCost != null) sb.Append("  AnnualFinancingCost: ").Append(AnnualFinancingCost).Append("\n");
+            if (AnnualInterestRate != null) sb.Append("  AnnualInterestRate: ").Append(AnnualInterestRate).Append("\n");
+            if (Expenses != null) sb.Append("  Expenses: ").Append(Expenses).Append("\n");
+            if (ExpensesPercentage != null) sb.Append("  ExpensesPercentage: ").Append(ExpensesPercentage).Append("\n");
+            if (Fees != null) sb.Append("  Fees: ").Append(Fees).Append("\n");
+            if (FeesPercentage != null) sb.Append("  FeesPercentage: ").Append(FeesPercentage).Append("\n");
+            if (Insurance != null) sb.Append("  Insurance: ").Append(Insurance).Append("\n");
+            if (InsurancePercentage != null) sb.Append("  InsurancePercentage: ").Append(InsurancePercentage).Append("\n");
+            if (MonthlyInterestRate != null) sb.Append("  MonthlyInterestRate: ").Append(MonthlyInterestRate).Append("\n");
+            if (Taxes != null) sb.Append("  Taxes: ").Append(Taxes).Append("\n");
+            if (TaxesPercentage != null) sb.Append("  TaxesPercentage: ").Append(TaxesPercentage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

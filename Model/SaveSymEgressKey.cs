@@ -75,9 +75,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SaveSymEgressKey {\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  ClientRequestAction: ").Append(ClientRequestAction).Append("\n");
-            sb.Append("  KeyInformation: ").Append(KeyInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (ClientRequestAction != null) sb.Append("  ClientRequestAction: ").Append(ClientRequestAction).Append("\n");
+            if (KeyInformation != null) sb.Append("  KeyInformation: ").Append(KeyInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

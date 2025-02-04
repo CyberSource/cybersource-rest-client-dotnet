@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponsePaymentInformationBank {\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
-            sb.Append("  CorrectedRoutingNumber: ").Append(CorrectedRoutingNumber).Append("\n");
+            if (Account != null) sb.Append("  Account: ").Append(Account).Append("\n");
+            if (CorrectedRoutingNumber != null) sb.Append("  CorrectedRoutingNumber: ").Append(CorrectedRoutingNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

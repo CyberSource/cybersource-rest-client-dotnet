@@ -89,11 +89,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardProcessingConfigFeaturesCardNotPresent {\n");
-            sb.Append("  Processors: ").Append(Processors).Append("\n");
-            sb.Append("  IgnoreAddressVerificationSystem: ").Append(IgnoreAddressVerificationSystem).Append("\n");
-            sb.Append("  VisaStraightThroughProcessingOnly: ").Append(VisaStraightThroughProcessingOnly).Append("\n");
-            sb.Append("  AmexTransactionAdviceAddendum1: ").Append(AmexTransactionAdviceAddendum1).Append("\n");
-            sb.Append("  Installment: ").Append(Installment).Append("\n");
+            if (Processors != null) sb.Append("  Processors: ").Append(Processors).Append("\n");
+            if (IgnoreAddressVerificationSystem != null) sb.Append("  IgnoreAddressVerificationSystem: ").Append(IgnoreAddressVerificationSystem).Append("\n");
+            if (VisaStraightThroughProcessingOnly != null) sb.Append("  VisaStraightThroughProcessingOnly: ").Append(VisaStraightThroughProcessingOnly).Append("\n");
+            if (AmexTransactionAdviceAddendum1 != null) sb.Append("  AmexTransactionAdviceAddendum1: ").Append(AmexTransactionAdviceAddendum1).Append("\n");
+            if (Installment != null) sb.Append("  Installment: ").Append(Installment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4005Fields {\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  LocalizationKey: ").Append(LocalizationKey).Append("\n");
+            if (Path != null) sb.Append("  Path: ").Append(Path).Append("\n");
+            if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
+            if (LocalizationKey != null) sb.Append("  LocalizationKey: ").Append(LocalizationKey).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

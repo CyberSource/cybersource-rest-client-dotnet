@@ -101,11 +101,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Notificationsubscriptionsv1productsorganizationIdEventTypes {\n");
-            sb.Append("  EventName: ").Append(EventName).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
-            sb.Append("  TimeSensitivity: ").Append(TimeSensitivity).Append("\n");
-            sb.Append("  PayloadEncryption: ").Append(PayloadEncryption).Append("\n");
+            if (EventName != null) sb.Append("  EventName: ").Append(EventName).Append("\n");
+            if (DisplayName != null) sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            if (Frequency != null) sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            if (TimeSensitivity != null) sb.Append("  TimeSensitivity: ").Append(TimeSensitivity).Append("\n");
+            if (PayloadEncryption != null) sb.Append("  PayloadEncryption: ").Append(PayloadEncryption).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

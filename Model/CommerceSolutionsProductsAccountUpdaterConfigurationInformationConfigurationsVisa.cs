@@ -76,9 +76,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CommerceSolutionsProductsAccountUpdaterConfigurationInformationConfigurationsVisa {\n");
-            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
-            sb.Append("  SegmentId: ").Append(SegmentId).Append("\n");
-            sb.Append("  Active: ").Append(Active).Append("\n");
+            if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            if (SegmentId != null) sb.Append("  SegmentId: ").Append(SegmentId).Append("\n");
+            if (Active != null) sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

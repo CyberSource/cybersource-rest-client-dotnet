@@ -77,10 +77,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Notificationsubscriptionsv1webhooksSecurityPolicy1ConfigAdditionalConfig {\n");
-            sb.Append("  Aud: ").Append(Aud).Append("\n");
-            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
-            sb.Append("  KeyId: ").Append(KeyId).Append("\n");
-            sb.Append("  Scope: ").Append(Scope).Append("\n");
+            if (Aud != null) sb.Append("  Aud: ").Append(Aud).Append("\n");
+            if (ClientId != null) sb.Append("  ClientId: ").Append(ClientId).Append("\n");
+            if (KeyId != null) sb.Append("  KeyId: ").Append(KeyId).Append("\n");
+            if (Scope != null) sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

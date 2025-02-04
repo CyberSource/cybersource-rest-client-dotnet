@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedRiskInformationProviders {\n");
-            sb.Append("  Fingerprint: ").Append(Fingerprint).Append("\n");
+            if (Fingerprint != null) sb.Append("  Fingerprint: ").Append(Fingerprint).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

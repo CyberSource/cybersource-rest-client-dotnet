@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2intentsOrderInformationLineItems {\n");
-            sb.Append("  ProductName: ").Append(ProductName).Append("\n");
-            sb.Append("  ProductDescription: ").Append(ProductDescription).Append("\n");
-            sb.Append("  ProductSku: ").Append(ProductSku).Append("\n");
-            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
-            sb.Append("  TypeOfSupply: ").Append(TypeOfSupply).Append("\n");
-            sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
-            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
-            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (ProductName != null) sb.Append("  ProductName: ").Append(ProductName).Append("\n");
+            if (ProductDescription != null) sb.Append("  ProductDescription: ").Append(ProductDescription).Append("\n");
+            if (ProductSku != null) sb.Append("  ProductSku: ").Append(ProductSku).Append("\n");
+            if (Quantity != null) sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            if (TypeOfSupply != null) sb.Append("  TypeOfSupply: ").Append(TypeOfSupply).Append("\n");
+            if (UnitPrice != null) sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

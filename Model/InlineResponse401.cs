@@ -103,13 +103,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse401 {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  CorrelationId: ").Append(CorrelationId).Append("\n");
-            sb.Append("  Detail: ").Append(Detail).Append("\n");
-            sb.Append("  Fields: ").Append(Fields).Append("\n");
-            sb.Append("  LocalizationKey: ").Append(LocalizationKey).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (CorrelationId != null) sb.Append("  CorrelationId: ").Append(CorrelationId).Append("\n");
+            if (Detail != null) sb.Append("  Detail: ").Append(Detail).Append("\n");
+            if (Fields != null) sb.Append("  Fields: ").Append(Fields).Append("\n");
+            if (LocalizationKey != null) sb.Append("  LocalizationKey: ").Append(LocalizationKey).Append("\n");
+            if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

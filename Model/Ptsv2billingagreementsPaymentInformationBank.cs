@@ -80,10 +80,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2billingagreementsPaymentInformationBank {\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
-            sb.Append("  Iban: ").Append(Iban).Append("\n");
-            sb.Append("  SwiftCode: ").Append(SwiftCode).Append("\n");
-            sb.Append("  Scheme: ").Append(Scheme).Append("\n");
+            if (Account != null) sb.Append("  Account: ").Append(Account).Append("\n");
+            if (Iban != null) sb.Append("  Iban: ").Append(Iban).Append("\n");
+            if (SwiftCode != null) sb.Append("  SwiftCode: ").Append(SwiftCode).Append("\n");
+            if (Scheme != null) sb.Append("  Scheme: ").Append(Scheme).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

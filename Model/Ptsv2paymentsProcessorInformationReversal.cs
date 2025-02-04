@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsProcessorInformationReversal {\n");
-            sb.Append("  PreApprovalToken: ").Append(PreApprovalToken).Append("\n");
+            if (PreApprovalToken != null) sb.Append("  PreApprovalToken: ").Append(PreApprovalToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

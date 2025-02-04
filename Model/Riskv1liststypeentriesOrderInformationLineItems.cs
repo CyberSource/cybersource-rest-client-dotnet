@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1liststypeentriesOrderInformationLineItems {\n");
-            sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
+            if (UnitPrice != null) sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

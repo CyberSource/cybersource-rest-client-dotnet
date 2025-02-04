@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseWatchlistScreeningInformationWatchList {\n");
-            sb.Append("  Matches: ").Append(Matches).Append("\n");
+            if (Matches != null) sb.Append("  Matches: ").Append(Matches).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

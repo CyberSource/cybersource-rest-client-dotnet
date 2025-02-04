@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseOrderInformationInvoiceDetails {\n");
-            sb.Append("  SalesSlipNumber: ").Append(SalesSlipNumber).Append("\n");
+            if (SalesSlipNumber != null) sb.Append("  SalesSlipNumber: ").Append(SalesSlipNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

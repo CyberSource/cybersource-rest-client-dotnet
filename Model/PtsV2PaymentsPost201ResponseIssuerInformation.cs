@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseIssuerInformation {\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  DiscretionaryData: ").Append(DiscretionaryData).Append("\n");
-            sb.Append("  CountrySpecificDiscretionaryData: ").Append(CountrySpecificDiscretionaryData).Append("\n");
-            sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
-            sb.Append("  PinRequestIndicator: ").Append(PinRequestIndicator).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (DiscretionaryData != null) sb.Append("  DiscretionaryData: ").Append(DiscretionaryData).Append("\n");
+            if (CountrySpecificDiscretionaryData != null) sb.Append("  CountrySpecificDiscretionaryData: ").Append(CountrySpecificDiscretionaryData).Append("\n");
+            if (ResponseCode != null) sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            if (PinRequestIndicator != null) sb.Append("  PinRequestIndicator: ").Append(PinRequestIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

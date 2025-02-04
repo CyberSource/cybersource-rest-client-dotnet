@@ -77,10 +77,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DmConfigThirdpartyProviderEkata {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  EnableRealTime: ").Append(EnableRealTime).Append("\n");
-            sb.Append("  UseCybsCredentials: ").Append(UseCybsCredentials).Append("\n");
-            sb.Append("  Credentials: ").Append(Credentials).Append("\n");
+            if (Enabled != null) sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            if (EnableRealTime != null) sb.Append("  EnableRealTime: ").Append(EnableRealTime).Append("\n");
+            if (UseCybsCredentials != null) sb.Append("  UseCybsCredentials: ").Append(UseCybsCredentials).Append("\n");
+            if (Credentials != null) sb.Append("  Credentials: ").Append(Credentials).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

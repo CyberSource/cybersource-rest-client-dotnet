@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersEmbeddedDefaultPaymentInstrumentBankAccount {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

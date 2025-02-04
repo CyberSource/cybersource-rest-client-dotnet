@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseApplicationInformationApplications {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
-            sb.Append("  RCode: ").Append(RCode).Append("\n");
-            sb.Append("  RFlag: ").Append(RFlag).Append("\n");
-            sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
-            sb.Append("  RMessage: ").Append(RMessage).Append("\n");
-            sb.Append("  ReturnCode: ").Append(ReturnCode).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (ReasonCode != null) sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
+            if (RCode != null) sb.Append("  RCode: ").Append(RCode).Append("\n");
+            if (RFlag != null) sb.Append("  RFlag: ").Append(RFlag).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (RMessage != null) sb.Append("  RMessage: ").Append(RMessage).Append("\n");
+            if (ReturnCode != null) sb.Append("  ReturnCode: ").Append(ReturnCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

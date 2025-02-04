@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseRiskInformationIpAddress {\n");
-            sb.Append("  AnonymizerStatus: ").Append(AnonymizerStatus).Append("\n");
-            sb.Append("  Locality: ").Append(Locality).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
-            sb.Append("  RoutingMethod: ").Append(RoutingMethod).Append("\n");
-            sb.Append("  Carrier: ").Append(Carrier).Append("\n");
-            sb.Append("  Organization: ").Append(Organization).Append("\n");
+            if (AnonymizerStatus != null) sb.Append("  AnonymizerStatus: ").Append(AnonymizerStatus).Append("\n");
+            if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            if (RoutingMethod != null) sb.Append("  RoutingMethod: ").Append(RoutingMethod).Append("\n");
+            if (Carrier != null) sb.Append("  Carrier: ").Append(Carrier).Append("\n");
+            if (Organization != null) sb.Append("  Organization: ").Append(Organization).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponsePaymentInformationAccountFeaturesBalances {\n");
-            sb.Append("  AccountType: ").Append(AccountType).Append("\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  AmountType: ").Append(AmountType).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            if (Amount != null) sb.Append("  Amount: ").Append(Amount).Append("\n");
+            if (AmountType != null) sb.Append("  AmountType: ").Append(AmountType).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

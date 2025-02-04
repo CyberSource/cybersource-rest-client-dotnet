@@ -169,6 +169,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CardholderVerificationMethod'
         }
         /// <summary>
+        /// Test the property 'TerminalCategory'
+        /// </summary>
+        [Test]
+        public void TerminalCategoryTest()
+        {
+            // TODO unit test for the property 'TerminalCategory'
+        }
+        /// <summary>
         /// Test the property 'TerminalInputCapability'
         /// </summary>
         [Test]

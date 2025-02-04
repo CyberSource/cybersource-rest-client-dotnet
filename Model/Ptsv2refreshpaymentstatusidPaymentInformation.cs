@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2refreshpaymentstatusidPaymentInformation {\n");
-            sb.Append("  Customer: ").Append(Customer).Append("\n");
-            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

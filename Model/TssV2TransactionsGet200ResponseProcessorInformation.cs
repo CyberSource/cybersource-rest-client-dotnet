@@ -175,21 +175,21 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessorInformation {\n");
-            sb.Append("  Processor: ").Append(Processor).Append("\n");
-            sb.Append("  MultiProcessorRouting: ").Append(MultiProcessorRouting).Append("\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-            sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
-            sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
-            sb.Append("  ResponseId: ").Append(ResponseId).Append("\n");
-            sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
-            sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
-            sb.Append("  Avs: ").Append(Avs).Append("\n");
-            sb.Append("  CardVerification: ").Append(CardVerification).Append("\n");
-            sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
-            sb.Append("  ElectronicVerificationResults: ").Append(ElectronicVerificationResults).Append("\n");
-            sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
-            sb.Append("  ResponseCodeSource: ").Append(ResponseCodeSource).Append("\n");
-            sb.Append("  PaymentAccountReferenceNumber: ").Append(PaymentAccountReferenceNumber).Append("\n");
+            if (Processor != null) sb.Append("  Processor: ").Append(Processor).Append("\n");
+            if (MultiProcessorRouting != null) sb.Append("  MultiProcessorRouting: ").Append(MultiProcessorRouting).Append("\n");
+            if (TransactionId != null) sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            if (NetworkTransactionId != null) sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
+            if (RetrievalReferenceNumber != null) sb.Append("  RetrievalReferenceNumber: ").Append(RetrievalReferenceNumber).Append("\n");
+            if (ResponseId != null) sb.Append("  ResponseId: ").Append(ResponseId).Append("\n");
+            if (ApprovalCode != null) sb.Append("  ApprovalCode: ").Append(ApprovalCode).Append("\n");
+            if (ResponseCode != null) sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            if (Avs != null) sb.Append("  Avs: ").Append(Avs).Append("\n");
+            if (CardVerification != null) sb.Append("  CardVerification: ").Append(CardVerification).Append("\n");
+            if (AchVerification != null) sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
+            if (ElectronicVerificationResults != null) sb.Append("  ElectronicVerificationResults: ").Append(ElectronicVerificationResults).Append("\n");
+            if (SystemTraceAuditNumber != null) sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
+            if (ResponseCodeSource != null) sb.Append("  ResponseCodeSource: ").Append(ResponseCodeSource).Append("\n");
+            if (PaymentAccountReferenceNumber != null) sb.Append("  PaymentAccountReferenceNumber: ").Append(PaymentAccountReferenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

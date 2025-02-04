@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsOrderInformationAmountDetailsTaxDetails {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Rate: ").Append(Rate).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  TaxId: ").Append(TaxId).Append("\n");
-            sb.Append("  Applied: ").Append(Applied).Append("\n");
-            sb.Append("  ExemptionCode: ").Append(ExemptionCode).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Amount != null) sb.Append("  Amount: ").Append(Amount).Append("\n");
+            if (Rate != null) sb.Append("  Rate: ").Append(Rate).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (TaxId != null) sb.Append("  TaxId: ").Append(TaxId).Append("\n");
+            if (Applied != null) sb.Append("  Applied: ").Append(Applied).Append("\n");
+            if (ExemptionCode != null) sb.Append("  ExemptionCode: ").Append(ExemptionCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

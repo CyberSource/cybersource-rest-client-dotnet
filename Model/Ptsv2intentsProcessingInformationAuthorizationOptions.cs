@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2intentsProcessingInformationAuthorizationOptions {\n");
-            sb.Append("  AuthType: ").Append(AuthType).Append("\n");
+            if (AuthType != null) sb.Append("  AuthType: ").Append(AuthType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

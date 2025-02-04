@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseRiskInformationVelocity {\n");
-            sb.Append("  Morphing: ").Append(Morphing).Append("\n");
-            sb.Append("  Address: ").Append(Address).Append("\n");
+            if (Morphing != null) sb.Append("  Morphing: ").Append(Morphing).Append("\n");
+            if (Address != null) sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsTravelInformationTransit {\n");
-            sb.Append("  Airline: ").Append(Airline).Append("\n");
+            if (Airline != null) sb.Append("  Airline: ").Append(Airline).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

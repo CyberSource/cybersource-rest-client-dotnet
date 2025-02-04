@@ -85,11 +85,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ValidateExportComplianceRequest {\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
-            sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
-            sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
-            sb.Append("  ExportComplianceInformation: ").Append(ExportComplianceInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
+            if (DeviceInformation != null) sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
+            if (ExportComplianceInformation != null) sb.Append("  ExportComplianceInformation: ").Append(ExportComplianceInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

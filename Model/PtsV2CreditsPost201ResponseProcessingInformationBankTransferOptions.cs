@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2CreditsPost201ResponseProcessingInformationBankTransferOptions {\n");
-            sb.Append("  SettlementMethod: ").Append(SettlementMethod).Append("\n");
+            if (SettlementMethod != null) sb.Append("  SettlementMethod: ").Append(SettlementMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

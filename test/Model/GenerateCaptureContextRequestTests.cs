@@ -89,12 +89,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AllowedCardNetworks'
         }
         /// <summary>
-        /// Test the property 'CheckoutApiInitialization'
+        /// Test the property 'AllowedPaymentTypes'
         /// </summary>
         [Test]
-        public void CheckoutApiInitializationTest()
+        public void AllowedPaymentTypesTest()
         {
-            // TODO unit test for the property 'CheckoutApiInitialization'
+            // TODO unit test for the property 'AllowedPaymentTypes'
         }
 
     }

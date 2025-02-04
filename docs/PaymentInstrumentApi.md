@@ -74,7 +74,7 @@ No authorization required
 
 <a name="getpaymentinstrument"></a>
 # **GetPaymentInstrument**
-> PostPaymentInstrumentRequest GetPaymentInstrument (string paymentInstrumentId, string profileId = null)
+> PostPaymentInstrumentRequest GetPaymentInstrument (string paymentInstrumentId, string profileId = null, bool? retrieveBinDetails = null)
 
 Retrieve a Payment Instrument
 
@@ -97,11 +97,12 @@ namespace Example
             var apiInstance = new PaymentInstrumentApi();
             var paymentInstrumentId = paymentInstrumentId_example;  // string | The Id of a payment instrument.
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
+            var retrieveBinDetails = true;  // bool? | Retrieve the Bin Details of PAN or network token (optional) 
 
             try
             {
                 // Retrieve a Payment Instrument
-                PostPaymentInstrumentRequest result = apiInstance.GetPaymentInstrument(paymentInstrumentId, profileId);
+                PostPaymentInstrumentRequest result = apiInstance.GetPaymentInstrument(paymentInstrumentId, profileId, retrieveBinDetails);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -119,6 +120,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **paymentInstrumentId** | **string**| The Id of a payment instrument. | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
+ **retrieveBinDetails** | **bool?**| Retrieve the Bin Details of PAN or network token | [optional] 
 
 ### Return type
 
@@ -137,7 +139,7 @@ No authorization required
 
 <a name="patchpaymentinstrument"></a>
 # **PatchPaymentInstrument**
-> PatchPaymentInstrumentRequest PatchPaymentInstrument (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
+> PatchPaymentInstrumentRequest PatchPaymentInstrument (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
 
 Update a Payment Instrument
 
@@ -161,12 +163,13 @@ namespace Example
             var paymentInstrumentId = paymentInstrumentId_example;  // string | The Id of a payment instrument.
             var patchPaymentInstrumentRequest = new PatchPaymentInstrumentRequest(); // PatchPaymentInstrumentRequest | 
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
+            var retrieveBinDetails = true;  // bool? | Retrieve the Bin Details of PAN or network token (optional) 
             var ifMatch = ifMatch_example;  // string | Contains an ETag value from a GET request to make the request conditional. (optional) 
 
             try
             {
                 // Update a Payment Instrument
-                PatchPaymentInstrumentRequest result = apiInstance.PatchPaymentInstrument(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, ifMatch);
+                PatchPaymentInstrumentRequest result = apiInstance.PatchPaymentInstrument(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, retrieveBinDetails, ifMatch);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -185,6 +188,7 @@ Name | Type | Description  | Notes
  **paymentInstrumentId** | **string**| The Id of a payment instrument. | 
  **patchPaymentInstrumentRequest** | [**PatchPaymentInstrumentRequest**](PatchPaymentInstrumentRequest.md)|  | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
+ **retrieveBinDetails** | **bool?**| Retrieve the Bin Details of PAN or network token | [optional] 
  **ifMatch** | **string**| Contains an ETag value from a GET request to make the request conditional. | [optional] 
 
 ### Return type
@@ -204,7 +208,7 @@ No authorization required
 
 <a name="postpaymentinstrument"></a>
 # **PostPaymentInstrument**
-> PostPaymentInstrumentRequest PostPaymentInstrument (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null)
+> PostPaymentInstrumentRequest PostPaymentInstrument (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null)
 
 Create a Payment Instrument
 
@@ -227,11 +231,12 @@ namespace Example
             var apiInstance = new PaymentInstrumentApi();
             var postPaymentInstrumentRequest = new PostPaymentInstrumentRequest(); // PostPaymentInstrumentRequest | 
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
+            var retrieveBinDetails = true;  // bool? | Retrieve the Bin Details of PAN or network token (optional) 
 
             try
             {
                 // Create a Payment Instrument
-                PostPaymentInstrumentRequest result = apiInstance.PostPaymentInstrument(postPaymentInstrumentRequest, profileId);
+                PostPaymentInstrumentRequest result = apiInstance.PostPaymentInstrument(postPaymentInstrumentRequest, profileId, retrieveBinDetails);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -249,6 +254,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **postPaymentInstrumentRequest** | [**PostPaymentInstrumentRequest**](PostPaymentInstrumentRequest.md)|  | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
+ **retrieveBinDetails** | **bool?**| Retrieve the Bin Details of PAN or network token | [optional] 
 
 ### Return type
 

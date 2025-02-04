@@ -71,9 +71,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseWatchlistScreeningInformation {\n");
-            sb.Append("  IpCountryConfidence: ").Append(IpCountryConfidence).Append("\n");
-            sb.Append("  InfoCodes: ").Append(InfoCodes).Append("\n");
-            sb.Append("  WatchList: ").Append(WatchList).Append("\n");
+            if (IpCountryConfidence != null) sb.Append("  IpCountryConfidence: ").Append(IpCountryConfidence).Append("\n");
+            if (InfoCodes != null) sb.Append("  InfoCodes: ").Append(InfoCodes).Append("\n");
+            if (WatchList != null) sb.Append("  WatchList: ").Append(WatchList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

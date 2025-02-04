@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2PostEmvTags200Response {\n");
-            sb.Append("  ParsedEMVTagsList: ").Append(ParsedEMVTagsList).Append("\n");
+            if (ParsedEMVTagsList != null) sb.Append("  ParsedEMVTagsList: ").Append(ParsedEMVTagsList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

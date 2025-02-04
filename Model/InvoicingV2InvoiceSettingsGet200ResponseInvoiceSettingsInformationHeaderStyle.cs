@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle {\n");
-            sb.Append("  FontColor: ").Append(FontColor).Append("\n");
-            sb.Append("  BackgroundColor: ").Append(BackgroundColor).Append("\n");
+            if (FontColor != null) sb.Append("  FontColor: ").Append(FontColor).Append("\n");
+            if (BackgroundColor != null) sb.Append("  BackgroundColor: ").Append(BackgroundColor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

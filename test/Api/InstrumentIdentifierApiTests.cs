@@ -86,7 +86,8 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string instrumentIdentifierId = null;
             //string profileId = null;
-            //var response = instance.GetInstrumentIdentifier(instrumentIdentifierId, profileId);
+            //bool? retrieveBinDetails = null;
+            //var response = instance.GetInstrumentIdentifier(instrumentIdentifierId, profileId, retrieveBinDetails);
             //Assert.IsInstanceOf<PostInstrumentIdentifierRequest> (response, "response is PostInstrumentIdentifierRequest");
         }
         
@@ -99,9 +100,10 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string instrumentIdentifierId = null;
             //string profileId = null;
+            //bool? retrieveBinDetails = null;
             //long? offset = null;
             //long? limit = null;
-            //var response = instance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, offset, limit);
+            //var response = instance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
             //Assert.IsInstanceOf<PaymentInstrumentList1> (response, "response is PaymentInstrumentList1");
         }
         
@@ -115,8 +117,9 @@ namespace CyberSource.Test
             //string instrumentIdentifierId = null;
             //PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest = null;
             //string profileId = null;
+            //bool? retrieveBinDetails = null;
             //string ifMatch = null;
-            //var response = instance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+            //var response = instance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, retrieveBinDetails, ifMatch);
             //Assert.IsInstanceOf<PatchInstrumentIdentifierRequest> (response, "response is PatchInstrumentIdentifierRequest");
         }
         
@@ -129,7 +132,8 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //PostInstrumentIdentifierRequest postInstrumentIdentifierRequest = null;
             //string profileId = null;
-            //var response = instance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId);
+            //bool? retrieveBinDetails = null;
+            //var response = instance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId, retrieveBinDetails);
             //Assert.IsInstanceOf<PostInstrumentIdentifierRequest> (response, "response is PostInstrumentIdentifierRequest");
         }
         

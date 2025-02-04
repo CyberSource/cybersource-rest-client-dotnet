@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv1pushfundstransferMerchantInformation {\n");
-            sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
+            if (CategoryCode != null) sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

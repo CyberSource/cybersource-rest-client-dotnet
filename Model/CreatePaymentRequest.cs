@@ -59,9 +59,10 @@ namespace CyberSource.Model
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="AcquirerInformation">AcquirerInformation.</param>
         /// <param name="RecurringPaymentInformation">RecurringPaymentInformation.</param>
+        /// <param name="UnscheduledPaymentInformation">UnscheduledPaymentInformation.</param>
         /// <param name="HostedPaymentInformation">HostedPaymentInformation.</param>
         /// <param name="WatchlistScreeningInformation">WatchlistScreeningInformation.</param>
-        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsIssuerInformation IssuerInformation = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsSenderInformation SenderInformation = default(Ptsv2paymentsSenderInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsMerchantDefinedSecureInformation MerchantDefinedSecureInformation = default(Ptsv2paymentsMerchantDefinedSecureInformation), Ptsv2paymentsInstallmentInformation InstallmentInformation = default(Ptsv2paymentsInstallmentInformation), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation), Ptsv2paymentsTokenInformation TokenInformation = default(Ptsv2paymentsTokenInformation), Ptsv2paymentsInvoiceDetails InvoiceDetails = default(Ptsv2paymentsInvoiceDetails), Ptsv2paymentsProcessorInformation ProcessorInformation = default(Ptsv2paymentsProcessorInformation), Ptsv2paymentsAgreementInformation AgreementInformation = default(Ptsv2paymentsAgreementInformation), Ptsv2paymentsRiskInformation RiskInformation = default(Ptsv2paymentsRiskInformation), Ptsv2paymentsAcquirerInformation AcquirerInformation = default(Ptsv2paymentsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation), Ptsv2paymentsHostedPaymentInformation HostedPaymentInformation = default(Ptsv2paymentsHostedPaymentInformation), Ptsv2paymentsWatchlistScreeningInformation WatchlistScreeningInformation = default(Ptsv2paymentsWatchlistScreeningInformation))
+        public CreatePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsProcessingInformation ProcessingInformation = default(Ptsv2paymentsProcessingInformation), Ptsv2paymentsIssuerInformation IssuerInformation = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsPaymentInformation PaymentInformation = default(Ptsv2paymentsPaymentInformation), Ptsv2paymentsOrderInformation OrderInformation = default(Ptsv2paymentsOrderInformation), Ptsv2paymentsBuyerInformation BuyerInformation = default(Ptsv2paymentsBuyerInformation), Ptsv2paymentsSenderInformation SenderInformation = default(Ptsv2paymentsSenderInformation), Ptsv2paymentsRecipientInformation RecipientInformation = default(Ptsv2paymentsRecipientInformation), Ptsv2paymentsDeviceInformation DeviceInformation = default(Ptsv2paymentsDeviceInformation), Ptsv2paymentsMerchantInformation MerchantInformation = default(Ptsv2paymentsMerchantInformation), Ptsv2paymentsAggregatorInformation AggregatorInformation = default(Ptsv2paymentsAggregatorInformation), Ptsv2paymentsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ptsv2paymentsConsumerAuthenticationInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsMerchantDefinedSecureInformation MerchantDefinedSecureInformation = default(Ptsv2paymentsMerchantDefinedSecureInformation), Ptsv2paymentsInstallmentInformation InstallmentInformation = default(Ptsv2paymentsInstallmentInformation), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation), Ptsv2paymentsTokenInformation TokenInformation = default(Ptsv2paymentsTokenInformation), Ptsv2paymentsInvoiceDetails InvoiceDetails = default(Ptsv2paymentsInvoiceDetails), Ptsv2paymentsProcessorInformation ProcessorInformation = default(Ptsv2paymentsProcessorInformation), Ptsv2paymentsAgreementInformation AgreementInformation = default(Ptsv2paymentsAgreementInformation), Ptsv2paymentsRiskInformation RiskInformation = default(Ptsv2paymentsRiskInformation), Ptsv2paymentsAcquirerInformation AcquirerInformation = default(Ptsv2paymentsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation), Ptsv2paymentsUnscheduledPaymentInformation UnscheduledPaymentInformation = default(Ptsv2paymentsUnscheduledPaymentInformation), Ptsv2paymentsHostedPaymentInformation HostedPaymentInformation = default(Ptsv2paymentsHostedPaymentInformation), Ptsv2paymentsWatchlistScreeningInformation WatchlistScreeningInformation = default(Ptsv2paymentsWatchlistScreeningInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -89,6 +90,7 @@ namespace CyberSource.Model
             this.RiskInformation = RiskInformation;
             this.AcquirerInformation = AcquirerInformation;
             this.RecurringPaymentInformation = RecurringPaymentInformation;
+            this.UnscheduledPaymentInformation = UnscheduledPaymentInformation;
             this.HostedPaymentInformation = HostedPaymentInformation;
             this.WatchlistScreeningInformation = WatchlistScreeningInformation;
         }
@@ -251,6 +253,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets UnscheduledPaymentInformation
+        /// </summary>
+        [DataMember(Name="unscheduledPaymentInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsUnscheduledPaymentInformation UnscheduledPaymentInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets HostedPaymentInformation
         /// </summary>
         [DataMember(Name="hostedPaymentInformation", EmitDefaultValue=false)]
@@ -270,34 +278,35 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreatePaymentRequest {\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
-            sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
-            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
-            sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
-            sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
-            sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
-            sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
-            sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
-            sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
-            sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
-            sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
-            sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
-            sb.Append("  MerchantDefinedSecureInformation: ").Append(MerchantDefinedSecureInformation).Append("\n");
-            sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
-            sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
-            sb.Append("  HealthCareInformation: ").Append(HealthCareInformation).Append("\n");
-            sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
-            sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
-            sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
-            sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
-            sb.Append("  AgreementInformation: ").Append(AgreementInformation).Append("\n");
-            sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
-            sb.Append("  AcquirerInformation: ").Append(AcquirerInformation).Append("\n");
-            sb.Append("  RecurringPaymentInformation: ").Append(RecurringPaymentInformation).Append("\n");
-            sb.Append("  HostedPaymentInformation: ").Append(HostedPaymentInformation).Append("\n");
-            sb.Append("  WatchlistScreeningInformation: ").Append(WatchlistScreeningInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
+            if (IssuerInformation != null) sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
+            if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
+            if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
+            if (RecipientInformation != null) sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
+            if (DeviceInformation != null) sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
+            if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            if (AggregatorInformation != null) sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
+            if (ConsumerAuthenticationInformation != null) sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
+            if (PointOfSaleInformation != null) sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
+            if (MerchantDefinedInformation != null) sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
+            if (MerchantDefinedSecureInformation != null) sb.Append("  MerchantDefinedSecureInformation: ").Append(MerchantDefinedSecureInformation).Append("\n");
+            if (InstallmentInformation != null) sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
+            if (TravelInformation != null) sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
+            if (HealthCareInformation != null) sb.Append("  HealthCareInformation: ").Append(HealthCareInformation).Append("\n");
+            if (PromotionInformation != null) sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
+            if (TokenInformation != null) sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
+            if (InvoiceDetails != null) sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
+            if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
+            if (AgreementInformation != null) sb.Append("  AgreementInformation: ").Append(AgreementInformation).Append("\n");
+            if (RiskInformation != null) sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
+            if (AcquirerInformation != null) sb.Append("  AcquirerInformation: ").Append(AcquirerInformation).Append("\n");
+            if (RecurringPaymentInformation != null) sb.Append("  RecurringPaymentInformation: ").Append(RecurringPaymentInformation).Append("\n");
+            if (UnscheduledPaymentInformation != null) sb.Append("  UnscheduledPaymentInformation: ").Append(UnscheduledPaymentInformation).Append("\n");
+            if (HostedPaymentInformation != null) sb.Append("  HostedPaymentInformation: ").Append(HostedPaymentInformation).Append("\n");
+            if (WatchlistScreeningInformation != null) sb.Append("  WatchlistScreeningInformation: ").Append(WatchlistScreeningInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -465,6 +474,11 @@ namespace CyberSource.Model
                     this.RecurringPaymentInformation.Equals(other.RecurringPaymentInformation)
                 ) && 
                 (
+                    this.UnscheduledPaymentInformation == other.UnscheduledPaymentInformation ||
+                    this.UnscheduledPaymentInformation != null &&
+                    this.UnscheduledPaymentInformation.Equals(other.UnscheduledPaymentInformation)
+                ) && 
+                (
                     this.HostedPaymentInformation == other.HostedPaymentInformation ||
                     this.HostedPaymentInformation != null &&
                     this.HostedPaymentInformation.Equals(other.HostedPaymentInformation)
@@ -539,6 +553,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AcquirerInformation.GetHashCode();
                 if (this.RecurringPaymentInformation != null)
                     hash = hash * 59 + this.RecurringPaymentInformation.GetHashCode();
+                if (this.UnscheduledPaymentInformation != null)
+                    hash = hash * 59 + this.UnscheduledPaymentInformation.GetHashCode();
                 if (this.HostedPaymentInformation != null)
                     hash = hash * 59 + this.HostedPaymentInformation.GetHashCode();
                 if (this.WatchlistScreeningInformation != null)

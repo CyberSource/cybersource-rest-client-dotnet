@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidMerchantInformation {\n");
-            sb.Append("  TransactionLocalDateTime: ").Append(TransactionLocalDateTime).Append("\n");
+            if (TransactionLocalDateTime != null) sb.Append("  TransactionLocalDateTime: ").Append(TransactionLocalDateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

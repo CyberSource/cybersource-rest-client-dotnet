@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2billingagreementsDeviceInformation {\n");
-            sb.Append("  HttpAcceptBrowserValue: ").Append(HttpAcceptBrowserValue).Append("\n");
-            sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
-            sb.Append("  UserAgentBrowserValue: ").Append(UserAgentBrowserValue).Append("\n");
+            if (HttpAcceptBrowserValue != null) sb.Append("  HttpAcceptBrowserValue: ").Append(HttpAcceptBrowserValue).Append("\n");
+            if (IpAddress != null) sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            if (UserAgentBrowserValue != null) sb.Append("  UserAgentBrowserValue: ").Append(UserAgentBrowserValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

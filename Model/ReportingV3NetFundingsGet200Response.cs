@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3NetFundingsGet200Response {\n");
-            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
-            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
-            sb.Append("  NetFundingSummaries: ").Append(NetFundingSummaries).Append("\n");
-            sb.Append("  TotalPurchases: ").Append(TotalPurchases).Append("\n");
-            sb.Append("  TotalRefunds: ").Append(TotalRefunds).Append("\n");
-            sb.Append("  TotalFees: ").Append(TotalFees).Append("\n");
-            sb.Append("  TotalChargebacks: ").Append(TotalChargebacks).Append("\n");
-            sb.Append("  NetTotal: ").Append(NetTotal).Append("\n");
+            if (StartTime != null) sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            if (EndTime != null) sb.Append("  EndTime: ").Append(EndTime).Append("\n");
+            if (NetFundingSummaries != null) sb.Append("  NetFundingSummaries: ").Append(NetFundingSummaries).Append("\n");
+            if (TotalPurchases != null) sb.Append("  TotalPurchases: ").Append(TotalPurchases).Append("\n");
+            if (TotalRefunds != null) sb.Append("  TotalRefunds: ").Append(TotalRefunds).Append("\n");
+            if (TotalFees != null) sb.Append("  TotalFees: ").Append(TotalFees).Append("\n");
+            if (TotalChargebacks != null) sb.Append("  TotalChargebacks: ").Append(TotalChargebacks).Append("\n");
+            if (NetTotal != null) sb.Append("  NetTotal: ").Append(NetTotal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

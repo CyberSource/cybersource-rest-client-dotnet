@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges {\n");
-            sb.Append("  MerchantReferenceNumber: ").Append(MerchantReferenceNumber).Append("\n");
-            sb.Append("  TransactionReferenceNumber: ").Append(TransactionReferenceNumber).Append("\n");
-            sb.Append("  Time: ").Append(Time).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  AccountType: ").Append(AccountType).Append("\n");
-            sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
-            sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
-            sb.Append("  ConsumerName: ").Append(ConsumerName).Append("\n");
+            if (MerchantReferenceNumber != null) sb.Append("  MerchantReferenceNumber: ").Append(MerchantReferenceNumber).Append("\n");
+            if (TransactionReferenceNumber != null) sb.Append("  TransactionReferenceNumber: ").Append(TransactionReferenceNumber).Append("\n");
+            if (Time != null) sb.Append("  Time: ").Append(Time).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            if (RoutingNumber != null) sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
+            if (AccountNumber != null) sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
+            if (ConsumerName != null) sb.Append("  ConsumerName: ").Append(ConsumerName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

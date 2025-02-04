@@ -107,13 +107,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2billingagreementsMerchantInformation {\n");
-            sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
-            sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
-            sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
-            sb.Append("  TransactionLocalDateTime: ").Append(TransactionLocalDateTime).Append("\n");
-            sb.Append("  CancelUrl: ").Append(CancelUrl).Append("\n");
-            sb.Append("  SuccessUrl: ").Append(SuccessUrl).Append("\n");
-            sb.Append("  FailureUrl: ").Append(FailureUrl).Append("\n");
+            if (MerchantDescriptor != null) sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
+            if (CategoryCode != null) sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            if (TransactionLocalDateTime != null) sb.Append("  TransactionLocalDateTime: ").Append(TransactionLocalDateTime).Append("\n");
+            if (CancelUrl != null) sb.Append("  CancelUrl: ").Append(CancelUrl).Append("\n");
+            if (SuccessUrl != null) sb.Append("  SuccessUrl: ").Append(SuccessUrl).Append("\n");
+            if (FailureUrl != null) sb.Append("  FailureUrl: ").Append(FailureUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

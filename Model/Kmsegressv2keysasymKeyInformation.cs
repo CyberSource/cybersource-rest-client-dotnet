@@ -126,15 +126,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Kmsegressv2keysasymKeyInformation {\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  Tenant: ").Append(Tenant).Append("\n");
-            sb.Append("  KeyType: ").Append(KeyType).Append("\n");
-            sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
-            sb.Append("  Pub: ").Append(Pub).Append("\n");
-            sb.Append("  KeyId: ").Append(KeyId).Append("\n");
-            sb.Append("  Pvt: ").Append(Pvt).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  ExpiryDuration: ").Append(ExpiryDuration).Append("\n");
+            if (Provider != null) sb.Append("  Provider: ").Append(Provider).Append("\n");
+            if (Tenant != null) sb.Append("  Tenant: ").Append(Tenant).Append("\n");
+            if (KeyType != null) sb.Append("  KeyType: ").Append(KeyType).Append("\n");
+            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
+            if (Pub != null) sb.Append("  Pub: ").Append(Pub).Append("\n");
+            if (KeyId != null) sb.Append("  KeyId: ").Append(KeyId).Append("\n");
+            if (Pvt != null) sb.Append("  Pvt: ").Append(Pvt).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (ExpiryDuration != null) sb.Append("  ExpiryDuration: ").Append(ExpiryDuration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

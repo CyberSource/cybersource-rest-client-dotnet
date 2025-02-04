@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2012IntegrationInformation {\n");
-            sb.Append("  TenantConfigurations: ").Append(TenantConfigurations).Append("\n");
+            if (TenantConfigurations != null) sb.Append("  TenantConfigurations: ").Append(TenantConfigurations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

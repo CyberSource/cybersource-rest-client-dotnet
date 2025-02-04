@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Rbsv1plansidProcessingInformationSubscriptionBillingOptions {\n");
-            sb.Append("  ApplyTo: ").Append(ApplyTo).Append("\n");
+            if (ApplyTo != null) sb.Append("  ApplyTo: ").Append(ApplyTo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

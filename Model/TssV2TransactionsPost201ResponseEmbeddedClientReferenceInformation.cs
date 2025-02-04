@@ -80,10 +80,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
-            sb.Append("  ApplicationUser: ").Append(ApplicationUser).Append("\n");
-            sb.Append("  Partner: ").Append(Partner).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (ApplicationName != null) sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
+            if (ApplicationUser != null) sb.Append("  ApplicationUser: ").Append(ApplicationUser).Append("\n");
+            if (Partner != null) sb.Append("  Partner: ").Append(Partner).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

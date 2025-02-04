@@ -158,20 +158,20 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformation {\n");
-            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
-            sb.Append("  Customer: ").Append(Customer).Append("\n");
-            sb.Append("  Card: ").Append(Card).Append("\n");
-            sb.Append("  Brands: ").Append(Brands).Append("\n");
-            sb.Append("  Features: ").Append(Features).Append("\n");
-            sb.Append("  Invoice: ").Append(Invoice).Append("\n");
-            sb.Append("  Network: ").Append(Network).Append("\n");
-            sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
-            sb.Append("  Bank: ").Append(Bank).Append("\n");
-            sb.Append("  AccountFeatures: ").Append(AccountFeatures).Append("\n");
-            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
-            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
-            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
-            sb.Append("  FluidData: ").Append(FluidData).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
+            if (Brands != null) sb.Append("  Brands: ").Append(Brands).Append("\n");
+            if (Features != null) sb.Append("  Features: ").Append(Features).Append("\n");
+            if (Invoice != null) sb.Append("  Invoice: ").Append(Invoice).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
+            if (IssuerInformation != null) sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
+            if (Bank != null) sb.Append("  Bank: ").Append(Bank).Append("\n");
+            if (AccountFeatures != null) sb.Append("  AccountFeatures: ").Append(AccountFeatures).Append("\n");
+            if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            if (ShippingAddress != null) sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            if (FluidData != null) sb.Append("  FluidData: ").Append(FluidData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -59,7 +59,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CaseManagementCommentsRequest {\n");
-            sb.Append("  Comments: ").Append(Comments).Append("\n");
+            if (Comments != null) sb.Append("  Comments: ").Append(Comments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

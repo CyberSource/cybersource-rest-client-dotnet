@@ -70,9 +70,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse202 {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  BatchId: ").Append(BatchId).Append("\n");
-            sb.Append("  BatchItemCount: ").Append(BatchItemCount).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (BatchId != null) sb.Append("  BatchId: ").Append(BatchId).Append("\n");
+            if (BatchItemCount != null) sb.Append("  BatchItemCount: ").Append(BatchItemCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

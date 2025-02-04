@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact {\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
+            if (FirstName != null) sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            if (MiddleName != null) sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
+            if (LastName != null) sb.Append("  LastName: ").Append(LastName).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PostPaymentCredentialsRequest" /> class.
         /// </summary>
-        /// <param name="PaymentCredentialType">The type of payment credentials to be returned. By default, payment credentials include network token and cryptogram or dynamic CVV. If \&quot;NETWORK_TOKEN\&quot; is supplied then only network token will be returned and cryptogram or dynamic CVV will be excluded.   Possible Values:   - NETWORK_TOKEN .</param>
+        /// <param name="PaymentCredentialType">The type of payment credentials to be returned. By default, payment credentials include network token and cryptogram or dynamic CVV. If \&quot;NETWORK_TOKEN\&quot; is supplied then only network token card number will be returned and no cryptogram or dynamic CVV will be requested. If \&quot;SECURITY_CODE\&quot; is supplied then dynamic CVV will be requested and returned with the network token card number. Dynamic CVV is only supported for Amex and SCOF. If \&quot;CRYPTOGRAM\&quot; is supplied then cryptogram will be requested and returned with the network token card number. Cryptogram is NOT supported for Amex.  Possible Values:   - NETWORK_TOKEN   - SECURITY_CODE   - CRYPTOGRAM .</param>
         public PostPaymentCredentialsRequest(string PaymentCredentialType = default(string))
         {
             this.PaymentCredentialType = PaymentCredentialType;
         }
         
         /// <summary>
-        /// The type of payment credentials to be returned. By default, payment credentials include network token and cryptogram or dynamic CVV. If \&quot;NETWORK_TOKEN\&quot; is supplied then only network token will be returned and cryptogram or dynamic CVV will be excluded.   Possible Values:   - NETWORK_TOKEN 
+        /// The type of payment credentials to be returned. By default, payment credentials include network token and cryptogram or dynamic CVV. If \&quot;NETWORK_TOKEN\&quot; is supplied then only network token card number will be returned and no cryptogram or dynamic CVV will be requested. If \&quot;SECURITY_CODE\&quot; is supplied then dynamic CVV will be requested and returned with the network token card number. Dynamic CVV is only supported for Amex and SCOF. If \&quot;CRYPTOGRAM\&quot; is supplied then cryptogram will be requested and returned with the network token card number. Cryptogram is NOT supported for Amex.  Possible Values:   - NETWORK_TOKEN   - SECURITY_CODE   - CRYPTOGRAM 
         /// </summary>
-        /// <value>The type of payment credentials to be returned. By default, payment credentials include network token and cryptogram or dynamic CVV. If \&quot;NETWORK_TOKEN\&quot; is supplied then only network token will be returned and cryptogram or dynamic CVV will be excluded.   Possible Values:   - NETWORK_TOKEN </value>
+        /// <value>The type of payment credentials to be returned. By default, payment credentials include network token and cryptogram or dynamic CVV. If \&quot;NETWORK_TOKEN\&quot; is supplied then only network token card number will be returned and no cryptogram or dynamic CVV will be requested. If \&quot;SECURITY_CODE\&quot; is supplied then dynamic CVV will be requested and returned with the network token card number. Dynamic CVV is only supported for Amex and SCOF. If \&quot;CRYPTOGRAM\&quot; is supplied then cryptogram will be requested and returned with the network token card number. Cryptogram is NOT supported for Amex.  Possible Values:   - NETWORK_TOKEN   - SECURITY_CODE   - CRYPTOGRAM </value>
         [DataMember(Name="paymentCredentialType", EmitDefaultValue=false)]
         public string PaymentCredentialType { get; set; }
 
@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PostPaymentCredentialsRequest {\n");
-            sb.Append("  PaymentCredentialType: ").Append(PaymentCredentialType).Append("\n");
+            if (PaymentCredentialType != null) sb.Append("  PaymentCredentialType: ").Append(PaymentCredentialType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

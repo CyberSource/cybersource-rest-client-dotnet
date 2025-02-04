@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessorInformationMultiProcessorRouting {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
-            sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
-            sb.Append("  Sequence: ").Append(Sequence).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (ResponseCode != null) sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
+            if (ReasonCode != null) sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
+            if (Sequence != null) sb.Append("  Sequence: ").Append(Sequence).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

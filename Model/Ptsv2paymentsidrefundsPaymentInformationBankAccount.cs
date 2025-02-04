@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidrefundsPaymentInformationBankAccount {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
-            sb.Append("  EncoderId: ").Append(EncoderId).Append("\n");
-            sb.Append("  CheckNumber: ").Append(CheckNumber).Append("\n");
-            sb.Append("  CheckImageReferenceNumber: ").Append(CheckImageReferenceNumber).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Number != null) sb.Append("  Number: ").Append(Number).Append("\n");
+            if (EncoderId != null) sb.Append("  EncoderId: ").Append(EncoderId).Append("\n");
+            if (CheckNumber != null) sb.Append("  CheckNumber: ").Append(CheckNumber).Append("\n");
+            if (CheckImageReferenceNumber != null) sb.Append("  CheckImageReferenceNumber: ").Append(CheckImageReferenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

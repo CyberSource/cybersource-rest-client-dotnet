@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VTConfigCardNotPresentReceiptInformation {\n");
-            sb.Append("  Header: ").Append(Header).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
-            sb.Append("  EmailReceipt: ").Append(EmailReceipt).Append("\n");
+            if (Header != null) sb.Append("  Header: ").Append(Header).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (EmailReceipt != null) sb.Append("  EmailReceipt: ").Append(EmailReceipt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

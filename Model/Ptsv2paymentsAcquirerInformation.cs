@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsAcquirerInformation {\n");
-            sb.Append("  AcquirerBin: ").Append(AcquirerBin).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  Password: ").Append(Password).Append("\n");
-            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
-            sb.Append("  AcquirerMerchantId: ").Append(AcquirerMerchantId).Append("\n");
+            if (AcquirerBin != null) sb.Append("  AcquirerBin: ").Append(AcquirerBin).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (Password != null) sb.Append("  Password: ").Append(Password).Append("\n");
+            if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            if (AcquirerMerchantId != null) sb.Append("  AcquirerMerchantId: ").Append(AcquirerMerchantId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

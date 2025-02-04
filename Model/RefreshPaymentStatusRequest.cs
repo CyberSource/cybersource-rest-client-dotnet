@@ -77,10 +77,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RefreshPaymentStatusRequest {\n");
-            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  AgreementInformation: ").Append(AgreementInformation).Append("\n");
-            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
+            if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (AgreementInformation != null) sb.Append("  AgreementInformation: ").Append(AgreementInformation).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

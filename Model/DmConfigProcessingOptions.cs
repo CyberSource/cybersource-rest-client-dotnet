@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DmConfigProcessingOptions {\n");
-            sb.Append("  StepUpAuthEnabled: ").Append(StepUpAuthEnabled).Append("\n");
+            if (StepUpAuthEnabled != null) sb.Append("  StepUpAuthEnabled: ").Append(StepUpAuthEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

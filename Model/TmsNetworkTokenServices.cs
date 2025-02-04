@@ -93,12 +93,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsNetworkTokenServices {\n");
-            sb.Append("  Notifications: ").Append(Notifications).Append("\n");
-            sb.Append("  PaymentCredentials: ").Append(PaymentCredentials).Append("\n");
-            sb.Append("  SynchronousProvisioning: ").Append(SynchronousProvisioning).Append("\n");
-            sb.Append("  VisaTokenService: ").Append(VisaTokenService).Append("\n");
-            sb.Append("  MastercardDigitalEnablementService: ").Append(MastercardDigitalEnablementService).Append("\n");
-            sb.Append("  AmericanExpressTokenService: ").Append(AmericanExpressTokenService).Append("\n");
+            if (Notifications != null) sb.Append("  Notifications: ").Append(Notifications).Append("\n");
+            if (PaymentCredentials != null) sb.Append("  PaymentCredentials: ").Append(PaymentCredentials).Append("\n");
+            if (SynchronousProvisioning != null) sb.Append("  SynchronousProvisioning: ").Append(SynchronousProvisioning).Append("\n");
+            if (VisaTokenService != null) sb.Append("  VisaTokenService: ").Append(VisaTokenService).Append("\n");
+            if (MastercardDigitalEnablementService != null) sb.Append("  MastercardDigitalEnablementService: ").Append(MastercardDigitalEnablementService).Append("\n");
+            if (AmericanExpressTokenService != null) sb.Append("  AmericanExpressTokenService: ").Append(AmericanExpressTokenService).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

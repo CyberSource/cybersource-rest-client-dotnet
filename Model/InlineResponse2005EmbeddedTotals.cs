@@ -85,11 +85,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2005EmbeddedTotals {\n");
-            sb.Append("  AcceptedRecords: ").Append(AcceptedRecords).Append("\n");
-            sb.Append("  RejectedRecords: ").Append(RejectedRecords).Append("\n");
-            sb.Append("  UpdatedRecords: ").Append(UpdatedRecords).Append("\n");
-            sb.Append("  CaResponses: ").Append(CaResponses).Append("\n");
-            sb.Append("  CaResponsesOmitted: ").Append(CaResponsesOmitted).Append("\n");
+            if (AcceptedRecords != null) sb.Append("  AcceptedRecords: ").Append(AcceptedRecords).Append("\n");
+            if (RejectedRecords != null) sb.Append("  RejectedRecords: ").Append(RejectedRecords).Append("\n");
+            if (UpdatedRecords != null) sb.Append("  UpdatedRecords: ").Append(UpdatedRecords).Append("\n");
+            if (CaResponses != null) sb.Append("  CaResponses: ").Append(CaResponses).Append("\n");
+            if (CaResponsesOmitted != null) sb.Append("  CaResponsesOmitted: ").Append(CaResponsesOmitted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1exportcomplianceinquiriesDeviceInformation {\n");
-            sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
-            sb.Append("  HostName: ").Append(HostName).Append("\n");
+            if (IpAddress != null) sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            if (HostName != null) sb.Append("  HostName: ").Append(HostName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

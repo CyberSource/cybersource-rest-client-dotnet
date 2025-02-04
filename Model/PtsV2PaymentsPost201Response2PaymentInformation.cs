@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201Response2PaymentInformation {\n");
-            sb.Append("  EWallet: ").Append(EWallet).Append("\n");
+            if (EWallet != null) sb.Append("  EWallet: ").Append(EWallet).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

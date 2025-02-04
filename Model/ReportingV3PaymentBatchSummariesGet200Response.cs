@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3PaymentBatchSummariesGet200Response {\n");
-            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
-            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
-            sb.Append("  PaymentBatchSummaries: ").Append(PaymentBatchSummaries).Append("\n");
+            if (StartTime != null) sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            if (EndTime != null) sb.Append("  EndTime: ").Append(EndTime).Append("\n");
+            if (PaymentBatchSummaries != null) sb.Append("  PaymentBatchSummaries: ").Append(PaymentBatchSummaries).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

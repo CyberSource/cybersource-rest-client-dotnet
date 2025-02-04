@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreatePlanRequest {\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  PlanInformation: ").Append(PlanInformation).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (PlanInformation != null) sb.Append("  PlanInformation: ").Append(PlanInformation).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

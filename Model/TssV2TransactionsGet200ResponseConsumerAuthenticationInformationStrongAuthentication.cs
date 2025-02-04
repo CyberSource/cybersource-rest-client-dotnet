@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication {\n");
-            sb.Append("  LowValueExemptionIndicator: ").Append(LowValueExemptionIndicator).Append("\n");
-            sb.Append("  RiskAnalysisExemptionIndicator: ").Append(RiskAnalysisExemptionIndicator).Append("\n");
-            sb.Append("  TrustedMerchantExemptionIndicator: ").Append(TrustedMerchantExemptionIndicator).Append("\n");
-            sb.Append("  SecureCorporatePaymentIndicator: ").Append(SecureCorporatePaymentIndicator).Append("\n");
-            sb.Append("  DelegatedAuthenticationExemptionIndicator: ").Append(DelegatedAuthenticationExemptionIndicator).Append("\n");
+            if (LowValueExemptionIndicator != null) sb.Append("  LowValueExemptionIndicator: ").Append(LowValueExemptionIndicator).Append("\n");
+            if (RiskAnalysisExemptionIndicator != null) sb.Append("  RiskAnalysisExemptionIndicator: ").Append(RiskAnalysisExemptionIndicator).Append("\n");
+            if (TrustedMerchantExemptionIndicator != null) sb.Append("  TrustedMerchantExemptionIndicator: ").Append(TrustedMerchantExemptionIndicator).Append("\n");
+            if (SecureCorporatePaymentIndicator != null) sb.Append("  SecureCorporatePaymentIndicator: ").Append(SecureCorporatePaymentIndicator).Append("\n");
+            if (DelegatedAuthenticationExemptionIndicator != null) sb.Append("  DelegatedAuthenticationExemptionIndicator: ").Append(DelegatedAuthenticationExemptionIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

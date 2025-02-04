@@ -103,13 +103,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ReportDefinitionsGet200ResponseReportDefinitions {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  ReportDefinitionId: ").Append(ReportDefinitionId).Append("\n");
-            sb.Append("  ReportDefintionName: ").Append(ReportDefintionName).Append("\n");
-            sb.Append("  SupportedFormats: ").Append(SupportedFormats).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  DefaultSettings: ").Append(DefaultSettings).Append("\n");
-            sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (ReportDefinitionId != null) sb.Append("  ReportDefinitionId: ").Append(ReportDefinitionId).Append("\n");
+            if (ReportDefintionName != null) sb.Append("  ReportDefintionName: ").Append(ReportDefintionName).Append("\n");
+            if (SupportedFormats != null) sb.Append("  SupportedFormats: ").Append(SupportedFormats).Append("\n");
+            if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
+            if (DefaultSettings != null) sb.Append("  DefaultSettings: ").Append(DefaultSettings).Append("\n");
+            if (SubscriptionType != null) sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

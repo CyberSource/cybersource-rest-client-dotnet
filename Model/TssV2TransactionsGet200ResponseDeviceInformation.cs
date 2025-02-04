@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseDeviceInformation {\n");
-            sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
-            sb.Append("  HostName: ").Append(HostName).Append("\n");
-            sb.Append("  CookiesAccepted: ").Append(CookiesAccepted).Append("\n");
+            if (IpAddress != null) sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            if (HostName != null) sb.Append("  HostName: ").Append(HostName).Append("\n");
+            if (CookiesAccepted != null) sb.Append("  CookiesAccepted: ").Append(CookiesAccepted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

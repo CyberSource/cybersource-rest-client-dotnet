@@ -98,12 +98,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidcapturesBuyerInformation {\n");
-            sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
-            sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
-            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
-            sb.Append("  Gender: ").Append(Gender).Append("\n");
-            sb.Append("  Language: ").Append(Language).Append("\n");
-            sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
+            if (MerchantCustomerId != null) sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
+            if (VatRegistrationNumber != null) sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (Gender != null) sb.Append("  Gender: ").Append(Gender).Append("\n");
+            if (Language != null) sb.Append("  Language: ").Append(Language).Append("\n");
+            if (PersonalIdentification != null) sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -139,16 +139,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PredefinedSubscriptionRequestBean {\n");
-            sb.Append("  ReportDefinitionName: ").Append(ReportDefinitionName).Append("\n");
-            sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
-            sb.Append("  ReportName: ").Append(ReportName).Append("\n");
-            sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
-            sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
-            sb.Append("  ReportInterval: ").Append(ReportInterval).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
-            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
-            sb.Append("  StartDay: ").Append(StartDay).Append("\n");
-            sb.Append("  SubscriptionStatus: ").Append(SubscriptionStatus).Append("\n");
+            if (ReportDefinitionName != null) sb.Append("  ReportDefinitionName: ").Append(ReportDefinitionName).Append("\n");
+            if (SubscriptionType != null) sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
+            if (ReportName != null) sb.Append("  ReportName: ").Append(ReportName).Append("\n");
+            if (ReportMimeType != null) sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
+            if (ReportFrequency != null) sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
+            if (ReportInterval != null) sb.Append("  ReportInterval: ").Append(ReportInterval).Append("\n");
+            if (Timezone != null) sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            if (StartTime != null) sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            if (StartDay != null) sb.Append("  StartDay: ").Append(StartDay).Append("\n");
+            if (SubscriptionStatus != null) sb.Append("  SubscriptionStatus: ").Append(SubscriptionStatus).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

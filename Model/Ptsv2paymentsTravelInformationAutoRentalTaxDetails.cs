@@ -99,12 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsTravelInformationAutoRentalTaxDetails {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Rate: ").Append(Rate).Append("\n");
-            sb.Append("  Applied: ").Append(Applied).Append("\n");
-            sb.Append("  ExemptionCode: ").Append(ExemptionCode).Append("\n");
-            sb.Append("  TaxType: ").Append(TaxType).Append("\n");
-            sb.Append("  TaxSummary: ").Append(TaxSummary).Append("\n");
+            if (Amount != null) sb.Append("  Amount: ").Append(Amount).Append("\n");
+            if (Rate != null) sb.Append("  Rate: ").Append(Rate).Append("\n");
+            if (Applied != null) sb.Append("  Applied: ").Append(Applied).Append("\n");
+            if (ExemptionCode != null) sb.Append("  ExemptionCode: ").Append(ExemptionCode).Append("\n");
+            if (TaxType != null) sb.Append("  TaxType: ").Append(TaxType).Append("\n");
+            if (TaxSummary != null) sb.Append("  TaxSummary: ").Append(TaxSummary).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

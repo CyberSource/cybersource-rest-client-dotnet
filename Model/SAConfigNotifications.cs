@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SAConfigNotifications {\n");
-            sb.Append("  MerchantNotifications: ").Append(MerchantNotifications).Append("\n");
-            sb.Append("  CustomerNotifications: ").Append(CustomerNotifications).Append("\n");
+            if (MerchantNotifications != null) sb.Append("  MerchantNotifications: ").Append(MerchantNotifications).Append("\n");
+            if (CustomerNotifications != null) sb.Append("  CustomerNotifications: ").Append(CustomerNotifications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

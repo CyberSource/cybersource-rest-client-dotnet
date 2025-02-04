@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetSubscriptionCodeResponse {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

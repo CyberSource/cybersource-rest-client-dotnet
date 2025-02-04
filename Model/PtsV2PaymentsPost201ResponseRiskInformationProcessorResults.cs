@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseRiskInformationProcessorResults {\n");
-            sb.Append("  FraudDecision: ").Append(FraudDecision).Append("\n");
-            sb.Append("  FraudDecisionReason: ").Append(FraudDecisionReason).Append("\n");
+            if (FraudDecision != null) sb.Append("  FraudDecision: ").Append(FraudDecision).Append("\n");
+            if (FraudDecisionReason != null) sb.Append("  FraudDecisionReason: ").Append(FraudDecisionReason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

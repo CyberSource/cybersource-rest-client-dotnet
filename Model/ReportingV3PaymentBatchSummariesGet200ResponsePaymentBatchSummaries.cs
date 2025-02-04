@@ -141,18 +141,18 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3PaymentBatchSummariesGet200ResponsePaymentBatchSummaries {\n");
-            sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
-            sb.Append("  PaymentSubTypeDescription: ").Append(PaymentSubTypeDescription).Append("\n");
-            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
-            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
-            sb.Append("  SalesCount: ").Append(SalesCount).Append("\n");
-            sb.Append("  SalesAmount: ").Append(SalesAmount).Append("\n");
-            sb.Append("  CreditCount: ").Append(CreditCount).Append("\n");
-            sb.Append("  CreditAmount: ").Append(CreditAmount).Append("\n");
-            sb.Append("  AccountName: ").Append(AccountName).Append("\n");
-            sb.Append("  AccountId: ").Append(AccountId).Append("\n");
-            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
-            sb.Append("  MerchantName: ").Append(MerchantName).Append("\n");
+            if (CurrencyCode != null) sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
+            if (PaymentSubTypeDescription != null) sb.Append("  PaymentSubTypeDescription: ").Append(PaymentSubTypeDescription).Append("\n");
+            if (StartTime != null) sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            if (EndTime != null) sb.Append("  EndTime: ").Append(EndTime).Append("\n");
+            if (SalesCount != null) sb.Append("  SalesCount: ").Append(SalesCount).Append("\n");
+            if (SalesAmount != null) sb.Append("  SalesAmount: ").Append(SalesAmount).Append("\n");
+            if (CreditCount != null) sb.Append("  CreditCount: ").Append(CreditCount).Append("\n");
+            if (CreditAmount != null) sb.Append("  CreditAmount: ").Append(CreditAmount).Append("\n");
+            if (AccountName != null) sb.Append("  AccountName: ").Append(AccountName).Append("\n");
+            if (AccountId != null) sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            if (MerchantName != null) sb.Append("  MerchantName: ").Append(MerchantName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

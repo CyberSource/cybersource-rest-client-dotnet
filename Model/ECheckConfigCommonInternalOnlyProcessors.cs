@@ -148,13 +148,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ECheckConfigCommonInternalOnlyProcessors {\n");
-            sb.Append("  EnableCCS: ").Append(EnableCCS).Append("\n");
-            sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
-            sb.Append("  Enable15anTransactionReferenceNumber: ").Append(Enable15anTransactionReferenceNumber).Append("\n");
-            sb.Append("  PortalSupportedPaytypes: ").Append(PortalSupportedPaytypes).Append("\n");
-            sb.Append("  SettlementMethod: ").Append(SettlementMethod).Append("\n");
-            sb.Append("  VerificationLevel: ").Append(VerificationLevel).Append("\n");
-            sb.Append("  SetCompletedState: ").Append(SetCompletedState).Append("\n");
+            if (EnableCCS != null) sb.Append("  EnableCCS: ").Append(EnableCCS).Append("\n");
+            if (TerminalId != null) sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
+            if (Enable15anTransactionReferenceNumber != null) sb.Append("  Enable15anTransactionReferenceNumber: ").Append(Enable15anTransactionReferenceNumber).Append("\n");
+            if (PortalSupportedPaytypes != null) sb.Append("  PortalSupportedPaytypes: ").Append(PortalSupportedPaytypes).Append("\n");
+            if (SettlementMethod != null) sb.Append("  SettlementMethod: ").Append(SettlementMethod).Append("\n");
+            if (VerificationLevel != null) sb.Append("  VerificationLevel: ").Append(VerificationLevel).Append("\n");
+            if (SetCompletedState != null) sb.Append("  SetCompletedState: ").Append(SetCompletedState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

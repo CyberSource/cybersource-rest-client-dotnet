@@ -169,20 +169,20 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Boardingv1registrationsOrganizationInformationOwners {\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
-            sb.Append("  IsPrimary: ").Append(IsPrimary).Append("\n");
-            sb.Append("  Ssn: ").Append(Ssn).Append("\n");
-            sb.Append("  PassportNumber: ").Append(PassportNumber).Append("\n");
-            sb.Append("  PassportCountry: ").Append(PassportCountry).Append("\n");
-            sb.Append("  JobTitle: ").Append(JobTitle).Append("\n");
-            sb.Append("  HasSignificantResponsability: ").Append(HasSignificantResponsability).Append("\n");
-            sb.Append("  OwnershipPercentage: ").Append(OwnershipPercentage).Append("\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  Address: ").Append(Address).Append("\n");
+            if (FirstName != null) sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            if (MiddleName != null) sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
+            if (LastName != null) sb.Append("  LastName: ").Append(LastName).Append("\n");
+            if (BirthDate != null) sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
+            if (IsPrimary != null) sb.Append("  IsPrimary: ").Append(IsPrimary).Append("\n");
+            if (Ssn != null) sb.Append("  Ssn: ").Append(Ssn).Append("\n");
+            if (PassportNumber != null) sb.Append("  PassportNumber: ").Append(PassportNumber).Append("\n");
+            if (PassportCountry != null) sb.Append("  PassportCountry: ").Append(PassportCountry).Append("\n");
+            if (JobTitle != null) sb.Append("  JobTitle: ").Append(JobTitle).Append("\n");
+            if (HasSignificantResponsability != null) sb.Append("  HasSignificantResponsability: ").Append(HasSignificantResponsability).Append("\n");
+            if (OwnershipPercentage != null) sb.Append("  OwnershipPercentage: ").Append(OwnershipPercentage).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
+            if (Address != null) sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

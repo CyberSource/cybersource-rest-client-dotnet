@@ -71,9 +71,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentreferencesUserInterface {\n");
-            sb.Append("  BorderRadius: ").Append(BorderRadius).Append("\n");
-            sb.Append("  Theme: ").Append(Theme).Append("\n");
-            sb.Append("  Color: ").Append(Color).Append("\n");
+            if (BorderRadius != null) sb.Append("  BorderRadius: ").Append(BorderRadius).Append("\n");
+            if (Theme != null) sb.Append("  Theme: ").Append(Theme).Append("\n");
+            if (Color != null) sb.Append("  Color: ").Append(Color).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

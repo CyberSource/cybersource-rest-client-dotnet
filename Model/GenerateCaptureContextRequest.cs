@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// This is a server-to-server API request to generate the capture context that can be used to initiate instance of microform on a acceptance page.   The capture context is a digitally signed JWT that provides authentication, one-time keys, and the target origin to the Microform Integration application. 
+    /// This is a server-to-server API request to generate the capture context that can be used to initiate an instance of Microform on an acceptance page.   The capture context is a digitally signed JWT that provides authentication, one-time keys, and the target origin to the Microform Integration application. 
     /// </summary>
     [DataContract]
     public partial class GenerateCaptureContextRequest :  IEquatable<GenerateCaptureContextRequest>, IValidatableObject
@@ -35,14 +35,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="ClientVersion">Specify the version of Microform that you want to use. .</param>
         /// <param name="TargetOrigins">The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Microform is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] .</param>
-        /// <param name="AllowedCardNetworks">The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA .</param>
-        /// <param name="CheckoutApiInitialization">CheckoutApiInitialization.</param>
-        public GenerateCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), Microformv2sessionsCheckoutApiInitialization CheckoutApiInitialization = default(Microformv2sessionsCheckoutApiInitialization))
+        /// <param name="AllowedCardNetworks">The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA  **Important:**    - When integrating Microform (Accept Card) at least one card network should be specified in the allowedCardNetworks field in the capture context request.   - When integrating Microform (Accept Check) the allowedCardNetworks field is not required in the capture context request.   - When integrating both Microform (Accept Card) and Microform (Accept Check) at least one card network should be specified in the allowedCardNetworks field in the capture context request. .</param>
+        /// <param name="AllowedPaymentTypes">The payment types that are allowed for the merchant.    Possible values when launching Microform: - CARD - CHECK &lt;br&gt;&lt;br&gt; .</param>
+        public GenerateCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>))
         {
             this.ClientVersion = ClientVersion;
             this.TargetOrigins = TargetOrigins;
             this.AllowedCardNetworks = AllowedCardNetworks;
-            this.CheckoutApiInitialization = CheckoutApiInitialization;
+            this.AllowedPaymentTypes = AllowedPaymentTypes;
         }
         
         /// <summary>
@@ -60,17 +60,18 @@ namespace CyberSource.Model
         public List<string> TargetOrigins { get; set; }
 
         /// <summary>
-        /// The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA 
+        /// The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA  **Important:**    - When integrating Microform (Accept Card) at least one card network should be specified in the allowedCardNetworks field in the capture context request.   - When integrating Microform (Accept Check) the allowedCardNetworks field is not required in the capture context request.   - When integrating both Microform (Accept Card) and Microform (Accept Check) at least one card network should be specified in the allowedCardNetworks field in the capture context request. 
         /// </summary>
-        /// <value>The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA </value>
+        /// <value>The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA  **Important:**    - When integrating Microform (Accept Card) at least one card network should be specified in the allowedCardNetworks field in the capture context request.   - When integrating Microform (Accept Check) the allowedCardNetworks field is not required in the capture context request.   - When integrating both Microform (Accept Card) and Microform (Accept Check) at least one card network should be specified in the allowedCardNetworks field in the capture context request. </value>
         [DataMember(Name="allowedCardNetworks", EmitDefaultValue=false)]
         public List<string> AllowedCardNetworks { get; set; }
 
         /// <summary>
-        /// Gets or Sets CheckoutApiInitialization
+        /// The payment types that are allowed for the merchant.    Possible values when launching Microform: - CARD - CHECK &lt;br&gt;&lt;br&gt; 
         /// </summary>
-        [DataMember(Name="checkoutApiInitialization", EmitDefaultValue=false)]
-        public Microformv2sessionsCheckoutApiInitialization CheckoutApiInitialization { get; set; }
+        /// <value>The payment types that are allowed for the merchant.    Possible values when launching Microform: - CARD - CHECK &lt;br&gt;&lt;br&gt; </value>
+        [DataMember(Name="allowedPaymentTypes", EmitDefaultValue=false)]
+        public List<string> AllowedPaymentTypes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -80,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GenerateCaptureContextRequest {\n");
-            sb.Append("  ClientVersion: ").Append(ClientVersion).Append("\n");
-            sb.Append("  TargetOrigins: ").Append(TargetOrigins).Append("\n");
-            sb.Append("  AllowedCardNetworks: ").Append(AllowedCardNetworks).Append("\n");
-            sb.Append("  CheckoutApiInitialization: ").Append(CheckoutApiInitialization).Append("\n");
+            if (ClientVersion != null) sb.Append("  ClientVersion: ").Append(ClientVersion).Append("\n");
+            if (TargetOrigins != null) sb.Append("  TargetOrigins: ").Append(TargetOrigins).Append("\n");
+            if (AllowedCardNetworks != null) sb.Append("  AllowedCardNetworks: ").Append(AllowedCardNetworks).Append("\n");
+            if (AllowedPaymentTypes != null) sb.Append("  AllowedPaymentTypes: ").Append(AllowedPaymentTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,9 +137,9 @@ namespace CyberSource.Model
                     this.AllowedCardNetworks.SequenceEqual(other.AllowedCardNetworks)
                 ) && 
                 (
-                    this.CheckoutApiInitialization == other.CheckoutApiInitialization ||
-                    this.CheckoutApiInitialization != null &&
-                    this.CheckoutApiInitialization.Equals(other.CheckoutApiInitialization)
+                    this.AllowedPaymentTypes == other.AllowedPaymentTypes ||
+                    this.AllowedPaymentTypes != null &&
+                    this.AllowedPaymentTypes.SequenceEqual(other.AllowedPaymentTypes)
                 );
         }
 
@@ -159,8 +160,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TargetOrigins.GetHashCode();
                 if (this.AllowedCardNetworks != null)
                     hash = hash * 59 + this.AllowedCardNetworks.GetHashCode();
-                if (this.CheckoutApiInitialization != null)
-                    hash = hash * 59 + this.CheckoutApiInitialization.GetHashCode();
+                if (this.AllowedPaymentTypes != null)
+                    hash = hash * 59 + this.AllowedPaymentTypes.GetHashCode();
                 return hash;
             }
         }

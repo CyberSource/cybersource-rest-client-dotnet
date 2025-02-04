@@ -62,7 +62,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidrefundsProcessingInformationRecurringOptions {\n");
-            sb.Append("  LoanPayment: ").Append(LoanPayment).Append("\n");
+            if (LoanPayment != null) sb.Append("  LoanPayment: ").Append(LoanPayment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

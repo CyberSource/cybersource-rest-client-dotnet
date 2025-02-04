@@ -85,11 +85,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentInstrumentListLinks {\n");
-            sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  First: ").Append(First).Append("\n");
-            sb.Append("  Prev: ").Append(Prev).Append("\n");
-            sb.Append("  Next: ").Append(Next).Append("\n");
-            sb.Append("  Last: ").Append(Last).Append("\n");
+            if (Self != null) sb.Append("  Self: ").Append(Self).Append("\n");
+            if (First != null) sb.Append("  First: ").Append(First).Append("\n");
+            if (Prev != null) sb.Append("  Prev: ").Append(Prev).Append("\n");
+            if (Next != null) sb.Append("  Next: ").Append(Next).Append("\n");
+            if (Last != null) sb.Append("  Last: ").Append(Last).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsInvoiceDetails {\n");
-            sb.Append("  BarcodeNumber: ").Append(BarcodeNumber).Append("\n");
+            if (BarcodeNumber != null) sb.Append("  BarcodeNumber: ").Append(BarcodeNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

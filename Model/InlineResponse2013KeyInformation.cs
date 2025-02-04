@@ -143,17 +143,17 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2013KeyInformation {\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  Tenant: ").Append(Tenant).Append("\n");
-            sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
-            sb.Append("  ClientKeyId: ").Append(ClientKeyId).Append("\n");
-            sb.Append("  KeyId: ").Append(KeyId).Append("\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
-            sb.Append("  KeyType: ").Append(KeyType).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
+            if (Provider != null) sb.Append("  Provider: ").Append(Provider).Append("\n");
+            if (Tenant != null) sb.Append("  Tenant: ").Append(Tenant).Append("\n");
+            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
+            if (ClientKeyId != null) sb.Append("  ClientKeyId: ").Append(ClientKeyId).Append("\n");
+            if (KeyId != null) sb.Append("  KeyId: ").Append(KeyId).Append("\n");
+            if (Key != null) sb.Append("  Key: ").Append(Key).Append("\n");
+            if (KeyType != null) sb.Append("  KeyType: ").Append(KeyType).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (ExpirationDate != null) sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
+            if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
+            if (ErrorInformation != null) sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

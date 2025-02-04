@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationsetupsTokenInformation {\n");
-            sb.Append("  TransientToken: ").Append(TransientToken).Append("\n");
-            sb.Append("  Jti: ").Append(Jti).Append("\n");
+            if (TransientToken != null) sb.Append("  TransientToken: ").Append(TransientToken).Append("\n");
+            if (Jti != null) sb.Append("  Jti: ").Append(Jti).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

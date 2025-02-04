@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2voidsProcessingInformation" /> class.
         /// </summary>
         /// <param name="PaymentId">This field is to accept the id of credit/capture in the body of the requests so the type of void can be identified and processed correctly..</param>
-        public Ptsv2voidsProcessingInformation(Object PaymentId = default(Object))
+        public Ptsv2voidsProcessingInformation(string PaymentId = default(string))
         {
             this.PaymentId = PaymentId;
         }
@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>This field is to accept the id of credit/capture in the body of the requests so the type of void can be identified and processed correctly.</value>
         [DataMember(Name="paymentId", EmitDefaultValue=false)]
-        public Object PaymentId { get; set; }
+        public string PaymentId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2voidsProcessingInformation {\n");
-            sb.Append("  PaymentId: ").Append(PaymentId).Append("\n");
+            if (PaymentId != null) sb.Append("  PaymentId: ").Append(PaymentId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

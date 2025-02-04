@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentInstrumentListLinksPrev {\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
+            if (Href != null) sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

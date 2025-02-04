@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VTConfigCardNotPresentReceiptInformationHeader {\n");
-            sb.Append("  VirtualTerminalReceiptHeader: ").Append(VirtualTerminalReceiptHeader).Append("\n");
+            if (VirtualTerminalReceiptHeader != null) sb.Append("  VirtualTerminalReceiptHeader: ").Append(VirtualTerminalReceiptHeader).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

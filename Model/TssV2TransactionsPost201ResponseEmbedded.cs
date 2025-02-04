@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbedded {\n");
-            sb.Append("  TransactionSummaries: ").Append(TransactionSummaries).Append("\n");
+            if (TransactionSummaries != null) sb.Append("  TransactionSummaries: ").Append(TransactionSummaries).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

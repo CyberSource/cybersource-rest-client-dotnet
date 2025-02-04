@@ -51,7 +51,8 @@ namespace CyberSource.Model
         /// <param name="PersonalIdType">#### Visa Platform Connect This tag will contain the type of sender identification. The valid values are: • BTHD (Date of birth) • CUID (Customer identification (unspecified)) • NTID (National identification) • PASN (Passport number) • DRLN (Driver license) • TXIN (Tax identification) • CPNY (Company registration number) • PRXY (Proxy identification) • SSNB (Social security number) • ARNB (Alien registration number) • LAWE (Law enforcement identification) • MILI (Military identification) • TRVL (Travel identification (non-passport)) • EMAL (Email) • PHON (Phone number) .</param>
         /// <param name="Type">#### Visa Platform Connect This tag will denote whether the tax ID is a business or individual tax ID when personal ID Type contains the value of TXIN (Tax identification).  The valid values are: • B (Business) • I (Individual) .</param>
         /// <param name="IdentificationNumber">#### Visa Platform Connect This tag will contain an acquirer-populated value associated with the API : senderInformation.personalIdType which will identify the personal ID type of the sender. .</param>
-        public Ptsv2payoutsSenderInformation(string ReferenceNumber = default(string), Ptsv2payoutsSenderInformationAccount Account = default(Ptsv2payoutsSenderInformationAccount), string FirstName = default(string), string MiddleInitial = default(string), string MiddleName = default(string), string LastName = default(string), string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string PostalCode = default(string), string PhoneNumber = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string PersonalIdType = default(string), string Type = default(string), string IdentificationNumber = default(string))
+        /// <param name="AliasName">Sender&#39;s alias name..</param>
+        public Ptsv2payoutsSenderInformation(string ReferenceNumber = default(string), Ptsv2payoutsSenderInformationAccount Account = default(Ptsv2payoutsSenderInformationAccount), string FirstName = default(string), string MiddleInitial = default(string), string MiddleName = default(string), string LastName = default(string), string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string PostalCode = default(string), string PhoneNumber = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string PersonalIdType = default(string), string Type = default(string), string IdentificationNumber = default(string), string AliasName = default(string))
         {
             this.ReferenceNumber = ReferenceNumber;
             this.Account = Account;
@@ -71,6 +72,7 @@ namespace CyberSource.Model
             this.PersonalIdType = PersonalIdType;
             this.Type = Type;
             this.IdentificationNumber = IdentificationNumber;
+            this.AliasName = AliasName;
         }
         
         /// <summary>
@@ -199,6 +201,13 @@ namespace CyberSource.Model
         public string IdentificationNumber { get; set; }
 
         /// <summary>
+        /// Sender&#39;s alias name.
+        /// </summary>
+        /// <value>Sender&#39;s alias name.</value>
+        [DataMember(Name="aliasName", EmitDefaultValue=false)]
+        public string AliasName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -206,24 +215,25 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2payoutsSenderInformation {\n");
-            sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  MiddleInitial: ").Append(MiddleInitial).Append("\n");
-            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Address1: ").Append(Address1).Append("\n");
-            sb.Append("  Locality: ").Append(Locality).Append("\n");
-            sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
-            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
-            sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
-            sb.Append("  PersonalIdType: ").Append(PersonalIdType).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  IdentificationNumber: ").Append(IdentificationNumber).Append("\n");
+            if (ReferenceNumber != null) sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
+            if (Account != null) sb.Append("  Account: ").Append(Account).Append("\n");
+            if (FirstName != null) sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            if (MiddleInitial != null) sb.Append("  MiddleInitial: ").Append(MiddleInitial).Append("\n");
+            if (MiddleName != null) sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
+            if (LastName != null) sb.Append("  LastName: ").Append(LastName).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Address1 != null) sb.Append("  Address1: ").Append(Address1).Append("\n");
+            if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            if (CountryCode != null) sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (VatRegistrationNumber != null) sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            if (PersonalIdType != null) sb.Append("  PersonalIdType: ").Append(PersonalIdType).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (IdentificationNumber != null) sb.Append("  IdentificationNumber: ").Append(IdentificationNumber).Append("\n");
+            if (AliasName != null) sb.Append("  AliasName: ").Append(AliasName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -349,6 +359,11 @@ namespace CyberSource.Model
                     this.IdentificationNumber == other.IdentificationNumber ||
                     this.IdentificationNumber != null &&
                     this.IdentificationNumber.Equals(other.IdentificationNumber)
+                ) && 
+                (
+                    this.AliasName == other.AliasName ||
+                    this.AliasName != null &&
+                    this.AliasName.Equals(other.AliasName)
                 );
         }
 
@@ -399,6 +414,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.IdentificationNumber != null)
                     hash = hash * 59 + this.IdentificationNumber.GetHashCode();
+                if (this.AliasName != null)
+                    hash = hash * 59 + this.AliasName.GetHashCode();
                 return hash;
             }
         }

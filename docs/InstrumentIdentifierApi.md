@@ -76,7 +76,7 @@ No authorization required
 
 <a name="getinstrumentidentifier"></a>
 # **GetInstrumentIdentifier**
-> PostInstrumentIdentifierRequest GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null)
+> PostInstrumentIdentifierRequest GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null)
 
 Retrieve an Instrument Identifier
 
@@ -99,11 +99,12 @@ namespace Example
             var apiInstance = new InstrumentIdentifierApi();
             var instrumentIdentifierId = instrumentIdentifierId_example;  // string | The Id of an Instrument Identifier.
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
+            var retrieveBinDetails = true;  // bool? | Retrieve the Bin Details of PAN or network token (optional) 
 
             try
             {
                 // Retrieve an Instrument Identifier
-                PostInstrumentIdentifierRequest result = apiInstance.GetInstrumentIdentifier(instrumentIdentifierId, profileId);
+                PostInstrumentIdentifierRequest result = apiInstance.GetInstrumentIdentifier(instrumentIdentifierId, profileId, retrieveBinDetails);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -121,6 +122,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instrumentIdentifierId** | **string**| The Id of an Instrument Identifier. | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
+ **retrieveBinDetails** | **bool?**| Retrieve the Bin Details of PAN or network token | [optional] 
 
 ### Return type
 
@@ -139,7 +141,7 @@ No authorization required
 
 <a name="getinstrumentidentifierpaymentinstrumentslist"></a>
 # **GetInstrumentIdentifierPaymentInstrumentsList**
-> PaymentInstrumentList1 GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
+> PaymentInstrumentList1 GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
 
 List Payment Instruments for an Instrument Identifier
 
@@ -162,13 +164,14 @@ namespace Example
             var apiInstance = new InstrumentIdentifierApi();
             var instrumentIdentifierId = instrumentIdentifierId_example;  // string | The Id of an Instrument Identifier.
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
+            var retrieveBinDetails = true;  // bool? | Retrieve the Bin Details of PAN or network token (optional) 
             var offset = 789;  // long? | Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional)  (default to 0)
             var limit = 789;  // long? | The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional)  (default to 20)
 
             try
             {
                 // List Payment Instruments for an Instrument Identifier
-                PaymentInstrumentList1 result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, offset, limit);
+                PaymentInstrumentList1 result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -186,6 +189,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instrumentIdentifierId** | **string**| The Id of an Instrument Identifier. | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
+ **retrieveBinDetails** | **bool?**| Retrieve the Bin Details of PAN or network token | [optional] 
  **offset** | **long?**| Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. | [optional] [default to 0]
  **limit** | **long?**| The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. | [optional] [default to 20]
 
@@ -206,7 +210,7 @@ No authorization required
 
 <a name="patchinstrumentidentifier"></a>
 # **PatchInstrumentIdentifier**
-> PatchInstrumentIdentifierRequest PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+> PatchInstrumentIdentifierRequest PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
 
 Update an Instrument Identifier
 
@@ -230,12 +234,13 @@ namespace Example
             var instrumentIdentifierId = instrumentIdentifierId_example;  // string | The Id of an Instrument Identifier.
             var patchInstrumentIdentifierRequest = new PatchInstrumentIdentifierRequest(); // PatchInstrumentIdentifierRequest | Specify the previous transaction Id to update.
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
+            var retrieveBinDetails = true;  // bool? | Retrieve the Bin Details of PAN or network token (optional) 
             var ifMatch = ifMatch_example;  // string | Contains an ETag value from a GET request to make the request conditional. (optional) 
 
             try
             {
                 // Update an Instrument Identifier
-                PatchInstrumentIdentifierRequest result = apiInstance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+                PatchInstrumentIdentifierRequest result = apiInstance.PatchInstrumentIdentifier(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, retrieveBinDetails, ifMatch);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -254,6 +259,7 @@ Name | Type | Description  | Notes
  **instrumentIdentifierId** | **string**| The Id of an Instrument Identifier. | 
  **patchInstrumentIdentifierRequest** | [**PatchInstrumentIdentifierRequest**](PatchInstrumentIdentifierRequest.md)| Specify the previous transaction Id to update. | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
+ **retrieveBinDetails** | **bool?**| Retrieve the Bin Details of PAN or network token | [optional] 
  **ifMatch** | **string**| Contains an ETag value from a GET request to make the request conditional. | [optional] 
 
 ### Return type
@@ -273,7 +279,7 @@ No authorization required
 
 <a name="postinstrumentidentifier"></a>
 # **PostInstrumentIdentifier**
-> PostInstrumentIdentifierRequest PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+> PostInstrumentIdentifierRequest PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null)
 
 Create an Instrument Identifier
 
@@ -296,11 +302,12 @@ namespace Example
             var apiInstance = new InstrumentIdentifierApi();
             var postInstrumentIdentifierRequest = new PostInstrumentIdentifierRequest(); // PostInstrumentIdentifierRequest | Specify either a Card, Bank Account or Enrollable Card
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
+            var retrieveBinDetails = true;  // bool? | Retrieve the Bin Details of PAN or network token (optional) 
 
             try
             {
                 // Create an Instrument Identifier
-                PostInstrumentIdentifierRequest result = apiInstance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId);
+                PostInstrumentIdentifierRequest result = apiInstance.PostInstrumentIdentifier(postInstrumentIdentifierRequest, profileId, retrieveBinDetails);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -318,6 +325,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **postInstrumentIdentifierRequest** | [**PostInstrumentIdentifierRequest**](PostInstrumentIdentifierRequest.md)| Specify either a Card, Bank Account or Enrollable Card | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
+ **retrieveBinDetails** | **bool?**| Retrieve the Bin Details of PAN or network token | [optional] 
 
 ### Return type
 

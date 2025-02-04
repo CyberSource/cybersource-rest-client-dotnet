@@ -93,10 +93,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Body {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Included: ").Append(Included).Append("\n");
-            sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
-            sb.Append("  NotificationEmail: ").Append(NotificationEmail).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Included != null) sb.Append("  Included: ").Append(Included).Append("\n");
+            if (MerchantReference != null) sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
+            if (NotificationEmail != null) sb.Append("  NotificationEmail: ").Append(NotificationEmail).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

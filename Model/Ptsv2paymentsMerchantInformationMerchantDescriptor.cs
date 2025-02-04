@@ -171,20 +171,20 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsMerchantInformationMerchantDescriptor {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  AlternateName: ").Append(AlternateName).Append("\n");
-            sb.Append("  Contact: ").Append(Contact).Append("\n");
-            sb.Append("  Address1: ").Append(Address1).Append("\n");
-            sb.Append("  Locality: ").Append(Locality).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
-            sb.Append("  Phone: ").Append(Phone).Append("\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
-            sb.Append("  CountryOfOrigin: ").Append(CountryOfOrigin).Append("\n");
-            sb.Append("  StoreId: ").Append(StoreId).Append("\n");
-            sb.Append("  StoreName: ").Append(StoreName).Append("\n");
-            sb.Append("  CustomerServicePhoneNumber: ").Append(CustomerServicePhoneNumber).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (AlternateName != null) sb.Append("  AlternateName: ").Append(AlternateName).Append("\n");
+            if (Contact != null) sb.Append("  Contact: ").Append(Contact).Append("\n");
+            if (Address1 != null) sb.Append("  Address1: ").Append(Address1).Append("\n");
+            if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            if (Phone != null) sb.Append("  Phone: ").Append(Phone).Append("\n");
+            if (Url != null) sb.Append("  Url: ").Append(Url).Append("\n");
+            if (CountryOfOrigin != null) sb.Append("  CountryOfOrigin: ").Append(CountryOfOrigin).Append("\n");
+            if (StoreId != null) sb.Append("  StoreId: ").Append(StoreId).Append("\n");
+            if (StoreName != null) sb.Append("  StoreName: ").Append(StoreName).Append("\n");
+            if (CustomerServicePhoneNumber != null) sb.Append("  CustomerServicePhoneNumber: ").Append(CustomerServicePhoneNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

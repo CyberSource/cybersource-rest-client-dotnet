@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersEmbeddedDefaultPaymentInstrumentCardTokenizedInformation {\n");
-            sb.Append("  RequestorID: ").Append(RequestorID).Append("\n");
-            sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
+            if (RequestorID != null) sb.Append("  RequestorID: ").Append(RequestorID).Append("\n");
+            if (TransactionType != null) sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

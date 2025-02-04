@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3PurchaseRefundDetailsGet200ResponseAuthorizations {\n");
-            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
-            sb.Append("  TransactionReferenceNumber: ").Append(TransactionReferenceNumber).Append("\n");
-            sb.Append("  Time: ").Append(Time).Append("\n");
-            sb.Append("  AuthorizationRequestId: ").Append(AuthorizationRequestId).Append("\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Rcode: ").Append(Rcode).Append("\n");
+            if (RequestId != null) sb.Append("  RequestId: ").Append(RequestId).Append("\n");
+            if (TransactionReferenceNumber != null) sb.Append("  TransactionReferenceNumber: ").Append(TransactionReferenceNumber).Append("\n");
+            if (Time != null) sb.Append("  Time: ").Append(Time).Append("\n");
+            if (AuthorizationRequestId != null) sb.Append("  AuthorizationRequestId: ").Append(AuthorizationRequestId).Append("\n");
+            if (Amount != null) sb.Append("  Amount: ").Append(Amount).Append("\n");
+            if (CurrencyCode != null) sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (Rcode != null) sb.Append("  Rcode: ").Append(Rcode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

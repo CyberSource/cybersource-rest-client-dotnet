@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformationFluidData {\n");
-            sb.Append("  Descriptor: ").Append(Descriptor).Append("\n");
+            if (Descriptor != null) sb.Append("  Descriptor: ").Append(Descriptor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

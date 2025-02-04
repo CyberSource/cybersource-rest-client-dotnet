@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsPaymentInformationDirectDebitMandate {\n");
-            sb.Append("  ClearingDate: ").Append(ClearingDate).Append("\n");
+            if (ClearingDate != null) sb.Append("  ClearingDate: ").Append(ClearingDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

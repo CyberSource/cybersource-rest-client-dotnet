@@ -128,12 +128,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ECheckConfigCommonProcessors {\n");
-            sb.Append("  CompanyEntryDescription: ").Append(CompanyEntryDescription).Append("\n");
-            sb.Append("  CompanyId: ").Append(CompanyId).Append("\n");
-            sb.Append("  BatchGroup: ").Append(BatchGroup).Append("\n");
-            sb.Append("  EnableAccuityForAvs: ").Append(EnableAccuityForAvs).Append("\n");
-            sb.Append("  AccuityCheckType: ").Append(AccuityCheckType).Append("\n");
-            sb.Append("  SetCompletedState: ").Append(SetCompletedState).Append("\n");
+            if (CompanyEntryDescription != null) sb.Append("  CompanyEntryDescription: ").Append(CompanyEntryDescription).Append("\n");
+            if (CompanyId != null) sb.Append("  CompanyId: ").Append(CompanyId).Append("\n");
+            if (BatchGroup != null) sb.Append("  BatchGroup: ").Append(BatchGroup).Append("\n");
+            if (EnableAccuityForAvs != null) sb.Append("  EnableAccuityForAvs: ").Append(EnableAccuityForAvs).Append("\n");
+            if (AccuityCheckType != null) sb.Append("  AccuityCheckType: ").Append(AccuityCheckType).Append("\n");
+            if (SetCompletedState != null) sb.Append("  SetCompletedState: ").Append(SetCompletedState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

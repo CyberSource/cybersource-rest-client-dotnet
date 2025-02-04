@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseProcessorInformationRouting {\n");
-            sb.Append("  Network: ").Append(Network).Append("\n");
-            sb.Append("  NetworkName: ").Append(NetworkName).Append("\n");
-            sb.Append("  CustomerSignatureRequired: ").Append(CustomerSignatureRequired).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
+            if (NetworkName != null) sb.Append("  NetworkName: ").Append(NetworkName).Append("\n");
+            if (CustomerSignatureRequired != null) sb.Append("  CustomerSignatureRequired: ").Append(CustomerSignatureRequired).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

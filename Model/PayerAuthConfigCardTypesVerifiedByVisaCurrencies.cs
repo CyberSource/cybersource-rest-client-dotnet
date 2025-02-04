@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PayerAuthConfigCardTypesVerifiedByVisaCurrencies {\n");
-            sb.Append("  CurrencyCodes: ").Append(CurrencyCodes).Append("\n");
-            sb.Append("  AcquirerId: ").Append(AcquirerId).Append("\n");
-            sb.Append("  ProcessorMerchantId: ").Append(ProcessorMerchantId).Append("\n");
+            if (CurrencyCodes != null) sb.Append("  CurrencyCodes: ").Append(CurrencyCodes).Append("\n");
+            if (AcquirerId != null) sb.Append("  AcquirerId: ").Append(AcquirerId).Append("\n");
+            if (ProcessorMerchantId != null) sb.Append("  ProcessorMerchantId: ").Append(ProcessorMerchantId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

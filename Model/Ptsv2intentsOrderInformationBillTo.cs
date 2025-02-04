@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2intentsOrderInformationBillTo {\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

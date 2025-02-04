@@ -188,22 +188,22 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ReportsGet200ResponseReportSearchResults {\n");
-            sb.Append("  Link: ").Append(Link).Append("\n");
-            sb.Append("  ReportDefinitionId: ").Append(ReportDefinitionId).Append("\n");
-            sb.Append("  ReportName: ").Append(ReportName).Append("\n");
-            sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
-            sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  ReportStartTime: ").Append(ReportStartTime).Append("\n");
-            sb.Append("  ReportEndTime: ").Append(ReportEndTime).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
-            sb.Append("  ReportId: ").Append(ReportId).Append("\n");
-            sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
-            sb.Append("  QueuedTime: ").Append(QueuedTime).Append("\n");
-            sb.Append("  ReportGeneratingTime: ").Append(ReportGeneratingTime).Append("\n");
-            sb.Append("  ReportCompletedTime: ").Append(ReportCompletedTime).Append("\n");
-            sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
-            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
+            if (Link != null) sb.Append("  Link: ").Append(Link).Append("\n");
+            if (ReportDefinitionId != null) sb.Append("  ReportDefinitionId: ").Append(ReportDefinitionId).Append("\n");
+            if (ReportName != null) sb.Append("  ReportName: ").Append(ReportName).Append("\n");
+            if (ReportMimeType != null) sb.Append("  ReportMimeType: ").Append(ReportMimeType).Append("\n");
+            if (ReportFrequency != null) sb.Append("  ReportFrequency: ").Append(ReportFrequency).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (ReportStartTime != null) sb.Append("  ReportStartTime: ").Append(ReportStartTime).Append("\n");
+            if (ReportEndTime != null) sb.Append("  ReportEndTime: ").Append(ReportEndTime).Append("\n");
+            if (Timezone != null) sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            if (ReportId != null) sb.Append("  ReportId: ").Append(ReportId).Append("\n");
+            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
+            if (QueuedTime != null) sb.Append("  QueuedTime: ").Append(QueuedTime).Append("\n");
+            if (ReportGeneratingTime != null) sb.Append("  ReportGeneratingTime: ").Append(ReportGeneratingTime).Append("\n");
+            if (ReportCompletedTime != null) sb.Append("  ReportCompletedTime: ").Append(ReportCompletedTime).Append("\n");
+            if (SubscriptionType != null) sb.Append("  SubscriptionType: ").Append(SubscriptionType).Append("\n");
+            if (GroupId != null) sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

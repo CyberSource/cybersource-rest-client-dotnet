@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2ModifyBillingAgreementPost201ResponsePaymentInformationBank {\n");
-            sb.Append("  Iban: ").Append(Iban).Append("\n");
+            if (Iban != null) sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

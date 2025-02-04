@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Rbsv1subscriptionsProcessingInformation {\n");
-            sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
-            sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
+            if (CommerceIndicator != null) sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
+            if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

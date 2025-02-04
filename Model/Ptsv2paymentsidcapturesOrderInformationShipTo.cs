@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidcapturesOrderInformationShipTo {\n");
-            sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  County: ").Append(County).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
+            if (County != null) sb.Append("  County: ").Append(County).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

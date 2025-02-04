@@ -71,9 +71,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Notificationsubscriptionsv1webhooksSecurityPolicy1 {\n");
-            sb.Append("  SecurityType: ").Append(SecurityType).Append("\n");
-            sb.Append("  ProxyType: ").Append(ProxyType).Append("\n");
-            sb.Append("  Config: ").Append(Config).Append("\n");
+            if (SecurityType != null) sb.Append("  SecurityType: ").Append(SecurityType).Append("\n");
+            if (ProxyType != null) sb.Append("  ProxyType: ").Append(ProxyType).Append("\n");
+            if (Config != null) sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

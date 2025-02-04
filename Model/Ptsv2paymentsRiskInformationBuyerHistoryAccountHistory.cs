@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsRiskInformationBuyerHistoryAccountHistory {\n");
-            sb.Append("  FirstUseOfShippingAddress: ").Append(FirstUseOfShippingAddress).Append("\n");
-            sb.Append("  ShippingAddressUsageDate: ").Append(ShippingAddressUsageDate).Append("\n");
+            if (FirstUseOfShippingAddress != null) sb.Append("  FirstUseOfShippingAddress: ").Append(FirstUseOfShippingAddress).Append("\n");
+            if (ShippingAddressUsageDate != null) sb.Append("  ShippingAddressUsageDate: ").Append(ShippingAddressUsageDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

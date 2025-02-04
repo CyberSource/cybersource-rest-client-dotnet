@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SearchRequest {\n");
-            sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
-            sb.Append("  UserName: ").Append(UserName).Append("\n");
-            sb.Append("  RoleId: ").Append(RoleId).Append("\n");
-            sb.Append("  PermissionId: ").Append(PermissionId).Append("\n");
+            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
+            if (UserName != null) sb.Append("  UserName: ").Append(UserName).Append("\n");
+            if (RoleId != null) sb.Append("  RoleId: ").Append(RoleId).Append("\n");
+            if (PermissionId != null) sb.Append("  PermissionId: ").Append(PermissionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

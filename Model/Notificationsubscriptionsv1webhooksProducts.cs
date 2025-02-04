@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Notificationsubscriptionsv1webhooksProducts {\n");
-            sb.Append("  ProductId: ").Append(ProductId).Append("\n");
-            sb.Append("  EventTypes: ").Append(EventTypes).Append("\n");
+            if (ProductId != null) sb.Append("  ProductId: ").Append(ProductId).Append("\n");
+            if (EventTypes != null) sb.Append("  EventTypes: ").Append(EventTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

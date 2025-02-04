@@ -160,19 +160,19 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201Response {\n");
-            sb.Append("  SearchId: ").Append(SearchId).Append("\n");
-            sb.Append("  Save: ").Append(Save).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
-            sb.Append("  Query: ").Append(Query).Append("\n");
-            sb.Append("  Offset: ").Append(Offset).Append("\n");
-            sb.Append("  Limit: ").Append(Limit).Append("\n");
-            sb.Append("  Sort: ").Append(Sort).Append("\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  Embedded: ").Append(Embedded).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            if (SearchId != null) sb.Append("  SearchId: ").Append(SearchId).Append("\n");
+            if (Save != null) sb.Append("  Save: ").Append(Save).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Timezone != null) sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            if (Query != null) sb.Append("  Query: ").Append(Query).Append("\n");
+            if (Offset != null) sb.Append("  Offset: ").Append(Offset).Append("\n");
+            if (Limit != null) sb.Append("  Limit: ").Append(Limit).Append("\n");
+            if (Sort != null) sb.Append("  Sort: ").Append(Sort).Append("\n");
+            if (Count != null) sb.Append("  Count: ").Append(Count).Append("\n");
+            if (TotalCount != null) sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

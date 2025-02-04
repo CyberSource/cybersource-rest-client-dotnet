@@ -89,11 +89,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentreferencesMerchantInformation {\n");
-            sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
-            sb.Append("  CancelUrl: ").Append(CancelUrl).Append("\n");
-            sb.Append("  SuccessUrl: ").Append(SuccessUrl).Append("\n");
-            sb.Append("  FailureUrl: ").Append(FailureUrl).Append("\n");
-            sb.Append("  NoteToBuyer: ").Append(NoteToBuyer).Append("\n");
+            if (MerchantDescriptor != null) sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
+            if (CancelUrl != null) sb.Append("  CancelUrl: ").Append(CancelUrl).Append("\n");
+            if (SuccessUrl != null) sb.Append("  SuccessUrl: ").Append(SuccessUrl).Append("\n");
+            if (FailureUrl != null) sb.Append("  FailureUrl: ").Append(FailureUrl).Append("\n");
+            if (NoteToBuyer != null) sb.Append("  NoteToBuyer: ").Append(NoteToBuyer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

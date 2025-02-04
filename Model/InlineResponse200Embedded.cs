@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse200Embedded {\n");
-            sb.Append("  Capture: ").Append(Capture).Append("\n");
-            sb.Append("  Reversal: ").Append(Reversal).Append("\n");
+            if (Capture != null) sb.Append("  Capture: ").Append(Capture).Append("\n");
+            if (Reversal != null) sb.Append("  Reversal: ").Append(Reversal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -124,15 +124,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoicesPost201ResponseOrderInformationAmountDetails {\n");
-            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  BalanceAmount: ").Append(BalanceAmount).Append("\n");
-            sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
-            sb.Append("  DiscountPercent: ").Append(DiscountPercent).Append("\n");
-            sb.Append("  SubAmount: ").Append(SubAmount).Append("\n");
-            sb.Append("  MinimumPartialAmount: ").Append(MinimumPartialAmount).Append("\n");
-            sb.Append("  TaxDetails: ").Append(TaxDetails).Append("\n");
-            sb.Append("  Freight: ").Append(Freight).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (BalanceAmount != null) sb.Append("  BalanceAmount: ").Append(BalanceAmount).Append("\n");
+            if (DiscountAmount != null) sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
+            if (DiscountPercent != null) sb.Append("  DiscountPercent: ").Append(DiscountPercent).Append("\n");
+            if (SubAmount != null) sb.Append("  SubAmount: ").Append(SubAmount).Append("\n");
+            if (MinimumPartialAmount != null) sb.Append("  MinimumPartialAmount: ").Append(MinimumPartialAmount).Append("\n");
+            if (TaxDetails != null) sb.Append("  TaxDetails: ").Append(TaxDetails).Append("\n");
+            if (Freight != null) sb.Append("  Freight: ").Append(Freight).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

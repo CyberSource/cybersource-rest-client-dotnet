@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PayoutsPost201ResponseIssuerInformation {\n");
-            sb.Append("  ServiceProcessingType: ").Append(ServiceProcessingType).Append("\n");
+            if (ServiceProcessingType != null) sb.Append("  ServiceProcessingType: ").Append(ServiceProcessingType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

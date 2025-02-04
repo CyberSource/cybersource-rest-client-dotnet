@@ -171,20 +171,20 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2011PayoutInformationPushFunds {\n");
-            sb.Append("  MoneyTransferFastFundsCrossBorder: ").Append(MoneyTransferFastFundsCrossBorder).Append("\n");
-            sb.Append("  MoneyTransferFastFundsDomestic: ").Append(MoneyTransferFastFundsDomestic).Append("\n");
-            sb.Append("  MoneyTransferCrossBorder: ").Append(MoneyTransferCrossBorder).Append("\n");
-            sb.Append("  MoneyTransferDomestic: ").Append(MoneyTransferDomestic).Append("\n");
-            sb.Append("  NonMoneyTransferFastFundsCrossBorder: ").Append(NonMoneyTransferFastFundsCrossBorder).Append("\n");
-            sb.Append("  NonMoneyTransferFastFundsDomestic: ").Append(NonMoneyTransferFastFundsDomestic).Append("\n");
-            sb.Append("  NonMoneyTransferCrossBorder: ").Append(NonMoneyTransferCrossBorder).Append("\n");
-            sb.Append("  NonMoneyTransferDomestic: ").Append(NonMoneyTransferDomestic).Append("\n");
-            sb.Append("  OnlineGamblingFastFundsCrossBorder: ").Append(OnlineGamblingFastFundsCrossBorder).Append("\n");
-            sb.Append("  OnlineGamblingFastFundsDomestic: ").Append(OnlineGamblingFastFundsDomestic).Append("\n");
-            sb.Append("  OnlineGamblingCrossBorder: ").Append(OnlineGamblingCrossBorder).Append("\n");
-            sb.Append("  OnlineGamblingDomestic: ").Append(OnlineGamblingDomestic).Append("\n");
-            sb.Append("  DomesticParticipant: ").Append(DomesticParticipant).Append("\n");
-            sb.Append("  CrossBorderParticipant: ").Append(CrossBorderParticipant).Append("\n");
+            if (MoneyTransferFastFundsCrossBorder != null) sb.Append("  MoneyTransferFastFundsCrossBorder: ").Append(MoneyTransferFastFundsCrossBorder).Append("\n");
+            if (MoneyTransferFastFundsDomestic != null) sb.Append("  MoneyTransferFastFundsDomestic: ").Append(MoneyTransferFastFundsDomestic).Append("\n");
+            if (MoneyTransferCrossBorder != null) sb.Append("  MoneyTransferCrossBorder: ").Append(MoneyTransferCrossBorder).Append("\n");
+            if (MoneyTransferDomestic != null) sb.Append("  MoneyTransferDomestic: ").Append(MoneyTransferDomestic).Append("\n");
+            if (NonMoneyTransferFastFundsCrossBorder != null) sb.Append("  NonMoneyTransferFastFundsCrossBorder: ").Append(NonMoneyTransferFastFundsCrossBorder).Append("\n");
+            if (NonMoneyTransferFastFundsDomestic != null) sb.Append("  NonMoneyTransferFastFundsDomestic: ").Append(NonMoneyTransferFastFundsDomestic).Append("\n");
+            if (NonMoneyTransferCrossBorder != null) sb.Append("  NonMoneyTransferCrossBorder: ").Append(NonMoneyTransferCrossBorder).Append("\n");
+            if (NonMoneyTransferDomestic != null) sb.Append("  NonMoneyTransferDomestic: ").Append(NonMoneyTransferDomestic).Append("\n");
+            if (OnlineGamblingFastFundsCrossBorder != null) sb.Append("  OnlineGamblingFastFundsCrossBorder: ").Append(OnlineGamblingFastFundsCrossBorder).Append("\n");
+            if (OnlineGamblingFastFundsDomestic != null) sb.Append("  OnlineGamblingFastFundsDomestic: ").Append(OnlineGamblingFastFundsDomestic).Append("\n");
+            if (OnlineGamblingCrossBorder != null) sb.Append("  OnlineGamblingCrossBorder: ").Append(OnlineGamblingCrossBorder).Append("\n");
+            if (OnlineGamblingDomestic != null) sb.Append("  OnlineGamblingDomestic: ").Append(OnlineGamblingDomestic).Append("\n");
+            if (DomesticParticipant != null) sb.Append("  DomesticParticipant: ").Append(DomesticParticipant).Append("\n");
+            if (CrossBorderParticipant != null) sb.Append("  CrossBorderParticipant: ").Append(CrossBorderParticipant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

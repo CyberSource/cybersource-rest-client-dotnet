@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsTravelInformationLodgingRoom {\n");
-            sb.Append("  DailyRate: ").Append(DailyRate).Append("\n");
-            sb.Append("  NumberOfNights: ").Append(NumberOfNights).Append("\n");
+            if (DailyRate != null) sb.Append("  DailyRate: ").Append(DailyRate).Append("\n");
+            if (NumberOfNights != null) sb.Append("  NumberOfNights: ").Append(NumberOfNights).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -106,13 +106,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentreferencesTravelInformationAutoRental {\n");
-            sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
-            sb.Append("  AffiliateName: ").Append(AffiliateName).Append("\n");
-            sb.Append("  RentalAddress: ").Append(RentalAddress).Append("\n");
-            sb.Append("  ReturnAddress: ").Append(ReturnAddress).Append("\n");
-            sb.Append("  ReturnDateTime: ").Append(ReturnDateTime).Append("\n");
-            sb.Append("  RentalDateTime: ").Append(RentalDateTime).Append("\n");
-            sb.Append("  CustomerName: ").Append(CustomerName).Append("\n");
+            if (CompanyName != null) sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
+            if (AffiliateName != null) sb.Append("  AffiliateName: ").Append(AffiliateName).Append("\n");
+            if (RentalAddress != null) sb.Append("  RentalAddress: ").Append(RentalAddress).Append("\n");
+            if (ReturnAddress != null) sb.Append("  ReturnAddress: ").Append(ReturnAddress).Append("\n");
+            if (ReturnDateTime != null) sb.Append("  ReturnDateTime: ").Append(ReturnDateTime).Append("\n");
+            if (RentalDateTime != null) sb.Append("  RentalDateTime: ").Append(RentalDateTime).Append("\n");
+            if (CustomerName != null) sb.Append("  CustomerName: ").Append(CustomerName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -36,11 +36,21 @@ namespace CyberSource.Model
         /// <param name="AggregatorId">Value that identifies you as a payment aggregator. Get this value from the processor.  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR6 - Position: 95-105 - Field: Payment Facilitator ID  This field is supported for Visa, Mastercard and Discover Transactions.  **FDC Compass**\\ This value must consist of uppercase characters. .</param>
         /// <param name="Name">Your payment aggregator business name.  **American Express Direct**\\ The maximum length of the aggregator name depends on the length of the sub-merchant name. The combined length for both values must not exceed 36 characters.\\  #### CyberSource through VisaNet With American Express, the maximum length of the aggregator name depends on the length of the sub-merchant name. The combined length for both values must not exceed 36 characters. The value for this field does not map to the TC 33 capture file5.  **FDC Compass**\\ This value must consist of uppercase characters. .</param>
         /// <param name="SubMerchant">SubMerchant.</param>
-        public Ptsv2paymentsAggregatorInformation(string AggregatorId = default(string), string Name = default(string), Ptsv2paymentsAggregatorInformationSubMerchant SubMerchant = default(Ptsv2paymentsAggregatorInformationSubMerchant))
+        /// <param name="StreetAddress">Acquirer street name..</param>
+        /// <param name="City">Acquirer city..</param>
+        /// <param name="State">Acquirer state..</param>
+        /// <param name="PostalCode">Acquirer postal code..</param>
+        /// <param name="Country">Acquirer country..</param>
+        public Ptsv2paymentsAggregatorInformation(string AggregatorId = default(string), string Name = default(string), Ptsv2paymentsAggregatorInformationSubMerchant SubMerchant = default(Ptsv2paymentsAggregatorInformationSubMerchant), string StreetAddress = default(string), string City = default(string), string State = default(string), string PostalCode = default(string), string Country = default(string))
         {
             this.AggregatorId = AggregatorId;
             this.Name = Name;
             this.SubMerchant = SubMerchant;
+            this.StreetAddress = StreetAddress;
+            this.City = City;
+            this.State = State;
+            this.PostalCode = PostalCode;
+            this.Country = Country;
         }
         
         /// <summary>
@@ -64,6 +74,41 @@ namespace CyberSource.Model
         public Ptsv2paymentsAggregatorInformationSubMerchant SubMerchant { get; set; }
 
         /// <summary>
+        /// Acquirer street name.
+        /// </summary>
+        /// <value>Acquirer street name.</value>
+        [DataMember(Name="streetAddress", EmitDefaultValue=false)]
+        public string StreetAddress { get; set; }
+
+        /// <summary>
+        /// Acquirer city.
+        /// </summary>
+        /// <value>Acquirer city.</value>
+        [DataMember(Name="city", EmitDefaultValue=false)]
+        public string City { get; set; }
+
+        /// <summary>
+        /// Acquirer state.
+        /// </summary>
+        /// <value>Acquirer state.</value>
+        [DataMember(Name="state", EmitDefaultValue=false)]
+        public string State { get; set; }
+
+        /// <summary>
+        /// Acquirer postal code.
+        /// </summary>
+        /// <value>Acquirer postal code.</value>
+        [DataMember(Name="postalCode", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
+        /// Acquirer country.
+        /// </summary>
+        /// <value>Acquirer country.</value>
+        [DataMember(Name="country", EmitDefaultValue=false)]
+        public string Country { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,9 +116,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsAggregatorInformation {\n");
-            sb.Append("  AggregatorId: ").Append(AggregatorId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  SubMerchant: ").Append(SubMerchant).Append("\n");
+            if (AggregatorId != null) sb.Append("  AggregatorId: ").Append(AggregatorId).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (SubMerchant != null) sb.Append("  SubMerchant: ").Append(SubMerchant).Append("\n");
+            if (StreetAddress != null) sb.Append("  StreetAddress: ").Append(StreetAddress).Append("\n");
+            if (City != null) sb.Append("  City: ").Append(City).Append("\n");
+            if (State != null) sb.Append("  State: ").Append(State).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,6 +174,31 @@ namespace CyberSource.Model
                     this.SubMerchant == other.SubMerchant ||
                     this.SubMerchant != null &&
                     this.SubMerchant.Equals(other.SubMerchant)
+                ) && 
+                (
+                    this.StreetAddress == other.StreetAddress ||
+                    this.StreetAddress != null &&
+                    this.StreetAddress.Equals(other.StreetAddress)
+                ) && 
+                (
+                    this.City == other.City ||
+                    this.City != null &&
+                    this.City.Equals(other.City)
+                ) && 
+                (
+                    this.State == other.State ||
+                    this.State != null &&
+                    this.State.Equals(other.State)
+                ) && 
+                (
+                    this.PostalCode == other.PostalCode ||
+                    this.PostalCode != null &&
+                    this.PostalCode.Equals(other.PostalCode)
+                ) && 
+                (
+                    this.Country == other.Country ||
+                    this.Country != null &&
+                    this.Country.Equals(other.Country)
                 );
         }
 
@@ -144,6 +219,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Name.GetHashCode();
                 if (this.SubMerchant != null)
                     hash = hash * 59 + this.SubMerchant.GetHashCode();
+                if (this.StreetAddress != null)
+                    hash = hash * 59 + this.StreetAddress.GetHashCode();
+                if (this.City != null)
+                    hash = hash * 59 + this.City.GetHashCode();
+                if (this.State != null)
+                    hash = hash * 59 + this.State.GetHashCode();
+                if (this.PostalCode != null)
+                    hash = hash * 59 + this.PostalCode.GetHashCode();
+                if (this.Country != null)
+                    hash = hash * 59 + this.Country.GetHashCode();
                 return hash;
             }
         }

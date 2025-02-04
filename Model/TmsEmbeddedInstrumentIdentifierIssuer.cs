@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsEmbeddedInstrumentIdentifierIssuer {\n");
-            sb.Append("  PaymentAccountReference: ").Append(PaymentAccountReference).Append("\n");
+            if (PaymentAccountReference != null) sb.Append("  PaymentAccountReference: ").Append(PaymentAccountReference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -162,19 +162,19 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3PurchaseRefundDetailsGet200ResponseSettlements {\n");
-            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
-            sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
-            sb.Append("  SubmissionTime: ").Append(SubmissionTime).Append("\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
-            sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
-            sb.Append("  WalletType: ").Append(WalletType).Append("\n");
-            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
-            sb.Append("  AccountSuffix: ").Append(AccountSuffix).Append("\n");
-            sb.Append("  CybersourceBatchTime: ").Append(CybersourceBatchTime).Append("\n");
-            sb.Append("  CybersourceBatchId: ").Append(CybersourceBatchId).Append("\n");
-            sb.Append("  CardType: ").Append(CardType).Append("\n");
-            sb.Append("  DebitNetwork: ").Append(DebitNetwork).Append("\n");
+            if (RequestId != null) sb.Append("  RequestId: ").Append(RequestId).Append("\n");
+            if (TransactionType != null) sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
+            if (SubmissionTime != null) sb.Append("  SubmissionTime: ").Append(SubmissionTime).Append("\n");
+            if (Amount != null) sb.Append("  Amount: ").Append(Amount).Append("\n");
+            if (CurrencyCode != null) sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
+            if (PaymentMethod != null) sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+            if (WalletType != null) sb.Append("  WalletType: ").Append(WalletType).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (AccountSuffix != null) sb.Append("  AccountSuffix: ").Append(AccountSuffix).Append("\n");
+            if (CybersourceBatchTime != null) sb.Append("  CybersourceBatchTime: ").Append(CybersourceBatchTime).Append("\n");
+            if (CybersourceBatchId != null) sb.Append("  CybersourceBatchId: ").Append(CybersourceBatchId).Append("\n");
+            if (CardType != null) sb.Append("  CardType: ").Append(CardType).Append("\n");
+            if (DebitNetwork != null) sb.Append("  DebitNetwork: ").Append(DebitNetwork).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

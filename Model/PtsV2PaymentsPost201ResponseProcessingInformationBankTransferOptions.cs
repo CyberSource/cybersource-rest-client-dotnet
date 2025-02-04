@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions {\n");
-            sb.Append("  SettlementMethod: ").Append(SettlementMethod).Append("\n");
-            sb.Append("  FraudScreeningLevel: ").Append(FraudScreeningLevel).Append("\n");
+            if (SettlementMethod != null) sb.Append("  SettlementMethod: ").Append(SettlementMethod).Append("\n");
+            if (FraudScreeningLevel != null) sb.Append("  FraudScreeningLevel: ").Append(FraudScreeningLevel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2creditsProcessingInformationBankTransferOptions {\n");
-            sb.Append("  CustomerMemo: ").Append(CustomerMemo).Append("\n");
-            sb.Append("  SecCode: ").Append(SecCode).Append("\n");
-            sb.Append("  TerminalCity: ").Append(TerminalCity).Append("\n");
-            sb.Append("  TerminalState: ").Append(TerminalState).Append("\n");
-            sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
-            sb.Append("  PartialPaymentId: ").Append(PartialPaymentId).Append("\n");
-            sb.Append("  SettlementMethod: ").Append(SettlementMethod).Append("\n");
+            if (CustomerMemo != null) sb.Append("  CustomerMemo: ").Append(CustomerMemo).Append("\n");
+            if (SecCode != null) sb.Append("  SecCode: ").Append(SecCode).Append("\n");
+            if (TerminalCity != null) sb.Append("  TerminalCity: ").Append(TerminalCity).Append("\n");
+            if (TerminalState != null) sb.Append("  TerminalState: ").Append(TerminalState).Append("\n");
+            if (EffectiveDate != null) sb.Append("  EffectiveDate: ").Append(EffectiveDate).Append("\n");
+            if (PartialPaymentId != null) sb.Append("  PartialPaymentId: ").Append(PartialPaymentId).Append("\n");
+            if (SettlementMethod != null) sb.Append("  SettlementMethod: ").Append(SettlementMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

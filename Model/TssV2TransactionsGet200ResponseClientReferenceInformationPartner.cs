@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseClientReferenceInformationPartner {\n");
-            sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
-            sb.Append("  ThirdPartyCertificationNumber: ").Append(ThirdPartyCertificationNumber).Append("\n");
+            if (SolutionId != null) sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
+            if (ThirdPartyCertificationNumber != null) sb.Append("  ThirdPartyCertificationNumber: ").Append(ThirdPartyCertificationNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

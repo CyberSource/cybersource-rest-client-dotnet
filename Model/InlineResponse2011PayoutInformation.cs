@@ -70,9 +70,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2011PayoutInformation {\n");
-            sb.Append("  PushFunds: ").Append(PushFunds).Append("\n");
-            sb.Append("  PullFunds: ").Append(PullFunds).Append("\n");
-            sb.Append("  GeoRestrictionIndicator: ").Append(GeoRestrictionIndicator).Append("\n");
+            if (PushFunds != null) sb.Append("  PushFunds: ").Append(PushFunds).Append("\n");
+            if (PullFunds != null) sb.Append("  PullFunds: ").Append(PullFunds).Append("\n");
+            if (GeoRestrictionIndicator != null) sb.Append("  GeoRestrictionIndicator: ").Append(GeoRestrictionIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

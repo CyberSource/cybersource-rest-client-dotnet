@@ -98,12 +98,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseBuyerInformation {\n");
-            sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
-            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
-            sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
-            sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
-            sb.Append("  TaxId: ").Append(TaxId).Append("\n");
-            sb.Append("  LoginId: ").Append(LoginId).Append("\n");
+            if (MerchantCustomerId != null) sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (VatRegistrationNumber != null) sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            if (PersonalIdentification != null) sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
+            if (TaxId != null) sb.Append("  TaxId: ").Append(TaxId).Append("\n");
+            if (LoginId != null) sb.Append("  LoginId: ").Append(LoginId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

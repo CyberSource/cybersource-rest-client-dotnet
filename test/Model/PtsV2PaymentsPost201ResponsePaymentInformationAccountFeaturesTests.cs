@@ -208,6 +208,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Regulated'
         }
+        /// <summary>
+        /// Test the property 'AccountHolderType'
+        /// </summary>
+        [Test]
+        public void AccountHolderTypeTest()
+        {
+            // TODO unit test for the property 'AccountHolderType'
+        }
 
     }
 

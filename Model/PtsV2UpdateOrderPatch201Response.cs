@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2UpdateOrderPatch201Response {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

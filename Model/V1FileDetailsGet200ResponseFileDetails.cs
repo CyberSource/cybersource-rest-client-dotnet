@@ -109,13 +109,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class V1FileDetailsGet200ResponseFileDetails {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  CreatedTime: ").Append(CreatedTime).Append("\n");
-            sb.Append("  LastModifiedTime: ").Append(LastModifiedTime).Append("\n");
-            sb.Append("  Date: ").Append(Date).Append("\n");
-            sb.Append("  MimeType: ").Append(MimeType).Append("\n");
-            sb.Append("  Size: ").Append(Size).Append("\n");
+            if (FileId != null) sb.Append("  FileId: ").Append(FileId).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (CreatedTime != null) sb.Append("  CreatedTime: ").Append(CreatedTime).Append("\n");
+            if (LastModifiedTime != null) sb.Append("  LastModifiedTime: ").Append(LastModifiedTime).Append("\n");
+            if (Date != null) sb.Append("  Date: ").Append(Date).Append("\n");
+            if (MimeType != null) sb.Append("  MimeType: ").Append(MimeType).Append("\n");
+            if (Size != null) sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

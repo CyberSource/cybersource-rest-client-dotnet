@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidProcessingInformation {\n");
-            sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
+            if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

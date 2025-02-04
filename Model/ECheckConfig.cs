@@ -69,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ECheckConfig {\n");
-            sb.Append("  Common: ").Append(Common).Append("\n");
-            sb.Append("  Underwriting: ").Append(Underwriting).Append("\n");
-            sb.Append("  Features: ").Append(Features).Append("\n");
+            if (Common != null) sb.Append("  Common: ").Append(Common).Append("\n");
+            if (Underwriting != null) sb.Append("  Underwriting: ").Append(Underwriting).Append("\n");
+            if (Features != null) sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

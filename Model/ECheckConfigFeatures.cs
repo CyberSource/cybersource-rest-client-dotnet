@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ECheckConfigFeatures {\n");
-            sb.Append("  AccountValidationService: ").Append(AccountValidationService).Append("\n");
+            if (AccountValidationService != null) sb.Append("  AccountValidationService: ").Append(AccountValidationService).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

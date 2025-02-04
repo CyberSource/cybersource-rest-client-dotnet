@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2011PayoutInformationPullFunds {\n");
-            sb.Append("  DomesticParticipant: ").Append(DomesticParticipant).Append("\n");
-            sb.Append("  CrossBorderParticipant: ").Append(CrossBorderParticipant).Append("\n");
+            if (DomesticParticipant != null) sb.Append("  DomesticParticipant: ").Append(DomesticParticipant).Append("\n");
+            if (CrossBorderParticipant != null) sb.Append("  CrossBorderParticipant: ").Append(CrossBorderParticipant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -98,12 +98,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardProcessingConfigFeaturesCardNotPresentProcessors {\n");
-            sb.Append("  RelaxAddressVerificationSystem: ").Append(RelaxAddressVerificationSystem).Append("\n");
-            sb.Append("  RelaxAddressVerificationSystemAllowZipWithoutCountry: ").Append(RelaxAddressVerificationSystemAllowZipWithoutCountry).Append("\n");
-            sb.Append("  RelaxAddressVerificationSystemAllowExpiredCard: ").Append(RelaxAddressVerificationSystemAllowExpiredCard).Append("\n");
-            sb.Append("  EnableEmsTransactionRiskScore: ").Append(EnableEmsTransactionRiskScore).Append("\n");
-            sb.Append("  PrestigiousPropertyIndicator: ").Append(PrestigiousPropertyIndicator).Append("\n");
-            sb.Append("  Payouts: ").Append(Payouts).Append("\n");
+            if (RelaxAddressVerificationSystem != null) sb.Append("  RelaxAddressVerificationSystem: ").Append(RelaxAddressVerificationSystem).Append("\n");
+            if (RelaxAddressVerificationSystemAllowZipWithoutCountry != null) sb.Append("  RelaxAddressVerificationSystemAllowZipWithoutCountry: ").Append(RelaxAddressVerificationSystemAllowZipWithoutCountry).Append("\n");
+            if (RelaxAddressVerificationSystemAllowExpiredCard != null) sb.Append("  RelaxAddressVerificationSystemAllowExpiredCard: ").Append(RelaxAddressVerificationSystemAllowExpiredCard).Append("\n");
+            if (EnableEmsTransactionRiskScore != null) sb.Append("  EnableEmsTransactionRiskScore: ").Append(EnableEmsTransactionRiskScore).Append("\n");
+            if (PrestigiousPropertyIndicator != null) sb.Append("  PrestigiousPropertyIndicator: ").Append(PrestigiousPropertyIndicator).Append("\n");
+            if (Payouts != null) sb.Append("  Payouts: ").Append(Payouts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

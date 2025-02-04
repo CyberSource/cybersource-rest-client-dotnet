@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Notificationsubscriptionsv1webhooksSecurityPolicy {\n");
-            sb.Append("  SecurityType: ").Append(SecurityType).Append("\n");
-            sb.Append("  Config: ").Append(Config).Append("\n");
+            if (SecurityType != null) sb.Append("  SecurityType: ").Append(SecurityType).Append("\n");
+            if (Config != null) sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

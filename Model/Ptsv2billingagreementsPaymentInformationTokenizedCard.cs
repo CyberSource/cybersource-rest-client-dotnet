@@ -99,12 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2billingagreementsPaymentInformationTokenizedCard {\n");
-            sb.Append("  Cryptogram: ").Append(Cryptogram).Append("\n");
-            sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
-            sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
-            sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Cryptogram != null) sb.Append("  Cryptogram: ").Append(Cryptogram).Append("\n");
+            if (ExpirationMonth != null) sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
+            if (ExpirationYear != null) sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
+            if (Number != null) sb.Append("  Number: ").Append(Number).Append("\n");
+            if (TransactionType != null) sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

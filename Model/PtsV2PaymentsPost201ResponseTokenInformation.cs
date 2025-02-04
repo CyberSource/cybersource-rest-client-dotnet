@@ -86,11 +86,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseTokenInformation {\n");
-            sb.Append("  InstrumentidentifierNew: ").Append(InstrumentidentifierNew).Append("\n");
-            sb.Append("  Customer: ").Append(Customer).Append("\n");
-            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
-            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
-            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            if (InstrumentidentifierNew != null) sb.Append("  InstrumentidentifierNew: ").Append(InstrumentidentifierNew).Append("\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            if (ShippingAddress != null) sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

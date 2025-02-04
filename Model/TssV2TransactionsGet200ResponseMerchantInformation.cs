@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseMerchantInformation {\n");
-            sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
+            if (MerchantDescriptor != null) sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

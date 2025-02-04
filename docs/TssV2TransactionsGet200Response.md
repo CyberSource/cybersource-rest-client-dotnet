@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **PaymentInformation** | [**TssV2TransactionsGet200ResponsePaymentInformation**](TssV2TransactionsGet200ResponsePaymentInformation.md) |  | [optional] 
 **PaymentInsightsInformation** | [**PtsV2PaymentsPost201ResponsePaymentInsightsInformation**](PtsV2PaymentsPost201ResponsePaymentInsightsInformation.md) |  | [optional] 
 **PayoutOptions** | [**TssV2TransactionsGet200ResponsePayoutOptions**](TssV2TransactionsGet200ResponsePayoutOptions.md) |  | [optional] 
-**UnscheduledPaymentInformation** | [**TssV2TransactionsGet200ResponseUnscheduledPaymentInformation**](TssV2TransactionsGet200ResponseUnscheduledPaymentInformation.md) |  | [optional] 
+**UnscheduledPaymentInformation** | [**Ptsv2paymentsUnscheduledPaymentInformation**](Ptsv2paymentsUnscheduledPaymentInformation.md) |  | [optional] 
 **ProcessingInformation** | [**TssV2TransactionsGet200ResponseProcessingInformation**](TssV2TransactionsGet200ResponseProcessingInformation.md) |  | [optional] 
 **ProcessorInformation** | [**TssV2TransactionsGet200ResponseProcessorInformation**](TssV2TransactionsGet200ResponseProcessorInformation.md) |  | [optional] 
 **RecurringPaymentInformation** | [**TssV2TransactionsGet200ResponseRecurringPaymentInformation**](TssV2TransactionsGet200ResponseRecurringPaymentInformation.md) |  | [optional] 

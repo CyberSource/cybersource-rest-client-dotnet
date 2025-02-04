@@ -162,20 +162,20 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponsePaymentInformation {\n");
-            sb.Append("  Card: ").Append(Card).Append("\n");
-            sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
-            sb.Append("  AccountFeatures: ").Append(AccountFeatures).Append("\n");
-            sb.Append("  Bank: ").Append(Bank).Append("\n");
-            sb.Append("  Customer: ").Append(Customer).Append("\n");
-            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
-            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
-            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
-            sb.Append("  Scheme: ").Append(Scheme).Append("\n");
-            sb.Append("  Bin: ").Append(Bin).Append("\n");
-            sb.Append("  AccountType: ").Append(AccountType).Append("\n");
-            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
-            sb.Append("  BinCountry: ").Append(BinCountry).Append("\n");
-            sb.Append("  EWallet: ").Append(EWallet).Append("\n");
+            if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
+            if (TokenizedCard != null) sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
+            if (AccountFeatures != null) sb.Append("  AccountFeatures: ").Append(AccountFeatures).Append("\n");
+            if (Bank != null) sb.Append("  Bank: ").Append(Bank).Append("\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            if (ShippingAddress != null) sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            if (Scheme != null) sb.Append("  Scheme: ").Append(Scheme).Append("\n");
+            if (Bin != null) sb.Append("  Bin: ").Append(Bin).Append("\n");
+            if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            if (Issuer != null) sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            if (BinCountry != null) sb.Append("  BinCountry: ").Append(BinCountry).Append("\n");
+            if (EWallet != null) sb.Append("  EWallet: ").Append(EWallet).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

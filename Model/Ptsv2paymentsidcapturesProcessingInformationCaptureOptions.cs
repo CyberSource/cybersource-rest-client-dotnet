@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="TotalCaptureCount">Total number of captures when requesting multiple partial captures for one payment. Used along with &#x60;captureSequenceNumber&#x60; field to track which capture is being processed.  For example, the second of five captures would be passed to CyberSource as:   - &#x60;captureSequenceNumber &#x3D; 2&#x60;, and   - &#x60;totalCaptureCount &#x3D; 5&#x60; .</param>
         /// <param name="IsFinal">Indicates whether to release the authorization hold on the remaining funds.   Possible Values: - &#x60;true&#x60; - &#x60;false&#x60; .</param>
         /// <param name="Notes">An informational note about this settlement. Appears in both the payer&#39;s transaction history and the emails that the payer receives. .</param>
-        public Ptsv2paymentsidcapturesProcessingInformationCaptureOptions(int? CaptureSequenceNumber = default(int?), int? TotalCaptureCount = default(int?), string IsFinal = default(string), string Notes = default(string))
+        /// <param name="ReconciliationIdAlternate">Used by Nike merchant to send 12 digit order number.</param>
+        public Ptsv2paymentsidcapturesProcessingInformationCaptureOptions(int? CaptureSequenceNumber = default(int?), int? TotalCaptureCount = default(int?), string IsFinal = default(string), string Notes = default(string), string ReconciliationIdAlternate = default(string))
         {
             this.CaptureSequenceNumber = CaptureSequenceNumber;
             this.TotalCaptureCount = TotalCaptureCount;
             this.IsFinal = IsFinal;
             this.Notes = Notes;
+            this.ReconciliationIdAlternate = ReconciliationIdAlternate;
         }
         
         /// <summary>
@@ -74,6 +76,13 @@ namespace CyberSource.Model
         public string Notes { get; set; }
 
         /// <summary>
+        /// Used by Nike merchant to send 12 digit order number
+        /// </summary>
+        /// <value>Used by Nike merchant to send 12 digit order number</value>
+        [DataMember(Name="reconciliationIdAlternate", EmitDefaultValue=false)]
+        public string ReconciliationIdAlternate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,10 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidcapturesProcessingInformationCaptureOptions {\n");
-            sb.Append("  CaptureSequenceNumber: ").Append(CaptureSequenceNumber).Append("\n");
-            sb.Append("  TotalCaptureCount: ").Append(TotalCaptureCount).Append("\n");
-            sb.Append("  IsFinal: ").Append(IsFinal).Append("\n");
-            sb.Append("  Notes: ").Append(Notes).Append("\n");
+            if (CaptureSequenceNumber != null) sb.Append("  CaptureSequenceNumber: ").Append(CaptureSequenceNumber).Append("\n");
+            if (TotalCaptureCount != null) sb.Append("  TotalCaptureCount: ").Append(TotalCaptureCount).Append("\n");
+            if (IsFinal != null) sb.Append("  IsFinal: ").Append(IsFinal).Append("\n");
+            if (Notes != null) sb.Append("  Notes: ").Append(Notes).Append("\n");
+            if (ReconciliationIdAlternate != null) sb.Append("  ReconciliationIdAlternate: ").Append(ReconciliationIdAlternate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +150,11 @@ namespace CyberSource.Model
                     this.Notes == other.Notes ||
                     this.Notes != null &&
                     this.Notes.Equals(other.Notes)
+                ) && 
+                (
+                    this.ReconciliationIdAlternate == other.ReconciliationIdAlternate ||
+                    this.ReconciliationIdAlternate != null &&
+                    this.ReconciliationIdAlternate.Equals(other.ReconciliationIdAlternate)
                 );
         }
 
@@ -162,6 +177,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.IsFinal.GetHashCode();
                 if (this.Notes != null)
                     hash = hash * 59 + this.Notes.GetHashCode();
+                if (this.ReconciliationIdAlternate != null)
+                    hash = hash * 59 + this.ReconciliationIdAlternate.GetHashCode();
                 return hash;
             }
         }

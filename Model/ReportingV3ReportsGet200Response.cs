@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ReportsGet200Response {\n");
-            sb.Append("  ReportSearchResults: ").Append(ReportSearchResults).Append("\n");
+            if (ReportSearchResults != null) sb.Append("  ReportSearchResults: ").Append(ReportSearchResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

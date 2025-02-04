@@ -136,17 +136,17 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseRiskInformation {\n");
-            sb.Append("  Profile: ").Append(Profile).Append("\n");
-            sb.Append("  Rules: ").Append(Rules).Append("\n");
-            sb.Append("  InfoCodes: ").Append(InfoCodes).Append("\n");
-            sb.Append("  Velocity: ").Append(Velocity).Append("\n");
-            sb.Append("  CasePriority: ").Append(CasePriority).Append("\n");
-            sb.Append("  LocalTime: ").Append(LocalTime).Append("\n");
-            sb.Append("  Score: ").Append(Score).Append("\n");
-            sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
-            sb.Append("  Providers: ").Append(Providers).Append("\n");
-            sb.Append("  Travel: ").Append(Travel).Append("\n");
-            sb.Append("  ProcessorResults: ").Append(ProcessorResults).Append("\n");
+            if (Profile != null) sb.Append("  Profile: ").Append(Profile).Append("\n");
+            if (Rules != null) sb.Append("  Rules: ").Append(Rules).Append("\n");
+            if (InfoCodes != null) sb.Append("  InfoCodes: ").Append(InfoCodes).Append("\n");
+            if (Velocity != null) sb.Append("  Velocity: ").Append(Velocity).Append("\n");
+            if (CasePriority != null) sb.Append("  CasePriority: ").Append(CasePriority).Append("\n");
+            if (LocalTime != null) sb.Append("  LocalTime: ").Append(LocalTime).Append("\n");
+            if (Score != null) sb.Append("  Score: ").Append(Score).Append("\n");
+            if (IpAddress != null) sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            if (Providers != null) sb.Append("  Providers: ").Append(Providers).Append("\n");
+            if (Travel != null) sb.Append("  Travel: ").Append(Travel).Append("\n");
+            if (ProcessorResults != null) sb.Append("  ProcessorResults: ").Append(ProcessorResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

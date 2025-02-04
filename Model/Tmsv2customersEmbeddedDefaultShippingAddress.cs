@@ -87,11 +87,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersEmbeddedDefaultShippingAddress {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Default: ").Append(Default).Append("\n");
-            sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (Default != null) sb.Append("  Default: ").Append(Default).Append("\n");
+            if (ShipTo != null) sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
+            if (Metadata != null) sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

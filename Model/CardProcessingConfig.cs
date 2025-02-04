@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardProcessingConfig {\n");
-            sb.Append("  Common: ").Append(Common).Append("\n");
-            sb.Append("  Features: ").Append(Features).Append("\n");
+            if (Common != null) sb.Append("  Common: ").Append(Common).Append("\n");
+            if (Features != null) sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

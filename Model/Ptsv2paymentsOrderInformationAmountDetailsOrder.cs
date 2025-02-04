@@ -126,15 +126,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsOrderInformationAmountDetailsOrder {\n");
-            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  SubTotalAmount: ").Append(SubTotalAmount).Append("\n");
-            sb.Append("  HandlingAmount: ").Append(HandlingAmount).Append("\n");
-            sb.Append("  ShippingAmount: ").Append(ShippingAmount).Append("\n");
-            sb.Append("  ShippingDiscountAmount: ").Append(ShippingDiscountAmount).Append("\n");
-            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
-            sb.Append("  InsuranceAmount: ").Append(InsuranceAmount).Append("\n");
-            sb.Append("  GiftWrapAmount: ").Append(GiftWrapAmount).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (SubTotalAmount != null) sb.Append("  SubTotalAmount: ").Append(SubTotalAmount).Append("\n");
+            if (HandlingAmount != null) sb.Append("  HandlingAmount: ").Append(HandlingAmount).Append("\n");
+            if (ShippingAmount != null) sb.Append("  ShippingAmount: ").Append(ShippingAmount).Append("\n");
+            if (ShippingDiscountAmount != null) sb.Append("  ShippingDiscountAmount: ").Append(ShippingDiscountAmount).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (InsuranceAmount != null) sb.Append("  InsuranceAmount: ").Append(InsuranceAmount).Append("\n");
+            if (GiftWrapAmount != null) sb.Append("  GiftWrapAmount: ").Append(GiftWrapAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

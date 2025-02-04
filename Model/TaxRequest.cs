@@ -85,11 +85,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TaxRequest {\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  TaxInformation: ").Append(TaxInformation).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
-            sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
-            sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (TaxInformation != null) sb.Append("  TaxInformation: ").Append(TaxInformation).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

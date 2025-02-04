@@ -77,10 +77,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DmConfigThirdpartyProviderSignifydCredentials {\n");
-            sb.Append("  TeamId: ").Append(TeamId).Append("\n");
-            sb.Append("  ApiKey: ").Append(ApiKey).Append("\n");
-            sb.Append("  SecretKeyid: ").Append(SecretKeyid).Append("\n");
-            sb.Append("  SecretKey: ").Append(SecretKey).Append("\n");
+            if (TeamId != null) sb.Append("  TeamId: ").Append(TeamId).Append("\n");
+            if (ApiKey != null) sb.Append("  ApiKey: ").Append(ApiKey).Append("\n");
+            if (SecretKeyid != null) sb.Append("  SecretKeyid: ").Append(SecretKeyid).Append("\n");
+            if (SecretKey != null) sb.Append("  SecretKey: ").Append(SecretKey).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

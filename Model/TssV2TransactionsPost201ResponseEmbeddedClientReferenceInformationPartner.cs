@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformationPartner {\n");
-            sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
+            if (SolutionId != null) sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

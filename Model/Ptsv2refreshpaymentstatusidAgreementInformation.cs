@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2refreshpaymentstatusidAgreementInformation {\n");
-            sb.Append("  AgreementId: ").Append(AgreementId).Append("\n");
+            if (AgreementId != null) sb.Append("  AgreementId: ").Append(AgreementId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

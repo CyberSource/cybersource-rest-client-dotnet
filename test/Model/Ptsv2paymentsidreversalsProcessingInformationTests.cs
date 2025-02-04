@@ -120,6 +120,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ActionList'
         }
+        /// <summary>
+        /// Test the property 'TransactionTypeIndicator'
+        /// </summary>
+        [Test]
+        public void TransactionTypeIndicatorTest()
+        {
+            // TODO unit test for the property 'TransactionTypeIndicator'
+        }
 
     }
 

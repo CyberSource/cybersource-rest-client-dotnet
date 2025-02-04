@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2creditsInstallmentInformation {\n");
-            sb.Append("  PlanType: ").Append(PlanType).Append("\n");
+            if (PlanType != null) sb.Append("  PlanType: ").Append(PlanType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

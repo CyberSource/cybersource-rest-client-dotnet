@@ -62,8 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurations {\n");
-            sb.Append("  ParentProfileId: ").Append(ParentProfileId).Append("\n");
-            sb.Append("  Vault: ").Append(Vault).Append("\n");
+            if (ParentProfileId != null) sb.Append("  ParentProfileId: ").Append(ParentProfileId).Append("\n");
+            if (Vault != null) sb.Append("  Vault: ").Append(Vault).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

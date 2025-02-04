@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SAConfigCheckout {\n");
-            sb.Append("  DisplayTaxAmount: ").Append(DisplayTaxAmount).Append("\n");
-            sb.Append("  TemplateType: ").Append(TemplateType).Append("\n");
-            sb.Append("  ReturnToMerchantSiteUrl: ").Append(ReturnToMerchantSiteUrl).Append("\n");
+            if (DisplayTaxAmount != null) sb.Append("  DisplayTaxAmount: ").Append(DisplayTaxAmount).Append("\n");
+            if (TemplateType != null) sb.Append("  TemplateType: ").Append(TemplateType).Append("\n");
+            if (ReturnToMerchantSiteUrl != null) sb.Append("  ReturnToMerchantSiteUrl: ").Append(ReturnToMerchantSiteUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

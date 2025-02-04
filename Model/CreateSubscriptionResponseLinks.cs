@@ -85,11 +85,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreateSubscriptionResponseLinks {\n");
-            sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  Update: ").Append(Update).Append("\n");
-            sb.Append("  Cancel: ").Append(Cancel).Append("\n");
-            sb.Append("  Suspend: ").Append(Suspend).Append("\n");
-            sb.Append("  Activate: ").Append(Activate).Append("\n");
+            if (Self != null) sb.Append("  Self: ").Append(Self).Append("\n");
+            if (Update != null) sb.Append("  Update: ").Append(Update).Append("\n");
+            if (Cancel != null) sb.Append("  Cancel: ").Append(Cancel).Append("\n");
+            if (Suspend != null) sb.Append("  Suspend: ").Append(Suspend).Append("\n");
+            if (Activate != null) sb.Append("  Activate: ").Append(Activate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

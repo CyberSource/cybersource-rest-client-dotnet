@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DmConfigThirdpartyProviderEkataCredentials {\n");
-            sb.Append("  ApiKey: ").Append(ApiKey).Append("\n");
+            if (ApiKey != null) sb.Append("  ApiKey: ").Append(ApiKey).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

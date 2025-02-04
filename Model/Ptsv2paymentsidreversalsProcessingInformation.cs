@@ -40,7 +40,8 @@ namespace CyberSource.Model
         /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. .</param>
         /// <param name="Issuer">Issuer.</param>
         /// <param name="ActionList">Array of actions (one or more) to be included in the reversal Possible value: - &#x60;AP_AUTH_REVERSAL&#x60;: Use this when you want to reverse an Alternative Payment Authorization. .</param>
-        public Ptsv2paymentsidreversalsProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), List<string> ActionList = default(List<string>))
+        /// <param name="TransactionTypeIndicator">This field is used identify the type of payment transaction taking place. This field is applicable for MasterCard transactions only. Possible values: - 201- Mastercard Rebate - 202- rePower Load Value - 203- Gaming Re-pay - 204- General Person-to-Person - 205- General Transfer to Own Account - 206- Agent Cash Out - 207- Payment of Own Credit Card Bill - 208- Business Disbursement - 209- Government/Non-Profit Disbursement - 210- Rapid Merchant Settlement - 211- Cash in at ATM (Usage limited to specific countries) - 212- Cash in at Point of Sale (Usage limited to specific countries) - 213- General Business to Business Transfer - 214- Mastercard Merchant Presented QR - 215- Mastercard Merchant Presented QR Refund Payment - 216- Utility Payments (for Brazil domestic use only) - 217- Government Services (for Brazil domestic use only) - 218- Mobile phone top-ups (for Brazil domestic use only) - 219- Coupon booklet payments (for Brazil domestic use only) - 220- General Person-to-Person Transfer - 221- Person-to-Person Transfer to Card Account - 222- General Transfer to Own Account - 223- Agent Cash Out - 224- Payment of Own Credit Card Bill - 225- Business Disbursement - 226- Transfer to Own Staged Digital Wallet Account - 227- Transfer to Own Debit or Prepaid Account - 228- General Business-to-Business Transfer - 229- Installment-based repayment - 230- Mastercard ATM Cash Pick-Up Transaction - 231- Cryptocurrency - 232- High-risk Securities .</param>
+        public Ptsv2paymentsidreversalsProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), List<string> ActionList = default(List<string>), string TransactionTypeIndicator = default(string))
         {
             this.PaymentSolution = PaymentSolution;
             this.ReconciliationId = ReconciliationId;
@@ -49,6 +50,7 @@ namespace CyberSource.Model
             this.VisaCheckoutId = VisaCheckoutId;
             this.Issuer = Issuer;
             this.ActionList = ActionList;
+            this.TransactionTypeIndicator = TransactionTypeIndicator;
         }
         
         /// <summary>
@@ -100,6 +102,13 @@ namespace CyberSource.Model
         public List<string> ActionList { get; set; }
 
         /// <summary>
+        /// This field is used identify the type of payment transaction taking place. This field is applicable for MasterCard transactions only. Possible values: - 201- Mastercard Rebate - 202- rePower Load Value - 203- Gaming Re-pay - 204- General Person-to-Person - 205- General Transfer to Own Account - 206- Agent Cash Out - 207- Payment of Own Credit Card Bill - 208- Business Disbursement - 209- Government/Non-Profit Disbursement - 210- Rapid Merchant Settlement - 211- Cash in at ATM (Usage limited to specific countries) - 212- Cash in at Point of Sale (Usage limited to specific countries) - 213- General Business to Business Transfer - 214- Mastercard Merchant Presented QR - 215- Mastercard Merchant Presented QR Refund Payment - 216- Utility Payments (for Brazil domestic use only) - 217- Government Services (for Brazil domestic use only) - 218- Mobile phone top-ups (for Brazil domestic use only) - 219- Coupon booklet payments (for Brazil domestic use only) - 220- General Person-to-Person Transfer - 221- Person-to-Person Transfer to Card Account - 222- General Transfer to Own Account - 223- Agent Cash Out - 224- Payment of Own Credit Card Bill - 225- Business Disbursement - 226- Transfer to Own Staged Digital Wallet Account - 227- Transfer to Own Debit or Prepaid Account - 228- General Business-to-Business Transfer - 229- Installment-based repayment - 230- Mastercard ATM Cash Pick-Up Transaction - 231- Cryptocurrency - 232- High-risk Securities 
+        /// </summary>
+        /// <value>This field is used identify the type of payment transaction taking place. This field is applicable for MasterCard transactions only. Possible values: - 201- Mastercard Rebate - 202- rePower Load Value - 203- Gaming Re-pay - 204- General Person-to-Person - 205- General Transfer to Own Account - 206- Agent Cash Out - 207- Payment of Own Credit Card Bill - 208- Business Disbursement - 209- Government/Non-Profit Disbursement - 210- Rapid Merchant Settlement - 211- Cash in at ATM (Usage limited to specific countries) - 212- Cash in at Point of Sale (Usage limited to specific countries) - 213- General Business to Business Transfer - 214- Mastercard Merchant Presented QR - 215- Mastercard Merchant Presented QR Refund Payment - 216- Utility Payments (for Brazil domestic use only) - 217- Government Services (for Brazil domestic use only) - 218- Mobile phone top-ups (for Brazil domestic use only) - 219- Coupon booklet payments (for Brazil domestic use only) - 220- General Person-to-Person Transfer - 221- Person-to-Person Transfer to Card Account - 222- General Transfer to Own Account - 223- Agent Cash Out - 224- Payment of Own Credit Card Bill - 225- Business Disbursement - 226- Transfer to Own Staged Digital Wallet Account - 227- Transfer to Own Debit or Prepaid Account - 228- General Business-to-Business Transfer - 229- Installment-based repayment - 230- Mastercard ATM Cash Pick-Up Transaction - 231- Cryptocurrency - 232- High-risk Securities </value>
+        [DataMember(Name="transactionTypeIndicator", EmitDefaultValue=false)]
+        public string TransactionTypeIndicator { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,13 +116,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidreversalsProcessingInformation {\n");
-            sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
-            sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
-            sb.Append("  LinkId: ").Append(LinkId).Append("\n");
-            sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
-            sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
-            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
-            sb.Append("  ActionList: ").Append(ActionList).Append("\n");
+            if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (LinkId != null) sb.Append("  LinkId: ").Append(LinkId).Append("\n");
+            if (ReportGroup != null) sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
+            if (VisaCheckoutId != null) sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
+            if (Issuer != null) sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
+            if (TransactionTypeIndicator != null) sb.Append("  TransactionTypeIndicator: ").Append(TransactionTypeIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -184,6 +194,11 @@ namespace CyberSource.Model
                     this.ActionList == other.ActionList ||
                     this.ActionList != null &&
                     this.ActionList.SequenceEqual(other.ActionList)
+                ) && 
+                (
+                    this.TransactionTypeIndicator == other.TransactionTypeIndicator ||
+                    this.TransactionTypeIndicator != null &&
+                    this.TransactionTypeIndicator.Equals(other.TransactionTypeIndicator)
                 );
         }
 
@@ -212,6 +227,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Issuer.GetHashCode();
                 if (this.ActionList != null)
                     hash = hash * 59 + this.ActionList.GetHashCode();
+                if (this.TransactionTypeIndicator != null)
+                    hash = hash * 59 + this.TransactionTypeIndicator.GetHashCode();
                 return hash;
             }
         }

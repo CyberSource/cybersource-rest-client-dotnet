@@ -71,9 +71,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2intentsProcessingInformation {\n");
-            sb.Append("  ProcessingInstruction: ").Append(ProcessingInstruction).Append("\n");
-            sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
-            sb.Append("  ActionList: ").Append(ActionList).Append("\n");
+            if (ProcessingInstruction != null) sb.Append("  ProcessingInstruction: ").Append(ProcessingInstruction).Append("\n");
+            if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
+            if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions {\n");
-            sb.Append("  FinalCapture: ").Append(FinalCapture).Append("\n");
+            if (FinalCapture != null) sb.Append("  FinalCapture: ").Append(FinalCapture).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

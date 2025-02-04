@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DmConfigPortfolioControls {\n");
-            sb.Append("  HideRiskMenus: ").Append(HideRiskMenus).Append("\n");
-            sb.Append("  HideRiskTransactionData: ").Append(HideRiskTransactionData).Append("\n");
+            if (HideRiskMenus != null) sb.Append("  HideRiskMenus: ").Append(HideRiskMenus).Append("\n");
+            if (HideRiskTransactionData != null) sb.Append("  HideRiskTransactionData: ").Append(HideRiskTransactionData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

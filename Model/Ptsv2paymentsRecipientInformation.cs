@@ -39,13 +39,20 @@ namespace CyberSource.Model
         /// <param name="MiddleName">Middle name of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. .</param>
         /// <param name="LastName">Last name of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. .</param>
         /// <param name="Address1">The street address of the recipient This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor.          .</param>
+        /// <param name="AdministrativeArea">The state or province of the recipient. This field is applicable for AFT transactions when the recipient country is US or CA. Else it is optional.  Must be a two character value .</param>
         /// <param name="PostalCode">Partial postal code for the recipient&#39;s address. For example, if the postal code is **NN5 7SG**, the value for this field should be the first part of the postal code: **NN5**. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
         /// <param name="Country">The country associated with the address of the recipient. This field is applicable for AFT and OCT transactions.  Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) .</param>
         /// <param name="DateOfBirth">Recipient&#39;s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
         /// <param name="BeneficiaryId">Only for e-wallets: ID, username, hash or anything uniquely identifying the ultimate beneficiary. .</param>
         /// <param name="BeneficiaryName">Only for e-wallets: The ultimate beneficiary&#39;s full name. .</param>
         /// <param name="BeneficiaryAddress">Only for e-wallets: The ultimate beneficiary&#39;s street address (street, zip code, city), excluding the country. Example: \&quot;Main street 1, 12345, Barcelona .</param>
-        public Ptsv2paymentsRecipientInformation(string AccountId = default(string), string AccountType = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string PostalCode = default(string), string Country = default(string), string DateOfBirth = default(string), string BeneficiaryId = default(string), string BeneficiaryName = default(string), string BeneficiaryAddress = default(string))
+        /// <param name="AliasName">Account owner alias name. .</param>
+        /// <param name="Nationality">Account Owner Nationality.</param>
+        /// <param name="CountryOfBirth">Account Owner Country of Birth.</param>
+        /// <param name="Occupation">Account Owner Occupation.</param>
+        /// <param name="Email">Account Owner email address.</param>
+        /// <param name="Locality">The city of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. .</param>
+        public Ptsv2paymentsRecipientInformation(string AccountId = default(string), string AccountType = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string DateOfBirth = default(string), string BeneficiaryId = default(string), string BeneficiaryName = default(string), string BeneficiaryAddress = default(string), string AliasName = default(string), string Nationality = default(string), string CountryOfBirth = default(string), string Occupation = default(string), string Email = default(string), string Locality = default(string))
         {
             this.AccountId = AccountId;
             this.AccountType = AccountType;
@@ -53,12 +60,19 @@ namespace CyberSource.Model
             this.MiddleName = MiddleName;
             this.LastName = LastName;
             this.Address1 = Address1;
+            this.AdministrativeArea = AdministrativeArea;
             this.PostalCode = PostalCode;
             this.Country = Country;
             this.DateOfBirth = DateOfBirth;
             this.BeneficiaryId = BeneficiaryId;
             this.BeneficiaryName = BeneficiaryName;
             this.BeneficiaryAddress = BeneficiaryAddress;
+            this.AliasName = AliasName;
+            this.Nationality = Nationality;
+            this.CountryOfBirth = CountryOfBirth;
+            this.Occupation = Occupation;
+            this.Email = Email;
+            this.Locality = Locality;
         }
         
         /// <summary>
@@ -104,6 +118,13 @@ namespace CyberSource.Model
         public string Address1 { get; set; }
 
         /// <summary>
+        /// The state or province of the recipient. This field is applicable for AFT transactions when the recipient country is US or CA. Else it is optional.  Must be a two character value 
+        /// </summary>
+        /// <value>The state or province of the recipient. This field is applicable for AFT transactions when the recipient country is US or CA. Else it is optional.  Must be a two character value </value>
+        [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
+        public string AdministrativeArea { get; set; }
+
+        /// <summary>
         /// Partial postal code for the recipient&#39;s address. For example, if the postal code is **NN5 7SG**, the value for this field should be the first part of the postal code: **NN5**. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. 
         /// </summary>
         /// <value>Partial postal code for the recipient&#39;s address. For example, if the postal code is **NN5 7SG**, the value for this field should be the first part of the postal code: **NN5**. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. </value>
@@ -146,6 +167,48 @@ namespace CyberSource.Model
         public string BeneficiaryAddress { get; set; }
 
         /// <summary>
+        /// Account owner alias name. 
+        /// </summary>
+        /// <value>Account owner alias name. </value>
+        [DataMember(Name="aliasName", EmitDefaultValue=false)]
+        public string AliasName { get; set; }
+
+        /// <summary>
+        /// Account Owner Nationality
+        /// </summary>
+        /// <value>Account Owner Nationality</value>
+        [DataMember(Name="nationality", EmitDefaultValue=false)]
+        public string Nationality { get; set; }
+
+        /// <summary>
+        /// Account Owner Country of Birth
+        /// </summary>
+        /// <value>Account Owner Country of Birth</value>
+        [DataMember(Name="countryOfBirth", EmitDefaultValue=false)]
+        public string CountryOfBirth { get; set; }
+
+        /// <summary>
+        /// Account Owner Occupation
+        /// </summary>
+        /// <value>Account Owner Occupation</value>
+        [DataMember(Name="occupation", EmitDefaultValue=false)]
+        public string Occupation { get; set; }
+
+        /// <summary>
+        /// Account Owner email address
+        /// </summary>
+        /// <value>Account Owner email address</value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// The city of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. 
+        /// </summary>
+        /// <value>The city of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. </value>
+        [DataMember(Name="locality", EmitDefaultValue=false)]
+        public string Locality { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -153,18 +216,25 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsRecipientInformation {\n");
-            sb.Append("  AccountId: ").Append(AccountId).Append("\n");
-            sb.Append("  AccountType: ").Append(AccountType).Append("\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  Address1: ").Append(Address1).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
-            sb.Append("  BeneficiaryId: ").Append(BeneficiaryId).Append("\n");
-            sb.Append("  BeneficiaryName: ").Append(BeneficiaryName).Append("\n");
-            sb.Append("  BeneficiaryAddress: ").Append(BeneficiaryAddress).Append("\n");
+            if (AccountId != null) sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            if (FirstName != null) sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            if (MiddleName != null) sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
+            if (LastName != null) sb.Append("  LastName: ").Append(LastName).Append("\n");
+            if (Address1 != null) sb.Append("  Address1: ").Append(Address1).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (BeneficiaryId != null) sb.Append("  BeneficiaryId: ").Append(BeneficiaryId).Append("\n");
+            if (BeneficiaryName != null) sb.Append("  BeneficiaryName: ").Append(BeneficiaryName).Append("\n");
+            if (BeneficiaryAddress != null) sb.Append("  BeneficiaryAddress: ").Append(BeneficiaryAddress).Append("\n");
+            if (AliasName != null) sb.Append("  AliasName: ").Append(AliasName).Append("\n");
+            if (Nationality != null) sb.Append("  Nationality: ").Append(Nationality).Append("\n");
+            if (CountryOfBirth != null) sb.Append("  CountryOfBirth: ").Append(CountryOfBirth).Append("\n");
+            if (Occupation != null) sb.Append("  Occupation: ").Append(Occupation).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
+            if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -232,6 +302,11 @@ namespace CyberSource.Model
                     this.Address1.Equals(other.Address1)
                 ) && 
                 (
+                    this.AdministrativeArea == other.AdministrativeArea ||
+                    this.AdministrativeArea != null &&
+                    this.AdministrativeArea.Equals(other.AdministrativeArea)
+                ) && 
+                (
                     this.PostalCode == other.PostalCode ||
                     this.PostalCode != null &&
                     this.PostalCode.Equals(other.PostalCode)
@@ -260,6 +335,36 @@ namespace CyberSource.Model
                     this.BeneficiaryAddress == other.BeneficiaryAddress ||
                     this.BeneficiaryAddress != null &&
                     this.BeneficiaryAddress.Equals(other.BeneficiaryAddress)
+                ) && 
+                (
+                    this.AliasName == other.AliasName ||
+                    this.AliasName != null &&
+                    this.AliasName.Equals(other.AliasName)
+                ) && 
+                (
+                    this.Nationality == other.Nationality ||
+                    this.Nationality != null &&
+                    this.Nationality.Equals(other.Nationality)
+                ) && 
+                (
+                    this.CountryOfBirth == other.CountryOfBirth ||
+                    this.CountryOfBirth != null &&
+                    this.CountryOfBirth.Equals(other.CountryOfBirth)
+                ) && 
+                (
+                    this.Occupation == other.Occupation ||
+                    this.Occupation != null &&
+                    this.Occupation.Equals(other.Occupation)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
+                ) && 
+                (
+                    this.Locality == other.Locality ||
+                    this.Locality != null &&
+                    this.Locality.Equals(other.Locality)
                 );
         }
 
@@ -286,6 +391,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.LastName.GetHashCode();
                 if (this.Address1 != null)
                     hash = hash * 59 + this.Address1.GetHashCode();
+                if (this.AdministrativeArea != null)
+                    hash = hash * 59 + this.AdministrativeArea.GetHashCode();
                 if (this.PostalCode != null)
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.Country != null)
@@ -298,6 +405,18 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BeneficiaryName.GetHashCode();
                 if (this.BeneficiaryAddress != null)
                     hash = hash * 59 + this.BeneficiaryAddress.GetHashCode();
+                if (this.AliasName != null)
+                    hash = hash * 59 + this.AliasName.GetHashCode();
+                if (this.Nationality != null)
+                    hash = hash * 59 + this.Nationality.GetHashCode();
+                if (this.CountryOfBirth != null)
+                    hash = hash * 59 + this.CountryOfBirth.GetHashCode();
+                if (this.Occupation != null)
+                    hash = hash * 59 + this.Occupation.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
+                if (this.Locality != null)
+                    hash = hash * 59 + this.Locality.GetHashCode();
                 return hash;
             }
         }

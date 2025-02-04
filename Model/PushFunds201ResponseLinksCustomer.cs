@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PushFunds201ResponseLinksCustomer {\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Method: ").Append(Method).Append("\n");
+            if (Href != null) sb.Append("  Href: ").Append(Href).Append("\n");
+            if (Method != null) sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

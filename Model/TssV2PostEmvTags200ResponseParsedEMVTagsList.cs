@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2PostEmvTags200ResponseParsedEMVTagsList {\n");
-            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
-            sb.Append("  TotalTags: ").Append(TotalTags).Append("\n");
-            sb.Append("  EmvTagBreakdownList: ").Append(EmvTagBreakdownList).Append("\n");
+            if (RequestId != null) sb.Append("  RequestId: ").Append(RequestId).Append("\n");
+            if (TotalTags != null) sb.Append("  TotalTags: ").Append(TotalTags).Append("\n");
+            if (EmvTagBreakdownList != null) sb.Append("  EmvTagBreakdownList: ").Append(EmvTagBreakdownList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

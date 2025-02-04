@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PushFunds201ResponseClientReferenceInformation {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  SubmitLocalDateTime: ").Append(SubmitLocalDateTime).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (SubmitLocalDateTime != null) sb.Append("  SubmitLocalDateTime: ").Append(SubmitLocalDateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

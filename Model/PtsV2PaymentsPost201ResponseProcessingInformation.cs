@@ -37,12 +37,16 @@ namespace CyberSource.Model
         /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the REST API.](https://developer.cybersource.com/content/dam/docs/cybs/en-us/apifields/reference/all/rest/api-fields.pdf)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct.   - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. .</param>
         /// <param name="EnhancedDataEnabled">The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. .</param>
         /// <param name="CaptureOptions">CaptureOptions.</param>
-        public PtsV2PaymentsPost201ResponseProcessingInformation(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions), string PaymentSolution = default(string), bool? EnhancedDataEnabled = default(bool?), PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions CaptureOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions))
+        /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
+        /// <param name="PurchaseOptions">PurchaseOptions.</param>
+        public PtsV2PaymentsPost201ResponseProcessingInformation(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions), string PaymentSolution = default(string), bool? EnhancedDataEnabled = default(bool?), PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions CaptureOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions), PtsV2PaymentsPost201ResponseProcessingInformationAuthorizationOptions AuthorizationOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationAuthorizationOptions), PtsV2PaymentsPost201ResponseProcessingInformationPurchaseOptions PurchaseOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationPurchaseOptions))
         {
             this.BankTransferOptions = BankTransferOptions;
             this.PaymentSolution = PaymentSolution;
             this.EnhancedDataEnabled = EnhancedDataEnabled;
             this.CaptureOptions = CaptureOptions;
+            this.AuthorizationOptions = AuthorizationOptions;
+            this.PurchaseOptions = PurchaseOptions;
         }
         
         /// <summary>
@@ -72,6 +76,18 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions CaptureOptions { get; set; }
 
         /// <summary>
+        /// Gets or Sets AuthorizationOptions
+        /// </summary>
+        [DataMember(Name="authorizationOptions", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseProcessingInformationAuthorizationOptions AuthorizationOptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PurchaseOptions
+        /// </summary>
+        [DataMember(Name="purchaseOptions", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseProcessingInformationPurchaseOptions PurchaseOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,10 +95,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseProcessingInformation {\n");
-            sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
-            sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
-            sb.Append("  EnhancedDataEnabled: ").Append(EnhancedDataEnabled).Append("\n");
-            sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
+            if (BankTransferOptions != null) sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
+            if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
+            if (EnhancedDataEnabled != null) sb.Append("  EnhancedDataEnabled: ").Append(EnhancedDataEnabled).Append("\n");
+            if (CaptureOptions != null) sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
+            if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
+            if (PurchaseOptions != null) sb.Append("  PurchaseOptions: ").Append(PurchaseOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,6 +156,16 @@ namespace CyberSource.Model
                     this.CaptureOptions == other.CaptureOptions ||
                     this.CaptureOptions != null &&
                     this.CaptureOptions.Equals(other.CaptureOptions)
+                ) && 
+                (
+                    this.AuthorizationOptions == other.AuthorizationOptions ||
+                    this.AuthorizationOptions != null &&
+                    this.AuthorizationOptions.Equals(other.AuthorizationOptions)
+                ) && 
+                (
+                    this.PurchaseOptions == other.PurchaseOptions ||
+                    this.PurchaseOptions != null &&
+                    this.PurchaseOptions.Equals(other.PurchaseOptions)
                 );
         }
 
@@ -160,6 +188,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EnhancedDataEnabled.GetHashCode();
                 if (this.CaptureOptions != null)
                     hash = hash * 59 + this.CaptureOptions.GetHashCode();
+                if (this.AuthorizationOptions != null)
+                    hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
+                if (this.PurchaseOptions != null)
+                    hash = hash * 59 + this.PurchaseOptions.GetHashCode();
                 return hash;
             }
         }

@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReplayWebhooksRequest {\n");
-            sb.Append("  ByTransactionTraceIdentifiers: ").Append(ByTransactionTraceIdentifiers).Append("\n");
-            sb.Append("  ByDeliveryStatus: ").Append(ByDeliveryStatus).Append("\n");
+            if (ByTransactionTraceIdentifiers != null) sb.Append("  ByTransactionTraceIdentifiers: ").Append(ByTransactionTraceIdentifiers).Append("\n");
+            if (ByDeliveryStatus != null) sb.Append("  ByDeliveryStatus: ").Append(ByDeliveryStatus).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsNetworkTokenServicesVisaTokenService {\n");
-            sb.Append("  EnableService: ").Append(EnableService).Append("\n");
-            sb.Append("  EnableTransactionalTokens: ").Append(EnableTransactionalTokens).Append("\n");
-            sb.Append("  TokenRequestorId: ").Append(TokenRequestorId).Append("\n");
-            sb.Append("  RelationshipId: ").Append(RelationshipId).Append("\n");
+            if (EnableService != null) sb.Append("  EnableService: ").Append(EnableService).Append("\n");
+            if (EnableTransactionalTokens != null) sb.Append("  EnableTransactionalTokens: ").Append(EnableTransactionalTokens).Append("\n");
+            if (TokenRequestorId != null) sb.Append("  TokenRequestorId: ").Append(TokenRequestorId).Append("\n");
+            if (RelationshipId != null) sb.Append("  RelationshipId: ").Append(RelationshipId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

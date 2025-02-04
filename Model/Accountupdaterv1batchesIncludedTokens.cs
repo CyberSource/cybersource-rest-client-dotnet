@@ -74,9 +74,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Accountupdaterv1batchesIncludedTokens {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
-            sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (ExpirationMonth != null) sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
+            if (ExpirationYear != null) sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

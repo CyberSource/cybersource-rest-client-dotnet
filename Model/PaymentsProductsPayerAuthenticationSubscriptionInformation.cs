@@ -70,8 +70,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsPayerAuthenticationSubscriptionInformation {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  SelfServiceability: ").Append(SelfServiceability).Append("\n");
+            if (Enabled != null) sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            if (SelfServiceability != null) sb.Append("  SelfServiceability: ").Append(SelfServiceability).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -140,17 +140,17 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessingInformation {\n");
-            sb.Append("  BinSource: ").Append(BinSource).Append("\n");
-            sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
-            sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
-            sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
-            sb.Append("  CommerceIndicatorLabel: ").Append(CommerceIndicatorLabel).Append("\n");
-            sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
-            sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
-            sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
-            sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
-            sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
-            sb.Append("  JapanPaymentOptions: ").Append(JapanPaymentOptions).Append("\n");
+            if (BinSource != null) sb.Append("  BinSource: ").Append(BinSource).Append("\n");
+            if (IndustryDataType != null) sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
+            if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
+            if (CommerceIndicator != null) sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
+            if (CommerceIndicatorLabel != null) sb.Append("  CommerceIndicatorLabel: ").Append(CommerceIndicatorLabel).Append("\n");
+            if (BusinessApplicationId != null) sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
+            if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
+            if (BankTransferOptions != null) sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
+            if (CaptureOptions != null) sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (JapanPaymentOptions != null) sb.Append("  JapanPaymentOptions: ").Append(JapanPaymentOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

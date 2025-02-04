@@ -126,15 +126,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardProcessingConfigFeaturesCardNotPresentPayouts {\n");
-            sb.Append("  ReimbursementCode: ").Append(ReimbursementCode).Append("\n");
-            sb.Append("  AcquiringInstitutionId: ").Append(AcquiringInstitutionId).Append("\n");
-            sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
-            sb.Append("  FinancialInstitutionId: ").Append(FinancialInstitutionId).Append("\n");
-            sb.Append("  MerchantAbaNumber: ").Append(MerchantAbaNumber).Append("\n");
-            sb.Append("  NetworkOrder: ").Append(NetworkOrder).Append("\n");
-            sb.Append("  Currencies: ").Append(Currencies).Append("\n");
-            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
-            sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
+            if (ReimbursementCode != null) sb.Append("  ReimbursementCode: ").Append(ReimbursementCode).Append("\n");
+            if (AcquiringInstitutionId != null) sb.Append("  AcquiringInstitutionId: ").Append(AcquiringInstitutionId).Append("\n");
+            if (BusinessApplicationId != null) sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
+            if (FinancialInstitutionId != null) sb.Append("  FinancialInstitutionId: ").Append(FinancialInstitutionId).Append("\n");
+            if (MerchantAbaNumber != null) sb.Append("  MerchantAbaNumber: ").Append(MerchantAbaNumber).Append("\n");
+            if (NetworkOrder != null) sb.Append("  NetworkOrder: ").Append(NetworkOrder).Append("\n");
+            if (Currencies != null) sb.Append("  Currencies: ").Append(Currencies).Append("\n");
+            if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            if (TerminalId != null) sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

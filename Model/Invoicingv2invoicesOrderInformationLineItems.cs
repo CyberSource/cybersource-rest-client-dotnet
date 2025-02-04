@@ -126,15 +126,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Invoicingv2invoicesOrderInformationLineItems {\n");
-            sb.Append("  ProductSku: ").Append(ProductSku).Append("\n");
-            sb.Append("  ProductName: ").Append(ProductName).Append("\n");
-            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
-            sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
-            sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
-            sb.Append("  DiscountRate: ").Append(DiscountRate).Append("\n");
-            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
-            sb.Append("  TaxRate: ").Append(TaxRate).Append("\n");
-            sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (ProductSku != null) sb.Append("  ProductSku: ").Append(ProductSku).Append("\n");
+            if (ProductName != null) sb.Append("  ProductName: ").Append(ProductName).Append("\n");
+            if (Quantity != null) sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            if (UnitPrice != null) sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
+            if (DiscountAmount != null) sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
+            if (DiscountRate != null) sb.Append("  DiscountRate: ").Append(DiscountRate).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (TaxRate != null) sb.Append("  TaxRate: ").Append(TaxRate).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

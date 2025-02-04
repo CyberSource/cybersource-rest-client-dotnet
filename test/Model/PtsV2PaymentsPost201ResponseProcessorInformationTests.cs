@@ -416,6 +416,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'OrderStatus'
         }
+        /// <summary>
+        /// Test the property 'MerchantRiskPrediction'
+        /// </summary>
+        [Test]
+        public void MerchantRiskPredictionTest()
+        {
+            // TODO unit test for the property 'MerchantRiskPrediction'
+        }
 
     }
 

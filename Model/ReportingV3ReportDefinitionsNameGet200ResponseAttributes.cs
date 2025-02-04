@@ -103,13 +103,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ReportDefinitionsNameGet200ResponseAttributes {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  FilterType: ").Append(FilterType).Append("\n");
-            sb.Append("  Default: ").Append(Default).Append("\n");
-            sb.Append("  Required: ").Append(Required).Append("\n");
-            sb.Append("  SupportedType: ").Append(SupportedType).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
+            if (FilterType != null) sb.Append("  FilterType: ").Append(FilterType).Append("\n");
+            if (Default != null) sb.Append("  Default: ").Append(Default).Append("\n");
+            if (Required != null) sb.Append("  Required: ").Append(Required).Append("\n");
+            if (SupportedType != null) sb.Append("  SupportedType: ").Append(SupportedType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

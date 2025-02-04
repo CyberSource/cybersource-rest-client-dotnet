@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GenerateFlexAPICaptureContextRequest {\n");
-            sb.Append("  Fields: ").Append(Fields).Append("\n");
+            if (Fields != null) sb.Append("  Fields: ").Append(Fields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

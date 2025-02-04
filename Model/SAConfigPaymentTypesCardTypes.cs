@@ -77,10 +77,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SAConfigPaymentTypesCardTypes {\n");
-            sb.Append("  Discover: ").Append(Discover).Append("\n");
-            sb.Append("  Amex: ").Append(Amex).Append("\n");
-            sb.Append("  MasterCard: ").Append(MasterCard).Append("\n");
-            sb.Append("  Visa: ").Append(Visa).Append("\n");
+            if (Discover != null) sb.Append("  Discover: ").Append(Discover).Append("\n");
+            if (Amex != null) sb.Append("  Amex: ").Append(Amex).Append("\n");
+            if (MasterCard != null) sb.Append("  MasterCard: ").Append(MasterCard).Append("\n");
+            if (Visa != null) sb.Append("  Visa: ").Append(Visa).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

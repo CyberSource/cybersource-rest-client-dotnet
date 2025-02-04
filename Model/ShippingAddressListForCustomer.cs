@@ -89,12 +89,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ShippingAddressListForCustomer {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Offset: ").Append(Offset).Append("\n");
-            sb.Append("  Limit: ").Append(Limit).Append("\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  Total: ").Append(Total).Append("\n");
-            sb.Append("  Embedded: ").Append(Embedded).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Offset != null) sb.Append("  Offset: ").Append(Offset).Append("\n");
+            if (Limit != null) sb.Append("  Limit: ").Append(Limit).Append("\n");
+            if (Count != null) sb.Append("  Count: ").Append(Count).Append("\n");
+            if (Total != null) sb.Append("  Total: ").Append(Total).Append("\n");
+            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

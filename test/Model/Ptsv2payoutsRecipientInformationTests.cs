@@ -136,6 +136,46 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PhoneNumber'
         }
+        /// <summary>
+        /// Test the property 'AliasName'
+        /// </summary>
+        [Test]
+        public void AliasNameTest()
+        {
+            // TODO unit test for the property 'AliasName'
+        }
+        /// <summary>
+        /// Test the property 'Nationality'
+        /// </summary>
+        [Test]
+        public void NationalityTest()
+        {
+            // TODO unit test for the property 'Nationality'
+        }
+        /// <summary>
+        /// Test the property 'CountryOfBirth'
+        /// </summary>
+        [Test]
+        public void CountryOfBirthTest()
+        {
+            // TODO unit test for the property 'CountryOfBirth'
+        }
+        /// <summary>
+        /// Test the property 'Occupation'
+        /// </summary>
+        [Test]
+        public void OccupationTest()
+        {
+            // TODO unit test for the property 'Occupation'
+        }
+        /// <summary>
+        /// Test the property 'Email'
+        /// </summary>
+        [Test]
+        public void EmailTest()
+        {
+            // TODO unit test for the property 'Email'
+        }
 
     }
 

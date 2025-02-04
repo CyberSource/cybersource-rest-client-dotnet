@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsProcessorInformationCardVerification {\n");
-            sb.Append("  ResultCode: ").Append(ResultCode).Append("\n");
+            if (ResultCode != null) sb.Append("  ResultCode: ").Append(ResultCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

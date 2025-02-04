@@ -126,15 +126,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardProcessingConfigCommonMerchantDescriptorInformation {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  City: ").Append(City).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  Phone: ").Append(Phone).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
-            sb.Append("  Street: ").Append(Street).Append("\n");
-            sb.Append("  Zip: ").Append(Zip).Append("\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
-            sb.Append("  CountryOfOrigin: ").Append(CountryOfOrigin).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (City != null) sb.Append("  City: ").Append(City).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (Phone != null) sb.Append("  Phone: ").Append(Phone).Append("\n");
+            if (State != null) sb.Append("  State: ").Append(State).Append("\n");
+            if (Street != null) sb.Append("  Street: ").Append(Street).Append("\n");
+            if (Zip != null) sb.Append("  Zip: ").Append(Zip).Append("\n");
+            if (Url != null) sb.Append("  Url: ").Append(Url).Append("\n");
+            if (CountryOfOrigin != null) sb.Append("  CountryOfOrigin: ").Append(CountryOfOrigin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -142,16 +142,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Invoicingv2invoiceSettingsInvoiceSettingsInformation {\n");
-            sb.Append("  MerchantLogo: ").Append(MerchantLogo).Append("\n");
-            sb.Append("  MerchantDisplayName: ").Append(MerchantDisplayName).Append("\n");
-            sb.Append("  CustomEmailMessage: ").Append(CustomEmailMessage).Append("\n");
-            sb.Append("  EnableReminders: ").Append(EnableReminders).Append("\n");
-            sb.Append("  HeaderStyle: ").Append(HeaderStyle).Append("\n");
-            sb.Append("  DeliveryLanguage: ").Append(DeliveryLanguage).Append("\n");
-            sb.Append("  DefaultCurrencyCode: ").Append(DefaultCurrencyCode).Append("\n");
-            sb.Append("  PayerAuthenticationInInvoicing: ").Append(PayerAuthenticationInInvoicing).Append("\n");
-            sb.Append("  ShowVatNumber: ").Append(ShowVatNumber).Append("\n");
-            sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            if (MerchantLogo != null) sb.Append("  MerchantLogo: ").Append(MerchantLogo).Append("\n");
+            if (MerchantDisplayName != null) sb.Append("  MerchantDisplayName: ").Append(MerchantDisplayName).Append("\n");
+            if (CustomEmailMessage != null) sb.Append("  CustomEmailMessage: ").Append(CustomEmailMessage).Append("\n");
+            if (EnableReminders != null) sb.Append("  EnableReminders: ").Append(EnableReminders).Append("\n");
+            if (HeaderStyle != null) sb.Append("  HeaderStyle: ").Append(HeaderStyle).Append("\n");
+            if (DeliveryLanguage != null) sb.Append("  DeliveryLanguage: ").Append(DeliveryLanguage).Append("\n");
+            if (DefaultCurrencyCode != null) sb.Append("  DefaultCurrencyCode: ").Append(DefaultCurrencyCode).Append("\n");
+            if (PayerAuthenticationInInvoicing != null) sb.Append("  PayerAuthenticationInInvoicing: ").Append(PayerAuthenticationInInvoicing).Append("\n");
+            if (ShowVatNumber != null) sb.Append("  ShowVatNumber: ").Append(ShowVatNumber).Append("\n");
+            if (VatRegistrationNumber != null) sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

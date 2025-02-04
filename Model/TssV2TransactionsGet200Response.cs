@@ -63,7 +63,7 @@ namespace CyberSource.Model
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="TokenInformation">TokenInformation.</param>
         /// <param name="Links">Links.</param>
-        public TssV2TransactionsGet200Response(string Id = default(string), string RootId = default(string), string ReconciliationId = default(string), string MerchantId = default(string), string SubmitTimeUTC = default(string), string Status = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsGet200ResponseBuyerInformation BuyerInformation = default(TssV2TransactionsGet200ResponseBuyerInformation), TssV2TransactionsGet200ResponseClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsGet200ResponseClientReferenceInformation), TssV2TransactionsGet200ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformation), TssV2TransactionsGet200ResponseDeviceInformation DeviceInformation = default(TssV2TransactionsGet200ResponseDeviceInformation), TssV2TransactionsGet200ResponseErrorInformation ErrorInformation = default(TssV2TransactionsGet200ResponseErrorInformation), TssV2TransactionsGet200ResponseInstallmentInformation InstallmentInformation = default(TssV2TransactionsGet200ResponseInstallmentInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsGet200ResponseMerchantInformation MerchantInformation = default(TssV2TransactionsGet200ResponseMerchantInformation), TssV2TransactionsGet200ResponseOrderInformation OrderInformation = default(TssV2TransactionsGet200ResponseOrderInformation), TssV2TransactionsGet200ResponsePaymentInformation PaymentInformation = default(TssV2TransactionsGet200ResponsePaymentInformation), PtsV2PaymentsPost201ResponsePaymentInsightsInformation PaymentInsightsInformation = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformation), TssV2TransactionsGet200ResponsePayoutOptions PayoutOptions = default(TssV2TransactionsGet200ResponsePayoutOptions), TssV2TransactionsGet200ResponseUnscheduledPaymentInformation UnscheduledPaymentInformation = default(TssV2TransactionsGet200ResponseUnscheduledPaymentInformation), TssV2TransactionsGet200ResponseProcessingInformation ProcessingInformation = default(TssV2TransactionsGet200ResponseProcessingInformation), TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation = default(TssV2TransactionsGet200ResponseProcessorInformation), TssV2TransactionsGet200ResponseRecurringPaymentInformation RecurringPaymentInformation = default(TssV2TransactionsGet200ResponseRecurringPaymentInformation), TssV2TransactionsGet200ResponsePointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsGet200ResponsePointOfSaleInformation), TssV2TransactionsGet200ResponseRiskInformation RiskInformation = default(TssV2TransactionsGet200ResponseRiskInformation), TssV2TransactionsGet200ResponseSenderInformation SenderInformation = default(TssV2TransactionsGet200ResponseSenderInformation), TssV2TransactionsGet200ResponseTokenInformation TokenInformation = default(TssV2TransactionsGet200ResponseTokenInformation), TssV2TransactionsGet200ResponseLinks Links = default(TssV2TransactionsGet200ResponseLinks))
+        public TssV2TransactionsGet200Response(string Id = default(string), string RootId = default(string), string ReconciliationId = default(string), string MerchantId = default(string), string SubmitTimeUTC = default(string), string Status = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsGet200ResponseBuyerInformation BuyerInformation = default(TssV2TransactionsGet200ResponseBuyerInformation), TssV2TransactionsGet200ResponseClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsGet200ResponseClientReferenceInformation), TssV2TransactionsGet200ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformation), TssV2TransactionsGet200ResponseDeviceInformation DeviceInformation = default(TssV2TransactionsGet200ResponseDeviceInformation), TssV2TransactionsGet200ResponseErrorInformation ErrorInformation = default(TssV2TransactionsGet200ResponseErrorInformation), TssV2TransactionsGet200ResponseInstallmentInformation InstallmentInformation = default(TssV2TransactionsGet200ResponseInstallmentInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsGet200ResponseMerchantInformation MerchantInformation = default(TssV2TransactionsGet200ResponseMerchantInformation), TssV2TransactionsGet200ResponseOrderInformation OrderInformation = default(TssV2TransactionsGet200ResponseOrderInformation), TssV2TransactionsGet200ResponsePaymentInformation PaymentInformation = default(TssV2TransactionsGet200ResponsePaymentInformation), PtsV2PaymentsPost201ResponsePaymentInsightsInformation PaymentInsightsInformation = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformation), TssV2TransactionsGet200ResponsePayoutOptions PayoutOptions = default(TssV2TransactionsGet200ResponsePayoutOptions), Ptsv2paymentsUnscheduledPaymentInformation UnscheduledPaymentInformation = default(Ptsv2paymentsUnscheduledPaymentInformation), TssV2TransactionsGet200ResponseProcessingInformation ProcessingInformation = default(TssV2TransactionsGet200ResponseProcessingInformation), TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation = default(TssV2TransactionsGet200ResponseProcessorInformation), TssV2TransactionsGet200ResponseRecurringPaymentInformation RecurringPaymentInformation = default(TssV2TransactionsGet200ResponseRecurringPaymentInformation), TssV2TransactionsGet200ResponsePointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsGet200ResponsePointOfSaleInformation), TssV2TransactionsGet200ResponseRiskInformation RiskInformation = default(TssV2TransactionsGet200ResponseRiskInformation), TssV2TransactionsGet200ResponseSenderInformation SenderInformation = default(TssV2TransactionsGet200ResponseSenderInformation), TssV2TransactionsGet200ResponseTokenInformation TokenInformation = default(TssV2TransactionsGet200ResponseTokenInformation), TssV2TransactionsGet200ResponseLinks Links = default(TssV2TransactionsGet200ResponseLinks))
         {
             this.Id = Id;
             this.RootId = RootId;
@@ -234,7 +234,7 @@ namespace CyberSource.Model
         /// Gets or Sets UnscheduledPaymentInformation
         /// </summary>
         [DataMember(Name="unscheduledPaymentInformation", EmitDefaultValue=false)]
-        public TssV2TransactionsGet200ResponseUnscheduledPaymentInformation UnscheduledPaymentInformation { get; set; }
+        public Ptsv2paymentsUnscheduledPaymentInformation UnscheduledPaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation
@@ -292,36 +292,36 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200Response {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  RootId: ").Append(RootId).Append("\n");
-            sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
-            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
-            sb.Append("  SubmitTimeUTC: ").Append(SubmitTimeUTC).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  ApplicationInformation: ").Append(ApplicationInformation).Append("\n");
-            sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
-            sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
-            sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
-            sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
-            sb.Append("  FraudMarkingInformation: ").Append(FraudMarkingInformation).Append("\n");
-            sb.Append("  HealthCareInformation: ").Append(HealthCareInformation).Append("\n");
-            sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
-            sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
-            sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
-            sb.Append("  PaymentInsightsInformation: ").Append(PaymentInsightsInformation).Append("\n");
-            sb.Append("  PayoutOptions: ").Append(PayoutOptions).Append("\n");
-            sb.Append("  UnscheduledPaymentInformation: ").Append(UnscheduledPaymentInformation).Append("\n");
-            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
-            sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
-            sb.Append("  RecurringPaymentInformation: ").Append(RecurringPaymentInformation).Append("\n");
-            sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
-            sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
-            sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
-            sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (RootId != null) sb.Append("  RootId: ").Append(RootId).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            if (SubmitTimeUTC != null) sb.Append("  SubmitTimeUTC: ").Append(SubmitTimeUTC).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (ApplicationInformation != null) sb.Append("  ApplicationInformation: ").Append(ApplicationInformation).Append("\n");
+            if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (ConsumerAuthenticationInformation != null) sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
+            if (DeviceInformation != null) sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
+            if (ErrorInformation != null) sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
+            if (InstallmentInformation != null) sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
+            if (FraudMarkingInformation != null) sb.Append("  FraudMarkingInformation: ").Append(FraudMarkingInformation).Append("\n");
+            if (HealthCareInformation != null) sb.Append("  HealthCareInformation: ").Append(HealthCareInformation).Append("\n");
+            if (MerchantDefinedInformation != null) sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
+            if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            if (PaymentInsightsInformation != null) sb.Append("  PaymentInsightsInformation: ").Append(PaymentInsightsInformation).Append("\n");
+            if (PayoutOptions != null) sb.Append("  PayoutOptions: ").Append(PayoutOptions).Append("\n");
+            if (UnscheduledPaymentInformation != null) sb.Append("  UnscheduledPaymentInformation: ").Append(UnscheduledPaymentInformation).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
+            if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
+            if (RecurringPaymentInformation != null) sb.Append("  RecurringPaymentInformation: ").Append(RecurringPaymentInformation).Append("\n");
+            if (PointOfSaleInformation != null) sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
+            if (RiskInformation != null) sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
+            if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
+            if (TokenInformation != null) sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

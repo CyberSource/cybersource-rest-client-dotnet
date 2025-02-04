@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PushFunds201ResponseProcessingInformationDomesticNationalNet {\n");
-            sb.Append("  ReimbursementFeeBaseAmount: ").Append(ReimbursementFeeBaseAmount).Append("\n");
+            if (ReimbursementFeeBaseAmount != null) sb.Append("  ReimbursementFeeBaseAmount: ").Append(ReimbursementFeeBaseAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

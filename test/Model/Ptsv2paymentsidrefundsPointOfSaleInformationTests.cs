@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Emv'
         }
+        /// <summary>
+        /// Test the property 'TerminalCategory'
+        /// </summary>
+        [Test]
+        public void TerminalCategoryTest()
+        {
+            // TODO unit test for the property 'TerminalCategory'
+        }
 
     }
 

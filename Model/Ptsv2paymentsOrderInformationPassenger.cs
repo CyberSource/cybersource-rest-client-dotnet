@@ -117,14 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsOrderInformationPassenger {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Phone: ").Append(Phone).Append("\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  Nationality: ").Append(Nationality).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (Phone != null) sb.Append("  Phone: ").Append(Phone).Append("\n");
+            if (FirstName != null) sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            if (LastName != null) sb.Append("  LastName: ").Append(LastName).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
+            if (Nationality != null) sb.Append("  Nationality: ").Append(Nationality).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

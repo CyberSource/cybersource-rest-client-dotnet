@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Tmsv2TokenizedCardMetadata
+    /// Metadata associated with the tokenized card. 
     /// </summary>
     [DataContract]
     public partial class Tmsv2TokenizedCardMetadata :  IEquatable<Tmsv2TokenizedCardMetadata>, IValidatableObject
@@ -34,16 +34,24 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Tmsv2TokenizedCardMetadata" /> class.
         /// </summary>
         /// <param name="CardArt">CardArt.</param>
-        public Tmsv2TokenizedCardMetadata(Tmsv2TokenizedCardMetadataCardArt CardArt = default(Tmsv2TokenizedCardMetadataCardArt))
+        /// <param name="Issuer">Issuer.</param>
+        public Tmsv2TokenizedCardMetadata(TmsCardArt CardArt = default(TmsCardArt), Tmsv2TokenizedCardMetadataIssuer Issuer = default(Tmsv2TokenizedCardMetadataIssuer))
         {
             this.CardArt = CardArt;
+            this.Issuer = Issuer;
         }
         
         /// <summary>
         /// Gets or Sets CardArt
         /// </summary>
         [DataMember(Name="cardArt", EmitDefaultValue=false)]
-        public Tmsv2TokenizedCardMetadataCardArt CardArt { get; set; }
+        public TmsCardArt CardArt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Issuer
+        /// </summary>
+        [DataMember(Name="issuer", EmitDefaultValue=false)]
+        public Tmsv2TokenizedCardMetadataIssuer Issuer { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,7 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2TokenizedCardMetadata {\n");
-            sb.Append("  CardArt: ").Append(CardArt).Append("\n");
+            if (CardArt != null) sb.Append("  CardArt: ").Append(CardArt).Append("\n");
+            if (Issuer != null) sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +103,11 @@ namespace CyberSource.Model
                     this.CardArt == other.CardArt ||
                     this.CardArt != null &&
                     this.CardArt.Equals(other.CardArt)
+                ) && 
+                (
+                    this.Issuer == other.Issuer ||
+                    this.Issuer != null &&
+                    this.Issuer.Equals(other.Issuer)
                 );
         }
 
@@ -110,6 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.CardArt != null)
                     hash = hash * 59 + this.CardArt.GetHashCode();
+                if (this.Issuer != null)
+                    hash = hash * 59 + this.Issuer.GetHashCode();
                 return hash;
             }
         }

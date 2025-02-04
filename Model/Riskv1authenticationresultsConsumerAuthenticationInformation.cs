@@ -122,14 +122,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationresultsConsumerAuthenticationInformation {\n");
-            sb.Append("  AuthenticationTransactionId: ").Append(AuthenticationTransactionId).Append("\n");
-            sb.Append("  AuthenticationTransactionContext: ").Append(AuthenticationTransactionContext).Append("\n");
-            sb.Append("  OtpToken: ").Append(OtpToken).Append("\n");
-            sb.Append("  ResponseAccessToken: ").Append(ResponseAccessToken).Append("\n");
-            sb.Append("  SignedParesStatusReason: ").Append(SignedParesStatusReason).Append("\n");
-            sb.Append("  SignedPares: ").Append(SignedPares).Append("\n");
-            sb.Append("  WhiteListStatus: ").Append(WhiteListStatus).Append("\n");
-            sb.Append("  CredentialEncrypted: ").Append(CredentialEncrypted).Append("\n");
+            if (AuthenticationTransactionId != null) sb.Append("  AuthenticationTransactionId: ").Append(AuthenticationTransactionId).Append("\n");
+            if (AuthenticationTransactionContext != null) sb.Append("  AuthenticationTransactionContext: ").Append(AuthenticationTransactionContext).Append("\n");
+            if (OtpToken != null) sb.Append("  OtpToken: ").Append(OtpToken).Append("\n");
+            if (ResponseAccessToken != null) sb.Append("  ResponseAccessToken: ").Append(ResponseAccessToken).Append("\n");
+            if (SignedParesStatusReason != null) sb.Append("  SignedParesStatusReason: ").Append(SignedParesStatusReason).Append("\n");
+            if (SignedPares != null) sb.Append("  SignedPares: ").Append(SignedPares).Append("\n");
+            if (WhiteListStatus != null) sb.Append("  WhiteListStatus: ").Append(WhiteListStatus).Append("\n");
+            if (CredentialEncrypted != null) sb.Append("  CredentialEncrypted: ").Append(CredentialEncrypted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -149,17 +149,17 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsRecurringPaymentInformation {\n");
-            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
-            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
-            sb.Append("  NumberOfPayments: ").Append(NumberOfPayments).Append("\n");
-            sb.Append("  OriginalPurchaseDate: ").Append(OriginalPurchaseDate).Append("\n");
-            sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Occurrence: ").Append(Occurrence).Append("\n");
-            sb.Append("  ValidationIndicator: ").Append(ValidationIndicator).Append("\n");
-            sb.Append("  AmountType: ").Append(AmountType).Append("\n");
-            sb.Append("  MaximumAmount: ").Append(MaximumAmount).Append("\n");
-            sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
+            if (EndDate != null) sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+            if (Frequency != null) sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            if (NumberOfPayments != null) sb.Append("  NumberOfPayments: ").Append(NumberOfPayments).Append("\n");
+            if (OriginalPurchaseDate != null) sb.Append("  OriginalPurchaseDate: ").Append(OriginalPurchaseDate).Append("\n");
+            if (SequenceNumber != null) sb.Append("  SequenceNumber: ").Append(SequenceNumber).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Occurrence != null) sb.Append("  Occurrence: ").Append(Occurrence).Append("\n");
+            if (ValidationIndicator != null) sb.Append("  ValidationIndicator: ").Append(ValidationIndicator).Append("\n");
+            if (AmountType != null) sb.Append("  AmountType: ").Append(AmountType).Append("\n");
+            if (MaximumAmount != null) sb.Append("  MaximumAmount: ").Append(MaximumAmount).Append("\n");
+            if (ReferenceNumber != null) sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

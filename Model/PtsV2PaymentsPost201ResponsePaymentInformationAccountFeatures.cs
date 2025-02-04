@@ -51,7 +51,8 @@ namespace CyberSource.Model
         /// <param name="SignatureDebit">Indicates whether the card is a signature debit card.  This information enables you to alter the way an order is processed. For example, you might not want to reauthorize a transaction for a signature debit card, or you might want to perform reversals promptly for a signature debit card. This field is supported for Visa, Mastercard, and Maestro (International) on Chase Paymentech Solutions. Possible values:   - &#x60;Y&#x60;: Yes  - &#x60;N&#x60;: No  - &#x60;X&#x60;: Not applicable / Unknown .</param>
         /// <param name="Prepaid">Indicates whether the card is a prepaid card. This information enables you to determine when a gift card or prepaid card is presented for use when establishing a new recurring, installment, or deferred billing relationship.  This field is supported for Visa, Mastercard, Discover, Diners Club, and JCB on Chase Paymentech Solutions. Possible values:   - &#x60;Y&#x60;: Yes  - &#x60;N&#x60;: No  - &#x60;X&#x60;: Not applicable / Unknown .</param>
         /// <param name="Regulated">Indicates whether the card is regulated according to the Durbin Amendment. If the card is regulated, the card issuer is subject to price caps and interchange rules. This field is supported for Visa, Mastercard, Discover, Diners Club, and JCB on Chase Paymentech Solutions. Possible values:   - &#x60;Y&#x60;: Yes  - &#x60;N&#x60;: No  - &#x60;X&#x60;: Not applicable / Unknown .</param>
-        public PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures(string AccountType = default(string), string AccountStatus = default(string), List<PtsV2PaymentsPost201ResponsePaymentInformationAccountFeaturesBalances> Balances = default(List<PtsV2PaymentsPost201ResponsePaymentInformationAccountFeaturesBalances>), string BalanceAmount = default(string), string BalanceAmountType = default(string), string Currency = default(string), string BalanceSign = default(string), string AffluenceIndicator = default(string), string Category = default(string), string Commercial = default(string), string Group = default(string), string HealthCare = default(string), string Payroll = default(string), string Level3Eligible = default(string), string PinlessDebit = default(string), string SignatureDebit = default(string), string Prepaid = default(string), string Regulated = default(string))
+        /// <param name="AccountHolderType">This is the account owner information, valid values are: - &#x60;01&#x60; : primary account holder - &#x60;02&#x60; : secondary account holder This is returned in the response of an account verification transaction by the Issuer.  .</param>
+        public PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures(string AccountType = default(string), string AccountStatus = default(string), List<PtsV2PaymentsPost201ResponsePaymentInformationAccountFeaturesBalances> Balances = default(List<PtsV2PaymentsPost201ResponsePaymentInformationAccountFeaturesBalances>), string BalanceAmount = default(string), string BalanceAmountType = default(string), string Currency = default(string), string BalanceSign = default(string), string AffluenceIndicator = default(string), string Category = default(string), string Commercial = default(string), string Group = default(string), string HealthCare = default(string), string Payroll = default(string), string Level3Eligible = default(string), string PinlessDebit = default(string), string SignatureDebit = default(string), string Prepaid = default(string), string Regulated = default(string), string AccountHolderType = default(string))
         {
             this.AccountType = AccountType;
             this.AccountStatus = AccountStatus;
@@ -71,6 +72,7 @@ namespace CyberSource.Model
             this.SignatureDebit = SignatureDebit;
             this.Prepaid = Prepaid;
             this.Regulated = Regulated;
+            this.AccountHolderType = AccountHolderType;
         }
         
         /// <summary>
@@ -200,6 +202,13 @@ namespace CyberSource.Model
         public string Regulated { get; set; }
 
         /// <summary>
+        /// This is the account owner information, valid values are: - &#x60;01&#x60; : primary account holder - &#x60;02&#x60; : secondary account holder This is returned in the response of an account verification transaction by the Issuer.  
+        /// </summary>
+        /// <value>This is the account owner information, valid values are: - &#x60;01&#x60; : primary account holder - &#x60;02&#x60; : secondary account holder This is returned in the response of an account verification transaction by the Issuer.  </value>
+        [DataMember(Name="accountHolderType", EmitDefaultValue=false)]
+        public string AccountHolderType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -207,24 +216,25 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures {\n");
-            sb.Append("  AccountType: ").Append(AccountType).Append("\n");
-            sb.Append("  AccountStatus: ").Append(AccountStatus).Append("\n");
-            sb.Append("  Balances: ").Append(Balances).Append("\n");
-            sb.Append("  BalanceAmount: ").Append(BalanceAmount).Append("\n");
-            sb.Append("  BalanceAmountType: ").Append(BalanceAmountType).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  BalanceSign: ").Append(BalanceSign).Append("\n");
-            sb.Append("  AffluenceIndicator: ").Append(AffluenceIndicator).Append("\n");
-            sb.Append("  Category: ").Append(Category).Append("\n");
-            sb.Append("  Commercial: ").Append(Commercial).Append("\n");
-            sb.Append("  Group: ").Append(Group).Append("\n");
-            sb.Append("  HealthCare: ").Append(HealthCare).Append("\n");
-            sb.Append("  Payroll: ").Append(Payroll).Append("\n");
-            sb.Append("  Level3Eligible: ").Append(Level3Eligible).Append("\n");
-            sb.Append("  PinlessDebit: ").Append(PinlessDebit).Append("\n");
-            sb.Append("  SignatureDebit: ").Append(SignatureDebit).Append("\n");
-            sb.Append("  Prepaid: ").Append(Prepaid).Append("\n");
-            sb.Append("  Regulated: ").Append(Regulated).Append("\n");
+            if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            if (AccountStatus != null) sb.Append("  AccountStatus: ").Append(AccountStatus).Append("\n");
+            if (Balances != null) sb.Append("  Balances: ").Append(Balances).Append("\n");
+            if (BalanceAmount != null) sb.Append("  BalanceAmount: ").Append(BalanceAmount).Append("\n");
+            if (BalanceAmountType != null) sb.Append("  BalanceAmountType: ").Append(BalanceAmountType).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (BalanceSign != null) sb.Append("  BalanceSign: ").Append(BalanceSign).Append("\n");
+            if (AffluenceIndicator != null) sb.Append("  AffluenceIndicator: ").Append(AffluenceIndicator).Append("\n");
+            if (Category != null) sb.Append("  Category: ").Append(Category).Append("\n");
+            if (Commercial != null) sb.Append("  Commercial: ").Append(Commercial).Append("\n");
+            if (Group != null) sb.Append("  Group: ").Append(Group).Append("\n");
+            if (HealthCare != null) sb.Append("  HealthCare: ").Append(HealthCare).Append("\n");
+            if (Payroll != null) sb.Append("  Payroll: ").Append(Payroll).Append("\n");
+            if (Level3Eligible != null) sb.Append("  Level3Eligible: ").Append(Level3Eligible).Append("\n");
+            if (PinlessDebit != null) sb.Append("  PinlessDebit: ").Append(PinlessDebit).Append("\n");
+            if (SignatureDebit != null) sb.Append("  SignatureDebit: ").Append(SignatureDebit).Append("\n");
+            if (Prepaid != null) sb.Append("  Prepaid: ").Append(Prepaid).Append("\n");
+            if (Regulated != null) sb.Append("  Regulated: ").Append(Regulated).Append("\n");
+            if (AccountHolderType != null) sb.Append("  AccountHolderType: ").Append(AccountHolderType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -350,6 +360,11 @@ namespace CyberSource.Model
                     this.Regulated == other.Regulated ||
                     this.Regulated != null &&
                     this.Regulated.Equals(other.Regulated)
+                ) && 
+                (
+                    this.AccountHolderType == other.AccountHolderType ||
+                    this.AccountHolderType != null &&
+                    this.AccountHolderType.Equals(other.AccountHolderType)
                 );
         }
 
@@ -400,6 +415,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Prepaid.GetHashCode();
                 if (this.Regulated != null)
                     hash = hash * 59 + this.Regulated.GetHashCode();
+                if (this.AccountHolderType != null)
+                    hash = hash * 59 + this.AccountHolderType.GetHashCode();
                 return hash;
             }
         }

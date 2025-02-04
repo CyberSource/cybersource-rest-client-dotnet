@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationsetupsProcessingInformation {\n");
-            sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
-            sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
+            if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
+            if (VisaCheckoutId != null) sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

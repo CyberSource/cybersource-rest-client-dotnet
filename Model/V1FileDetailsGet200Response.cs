@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class V1FileDetailsGet200Response {\n");
-            sb.Append("  FileDetails: ").Append(FileDetails).Append("\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
+            if (FileDetails != null) sb.Append("  FileDetails: ").Append(FileDetails).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

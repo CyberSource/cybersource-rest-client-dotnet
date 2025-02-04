@@ -158,19 +158,19 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidcapturesProcessingInformation {\n");
-            sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
-            sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
-            sb.Append("  LinkId: ").Append(LinkId).Append("\n");
-            sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
-            sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
-            sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
-            sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
-            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
-            sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
-            sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
-            sb.Append("  LoanOptions: ").Append(LoanOptions).Append("\n");
-            sb.Append("  PayByPointsIndicator: ").Append(PayByPointsIndicator).Append("\n");
-            sb.Append("  ActionList: ").Append(ActionList).Append("\n");
+            if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (LinkId != null) sb.Append("  LinkId: ").Append(LinkId).Append("\n");
+            if (ReportGroup != null) sb.Append("  ReportGroup: ").Append(ReportGroup).Append("\n");
+            if (VisaCheckoutId != null) sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
+            if (PurchaseLevel != null) sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
+            if (IndustryDataType != null) sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
+            if (Issuer != null) sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
+            if (CaptureOptions != null) sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
+            if (LoanOptions != null) sb.Append("  LoanOptions: ").Append(LoanOptions).Append("\n");
+            if (PayByPointsIndicator != null) sb.Append("  PayByPointsIndicator: ").Append(PayByPointsIndicator).Append("\n");
+            if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

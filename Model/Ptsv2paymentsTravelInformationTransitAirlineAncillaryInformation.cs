@@ -89,11 +89,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation {\n");
-            sb.Append("  TicketNumber: ").Append(TicketNumber).Append("\n");
-            sb.Append("  PassengerName: ").Append(PassengerName).Append("\n");
-            sb.Append("  ConnectedTicketNumber: ").Append(ConnectedTicketNumber).Append("\n");
-            sb.Append("  CreditReasonIndicator: ").Append(CreditReasonIndicator).Append("\n");
-            sb.Append("  Service: ").Append(Service).Append("\n");
+            if (TicketNumber != null) sb.Append("  TicketNumber: ").Append(TicketNumber).Append("\n");
+            if (PassengerName != null) sb.Append("  PassengerName: ").Append(PassengerName).Append("\n");
+            if (ConnectedTicketNumber != null) sb.Append("  ConnectedTicketNumber: ").Append(ConnectedTicketNumber).Append("\n");
+            if (CreditReasonIndicator != null) sb.Append("  CreditReasonIndicator: ").Append(CreditReasonIndicator).Append("\n");
+            if (Service != null) sb.Append("  Service: ").Append(Service).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

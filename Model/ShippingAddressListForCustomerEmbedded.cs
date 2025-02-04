@@ -52,7 +52,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ShippingAddressListForCustomerEmbedded {\n");
-            sb.Append("  ShippingAddresses: ").Append(ShippingAddresses).Append("\n");
+            if (ShippingAddresses != null) sb.Append("  ShippingAddresses: ").Append(ShippingAddresses).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

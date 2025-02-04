@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Vasv2taxOrderInformationInvoiceDetails {\n");
-            sb.Append("  InvoiceDate: ").Append(InvoiceDate).Append("\n");
+            if (InvoiceDate != null) sb.Append("  InvoiceDate: ").Append(InvoiceDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

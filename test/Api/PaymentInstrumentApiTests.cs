@@ -86,7 +86,8 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string paymentInstrumentId = null;
             //string profileId = null;
-            //var response = instance.GetPaymentInstrument(paymentInstrumentId, profileId);
+            //bool? retrieveBinDetails = null;
+            //var response = instance.GetPaymentInstrument(paymentInstrumentId, profileId, retrieveBinDetails);
             //Assert.IsInstanceOf<PostPaymentInstrumentRequest> (response, "response is PostPaymentInstrumentRequest");
         }
         
@@ -100,8 +101,9 @@ namespace CyberSource.Test
             //string paymentInstrumentId = null;
             //PatchPaymentInstrumentRequest patchPaymentInstrumentRequest = null;
             //string profileId = null;
+            //bool? retrieveBinDetails = null;
             //string ifMatch = null;
-            //var response = instance.PatchPaymentInstrument(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, ifMatch);
+            //var response = instance.PatchPaymentInstrument(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, retrieveBinDetails, ifMatch);
             //Assert.IsInstanceOf<PatchPaymentInstrumentRequest> (response, "response is PatchPaymentInstrumentRequest");
         }
         
@@ -114,7 +116,8 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //PostPaymentInstrumentRequest postPaymentInstrumentRequest = null;
             //string profileId = null;
-            //var response = instance.PostPaymentInstrument(postPaymentInstrumentRequest, profileId);
+            //bool? retrieveBinDetails = null;
+            //var response = instance.PostPaymentInstrument(postPaymentInstrumentRequest, profileId, retrieveBinDetails);
             //Assert.IsInstanceOf<PostPaymentInstrumentRequest> (response, "response is PostPaymentInstrumentRequest");
         }
         

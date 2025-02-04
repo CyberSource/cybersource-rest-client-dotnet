@@ -110,14 +110,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UmsV1UsersGet200ResponseAccountInformation {\n");
-            sb.Append("  UserName: ").Append(UserName).Append("\n");
-            sb.Append("  RoleId: ").Append(RoleId).Append("\n");
-            sb.Append("  Permissions: ").Append(Permissions).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  CreatedTime: ").Append(CreatedTime).Append("\n");
-            sb.Append("  LastAccessTime: ").Append(LastAccessTime).Append("\n");
-            sb.Append("  LanguagePreference: ").Append(LanguagePreference).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            if (UserName != null) sb.Append("  UserName: ").Append(UserName).Append("\n");
+            if (RoleId != null) sb.Append("  RoleId: ").Append(RoleId).Append("\n");
+            if (Permissions != null) sb.Append("  Permissions: ").Append(Permissions).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (CreatedTime != null) sb.Append("  CreatedTime: ").Append(CreatedTime).Append("\n");
+            if (LastAccessTime != null) sb.Append("  LastAccessTime: ").Append(LastAccessTime).Append("\n");
+            if (LanguagePreference != null) sb.Append("  LanguagePreference: ").Append(LanguagePreference).Append("\n");
+            if (Timezone != null) sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

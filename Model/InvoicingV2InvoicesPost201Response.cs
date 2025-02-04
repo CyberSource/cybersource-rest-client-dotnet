@@ -104,13 +104,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoicesPost201Response {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  CustomerInformation: ").Append(CustomerInformation).Append("\n");
-            sb.Append("  InvoiceInformation: ").Append(InvoiceInformation).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (CustomerInformation != null) sb.Append("  CustomerInformation: ").Append(CustomerInformation).Append("\n");
+            if (InvoiceInformation != null) sb.Append("  InvoiceInformation: ").Append(InvoiceInformation).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

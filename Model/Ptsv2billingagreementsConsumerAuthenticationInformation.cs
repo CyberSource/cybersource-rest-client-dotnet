@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2billingagreementsConsumerAuthenticationInformation {\n");
-            sb.Append("  AuthenticationTransactionContextId: ").Append(AuthenticationTransactionContextId).Append("\n");
-            sb.Append("  Cavv: ").Append(Cavv).Append("\n");
-            sb.Append("  TransactionToken: ").Append(TransactionToken).Append("\n");
-            sb.Append("  Xid: ").Append(Xid).Append("\n");
+            if (AuthenticationTransactionContextId != null) sb.Append("  AuthenticationTransactionContextId: ").Append(AuthenticationTransactionContextId).Append("\n");
+            if (Cavv != null) sb.Append("  Cavv: ").Append(Cavv).Append("\n");
+            if (TransactionToken != null) sb.Append("  TransactionToken: ").Append(TransactionToken).Append("\n");
+            if (Xid != null) sb.Append("  Xid: ").Append(Xid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Binv1binlookupTokenInformation {\n");
-            sb.Append("  Jti: ").Append(Jti).Append("\n");
-            sb.Append("  TransientTokenJwt: ").Append(TransientTokenJwt).Append("\n");
+            if (Jti != null) sb.Append("  Jti: ").Append(Jti).Append("\n");
+            if (TransientTokenJwt != null) sb.Append("  TransientTokenJwt: ").Append(TransientTokenJwt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

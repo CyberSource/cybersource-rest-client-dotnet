@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Vasv2taxTaxInformation {\n");
-            sb.Append("  ReportingDate: ").Append(ReportingDate).Append("\n");
-            sb.Append("  DateOverrideReason: ").Append(DateOverrideReason).Append("\n");
-            sb.Append("  Nexus: ").Append(Nexus).Append("\n");
-            sb.Append("  NoNexus: ").Append(NoNexus).Append("\n");
-            sb.Append("  ShowTaxPerLineItem: ").Append(ShowTaxPerLineItem).Append("\n");
-            sb.Append("  CommitIndicator: ").Append(CommitIndicator).Append("\n");
-            sb.Append("  RefundIndicator: ").Append(RefundIndicator).Append("\n");
+            if (ReportingDate != null) sb.Append("  ReportingDate: ").Append(ReportingDate).Append("\n");
+            if (DateOverrideReason != null) sb.Append("  DateOverrideReason: ").Append(DateOverrideReason).Append("\n");
+            if (Nexus != null) sb.Append("  Nexus: ").Append(Nexus).Append("\n");
+            if (NoNexus != null) sb.Append("  NoNexus: ").Append(NoNexus).Append("\n");
+            if (ShowTaxPerLineItem != null) sb.Append("  ShowTaxPerLineItem: ").Append(ShowTaxPerLineItem).Append("\n");
+            if (CommitIndicator != null) sb.Append("  CommitIndicator: ").Append(CommitIndicator).Append("\n");
+            if (RefundIndicator != null) sb.Append("  RefundIndicator: ").Append(RefundIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -33,48 +33,80 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2TokenizedCard" /> class.
         /// </summary>
+        /// <param name="Links">Links.</param>
+        /// <param name="AccountReferenceId">An identifier provided by the issuer for the account. .</param>
+        /// <param name="ConsumerId">Identifier of the consumer within the wallet. Maximum 24 characters for VTS..</param>
+        /// <param name="CreateInstrumentIdentifier">Specifies whether the InstrumentId should be created (true) or not (false). Possible Values: - &#x60;true&#x60;: The InstrumentId should be created. - &#x60;false&#x60;: The InstrumentId should be created. .</param>
+        /// <param name="Source">Source of the payment instrument. Possible Values: - ONFILE - TOKEN - ISSUER .</param>
         /// <param name="Card">Card.</param>
+        /// <param name="Passcode">Passcode.</param>
         /// <param name="Metadata">Metadata.</param>
-        public Tmsv2TokenizedCard(Tmsv2TokenizedCardCard Card = default(Tmsv2TokenizedCardCard), Tmsv2TokenizedCardMetadata Metadata = default(Tmsv2TokenizedCardMetadata))
+        public Tmsv2TokenizedCard(Tmsv2TokenizedCardLinks Links = default(Tmsv2TokenizedCardLinks), string AccountReferenceId = default(string), string ConsumerId = default(string), bool? CreateInstrumentIdentifier = default(bool?), string Source = default(string), Tmsv2TokenizedCardCard Card = default(Tmsv2TokenizedCardCard), Tmsv2TokenizedCardPasscode Passcode = default(Tmsv2TokenizedCardPasscode), Tmsv2TokenizedCardMetadata Metadata = default(Tmsv2TokenizedCardMetadata))
         {
+            this.Links = Links;
+            this.AccountReferenceId = AccountReferenceId;
+            this.ConsumerId = ConsumerId;
+            this.CreateInstrumentIdentifier = CreateInstrumentIdentifier;
+            this.Source = Source;
             this.Card = Card;
+            this.Passcode = Passcode;
             this.Metadata = Metadata;
         }
         
         /// <summary>
-        /// The network token card association brand Possible Values: - visa - mastercard - americanexpress 
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>The network token card association brand Possible Values: - visa - mastercard - americanexpress </value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; private set; }
+        [DataMember(Name="_links", EmitDefaultValue=false)]
+        public Tmsv2TokenizedCardLinks Links { get; set; }
 
         /// <summary>
-        /// This enumeration value indicates the origin of the payment instrument (PAN) and the technique employed to supply the payment instrument data. Possible Values: - TOKEN - ISSUER - ONFILE 
+        /// The Id of the Tokenized Card. 
         /// </summary>
-        /// <value>This enumeration value indicates the origin of the payment instrument (PAN) and the technique employed to supply the payment instrument data. Possible Values: - TOKEN - ISSUER - ONFILE </value>
+        /// <value>The Id of the Tokenized Card. </value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; private set; }
+
+        /// <summary>
+        /// The type. Possible Values: - tokenizedCard 
+        /// </summary>
+        /// <value>The type. Possible Values: - tokenizedCard </value>
+        [DataMember(Name="object", EmitDefaultValue=false)]
+        public string Object { get; private set; }
+
+        /// <summary>
+        /// An identifier provided by the issuer for the account. 
+        /// </summary>
+        /// <value>An identifier provided by the issuer for the account. </value>
+        [DataMember(Name="accountReferenceId", EmitDefaultValue=false)]
+        public string AccountReferenceId { get; set; }
+
+        /// <summary>
+        /// Identifier of the consumer within the wallet. Maximum 24 characters for VTS.
+        /// </summary>
+        /// <value>Identifier of the consumer within the wallet. Maximum 24 characters for VTS.</value>
+        [DataMember(Name="consumerId", EmitDefaultValue=false)]
+        public string ConsumerId { get; set; }
+
+        /// <summary>
+        /// Specifies whether the InstrumentId should be created (true) or not (false). Possible Values: - &#x60;true&#x60;: The InstrumentId should be created. - &#x60;false&#x60;: The InstrumentId should be created. 
+        /// </summary>
+        /// <value>Specifies whether the InstrumentId should be created (true) or not (false). Possible Values: - &#x60;true&#x60;: The InstrumentId should be created. - &#x60;false&#x60;: The InstrumentId should be created. </value>
+        [DataMember(Name="createInstrumentIdentifier", EmitDefaultValue=false)]
+        public bool? CreateInstrumentIdentifier { get; set; }
+
+        /// <summary>
+        /// Source of the payment instrument. Possible Values: - ONFILE - TOKEN - ISSUER 
+        /// </summary>
+        /// <value>Source of the payment instrument. Possible Values: - ONFILE - TOKEN - ISSUER </value>
         [DataMember(Name="source", EmitDefaultValue=false)]
-        public string Source { get; private set; }
+        public string Source { get; set; }
 
         /// <summary>
-        /// State of the network token or network token provision Possible Values: - ACTIVE : Network token is active. - SUSPENDED : Network token is suspended. This state can change back to ACTIVE. - DELETED : This is a final state for a network token instance. - UNPROVISIONED : A previous network token provision was unsuccessful. 
+        /// State of the network token or network token provision. Possible Values:   ACTIVE : Network token is active.   SUSPENDED : Network token is suspended. This state can change back to ACTIVE.   DELETED : This is a final state for a network token instance.   UNPROVISIONED : A previous network token. 
         /// </summary>
-        /// <value>State of the network token or network token provision Possible Values: - ACTIVE : Network token is active. - SUSPENDED : Network token is suspended. This state can change back to ACTIVE. - DELETED : This is a final state for a network token instance. - UNPROVISIONED : A previous network token provision was unsuccessful. </value>
+        /// <value>State of the network token or network token provision. Possible Values:   ACTIVE : Network token is active.   SUSPENDED : Network token is suspended. This state can change back to ACTIVE.   DELETED : This is a final state for a network token instance.   UNPROVISIONED : A previous network token. </value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; private set; }
-
-        /// <summary>
-        /// Unique Identifier for the enrolled PAN. This Id is provided by the card association when a network token is provisioned successfully. 
-        /// </summary>
-        /// <value>Unique Identifier for the enrolled PAN. This Id is provided by the card association when a network token is provisioned successfully. </value>
-        [DataMember(Name="enrollmentId", EmitDefaultValue=false)]
-        public string EnrollmentId { get; private set; }
-
-        /// <summary>
-        /// Unique Identifier for the network token. This Id is provided by the card association when a network token is provisioned successfully. 
-        /// </summary>
-        /// <value>Unique Identifier for the network token. This Id is provided by the card association when a network token is provisioned successfully. </value>
-        [DataMember(Name="tokenReferenceId", EmitDefaultValue=false)]
-        public string TokenReferenceId { get; private set; }
 
         /// <summary>
         /// Issuers state for the network token Possible Values: - INVALID_REQUEST : The network token provision request contained invalid data. - CARD_VERIFICATION_FAILED : The network token provision request contained data that could not be verified. - CARD_NOT_ELIGIBLE : Card can currently not be used with issuer for tokenization. - CARD_NOT_ALLOWED : Card can currently not be used with card association for tokenization. - DECLINED : Card can currently not be used with issuer for tokenization. - SERVICE_UNAVAILABLE : The network token service was unavailable or timed out. - SYSTEM_ERROR : An unexpected error occurred with network token service, check configuration. 
@@ -84,38 +116,72 @@ namespace CyberSource.Model
         public string Reason { get; private set; }
 
         /// <summary>
-        /// The token requestors network token 
+        /// The token requestor&#39;s network token for the provided PAN and consumer Id, if available. 
         /// </summary>
-        /// <value>The token requestors network token </value>
+        /// <value>The token requestor&#39;s network token for the provided PAN and consumer Id, if available. </value>
         [DataMember(Name="number", EmitDefaultValue=false)]
         public string Number { get; private set; }
 
         /// <summary>
-        /// Two-digit month in which the network token expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. 
+        /// Value generated by the card association to be used alongside the network token for processing a payment. 
         /// </summary>
-        /// <value>Two-digit month in which the network token expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. </value>
-        [DataMember(Name="expirationMonth", EmitDefaultValue=false)]
-        public string ExpirationMonth { get; private set; }
-
-        /// <summary>
-        /// Four-digit year in which the network token expires.  Format: &#x60;YYYY&#x60;. 
-        /// </summary>
-        /// <value>Four-digit year in which the network token expires.  Format: &#x60;YYYY&#x60;. </value>
-        [DataMember(Name="expirationYear", EmitDefaultValue=false)]
-        public string ExpirationYear { get; private set; }
-
-        /// <summary>
-        /// Generated value used in conjunction with the network token for making a payment. 
-        /// </summary>
-        /// <value>Generated value used in conjunction with the network token for making a payment. </value>
+        /// <value>Value generated by the card association to be used alongside the network token for processing a payment. </value>
         [DataMember(Name="cryptogram", EmitDefaultValue=false)]
         public string Cryptogram { get; private set; }
+
+        /// <summary>
+        /// 4-digit number generated by the card association to be used alogside the network token for processing a payment. Only supported for Amex and SCOF. 
+        /// </summary>
+        /// <value>4-digit number generated by the card association to be used alogside the network token for processing a payment. Only supported for Amex and SCOF. </value>
+        [DataMember(Name="securityCode", EmitDefaultValue=false)]
+        public string SecurityCode { get; private set; }
+
+        /// <summary>
+        /// Raw Electronic Commerce Indicator provided by the card association with the result of the cardholder authentication. 
+        /// </summary>
+        /// <value>Raw Electronic Commerce Indicator provided by the card association with the result of the cardholder authentication. </value>
+        [DataMember(Name="eci", EmitDefaultValue=false)]
+        public string Eci { get; private set; }
+
+        /// <summary>
+        /// 11-digit identifier that uniquely identifies the Token Requestor. 
+        /// </summary>
+        /// <value>11-digit identifier that uniquely identifies the Token Requestor. </value>
+        [DataMember(Name="requestorId", EmitDefaultValue=false)]
+        public string RequestorId { get; private set; }
+
+        /// <summary>
+        /// Unique id to identify this PAN/ enrollment. 
+        /// </summary>
+        /// <value>Unique id to identify this PAN/ enrollment. </value>
+        [DataMember(Name="enrollmentId", EmitDefaultValue=false)]
+        public string EnrollmentId { get; private set; }
+
+        /// <summary>
+        /// Unique ID for netwrok token. 
+        /// </summary>
+        /// <value>Unique ID for netwrok token. </value>
+        [DataMember(Name="tokenReferenceId", EmitDefaultValue=false)]
+        public string TokenReferenceId { get; private set; }
+
+        /// <summary>
+        /// Payment account reference. 
+        /// </summary>
+        /// <value>Payment account reference. </value>
+        [DataMember(Name="paymentAccountReference", EmitDefaultValue=false)]
+        public string PaymentAccountReference { get; private set; }
 
         /// <summary>
         /// Gets or Sets Card
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
         public Tmsv2TokenizedCardCard Card { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Passcode
+        /// </summary>
+        [DataMember(Name="passcode", EmitDefaultValue=false)]
+        public Tmsv2TokenizedCardPasscode Passcode { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
@@ -131,18 +197,26 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2TokenizedCard {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
-            sb.Append("  EnrollmentId: ").Append(EnrollmentId).Append("\n");
-            sb.Append("  TokenReferenceId: ").Append(TokenReferenceId).Append("\n");
-            sb.Append("  Reason: ").Append(Reason).Append("\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
-            sb.Append("  ExpirationMonth: ").Append(ExpirationMonth).Append("\n");
-            sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
-            sb.Append("  Cryptogram: ").Append(Cryptogram).Append("\n");
-            sb.Append("  Card: ").Append(Card).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (Object != null) sb.Append("  Object: ").Append(Object).Append("\n");
+            if (AccountReferenceId != null) sb.Append("  AccountReferenceId: ").Append(AccountReferenceId).Append("\n");
+            if (ConsumerId != null) sb.Append("  ConsumerId: ").Append(ConsumerId).Append("\n");
+            if (CreateInstrumentIdentifier != null) sb.Append("  CreateInstrumentIdentifier: ").Append(CreateInstrumentIdentifier).Append("\n");
+            if (Source != null) sb.Append("  Source: ").Append(Source).Append("\n");
+            if (State != null) sb.Append("  State: ").Append(State).Append("\n");
+            if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
+            if (Number != null) sb.Append("  Number: ").Append(Number).Append("\n");
+            if (Cryptogram != null) sb.Append("  Cryptogram: ").Append(Cryptogram).Append("\n");
+            if (SecurityCode != null) sb.Append("  SecurityCode: ").Append(SecurityCode).Append("\n");
+            if (Eci != null) sb.Append("  Eci: ").Append(Eci).Append("\n");
+            if (RequestorId != null) sb.Append("  RequestorId: ").Append(RequestorId).Append("\n");
+            if (EnrollmentId != null) sb.Append("  EnrollmentId: ").Append(EnrollmentId).Append("\n");
+            if (TokenReferenceId != null) sb.Append("  TokenReferenceId: ").Append(TokenReferenceId).Append("\n");
+            if (PaymentAccountReference != null) sb.Append("  PaymentAccountReference: ").Append(PaymentAccountReference).Append("\n");
+            if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
+            if (Passcode != null) sb.Append("  Passcode: ").Append(Passcode).Append("\n");
+            if (Metadata != null) sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -180,9 +254,34 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.Equals(other.Links)
+                ) && 
+                (
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
+                ) && 
+                (
+                    this.Object == other.Object ||
+                    this.Object != null &&
+                    this.Object.Equals(other.Object)
+                ) && 
+                (
+                    this.AccountReferenceId == other.AccountReferenceId ||
+                    this.AccountReferenceId != null &&
+                    this.AccountReferenceId.Equals(other.AccountReferenceId)
+                ) && 
+                (
+                    this.ConsumerId == other.ConsumerId ||
+                    this.ConsumerId != null &&
+                    this.ConsumerId.Equals(other.ConsumerId)
+                ) && 
+                (
+                    this.CreateInstrumentIdentifier == other.CreateInstrumentIdentifier ||
+                    this.CreateInstrumentIdentifier != null &&
+                    this.CreateInstrumentIdentifier.Equals(other.CreateInstrumentIdentifier)
                 ) && 
                 (
                     this.Source == other.Source ||
@@ -195,16 +294,6 @@ namespace CyberSource.Model
                     this.State.Equals(other.State)
                 ) && 
                 (
-                    this.EnrollmentId == other.EnrollmentId ||
-                    this.EnrollmentId != null &&
-                    this.EnrollmentId.Equals(other.EnrollmentId)
-                ) && 
-                (
-                    this.TokenReferenceId == other.TokenReferenceId ||
-                    this.TokenReferenceId != null &&
-                    this.TokenReferenceId.Equals(other.TokenReferenceId)
-                ) && 
-                (
                     this.Reason == other.Reason ||
                     this.Reason != null &&
                     this.Reason.Equals(other.Reason)
@@ -215,24 +304,49 @@ namespace CyberSource.Model
                     this.Number.Equals(other.Number)
                 ) && 
                 (
-                    this.ExpirationMonth == other.ExpirationMonth ||
-                    this.ExpirationMonth != null &&
-                    this.ExpirationMonth.Equals(other.ExpirationMonth)
-                ) && 
-                (
-                    this.ExpirationYear == other.ExpirationYear ||
-                    this.ExpirationYear != null &&
-                    this.ExpirationYear.Equals(other.ExpirationYear)
-                ) && 
-                (
                     this.Cryptogram == other.Cryptogram ||
                     this.Cryptogram != null &&
                     this.Cryptogram.Equals(other.Cryptogram)
                 ) && 
                 (
+                    this.SecurityCode == other.SecurityCode ||
+                    this.SecurityCode != null &&
+                    this.SecurityCode.Equals(other.SecurityCode)
+                ) && 
+                (
+                    this.Eci == other.Eci ||
+                    this.Eci != null &&
+                    this.Eci.Equals(other.Eci)
+                ) && 
+                (
+                    this.RequestorId == other.RequestorId ||
+                    this.RequestorId != null &&
+                    this.RequestorId.Equals(other.RequestorId)
+                ) && 
+                (
+                    this.EnrollmentId == other.EnrollmentId ||
+                    this.EnrollmentId != null &&
+                    this.EnrollmentId.Equals(other.EnrollmentId)
+                ) && 
+                (
+                    this.TokenReferenceId == other.TokenReferenceId ||
+                    this.TokenReferenceId != null &&
+                    this.TokenReferenceId.Equals(other.TokenReferenceId)
+                ) && 
+                (
+                    this.PaymentAccountReference == other.PaymentAccountReference ||
+                    this.PaymentAccountReference != null &&
+                    this.PaymentAccountReference.Equals(other.PaymentAccountReference)
+                ) && 
+                (
                     this.Card == other.Card ||
                     this.Card != null &&
                     this.Card.Equals(other.Card)
+                ) && 
+                (
+                    this.Passcode == other.Passcode ||
+                    this.Passcode != null &&
+                    this.Passcode.Equals(other.Passcode)
                 ) && 
                 (
                     this.Metadata == other.Metadata ||
@@ -252,28 +366,44 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
+                if (this.Object != null)
+                    hash = hash * 59 + this.Object.GetHashCode();
+                if (this.AccountReferenceId != null)
+                    hash = hash * 59 + this.AccountReferenceId.GetHashCode();
+                if (this.ConsumerId != null)
+                    hash = hash * 59 + this.ConsumerId.GetHashCode();
+                if (this.CreateInstrumentIdentifier != null)
+                    hash = hash * 59 + this.CreateInstrumentIdentifier.GetHashCode();
                 if (this.Source != null)
                     hash = hash * 59 + this.Source.GetHashCode();
                 if (this.State != null)
                     hash = hash * 59 + this.State.GetHashCode();
-                if (this.EnrollmentId != null)
-                    hash = hash * 59 + this.EnrollmentId.GetHashCode();
-                if (this.TokenReferenceId != null)
-                    hash = hash * 59 + this.TokenReferenceId.GetHashCode();
                 if (this.Reason != null)
                     hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Number != null)
                     hash = hash * 59 + this.Number.GetHashCode();
-                if (this.ExpirationMonth != null)
-                    hash = hash * 59 + this.ExpirationMonth.GetHashCode();
-                if (this.ExpirationYear != null)
-                    hash = hash * 59 + this.ExpirationYear.GetHashCode();
                 if (this.Cryptogram != null)
                     hash = hash * 59 + this.Cryptogram.GetHashCode();
+                if (this.SecurityCode != null)
+                    hash = hash * 59 + this.SecurityCode.GetHashCode();
+                if (this.Eci != null)
+                    hash = hash * 59 + this.Eci.GetHashCode();
+                if (this.RequestorId != null)
+                    hash = hash * 59 + this.RequestorId.GetHashCode();
+                if (this.EnrollmentId != null)
+                    hash = hash * 59 + this.EnrollmentId.GetHashCode();
+                if (this.TokenReferenceId != null)
+                    hash = hash * 59 + this.TokenReferenceId.GetHashCode();
+                if (this.PaymentAccountReference != null)
+                    hash = hash * 59 + this.PaymentAccountReference.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
+                if (this.Passcode != null)
+                    hash = hash * 59 + this.Passcode.GetHashCode();
                 if (this.Metadata != null)
                     hash = hash * 59 + this.Metadata.GetHashCode();
                 return hash;

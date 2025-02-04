@@ -36,13 +36,12 @@ namespace CyberSource.Model
         /// <param name="ClientVersion">Specify the version of Unified Checkout that you want to use..</param>
         /// <param name="TargetOrigins">The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Unified Checkout is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] .</param>
         /// <param name="AllowedCardNetworks">The list of card networks you want to use for this Unified Checkout transaction.  Unified Checkout currently supports the following card networks:     - VISA     - MASTERCARD     - AMEX     - CARNET     - CARTESBANCAIRES     - CUP     - DINERSCLUB     - DISCOVER     - EFTPOS     - ELO     - JCB     - JCREW     - MADA     - MAESTRO     - MEEZA .</param>
-        /// <param name="AllowedPaymentTypes">The payment types that are allowed for the merchant.    Possible values when launching Unified Checkout:   - PANENTRY                 - GOOGLEPAY   - SRC   - CHECK &lt;br&gt;&lt;br&gt;  Possible values when launching Unified Checkout with Checkout API: - PANENTRY               - SRC &lt;br&gt;&lt;br&gt;  Possible values when launching Click To Pay Drop-In UI: - CLICKTOPAY &lt;br&gt;&lt;br&gt;  **Important:**    - SRC and CLICKTOPAY are only available for Visa, Mastercard and AMEX. .</param>
+        /// <param name="AllowedPaymentTypes">The payment types that are allowed for the merchant.    Possible values when launching Unified Checkout:   - APPLEPAY   - CHECK   - CLICKTOPAY   - GOOGLEPAY   - PANENTRY                 - PAZE &lt;br&gt;&lt;br&gt;  Possible values when launching Click To Pay Drop-In UI: - CLICKTOPAY &lt;br&gt;&lt;br&gt;  **Important:**    - CLICKTOPAY only available for Visa, Mastercard and AMEX for saved cards.   - Visa and Mastercard will look to tokenize using network tokenization for all Click to Pay requests.  Click to Pay uses Click to Pay token requester IDs and not the merchant&#39;s existing token requester.   - Apple Pay, Google Pay, Check, and Paze can be used independently without requiring PAN entry in the allowedPaymentTypes field. .</param>
         /// <param name="Country">Country the purchase is originating from (e.g. country of the merchant).  Use the two-character ISO Standard .</param>
         /// <param name="Locale">Localization of the User experience conforming to the ISO 639-1 language standards and two-character ISO Standard Country Code.  Please refer to list of [supported locales through Unified Checkout](https://developer.cybersource.com/docs/cybs/en-us/unified-checkout/developer/all/rest/unified-checkout/uc-appendix-languages.html) .</param>
         /// <param name="CaptureMandate">CaptureMandate.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        /// <param name="CheckoutApiInitialization">CheckoutApiInitialization.</param>
-        public GenerateUnifiedCheckoutCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>), string Country = default(string), string Locale = default(string), Upv1capturecontextsCaptureMandate CaptureMandate = default(Upv1capturecontextsCaptureMandate), Upv1capturecontextsOrderInformation OrderInformation = default(Upv1capturecontextsOrderInformation), Upv1capturecontextsCheckoutApiInitialization CheckoutApiInitialization = default(Upv1capturecontextsCheckoutApiInitialization))
+        public GenerateUnifiedCheckoutCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>), string Country = default(string), string Locale = default(string), Upv1capturecontextsCaptureMandate CaptureMandate = default(Upv1capturecontextsCaptureMandate), Upv1capturecontextsOrderInformation OrderInformation = default(Upv1capturecontextsOrderInformation))
         {
             this.ClientVersion = ClientVersion;
             this.TargetOrigins = TargetOrigins;
@@ -52,7 +51,6 @@ namespace CyberSource.Model
             this.Locale = Locale;
             this.CaptureMandate = CaptureMandate;
             this.OrderInformation = OrderInformation;
-            this.CheckoutApiInitialization = CheckoutApiInitialization;
         }
         
         /// <summary>
@@ -77,9 +75,9 @@ namespace CyberSource.Model
         public List<string> AllowedCardNetworks { get; set; }
 
         /// <summary>
-        /// The payment types that are allowed for the merchant.    Possible values when launching Unified Checkout:   - PANENTRY                 - GOOGLEPAY   - SRC   - CHECK &lt;br&gt;&lt;br&gt;  Possible values when launching Unified Checkout with Checkout API: - PANENTRY               - SRC &lt;br&gt;&lt;br&gt;  Possible values when launching Click To Pay Drop-In UI: - CLICKTOPAY &lt;br&gt;&lt;br&gt;  **Important:**    - SRC and CLICKTOPAY are only available for Visa, Mastercard and AMEX. 
+        /// The payment types that are allowed for the merchant.    Possible values when launching Unified Checkout:   - APPLEPAY   - CHECK   - CLICKTOPAY   - GOOGLEPAY   - PANENTRY                 - PAZE &lt;br&gt;&lt;br&gt;  Possible values when launching Click To Pay Drop-In UI: - CLICKTOPAY &lt;br&gt;&lt;br&gt;  **Important:**    - CLICKTOPAY only available for Visa, Mastercard and AMEX for saved cards.   - Visa and Mastercard will look to tokenize using network tokenization for all Click to Pay requests.  Click to Pay uses Click to Pay token requester IDs and not the merchant&#39;s existing token requester.   - Apple Pay, Google Pay, Check, and Paze can be used independently without requiring PAN entry in the allowedPaymentTypes field. 
         /// </summary>
-        /// <value>The payment types that are allowed for the merchant.    Possible values when launching Unified Checkout:   - PANENTRY                 - GOOGLEPAY   - SRC   - CHECK &lt;br&gt;&lt;br&gt;  Possible values when launching Unified Checkout with Checkout API: - PANENTRY               - SRC &lt;br&gt;&lt;br&gt;  Possible values when launching Click To Pay Drop-In UI: - CLICKTOPAY &lt;br&gt;&lt;br&gt;  **Important:**    - SRC and CLICKTOPAY are only available for Visa, Mastercard and AMEX. </value>
+        /// <value>The payment types that are allowed for the merchant.    Possible values when launching Unified Checkout:   - APPLEPAY   - CHECK   - CLICKTOPAY   - GOOGLEPAY   - PANENTRY                 - PAZE &lt;br&gt;&lt;br&gt;  Possible values when launching Click To Pay Drop-In UI: - CLICKTOPAY &lt;br&gt;&lt;br&gt;  **Important:**    - CLICKTOPAY only available for Visa, Mastercard and AMEX for saved cards.   - Visa and Mastercard will look to tokenize using network tokenization for all Click to Pay requests.  Click to Pay uses Click to Pay token requester IDs and not the merchant&#39;s existing token requester.   - Apple Pay, Google Pay, Check, and Paze can be used independently without requiring PAN entry in the allowedPaymentTypes field. </value>
         [DataMember(Name="allowedPaymentTypes", EmitDefaultValue=false)]
         public List<string> AllowedPaymentTypes { get; set; }
 
@@ -110,12 +108,6 @@ namespace CyberSource.Model
         public Upv1capturecontextsOrderInformation OrderInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets CheckoutApiInitialization
-        /// </summary>
-        [DataMember(Name="checkoutApiInitialization", EmitDefaultValue=false)]
-        public Upv1capturecontextsCheckoutApiInitialization CheckoutApiInitialization { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,15 +115,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GenerateUnifiedCheckoutCaptureContextRequest {\n");
-            sb.Append("  ClientVersion: ").Append(ClientVersion).Append("\n");
-            sb.Append("  TargetOrigins: ").Append(TargetOrigins).Append("\n");
-            sb.Append("  AllowedCardNetworks: ").Append(AllowedCardNetworks).Append("\n");
-            sb.Append("  AllowedPaymentTypes: ").Append(AllowedPaymentTypes).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  Locale: ").Append(Locale).Append("\n");
-            sb.Append("  CaptureMandate: ").Append(CaptureMandate).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
-            sb.Append("  CheckoutApiInitialization: ").Append(CheckoutApiInitialization).Append("\n");
+            if (ClientVersion != null) sb.Append("  ClientVersion: ").Append(ClientVersion).Append("\n");
+            if (TargetOrigins != null) sb.Append("  TargetOrigins: ").Append(TargetOrigins).Append("\n");
+            if (AllowedCardNetworks != null) sb.Append("  AllowedCardNetworks: ").Append(AllowedCardNetworks).Append("\n");
+            if (AllowedPaymentTypes != null) sb.Append("  AllowedPaymentTypes: ").Append(AllowedPaymentTypes).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (Locale != null) sb.Append("  Locale: ").Append(Locale).Append("\n");
+            if (CaptureMandate != null) sb.Append("  CaptureMandate: ").Append(CaptureMandate).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -207,11 +198,6 @@ namespace CyberSource.Model
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
-                ) && 
-                (
-                    this.CheckoutApiInitialization == other.CheckoutApiInitialization ||
-                    this.CheckoutApiInitialization != null &&
-                    this.CheckoutApiInitialization.Equals(other.CheckoutApiInitialization)
                 );
         }
 
@@ -242,8 +228,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CaptureMandate.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
-                if (this.CheckoutApiInitialization != null)
-                    hash = hash * 59 + this.CheckoutApiInitialization.GetHashCode();
                 return hash;
             }
         }

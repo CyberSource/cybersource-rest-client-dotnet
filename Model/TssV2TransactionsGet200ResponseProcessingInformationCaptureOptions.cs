@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseProcessingInformationCaptureOptions {\n");
-            sb.Append("  TotalCaptureCount: ").Append(TotalCaptureCount).Append("\n");
-            sb.Append("  CaptureSequenceNumber: ").Append(CaptureSequenceNumber).Append("\n");
+            if (TotalCaptureCount != null) sb.Append("  TotalCaptureCount: ").Append(TotalCaptureCount).Append("\n");
+            if (CaptureSequenceNumber != null) sb.Append("  CaptureSequenceNumber: ").Append(CaptureSequenceNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

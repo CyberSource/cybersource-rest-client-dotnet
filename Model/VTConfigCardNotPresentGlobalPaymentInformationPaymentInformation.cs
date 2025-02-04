@@ -149,19 +149,19 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VTConfigCardNotPresentGlobalPaymentInformationPaymentInformation {\n");
-            sb.Append("  DisplayCardVerificationValue: ").Append(DisplayCardVerificationValue).Append("\n");
-            sb.Append("  RequireCardVerificationValue: ").Append(RequireCardVerificationValue).Append("\n");
-            sb.Append("  AcceptedCardTypes: ").Append(AcceptedCardTypes).Append("\n");
-            sb.Append("  DisplayCreditCards: ").Append(DisplayCreditCards).Append("\n");
-            sb.Append("  DisplayEchecks: ").Append(DisplayEchecks).Append("\n");
-            sb.Append("  DisplayDebtIndicator: ").Append(DisplayDebtIndicator).Append("\n");
-            sb.Append("  DisplayBillPayment: ").Append(DisplayBillPayment).Append("\n");
-            sb.Append("  EnableEchecks: ").Append(EnableEchecks).Append("\n");
-            sb.Append("  DisplayIgnoreECheckAvsCheckbox: ").Append(DisplayIgnoreECheckAvsCheckbox).Append("\n");
-            sb.Append("  FirstNameRequired: ").Append(FirstNameRequired).Append("\n");
-            sb.Append("  LastNameRequired: ").Append(LastNameRequired).Append("\n");
-            sb.Append("  DisplayFirstName: ").Append(DisplayFirstName).Append("\n");
-            sb.Append("  DisplayLastName: ").Append(DisplayLastName).Append("\n");
+            if (DisplayCardVerificationValue != null) sb.Append("  DisplayCardVerificationValue: ").Append(DisplayCardVerificationValue).Append("\n");
+            if (RequireCardVerificationValue != null) sb.Append("  RequireCardVerificationValue: ").Append(RequireCardVerificationValue).Append("\n");
+            if (AcceptedCardTypes != null) sb.Append("  AcceptedCardTypes: ").Append(AcceptedCardTypes).Append("\n");
+            if (DisplayCreditCards != null) sb.Append("  DisplayCreditCards: ").Append(DisplayCreditCards).Append("\n");
+            if (DisplayEchecks != null) sb.Append("  DisplayEchecks: ").Append(DisplayEchecks).Append("\n");
+            if (DisplayDebtIndicator != null) sb.Append("  DisplayDebtIndicator: ").Append(DisplayDebtIndicator).Append("\n");
+            if (DisplayBillPayment != null) sb.Append("  DisplayBillPayment: ").Append(DisplayBillPayment).Append("\n");
+            if (EnableEchecks != null) sb.Append("  EnableEchecks: ").Append(EnableEchecks).Append("\n");
+            if (DisplayIgnoreECheckAvsCheckbox != null) sb.Append("  DisplayIgnoreECheckAvsCheckbox: ").Append(DisplayIgnoreECheckAvsCheckbox).Append("\n");
+            if (FirstNameRequired != null) sb.Append("  FirstNameRequired: ").Append(FirstNameRequired).Append("\n");
+            if (LastNameRequired != null) sb.Append("  LastNameRequired: ").Append(LastNameRequired).Append("\n");
+            if (DisplayFirstName != null) sb.Append("  DisplayFirstName: ").Append(DisplayFirstName).Append("\n");
+            if (DisplayLastName != null) sb.Append("  DisplayLastName: ").Append(DisplayLastName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

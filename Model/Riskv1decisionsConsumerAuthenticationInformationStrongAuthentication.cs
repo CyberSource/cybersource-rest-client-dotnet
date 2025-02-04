@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsConsumerAuthenticationInformationStrongAuthentication {\n");
-            sb.Append("  AuthenticationIndicator: ").Append(AuthenticationIndicator).Append("\n");
+            if (AuthenticationIndicator != null) sb.Append("  AuthenticationIndicator: ").Append(AuthenticationIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

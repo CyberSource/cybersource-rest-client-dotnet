@@ -70,9 +70,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class V1FileDetailsGet200ResponseLinksFiles {\n");
-            sb.Append("  FileId: ").Append(FileId).Append("\n");
-            sb.Append("  Href: ").Append(Href).Append("\n");
-            sb.Append("  Method: ").Append(Method).Append("\n");
+            if (FileId != null) sb.Append("  FileId: ").Append(FileId).Append("\n");
+            if (Href != null) sb.Append("  Href: ").Append(Href).Append("\n");
+            if (Method != null) sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

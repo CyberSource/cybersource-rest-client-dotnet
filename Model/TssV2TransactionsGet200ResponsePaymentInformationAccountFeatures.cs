@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures {\n");
-            sb.Append("  BalanceAmount: ").Append(BalanceAmount).Append("\n");
-            sb.Append("  PreviousBalanceAmount: ").Append(PreviousBalanceAmount).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            if (BalanceAmount != null) sb.Append("  BalanceAmount: ").Append(BalanceAmount).Append("\n");
+            if (PreviousBalanceAmount != null) sb.Append("  PreviousBalanceAmount: ").Append(PreviousBalanceAmount).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -107,13 +107,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardProcessingConfigCommonCurrencies {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  EnabledCardPresent: ").Append(EnabledCardPresent).Append("\n");
-            sb.Append("  EnabledCardNotPresent: ").Append(EnabledCardNotPresent).Append("\n");
-            sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
-            sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
-            sb.Append("  TerminalIds: ").Append(TerminalIds).Append("\n");
-            sb.Append("  ServiceEnablementNumber: ").Append(ServiceEnablementNumber).Append("\n");
+            if (Enabled != null) sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            if (EnabledCardPresent != null) sb.Append("  EnabledCardPresent: ").Append(EnabledCardPresent).Append("\n");
+            if (EnabledCardNotPresent != null) sb.Append("  EnabledCardNotPresent: ").Append(EnabledCardNotPresent).Append("\n");
+            if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            if (TerminalId != null) sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
+            if (TerminalIds != null) sb.Append("  TerminalIds: ").Append(TerminalIds).Append("\n");
+            if (ServiceEnablementNumber != null) sb.Append("  ServiceEnablementNumber: ").Append(ServiceEnablementNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

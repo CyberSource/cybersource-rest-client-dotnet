@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PostRegistrationBody {\n");
-            sb.Append("  RegistrationInformation: ").Append(RegistrationInformation).Append("\n");
-            sb.Append("  IntegrationInformation: ").Append(IntegrationInformation).Append("\n");
-            sb.Append("  OrganizationInformation: ").Append(OrganizationInformation).Append("\n");
-            sb.Append("  ProductInformation: ").Append(ProductInformation).Append("\n");
-            sb.Append("  DocumentInformation: ").Append(DocumentInformation).Append("\n");
+            if (RegistrationInformation != null) sb.Append("  RegistrationInformation: ").Append(RegistrationInformation).Append("\n");
+            if (IntegrationInformation != null) sb.Append("  IntegrationInformation: ").Append(IntegrationInformation).Append("\n");
+            if (OrganizationInformation != null) sb.Append("  OrganizationInformation: ").Append(OrganizationInformation).Append("\n");
+            if (ProductInformation != null) sb.Append("  ProductInformation: ").Append(ProductInformation).Append("\n");
+            if (DocumentInformation != null) sb.Append("  DocumentInformation: ").Append(DocumentInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

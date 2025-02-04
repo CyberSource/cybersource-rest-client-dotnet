@@ -38,13 +38,17 @@ namespace CyberSource.Model
         /// <param name="DateToCapture">Date on which you want the capture to occur. This field is supported only for CyberSource through VisaNet. Format: &#x60;MMDD&#x60;  #### Used by **Authorization** Optional field. .</param>
         /// <param name="IsFinal">Indicates whether to release the authorization hold on the remaining funds.   Possible Values: - &#x60;true&#x60; - &#x60;false&#x60; .</param>
         /// <param name="Notes">An informational note about this settlement. Appears in both the payer&#39;s transaction history and the emails that the payer receives. .</param>
-        public Ptsv2paymentsProcessingInformationCaptureOptions(int? CaptureSequenceNumber = default(int?), int? TotalCaptureCount = default(int?), string DateToCapture = default(string), string IsFinal = default(string), string Notes = default(string))
+        /// <param name="ReconciliationId">Used for authbill request when capture field equals true.</param>
+        /// <param name="ReconciliationIdAlternate">Used by Nike merchant to send 12 digit order number.</param>
+        public Ptsv2paymentsProcessingInformationCaptureOptions(int? CaptureSequenceNumber = default(int?), int? TotalCaptureCount = default(int?), string DateToCapture = default(string), string IsFinal = default(string), string Notes = default(string), string ReconciliationId = default(string), string ReconciliationIdAlternate = default(string))
         {
             this.CaptureSequenceNumber = CaptureSequenceNumber;
             this.TotalCaptureCount = TotalCaptureCount;
             this.DateToCapture = DateToCapture;
             this.IsFinal = IsFinal;
             this.Notes = Notes;
+            this.ReconciliationId = ReconciliationId;
+            this.ReconciliationIdAlternate = ReconciliationIdAlternate;
         }
         
         /// <summary>
@@ -83,6 +87,20 @@ namespace CyberSource.Model
         public string Notes { get; set; }
 
         /// <summary>
+        /// Used for authbill request when capture field equals true
+        /// </summary>
+        /// <value>Used for authbill request when capture field equals true</value>
+        [DataMember(Name="reconciliationId", EmitDefaultValue=false)]
+        public string ReconciliationId { get; set; }
+
+        /// <summary>
+        /// Used by Nike merchant to send 12 digit order number
+        /// </summary>
+        /// <value>Used by Nike merchant to send 12 digit order number</value>
+        [DataMember(Name="reconciliationIdAlternate", EmitDefaultValue=false)]
+        public string ReconciliationIdAlternate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,11 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsProcessingInformationCaptureOptions {\n");
-            sb.Append("  CaptureSequenceNumber: ").Append(CaptureSequenceNumber).Append("\n");
-            sb.Append("  TotalCaptureCount: ").Append(TotalCaptureCount).Append("\n");
-            sb.Append("  DateToCapture: ").Append(DateToCapture).Append("\n");
-            sb.Append("  IsFinal: ").Append(IsFinal).Append("\n");
-            sb.Append("  Notes: ").Append(Notes).Append("\n");
+            if (CaptureSequenceNumber != null) sb.Append("  CaptureSequenceNumber: ").Append(CaptureSequenceNumber).Append("\n");
+            if (TotalCaptureCount != null) sb.Append("  TotalCaptureCount: ").Append(TotalCaptureCount).Append("\n");
+            if (DateToCapture != null) sb.Append("  DateToCapture: ").Append(DateToCapture).Append("\n");
+            if (IsFinal != null) sb.Append("  IsFinal: ").Append(IsFinal).Append("\n");
+            if (Notes != null) sb.Append("  Notes: ").Append(Notes).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (ReconciliationIdAlternate != null) sb.Append("  ReconciliationIdAlternate: ").Append(ReconciliationIdAlternate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +175,16 @@ namespace CyberSource.Model
                     this.Notes == other.Notes ||
                     this.Notes != null &&
                     this.Notes.Equals(other.Notes)
+                ) && 
+                (
+                    this.ReconciliationId == other.ReconciliationId ||
+                    this.ReconciliationId != null &&
+                    this.ReconciliationId.Equals(other.ReconciliationId)
+                ) && 
+                (
+                    this.ReconciliationIdAlternate == other.ReconciliationIdAlternate ||
+                    this.ReconciliationIdAlternate != null &&
+                    this.ReconciliationIdAlternate.Equals(other.ReconciliationIdAlternate)
                 );
         }
 
@@ -179,6 +209,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.IsFinal.GetHashCode();
                 if (this.Notes != null)
                     hash = hash * 59 + this.Notes.GetHashCode();
+                if (this.ReconciliationId != null)
+                    hash = hash * 59 + this.ReconciliationId.GetHashCode();
+                if (this.ReconciliationIdAlternate != null)
+                    hash = hash * 59 + this.ReconciliationIdAlternate.GetHashCode();
                 return hash;
             }
         }

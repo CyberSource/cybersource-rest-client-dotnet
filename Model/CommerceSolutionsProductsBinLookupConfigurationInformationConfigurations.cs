@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CommerceSolutionsProductsBinLookupConfigurationInformationConfigurations {\n");
-            sb.Append("  IsPayoutOptionsEnabled: ").Append(IsPayoutOptionsEnabled).Append("\n");
-            sb.Append("  IsAccountPrefixEnabled: ").Append(IsAccountPrefixEnabled).Append("\n");
+            if (IsPayoutOptionsEnabled != null) sb.Append("  IsPayoutOptionsEnabled: ").Append(IsPayoutOptionsEnabled).Append("\n");
+            if (IsAccountPrefixEnabled != null) sb.Append("  IsAccountPrefixEnabled: ").Append(IsAccountPrefixEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

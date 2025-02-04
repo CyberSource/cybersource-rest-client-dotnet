@@ -86,10 +86,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationsetupsPaymentInformationFluidData {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  KeySerialNumber: ").Append(KeySerialNumber).Append("\n");
-            sb.Append("  Descriptor: ").Append(Descriptor).Append("\n");
-            sb.Append("  Encoding: ").Append(Encoding).Append("\n");
+            if (Value != null) sb.Append("  Value: ").Append(Value).Append("\n");
+            if (KeySerialNumber != null) sb.Append("  KeySerialNumber: ").Append(KeySerialNumber).Append("\n");
+            if (Descriptor != null) sb.Append("  Descriptor: ").Append(Descriptor).Append("\n");
+            if (Encoding != null) sb.Append("  Encoding: ").Append(Encoding).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

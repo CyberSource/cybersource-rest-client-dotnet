@@ -126,15 +126,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VasV2PaymentsPost201ResponseOrderInformationJurisdiction {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  TaxName: ").Append(TaxName).Append("\n");
-            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
-            sb.Append("  Taxable: ").Append(Taxable).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Rate: ").Append(Rate).Append("\n");
-            sb.Append("  Region: ").Append(Region).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (TaxName != null) sb.Append("  TaxName: ").Append(TaxName).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (Taxable != null) sb.Append("  Taxable: ").Append(Taxable).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (Rate != null) sb.Append("  Rate: ").Append(Rate).Append("\n");
+            if (Region != null) sb.Append("  Region: ").Append(Region).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

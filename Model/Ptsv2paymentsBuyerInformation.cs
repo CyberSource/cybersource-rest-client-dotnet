@@ -143,17 +143,17 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsBuyerInformation {\n");
-            sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
-            sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
-            sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
-            sb.Append("  CompanyTaxId: ").Append(CompanyTaxId).Append("\n");
-            sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
-            sb.Append("  HashedPassword: ").Append(HashedPassword).Append("\n");
-            sb.Append("  Gender: ").Append(Gender).Append("\n");
-            sb.Append("  Language: ").Append(Language).Append("\n");
-            sb.Append("  NoteToSeller: ").Append(NoteToSeller).Append("\n");
-            sb.Append("  MobilePhone: ").Append(MobilePhone).Append("\n");
-            sb.Append("  WalletId: ").Append(WalletId).Append("\n");
+            if (MerchantCustomerId != null) sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (VatRegistrationNumber != null) sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            if (CompanyTaxId != null) sb.Append("  CompanyTaxId: ").Append(CompanyTaxId).Append("\n");
+            if (PersonalIdentification != null) sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
+            if (HashedPassword != null) sb.Append("  HashedPassword: ").Append(HashedPassword).Append("\n");
+            if (Gender != null) sb.Append("  Gender: ").Append(Gender).Append("\n");
+            if (Language != null) sb.Append("  Language: ").Append(Language).Append("\n");
+            if (NoteToSeller != null) sb.Append("  NoteToSeller: ").Append(NoteToSeller).Append("\n");
+            if (MobilePhone != null) sb.Append("  MobilePhone: ").Append(MobilePhone).Append("\n");
+            if (WalletId != null) sb.Append("  WalletId: ").Append(WalletId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

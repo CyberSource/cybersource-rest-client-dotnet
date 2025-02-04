@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1authenticationsRiskInformation {\n");
-            sb.Append("  BuyerHistory: ").Append(BuyerHistory).Append("\n");
+            if (BuyerHistory != null) sb.Append("  BuyerHistory: ").Append(BuyerHistory).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

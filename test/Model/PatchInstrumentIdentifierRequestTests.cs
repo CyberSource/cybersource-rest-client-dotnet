@@ -168,6 +168,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Metadata'
         }
+        /// <summary>
+        /// Test the property 'Embedded'
+        /// </summary>
+        [Test]
+        public void EmbeddedTest()
+        {
+            // TODO unit test for the property 'Embedded'
+        }
 
     }
 

@@ -89,11 +89,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseConsumerAuthenticationInformation {\n");
-            sb.Append("  EciRaw: ").Append(EciRaw).Append("\n");
-            sb.Append("  Cavv: ").Append(Cavv).Append("\n");
-            sb.Append("  Xid: ").Append(Xid).Append("\n");
-            sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-            sb.Append("  StrongAuthentication: ").Append(StrongAuthentication).Append("\n");
+            if (EciRaw != null) sb.Append("  EciRaw: ").Append(EciRaw).Append("\n");
+            if (Cavv != null) sb.Append("  Cavv: ").Append(Cavv).Append("\n");
+            if (Xid != null) sb.Append("  Xid: ").Append(Xid).Append("\n");
+            if (TransactionId != null) sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            if (StrongAuthentication != null) sb.Append("  StrongAuthentication: ").Append(StrongAuthentication).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

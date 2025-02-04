@@ -59,8 +59,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>PostPaymentInstrumentRequest</returns>
-        PostPaymentInstrumentRequest GetPaymentInstrument (string paymentInstrumentId, string profileId = null);
+        PostPaymentInstrumentRequest GetPaymentInstrument (string paymentInstrumentId, string profileId = null, bool? retrieveBinDetails = null);
 
         /// <summary>
         /// Retrieve a Payment Instrument
@@ -71,8 +72,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>ApiResponse of PostPaymentInstrumentRequest</returns>
-        ApiResponse<PostPaymentInstrumentRequest> GetPaymentInstrumentWithHttpInfo (string paymentInstrumentId, string profileId = null);
+        ApiResponse<PostPaymentInstrumentRequest> GetPaymentInstrumentWithHttpInfo (string paymentInstrumentId, string profileId = null, bool? retrieveBinDetails = null);
         /// <summary>
         /// Update a Payment Instrument
         /// </summary>
@@ -83,9 +85,10 @@ namespace CyberSource.Api
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="patchPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>PatchPaymentInstrumentRequest</returns>
-        PatchPaymentInstrumentRequest PatchPaymentInstrument (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null);
+        PatchPaymentInstrumentRequest PatchPaymentInstrument (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null);
 
         /// <summary>
         /// Update a Payment Instrument
@@ -97,9 +100,10 @@ namespace CyberSource.Api
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="patchPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>ApiResponse of PatchPaymentInstrumentRequest</returns>
-        ApiResponse<PatchPaymentInstrumentRequest> PatchPaymentInstrumentWithHttpInfo (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null);
+        ApiResponse<PatchPaymentInstrumentRequest> PatchPaymentInstrumentWithHttpInfo (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null);
         /// <summary>
         /// Create a Payment Instrument
         /// </summary>
@@ -109,8 +113,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>PostPaymentInstrumentRequest</returns>
-        PostPaymentInstrumentRequest PostPaymentInstrument (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null);
+        PostPaymentInstrumentRequest PostPaymentInstrument (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null);
 
         /// <summary>
         /// Create a Payment Instrument
@@ -121,8 +126,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>ApiResponse of PostPaymentInstrumentRequest</returns>
-        ApiResponse<PostPaymentInstrumentRequest> PostPaymentInstrumentWithHttpInfo (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null);
+        ApiResponse<PostPaymentInstrumentRequest> PostPaymentInstrumentWithHttpInfo (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -157,8 +163,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of PostPaymentInstrumentRequest</returns>
-        System.Threading.Tasks.Task<PostPaymentInstrumentRequest> GetPaymentInstrumentAsync (string paymentInstrumentId, string profileId = null);
+        System.Threading.Tasks.Task<PostPaymentInstrumentRequest> GetPaymentInstrumentAsync (string paymentInstrumentId, string profileId = null, bool? retrieveBinDetails = null);
 
         /// <summary>
         /// Retrieve a Payment Instrument
@@ -169,8 +176,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of ApiResponse (PostPaymentInstrumentRequest)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostPaymentInstrumentRequest>> GetPaymentInstrumentAsyncWithHttpInfo (string paymentInstrumentId, string profileId = null);
+        System.Threading.Tasks.Task<ApiResponse<PostPaymentInstrumentRequest>> GetPaymentInstrumentAsyncWithHttpInfo (string paymentInstrumentId, string profileId = null, bool? retrieveBinDetails = null);
         /// <summary>
         /// Update a Payment Instrument
         /// </summary>
@@ -181,9 +189,10 @@ namespace CyberSource.Api
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="patchPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of PatchPaymentInstrumentRequest</returns>
-        System.Threading.Tasks.Task<PatchPaymentInstrumentRequest> PatchPaymentInstrumentAsync (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null);
+        System.Threading.Tasks.Task<PatchPaymentInstrumentRequest> PatchPaymentInstrumentAsync (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null);
 
         /// <summary>
         /// Update a Payment Instrument
@@ -195,9 +204,10 @@ namespace CyberSource.Api
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="patchPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of ApiResponse (PatchPaymentInstrumentRequest)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PatchPaymentInstrumentRequest>> PatchPaymentInstrumentAsyncWithHttpInfo (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null);
+        System.Threading.Tasks.Task<ApiResponse<PatchPaymentInstrumentRequest>> PatchPaymentInstrumentAsyncWithHttpInfo (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null);
         /// <summary>
         /// Create a Payment Instrument
         /// </summary>
@@ -207,8 +217,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of PostPaymentInstrumentRequest</returns>
-        System.Threading.Tasks.Task<PostPaymentInstrumentRequest> PostPaymentInstrumentAsync (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null);
+        System.Threading.Tasks.Task<PostPaymentInstrumentRequest> PostPaymentInstrumentAsync (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null);
 
         /// <summary>
         /// Create a Payment Instrument
@@ -219,8 +230,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of ApiResponse (PostPaymentInstrumentRequest)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostPaymentInstrumentRequest>> PostPaymentInstrumentAsyncWithHttpInfo (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null);
+        System.Threading.Tasks.Task<ApiResponse<PostPaymentInstrumentRequest>> PostPaymentInstrumentAsyncWithHttpInfo (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null);
         #endregion Asynchronous Operations
     }
 
@@ -563,12 +575,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>PostPaymentInstrumentRequest</returns>
-        public PostPaymentInstrumentRequest GetPaymentInstrument (string paymentInstrumentId, string profileId = null)
+        public PostPaymentInstrumentRequest GetPaymentInstrument (string paymentInstrumentId, string profileId = null, bool? retrieveBinDetails = null)
         {
             logger.Debug("CALLING API \"GetPaymentInstrument\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PostPaymentInstrumentRequest> localVarResponse = GetPaymentInstrumentWithHttpInfo(paymentInstrumentId, profileId);
+            ApiResponse<PostPaymentInstrumentRequest> localVarResponse = GetPaymentInstrumentWithHttpInfo(paymentInstrumentId, profileId, retrieveBinDetails);
             logger.Debug("CALLING API \"GetPaymentInstrument\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -580,8 +593,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>ApiResponse of PostPaymentInstrumentRequest</returns>
-        public ApiResponse< PostPaymentInstrumentRequest > GetPaymentInstrumentWithHttpInfo (string paymentInstrumentId, string profileId = null)
+        public ApiResponse< PostPaymentInstrumentRequest > GetPaymentInstrumentWithHttpInfo (string paymentInstrumentId, string profileId = null, bool? retrieveBinDetails = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -621,6 +635,11 @@ namespace CyberSource.Api
                 localVarPathParams.Add("paymentInstrumentId", Configuration.ApiClient.ParameterToString(paymentInstrumentId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -663,12 +682,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of PostPaymentInstrumentRequest</returns>
-        public async System.Threading.Tasks.Task<PostPaymentInstrumentRequest> GetPaymentInstrumentAsync (string paymentInstrumentId, string profileId = null)
+        public async System.Threading.Tasks.Task<PostPaymentInstrumentRequest> GetPaymentInstrumentAsync (string paymentInstrumentId, string profileId = null, bool? retrieveBinDetails = null)
         {
             logger.Debug("CALLING API \"GetPaymentInstrumentAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PostPaymentInstrumentRequest> localVarResponse = await GetPaymentInstrumentAsyncWithHttpInfo(paymentInstrumentId, profileId);
+            ApiResponse<PostPaymentInstrumentRequest> localVarResponse = await GetPaymentInstrumentAsyncWithHttpInfo(paymentInstrumentId, profileId, retrieveBinDetails);
             logger.Debug("CALLING API \"GetPaymentInstrumentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -681,8 +701,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of ApiResponse (PostPaymentInstrumentRequest)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PostPaymentInstrumentRequest>> GetPaymentInstrumentAsyncWithHttpInfo (string paymentInstrumentId, string profileId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PostPaymentInstrumentRequest>> GetPaymentInstrumentAsyncWithHttpInfo (string paymentInstrumentId, string profileId = null, bool? retrieveBinDetails = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -722,6 +743,11 @@ namespace CyberSource.Api
                 localVarPathParams.Add("paymentInstrumentId", Configuration.ApiClient.ParameterToString(paymentInstrumentId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -764,13 +790,14 @@ namespace CyberSource.Api
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="patchPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>PatchPaymentInstrumentRequest</returns>
-        public PatchPaymentInstrumentRequest PatchPaymentInstrument (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
+        public PatchPaymentInstrumentRequest PatchPaymentInstrument (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchPaymentInstrument\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PatchPaymentInstrumentRequest> localVarResponse = PatchPaymentInstrumentWithHttpInfo(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, ifMatch);
+            ApiResponse<PatchPaymentInstrumentRequest> localVarResponse = PatchPaymentInstrumentWithHttpInfo(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, retrieveBinDetails, ifMatch);
             logger.Debug("CALLING API \"PatchPaymentInstrument\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -783,9 +810,10 @@ namespace CyberSource.Api
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="patchPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>ApiResponse of PatchPaymentInstrumentRequest</returns>
-        public ApiResponse< PatchPaymentInstrumentRequest > PatchPaymentInstrumentWithHttpInfo (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
+        public ApiResponse< PatchPaymentInstrumentRequest > PatchPaymentInstrumentWithHttpInfo (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -831,6 +859,11 @@ namespace CyberSource.Api
                 localVarPathParams.Add("paymentInstrumentId", Configuration.ApiClient.ParameterToString(paymentInstrumentId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -889,13 +922,14 @@ namespace CyberSource.Api
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="patchPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of PatchPaymentInstrumentRequest</returns>
-        public async System.Threading.Tasks.Task<PatchPaymentInstrumentRequest> PatchPaymentInstrumentAsync (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
+        public async System.Threading.Tasks.Task<PatchPaymentInstrumentRequest> PatchPaymentInstrumentAsync (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchPaymentInstrumentAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PatchPaymentInstrumentRequest> localVarResponse = await PatchPaymentInstrumentAsyncWithHttpInfo(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, ifMatch);
+            ApiResponse<PatchPaymentInstrumentRequest> localVarResponse = await PatchPaymentInstrumentAsyncWithHttpInfo(paymentInstrumentId, patchPaymentInstrumentRequest, profileId, retrieveBinDetails, ifMatch);
             logger.Debug("CALLING API \"PatchPaymentInstrumentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -909,9 +943,10 @@ namespace CyberSource.Api
         /// <param name="paymentInstrumentId">The Id of a payment instrument.</param>
         /// <param name="patchPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of ApiResponse (PatchPaymentInstrumentRequest)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PatchPaymentInstrumentRequest>> PatchPaymentInstrumentAsyncWithHttpInfo (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PatchPaymentInstrumentRequest>> PatchPaymentInstrumentAsyncWithHttpInfo (string paymentInstrumentId, PatchPaymentInstrumentRequest patchPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -957,6 +992,11 @@ namespace CyberSource.Api
                 localVarPathParams.Add("paymentInstrumentId", Configuration.ApiClient.ParameterToString(paymentInstrumentId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1013,12 +1053,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>PostPaymentInstrumentRequest</returns>
-        public PostPaymentInstrumentRequest PostPaymentInstrument (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null)
+        public PostPaymentInstrumentRequest PostPaymentInstrument (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null)
         {
             logger.Debug("CALLING API \"PostPaymentInstrument\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PostPaymentInstrumentRequest> localVarResponse = PostPaymentInstrumentWithHttpInfo(postPaymentInstrumentRequest, profileId);
+            ApiResponse<PostPaymentInstrumentRequest> localVarResponse = PostPaymentInstrumentWithHttpInfo(postPaymentInstrumentRequest, profileId, retrieveBinDetails);
             logger.Debug("CALLING API \"PostPaymentInstrument\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1030,8 +1071,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>ApiResponse of PostPaymentInstrumentRequest</returns>
-        public ApiResponse< PostPaymentInstrumentRequest > PostPaymentInstrumentWithHttpInfo (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null)
+        public ApiResponse< PostPaymentInstrumentRequest > PostPaymentInstrumentWithHttpInfo (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1066,6 +1108,11 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1119,12 +1166,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of PostPaymentInstrumentRequest</returns>
-        public async System.Threading.Tasks.Task<PostPaymentInstrumentRequest> PostPaymentInstrumentAsync (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null)
+        public async System.Threading.Tasks.Task<PostPaymentInstrumentRequest> PostPaymentInstrumentAsync (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null)
         {
             logger.Debug("CALLING API \"PostPaymentInstrumentAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PostPaymentInstrumentRequest> localVarResponse = await PostPaymentInstrumentAsyncWithHttpInfo(postPaymentInstrumentRequest, profileId);
+            ApiResponse<PostPaymentInstrumentRequest> localVarResponse = await PostPaymentInstrumentAsyncWithHttpInfo(postPaymentInstrumentRequest, profileId, retrieveBinDetails);
             logger.Debug("CALLING API \"PostPaymentInstrumentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1137,8 +1185,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postPaymentInstrumentRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of ApiResponse (PostPaymentInstrumentRequest)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PostPaymentInstrumentRequest>> PostPaymentInstrumentAsyncWithHttpInfo (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PostPaymentInstrumentRequest>> PostPaymentInstrumentAsyncWithHttpInfo (PostPaymentInstrumentRequest postPaymentInstrumentRequest, string profileId = null, bool? retrieveBinDetails = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1173,6 +1222,11 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter

@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions {\n");
-            sb.Append("  AuthType: ").Append(AuthType).Append("\n");
-            sb.Append("  VerbalAuthCode: ").Append(VerbalAuthCode).Append("\n");
-            sb.Append("  VerbalAuthTransactionId: ").Append(VerbalAuthTransactionId).Append("\n");
+            if (AuthType != null) sb.Append("  AuthType: ").Append(AuthType).Append("\n");
+            if (VerbalAuthCode != null) sb.Append("  VerbalAuthCode: ").Append(VerbalAuthCode).Append("\n");
+            if (VerbalAuthTransactionId != null) sb.Append("  VerbalAuthTransactionId: ").Append(VerbalAuthTransactionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

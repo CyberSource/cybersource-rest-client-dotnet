@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV1TransactionBatchesIdGet200ResponseLinks {\n");
-            sb.Append("  Transactions: ").Append(Transactions).Append("\n");
+            if (Transactions != null) sb.Append("  Transactions: ").Append(Transactions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

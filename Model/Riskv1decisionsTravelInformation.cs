@@ -106,13 +106,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsTravelInformation {\n");
-            sb.Append("  ActualFinalDestination: ").Append(ActualFinalDestination).Append("\n");
-            sb.Append("  CompleteRoute: ").Append(CompleteRoute).Append("\n");
-            sb.Append("  DepartureTime: ").Append(DepartureTime).Append("\n");
-            sb.Append("  JourneyType: ").Append(JourneyType).Append("\n");
-            sb.Append("  Legs: ").Append(Legs).Append("\n");
-            sb.Append("  NumberOfPassengers: ").Append(NumberOfPassengers).Append("\n");
-            sb.Append("  Passengers: ").Append(Passengers).Append("\n");
+            if (ActualFinalDestination != null) sb.Append("  ActualFinalDestination: ").Append(ActualFinalDestination).Append("\n");
+            if (CompleteRoute != null) sb.Append("  CompleteRoute: ").Append(CompleteRoute).Append("\n");
+            if (DepartureTime != null) sb.Append("  DepartureTime: ").Append(DepartureTime).Append("\n");
+            if (JourneyType != null) sb.Append("  JourneyType: ").Append(JourneyType).Append("\n");
+            if (Legs != null) sb.Append("  Legs: ").Append(Legs).Append("\n");
+            if (NumberOfPassengers != null) sb.Append("  NumberOfPassengers: ").Append(NumberOfPassengers).Append("\n");
+            if (Passengers != null) sb.Append("  Passengers: ").Append(Passengers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

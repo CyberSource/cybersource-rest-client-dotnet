@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersEmbeddedDefaultPaymentInstrumentMetadata {\n");
-            sb.Append("  Creator: ").Append(Creator).Append("\n");
+            if (Creator != null) sb.Append("  Creator: ").Append(Creator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

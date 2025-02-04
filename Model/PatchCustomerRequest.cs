@@ -127,16 +127,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PatchCustomerRequest {\n");
-            sb.Append("  Links: ").Append(Links).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ObjectInformation: ").Append(ObjectInformation).Append("\n");
-            sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
-            sb.Append("  DefaultPaymentInstrument: ").Append(DefaultPaymentInstrument).Append("\n");
-            sb.Append("  DefaultShippingAddress: ").Append(DefaultShippingAddress).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  Embedded: ").Append(Embedded).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (ObjectInformation != null) sb.Append("  ObjectInformation: ").Append(ObjectInformation).Append("\n");
+            if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (MerchantDefinedInformation != null) sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
+            if (DefaultPaymentInstrument != null) sb.Append("  DefaultPaymentInstrument: ").Append(DefaultPaymentInstrument).Append("\n");
+            if (DefaultShippingAddress != null) sb.Append("  DefaultShippingAddress: ").Append(DefaultShippingAddress).Append("\n");
+            if (Metadata != null) sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

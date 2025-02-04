@@ -101,13 +101,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseLinks {\n");
-            sb.Append("  Self: ").Append(Self).Append("\n");
-            sb.Append("  Reversal: ").Append(Reversal).Append("\n");
-            sb.Append("  Capture: ").Append(Capture).Append("\n");
-            sb.Append("  Customer: ").Append(Customer).Append("\n");
-            sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
-            sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
-            sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            if (Self != null) sb.Append("  Self: ").Append(Self).Append("\n");
+            if (Reversal != null) sb.Append("  Reversal: ").Append(Reversal).Append("\n");
+            if (Capture != null) sb.Append("  Capture: ").Append(Capture).Append("\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            if (ShippingAddress != null) sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

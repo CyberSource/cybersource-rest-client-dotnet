@@ -71,8 +71,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Notificationsubscriptionsv1webhooksNotificationScope {\n");
-            sb.Append("  Scope: ").Append(Scope).Append("\n");
-            sb.Append("  ScopeData: ").Append(ScopeData).Append("\n");
+            if (Scope != null) sb.Append("  Scope: ").Append(Scope).Append("\n");
+            if (ScopeData != null) sb.Append("  ScopeData: ").Append(ScopeData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

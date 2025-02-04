@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="PointOfServiceInformation">PointOfServiceInformation.</param>
-        public PushFundsRequest(Ptsv1pushfundstransferAggregatorInformation AggregatorInformation = default(Ptsv1pushfundstransferAggregatorInformation), Ptsv1pushfundstransferClientReferenceInformation ClientReferenceInformation = default(Ptsv1pushfundstransferClientReferenceInformation), Ptsv1pushfundstransferOrderInformation OrderInformation = default(Ptsv1pushfundstransferOrderInformation), Ptsv1pushfundstransferProcessingInformation ProcessingInformation = default(Ptsv1pushfundstransferProcessingInformation), Ptsv1pushfundstransferRecipientInformation RecipientInformation = default(Ptsv1pushfundstransferRecipientInformation), Ptsv1pushfundstransferSenderInformation SenderInformation = default(Ptsv1pushfundstransferSenderInformation), Ptsv1pushfundstransferMerchantInformation MerchantInformation = default(Ptsv1pushfundstransferMerchantInformation), Ptsv1pushfundstransferPointOfServiceInformation PointOfServiceInformation = default(Ptsv1pushfundstransferPointOfServiceInformation))
+        public PushFundsRequest(Ptsv2payoutsAggregatorInformation AggregatorInformation = default(Ptsv2payoutsAggregatorInformation), Ptsv1pushfundstransferClientReferenceInformation ClientReferenceInformation = default(Ptsv1pushfundstransferClientReferenceInformation), Ptsv1pushfundstransferOrderInformation OrderInformation = default(Ptsv1pushfundstransferOrderInformation), Ptsv1pushfundstransferProcessingInformation ProcessingInformation = default(Ptsv1pushfundstransferProcessingInformation), Ptsv1pushfundstransferRecipientInformation RecipientInformation = default(Ptsv1pushfundstransferRecipientInformation), Ptsv1pushfundstransferSenderInformation SenderInformation = default(Ptsv1pushfundstransferSenderInformation), Ptsv1pushfundstransferMerchantInformation MerchantInformation = default(Ptsv1pushfundstransferMerchantInformation), Ptsv1pushfundstransferPointOfServiceInformation PointOfServiceInformation = default(Ptsv1pushfundstransferPointOfServiceInformation))
         {
             this.AggregatorInformation = AggregatorInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
@@ -62,7 +62,7 @@ namespace CyberSource.Model
         /// Gets or Sets AggregatorInformation
         /// </summary>
         [DataMember(Name="aggregatorInformation", EmitDefaultValue=false)]
-        public Ptsv1pushfundstransferAggregatorInformation AggregatorInformation { get; set; }
+        public Ptsv2payoutsAggregatorInformation AggregatorInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ClientReferenceInformation
@@ -114,14 +114,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PushFundsRequest {\n");
-            sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
-            sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
-            sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
-            sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
-            sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
-            sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
-            sb.Append("  PointOfServiceInformation: ").Append(PointOfServiceInformation).Append("\n");
+            if (AggregatorInformation != null) sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
+            if (RecipientInformation != null) sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
+            if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
+            if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            if (PointOfServiceInformation != null) sb.Append("  PointOfServiceInformation: ").Append(PointOfServiceInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

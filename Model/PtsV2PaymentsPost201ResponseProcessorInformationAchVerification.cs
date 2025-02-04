@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseProcessorInformationAchVerification {\n");
-            sb.Append("  ResultCode: ").Append(ResultCode).Append("\n");
-            sb.Append("  ResultCodeRaw: ").Append(ResultCodeRaw).Append("\n");
+            if (ResultCode != null) sb.Append("  ResultCode: ").Append(ResultCode).Append("\n");
+            if (ResultCodeRaw != null) sb.Append("  ResultCodeRaw: ").Append(ResultCodeRaw).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

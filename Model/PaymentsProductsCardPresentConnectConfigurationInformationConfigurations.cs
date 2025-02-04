@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsCardPresentConnectConfigurationInformationConfigurations {\n");
-            sb.Append("  PartnerSolutionIdentifier: ").Append(PartnerSolutionIdentifier).Append("\n");
+            if (PartnerSolutionIdentifier != null) sb.Append("  PartnerSolutionIdentifier: ").Append(PartnerSolutionIdentifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

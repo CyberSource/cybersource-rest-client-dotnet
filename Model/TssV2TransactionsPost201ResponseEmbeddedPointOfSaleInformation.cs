@@ -88,11 +88,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation {\n");
-            sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
-            sb.Append("  TerminalSerialNumber: ").Append(TerminalSerialNumber).Append("\n");
-            sb.Append("  DeviceId: ").Append(DeviceId).Append("\n");
-            sb.Append("  Partner: ").Append(Partner).Append("\n");
-            sb.Append("  Emv: ").Append(Emv).Append("\n");
+            if (TerminalId != null) sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
+            if (TerminalSerialNumber != null) sb.Append("  TerminalSerialNumber: ").Append(TerminalSerialNumber).Append("\n");
+            if (DeviceId != null) sb.Append("  DeviceId: ").Append(DeviceId).Append("\n");
+            if (Partner != null) sb.Append("  Partner: ").Append(Partner).Append("\n");
+            if (Emv != null) sb.Append("  Emv: ").Append(Emv).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

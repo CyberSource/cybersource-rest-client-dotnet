@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Tmsv2customersEmbeddedDefaultPaymentInstrumentBuyerInformationIssuedBy {\n");
-            sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

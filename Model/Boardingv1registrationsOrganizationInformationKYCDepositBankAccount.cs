@@ -83,10 +83,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Boardingv1registrationsOrganizationInformationKYCDepositBankAccount {\n");
-            sb.Append("  AccountHolderName: ").Append(AccountHolderName).Append("\n");
-            sb.Append("  AccountType: ").Append(AccountType).Append("\n");
-            sb.Append("  AccountRoutingNumber: ").Append(AccountRoutingNumber).Append("\n");
-            sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
+            if (AccountHolderName != null) sb.Append("  AccountHolderName: ").Append(AccountHolderName).Append("\n");
+            if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            if (AccountRoutingNumber != null) sb.Append("  AccountRoutingNumber: ").Append(AccountRoutingNumber).Append("\n");
+            if (AccountNumber != null) sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

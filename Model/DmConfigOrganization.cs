@@ -54,7 +54,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DmConfigOrganization {\n");
-            sb.Append("  HierarchyGroup: ").Append(HierarchyGroup).Append("\n");
+            if (HierarchyGroup != null) sb.Append("  HierarchyGroup: ").Append(HierarchyGroup).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -103,13 +103,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurationsVault {\n");
-            sb.Append("  DefaultTokenType: ").Append(DefaultTokenType).Append("\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
-            sb.Append("  TokenFormats: ").Append(TokenFormats).Append("\n");
-            sb.Append("  TokenPermissions: ").Append(TokenPermissions).Append("\n");
-            sb.Append("  SensitivePrivileges: ").Append(SensitivePrivileges).Append("\n");
-            sb.Append("  Nullify: ").Append(Nullify).Append("\n");
-            sb.Append("  NetworkTokenServices: ").Append(NetworkTokenServices).Append("\n");
+            if (DefaultTokenType != null) sb.Append("  DefaultTokenType: ").Append(DefaultTokenType).Append("\n");
+            if (Location != null) sb.Append("  Location: ").Append(Location).Append("\n");
+            if (TokenFormats != null) sb.Append("  TokenFormats: ").Append(TokenFormats).Append("\n");
+            if (TokenPermissions != null) sb.Append("  TokenPermissions: ").Append(TokenPermissions).Append("\n");
+            if (SensitivePrivileges != null) sb.Append("  SensitivePrivileges: ").Append(SensitivePrivileges).Append("\n");
+            if (Nullify != null) sb.Append("  Nullify: ").Append(Nullify).Append("\n");
+            if (NetworkTokenServices != null) sb.Append("  NetworkTokenServices: ").Append(NetworkTokenServices).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

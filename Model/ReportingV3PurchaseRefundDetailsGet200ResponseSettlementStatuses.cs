@@ -90,11 +90,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3PurchaseRefundDetailsGet200ResponseSettlementStatuses {\n");
-            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  SettlementTime: ").Append(SettlementTime).Append("\n");
-            sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
-            sb.Append("  ErrorText: ").Append(ErrorText).Append("\n");
+            if (RequestId != null) sb.Append("  RequestId: ").Append(RequestId).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (SettlementTime != null) sb.Append("  SettlementTime: ").Append(SettlementTime).Append("\n");
+            if (ReasonCode != null) sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
+            if (ErrorText != null) sb.Append("  ErrorText: ").Append(ErrorText).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

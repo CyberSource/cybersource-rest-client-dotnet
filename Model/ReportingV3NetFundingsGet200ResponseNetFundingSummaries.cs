@@ -111,14 +111,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3NetFundingsGet200ResponseNetFundingSummaries {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  PaymentSubType: ").Append(PaymentSubType).Append("\n");
-            sb.Append("  ConveyedCount: ").Append(ConveyedCount).Append("\n");
-            sb.Append("  ConveyedAmount: ").Append(ConveyedAmount).Append("\n");
-            sb.Append("  SettledCount: ").Append(SettledCount).Append("\n");
-            sb.Append("  FundedCount: ").Append(FundedCount).Append("\n");
-            sb.Append("  FundedAmount: ").Append(FundedAmount).Append("\n");
-            sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (PaymentSubType != null) sb.Append("  PaymentSubType: ").Append(PaymentSubType).Append("\n");
+            if (ConveyedCount != null) sb.Append("  ConveyedCount: ").Append(ConveyedCount).Append("\n");
+            if (ConveyedAmount != null) sb.Append("  ConveyedAmount: ").Append(ConveyedAmount).Append("\n");
+            if (SettledCount != null) sb.Append("  SettledCount: ").Append(SettledCount).Append("\n");
+            if (FundedCount != null) sb.Append("  FundedCount: ").Append(FundedCount).Append("\n");
+            if (FundedAmount != null) sb.Append("  FundedAmount: ").Append(FundedAmount).Append("\n");
+            if (CurrencyCode != null) sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

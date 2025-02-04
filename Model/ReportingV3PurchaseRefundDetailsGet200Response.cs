@@ -123,15 +123,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingV3PurchaseRefundDetailsGet200Response {\n");
-            sb.Append("  Offset: ").Append(Offset).Append("\n");
-            sb.Append("  Limit: ").Append(Limit).Append("\n");
-            sb.Append("  PageResults: ").Append(PageResults).Append("\n");
-            sb.Append("  RequestDetails: ").Append(RequestDetails).Append("\n");
-            sb.Append("  Settlements: ").Append(Settlements).Append("\n");
-            sb.Append("  Authorizations: ").Append(Authorizations).Append("\n");
-            sb.Append("  FeeAndFundingDetails: ").Append(FeeAndFundingDetails).Append("\n");
-            sb.Append("  Others: ").Append(Others).Append("\n");
-            sb.Append("  SettlementStatuses: ").Append(SettlementStatuses).Append("\n");
+            if (Offset != null) sb.Append("  Offset: ").Append(Offset).Append("\n");
+            if (Limit != null) sb.Append("  Limit: ").Append(Limit).Append("\n");
+            if (PageResults != null) sb.Append("  PageResults: ").Append(PageResults).Append("\n");
+            if (RequestDetails != null) sb.Append("  RequestDetails: ").Append(RequestDetails).Append("\n");
+            if (Settlements != null) sb.Append("  Settlements: ").Append(Settlements).Append("\n");
+            if (Authorizations != null) sb.Append("  Authorizations: ").Append(Authorizations).Append("\n");
+            if (FeeAndFundingDetails != null) sb.Append("  FeeAndFundingDetails: ").Append(FeeAndFundingDetails).Append("\n");
+            if (Others != null) sb.Append("  Others: ").Append(Others).Append("\n");
+            if (SettlementStatuses != null) sb.Append("  SettlementStatuses: ").Append(SettlementStatuses).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

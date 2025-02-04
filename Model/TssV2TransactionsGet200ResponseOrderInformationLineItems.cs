@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponseOrderInformationLineItems {\n");
-            sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
-            sb.Append("  ProductName: ").Append(ProductName).Append("\n");
-            sb.Append("  ProductSku: ").Append(ProductSku).Append("\n");
-            sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
-            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
-            sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
-            sb.Append("  FulfillmentType: ").Append(FulfillmentType).Append("\n");
+            if (ProductCode != null) sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
+            if (ProductName != null) sb.Append("  ProductName: ").Append(ProductName).Append("\n");
+            if (ProductSku != null) sb.Append("  ProductSku: ").Append(ProductSku).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (Quantity != null) sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            if (UnitPrice != null) sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
+            if (FulfillmentType != null) sb.Append("  FulfillmentType: ").Append(FulfillmentType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

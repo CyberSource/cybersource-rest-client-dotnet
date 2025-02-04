@@ -99,13 +99,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Boardingv1registrationsRegistrationInformation {\n");
-            sb.Append("  BoardingRegistrationId: ").Append(BoardingRegistrationId).Append("\n");
-            sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  BoardingPackageId: ").Append(BoardingPackageId).Append("\n");
-            sb.Append("  BoardingFlow: ").Append(BoardingFlow).Append("\n");
-            sb.Append("  Mode: ").Append(Mode).Append("\n");
-            sb.Append("  SalesRepId: ").Append(SalesRepId).Append("\n");
+            if (BoardingRegistrationId != null) sb.Append("  BoardingRegistrationId: ").Append(BoardingRegistrationId).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (BoardingPackageId != null) sb.Append("  BoardingPackageId: ").Append(BoardingPackageId).Append("\n");
+            if (BoardingFlow != null) sb.Append("  BoardingFlow: ").Append(BoardingFlow).Append("\n");
+            if (Mode != null) sb.Append("  Mode: ").Append(Mode).Append("\n");
+            if (SalesRepId != null) sb.Append("  SalesRepId: ").Append(SalesRepId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

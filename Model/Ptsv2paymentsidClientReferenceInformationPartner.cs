@@ -72,9 +72,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidClientReferenceInformationPartner {\n");
-            sb.Append("  OriginalTransactionId: ").Append(OriginalTransactionId).Append("\n");
-            sb.Append("  DeveloperId: ").Append(DeveloperId).Append("\n");
-            sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
+            if (OriginalTransactionId != null) sb.Append("  OriginalTransactionId: ").Append(OriginalTransactionId).Append("\n");
+            if (DeveloperId != null) sb.Append("  DeveloperId: ").Append(DeveloperId).Append("\n");
+            if (SolutionId != null) sb.Append("  SolutionId: ").Append(SolutionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

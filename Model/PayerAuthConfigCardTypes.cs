@@ -109,14 +109,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PayerAuthConfigCardTypes {\n");
-            sb.Append("  VerifiedByVisa: ").Append(VerifiedByVisa).Append("\n");
-            sb.Append("  MasterCardSecureCode: ").Append(MasterCardSecureCode).Append("\n");
-            sb.Append("  AmexSafeKey: ").Append(AmexSafeKey).Append("\n");
-            sb.Append("  JCBJSecure: ").Append(JCBJSecure).Append("\n");
-            sb.Append("  DinersClubInternationalProtectBuy: ").Append(DinersClubInternationalProtectBuy).Append("\n");
-            sb.Append("  ELO: ").Append(ELO).Append("\n");
-            sb.Append("  UPI: ").Append(UPI).Append("\n");
-            sb.Append("  CB: ").Append(CB).Append("\n");
+            if (VerifiedByVisa != null) sb.Append("  VerifiedByVisa: ").Append(VerifiedByVisa).Append("\n");
+            if (MasterCardSecureCode != null) sb.Append("  MasterCardSecureCode: ").Append(MasterCardSecureCode).Append("\n");
+            if (AmexSafeKey != null) sb.Append("  AmexSafeKey: ").Append(AmexSafeKey).Append("\n");
+            if (JCBJSecure != null) sb.Append("  JCBJSecure: ").Append(JCBJSecure).Append("\n");
+            if (DinersClubInternationalProtectBuy != null) sb.Append("  DinersClubInternationalProtectBuy: ").Append(DinersClubInternationalProtectBuy).Append("\n");
+            if (ELO != null) sb.Append("  ELO: ").Append(ELO).Append("\n");
+            if (UPI != null) sb.Append("  UPI: ").Append(UPI).Append("\n");
+            if (CB != null) sb.Append("  CB: ").Append(CB).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

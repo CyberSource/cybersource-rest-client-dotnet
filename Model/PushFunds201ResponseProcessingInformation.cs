@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PushFunds201ResponseProcessingInformation {\n");
-            sb.Append("  DomesticNationalNet: ").Append(DomesticNationalNet).Append("\n");
+            if (DomesticNationalNet != null) sb.Append("  DomesticNationalNet: ").Append(DomesticNationalNet).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CardArt'
         }
+        /// <summary>
+        /// Test the property 'Issuer'
+        /// </summary>
+        [Test]
+        public void IssuerTest()
+        {
+            // TODO unit test for the property 'Issuer'
+        }
 
     }
 

@@ -59,8 +59,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>PostInstrumentIdentifierRequest</returns>
-        PostInstrumentIdentifierRequest GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null);
+        PostInstrumentIdentifierRequest GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null);
 
         /// <summary>
         /// Retrieve an Instrument Identifier
@@ -71,8 +72,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>ApiResponse of PostInstrumentIdentifierRequest</returns>
-        ApiResponse<PostInstrumentIdentifierRequest> GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null);
+        ApiResponse<PostInstrumentIdentifierRequest> GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null);
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
         /// </summary>
@@ -82,10 +84,11 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>PaymentInstrumentList1</returns>
-        PaymentInstrumentList1 GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null);
+        PaymentInstrumentList1 GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
 
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
@@ -96,10 +99,11 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>ApiResponse of PaymentInstrumentList1</returns>
-        ApiResponse<PaymentInstrumentList1> GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null);
+        ApiResponse<PaymentInstrumentList1> GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
         /// <summary>
         /// Update an Instrument Identifier
         /// </summary>
@@ -110,9 +114,10 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>PatchInstrumentIdentifierRequest</returns>
-        PatchInstrumentIdentifierRequest PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        PatchInstrumentIdentifierRequest PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null);
 
         /// <summary>
         /// Update an Instrument Identifier
@@ -124,9 +129,10 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>ApiResponse of PatchInstrumentIdentifierRequest</returns>
-        ApiResponse<PatchInstrumentIdentifierRequest> PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        ApiResponse<PatchInstrumentIdentifierRequest> PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null);
         /// <summary>
         /// Create an Instrument Identifier
         /// </summary>
@@ -136,8 +142,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>PostInstrumentIdentifierRequest</returns>
-        PostInstrumentIdentifierRequest PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
+        PostInstrumentIdentifierRequest PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null);
 
         /// <summary>
         /// Create an Instrument Identifier
@@ -148,8 +155,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>ApiResponse of PostInstrumentIdentifierRequest</returns>
-        ApiResponse<PostInstrumentIdentifierRequest> PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
+        ApiResponse<PostInstrumentIdentifierRequest> PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null);
         /// <summary>
         /// Enroll an Instrument Identifier for Payment Network Token
         /// </summary>
@@ -209,8 +217,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of PostInstrumentIdentifierRequest</returns>
-        System.Threading.Tasks.Task<PostInstrumentIdentifierRequest> GetInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null);
+        System.Threading.Tasks.Task<PostInstrumentIdentifierRequest> GetInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null);
 
         /// <summary>
         /// Retrieve an Instrument Identifier
@@ -221,8 +230,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of ApiResponse (PostInstrumentIdentifierRequest)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostInstrumentIdentifierRequest>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null);
+        System.Threading.Tasks.Task<ApiResponse<PostInstrumentIdentifierRequest>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null);
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
         /// </summary>
@@ -232,10 +242,11 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of PaymentInstrumentList1</returns>
-        System.Threading.Tasks.Task<PaymentInstrumentList1> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null);
+        System.Threading.Tasks.Task<PaymentInstrumentList1> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
 
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
@@ -246,10 +257,11 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (PaymentInstrumentList1)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList1>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null);
+        System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList1>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
         /// <summary>
         /// Update an Instrument Identifier
         /// </summary>
@@ -260,9 +272,10 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of PatchInstrumentIdentifierRequest</returns>
-        System.Threading.Tasks.Task<PatchInstrumentIdentifierRequest> PatchInstrumentIdentifierAsync (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        System.Threading.Tasks.Task<PatchInstrumentIdentifierRequest> PatchInstrumentIdentifierAsync (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null);
 
         /// <summary>
         /// Update an Instrument Identifier
@@ -274,9 +287,10 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of ApiResponse (PatchInstrumentIdentifierRequest)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PatchInstrumentIdentifierRequest>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null);
+        System.Threading.Tasks.Task<ApiResponse<PatchInstrumentIdentifierRequest>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null);
         /// <summary>
         /// Create an Instrument Identifier
         /// </summary>
@@ -286,8 +300,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of PostInstrumentIdentifierRequest</returns>
-        System.Threading.Tasks.Task<PostInstrumentIdentifierRequest> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
+        System.Threading.Tasks.Task<PostInstrumentIdentifierRequest> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null);
 
         /// <summary>
         /// Create an Instrument Identifier
@@ -298,8 +313,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of ApiResponse (PostInstrumentIdentifierRequest)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PostInstrumentIdentifierRequest>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null);
+        System.Threading.Tasks.Task<ApiResponse<PostInstrumentIdentifierRequest>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null);
         /// <summary>
         /// Enroll an Instrument Identifier for Payment Network Token
         /// </summary>
@@ -667,12 +683,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>PostInstrumentIdentifierRequest</returns>
-        public PostInstrumentIdentifierRequest GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null)
+        public PostInstrumentIdentifierRequest GetInstrumentIdentifier (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = GetInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, profileId);
+            ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = GetInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails);
             logger.Debug("CALLING API \"GetInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -684,8 +701,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>ApiResponse of PostInstrumentIdentifierRequest</returns>
-        public ApiResponse< PostInstrumentIdentifierRequest > GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null)
+        public ApiResponse< PostInstrumentIdentifierRequest > GetInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -725,6 +743,11 @@ namespace CyberSource.Api
                 localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -767,12 +790,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of PostInstrumentIdentifierRequest</returns>
-        public async System.Threading.Tasks.Task<PostInstrumentIdentifierRequest> GetInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null)
+        public async System.Threading.Tasks.Task<PostInstrumentIdentifierRequest> GetInstrumentIdentifierAsync (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, profileId);
+            ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails);
             logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -785,8 +809,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of ApiResponse (PostInstrumentIdentifierRequest)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PostInstrumentIdentifierRequest>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PostInstrumentIdentifierRequest>> GetInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -826,6 +851,11 @@ namespace CyberSource.Api
                 localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -867,14 +897,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>PaymentInstrumentList1</returns>
-        public PaymentInstrumentList1 GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
+        public PaymentInstrumentList1 GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PaymentInstrumentList1> localVarResponse = GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo(instrumentIdentifierId, profileId, offset, limit);
+            ApiResponse<PaymentInstrumentList1> localVarResponse = GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -886,10 +917,11 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>ApiResponse of PaymentInstrumentList1</returns>
-        public ApiResponse< PaymentInstrumentList1 > GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
+        public ApiResponse< PaymentInstrumentList1 > GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -929,6 +961,10 @@ namespace CyberSource.Api
                 localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
@@ -937,6 +973,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
             }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
@@ -981,14 +1018,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of PaymentInstrumentList1</returns>
-        public async System.Threading.Tasks.Task<PaymentInstrumentList1> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
+        public async System.Threading.Tasks.Task<PaymentInstrumentList1> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PaymentInstrumentList1> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierId, profileId, offset, limit);
+            ApiResponse<PaymentInstrumentList1> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1001,10 +1039,11 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
         /// <returns>Task of ApiResponse (PaymentInstrumentList1)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList1>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, long? offset = null, long? limit = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList1>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1044,6 +1083,10 @@ namespace CyberSource.Api
                 localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
@@ -1052,6 +1095,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
             }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
@@ -1096,13 +1140,14 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>PatchInstrumentIdentifierRequest</returns>
-        public PatchInstrumentIdentifierRequest PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        public PatchInstrumentIdentifierRequest PatchInstrumentIdentifier (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PatchInstrumentIdentifierRequest> localVarResponse = PatchInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+            ApiResponse<PatchInstrumentIdentifierRequest> localVarResponse = PatchInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, retrieveBinDetails, ifMatch);
             logger.Debug("CALLING API \"PatchInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1115,9 +1160,10 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>ApiResponse of PatchInstrumentIdentifierRequest</returns>
-        public ApiResponse< PatchInstrumentIdentifierRequest > PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        public ApiResponse< PatchInstrumentIdentifierRequest > PatchInstrumentIdentifierWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1163,6 +1209,11 @@ namespace CyberSource.Api
                 localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1221,13 +1272,14 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of PatchInstrumentIdentifierRequest</returns>
-        public async System.Threading.Tasks.Task<PatchInstrumentIdentifierRequest> PatchInstrumentIdentifierAsync (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        public async System.Threading.Tasks.Task<PatchInstrumentIdentifierRequest> PatchInstrumentIdentifierAsync (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
         {
             logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PatchInstrumentIdentifierRequest> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, ifMatch);
+            ApiResponse<PatchInstrumentIdentifierRequest> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, retrieveBinDetails, ifMatch);
             logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1241,9 +1293,10 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="patchInstrumentIdentifierRequest">Specify the previous transaction Id to update.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="ifMatch">Contains an ETag value from a GET request to make the request conditional. (optional)</param>
         /// <returns>Task of ApiResponse (PatchInstrumentIdentifierRequest)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PatchInstrumentIdentifierRequest>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, string ifMatch = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PatchInstrumentIdentifierRequest>> PatchInstrumentIdentifierAsyncWithHttpInfo (string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1289,6 +1342,11 @@ namespace CyberSource.Api
                 localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1345,12 +1403,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>PostInstrumentIdentifierRequest</returns>
-        public PostInstrumentIdentifierRequest PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+        public PostInstrumentIdentifierRequest PostInstrumentIdentifier (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null)
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = PostInstrumentIdentifierWithHttpInfo(postInstrumentIdentifierRequest, profileId);
+            ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = PostInstrumentIdentifierWithHttpInfo(postInstrumentIdentifierRequest, profileId, retrieveBinDetails);
             logger.Debug("CALLING API \"PostInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1362,8 +1421,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>ApiResponse of PostInstrumentIdentifierRequest</returns>
-        public ApiResponse< PostInstrumentIdentifierRequest > PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+        public ApiResponse< PostInstrumentIdentifierRequest > PostInstrumentIdentifierWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1398,6 +1458,11 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1451,12 +1516,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of PostInstrumentIdentifierRequest</returns>
-        public async System.Threading.Tasks.Task<PostInstrumentIdentifierRequest> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+        public async System.Threading.Tasks.Task<PostInstrumentIdentifierRequest> PostInstrumentIdentifierAsync (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null)
         {
             logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = await PostInstrumentIdentifierAsyncWithHttpInfo(postInstrumentIdentifierRequest, profileId);
+            ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = await PostInstrumentIdentifierAsyncWithHttpInfo(postInstrumentIdentifierRequest, profileId, retrieveBinDetails);
             logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1469,8 +1535,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postInstrumentIdentifierRequest">Specify either a Card, Bank Account or Enrollable Card</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <returns>Task of ApiResponse (PostInstrumentIdentifierRequest)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PostInstrumentIdentifierRequest>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PostInstrumentIdentifierRequest>> PostInstrumentIdentifierAsyncWithHttpInfo (PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1505,6 +1572,11 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
+            if (retrieveBinDetails != null)
+            {
+                localVarQueryParams.Add("retrieveBinDetails", Configuration.ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter

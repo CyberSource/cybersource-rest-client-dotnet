@@ -53,7 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Rbsv1subscriptionsProcessingInformationAuthorizationOptions {\n");
-            sb.Append("  Initiator: ").Append(Initiator).Append("\n");
+            if (Initiator != null) sb.Append("  Initiator: ").Append(Initiator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

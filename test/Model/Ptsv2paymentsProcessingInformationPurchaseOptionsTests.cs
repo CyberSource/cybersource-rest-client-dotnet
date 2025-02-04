@@ -80,6 +80,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Type'
         }
+        /// <summary>
+        /// Test the property 'EligibilityIndicator'
+        /// </summary>
+        [Test]
+        public void EligibilityIndicatorTest()
+        {
+            // TODO unit test for the property 'EligibilityIndicator'
+        }
+        /// <summary>
+        /// Test the property 'BenefitAmount'
+        /// </summary>
+        [Test]
+        public void BenefitAmountTest()
+        {
+            // TODO unit test for the property 'BenefitAmount'
+        }
+        /// <summary>
+        /// Test the property 'BenefitType'
+        /// </summary>
+        [Test]
+        public void BenefitTypeTest()
+        {
+            // TODO unit test for the property 'BenefitType'
+        }
 
     }
 

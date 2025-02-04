@@ -71,9 +71,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoicesGet200ResponseInvoiceHistory {\n");
-            sb.Append("  Event: ").Append(Event).Append("\n");
-            sb.Append("  Date: ").Append(Date).Append("\n");
-            sb.Append("  TransactionDetails: ").Append(TransactionDetails).Append("\n");
+            if (Event != null) sb.Append("  Event: ").Append(Event).Append("\n");
+            if (Date != null) sb.Append("  Date: ").Append(Date).Append("\n");
+            if (TransactionDetails != null) sb.Append("  TransactionDetails: ").Append(TransactionDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

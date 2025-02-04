@@ -108,13 +108,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardProcessingConfigCommonAcquirer {\n");
-            sb.Append("  InstitutionId: ").Append(InstitutionId).Append("\n");
-            sb.Append("  InterbankCardAssociationId: ").Append(InterbankCardAssociationId).Append("\n");
-            sb.Append("  DiscoverInstitutionId: ").Append(DiscoverInstitutionId).Append("\n");
-            sb.Append("  UnionPayInstitutionId: ").Append(UnionPayInstitutionId).Append("\n");
-            sb.Append("  DinersClubInstitutionId: ").Append(DinersClubInstitutionId).Append("\n");
-            sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
-            sb.Append("  FileDestinationBin: ").Append(FileDestinationBin).Append("\n");
+            if (InstitutionId != null) sb.Append("  InstitutionId: ").Append(InstitutionId).Append("\n");
+            if (InterbankCardAssociationId != null) sb.Append("  InterbankCardAssociationId: ").Append(InterbankCardAssociationId).Append("\n");
+            if (DiscoverInstitutionId != null) sb.Append("  DiscoverInstitutionId: ").Append(DiscoverInstitutionId).Append("\n");
+            if (UnionPayInstitutionId != null) sb.Append("  UnionPayInstitutionId: ").Append(UnionPayInstitutionId).Append("\n");
+            if (DinersClubInstitutionId != null) sb.Append("  DinersClubInstitutionId: ").Append(DinersClubInstitutionId).Append("\n");
+            if (CountryCode != null) sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
+            if (FileDestinationBin != null) sb.Append("  FileDestinationBin: ").Append(FileDestinationBin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

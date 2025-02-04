@@ -99,12 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsEmbeddedInstrumentIdentifierBillTo {\n");
-            sb.Append("  Address1: ").Append(Address1).Append("\n");
-            sb.Append("  Address2: ").Append(Address2).Append("\n");
-            sb.Append("  Locality: ").Append(Locality).Append("\n");
-            sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  Country: ").Append(Country).Append("\n");
+            if (Address1 != null) sb.Append("  Address1: ").Append(Address1).Append("\n");
+            if (Address2 != null) sb.Append("  Address2: ").Append(Address2).Append("\n");
+            if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
