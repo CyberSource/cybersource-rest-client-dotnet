@@ -15,6 +15,7 @@ using {{packageName}}.Client;
 using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
+using AuthenticationSdk.core;
 
 namespace {{packageName}}.{{apiPackage}}
 {
@@ -361,7 +362,7 @@ namespace {{packageName}}.{{apiPackage}}
                 logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
             }
             {{/bodyParam}}
-            
+
             {{#authMethods}}
             // authentication ({{name}}) required
             {{#isApiKey}}
