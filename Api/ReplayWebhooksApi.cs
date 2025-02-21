@@ -18,6 +18,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Model;
+using AuthenticationSdk.core;
 
 namespace CyberSource.Api
 {
@@ -288,6 +289,22 @@ namespace CyberSource.Api
                 localVarPostBody = replayWebhooksRequest; // byte array
             }
 
+
+            bool isMLESupportedByCybsForApi = false;
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.checkIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ReplayPreviousWebhooks,ReplayPreviousWebhooksAsync,ReplayPreviousWebhooksWithHttpInfo,ReplayPreviousWebhooksAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.encryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
             if (logUtility.IsMaskingEnabled(logger))
             {
                 logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
@@ -392,6 +409,21 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = replayWebhooksRequest; // byte array
+            }
+
+            bool isMLESupportedByCybsForApi = false;
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.checkIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ReplayPreviousWebhooks,ReplayPreviousWebhooksAsync,ReplayPreviousWebhooksWithHttpInfo,ReplayPreviousWebhooksAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.encryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
             }
 
             if (logUtility.IsMaskingEnabled(logger))
