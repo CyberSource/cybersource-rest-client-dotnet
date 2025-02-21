@@ -531,15 +531,6 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 localVarPostBody = {{paramName}}; // byte array
             }
-
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
             {{/bodyParam}}
             {{^bodyParam}}
             if (Method.{{httpMethod}} == Method.POST)
