@@ -314,11 +314,11 @@ namespace CyberSource.Api
 
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.checkIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetChargebackSummaries,GetChargebackSummariesAsync,GetChargebackSummariesWithHttpInfo,GetChargebackSummariesAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetChargebackSummaries,GetChargebackSummariesAsync,GetChargebackSummariesWithHttpInfo,GetChargebackSummariesAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.encryptRequestPayload(merchantConfig, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
                 }
                 catch (Exception e)
                 {
@@ -446,11 +446,11 @@ namespace CyberSource.Api
 
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.checkIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetChargebackSummaries,GetChargebackSummariesAsync,GetChargebackSummariesWithHttpInfo,GetChargebackSummariesAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetChargebackSummaries,GetChargebackSummariesAsync,GetChargebackSummariesWithHttpInfo,GetChargebackSummariesAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.encryptRequestPayload(merchantConfig, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
                 }
                 catch (Exception e)
                 {

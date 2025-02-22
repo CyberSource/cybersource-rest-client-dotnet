@@ -325,11 +325,11 @@ namespace CyberSource.Api
 
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.checkIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ValidateExportCompliance,ValidateExportComplianceAsync,ValidateExportComplianceWithHttpInfo,ValidateExportComplianceAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ValidateExportCompliance,ValidateExportComplianceAsync,ValidateExportComplianceWithHttpInfo,ValidateExportComplianceAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.encryptRequestPayload(merchantConfig, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
                 }
                 catch (Exception e)
                 {
@@ -441,11 +441,11 @@ namespace CyberSource.Api
 
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.checkIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ValidateExportCompliance,ValidateExportComplianceAsync,ValidateExportComplianceWithHttpInfo,ValidateExportComplianceAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ValidateExportCompliance,ValidateExportComplianceAsync,ValidateExportComplianceWithHttpInfo,ValidateExportComplianceAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.encryptRequestPayload(merchantConfig, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
                 }
                 catch (Exception e)
                 {
@@ -556,11 +556,11 @@ namespace CyberSource.Api
 
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.checkIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VerifyCustomerAddress,VerifyCustomerAddressAsync,VerifyCustomerAddressWithHttpInfo,VerifyCustomerAddressAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VerifyCustomerAddress,VerifyCustomerAddressAsync,VerifyCustomerAddressWithHttpInfo,VerifyCustomerAddressAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.encryptRequestPayload(merchantConfig, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
                 }
                 catch (Exception e)
                 {
@@ -672,11 +672,11 @@ namespace CyberSource.Api
 
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.checkIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VerifyCustomerAddress,VerifyCustomerAddressAsync,VerifyCustomerAddressWithHttpInfo,VerifyCustomerAddressAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VerifyCustomerAddress,VerifyCustomerAddressAsync,VerifyCustomerAddressWithHttpInfo,VerifyCustomerAddressAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.encryptRequestPayload(merchantConfig, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
                 }
                 catch (Exception e)
                 {

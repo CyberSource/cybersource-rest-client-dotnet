@@ -314,11 +314,11 @@ namespace CyberSource.Api
 
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.checkIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetConversionDetail,GetConversionDetailAsync,GetConversionDetailWithHttpInfo,GetConversionDetailAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetConversionDetail,GetConversionDetailAsync,GetConversionDetailWithHttpInfo,GetConversionDetailAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.encryptRequestPayload(merchantConfig, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
                 }
                 catch (Exception e)
                 {
@@ -446,11 +446,11 @@ namespace CyberSource.Api
 
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.checkIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetConversionDetail,GetConversionDetailAsync,GetConversionDetailWithHttpInfo,GetConversionDetailAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetConversionDetail,GetConversionDetailAsync,GetConversionDetailWithHttpInfo,GetConversionDetailAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.encryptRequestPayload(merchantConfig, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
                 }
                 catch (Exception e)
                 {
