@@ -35,14 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="ClientVersion">Specify the version of Microform that you want to use. .</param>
         /// <param name="TargetOrigins">The [target origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) of the website on which you will be launching Microform is defined by the scheme (protocol), hostname (domain) and port number (if used).    You must use https://hostname (unless you use http://localhost) Wildcards are NOT supported.  Ensure that subdomains are included. Any valid top-level domain is supported (e.g. .com, .co.uk, .gov.br etc)  Examples:   - https://example.com   - https://subdomain.example.com   - https://example.com:8080&lt;br&gt;&lt;br&gt;  If you are embedding within multiple nested iframes you need to specify the origins of all the browser contexts used, for example:    targetOrigins: [     \&quot;https://example.com\&quot;,     \&quot;https://basket.example.com\&quot;,     \&quot;https://ecom.example.com\&quot;   ] .</param>
-        /// <param name="AllowedCardNetworks">The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA  **Important:**    - When integrating Microform (Accept Card) at least one card network should be specified in the allowedCardNetworks field in the capture context request.   - When integrating Microform (Accept Check) the allowedCardNetworks field is not required in the capture context request.   - When integrating both Microform (Accept Card) and Microform (Accept Check) at least one card network should be specified in the allowedCardNetworks field in the capture context request. .</param>
+        /// <param name="AllowedCardNetworks">The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA  **Important:**    - When integrating Microform (Card) at least one card network should be specified in the allowedCardNetworks field in the capture context request.   - When integrating Microform (ACH/Echeck) the allowedCardNetworks field is not required in the capture context request.   - When integrating both Microform (Card) and Microform (ACH/Echeck) at least one card network should be specified in the allowedCardNetworks field in the capture context request. .</param>
         /// <param name="AllowedPaymentTypes">The payment types that are allowed for the merchant.    Possible values when launching Microform: - CARD - CHECK &lt;br&gt;&lt;br&gt; .</param>
-        public GenerateCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>))
+        /// <param name="TransientTokenResponseOptions">TransientTokenResponseOptions.</param>
+        public GenerateCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>), Microformv2sessionsTransientTokenResponseOptions TransientTokenResponseOptions = default(Microformv2sessionsTransientTokenResponseOptions))
         {
             this.ClientVersion = ClientVersion;
             this.TargetOrigins = TargetOrigins;
             this.AllowedCardNetworks = AllowedCardNetworks;
             this.AllowedPaymentTypes = AllowedPaymentTypes;
+            this.TransientTokenResponseOptions = TransientTokenResponseOptions;
         }
         
         /// <summary>
@@ -60,9 +62,9 @@ namespace CyberSource.Model
         public List<string> TargetOrigins { get; set; }
 
         /// <summary>
-        /// The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA  **Important:**    - When integrating Microform (Accept Card) at least one card network should be specified in the allowedCardNetworks field in the capture context request.   - When integrating Microform (Accept Check) the allowedCardNetworks field is not required in the capture context request.   - When integrating both Microform (Accept Card) and Microform (Accept Check) at least one card network should be specified in the allowedCardNetworks field in the capture context request. 
+        /// The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA  **Important:**    - When integrating Microform (Card) at least one card network should be specified in the allowedCardNetworks field in the capture context request.   - When integrating Microform (ACH/Echeck) the allowedCardNetworks field is not required in the capture context request.   - When integrating both Microform (Card) and Microform (ACH/Echeck) at least one card network should be specified in the allowedCardNetworks field in the capture context request. 
         /// </summary>
-        /// <value>The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA  **Important:**    - When integrating Microform (Accept Card) at least one card network should be specified in the allowedCardNetworks field in the capture context request.   - When integrating Microform (Accept Check) the allowedCardNetworks field is not required in the capture context request.   - When integrating both Microform (Accept Card) and Microform (Accept Check) at least one card network should be specified in the allowedCardNetworks field in the capture context request. </value>
+        /// <value>The list of card networks you want to use for this Microform transaction.  Microform currently supports the following card networks: - VISA - MASTERCARD - AMEX - CARNET - CARTESBANCAIRES - CUP - DINERSCLUB - DISCOVER - EFTPOS - ELO - JCB - JCREW - MADA - MAESTRO - MEEZA  **Important:**    - When integrating Microform (Card) at least one card network should be specified in the allowedCardNetworks field in the capture context request.   - When integrating Microform (ACH/Echeck) the allowedCardNetworks field is not required in the capture context request.   - When integrating both Microform (Card) and Microform (ACH/Echeck) at least one card network should be specified in the allowedCardNetworks field in the capture context request. </value>
         [DataMember(Name="allowedCardNetworks", EmitDefaultValue=false)]
         public List<string> AllowedCardNetworks { get; set; }
 
@@ -72,6 +74,12 @@ namespace CyberSource.Model
         /// <value>The payment types that are allowed for the merchant.    Possible values when launching Microform: - CARD - CHECK &lt;br&gt;&lt;br&gt; </value>
         [DataMember(Name="allowedPaymentTypes", EmitDefaultValue=false)]
         public List<string> AllowedPaymentTypes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TransientTokenResponseOptions
+        /// </summary>
+        [DataMember(Name="transientTokenResponseOptions", EmitDefaultValue=false)]
+        public Microformv2sessionsTransientTokenResponseOptions TransientTokenResponseOptions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,6 +93,7 @@ namespace CyberSource.Model
             if (TargetOrigins != null) sb.Append("  TargetOrigins: ").Append(TargetOrigins).Append("\n");
             if (AllowedCardNetworks != null) sb.Append("  AllowedCardNetworks: ").Append(AllowedCardNetworks).Append("\n");
             if (AllowedPaymentTypes != null) sb.Append("  AllowedPaymentTypes: ").Append(AllowedPaymentTypes).Append("\n");
+            if (TransientTokenResponseOptions != null) sb.Append("  TransientTokenResponseOptions: ").Append(TransientTokenResponseOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +149,11 @@ namespace CyberSource.Model
                     this.AllowedPaymentTypes == other.AllowedPaymentTypes ||
                     this.AllowedPaymentTypes != null &&
                     this.AllowedPaymentTypes.SequenceEqual(other.AllowedPaymentTypes)
+                ) && 
+                (
+                    this.TransientTokenResponseOptions == other.TransientTokenResponseOptions ||
+                    this.TransientTokenResponseOptions != null &&
+                    this.TransientTokenResponseOptions.Equals(other.TransientTokenResponseOptions)
                 );
         }
 
@@ -162,6 +176,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AllowedCardNetworks.GetHashCode();
                 if (this.AllowedPaymentTypes != null)
                     hash = hash * 59 + this.AllowedPaymentTypes.GetHashCode();
+                if (this.TransientTokenResponseOptions != null)
+                    hash = hash * 59 + this.TransientTokenResponseOptions.GetHashCode();
                 return hash;
             }
         }
