@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 CyberSource Merged Spec
 
@@ -16,7 +16,7 @@ OpenAPI spec version: 0.0.1
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CyberSource.Test</RootNamespace>
     <AssemblyName>CyberSource.Test</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -81,22 +81,20 @@ OpenAPI spec version: 0.0.1
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-        <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs"
-             Exclude="obj\**"/>
+    <Compile Include="**\*.cs" Exclude="obj\**" />
   </ItemGroup>
   <ItemGroup>
-      <None Include="packages.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-      <ProjectReference Include="..\cybersource-rest-client-dotnet.csproj">
-          <Project>{40B32C75-B40F-4A95-A721-F40CA28ABAA7}</Project>
-          <Name>cybersource-rest-client-dotnet</Name>
-      </ProjectReference>
+    <ProjectReference Include="..\cybersource-rest-client-dotnet.csproj">
+      <Project>{40B32C75-B40F-4A95-A721-F40CA28ABAA7}</Project>
+      <Name>cybersource-rest-client-dotnet</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
-
