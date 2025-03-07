@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Vault'
         }
+        /// <summary>
+        /// Test the property 'NetworkTokenEnrollment'
+        /// </summary>
+        [Test]
+        public void NetworkTokenEnrollmentTest()
+        {
+            // TODO unit test for the property 'NetworkTokenEnrollment'
+        }
 
     }
 

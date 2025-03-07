@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="ParentProfileId">Specify the Vault ID to which transacting MID needs to be assigned.Provide Vault ID as seen on EBC Vault management page. If not provided , transacting MID will be assigned to the existing default Vault at merchant&#39;s level. If there are no Vaults at merchant level , a new Vault will be created and transacting MID will be assigned to it..</param>
         /// <param name="Vault">Vault.</param>
-        public CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurations(string ParentProfileId = default(string), CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurationsVault Vault = default(CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurationsVault))
+        /// <param name="NetworkTokenEnrollment">NetworkTokenEnrollment.</param>
+        public CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurations(string ParentProfileId = default(string), CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurationsVault Vault = default(CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurationsVault), NetworkTokenEnrollment NetworkTokenEnrollment = default(NetworkTokenEnrollment))
         {
             this.ParentProfileId = ParentProfileId;
             this.Vault = Vault;
+            this.NetworkTokenEnrollment = NetworkTokenEnrollment;
         }
         
         /// <summary>
@@ -55,6 +57,12 @@ namespace CyberSource.Model
         public CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurationsVault Vault { get; set; }
 
         /// <summary>
+        /// Gets or Sets NetworkTokenEnrollment
+        /// </summary>
+        [DataMember(Name="networkTokenEnrollment", EmitDefaultValue=false)]
+        public NetworkTokenEnrollment NetworkTokenEnrollment { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +72,7 @@ namespace CyberSource.Model
             sb.Append("class CommerceSolutionsProductsTokenManagementConfigurationInformationConfigurations {\n");
             if (ParentProfileId != null) sb.Append("  ParentProfileId: ").Append(ParentProfileId).Append("\n");
             if (Vault != null) sb.Append("  Vault: ").Append(Vault).Append("\n");
+            if (NetworkTokenEnrollment != null) sb.Append("  NetworkTokenEnrollment: ").Append(NetworkTokenEnrollment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +118,11 @@ namespace CyberSource.Model
                     this.Vault == other.Vault ||
                     this.Vault != null &&
                     this.Vault.Equals(other.Vault)
+                ) && 
+                (
+                    this.NetworkTokenEnrollment == other.NetworkTokenEnrollment ||
+                    this.NetworkTokenEnrollment != null &&
+                    this.NetworkTokenEnrollment.Equals(other.NetworkTokenEnrollment)
                 );
         }
 
@@ -127,6 +141,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ParentProfileId.GetHashCode();
                 if (this.Vault != null)
                     hash = hash * 59 + this.Vault.GetHashCode();
+                if (this.NetworkTokenEnrollment != null)
+                    hash = hash * 59 + this.NetworkTokenEnrollment.GetHashCode();
                 return hash;
             }
         }

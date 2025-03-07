@@ -41,7 +41,8 @@ namespace CyberSource.Model
         /// <param name="Locale">Localization of the User experience conforming to the ISO 639-1 language standards and two-character ISO Standard Country Code.  Please refer to list of [supported locales through Unified Checkout](https://developer.cybersource.com/docs/cybs/en-us/unified-checkout/developer/all/rest/unified-checkout/uc-appendix-languages.html) .</param>
         /// <param name="CaptureMandate">CaptureMandate.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public GenerateUnifiedCheckoutCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>), string Country = default(string), string Locale = default(string), Upv1capturecontextsCaptureMandate CaptureMandate = default(Upv1capturecontextsCaptureMandate), Upv1capturecontextsOrderInformation OrderInformation = default(Upv1capturecontextsOrderInformation))
+        /// <param name="TransientTokenResponseOptions">TransientTokenResponseOptions.</param>
+        public GenerateUnifiedCheckoutCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>), string Country = default(string), string Locale = default(string), Upv1capturecontextsCaptureMandate CaptureMandate = default(Upv1capturecontextsCaptureMandate), Upv1capturecontextsOrderInformation OrderInformation = default(Upv1capturecontextsOrderInformation), Microformv2sessionsTransientTokenResponseOptions TransientTokenResponseOptions = default(Microformv2sessionsTransientTokenResponseOptions))
         {
             this.ClientVersion = ClientVersion;
             this.TargetOrigins = TargetOrigins;
@@ -51,6 +52,7 @@ namespace CyberSource.Model
             this.Locale = Locale;
             this.CaptureMandate = CaptureMandate;
             this.OrderInformation = OrderInformation;
+            this.TransientTokenResponseOptions = TransientTokenResponseOptions;
         }
         
         /// <summary>
@@ -108,6 +110,12 @@ namespace CyberSource.Model
         public Upv1capturecontextsOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets TransientTokenResponseOptions
+        /// </summary>
+        [DataMember(Name="transientTokenResponseOptions", EmitDefaultValue=false)]
+        public Microformv2sessionsTransientTokenResponseOptions TransientTokenResponseOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,6 +131,7 @@ namespace CyberSource.Model
             if (Locale != null) sb.Append("  Locale: ").Append(Locale).Append("\n");
             if (CaptureMandate != null) sb.Append("  CaptureMandate: ").Append(CaptureMandate).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (TransientTokenResponseOptions != null) sb.Append("  TransientTokenResponseOptions: ").Append(TransientTokenResponseOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -198,6 +207,11 @@ namespace CyberSource.Model
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.TransientTokenResponseOptions == other.TransientTokenResponseOptions ||
+                    this.TransientTokenResponseOptions != null &&
+                    this.TransientTokenResponseOptions.Equals(other.TransientTokenResponseOptions)
                 );
         }
 
@@ -228,6 +242,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CaptureMandate.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.TransientTokenResponseOptions != null)
+                    hash = hash * 59 + this.TransientTokenResponseOptions.GetHashCode();
                 return hash;
             }
         }
