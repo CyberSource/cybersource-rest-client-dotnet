@@ -80,7 +80,7 @@ OpenAPI spec version: 0.0.1
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\cybersource-rest-client-dotnet.csproj">
-      <Project>{40b32c75-b40f-4a95-a721-f40ca28abaa7}</Project>
+      <Project>{40B32C75-B40F-4A95-A721-F40CA28ABAA7}</Project>
       <Name>cybersource-rest-client-dotnet</Name>
     </ProjectReference>
   </ItemGroup>
