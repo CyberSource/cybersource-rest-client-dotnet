@@ -410,7 +410,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("batchId", Configuration.ApiClient.ParameterToString(batchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -505,7 +505,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("batchId", Configuration.ApiClient.ParameterToString(batchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -598,7 +598,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("batchId", Configuration.ApiClient.ParameterToString(batchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -693,7 +693,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("batchId", Configuration.ApiClient.ParameterToString(batchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -798,10 +798,10 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("toDate", Configuration.ApiClient.ParameterToString(toDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -908,10 +908,10 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("toDate", Configuration.ApiClient.ParameterToString(toDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -1011,14 +1011,14 @@ namespace CyberSource.Api
                 localVarPostBody = body; // byte array
             }
 
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
+            //if (logUtility.IsMaskingEnabled(logger))
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            //}
+            //else
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            //}
 
 
             // make the HTTP request
@@ -1112,14 +1112,14 @@ namespace CyberSource.Api
                 localVarPostBody = body; // byte array
             }
 
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
+            //if (logUtility.IsMaskingEnabled(logger))
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            //}
+            //else
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            //}
 
 
             // make the HTTP request

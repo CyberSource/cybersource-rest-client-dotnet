@@ -326,7 +326,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (authReversalRequest != null && authReversalRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
@@ -338,14 +338,14 @@ namespace CyberSource.Api
                 localVarPostBody = authReversalRequest; // byte array
             }
 
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
+            //if (logUtility.IsMaskingEnabled(logger))
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            //}
+            //else
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            //}
 
 
             // make the HTTP request
@@ -440,7 +440,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             if (authReversalRequest != null && authReversalRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
@@ -452,14 +452,14 @@ namespace CyberSource.Api
                 localVarPostBody = authReversalRequest; // byte array
             }
 
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
+            //if (logUtility.IsMaskingEnabled(logger))
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            //}
+            //else
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            //}
 
 
             // make the HTTP request
@@ -551,14 +551,14 @@ namespace CyberSource.Api
                 localVarPostBody = mitReversalRequest; // byte array
             }
 
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
+            //if (logUtility.IsMaskingEnabled(logger))
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            //}
+            //else
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            //}
 
 
             // make the HTTP request
@@ -652,14 +652,14 @@ namespace CyberSource.Api
                 localVarPostBody = mitReversalRequest; // byte array
             }
 
-            if (logUtility.IsMaskingEnabled(logger))
-            {
-                logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            }
-            else
-            {
-                logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            }
+            //if (logUtility.IsMaskingEnabled(logger))
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            //}
+            //else
+            //{
+            //    logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
+            //}
 
 
             // make the HTTP request
