@@ -40,7 +40,8 @@ namespace {{packageName}}.Client
                              string dateTimeFormat = null,
                              int timeout = 100000,
                              string userAgent = "{{#httpUserAgent}}{{.}}{{/httpUserAgent}}{{^httpUserAgent}}Swagger-Codegen/{{packageVersion}}/csharp{{/httpUserAgent}}",
-                             IReadOnlyDictionary<string, string> merchConfigDictObj = null
+                             IReadOnlyDictionary<string, string> merchConfigDictObj = null,
+                             Dictionary<string, bool> mapToControlMLEonAPI = null
                             )
         {
             SetApiClientUsingDefault(apiClient);
@@ -90,6 +91,7 @@ namespace {{packageName}}.Client
             DateTimeFormat = dateTimeFormat;
             Timeout = {{#netStandard}}TimeSpan.FromMilliseconds({{/netStandard}}timeout{{#netStandard}}){{/netStandard}};
             MerchantConfigDictionaryObj = merchConfigDictObj;
+            MapToControlMLEonAPI = mapToControlMLEonAPI;
         }
 
         private string GetClientId()
@@ -186,6 +188,8 @@ namespace {{packageName}}.Client
         /// Gets or sets the default header.
         /// </summary>
         public Dictionary<string, string> DefaultHeader { get; set; } = new Dictionary<string, string>();
+
+        public Dictionary<string, bool> MapToControlMLEonAPI { get; set; } = new Dictionary<string, bool>();
 
         /// <summary>
         /// Add default header.
