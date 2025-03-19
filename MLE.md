@@ -93,8 +93,8 @@ Or
 
 In the above examples:
 - MLE is enabled/disabled globally (`useMLEGlobally` is true/false).
-- `apiFunctionName1` will have MLE disabled/enabled based on value provided.
-- `apiFunctionName2` will have MLE enabled.
+- `apiFunctionName1` i.e. (CapturePayment) will have MLE disabled/enabled based on value provided.
+- `apiFunctionName2` i.e. (CreatePayment) will have MLE enabled.
 - `mleKeyAlias` is set to `Custom_Key_Alias`, overriding the default value.
 
 Please refer given link for sample codes with MLE:
