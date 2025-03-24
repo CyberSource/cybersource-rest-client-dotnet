@@ -112,6 +112,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ShowAcceptedNetworkIcons'
         }
+        /// <summary>
+        /// Test the property 'RequestSaveCard'
+        /// </summary>
+        [Test]
+        public void RequestSaveCardTest()
+        {
+            // TODO unit test for the property 'RequestSaveCard'
+        }
+        /// <summary>
+        /// Test the property 'ComboCard'
+        /// </summary>
+        [Test]
+        public void ComboCardTest()
+        {
+            // TODO unit test for the property 'ComboCard'
+        }
 
     }
 
