@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Processor'
         }
         /// <summary>
+        /// Test the property 'ProviderTransactionId'
+        /// </summary>
+        [Test]
+        public void ProviderTransactionIdTest()
+        {
+            // TODO unit test for the property 'ProviderTransactionId'
+        }
+        /// <summary>
         /// Test the property 'ApprovalCode'
         /// </summary>
         [Test]

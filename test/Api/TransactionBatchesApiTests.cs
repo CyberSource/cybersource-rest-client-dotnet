@@ -103,6 +103,18 @@ namespace CyberSource.Test
             //Assert.IsInstanceOf<PtsV1TransactionBatchesGet200Response> (response, "response is PtsV1TransactionBatchesGet200Response");
         }
         
+        /// <summary>
+        /// Test UploadTransactionBatch
+        /// </summary>
+        [Test]
+        public void UploadTransactionBatchTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //System.IO.Stream _file = null;
+            //instance.UploadTransactionBatch(_file);
+            
+        }
+        
     }
 
 }

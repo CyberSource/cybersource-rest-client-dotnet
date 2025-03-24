@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **PaymentInformation** | [**PtsV2PaymentsPost201Response1PaymentInformation**](PtsV2PaymentsPost201Response1PaymentInformation.md) |  | [optional] 
 **OrderInformation** | [**PtsV2PaymentsPost201Response1OrderInformation**](PtsV2PaymentsPost201Response1OrderInformation.md) |  | [optional] 
 **ClientReferenceInformation** | [**PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation**](PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation.md) |  | [optional] 
+**IssuerInformation** | [**PtsV2PaymentsPost201Response1IssuerInformation**](PtsV2PaymentsPost201Response1IssuerInformation.md) |  | [optional] 
+**ErrorInformation** | [**PtsV2PaymentsPost201Response1ErrorInformation**](PtsV2PaymentsPost201Response1ErrorInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

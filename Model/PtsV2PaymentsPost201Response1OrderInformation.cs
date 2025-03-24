@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="ShipTo">ShipTo.</param>
-        public PtsV2PaymentsPost201Response1OrderInformation(PtsV2PaymentsPost201Response1OrderInformationBillTo BillTo = default(PtsV2PaymentsPost201Response1OrderInformationBillTo), PtsV2PaymentsPost201Response1OrderInformationShipTo ShipTo = default(PtsV2PaymentsPost201Response1OrderInformationShipTo))
+        /// <param name="AmountDetails">AmountDetails.</param>
+        public PtsV2PaymentsPost201Response1OrderInformation(PtsV2PaymentsPost201Response1OrderInformationBillTo BillTo = default(PtsV2PaymentsPost201Response1OrderInformationBillTo), PtsV2PaymentsPost201Response1OrderInformationShipTo ShipTo = default(PtsV2PaymentsPost201Response1OrderInformationShipTo), PtsV2PaymentsPost201Response1OrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201Response1OrderInformationAmountDetails))
         {
             this.BillTo = BillTo;
             this.ShipTo = ShipTo;
+            this.AmountDetails = AmountDetails;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201Response1OrderInformationShipTo ShipTo { get; set; }
 
         /// <summary>
+        /// Gets or Sets AmountDetails
+        /// </summary>
+        [DataMember(Name="amountDetails", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201Response1OrderInformationAmountDetails AmountDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsPost201Response1OrderInformation {\n");
             if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
             if (ShipTo != null) sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
+            if (AmountDetails != null) sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace CyberSource.Model
                     this.ShipTo == other.ShipTo ||
                     this.ShipTo != null &&
                     this.ShipTo.Equals(other.ShipTo)
+                ) && 
+                (
+                    this.AmountDetails == other.AmountDetails ||
+                    this.AmountDetails != null &&
+                    this.AmountDetails.Equals(other.AmountDetails)
                 );
         }
 
@@ -126,6 +140,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BillTo.GetHashCode();
                 if (this.ShipTo != null)
                     hash = hash * 59 + this.ShipTo.GetHashCode();
+                if (this.AmountDetails != null)
+                    hash = hash * 59 + this.AmountDetails.GetHashCode();
                 return hash;
             }
         }

@@ -128,6 +128,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ClientReferenceInformation'
         }
+        /// <summary>
+        /// Test the property 'IssuerInformation'
+        /// </summary>
+        [Test]
+        public void IssuerInformationTest()
+        {
+            // TODO unit test for the property 'IssuerInformation'
+        }
+        /// <summary>
+        /// Test the property 'ErrorInformation'
+        /// </summary>
+        [Test]
+        public void ErrorInformationTest()
+        {
+            // TODO unit test for the property 'ErrorInformation'
+        }
 
     }
 

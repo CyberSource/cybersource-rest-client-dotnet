@@ -33,14 +33,9 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SaveAsymEgressKey" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected SaveAsymEgressKey() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SaveAsymEgressKey" /> class.
-        /// </summary>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        /// <param name="ClientRequestAction">Client request action.  (required).</param>
-        /// <param name="KeyInformation">KeyInformation (required).</param>
+        /// <param name="ClientRequestAction">Client request action. .</param>
+        /// <param name="KeyInformation">KeyInformation.</param>
         public SaveAsymEgressKey(Kmsegressv2keysasymClientReferenceInformation ClientReferenceInformation = default(Kmsegressv2keysasymClientReferenceInformation), string ClientRequestAction = default(string), Kmsegressv2keysasymKeyInformation KeyInformation = default(Kmsegressv2keysasymKeyInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;

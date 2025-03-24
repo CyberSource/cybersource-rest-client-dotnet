@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="ReconciliationId">Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22). .</param>
         /// <param name="PayoutsOptions">PayoutsOptions.</param>
         /// <param name="TransactionReason">Transaction reason code. .</param>
-        /// <param name="PurposeOfPayment">This will send purpose of funds code for original credit transactions (OCTs). .</param>
+        /// <param name="PurposeOfPayment">This field is applicable for AFT and OCT transactions. For list of supported values, please refer to Developer Guide. .</param>
         /// <param name="FundingOptions">FundingOptions.</param>
         /// <param name="LanguageCode">Contains the ISO 639-2 defined language Code .</param>
         /// <param name="PurchaseOptions">PurchaseOptions.</param>
@@ -99,9 +99,9 @@ namespace CyberSource.Model
         public string TransactionReason { get; set; }
 
         /// <summary>
-        /// This will send purpose of funds code for original credit transactions (OCTs). 
+        /// This field is applicable for AFT and OCT transactions. For list of supported values, please refer to Developer Guide. 
         /// </summary>
-        /// <value>This will send purpose of funds code for original credit transactions (OCTs). </value>
+        /// <value>This field is applicable for AFT and OCT transactions. For list of supported values, please refer to Developer Guide. </value>
         [DataMember(Name="purposeOfPayment", EmitDefaultValue=false)]
         public string PurposeOfPayment { get; set; }
 

@@ -65,28 +65,60 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'ProductId'
+        /// Test the property 'Links'
         /// </summary>
         [Test]
-        public void ProductIdTest()
+        public void LinksTest()
         {
-            // TODO unit test for the property 'ProductId'
+            // TODO unit test for the property 'Links'
         }
         /// <summary>
-        /// Test the property 'ProductName'
+        /// Test the property 'Object'
         /// </summary>
         [Test]
-        public void ProductNameTest()
+        public void ObjectTest()
         {
-            // TODO unit test for the property 'ProductName'
+            // TODO unit test for the property 'Object'
         }
         /// <summary>
-        /// Test the property 'EventTypes'
+        /// Test the property 'Offset'
         /// </summary>
         [Test]
-        public void EventTypesTest()
+        public void OffsetTest()
         {
-            // TODO unit test for the property 'EventTypes'
+            // TODO unit test for the property 'Offset'
+        }
+        /// <summary>
+        /// Test the property 'Limit'
+        /// </summary>
+        [Test]
+        public void LimitTest()
+        {
+            // TODO unit test for the property 'Limit'
+        }
+        /// <summary>
+        /// Test the property 'Count'
+        /// </summary>
+        [Test]
+        public void CountTest()
+        {
+            // TODO unit test for the property 'Count'
+        }
+        /// <summary>
+        /// Test the property 'Total'
+        /// </summary>
+        [Test]
+        public void TotalTest()
+        {
+            // TODO unit test for the property 'Total'
+        }
+        /// <summary>
+        /// Test the property 'Embedded'
+        /// </summary>
+        [Test]
+        public void EmbeddedTest()
+        {
+            // TODO unit test for the property 'Embedded'
         }
 
     }

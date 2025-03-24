@@ -104,6 +104,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TransactionRiskAnalysisExemptionResult'
         }
+        /// <summary>
+        /// Test the property 'DelegatedAuthenticationResult'
+        /// </summary>
+        [Test]
+        public void DelegatedAuthenticationResultTest()
+        {
+            // TODO unit test for the property 'DelegatedAuthenticationResult'
+        }
 
     }
 

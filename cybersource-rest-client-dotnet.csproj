@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 CyberSource Merged Spec
 
@@ -9,9 +9,10 @@ OpenAPI spec version: 0.0.1
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2932AB3B-D622-4665-952F-2D382D2B950C}</ProjectGuid>
+    <ProjectGuid>{73B3C03D-0465-44BA-B8FC-CA7DC6959E24}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CyberSource</RootNamespace>
@@ -86,7 +87,7 @@ OpenAPI spec version: 0.0.1
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="AuthenticationSdk">
-      <HintPath>packages\CyberSource.Authentication.0.0.0.22\lib\AuthenticationSdk.dll</HintPath>
+      <HintPath>packages\CyberSource.Authentication.0.0.0.21\lib\AuthenticationSdk.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

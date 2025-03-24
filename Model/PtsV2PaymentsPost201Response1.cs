@@ -41,7 +41,9 @@ namespace CyberSource.Model
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        public PtsV2PaymentsPost201Response1(string Id = default(string), string Status = default(string), string SubmitTimeUtc = default(string), PtsV2PaymentsPost201Response1ProcessorInformation ProcessorInformation = default(PtsV2PaymentsPost201Response1ProcessorInformation), string ReconciliationId = default(string), PtsV2PaymentsPost201Response1PaymentInformation PaymentInformation = default(PtsV2PaymentsPost201Response1PaymentInformation), PtsV2PaymentsPost201Response1OrderInformation OrderInformation = default(PtsV2PaymentsPost201Response1OrderInformation), PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation))
+        /// <param name="IssuerInformation">IssuerInformation.</param>
+        /// <param name="ErrorInformation">ErrorInformation.</param>
+        public PtsV2PaymentsPost201Response1(string Id = default(string), string Status = default(string), string SubmitTimeUtc = default(string), PtsV2PaymentsPost201Response1ProcessorInformation ProcessorInformation = default(PtsV2PaymentsPost201Response1ProcessorInformation), string ReconciliationId = default(string), PtsV2PaymentsPost201Response1PaymentInformation PaymentInformation = default(PtsV2PaymentsPost201Response1PaymentInformation), PtsV2PaymentsPost201Response1OrderInformation OrderInformation = default(PtsV2PaymentsPost201Response1OrderInformation), PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation), PtsV2PaymentsPost201Response1IssuerInformation IssuerInformation = default(PtsV2PaymentsPost201Response1IssuerInformation), PtsV2PaymentsPost201Response1ErrorInformation ErrorInformation = default(PtsV2PaymentsPost201Response1ErrorInformation))
         {
             this.Id = Id;
             this.Status = Status;
@@ -51,6 +53,8 @@ namespace CyberSource.Model
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
+            this.IssuerInformation = IssuerInformation;
+            this.ErrorInformation = ErrorInformation;
         }
         
         /// <summary>
@@ -106,6 +110,18 @@ namespace CyberSource.Model
         public PtsV2IncrementalAuthorizationPatch201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets IssuerInformation
+        /// </summary>
+        [DataMember(Name="issuerInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201Response1IssuerInformation IssuerInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ErrorInformation
+        /// </summary>
+        [DataMember(Name="errorInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201Response1ErrorInformation ErrorInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -121,6 +137,8 @@ namespace CyberSource.Model
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
+            if (IssuerInformation != null) sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
+            if (ErrorInformation != null) sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -196,6 +214,16 @@ namespace CyberSource.Model
                     this.ClientReferenceInformation == other.ClientReferenceInformation ||
                     this.ClientReferenceInformation != null &&
                     this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
+                ) && 
+                (
+                    this.IssuerInformation == other.IssuerInformation ||
+                    this.IssuerInformation != null &&
+                    this.IssuerInformation.Equals(other.IssuerInformation)
+                ) && 
+                (
+                    this.ErrorInformation == other.ErrorInformation ||
+                    this.ErrorInformation != null &&
+                    this.ErrorInformation.Equals(other.ErrorInformation)
                 );
         }
 
@@ -226,6 +254,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.ClientReferenceInformation != null)
                     hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
+                if (this.IssuerInformation != null)
+                    hash = hash * 59 + this.IssuerInformation.GetHashCode();
+                if (this.ErrorInformation != null)
+                    hash = hash * 59 + this.ErrorInformation.GetHashCode();
                 return hash;
             }
         }
