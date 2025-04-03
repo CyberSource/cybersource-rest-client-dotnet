@@ -80,22 +80,6 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Status'
         }
-        /// <summary>
-        /// Test the property 'ClientReferenceInformation'
-        /// </summary>
-        [Test]
-        public void ClientReferenceInformationTest()
-        {
-            // TODO unit test for the property 'ClientReferenceInformation'
-        }
-        /// <summary>
-        /// Test the property 'KeyInformation'
-        /// </summary>
-        [Test]
-        public void KeyInformationTest()
-        {
-            // TODO unit test for the property 'KeyInformation'
-        }
 
     }
 

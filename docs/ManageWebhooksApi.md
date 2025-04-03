@@ -4,80 +4,17 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteWebhookSubscription**](ManageWebhooksApi.md#deletewebhooksubscription) | **DELETE** /notification-subscriptions/v1/webhooks/{webhookId} | Delete a Webhook Subscription
-[**GetWebhookSubscriptionById**](ManageWebhooksApi.md#getwebhooksubscriptionbyid) | **GET** /notification-subscriptions/v1/webhooks/{webhookId} | Get Details On a Single Webhook
-[**GetWebhookSubscriptionsByOrg**](ManageWebhooksApi.md#getwebhooksubscriptionsbyorg) | **GET** /notification-subscriptions/v1/webhooks | Get Details On All Created Webhooks
+[**NotificationSubscriptionsV1WebhooksWebhookIdPost**](ManageWebhooksApi.md#notificationsubscriptionsv1webhookswebhookidpost) | **POST** /notification-subscriptions/v1/webhooks/{webhookId} | Test a Webhook Configuration
 [**SaveAsymEgressKey**](ManageWebhooksApi.md#saveasymegresskey) | **POST** /kms/egress/v2/keys-asym | Message Level Encryption
-[**UpdateWebhookSubscription**](ManageWebhooksApi.md#updatewebhooksubscription) | **PATCH** /notification-subscriptions/v1/webhooks/{webhookId} | Update a Webhook Subscription
 
 
-<a name="deletewebhooksubscription"></a>
-# **DeleteWebhookSubscription**
-> void DeleteWebhookSubscription (string webhookId)
+<a name="notificationsubscriptionsv1webhookswebhookidpost"></a>
+# **NotificationSubscriptionsV1WebhooksWebhookIdPost**
+> InlineResponse2014 NotificationSubscriptionsV1WebhooksWebhookIdPost (string webhookId)
 
-Delete a Webhook Subscription
+Test a Webhook Configuration
 
-Delete the webhook. Please note that deleting a particular webhook does not delete the history of the webhook notifications.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class DeleteWebhookSubscriptionExample
-    {
-        public void main()
-        {
-            var apiInstance = new ManageWebhooksApi();
-            var webhookId = webhookId_example;  // string | The webhook identifier.
-
-            try
-            {
-                // Delete a Webhook Subscription
-                apiInstance.DeleteWebhookSubscription(webhookId);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ManageWebhooksApi.DeleteWebhookSubscription: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookId** | **string**| The webhook identifier. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getwebhooksubscriptionbyid"></a>
-# **GetWebhookSubscriptionById**
-> InlineResponse2004 GetWebhookSubscriptionById (string webhookId)
-
-Get Details On a Single Webhook
-
-Retrieve the details of a specific webhook by supplying the webhook ID in the path.
+Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user's subscription.   It will contain sample values for the product & eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
 
 ### Example
 ```csharp
@@ -89,22 +26,22 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class GetWebhookSubscriptionByIdExample
+    public class NotificationSubscriptionsV1WebhooksWebhookIdPostExample
     {
         public void main()
         {
             var apiInstance = new ManageWebhooksApi();
-            var webhookId = webhookId_example;  // string | The webhook Identifier
+            var webhookId = webhookId_example;  // string | The Webhook Identifier.
 
             try
             {
-                // Get Details On a Single Webhook
-                InlineResponse2004 result = apiInstance.GetWebhookSubscriptionById(webhookId);
+                // Test a Webhook Configuration
+                InlineResponse2014 result = apiInstance.NotificationSubscriptionsV1WebhooksWebhookIdPost(webhookId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ManageWebhooksApi.GetWebhookSubscriptionById: " + e.Message );
+                Debug.Print("Exception when calling ManageWebhooksApi.NotificationSubscriptionsV1WebhooksWebhookIdPost: " + e.Message );
             }
         }
     }
@@ -115,11 +52,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhookId** | **string**| The webhook Identifier | 
+ **webhookId** | **string**| The Webhook Identifier. | 
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -128,72 +65,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getwebhooksubscriptionsbyorg"></a>
-# **GetWebhookSubscriptionsByOrg**
-> List<InlineResponse2003> GetWebhookSubscriptionsByOrg (string organizationId, string productId, string eventType)
-
-Get Details On All Created Webhooks
-
-Retrieve a list of all previously created webhooks.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class GetWebhookSubscriptionsByOrgExample
-    {
-        public void main()
-        {
-            var apiInstance = new ManageWebhooksApi();
-            var organizationId = organizationId_example;  // string | The Organization Identifier.
-            var productId = productId_example;  // string | The Product Identifier.
-            var eventType = eventType_example;  // string | The Event Type.
-
-            try
-            {
-                // Get Details On All Created Webhooks
-                List&lt;InlineResponse2003&gt; result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ManageWebhooksApi.GetWebhookSubscriptionsByOrg: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **string**| The Organization Identifier. | 
- **productId** | **string**| The Product Identifier. | 
- **eventType** | **string**| The Event Type. | 
-
-### Return type
-
-[**List<InlineResponse2003>**](InlineResponse2003.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
+ - **Accept**: application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -260,69 +132,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="updatewebhooksubscription"></a>
-# **UpdateWebhookSubscription**
-> void UpdateWebhookSubscription (string webhookId, UpdateWebhookRequest updateWebhookRequest = null)
-
-Update a Webhook Subscription
-
-Update the webhook subscription using PATCH.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class UpdateWebhookSubscriptionExample
-    {
-        public void main()
-        {
-            var apiInstance = new ManageWebhooksApi();
-            var webhookId = webhookId_example;  // string | The Webhook Identifier.
-            var updateWebhookRequest = new UpdateWebhookRequest(); // UpdateWebhookRequest | The webhook payload or changes to apply. (optional) 
-
-            try
-            {
-                // Update a Webhook Subscription
-                apiInstance.UpdateWebhookSubscription(webhookId, updateWebhookRequest);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ManageWebhooksApi.UpdateWebhookSubscription: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookId** | **string**| The Webhook Identifier. | 
- **updateWebhookRequest** | [**UpdateWebhookRequest**](UpdateWebhookRequest.md)| The webhook payload or changes to apply. | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
+ - **Accept**: application/hal+json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

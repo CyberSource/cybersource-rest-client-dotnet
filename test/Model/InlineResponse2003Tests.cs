@@ -65,52 +65,52 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'WebhookId'
+        /// Test the property 'Links'
         /// </summary>
         [Test]
-        public void WebhookIdTest()
+        public void LinksTest()
         {
-            // TODO unit test for the property 'WebhookId'
+            // TODO unit test for the property 'Links'
         }
         /// <summary>
-        /// Test the property 'OrganizationId'
+        /// Test the property 'BatchId'
         /// </summary>
         [Test]
-        public void OrganizationIdTest()
+        public void BatchIdTest()
         {
-            // TODO unit test for the property 'OrganizationId'
+            // TODO unit test for the property 'BatchId'
         }
         /// <summary>
-        /// Test the property 'Products'
+        /// Test the property 'BatchCreatedDate'
         /// </summary>
         [Test]
-        public void ProductsTest()
+        public void BatchCreatedDateTest()
         {
-            // TODO unit test for the property 'Products'
+            // TODO unit test for the property 'BatchCreatedDate'
         }
         /// <summary>
-        /// Test the property 'WebhookUrl'
+        /// Test the property 'BatchSource'
         /// </summary>
         [Test]
-        public void WebhookUrlTest()
+        public void BatchSourceTest()
         {
-            // TODO unit test for the property 'WebhookUrl'
+            // TODO unit test for the property 'BatchSource'
         }
         /// <summary>
-        /// Test the property 'HealthCheckUrl'
+        /// Test the property 'MerchantReference'
         /// </summary>
         [Test]
-        public void HealthCheckUrlTest()
+        public void MerchantReferenceTest()
         {
-            // TODO unit test for the property 'HealthCheckUrl'
+            // TODO unit test for the property 'MerchantReference'
         }
         /// <summary>
-        /// Test the property 'NotificationScope'
+        /// Test the property 'BatchCaEndpoints'
         /// </summary>
         [Test]
-        public void NotificationScopeTest()
+        public void BatchCaEndpointsTest()
         {
-            // TODO unit test for the property 'NotificationScope'
+            // TODO unit test for the property 'BatchCaEndpoints'
         }
         /// <summary>
         /// Test the property 'Status'
@@ -121,12 +121,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'Name'
+        /// Test the property 'Totals'
         /// </summary>
         [Test]
-        public void NameTest()
+        public void TotalsTest()
         {
-            // TODO unit test for the property 'Name'
+            // TODO unit test for the property 'Totals'
+        }
+        /// <summary>
+        /// Test the property 'Billing'
+        /// </summary>
+        [Test]
+        public void BillingTest()
+        {
+            // TODO unit test for the property 'Billing'
         }
         /// <summary>
         /// Test the property 'Description'
@@ -135,46 +143,6 @@ namespace CyberSource.Test
         public void DescriptionTest()
         {
             // TODO unit test for the property 'Description'
-        }
-        /// <summary>
-        /// Test the property 'RetryPolicy'
-        /// </summary>
-        [Test]
-        public void RetryPolicyTest()
-        {
-            // TODO unit test for the property 'RetryPolicy'
-        }
-        /// <summary>
-        /// Test the property 'SecurityPolicy'
-        /// </summary>
-        [Test]
-        public void SecurityPolicyTest()
-        {
-            // TODO unit test for the property 'SecurityPolicy'
-        }
-        /// <summary>
-        /// Test the property 'CreatedOn'
-        /// </summary>
-        [Test]
-        public void CreatedOnTest()
-        {
-            // TODO unit test for the property 'CreatedOn'
-        }
-        /// <summary>
-        /// Test the property 'UpdatedOn'
-        /// </summary>
-        [Test]
-        public void UpdatedOnTest()
-        {
-            // TODO unit test for the property 'UpdatedOn'
-        }
-        /// <summary>
-        /// Test the property 'AdditionalAttributes'
-        /// </summary>
-        [Test]
-        public void AdditionalAttributesTest()
-        {
-            // TODO unit test for the property 'AdditionalAttributes'
         }
 
     }

@@ -488,14 +488,7 @@ namespace CyberSource.Client
                 }
             }
 
-            //if (logUtility.IsMaskingEnabled(logger))
-            //{
-            //    logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
-            //}
-            //else
-            //{
-            //    logger.Debug($"HTTP Request Headers :\n{headerPrintOutput}");
-            //}
+            logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
 
             InterceptRequest(request);
             response = (RestResponse) RestClient.Execute(request);
@@ -516,26 +509,12 @@ namespace CyberSource.Client
                 responseHeadersBuilder.Append($"{header}\n");
             }
 
-            //if (logUtility.IsMaskingEnabled(logger))
-            //{
-            //    logger.Debug($"HTTP Response Headers :\n{logUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
-            //}
-            //else
-            //{
-            //    logger.Debug($"HTTP Response Headers :\n{responseHeadersBuilder.ToString()}");
-            //}
-
-            //if (!string.IsNullOrEmpty(httpResponseData))
-            //{
-                //if (logUtility.IsMaskingEnabled(logger))
-                //{
-                //    logger.Debug($"HTTP Response Body :\n{logUtility.MaskSensitiveData(httpResponseData)}");
-                //}
-                //else
-                //{
-                //    logger.Debug($"HTTP Response Body :\n{httpResponseData}");
-                //}
-            //}
+            logger.Debug($"HTTP Response Headers :\n{logUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
+            
+            if (!string.IsNullOrEmpty(httpResponseData))
+            {
+                logger.Debug($"HTTP Response Body :\n{logUtility.MaskSensitiveData(httpResponseData)}");
+            }
 
             return response;
         }
@@ -581,14 +560,7 @@ namespace CyberSource.Client
                 Timeout = TimeSpan.FromMilliseconds(Configuration.Timeout)
             };
 
-            //if (logUtility.IsMaskingEnabled(logger))
-            //{
-            //    logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
-            //}
-            //else
-            //{
-            //    logger.Debug($"HTTP Request Headers :\n{headerPrintOutput.ToString()}");
-            //}
+            logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
 
             clientOptions.UserAgent = Configuration.UserAgent;
             RestClient = new RestClient(clientOptions);
@@ -610,26 +582,12 @@ namespace CyberSource.Client
                 responseHeadersBuilder.Append($"{header}\n");
             }
 
-            //if (logUtility.IsMaskingEnabled(logger))
-            //{
-            //    logger.Debug($"HTTP Response Headers :\n{logUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
-            //}
-            //else
-            //{
-            //    logger.Debug($"HTTP Response Headers :\n{responseHeadersBuilder.ToString()}");
-            //}
+            logger.Debug($"HTTP Response Headers :\n{logUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
 
-            //if (!string.IsNullOrEmpty(httpResponseData))
-            //{
-            //    if (logUtility.IsMaskingEnabled(logger))
-            //    {
-            //        logger.Debug($"HTTP Response Body :\n{logUtility.MaskSensitiveData(httpResponseData)}");
-            //    }
-            //    else
-            //    {
-            //        logger.Debug($"HTTP Response Body :\n{httpResponseData}");
-            //    }
-            //}
+            if (!string.IsNullOrEmpty(httpResponseData))
+            {
+                logger.Debug($"HTTP Response Body :\n{logUtility.MaskSensitiveData(httpResponseData)}");
+            }
 
             return response;
         }

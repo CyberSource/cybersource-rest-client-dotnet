@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="Country">This field contains [2-character ISO Country Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) for the issuer. .</param>
         /// <param name="BinLength">This field contains the length of the BIN. .</param>
         /// <param name="PhoneNumber">This field contains the customer service phone number for the issuer. .</param>
-        public TssV2TransactionsGet200ResponsePaymentInformationIssuerInformation(string Name = default(string), string Country = default(string), string BinLength = default(string), string PhoneNumber = default(string))
+        /// <param name="TransactionInformation">In a Mastercard Transaction, this field contains the unique identifier (Transaction Link ID) for the first transaction in a transaction life cycle.  This ID is crucial for maintaining continuity and linking subsequent operations to the original transaction. .</param>
+        public TssV2TransactionsGet200ResponsePaymentInformationIssuerInformation(string Name = default(string), string Country = default(string), string BinLength = default(string), string PhoneNumber = default(string), string TransactionInformation = default(string))
         {
             this.Name = Name;
             this.Country = Country;
             this.BinLength = BinLength;
             this.PhoneNumber = PhoneNumber;
+            this.TransactionInformation = TransactionInformation;
         }
         
         /// <summary>
@@ -74,6 +76,13 @@ namespace CyberSource.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
+        /// In a Mastercard Transaction, this field contains the unique identifier (Transaction Link ID) for the first transaction in a transaction life cycle.  This ID is crucial for maintaining continuity and linking subsequent operations to the original transaction. 
+        /// </summary>
+        /// <value>In a Mastercard Transaction, this field contains the unique identifier (Transaction Link ID) for the first transaction in a transaction life cycle.  This ID is crucial for maintaining continuity and linking subsequent operations to the original transaction. </value>
+        [DataMember(Name="transactionInformation", EmitDefaultValue=false)]
+        public string TransactionInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +94,7 @@ namespace CyberSource.Model
             if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
             if (BinLength != null) sb.Append("  BinLength: ").Append(BinLength).Append("\n");
             if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (TransactionInformation != null) sb.Append("  TransactionInformation: ").Append(TransactionInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +150,11 @@ namespace CyberSource.Model
                     this.PhoneNumber == other.PhoneNumber ||
                     this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(other.PhoneNumber)
+                ) && 
+                (
+                    this.TransactionInformation == other.TransactionInformation ||
+                    this.TransactionInformation != null &&
+                    this.TransactionInformation.Equals(other.TransactionInformation)
                 );
         }
 
@@ -162,6 +177,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BinLength.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                if (this.TransactionInformation != null)
+                    hash = hash * 59 + this.TransactionInformation.GetHashCode();
                 return hash;
             }
         }

@@ -15,6 +15,7 @@ using {{packageName}}.Client;
 using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
+using AuthenticationSdk.core;
 
 namespace {{packageName}}.{{apiPackage}}
 {
@@ -289,7 +290,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/pathParams}}
             {{#pathParams}}
-            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             {{/pathParams}}
             {{#queryParams}}
             if ({{paramName}} != null)
@@ -298,7 +299,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/queryParams}}
             {{#queryParams}}
-            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             {{/queryParams}}
             {{#headerParams}}
             if ({{paramName}} != null)
@@ -324,14 +325,6 @@ namespace {{packageName}}.{{apiPackage}}
                 localVarPostBody = {{paramName}}; // byte array
             }
 
-            //if (logUtility.IsMaskingEnabled(logger))
-            //{
-            //    logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            //}
-            //else
-            //{
-            //    logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            //}
             {{/bodyParam}}
             {{^bodyParam}}
             if (Method.{{httpMethod}} == Method.POST)
@@ -342,6 +335,25 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 localVarPostBody = null;
             }
+            {{/bodyParam}}
+
+            bool isMLESupportedByCybsForApi = {{#vendorExtensions.x-devcenter-metaData.isMLEsupported}}true;{{/vendorExtensions.x-devcenter-metaData.isMLEsupported}}{{^vendorExtensions.x-devcenter-metaData.isMLEsupported}}false;{{/vendorExtensions.x-devcenter-metaData.isMLEsupported}}
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            {{#bodyParam}}
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             {{/bodyParam}}
 
             {{#authMethods}}
@@ -479,7 +491,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/pathParams}}
             {{#pathParams}}
-            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
             {{/pathParams}}
             {{#queryParams}}
             if ({{paramName}} != null)
@@ -488,7 +500,7 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/queryParams}}
             {{#queryParams}}
-            //logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             {{/queryParams}}
             {{#headerParams}}
             if ({{paramName}} != null)
@@ -513,15 +525,6 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 localVarPostBody = {{paramName}}; // byte array
             }
-
-            //if (logUtility.IsMaskingEnabled(logger))
-            //{
-            //    logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
-            //}
-            //else
-            //{
-            //    logger.Debug($"HTTP Request Body :\n{localVarPostBody}");
-            //}
             {{/bodyParam}}
             {{^bodyParam}}
             if (Method.{{httpMethod}} == Method.POST)
@@ -532,6 +535,25 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 localVarPostBody = null;
             }
+            {{/bodyParam}}
+
+            bool isMLESupportedByCybsForApi = {{#vendorExtensions.x-devcenter-metaData.isMLEsupported}}true;{{/vendorExtensions.x-devcenter-metaData.isMLEsupported}}{{^vendorExtensions.x-devcenter-metaData.isMLEsupported}}false;{{/vendorExtensions.x-devcenter-metaData.isMLEsupported}}
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            {{#bodyParam}}
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
             {{/bodyParam}}
 
             {{#authMethods}}

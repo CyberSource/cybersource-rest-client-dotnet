@@ -33,13 +33,13 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2payoutsRecipientInformation" /> class.
         /// </summary>
-        /// <param name="FirstName">First name of recipient. characters. * CTV (14) * Paymentech (30) .</param>
-        /// <param name="MiddleName">Recipient&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
-        /// <param name="LastName">Last name of recipient. characters. * CTV (14) * Paymentech (30) .</param>
-        /// <param name="Address1">Recipient address information. Required only for FDCCompass..</param>
-        /// <param name="Locality">Recipient city. Required only for FDCCompass..</param>
-        /// <param name="AdministrativeArea">Recipient State. Required only for FDCCompass..</param>
-        /// <param name="Country">Recipient country code. Required only for FDCCompass..</param>
+        /// <param name="FirstName">First name of the recipient.    This field is applicable for AFT &amp; OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="MiddleName">Middle name of the recipient.    This field is applicable for AFT &amp; OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="LastName">Last name of the recipient.  This field is applicable for AFT &amp; OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="Address1">The street address of the recipient This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="Locality">The city of the recipient. This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="AdministrativeArea">The state or province of the recipient. This field is applicable for AFT and OCT transactions when the recipient country is US or CA. Else it is optional.  Must be a two character value .</param>
+        /// <param name="Country">The country associated with the address of the recipient. This field is applicable for AFT and OCT transactions.  Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) .</param>
         /// <param name="PostalCode">Recipient postal code. Required only for FDCCompass..</param>
         /// <param name="PhoneNumber">Recipient phone number. Required only for FDCCompass..</param>
         /// <param name="AliasName">Account owner alias name. .</param>
@@ -66,51 +66,51 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// First name of recipient. characters. * CTV (14) * Paymentech (30) 
+        /// First name of the recipient.    This field is applicable for AFT &amp; OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. 
         /// </summary>
-        /// <value>First name of recipient. characters. * CTV (14) * Paymentech (30) </value>
+        /// <value>First name of the recipient.    This field is applicable for AFT &amp; OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. </value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Recipient&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. 
+        /// Middle name of the recipient.    This field is applicable for AFT &amp; OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. 
         /// </summary>
-        /// <value>Recipient&#39;s middle name. This field is a _passthrough_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. </value>
+        /// <value>Middle name of the recipient.    This field is applicable for AFT &amp; OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. </value>
         [DataMember(Name="middleName", EmitDefaultValue=false)]
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// Last name of recipient. characters. * CTV (14) * Paymentech (30) 
+        /// Last name of the recipient.  This field is applicable for AFT &amp; OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. 
         /// </summary>
-        /// <value>Last name of recipient. characters. * CTV (14) * Paymentech (30) </value>
+        /// <value>Last name of the recipient.  This field is applicable for AFT &amp; OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. </value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Recipient address information. Required only for FDCCompass.
+        /// The street address of the recipient This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. 
         /// </summary>
-        /// <value>Recipient address information. Required only for FDCCompass.</value>
+        /// <value>The street address of the recipient This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. </value>
         [DataMember(Name="address1", EmitDefaultValue=false)]
         public string Address1 { get; set; }
 
         /// <summary>
-        /// Recipient city. Required only for FDCCompass.
+        /// The city of the recipient. This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. 
         /// </summary>
-        /// <value>Recipient city. Required only for FDCCompass.</value>
+        /// <value>The city of the recipient. This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. </value>
         [DataMember(Name="locality", EmitDefaultValue=false)]
         public string Locality { get; set; }
 
         /// <summary>
-        /// Recipient State. Required only for FDCCompass.
+        /// The state or province of the recipient. This field is applicable for AFT and OCT transactions when the recipient country is US or CA. Else it is optional.  Must be a two character value 
         /// </summary>
-        /// <value>Recipient State. Required only for FDCCompass.</value>
+        /// <value>The state or province of the recipient. This field is applicable for AFT and OCT transactions when the recipient country is US or CA. Else it is optional.  Must be a two character value </value>
         [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
         public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// Recipient country code. Required only for FDCCompass.
+        /// The country associated with the address of the recipient. This field is applicable for AFT and OCT transactions.  Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) 
         /// </summary>
-        /// <value>Recipient country code. Required only for FDCCompass.</value>
+        /// <value>The country associated with the address of the recipient. This field is applicable for AFT and OCT transactions.  Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) </value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 

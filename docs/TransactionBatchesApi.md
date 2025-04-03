@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**GetTransactionBatchDetails**](TransactionBatchesApi.md#gettransactionbatchdetails) | **GET** /pts/v1/transaction-batch-details/{id} | Get Transaction Details for a given Batch Id
 [**GetTransactionBatchId**](TransactionBatchesApi.md#gettransactionbatchid) | **GET** /pts/v1/transaction-batches/{id} | Get Individual Batch File
 [**GetTransactionBatches**](TransactionBatchesApi.md#gettransactionbatches) | **GET** /pts/v1/transaction-batches | Get a List of Batch Files
+[**UploadTransactionBatch**](TransactionBatchesApi.md#uploadtransactionbatch) | **POST** /pts/v1/transaction-batch-upload | Upload a Batch File
 
 
 <a name="gettransactionbatchdetails"></a>
@@ -194,6 +195,66 @@ No authorization required
 
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/hal+json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="uploadtransactionbatch"></a>
+# **UploadTransactionBatch**
+> void UploadTransactionBatch (System.IO.Stream _file)
+
+Upload a Batch File
+
+This endpoint enables the upload of a batch file containing transactions for processing.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class UploadTransactionBatchExample
+    {
+        public void main()
+        {
+            var apiInstance = new TransactionBatchesApi();
+            var _file = new System.IO.Stream(); // System.IO.Stream | The file to upload.
+
+            try
+            {
+                // Upload a Batch File
+                apiInstance.UploadTransactionBatch(_file);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling TransactionBatchesApi.UploadTransactionBatch: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_file** | **System.IO.Stream**| The file to upload. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

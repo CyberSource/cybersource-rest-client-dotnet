@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="LowValueExemptionResult">This will be the value returned by Visanet when low value exemption has been requested.  Valid values: Visa Platform Connect - &#x60;2&#x60; Low value exemption validated/honored - &#x60;3&#x60; Low value exemption failed validation/not honored .</param>
         /// <param name="SecureCorporatePaymentResult">This will be the value returned by Visanet when secure corporate payment (scp) exemption has been requested.  Valid values: Visa Platform Connect - &#x60;2&#x60; Secure corporate payment exemption validated/honored - &#x60;3&#x60; Secure corporate payment exemption failed validation/not honored .</param>
         /// <param name="TransactionRiskAnalysisExemptionResult">This will be the value returned by Visanet when transaction risk analysis (TRA) exemption has been requested.    Valid values: Visa Platform Connect   - &#x60;2&#x60; transaction risk analysis (TRA) exemption validated/honored   - &#x60;3&#x60; transaction risk analysis (TRA) exemption failed validation/not honored .</param>
-        public PaymentsStrongAuthIssuerInformation(string RiskAnalysisExemptionResult = default(string), string TrustedMerchantExemptionResult = default(string), string LowValueExemptionResult = default(string), string SecureCorporatePaymentResult = default(string), string TransactionRiskAnalysisExemptionResult = default(string))
+        /// <param name="DelegatedAuthenticationResult">This will be the value returned by Visanet when delegated authentication has been requested. .</param>
+        public PaymentsStrongAuthIssuerInformation(string RiskAnalysisExemptionResult = default(string), string TrustedMerchantExemptionResult = default(string), string LowValueExemptionResult = default(string), string SecureCorporatePaymentResult = default(string), string TransactionRiskAnalysisExemptionResult = default(string), string DelegatedAuthenticationResult = default(string))
         {
             this.RiskAnalysisExemptionResult = RiskAnalysisExemptionResult;
             this.TrustedMerchantExemptionResult = TrustedMerchantExemptionResult;
             this.LowValueExemptionResult = LowValueExemptionResult;
             this.SecureCorporatePaymentResult = SecureCorporatePaymentResult;
             this.TransactionRiskAnalysisExemptionResult = TransactionRiskAnalysisExemptionResult;
+            this.DelegatedAuthenticationResult = DelegatedAuthenticationResult;
         }
         
         /// <summary>
@@ -83,6 +85,13 @@ namespace CyberSource.Model
         public string TransactionRiskAnalysisExemptionResult { get; set; }
 
         /// <summary>
+        /// This will be the value returned by Visanet when delegated authentication has been requested. 
+        /// </summary>
+        /// <value>This will be the value returned by Visanet when delegated authentication has been requested. </value>
+        [DataMember(Name="delegatedAuthenticationResult", EmitDefaultValue=false)]
+        public string DelegatedAuthenticationResult { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +104,7 @@ namespace CyberSource.Model
             if (LowValueExemptionResult != null) sb.Append("  LowValueExemptionResult: ").Append(LowValueExemptionResult).Append("\n");
             if (SecureCorporatePaymentResult != null) sb.Append("  SecureCorporatePaymentResult: ").Append(SecureCorporatePaymentResult).Append("\n");
             if (TransactionRiskAnalysisExemptionResult != null) sb.Append("  TransactionRiskAnalysisExemptionResult: ").Append(TransactionRiskAnalysisExemptionResult).Append("\n");
+            if (DelegatedAuthenticationResult != null) sb.Append("  DelegatedAuthenticationResult: ").Append(DelegatedAuthenticationResult).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +165,11 @@ namespace CyberSource.Model
                     this.TransactionRiskAnalysisExemptionResult == other.TransactionRiskAnalysisExemptionResult ||
                     this.TransactionRiskAnalysisExemptionResult != null &&
                     this.TransactionRiskAnalysisExemptionResult.Equals(other.TransactionRiskAnalysisExemptionResult)
+                ) && 
+                (
+                    this.DelegatedAuthenticationResult == other.DelegatedAuthenticationResult ||
+                    this.DelegatedAuthenticationResult != null &&
+                    this.DelegatedAuthenticationResult.Equals(other.DelegatedAuthenticationResult)
                 );
         }
 
@@ -179,6 +194,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SecureCorporatePaymentResult.GetHashCode();
                 if (this.TransactionRiskAnalysisExemptionResult != null)
                     hash = hash * 59 + this.TransactionRiskAnalysisExemptionResult.GetHashCode();
+                if (this.DelegatedAuthenticationResult != null)
+                    hash = hash * 59 + this.DelegatedAuthenticationResult.GetHashCode();
                 return hash;
             }
         }

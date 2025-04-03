@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **ReconciliationId** | **string** | Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22).  | [optional] 
 **PayoutsOptions** | [**Ptsv2payoutsProcessingInformationPayoutsOptions**](Ptsv2payoutsProcessingInformationPayoutsOptions.md) |  | [optional] 
 **TransactionReason** | **string** | Transaction reason code.  | [optional] 
-**PurposeOfPayment** | **string** | This will send purpose of funds code for original credit transactions (OCTs).  | [optional] 
+**PurposeOfPayment** | **string** | This field is applicable for AFT and OCT transactions. For list of supported values, please refer to Developer Guide.  | [optional] 
 **FundingOptions** | [**Ptsv2payoutsProcessingInformationFundingOptions**](Ptsv2payoutsProcessingInformationFundingOptions.md) |  | [optional] 
 **LanguageCode** | **string** | Contains the ISO 639-2 defined language Code  | [optional] 
 **PurchaseOptions** | [**Ptsv2payoutsProcessingInformationPurchaseOptions**](Ptsv2payoutsProcessingInformationPurchaseOptions.md) |  | [optional] 

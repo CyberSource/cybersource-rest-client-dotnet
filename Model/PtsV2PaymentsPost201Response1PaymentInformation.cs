@@ -34,11 +34,13 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201Response1PaymentInformation" /> class.
         /// </summary>
         /// <param name="PaymentType">PaymentType.</param>
+        /// <param name="EWallet">EWallet.</param>
         /// <param name="Customer">Customer.</param>
         /// <param name="Bank">Bank.</param>
-        public PtsV2PaymentsPost201Response1PaymentInformation(PtsV2PaymentsPost201Response1PaymentInformationPaymentType PaymentType = default(PtsV2PaymentsPost201Response1PaymentInformationPaymentType), Ptsv2refreshpaymentstatusidPaymentInformationCustomer Customer = default(Ptsv2refreshpaymentstatusidPaymentInformationCustomer), PtsV2PaymentsPost201Response1PaymentInformationBank Bank = default(PtsV2PaymentsPost201Response1PaymentInformationBank))
+        public PtsV2PaymentsPost201Response1PaymentInformation(PtsV2PaymentsPost201Response1PaymentInformationPaymentType PaymentType = default(PtsV2PaymentsPost201Response1PaymentInformationPaymentType), PtsV2PaymentsPost201Response1PaymentInformationEWallet EWallet = default(PtsV2PaymentsPost201Response1PaymentInformationEWallet), Ptsv2refreshpaymentstatusidPaymentInformationCustomer Customer = default(Ptsv2refreshpaymentstatusidPaymentInformationCustomer), PtsV2PaymentsPost201Response1PaymentInformationBank Bank = default(PtsV2PaymentsPost201Response1PaymentInformationBank))
         {
             this.PaymentType = PaymentType;
+            this.EWallet = EWallet;
             this.Customer = Customer;
             this.Bank = Bank;
         }
@@ -48,6 +50,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="paymentType", EmitDefaultValue=false)]
         public PtsV2PaymentsPost201Response1PaymentInformationPaymentType PaymentType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EWallet
+        /// </summary>
+        [DataMember(Name="eWallet", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201Response1PaymentInformationEWallet EWallet { get; set; }
 
         /// <summary>
         /// Gets or Sets Customer
@@ -70,6 +78,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201Response1PaymentInformation {\n");
             if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (EWallet != null) sb.Append("  EWallet: ").Append(EWallet).Append("\n");
             if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
             if (Bank != null) sb.Append("  Bank: ").Append(Bank).Append("\n");
             sb.Append("}\n");
@@ -114,6 +123,11 @@ namespace CyberSource.Model
                     this.PaymentType.Equals(other.PaymentType)
                 ) && 
                 (
+                    this.EWallet == other.EWallet ||
+                    this.EWallet != null &&
+                    this.EWallet.Equals(other.EWallet)
+                ) && 
+                (
                     this.Customer == other.Customer ||
                     this.Customer != null &&
                     this.Customer.Equals(other.Customer)
@@ -138,6 +152,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.PaymentType != null)
                     hash = hash * 59 + this.PaymentType.GetHashCode();
+                if (this.EWallet != null)
+                    hash = hash * 59 + this.EWallet.GetHashCode();
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
                 if (this.Bank != null)

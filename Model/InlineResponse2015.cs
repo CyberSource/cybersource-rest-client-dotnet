@@ -35,14 +35,10 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
         /// <param name="Status">The status of the submitted transaction. Possible values:  - ACCEPTED .</param>
-        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        /// <param name="KeyInformation">KeyInformation.</param>
-        public InlineResponse2015(string SubmitTimeUtc = default(string), string Status = default(string), Kmsegressv2keyssymClientReferenceInformation ClientReferenceInformation = default(Kmsegressv2keyssymClientReferenceInformation), Kmsegressv2keysasymKeyInformation KeyInformation = default(Kmsegressv2keysasymKeyInformation))
+        public InlineResponse2015(string SubmitTimeUtc = default(string), string Status = default(string))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
-            this.ClientReferenceInformation = ClientReferenceInformation;
-            this.KeyInformation = KeyInformation;
         }
         
         /// <summary>
@@ -60,18 +56,6 @@ namespace CyberSource.Model
         public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets ClientReferenceInformation
-        /// </summary>
-        [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Kmsegressv2keyssymClientReferenceInformation ClientReferenceInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets KeyInformation
-        /// </summary>
-        [DataMember(Name="keyInformation", EmitDefaultValue=false)]
-        public Kmsegressv2keysasymKeyInformation KeyInformation { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,8 +65,6 @@ namespace CyberSource.Model
             sb.Append("class InlineResponse2015 {\n");
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
-            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            if (KeyInformation != null) sb.Append("  KeyInformation: ").Append(KeyInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -128,16 +110,6 @@ namespace CyberSource.Model
                     this.Status == other.Status ||
                     this.Status != null &&
                     this.Status.Equals(other.Status)
-                ) && 
-                (
-                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
-                    this.ClientReferenceInformation != null &&
-                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
-                ) && 
-                (
-                    this.KeyInformation == other.KeyInformation ||
-                    this.KeyInformation != null &&
-                    this.KeyInformation.Equals(other.KeyInformation)
                 );
         }
 
@@ -156,10 +128,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.ClientReferenceInformation != null)
-                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
-                if (this.KeyInformation != null)
-                    hash = hash * 59 + this.KeyInformation.GetHashCode();
                 return hash;
             }
         }

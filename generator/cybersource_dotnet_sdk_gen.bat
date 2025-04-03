@@ -126,5 +126,6 @@ git checkout ..\test\packages.config
 
 rd /s /q ..\src
 
+del ..\Client\IReadableConfiguration.cs
 
 pause

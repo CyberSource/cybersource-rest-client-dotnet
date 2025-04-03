@@ -89,6 +89,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'RawResponse'
         }
         /// <summary>
+        /// Test the property 'RawResponseLocal'
+        /// </summary>
+        [Test]
+        public void RawResponseLocalTest()
+        {
+            // TODO unit test for the property 'RawResponseLocal'
+        }
+        /// <summary>
+        /// Test the property 'ResponseDetails'
+        /// </summary>
+        [Test]
+        public void ResponseDetailsTest()
+        {
+            // TODO unit test for the property 'ResponseDetails'
+        }
+        /// <summary>
         /// Test the property 'ResponseCode'
         /// </summary>
         [Test]

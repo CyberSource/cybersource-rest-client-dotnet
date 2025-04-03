@@ -33,35 +33,65 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002" /> class.
         /// </summary>
-        /// <param name="ProductId">Product ID..</param>
-        /// <param name="ProductName">Product Name..</param>
-        /// <param name="EventTypes">EventTypes.</param>
-        public InlineResponse2002(string ProductId = default(string), string ProductName = default(string), List<Notificationsubscriptionsv1productsorganizationIdEventTypes> EventTypes = default(List<Notificationsubscriptionsv1productsorganizationIdEventTypes>))
+        /// <param name="Links">Links.</param>
+        /// <param name="Object">Object.</param>
+        /// <param name="Offset">Offset.</param>
+        /// <param name="Limit">Limit.</param>
+        /// <param name="Count">Count.</param>
+        /// <param name="Total">Total.</param>
+        /// <param name="Embedded">Embedded.</param>
+        public InlineResponse2002(List<InlineResponse2002Links> Links = default(List<InlineResponse2002Links>), string Object = default(string), int? Offset = default(int?), int? Limit = default(int?), int? Count = default(int?), int? Total = default(int?), InlineResponse2002Embedded Embedded = default(InlineResponse2002Embedded))
         {
-            this.ProductId = ProductId;
-            this.ProductName = ProductName;
-            this.EventTypes = EventTypes;
+            this.Links = Links;
+            this.Object = Object;
+            this.Offset = Offset;
+            this.Limit = Limit;
+            this.Count = Count;
+            this.Total = Total;
+            this.Embedded = Embedded;
         }
         
         /// <summary>
-        /// Product ID.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Product ID.</value>
-        [DataMember(Name="productId", EmitDefaultValue=false)]
-        public string ProductId { get; set; }
+        [DataMember(Name="_links", EmitDefaultValue=false)]
+        public List<InlineResponse2002Links> Links { get; set; }
 
         /// <summary>
-        /// Product Name.
+        /// Gets or Sets Object
         /// </summary>
-        /// <value>Product Name.</value>
-        [DataMember(Name="productName", EmitDefaultValue=false)]
-        public string ProductName { get; set; }
+        [DataMember(Name="object", EmitDefaultValue=false)]
+        public string Object { get; set; }
 
         /// <summary>
-        /// Gets or Sets EventTypes
+        /// Gets or Sets Offset
         /// </summary>
-        [DataMember(Name="eventTypes", EmitDefaultValue=false)]
-        public List<Notificationsubscriptionsv1productsorganizationIdEventTypes> EventTypes { get; set; }
+        [DataMember(Name="offset", EmitDefaultValue=false)]
+        public int? Offset { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Limit
+        /// </summary>
+        [DataMember(Name="limit", EmitDefaultValue=false)]
+        public int? Limit { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Count
+        /// </summary>
+        [DataMember(Name="count", EmitDefaultValue=false)]
+        public int? Count { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Total
+        /// </summary>
+        [DataMember(Name="total", EmitDefaultValue=false)]
+        public int? Total { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Embedded
+        /// </summary>
+        [DataMember(Name="_embedded", EmitDefaultValue=false)]
+        public InlineResponse2002Embedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,9 +101,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2002 {\n");
-            if (ProductId != null) sb.Append("  ProductId: ").Append(ProductId).Append("\n");
-            if (ProductName != null) sb.Append("  ProductName: ").Append(ProductName).Append("\n");
-            if (EventTypes != null) sb.Append("  EventTypes: ").Append(EventTypes).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Object != null) sb.Append("  Object: ").Append(Object).Append("\n");
+            if (Offset != null) sb.Append("  Offset: ").Append(Offset).Append("\n");
+            if (Limit != null) sb.Append("  Limit: ").Append(Limit).Append("\n");
+            if (Count != null) sb.Append("  Count: ").Append(Count).Append("\n");
+            if (Total != null) sb.Append("  Total: ").Append(Total).Append("\n");
+            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,19 +145,39 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.ProductId == other.ProductId ||
-                    this.ProductId != null &&
-                    this.ProductId.Equals(other.ProductId)
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.SequenceEqual(other.Links)
                 ) && 
                 (
-                    this.ProductName == other.ProductName ||
-                    this.ProductName != null &&
-                    this.ProductName.Equals(other.ProductName)
+                    this.Object == other.Object ||
+                    this.Object != null &&
+                    this.Object.Equals(other.Object)
                 ) && 
                 (
-                    this.EventTypes == other.EventTypes ||
-                    this.EventTypes != null &&
-                    this.EventTypes.SequenceEqual(other.EventTypes)
+                    this.Offset == other.Offset ||
+                    this.Offset != null &&
+                    this.Offset.Equals(other.Offset)
+                ) && 
+                (
+                    this.Limit == other.Limit ||
+                    this.Limit != null &&
+                    this.Limit.Equals(other.Limit)
+                ) && 
+                (
+                    this.Count == other.Count ||
+                    this.Count != null &&
+                    this.Count.Equals(other.Count)
+                ) && 
+                (
+                    this.Total == other.Total ||
+                    this.Total != null &&
+                    this.Total.Equals(other.Total)
+                ) && 
+                (
+                    this.Embedded == other.Embedded ||
+                    this.Embedded != null &&
+                    this.Embedded.Equals(other.Embedded)
                 );
         }
 
@@ -138,12 +192,20 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.ProductId != null)
-                    hash = hash * 59 + this.ProductId.GetHashCode();
-                if (this.ProductName != null)
-                    hash = hash * 59 + this.ProductName.GetHashCode();
-                if (this.EventTypes != null)
-                    hash = hash * 59 + this.EventTypes.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
+                if (this.Object != null)
+                    hash = hash * 59 + this.Object.GetHashCode();
+                if (this.Offset != null)
+                    hash = hash * 59 + this.Offset.GetHashCode();
+                if (this.Limit != null)
+                    hash = hash * 59 + this.Limit.GetHashCode();
+                if (this.Count != null)
+                    hash = hash * 59 + this.Count.GetHashCode();
+                if (this.Total != null)
+                    hash = hash * 59 + this.Total.GetHashCode();
+                if (this.Embedded != null)
+                    hash = hash * 59 + this.Embedded.GetHashCode();
                 return hash;
             }
         }
