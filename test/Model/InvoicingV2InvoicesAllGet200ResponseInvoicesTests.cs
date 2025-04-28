@@ -89,6 +89,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
+        /// Test the property 'CreatedDate'
+        /// </summary>
+        [Test]
+        public void CreatedDateTest()
+        {
+            // TODO unit test for the property 'CreatedDate'
+        }
+        /// <summary>
         /// Test the property 'CustomerInformation'
         /// </summary>
         [Test]

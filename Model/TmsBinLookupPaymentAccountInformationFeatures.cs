@@ -38,11 +38,21 @@ namespace CyberSource.Model
         /// <param name="CardProduct">This field contains the type of issuer product. Example values:   - Visa Classic   - Visa Signature   - Visa Infinite .</param>
         /// <param name="MessageType">This field contains the type of BIN based authentication. Possible values:   - &#x60;S&#x60;: Single Message   - &#x60;D&#x60;: Dual Message .</param>
         /// <param name="AcceptanceLevel">This field contains the acceptance level of the PAN. Possible values:   - &#x60;0&#x60; : Normal   - &#x60;1&#x60; : Monitor   - &#x60;2&#x60; : Refuse   - &#x60;3&#x60; : Not Allowed   - &#x60;4&#x60; : Private   - &#x60;5&#x60; : Test .</param>
-        /// <param name="CardPlatform">This field contains the type of card platform. Possible values:   - &#x60;BUSINESS&#x60;   - &#x60;CONSUMER&#x60;   - &#x60;COMMERCIAL&#x60;   - &#x60;GOVERNMENT&#x60; .</param>
+        /// <param name="CardPlatform">This field contains the type of card platform. Possible values:   - &#x60;BUSINESS&#x60;   - &#x60;CONSUMER&#x60;   - &#x60;CORPORATE&#x60;   - &#x60;COMMERCIAL&#x60;   - &#x60;GOVERNMENT&#x60; .</param>
         /// <param name="ComboCard">This field indicates the type of combo card. Possible values:   - 0 (Not a combo card)   - 1 (Credit and Prepaid Combo card)   - 2 (Credit and Debit Combo card) .</param>
-        /// <param name="CorporatePurchase">This field indicates whether the card can be used for corporate purchasing. This field is only applicable for American Express cards. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
-        /// <param name="HealthCard">This field indicates if the entered card is a healthcare BIN. Currently, this field is only supported for Visa BINs. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60;       .</param>
-        public TmsBinLookupPaymentAccountInformationFeatures(string AccountFundingSource = default(string), string AccountFundingSourceSubType = default(string), string CardProduct = default(string), string MessageType = default(string), string AcceptanceLevel = default(string), string CardPlatform = default(string), string ComboCard = default(string), bool? CorporatePurchase = default(bool?), bool? HealthCard = default(bool?))
+        /// <param name="CorporatePurchase">This field indicates if the instrument can be used for corporate purchasing. This field is only applicable for American Express cards. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
+        /// <param name="HealthCard">This field indicates if the BIN is for healthcare (HSA/FSA). Currently, this field is only supported for Visa BINs. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="SharedBIN">This field indicates if the BIN is shared by multiple issuers Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="PosDomesticOnly">This field indicates if the BIN is valid only for POS domestic usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="GamblingAllowed">This field indicates if gambling transactions are allowed on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="CommercialCardLevel2">This field indicates if a transaction on the instrument qualifies for level 2 interchange rates. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="CommercialCardLevel3">This field indicates if a transaction on the instrument qualifies for level 3 interchange rates. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="ExemptBIN">This field indicates if a transaction on the instrument qualifies for government exempt interchange fee. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="AccountLevelManagement">This field indicates if the BIN participates in Account Level Management (ALM). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="OnlineGamblingBlock">This field indicates if online gambling is blocked on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="AutoSubstantiation">This field indicates if auto-substantiation is enabled on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="FlexCredential">This field indicates if the instrument is a flex credential. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        public TmsBinLookupPaymentAccountInformationFeatures(string AccountFundingSource = default(string), string AccountFundingSourceSubType = default(string), string CardProduct = default(string), string MessageType = default(string), string AcceptanceLevel = default(string), string CardPlatform = default(string), string ComboCard = default(string), bool? CorporatePurchase = default(bool?), bool? HealthCard = default(bool?), bool? SharedBIN = default(bool?), bool? PosDomesticOnly = default(bool?), bool? GamblingAllowed = default(bool?), bool? CommercialCardLevel2 = default(bool?), bool? CommercialCardLevel3 = default(bool?), bool? ExemptBIN = default(bool?), bool? AccountLevelManagement = default(bool?), bool? OnlineGamblingBlock = default(bool?), bool? AutoSubstantiation = default(bool?), bool? FlexCredential = default(bool?))
         {
             this.AccountFundingSource = AccountFundingSource;
             this.AccountFundingSourceSubType = AccountFundingSourceSubType;
@@ -53,6 +63,16 @@ namespace CyberSource.Model
             this.ComboCard = ComboCard;
             this.CorporatePurchase = CorporatePurchase;
             this.HealthCard = HealthCard;
+            this.SharedBIN = SharedBIN;
+            this.PosDomesticOnly = PosDomesticOnly;
+            this.GamblingAllowed = GamblingAllowed;
+            this.CommercialCardLevel2 = CommercialCardLevel2;
+            this.CommercialCardLevel3 = CommercialCardLevel3;
+            this.ExemptBIN = ExemptBIN;
+            this.AccountLevelManagement = AccountLevelManagement;
+            this.OnlineGamblingBlock = OnlineGamblingBlock;
+            this.AutoSubstantiation = AutoSubstantiation;
+            this.FlexCredential = FlexCredential;
         }
         
         /// <summary>
@@ -91,9 +111,9 @@ namespace CyberSource.Model
         public string AcceptanceLevel { get; set; }
 
         /// <summary>
-        /// This field contains the type of card platform. Possible values:   - &#x60;BUSINESS&#x60;   - &#x60;CONSUMER&#x60;   - &#x60;COMMERCIAL&#x60;   - &#x60;GOVERNMENT&#x60; 
+        /// This field contains the type of card platform. Possible values:   - &#x60;BUSINESS&#x60;   - &#x60;CONSUMER&#x60;   - &#x60;CORPORATE&#x60;   - &#x60;COMMERCIAL&#x60;   - &#x60;GOVERNMENT&#x60; 
         /// </summary>
-        /// <value>This field contains the type of card platform. Possible values:   - &#x60;BUSINESS&#x60;   - &#x60;CONSUMER&#x60;   - &#x60;COMMERCIAL&#x60;   - &#x60;GOVERNMENT&#x60; </value>
+        /// <value>This field contains the type of card platform. Possible values:   - &#x60;BUSINESS&#x60;   - &#x60;CONSUMER&#x60;   - &#x60;CORPORATE&#x60;   - &#x60;COMMERCIAL&#x60;   - &#x60;GOVERNMENT&#x60; </value>
         [DataMember(Name="cardPlatform", EmitDefaultValue=false)]
         public string CardPlatform { get; set; }
 
@@ -105,18 +125,88 @@ namespace CyberSource.Model
         public string ComboCard { get; set; }
 
         /// <summary>
-        /// This field indicates whether the card can be used for corporate purchasing. This field is only applicable for American Express cards. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
+        /// This field indicates if the instrument can be used for corporate purchasing. This field is only applicable for American Express cards. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
         /// </summary>
-        /// <value>This field indicates whether the card can be used for corporate purchasing. This field is only applicable for American Express cards. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
+        /// <value>This field indicates if the instrument can be used for corporate purchasing. This field is only applicable for American Express cards. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
         [DataMember(Name="corporatePurchase", EmitDefaultValue=false)]
         public bool? CorporatePurchase { get; set; }
 
         /// <summary>
-        /// This field indicates if the entered card is a healthcare BIN. Currently, this field is only supported for Visa BINs. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60;       
+        /// This field indicates if the BIN is for healthcare (HSA/FSA). Currently, this field is only supported for Visa BINs. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
         /// </summary>
-        /// <value>This field indicates if the entered card is a healthcare BIN. Currently, this field is only supported for Visa BINs. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60;       </value>
+        /// <value>This field indicates if the BIN is for healthcare (HSA/FSA). Currently, this field is only supported for Visa BINs. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
         [DataMember(Name="healthCard", EmitDefaultValue=false)]
         public bool? HealthCard { get; set; }
+
+        /// <summary>
+        /// This field indicates if the BIN is shared by multiple issuers Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the BIN is shared by multiple issuers Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="sharedBIN", EmitDefaultValue=false)]
+        public bool? SharedBIN { get; set; }
+
+        /// <summary>
+        /// This field indicates if the BIN is valid only for POS domestic usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the BIN is valid only for POS domestic usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="posDomesticOnly", EmitDefaultValue=false)]
+        public bool? PosDomesticOnly { get; set; }
+
+        /// <summary>
+        /// This field indicates if gambling transactions are allowed on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if gambling transactions are allowed on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="gamblingAllowed", EmitDefaultValue=false)]
+        public bool? GamblingAllowed { get; set; }
+
+        /// <summary>
+        /// This field indicates if a transaction on the instrument qualifies for level 2 interchange rates. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if a transaction on the instrument qualifies for level 2 interchange rates. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="commercialCardLevel2", EmitDefaultValue=false)]
+        public bool? CommercialCardLevel2 { get; set; }
+
+        /// <summary>
+        /// This field indicates if a transaction on the instrument qualifies for level 3 interchange rates. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if a transaction on the instrument qualifies for level 3 interchange rates. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="commercialCardLevel3", EmitDefaultValue=false)]
+        public bool? CommercialCardLevel3 { get; set; }
+
+        /// <summary>
+        /// This field indicates if a transaction on the instrument qualifies for government exempt interchange fee. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if a transaction on the instrument qualifies for government exempt interchange fee. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="exemptBIN", EmitDefaultValue=false)]
+        public bool? ExemptBIN { get; set; }
+
+        /// <summary>
+        /// This field indicates if the BIN participates in Account Level Management (ALM). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the BIN participates in Account Level Management (ALM). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="accountLevelManagement", EmitDefaultValue=false)]
+        public bool? AccountLevelManagement { get; set; }
+
+        /// <summary>
+        /// This field indicates if online gambling is blocked on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if online gambling is blocked on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="onlineGamblingBlock", EmitDefaultValue=false)]
+        public bool? OnlineGamblingBlock { get; set; }
+
+        /// <summary>
+        /// This field indicates if auto-substantiation is enabled on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if auto-substantiation is enabled on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="autoSubstantiation", EmitDefaultValue=false)]
+        public bool? AutoSubstantiation { get; set; }
+
+        /// <summary>
+        /// This field indicates if the instrument is a flex credential. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the instrument is a flex credential. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="flexCredential", EmitDefaultValue=false)]
+        public bool? FlexCredential { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,6 +225,16 @@ namespace CyberSource.Model
             if (ComboCard != null) sb.Append("  ComboCard: ").Append(ComboCard).Append("\n");
             if (CorporatePurchase != null) sb.Append("  CorporatePurchase: ").Append(CorporatePurchase).Append("\n");
             if (HealthCard != null) sb.Append("  HealthCard: ").Append(HealthCard).Append("\n");
+            if (SharedBIN != null) sb.Append("  SharedBIN: ").Append(SharedBIN).Append("\n");
+            if (PosDomesticOnly != null) sb.Append("  PosDomesticOnly: ").Append(PosDomesticOnly).Append("\n");
+            if (GamblingAllowed != null) sb.Append("  GamblingAllowed: ").Append(GamblingAllowed).Append("\n");
+            if (CommercialCardLevel2 != null) sb.Append("  CommercialCardLevel2: ").Append(CommercialCardLevel2).Append("\n");
+            if (CommercialCardLevel3 != null) sb.Append("  CommercialCardLevel3: ").Append(CommercialCardLevel3).Append("\n");
+            if (ExemptBIN != null) sb.Append("  ExemptBIN: ").Append(ExemptBIN).Append("\n");
+            if (AccountLevelManagement != null) sb.Append("  AccountLevelManagement: ").Append(AccountLevelManagement).Append("\n");
+            if (OnlineGamblingBlock != null) sb.Append("  OnlineGamblingBlock: ").Append(OnlineGamblingBlock).Append("\n");
+            if (AutoSubstantiation != null) sb.Append("  AutoSubstantiation: ").Append(AutoSubstantiation).Append("\n");
+            if (FlexCredential != null) sb.Append("  FlexCredential: ").Append(FlexCredential).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +315,56 @@ namespace CyberSource.Model
                     this.HealthCard == other.HealthCard ||
                     this.HealthCard != null &&
                     this.HealthCard.Equals(other.HealthCard)
+                ) && 
+                (
+                    this.SharedBIN == other.SharedBIN ||
+                    this.SharedBIN != null &&
+                    this.SharedBIN.Equals(other.SharedBIN)
+                ) && 
+                (
+                    this.PosDomesticOnly == other.PosDomesticOnly ||
+                    this.PosDomesticOnly != null &&
+                    this.PosDomesticOnly.Equals(other.PosDomesticOnly)
+                ) && 
+                (
+                    this.GamblingAllowed == other.GamblingAllowed ||
+                    this.GamblingAllowed != null &&
+                    this.GamblingAllowed.Equals(other.GamblingAllowed)
+                ) && 
+                (
+                    this.CommercialCardLevel2 == other.CommercialCardLevel2 ||
+                    this.CommercialCardLevel2 != null &&
+                    this.CommercialCardLevel2.Equals(other.CommercialCardLevel2)
+                ) && 
+                (
+                    this.CommercialCardLevel3 == other.CommercialCardLevel3 ||
+                    this.CommercialCardLevel3 != null &&
+                    this.CommercialCardLevel3.Equals(other.CommercialCardLevel3)
+                ) && 
+                (
+                    this.ExemptBIN == other.ExemptBIN ||
+                    this.ExemptBIN != null &&
+                    this.ExemptBIN.Equals(other.ExemptBIN)
+                ) && 
+                (
+                    this.AccountLevelManagement == other.AccountLevelManagement ||
+                    this.AccountLevelManagement != null &&
+                    this.AccountLevelManagement.Equals(other.AccountLevelManagement)
+                ) && 
+                (
+                    this.OnlineGamblingBlock == other.OnlineGamblingBlock ||
+                    this.OnlineGamblingBlock != null &&
+                    this.OnlineGamblingBlock.Equals(other.OnlineGamblingBlock)
+                ) && 
+                (
+                    this.AutoSubstantiation == other.AutoSubstantiation ||
+                    this.AutoSubstantiation != null &&
+                    this.AutoSubstantiation.Equals(other.AutoSubstantiation)
+                ) && 
+                (
+                    this.FlexCredential == other.FlexCredential ||
+                    this.FlexCredential != null &&
+                    this.FlexCredential.Equals(other.FlexCredential)
                 );
         }
 
@@ -247,6 +397,26 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CorporatePurchase.GetHashCode();
                 if (this.HealthCard != null)
                     hash = hash * 59 + this.HealthCard.GetHashCode();
+                if (this.SharedBIN != null)
+                    hash = hash * 59 + this.SharedBIN.GetHashCode();
+                if (this.PosDomesticOnly != null)
+                    hash = hash * 59 + this.PosDomesticOnly.GetHashCode();
+                if (this.GamblingAllowed != null)
+                    hash = hash * 59 + this.GamblingAllowed.GetHashCode();
+                if (this.CommercialCardLevel2 != null)
+                    hash = hash * 59 + this.CommercialCardLevel2.GetHashCode();
+                if (this.CommercialCardLevel3 != null)
+                    hash = hash * 59 + this.CommercialCardLevel3.GetHashCode();
+                if (this.ExemptBIN != null)
+                    hash = hash * 59 + this.ExemptBIN.GetHashCode();
+                if (this.AccountLevelManagement != null)
+                    hash = hash * 59 + this.AccountLevelManagement.GetHashCode();
+                if (this.OnlineGamblingBlock != null)
+                    hash = hash * 59 + this.OnlineGamblingBlock.GetHashCode();
+                if (this.AutoSubstantiation != null)
+                    hash = hash * 59 + this.AutoSubstantiation.GetHashCode();
+                if (this.FlexCredential != null)
+                    hash = hash * 59 + this.FlexCredential.GetHashCode();
                 return hash;
             }
         }

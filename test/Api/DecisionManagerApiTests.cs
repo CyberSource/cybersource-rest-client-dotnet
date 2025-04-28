@@ -74,7 +74,7 @@ namespace CyberSource.Test
             //string id = null;
             //CaseManagementActionsRequest caseManagementActionsRequest = null;
             //var response = instance.ActionDecisionManagerCase(id, caseManagementActionsRequest);
-            //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
+            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
         }
         
         /// <summary>

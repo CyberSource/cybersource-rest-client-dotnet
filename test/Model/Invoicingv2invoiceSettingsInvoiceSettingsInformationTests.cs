@@ -144,6 +144,38 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'VatRegistrationNumber'
         }
+        /// <summary>
+        /// Test the property 'ShipTo'
+        /// </summary>
+        [Test]
+        public void ShipToTest()
+        {
+            // TODO unit test for the property 'ShipTo'
+        }
+        /// <summary>
+        /// Test the property 'PhoneNumber'
+        /// </summary>
+        [Test]
+        public void PhoneNumberTest()
+        {
+            // TODO unit test for the property 'PhoneNumber'
+        }
+        /// <summary>
+        /// Test the property 'Email'
+        /// </summary>
+        [Test]
+        public void EmailTest()
+        {
+            // TODO unit test for the property 'Email'
+        }
+        /// <summary>
+        /// Test the property 'EnableMerchantEmailNotifications'
+        /// </summary>
+        [Test]
+        public void EnableMerchantEmailNotificationsTest()
+        {
+            // TODO unit test for the property 'EnableMerchantEmailNotifications'
+        }
 
     }
 

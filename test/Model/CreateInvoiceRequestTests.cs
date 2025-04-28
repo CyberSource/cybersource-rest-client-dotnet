@@ -65,12 +65,28 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'ClientReferenceInformation'
+        /// </summary>
+        [Test]
+        public void ClientReferenceInformationTest()
+        {
+            // TODO unit test for the property 'ClientReferenceInformation'
+        }
+        /// <summary>
         /// Test the property 'CustomerInformation'
         /// </summary>
         [Test]
         public void CustomerInformationTest()
         {
             // TODO unit test for the property 'CustomerInformation'
+        }
+        /// <summary>
+        /// Test the property 'ProcessingInformation'
+        /// </summary>
+        [Test]
+        public void ProcessingInformationTest()
+        {
+            // TODO unit test for the property 'ProcessingInformation'
         }
         /// <summary>
         /// Test the property 'InvoiceInformation'

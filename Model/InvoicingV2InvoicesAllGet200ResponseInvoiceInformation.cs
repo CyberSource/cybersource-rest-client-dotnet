@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InvoicingV2InvoicesAllGet200ResponseInvoiceInformation" /> class.
         /// </summary>
         /// <param name="DueDate">The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day .</param>
-        public InvoicingV2InvoicesAllGet200ResponseInvoiceInformation(DateTime? DueDate = default(DateTime?))
+        /// <param name="ExpirationDate">Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day .</param>
+        public InvoicingV2InvoicesAllGet200ResponseInvoiceInformation(DateTime? DueDate = default(DateTime?), DateTime? ExpirationDate = default(DateTime?))
         {
             this.DueDate = DueDate;
+            this.ExpirationDate = ExpirationDate;
         }
         
         /// <summary>
@@ -48,6 +50,14 @@ namespace CyberSource.Model
         public DateTime? DueDate { get; set; }
 
         /// <summary>
+        /// Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day 
+        /// </summary>
+        /// <value>Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day </value>
+        [DataMember(Name="expirationDate", EmitDefaultValue=false)]
+        [JsonConverter(typeof(SwaggerDateConverter))]
+        public DateTime? ExpirationDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -56,6 +66,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoicesAllGet200ResponseInvoiceInformation {\n");
             if (DueDate != null) sb.Append("  DueDate: ").Append(DueDate).Append("\n");
+            if (ExpirationDate != null) sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,6 +107,11 @@ namespace CyberSource.Model
                     this.DueDate == other.DueDate ||
                     this.DueDate != null &&
                     this.DueDate.Equals(other.DueDate)
+                ) && 
+                (
+                    this.ExpirationDate == other.ExpirationDate ||
+                    this.ExpirationDate != null &&
+                    this.ExpirationDate.Equals(other.ExpirationDate)
                 );
         }
 
@@ -112,6 +128,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.DueDate != null)
                     hash = hash * 59 + this.DueDate.GetHashCode();
+                if (this.ExpirationDate != null)
+                    hash = hash * 59 + this.ExpirationDate.GetHashCode();
                 return hash;
             }
         }

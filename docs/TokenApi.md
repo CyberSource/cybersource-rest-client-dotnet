@@ -4,8 +4,74 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**GetCardArtAsset**](TokenApi.md#getcardartasset) | **GET** /tms/v2/tokens/{instrumentIdentifierId}/{tokenProvider}/assets/{assetType} | Retrieve Card Art
 [**PostTokenPaymentCredentials**](TokenApi.md#posttokenpaymentcredentials) | **POST** /tms/v2/tokens/{tokenId}/payment-credentials | Generate Payment Credentials for a TMS Token
 
+
+<a name="getcardartasset"></a>
+# **GetCardArtAsset**
+> InlineResponse200 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType)
+
+Retrieve Card Art
+
+Retrieves Card Art for a specific Instrument Identifier. The Card Art is a visual representation of the cardholder's payment card. Card Art is only available if a Network Token is successfully provisioned. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class GetCardArtAssetExample
+    {
+        public void main()
+        {
+            var apiInstance = new TokenApi();
+            var instrumentIdentifierId = instrumentIdentifierId_example;  // string | The Id of an Instrument Identifier.
+            var tokenProvider = tokenProvider_example;  // string | The token provider.
+            var assetType = assetType_example;  // string | The type of asset.
+
+            try
+            {
+                // Retrieve Card Art
+                InlineResponse200 result = apiInstance.GetCardArtAsset(instrumentIdentifierId, tokenProvider, assetType);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling TokenApi.GetCardArtAsset: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instrumentIdentifierId** | **string**| The Id of an Instrument Identifier. | 
+ **tokenProvider** | **string**| The token provider. | 
+ **assetType** | **string**| The type of asset. | 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="posttokenpaymentcredentials"></a>
 # **PostTokenPaymentCredentials**

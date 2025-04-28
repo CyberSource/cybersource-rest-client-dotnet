@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getbatchreport"></a>
 # **GetBatchReport**
-> InlineResponse2004 GetBatchReport (string batchId)
+> InlineResponse2007 GetBatchReport (string batchId)
 
 Retrieve a Batch Report
 
@@ -38,7 +38,7 @@ namespace Example
             try
             {
                 // Retrieve a Batch Report
-                InlineResponse2004 result = apiInstance.GetBatchReport(batchId);
+                InlineResponse2007 result = apiInstance.GetBatchReport(batchId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ No authorization required
 
 <a name="getbatchstatus"></a>
 # **GetBatchStatus**
-> InlineResponse2003 GetBatchStatus (string batchId)
+> InlineResponse2006 GetBatchStatus (string batchId)
 
 Retrieve a Batch Status
 
@@ -99,7 +99,7 @@ namespace Example
             try
             {
                 // Retrieve a Batch Status
-                InlineResponse2003 result = apiInstance.GetBatchStatus(batchId);
+                InlineResponse2006 result = apiInstance.GetBatchStatus(batchId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ No authorization required
 
 <a name="getbatcheslist"></a>
 # **GetBatchesList**
-> InlineResponse2002 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
+> InlineResponse2005 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
 
 List Batches
 
@@ -163,7 +163,7 @@ namespace Example
             try
             {
                 // List Batches
-                InlineResponse2002 result = apiInstance.GetBatchesList(offset, limit, fromDate, toDate);
+                InlineResponse2005 result = apiInstance.GetBatchesList(offset, limit, fromDate, toDate);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -205,7 +205,7 @@ No authorization required
 
 Create a Batch
 
-**Create a Batch**<br>This resource accepts TMS tokens ids of a Customer, Payment Instrument or Instrument Identifier. <br> The card numbers for the supplied tokens ids are then sent to the relevant card associations to check for updates.<br>The following type of batches can be submitted: -  **oneOff** batch containing tokens id for Visa or MasterCard card numbers. - **amexRegistration** batch containing tokens id for Amex card numbers.  A batch id will be returned on a successful response which can be used to get the batch status and the batch report. 
+**Create a Batch**<br>This resource accepts TMS tokens ids of a Customer, Payment Instrument or Instrument Identifier. <br> The card numbers for the supplied tokens ids are then sent to the relevant card associations to check for updates.<br>The following type of batches can be submitted: -  **oneOff** batch containing tokens id for Visa or MasterCard card numbers. - **amexRegistration** batch containing tokens id for Amex card numbers.  A batch id will be returned on a successful response which can be used to get the batch status and the batch report. The availability of API features for a merchant may depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts. 
 
 ### Example
 ```csharp

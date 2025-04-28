@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'DueDate'
         }
+        /// <summary>
+        /// Test the property 'ExpirationDate'
+        /// </summary>
+        [Test]
+        public void ExpirationDateTest()
+        {
+            // TODO unit test for the property 'ExpirationDate'
+        }
 
     }
 

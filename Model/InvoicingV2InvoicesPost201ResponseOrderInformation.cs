@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Contains all of the order-related fields for the invoice.
+    /// Contains all of the order-related fields, such as the amount and line item details.
     /// </summary>
     [DataContract]
     public partial class InvoicingV2InvoicesPost201ResponseOrderInformation :  IEquatable<InvoicingV2InvoicesPost201ResponseOrderInformation>, IValidatableObject
@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InvoicingV2InvoicesPost201ResponseOrderInformation" /> class.
         /// </summary>
         /// <param name="AmountDetails">AmountDetails.</param>
-        /// <param name="LineItems">LineItems.</param>
+        /// <param name="LineItems">List of the line items from the order..</param>
         public InvoicingV2InvoicesPost201ResponseOrderInformation(InvoicingV2InvoicesPost201ResponseOrderInformationAmountDetails AmountDetails = default(InvoicingV2InvoicesPost201ResponseOrderInformationAmountDetails), List<Invoicingv2invoicesOrderInformationLineItems> LineItems = default(List<Invoicingv2invoicesOrderInformationLineItems>))
         {
             this.AmountDetails = AmountDetails;
@@ -48,8 +48,9 @@ namespace CyberSource.Model
         public InvoicingV2InvoicesPost201ResponseOrderInformationAmountDetails AmountDetails { get; set; }
 
         /// <summary>
-        /// Gets or Sets LineItems
+        /// List of the line items from the order.
         /// </summary>
+        /// <value>List of the line items from the order.</value>
         [DataMember(Name="lineItems", EmitDefaultValue=false)]
         public List<Invoicingv2invoicesOrderInformationLineItems> LineItems { get; set; }
 

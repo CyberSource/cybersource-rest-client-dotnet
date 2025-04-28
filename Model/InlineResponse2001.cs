@@ -33,65 +33,44 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
         /// </summary>
-        /// <param name="RegistrationInformation">RegistrationInformation.</param>
-        /// <param name="IntegrationInformation">IntegrationInformation.</param>
-        /// <param name="OrganizationInformation">OrganizationInformation.</param>
-        /// <param name="ProductInformation">ProductInformation.</param>
-        /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
-        /// <param name="DocumentInformation">DocumentInformation.</param>
-        /// <param name="Details">Details.</param>
-        public InlineResponse2001(Boardingv1registrationsRegistrationInformation RegistrationInformation = default(Boardingv1registrationsRegistrationInformation), InlineResponse2001IntegrationInformation IntegrationInformation = default(InlineResponse2001IntegrationInformation), Boardingv1registrationsOrganizationInformation OrganizationInformation = default(Boardingv1registrationsOrganizationInformation), Boardingv1registrationsProductInformation ProductInformation = default(Boardingv1registrationsProductInformation), List<InlineResponse2012ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2012ProductInformationSetups>), Boardingv1registrationsDocumentInformation DocumentInformation = default(Boardingv1registrationsDocumentInformation), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
+        /// <param name="Id">UUID uniquely generated for this comments. .</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
+        /// <param name="Status">The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; .</param>
+        /// <param name="Embedded">Embedded.</param>
+        public InlineResponse2001(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), InlineResponse2001Embedded Embedded = default(InlineResponse2001Embedded))
         {
-            this.RegistrationInformation = RegistrationInformation;
-            this.IntegrationInformation = IntegrationInformation;
-            this.OrganizationInformation = OrganizationInformation;
-            this.ProductInformation = ProductInformation;
-            this.ProductInformationSetups = ProductInformationSetups;
-            this.DocumentInformation = DocumentInformation;
-            this.Details = Details;
+            this.Id = Id;
+            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Status = Status;
+            this.Embedded = Embedded;
         }
         
         /// <summary>
-        /// Gets or Sets RegistrationInformation
+        /// UUID uniquely generated for this comments. 
         /// </summary>
-        [DataMember(Name="registrationInformation", EmitDefaultValue=false)]
-        public Boardingv1registrationsRegistrationInformation RegistrationInformation { get; set; }
+        /// <value>UUID uniquely generated for this comments. </value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets IntegrationInformation
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
         /// </summary>
-        [DataMember(Name="integrationInformation", EmitDefaultValue=false)]
-        public InlineResponse2001IntegrationInformation IntegrationInformation { get; set; }
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
+        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
+        public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// Gets or Sets OrganizationInformation
+        /// The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; 
         /// </summary>
-        [DataMember(Name="organizationInformation", EmitDefaultValue=false)]
-        public Boardingv1registrationsOrganizationInformation OrganizationInformation { get; set; }
+        /// <value>The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProductInformation
+        /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name="productInformation", EmitDefaultValue=false)]
-        public Boardingv1registrationsProductInformation ProductInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProductInformationSetups
-        /// </summary>
-        [DataMember(Name="productInformationSetups", EmitDefaultValue=false)]
-        public List<InlineResponse2012ProductInformationSetups> ProductInformationSetups { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DocumentInformation
-        /// </summary>
-        [DataMember(Name="documentInformation", EmitDefaultValue=false)]
-        public Boardingv1registrationsDocumentInformation DocumentInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Details
-        /// </summary>
-        [DataMember(Name="details", EmitDefaultValue=false)]
-        public Dictionary<string, List<Object>> Details { get; set; }
+        [DataMember(Name="_embedded", EmitDefaultValue=false)]
+        public InlineResponse2001Embedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,13 +80,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2001 {\n");
-            if (RegistrationInformation != null) sb.Append("  RegistrationInformation: ").Append(RegistrationInformation).Append("\n");
-            if (IntegrationInformation != null) sb.Append("  IntegrationInformation: ").Append(IntegrationInformation).Append("\n");
-            if (OrganizationInformation != null) sb.Append("  OrganizationInformation: ").Append(OrganizationInformation).Append("\n");
-            if (ProductInformation != null) sb.Append("  ProductInformation: ").Append(ProductInformation).Append("\n");
-            if (ProductInformationSetups != null) sb.Append("  ProductInformationSetups: ").Append(ProductInformationSetups).Append("\n");
-            if (DocumentInformation != null) sb.Append("  DocumentInformation: ").Append(DocumentInformation).Append("\n");
-            if (Details != null) sb.Append("  Details: ").Append(Details).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,39 +121,24 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.RegistrationInformation == other.RegistrationInformation ||
-                    this.RegistrationInformation != null &&
-                    this.RegistrationInformation.Equals(other.RegistrationInformation)
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.IntegrationInformation == other.IntegrationInformation ||
-                    this.IntegrationInformation != null &&
-                    this.IntegrationInformation.Equals(other.IntegrationInformation)
+                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
+                    this.SubmitTimeUtc != null &&
+                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
                 ) && 
                 (
-                    this.OrganizationInformation == other.OrganizationInformation ||
-                    this.OrganizationInformation != null &&
-                    this.OrganizationInformation.Equals(other.OrganizationInformation)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.ProductInformation == other.ProductInformation ||
-                    this.ProductInformation != null &&
-                    this.ProductInformation.Equals(other.ProductInformation)
-                ) && 
-                (
-                    this.ProductInformationSetups == other.ProductInformationSetups ||
-                    this.ProductInformationSetups != null &&
-                    this.ProductInformationSetups.SequenceEqual(other.ProductInformationSetups)
-                ) && 
-                (
-                    this.DocumentInformation == other.DocumentInformation ||
-                    this.DocumentInformation != null &&
-                    this.DocumentInformation.Equals(other.DocumentInformation)
-                ) && 
-                (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.Embedded == other.Embedded ||
+                    this.Embedded != null &&
+                    this.Embedded.Equals(other.Embedded)
                 );
         }
 
@@ -192,20 +153,14 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.RegistrationInformation != null)
-                    hash = hash * 59 + this.RegistrationInformation.GetHashCode();
-                if (this.IntegrationInformation != null)
-                    hash = hash * 59 + this.IntegrationInformation.GetHashCode();
-                if (this.OrganizationInformation != null)
-                    hash = hash * 59 + this.OrganizationInformation.GetHashCode();
-                if (this.ProductInformation != null)
-                    hash = hash * 59 + this.ProductInformation.GetHashCode();
-                if (this.ProductInformationSetups != null)
-                    hash = hash * 59 + this.ProductInformationSetups.GetHashCode();
-                if (this.DocumentInformation != null)
-                    hash = hash * 59 + this.DocumentInformation.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
+                if (this.SubmitTimeUtc != null)
+                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Embedded != null)
+                    hash = hash * 59 + this.Embedded.GetHashCode();
                 return hash;
             }
         }

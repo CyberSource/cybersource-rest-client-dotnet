@@ -4,8 +4,132 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**FindProductsToSubscribe**](CreateNewWebhooksApi.md#findproductstosubscribe) | **GET** /notification-subscriptions/v2/products/{organizationId} | Find Products You Can Subscribe To
+[**NotificationSubscriptionsV2WebhooksPost**](CreateNewWebhooksApi.md#notificationsubscriptionsv2webhookspost) | **POST** /notification-subscriptions/v2/webhooks | Create a New Webhook Subscription
 [**SaveSymEgressKey**](CreateNewWebhooksApi.md#savesymegresskey) | **POST** /kms/egress/v2/keys-sym | Create Webhook Security Keys
 
+
+<a name="findproductstosubscribe"></a>
+# **FindProductsToSubscribe**
+> List<InlineResponse2003> FindProductsToSubscribe (string organizationId)
+
+Find Products You Can Subscribe To
+
+Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class FindProductsToSubscribeExample
+    {
+        public void main()
+        {
+            var apiInstance = new CreateNewWebhooksApi();
+            var organizationId = organizationId_example;  // string | The Organization Identifier.
+
+            try
+            {
+                // Find Products You Can Subscribe To
+                List&lt;InlineResponse2003&gt; result = apiInstance.FindProductsToSubscribe(organizationId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CreateNewWebhooksApi.FindProductsToSubscribe: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **string**| The Organization Identifier. | 
+
+### Return type
+
+[**List<InlineResponse2003>**](InlineResponse2003.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/hal+json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="notificationsubscriptionsv2webhookspost"></a>
+# **NotificationSubscriptionsV2WebhooksPost**
+> InlineResponse2014 NotificationSubscriptionsV2WebhooksPost (CreateWebhook createWebhook = null)
+
+Create a New Webhook Subscription
+
+Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \"Create Webhook using oAuth with Client Credentials\" - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \"Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\" to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \"Create Webhook using oAuth with JWT\" 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class NotificationSubscriptionsV2WebhooksPostExample
+    {
+        public void main()
+        {
+            var apiInstance = new CreateNewWebhooksApi();
+            var createWebhook = new CreateWebhook(); // CreateWebhook | The webhook payload (optional) 
+
+            try
+            {
+                // Create a New Webhook Subscription
+                InlineResponse2014 result = apiInstance.NotificationSubscriptionsV2WebhooksPost(createWebhook);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CreateNewWebhooksApi.NotificationSubscriptionsV2WebhooksPost: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createWebhook** | [**CreateWebhook**](CreateWebhook.md)| The webhook payload | [optional] 
+
+### Return type
+
+[**InlineResponse2014**](InlineResponse2014.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/hal+json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="savesymegresskey"></a>
 # **SaveSymEgressKey**

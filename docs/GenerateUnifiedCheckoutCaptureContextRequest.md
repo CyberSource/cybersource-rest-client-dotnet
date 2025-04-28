@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Country** | **string** | Country the purchase is originating from (e.g. country of the merchant).  Use the two-character ISO Standard  | [optional] 
 **Locale** | **string** | Localization of the User experience conforming to the ISO 639-1 language standards and two-character ISO Standard Country Code.  Please refer to list of [supported locales through Unified Checkout](https://developer.cybersource.com/docs/cybs/en-us/unified-checkout/developer/all/rest/unified-checkout/uc-appendix-languages.html)  | [optional] 
 **CaptureMandate** | [**Upv1capturecontextsCaptureMandate**](Upv1capturecontextsCaptureMandate.md) |  | [optional] 
+**CompleteMandate** | [**Upv1capturecontextsCompleteMandate**](Upv1capturecontextsCompleteMandate.md) |  | [optional] 
 **OrderInformation** | [**Upv1capturecontextsOrderInformation**](Upv1capturecontextsOrderInformation.md) |  | [optional] 
 **TransientTokenResponseOptions** | [**Microformv2sessionsTransientTokenResponseOptions**](Microformv2sessionsTransientTokenResponseOptions.md) |  | [optional] 
 

@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create a New Invoice
 
-The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
+The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments. The availability of API features for a merchant can depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts.
 
 ### Example
 ```csharp
@@ -98,7 +98,7 @@ namespace Example
             var apiInstance = new InvoicesApi();
             var offset = 56;  // int? | Page offset number.
             var limit = 56;  // int? | Maximum number of items you would like returned.
-            var status = status_example;  // string | The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional) 
+            var status = status_example;  // string | The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional) 
 
             try
             {
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **int?**| Page offset number. | 
  **limit** | **int?**| Maximum number of items you would like returned. | 
- **status** | **string**| The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  | [optional] 
+ **status** | **string**| The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  | [optional] 
 
 ### Return type
 
@@ -201,7 +201,7 @@ No authorization required
 
 <a name="performcancelaction"></a>
 # **PerformCancelAction**
-> InvoicingV2InvoicesPost201Response PerformCancelAction (string id)
+> InvoicingV2InvoicesCancel200Response PerformCancelAction (string id)
 
 Cancel an Invoice
 
@@ -227,7 +227,7 @@ namespace Example
             try
             {
                 // Cancel an Invoice
-                InvoicingV2InvoicesPost201Response result = apiInstance.PerformCancelAction(id);
+                InvoicingV2InvoicesCancel200Response result = apiInstance.PerformCancelAction(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvoicingV2InvoicesPost201Response**](InvoicingV2InvoicesPost201Response.md)
+[**InvoicingV2InvoicesCancel200Response**](InvoicingV2InvoicesCancel200Response.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ No authorization required
 
 <a name="performsendaction"></a>
 # **PerformSendAction**
-> InvoicingV2InvoicesPost201Response PerformSendAction (string id)
+> InvoicingV2InvoicesSend200Response PerformSendAction (string id)
 
 Send an Invoice
 
@@ -288,7 +288,7 @@ namespace Example
             try
             {
                 // Send an Invoice
-                InvoicingV2InvoicesPost201Response result = apiInstance.PerformSendAction(id);
+                InvoicingV2InvoicesSend200Response result = apiInstance.PerformSendAction(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvoicingV2InvoicesPost201Response**](InvoicingV2InvoicesPost201Response.md)
+[**InvoicingV2InvoicesSend200Response**](InvoicingV2InvoicesSend200Response.md)
 
 ### Authorization
 
@@ -323,7 +323,7 @@ No authorization required
 
 <a name="updateinvoice"></a>
 # **UpdateInvoice**
-> InvoicingV2InvoicesPost201Response UpdateInvoice (string id, UpdateInvoiceRequest updateInvoiceRequest)
+> InvoicingV2InvoicesPut200Response UpdateInvoice (string id, UpdateInvoiceRequest updateInvoiceRequest)
 
 Update an Invoice
 
@@ -350,7 +350,7 @@ namespace Example
             try
             {
                 // Update an Invoice
-                InvoicingV2InvoicesPost201Response result = apiInstance.UpdateInvoice(id, updateInvoiceRequest);
+                InvoicingV2InvoicesPut200Response result = apiInstance.UpdateInvoice(id, updateInvoiceRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvoicingV2InvoicesPost201Response**](InvoicingV2InvoicesPost201Response.md)
+[**InvoicingV2InvoicesPut200Response**](InvoicingV2InvoicesPut200Response.md)
 
 ### Authorization
 

@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoicingV2InvoicesGet200ResponseInvoiceHistory" /> class.
         /// </summary>
-        /// <param name="Event">The event triggered for the invoice.  Possible values:  - &#x60;CREATE&#x60;  - &#x60;UPDATE&#x60;  - &#x60;SEND&#x60;  - &#x60;RESEND&#x60;  - &#x60;REMINDER&#x60;  - &#x60;PAYMENT&#x60;  - &#x60;CANCEL&#x60; .</param>
+        /// <param name="Event">The event triggered for the invoice.  Possible values:  - &#x60;UNKNOWN&#x60;  - &#x60;DRAFT&#x60;  - &#x60;CREATE&#x60;  - &#x60;UPDATE&#x60;  - &#x60;SEND&#x60;  - &#x60;RESEND&#x60;  - &#x60;REMINDER&#x60;  - &#x60;PAYMENT&#x60;  - &#x60;CANCEL&#x60;  - &#x60;PENDING&#x60;  - &#x60;REJECTED&#x60; .</param>
         /// <param name="Date">The date and time when the invoice event was triggered in ISO 8601 format. Format: YYYY-MM-DDThh:mm:ssZ .</param>
         /// <param name="TransactionDetails">TransactionDetails.</param>
         public InvoicingV2InvoicesGet200ResponseInvoiceHistory(string Event = default(string), DateTime? Date = default(DateTime?), InvoicingV2InvoicesGet200ResponseTransactionDetails TransactionDetails = default(InvoicingV2InvoicesGet200ResponseTransactionDetails))
@@ -44,9 +44,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The event triggered for the invoice.  Possible values:  - &#x60;CREATE&#x60;  - &#x60;UPDATE&#x60;  - &#x60;SEND&#x60;  - &#x60;RESEND&#x60;  - &#x60;REMINDER&#x60;  - &#x60;PAYMENT&#x60;  - &#x60;CANCEL&#x60; 
+        /// The event triggered for the invoice.  Possible values:  - &#x60;UNKNOWN&#x60;  - &#x60;DRAFT&#x60;  - &#x60;CREATE&#x60;  - &#x60;UPDATE&#x60;  - &#x60;SEND&#x60;  - &#x60;RESEND&#x60;  - &#x60;REMINDER&#x60;  - &#x60;PAYMENT&#x60;  - &#x60;CANCEL&#x60;  - &#x60;PENDING&#x60;  - &#x60;REJECTED&#x60; 
         /// </summary>
-        /// <value>The event triggered for the invoice.  Possible values:  - &#x60;CREATE&#x60;  - &#x60;UPDATE&#x60;  - &#x60;SEND&#x60;  - &#x60;RESEND&#x60;  - &#x60;REMINDER&#x60;  - &#x60;PAYMENT&#x60;  - &#x60;CANCEL&#x60; </value>
+        /// <value>The event triggered for the invoice.  Possible values:  - &#x60;UNKNOWN&#x60;  - &#x60;DRAFT&#x60;  - &#x60;CREATE&#x60;  - &#x60;UPDATE&#x60;  - &#x60;SEND&#x60;  - &#x60;RESEND&#x60;  - &#x60;REMINDER&#x60;  - &#x60;PAYMENT&#x60;  - &#x60;CANCEL&#x60;  - &#x60;PENDING&#x60;  - &#x60;REJECTED&#x60; </value>
         [DataMember(Name="event", EmitDefaultValue=false)]
         public string Event { get; set; }
 

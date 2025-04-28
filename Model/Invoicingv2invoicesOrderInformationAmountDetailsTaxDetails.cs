@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Contains all of the tax-related fields for the invoice.
+    /// Contains all of the tax-related fields for the order.
     /// </summary>
     [DataContract]
     public partial class Invoicingv2invoicesOrderInformationAmountDetailsTaxDetails :  IEquatable<Invoicingv2invoicesOrderInformationAmountDetailsTaxDetails>, IValidatableObject

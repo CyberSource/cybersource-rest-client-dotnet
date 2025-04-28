@@ -42,8 +42,12 @@ namespace CyberSource.Model
         /// <param name="DefaultCurrencyCode">Currency used for the order. Use the three-character [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)  #### Used by **Authorization** Required field.  **Authorization Reversal** For an authorization reversal (&#x60;reversalInformation&#x60;) or a capture (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60;), you must use the same currency that you used in your payment authorization request.  #### PIN Debit Currency for the amount you requested for the PIN debit purchase. This value is returned for partial authorizations. The issuing bank can approve a partial amount if the balance on the debit card is less than the requested transaction amount. For the possible values, see the [ISO Standard Currency Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/currencies.pdf). Returned by PIN debit purchase.  For PIN debit reversal requests, you must use the same currency that was used for the PIN debit purchase or PIN debit credit that you are reversing. For the possible values, see the [ISO Standard Currency Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/currencies.pdf).  Required field for PIN Debit purchase and PIN Debit credit requests. Optional field for PIN Debit reversal requests.  #### GPX This field is optional for reversing an authorization or credit.  #### DCC for First Data Your local currency.  #### Tax Calculation Required for international tax and value added tax only. Optional for U.S. and Canadian taxes. Your local currency. .</param>
         /// <param name="PayerAuthentication3DSVersion">The 3D Secure payer authentication status for a merchant&#39;s invoice payments. (default to false).</param>
         /// <param name="ShowVatNumber">Display VAT number on Invoice. (default to false).</param>
-        /// <param name="VatRegistrationNumber">Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.       .</param>
-        public InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformation(string MerchantLogo = default(string), string MerchantDisplayName = default(string), string CustomEmailMessage = default(string), bool? EnableReminders = default(bool?), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle HeaderStyle = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle), string DeliveryLanguage = default(string), string DefaultCurrencyCode = default(string), bool? PayerAuthentication3DSVersion = false, bool? ShowVatNumber = false, string VatRegistrationNumber = default(string))
+        /// <param name="VatRegistrationNumber">Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.  .</param>
+        /// <param name="ShipTo">Collect the payers shipping address. (default to false).</param>
+        /// <param name="PhoneNumber">Collect the payers phone number. (default to false).</param>
+        /// <param name="Email">Collect the payers email address when the email address is not known or confirm it if it is known at the time of invoice creation. (default to false).</param>
+        /// <param name="EnableMerchantEmailNotifications">Whether you would like to receive payment notification for successful transaction (default to false).</param>
+        public InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformation(string MerchantLogo = default(string), string MerchantDisplayName = default(string), string CustomEmailMessage = default(string), bool? EnableReminders = default(bool?), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle HeaderStyle = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle), string DeliveryLanguage = default(string), string DefaultCurrencyCode = default(string), bool? PayerAuthentication3DSVersion = false, bool? ShowVatNumber = false, string VatRegistrationNumber = default(string), bool? ShipTo = false, bool? PhoneNumber = false, bool? Email = false, bool? EnableMerchantEmailNotifications = false)
         {
             this.MerchantLogo = MerchantLogo;
             this.MerchantDisplayName = MerchantDisplayName;
@@ -71,6 +75,42 @@ namespace CyberSource.Model
                 this.ShowVatNumber = ShowVatNumber;
             }
             this.VatRegistrationNumber = VatRegistrationNumber;
+            // use default value if no "ShipTo" provided
+            if (ShipTo == null)
+            {
+                this.ShipTo = false;
+            }
+            else
+            {
+                this.ShipTo = ShipTo;
+            }
+            // use default value if no "PhoneNumber" provided
+            if (PhoneNumber == null)
+            {
+                this.PhoneNumber = false;
+            }
+            else
+            {
+                this.PhoneNumber = PhoneNumber;
+            }
+            // use default value if no "Email" provided
+            if (Email == null)
+            {
+                this.Email = false;
+            }
+            else
+            {
+                this.Email = Email;
+            }
+            // use default value if no "EnableMerchantEmailNotifications" provided
+            if (EnableMerchantEmailNotifications == null)
+            {
+                this.EnableMerchantEmailNotifications = false;
+            }
+            else
+            {
+                this.EnableMerchantEmailNotifications = EnableMerchantEmailNotifications;
+            }
         }
         
         /// <summary>
@@ -136,11 +176,39 @@ namespace CyberSource.Model
         public bool? ShowVatNumber { get; set; }
 
         /// <summary>
-        /// Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.       
+        /// Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.  
         /// </summary>
-        /// <value>Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.       </value>
+        /// <value>Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.  </value>
         [DataMember(Name="vatRegistrationNumber", EmitDefaultValue=false)]
         public string VatRegistrationNumber { get; set; }
+
+        /// <summary>
+        /// Collect the payers shipping address.
+        /// </summary>
+        /// <value>Collect the payers shipping address.</value>
+        [DataMember(Name="shipTo", EmitDefaultValue=false)]
+        public bool? ShipTo { get; set; }
+
+        /// <summary>
+        /// Collect the payers phone number.
+        /// </summary>
+        /// <value>Collect the payers phone number.</value>
+        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
+        public bool? PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Collect the payers email address when the email address is not known or confirm it if it is known at the time of invoice creation.
+        /// </summary>
+        /// <value>Collect the payers email address when the email address is not known or confirm it if it is known at the time of invoice creation.</value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public bool? Email { get; set; }
+
+        /// <summary>
+        /// Whether you would like to receive payment notification for successful transaction
+        /// </summary>
+        /// <value>Whether you would like to receive payment notification for successful transaction</value>
+        [DataMember(Name="enableMerchantEmailNotifications", EmitDefaultValue=false)]
+        public bool? EnableMerchantEmailNotifications { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -160,6 +228,10 @@ namespace CyberSource.Model
             if (PayerAuthentication3DSVersion != null) sb.Append("  PayerAuthentication3DSVersion: ").Append(PayerAuthentication3DSVersion).Append("\n");
             if (ShowVatNumber != null) sb.Append("  ShowVatNumber: ").Append(ShowVatNumber).Append("\n");
             if (VatRegistrationNumber != null) sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            if (ShipTo != null) sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
+            if (EnableMerchantEmailNotifications != null) sb.Append("  EnableMerchantEmailNotifications: ").Append(EnableMerchantEmailNotifications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -245,6 +317,26 @@ namespace CyberSource.Model
                     this.VatRegistrationNumber == other.VatRegistrationNumber ||
                     this.VatRegistrationNumber != null &&
                     this.VatRegistrationNumber.Equals(other.VatRegistrationNumber)
+                ) && 
+                (
+                    this.ShipTo == other.ShipTo ||
+                    this.ShipTo != null &&
+                    this.ShipTo.Equals(other.ShipTo)
+                ) && 
+                (
+                    this.PhoneNumber == other.PhoneNumber ||
+                    this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(other.PhoneNumber)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
+                ) && 
+                (
+                    this.EnableMerchantEmailNotifications == other.EnableMerchantEmailNotifications ||
+                    this.EnableMerchantEmailNotifications != null &&
+                    this.EnableMerchantEmailNotifications.Equals(other.EnableMerchantEmailNotifications)
                 );
         }
 
@@ -279,6 +371,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ShowVatNumber.GetHashCode();
                 if (this.VatRegistrationNumber != null)
                     hash = hash * 59 + this.VatRegistrationNumber.GetHashCode();
+                if (this.ShipTo != null)
+                    hash = hash * 59 + this.ShipTo.GetHashCode();
+                if (this.PhoneNumber != null)
+                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
+                if (this.EnableMerchantEmailNotifications != null)
+                    hash = hash * 59 + this.EnableMerchantEmailNotifications.GetHashCode();
                 return hash;
             }
         }

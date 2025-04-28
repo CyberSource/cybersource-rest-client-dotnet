@@ -65,6 +65,20 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test GetCardArtAsset
+        /// </summary>
+        [Test]
+        public void GetCardArtAssetTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string instrumentIdentifierId = null;
+            //string tokenProvider = null;
+            //string assetType = null;
+            //var response = instance.GetCardArtAsset(instrumentIdentifierId, tokenProvider, assetType);
+            //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
+        }
+        
+        /// <summary>
         /// Test PostTokenPaymentCredentials
         /// </summary>
         [Test]
