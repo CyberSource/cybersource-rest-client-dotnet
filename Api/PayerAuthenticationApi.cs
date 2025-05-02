@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -363,8 +364,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = checkPayerAuthEnrollmentRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CheckPayerAuthEnrollment,CheckPayerAuthEnrollmentAsync,CheckPayerAuthEnrollmentWithHttpInfo,CheckPayerAuthEnrollmentAsyncWithHttpInfo"))
@@ -580,8 +580,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = payerAuthSetupRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PayerAuthSetup,PayerAuthSetupAsync,PayerAuthSetupWithHttpInfo,PayerAuthSetupAsyncWithHttpInfo"))
@@ -797,8 +796,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = validateRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ValidateAuthenticationResults,ValidateAuthenticationResultsAsync,ValidateAuthenticationResultsWithHttpInfo,ValidateAuthenticationResultsAsyncWithHttpInfo"))

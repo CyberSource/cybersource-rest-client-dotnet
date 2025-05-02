@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -342,8 +343,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = refundCaptureRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "RefundCapture,RefundCaptureAsync,RefundCaptureWithHttpInfo,RefundCaptureAsyncWithHttpInfo"))
@@ -585,8 +585,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = refundPaymentRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "RefundPayment,RefundPaymentAsync,RefundPaymentWithHttpInfo,RefundPaymentAsyncWithHttpInfo"))

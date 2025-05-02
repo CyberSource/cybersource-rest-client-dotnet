@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -307,7 +308,13 @@ namespace CyberSource.Api
             {
                 localVarPostBody = null;
             }
-
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
+            }
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetEmvTags,GetEmvTagsAsync,GetEmvTagsWithHttpInfo,GetEmvTagsAsyncWithHttpInfo"))
@@ -404,6 +411,12 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = null;
+            }
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
             bool isMLESupportedByCybsForApi = false;
@@ -511,8 +524,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = body; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ParseEmvTags,ParseEmvTagsAsync,ParseEmvTagsWithHttpInfo,ParseEmvTagsAsyncWithHttpInfo"))

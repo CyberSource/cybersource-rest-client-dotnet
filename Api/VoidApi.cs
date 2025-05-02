@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -463,8 +464,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = mitVoidRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "MitVoid,MitVoidAsync,MitVoidWithHttpInfo,MitVoidAsyncWithHttpInfo"))
@@ -693,8 +693,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = voidCaptureRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidCapture,VoidCaptureAsync,VoidCaptureWithHttpInfo,VoidCaptureAsyncWithHttpInfo"))
@@ -936,8 +935,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = voidCreditRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidCredit,VoidCreditAsync,VoidCreditWithHttpInfo,VoidCreditAsyncWithHttpInfo"))
@@ -1179,8 +1177,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = voidPaymentRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidPayment,VoidPaymentAsync,VoidPaymentWithHttpInfo,VoidPaymentAsyncWithHttpInfo"))
@@ -1422,8 +1419,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = voidRefundRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidRefund,VoidRefundAsync,VoidRefundWithHttpInfo,VoidRefundAsyncWithHttpInfo"))

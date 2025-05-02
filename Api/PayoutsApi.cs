@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -279,8 +280,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = octCreatePaymentRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = true;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "OctCreatePayment,OctCreatePaymentAsync,OctCreatePaymentWithHttpInfo,OctCreatePaymentAsyncWithHttpInfo"))

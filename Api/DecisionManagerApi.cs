@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -476,8 +477,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = caseManagementActionsRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ActionDecisionManagerCase,ActionDecisionManagerCaseAsync,ActionDecisionManagerCaseWithHttpInfo,ActionDecisionManagerCaseAsyncWithHttpInfo"))
@@ -719,8 +719,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = addNegativeListRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "AddNegative,AddNegativeAsync,AddNegativeWithHttpInfo,AddNegativeAsyncWithHttpInfo"))
@@ -962,8 +961,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = caseManagementCommentsRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CommentDecisionManagerCase,CommentDecisionManagerCaseAsync,CommentDecisionManagerCaseWithHttpInfo,CommentDecisionManagerCaseAsyncWithHttpInfo"))
@@ -1192,8 +1190,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = createBundledDecisionManagerCaseRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateBundledDecisionManagerCase,CreateBundledDecisionManagerCaseAsync,CreateBundledDecisionManagerCaseWithHttpInfo,CreateBundledDecisionManagerCaseAsyncWithHttpInfo"))
@@ -1422,8 +1419,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = fraudMarkingActionRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "FraudUpdate,FraudUpdateAsync,FraudUpdateWithHttpInfo,FraudUpdateAsyncWithHttpInfo"))

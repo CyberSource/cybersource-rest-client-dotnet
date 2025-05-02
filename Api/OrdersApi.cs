@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -325,8 +326,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = createOrderRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateOrder,CreateOrderAsync,CreateOrderWithHttpInfo,CreateOrderAsyncWithHttpInfo"))
@@ -555,8 +555,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = updateOrderRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "UpdateOrder,UpdateOrderAsync,UpdateOrderWithHttpInfo,UpdateOrderAsyncWithHttpInfo"))

@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -279,8 +280,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = generateUnifiedCheckoutCaptureContextRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GenerateUnifiedCheckoutCaptureContext,GenerateUnifiedCheckoutCaptureContextAsync,GenerateUnifiedCheckoutCaptureContextWithHttpInfo,GenerateUnifiedCheckoutCaptureContextAsyncWithHttpInfo"))
