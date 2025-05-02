@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PostPaymentCredentialsRequest" /> class.
         /// </summary>
         /// <param name="PaymentCredentialType">The type of payment credentials to be returned. By default, payment credentials include network token and cryptogram or dynamic CVV. If \&quot;NETWORK_TOKEN\&quot; is supplied then only network token card number will be returned and no cryptogram or dynamic CVV will be requested. If \&quot;SECURITY_CODE\&quot; is supplied then dynamic CVV will be requested and returned with the network token card number. Dynamic CVV is only supported for Amex and SCOF. If \&quot;CRYPTOGRAM\&quot; is supplied then cryptogram will be requested and returned with the network token card number. Cryptogram is NOT supported for Amex.  Possible Values:   - NETWORK_TOKEN   - SECURITY_CODE   - CRYPTOGRAM .</param>
-        public PostPaymentCredentialsRequest(string PaymentCredentialType = default(string))
+        /// <param name="TransactionType">Specifies the type of transaction for which the network token credentials are required. Possible Values:   - ECOM: Ecommerce transaction. If transactionType is not provided, ECOM is set as the default.   - AFT: Account Funding Transaction. This is only supported for VISA and paymentCredentialType of CRYPTOGRAM. .</param>
+        public PostPaymentCredentialsRequest(string PaymentCredentialType = default(string), string TransactionType = default(string))
         {
             this.PaymentCredentialType = PaymentCredentialType;
+            this.TransactionType = TransactionType;
         }
         
         /// <summary>
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         public string PaymentCredentialType { get; set; }
 
         /// <summary>
+        /// Specifies the type of transaction for which the network token credentials are required. Possible Values:   - ECOM: Ecommerce transaction. If transactionType is not provided, ECOM is set as the default.   - AFT: Account Funding Transaction. This is only supported for VISA and paymentCredentialType of CRYPTOGRAM. 
+        /// </summary>
+        /// <value>Specifies the type of transaction for which the network token credentials are required. Possible Values:   - ECOM: Ecommerce transaction. If transactionType is not provided, ECOM is set as the default.   - AFT: Account Funding Transaction. This is only supported for VISA and paymentCredentialType of CRYPTOGRAM. </value>
+        [DataMember(Name="transactionType", EmitDefaultValue=false)]
+        public string TransactionType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PostPaymentCredentialsRequest {\n");
             if (PaymentCredentialType != null) sb.Append("  PaymentCredentialType: ").Append(PaymentCredentialType).Append("\n");
+            if (TransactionType != null) sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.PaymentCredentialType == other.PaymentCredentialType ||
                     this.PaymentCredentialType != null &&
                     this.PaymentCredentialType.Equals(other.PaymentCredentialType)
+                ) && 
+                (
+                    this.TransactionType == other.TransactionType ||
+                    this.TransactionType != null &&
+                    this.TransactionType.Equals(other.TransactionType)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.PaymentCredentialType != null)
                     hash = hash * 59 + this.PaymentCredentialType.GetHashCode();
+                if (this.TransactionType != null)
+                    hash = hash * 59 + this.TransactionType.GetHashCode();
                 return hash;
             }
         }

@@ -40,9 +40,10 @@ namespace CyberSource.Model
         /// <param name="Country">Country the purchase is originating from (e.g. country of the merchant).  Use the two-character ISO Standard .</param>
         /// <param name="Locale">Localization of the User experience conforming to the ISO 639-1 language standards and two-character ISO Standard Country Code.  Please refer to list of [supported locales through Unified Checkout](https://developer.cybersource.com/docs/cybs/en-us/unified-checkout/developer/all/rest/unified-checkout/uc-appendix-languages.html) .</param>
         /// <param name="CaptureMandate">CaptureMandate.</param>
+        /// <param name="CompleteMandate">CompleteMandate.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="TransientTokenResponseOptions">TransientTokenResponseOptions.</param>
-        public GenerateUnifiedCheckoutCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>), string Country = default(string), string Locale = default(string), Upv1capturecontextsCaptureMandate CaptureMandate = default(Upv1capturecontextsCaptureMandate), Upv1capturecontextsOrderInformation OrderInformation = default(Upv1capturecontextsOrderInformation), Microformv2sessionsTransientTokenResponseOptions TransientTokenResponseOptions = default(Microformv2sessionsTransientTokenResponseOptions))
+        public GenerateUnifiedCheckoutCaptureContextRequest(string ClientVersion = default(string), List<string> TargetOrigins = default(List<string>), List<string> AllowedCardNetworks = default(List<string>), List<string> AllowedPaymentTypes = default(List<string>), string Country = default(string), string Locale = default(string), Upv1capturecontextsCaptureMandate CaptureMandate = default(Upv1capturecontextsCaptureMandate), Upv1capturecontextsCompleteMandate CompleteMandate = default(Upv1capturecontextsCompleteMandate), Upv1capturecontextsOrderInformation OrderInformation = default(Upv1capturecontextsOrderInformation), Microformv2sessionsTransientTokenResponseOptions TransientTokenResponseOptions = default(Microformv2sessionsTransientTokenResponseOptions))
         {
             this.ClientVersion = ClientVersion;
             this.TargetOrigins = TargetOrigins;
@@ -51,6 +52,7 @@ namespace CyberSource.Model
             this.Country = Country;
             this.Locale = Locale;
             this.CaptureMandate = CaptureMandate;
+            this.CompleteMandate = CompleteMandate;
             this.OrderInformation = OrderInformation;
             this.TransientTokenResponseOptions = TransientTokenResponseOptions;
         }
@@ -104,6 +106,12 @@ namespace CyberSource.Model
         public Upv1capturecontextsCaptureMandate CaptureMandate { get; set; }
 
         /// <summary>
+        /// Gets or Sets CompleteMandate
+        /// </summary>
+        [DataMember(Name="completeMandate", EmitDefaultValue=false)]
+        public Upv1capturecontextsCompleteMandate CompleteMandate { get; set; }
+
+        /// <summary>
         /// Gets or Sets OrderInformation
         /// </summary>
         [DataMember(Name="orderInformation", EmitDefaultValue=false)]
@@ -130,6 +138,7 @@ namespace CyberSource.Model
             if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
             if (Locale != null) sb.Append("  Locale: ").Append(Locale).Append("\n");
             if (CaptureMandate != null) sb.Append("  CaptureMandate: ").Append(CaptureMandate).Append("\n");
+            if (CompleteMandate != null) sb.Append("  CompleteMandate: ").Append(CompleteMandate).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             if (TransientTokenResponseOptions != null) sb.Append("  TransientTokenResponseOptions: ").Append(TransientTokenResponseOptions).Append("\n");
             sb.Append("}\n");
@@ -204,6 +213,11 @@ namespace CyberSource.Model
                     this.CaptureMandate.Equals(other.CaptureMandate)
                 ) && 
                 (
+                    this.CompleteMandate == other.CompleteMandate ||
+                    this.CompleteMandate != null &&
+                    this.CompleteMandate.Equals(other.CompleteMandate)
+                ) && 
+                (
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
@@ -240,6 +254,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Locale.GetHashCode();
                 if (this.CaptureMandate != null)
                     hash = hash * 59 + this.CaptureMandate.GetHashCode();
+                if (this.CompleteMandate != null)
+                    hash = hash * 59 + this.CompleteMandate.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.TransientTokenResponseOptions != null)

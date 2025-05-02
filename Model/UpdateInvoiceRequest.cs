@@ -33,12 +33,19 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateInvoiceRequest" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected UpdateInvoiceRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdateInvoiceRequest" /> class.
+        /// </summary>
         /// <param name="CustomerInformation">CustomerInformation.</param>
-        /// <param name="InvoiceInformation">InvoiceInformation.</param>
-        /// <param name="OrderInformation">OrderInformation.</param>
-        public UpdateInvoiceRequest(Invoicingv2invoicesCustomerInformation CustomerInformation = default(Invoicingv2invoicesCustomerInformation), Invoicingv2invoicesidInvoiceInformation InvoiceInformation = default(Invoicingv2invoicesidInvoiceInformation), Invoicingv2invoicesOrderInformation OrderInformation = default(Invoicingv2invoicesOrderInformation))
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
+        /// <param name="InvoiceInformation">InvoiceInformation (required).</param>
+        /// <param name="OrderInformation">OrderInformation (required).</param>
+        public UpdateInvoiceRequest(Invoicingv2invoicesCustomerInformation CustomerInformation = default(Invoicingv2invoicesCustomerInformation), Invoicingv2invoicesProcessingInformation ProcessingInformation = default(Invoicingv2invoicesProcessingInformation), Invoicingv2invoicesidInvoiceInformation InvoiceInformation = default(Invoicingv2invoicesidInvoiceInformation), Invoicingv2invoicesOrderInformation OrderInformation = default(Invoicingv2invoicesOrderInformation))
         {
             this.CustomerInformation = CustomerInformation;
+            this.ProcessingInformation = ProcessingInformation;
             this.InvoiceInformation = InvoiceInformation;
             this.OrderInformation = OrderInformation;
         }
@@ -48,6 +55,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="customerInformation", EmitDefaultValue=false)]
         public Invoicingv2invoicesCustomerInformation CustomerInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
+        public Invoicingv2invoicesProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets InvoiceInformation
@@ -70,6 +83,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class UpdateInvoiceRequest {\n");
             if (CustomerInformation != null) sb.Append("  CustomerInformation: ").Append(CustomerInformation).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (InvoiceInformation != null) sb.Append("  InvoiceInformation: ").Append(InvoiceInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("}\n");
@@ -114,6 +128,11 @@ namespace CyberSource.Model
                     this.CustomerInformation.Equals(other.CustomerInformation)
                 ) && 
                 (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
+                ) && 
+                (
                     this.InvoiceInformation == other.InvoiceInformation ||
                     this.InvoiceInformation != null &&
                     this.InvoiceInformation.Equals(other.InvoiceInformation)
@@ -138,6 +157,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.CustomerInformation != null)
                     hash = hash * 59 + this.CustomerInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.InvoiceInformation != null)
                     hash = hash * 59 + this.InvoiceInformation.GetHashCode();
                 if (this.OrderInformation != null)

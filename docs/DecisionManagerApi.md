@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="actiondecisionmanagercase"></a>
 # **ActionDecisionManagerCase**
-> InlineResponse200 ActionDecisionManagerCase (string id, CaseManagementActionsRequest caseManagementActionsRequest)
+> InlineResponse2001 ActionDecisionManagerCase (string id, CaseManagementActionsRequest caseManagementActionsRequest)
 
 Take action on a DM post-transactional case
 
@@ -40,7 +40,7 @@ namespace Example
             try
             {
                 // Take action on a DM post-transactional case
-                InlineResponse200 result = apiInstance.ActionDecisionManagerCase(id, caseManagementActionsRequest);
+                InlineResponse2001 result = apiInstance.ActionDecisionManagerCase(id, caseManagementActionsRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

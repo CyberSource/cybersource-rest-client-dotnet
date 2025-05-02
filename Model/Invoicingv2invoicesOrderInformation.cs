@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Contains all of the order-related fields for the invoice, such as the amount and line item details.
+    /// Contains all of the order-related fields, such as the amount and line item details.
     /// </summary>
     [DataContract]
     public partial class Invoicingv2invoicesOrderInformation :  IEquatable<Invoicingv2invoicesOrderInformation>, IValidatableObject
@@ -33,8 +33,13 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Invoicingv2invoicesOrderInformation" /> class.
         /// </summary>
-        /// <param name="AmountDetails">AmountDetails.</param>
-        /// <param name="LineItems">LineItems.</param>
+        [JsonConstructorAttribute]
+        protected Invoicingv2invoicesOrderInformation() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Invoicingv2invoicesOrderInformation" /> class.
+        /// </summary>
+        /// <param name="AmountDetails">AmountDetails (required).</param>
+        /// <param name="LineItems">List of the line items from the order..</param>
         public Invoicingv2invoicesOrderInformation(Invoicingv2invoicesOrderInformationAmountDetails AmountDetails = default(Invoicingv2invoicesOrderInformationAmountDetails), List<Invoicingv2invoicesOrderInformationLineItems> LineItems = default(List<Invoicingv2invoicesOrderInformationLineItems>))
         {
             this.AmountDetails = AmountDetails;
@@ -48,8 +53,9 @@ namespace CyberSource.Model
         public Invoicingv2invoicesOrderInformationAmountDetails AmountDetails { get; set; }
 
         /// <summary>
-        /// Gets or Sets LineItems
+        /// List of the line items from the order.
         /// </summary>
+        /// <value>List of the line items from the order.</value>
         [DataMember(Name="lineItems", EmitDefaultValue=false)]
         public List<Invoicingv2invoicesOrderInformationLineItems> LineItems { get; set; }
 

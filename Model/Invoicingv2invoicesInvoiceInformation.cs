@@ -33,19 +33,42 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Invoicingv2invoicesInvoiceInformation" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected Invoicingv2invoicesInvoiceInformation() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Invoicingv2invoicesInvoiceInformation" /> class.
+        /// </summary>
         /// <param name="InvoiceNumber">Invoice Number..</param>
-        /// <param name="Description">The description included in the invoice..</param>
-        /// <param name="DueDate">The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day .</param>
-        /// <param name="SendImmediately">If set to &#x60;true&#x60;, we send the invoice immediately. If set to &#x60;false&#x60;, the invoice remains in draft mode..</param>
-        /// <param name="AllowPartialPayments">If set to &#x60;true&#x60;, the payer can make a partial invoice payment..</param>
-        /// <param name="DeliveryMode">If set to &#x60;None&#x60;, the invoice is created, and its status is set to &#39;CREATED&#39;, but no email is sent.    Possible values:        - &#x60;None&#x60;   - &#x60;Email&#x60;  .</param>
-        public Invoicingv2invoicesInvoiceInformation(string InvoiceNumber = default(string), string Description = default(string), DateTime? DueDate = default(DateTime?), bool? SendImmediately = default(bool?), bool? AllowPartialPayments = default(bool?), string DeliveryMode = default(string))
+        /// <param name="Description">The description included in the invoice. (required).</param>
+        /// <param name="DueDate">The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day  (required).</param>
+        /// <param name="ExpirationDate">Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day .</param>
+        /// <param name="SendImmediately">If set to &#x60;true&#x60;, we send the invoice immediately. If set to &#x60;false&#x60;, the invoice remains in draft mode. (default to false).</param>
+        /// <param name="AllowPartialPayments">If set to &#x60;true&#x60;, the payer can make a partial invoice payment. (default to false).</param>
+        /// <param name="DeliveryMode">If this field is set to &#39;None&#39;, an invoice will be generated with the status &#39;CREATED&#39;, but no email will be dispatched.    Possible values:        - &#x60;None&#x60;   - &#x60;Email&#x60;    .</param>
+        public Invoicingv2invoicesInvoiceInformation(string InvoiceNumber = default(string), string Description = default(string), DateTime? DueDate = default(DateTime?), DateTime? ExpirationDate = default(DateTime?), bool? SendImmediately = false, bool? AllowPartialPayments = false, string DeliveryMode = default(string))
         {
             this.InvoiceNumber = InvoiceNumber;
             this.Description = Description;
             this.DueDate = DueDate;
-            this.SendImmediately = SendImmediately;
-            this.AllowPartialPayments = AllowPartialPayments;
+            this.ExpirationDate = ExpirationDate;
+            // use default value if no "SendImmediately" provided
+            if (SendImmediately == null)
+            {
+                this.SendImmediately = false;
+            }
+            else
+            {
+                this.SendImmediately = SendImmediately;
+            }
+            // use default value if no "AllowPartialPayments" provided
+            if (AllowPartialPayments == null)
+            {
+                this.AllowPartialPayments = false;
+            }
+            else
+            {
+                this.AllowPartialPayments = AllowPartialPayments;
+            }
             this.DeliveryMode = DeliveryMode;
         }
         
@@ -72,6 +95,14 @@ namespace CyberSource.Model
         public DateTime? DueDate { get; set; }
 
         /// <summary>
+        /// Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day 
+        /// </summary>
+        /// <value>Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day </value>
+        [DataMember(Name="expirationDate", EmitDefaultValue=false)]
+        [JsonConverter(typeof(SwaggerDateConverter))]
+        public DateTime? ExpirationDate { get; set; }
+
+        /// <summary>
         /// If set to &#x60;true&#x60;, we send the invoice immediately. If set to &#x60;false&#x60;, the invoice remains in draft mode.
         /// </summary>
         /// <value>If set to &#x60;true&#x60;, we send the invoice immediately. If set to &#x60;false&#x60;, the invoice remains in draft mode.</value>
@@ -86,9 +117,9 @@ namespace CyberSource.Model
         public bool? AllowPartialPayments { get; set; }
 
         /// <summary>
-        /// If set to &#x60;None&#x60;, the invoice is created, and its status is set to &#39;CREATED&#39;, but no email is sent.    Possible values:        - &#x60;None&#x60;   - &#x60;Email&#x60;  
+        /// If this field is set to &#39;None&#39;, an invoice will be generated with the status &#39;CREATED&#39;, but no email will be dispatched.    Possible values:        - &#x60;None&#x60;   - &#x60;Email&#x60;    
         /// </summary>
-        /// <value>If set to &#x60;None&#x60;, the invoice is created, and its status is set to &#39;CREATED&#39;, but no email is sent.    Possible values:        - &#x60;None&#x60;   - &#x60;Email&#x60;  </value>
+        /// <value>If this field is set to &#39;None&#39;, an invoice will be generated with the status &#39;CREATED&#39;, but no email will be dispatched.    Possible values:        - &#x60;None&#x60;   - &#x60;Email&#x60;    </value>
         [DataMember(Name="deliveryMode", EmitDefaultValue=false)]
         public string DeliveryMode { get; set; }
 
@@ -103,6 +134,7 @@ namespace CyberSource.Model
             if (InvoiceNumber != null) sb.Append("  InvoiceNumber: ").Append(InvoiceNumber).Append("\n");
             if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
             if (DueDate != null) sb.Append("  DueDate: ").Append(DueDate).Append("\n");
+            if (ExpirationDate != null) sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             if (SendImmediately != null) sb.Append("  SendImmediately: ").Append(SendImmediately).Append("\n");
             if (AllowPartialPayments != null) sb.Append("  AllowPartialPayments: ").Append(AllowPartialPayments).Append("\n");
             if (DeliveryMode != null) sb.Append("  DeliveryMode: ").Append(DeliveryMode).Append("\n");
@@ -158,6 +190,11 @@ namespace CyberSource.Model
                     this.DueDate.Equals(other.DueDate)
                 ) && 
                 (
+                    this.ExpirationDate == other.ExpirationDate ||
+                    this.ExpirationDate != null &&
+                    this.ExpirationDate.Equals(other.ExpirationDate)
+                ) && 
+                (
                     this.SendImmediately == other.SendImmediately ||
                     this.SendImmediately != null &&
                     this.SendImmediately.Equals(other.SendImmediately)
@@ -191,6 +228,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Description.GetHashCode();
                 if (this.DueDate != null)
                     hash = hash * 59 + this.DueDate.GetHashCode();
+                if (this.ExpirationDate != null)
+                    hash = hash * 59 + this.ExpirationDate.GetHashCode();
                 if (this.SendImmediately != null)
                     hash = hash * 59 + this.SendImmediately.GetHashCode();
                 if (this.AllowPartialPayments != null)

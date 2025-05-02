@@ -29,6 +29,31 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Retrieve Card Art
+        /// </summary>
+        /// <remarks>
+        /// Retrieves Card Art for a specific Instrument Identifier. The Card Art is a visual representation of the cardholder&#39;s payment card. Card Art is only available if a Network Token is successfully provisioned. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="tokenProvider">The token provider.</param>
+        /// <param name="assetType">The type of asset.</param>
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType);
+
+        /// <summary>
+        /// Retrieve Card Art
+        /// </summary>
+        /// <remarks>
+        /// Retrieves Card Art for a specific Instrument Identifier. The Card Art is a visual representation of the cardholder&#39;s payment card. Card Art is only available if a Network Token is successfully provisioned. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="tokenProvider">The token provider.</param>
+        /// <param name="assetType">The type of asset.</param>
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> GetCardArtAssetWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <summary>
         /// Generate Payment Credentials for a TMS Token
         /// </summary>
         /// <remarks>
@@ -55,6 +80,31 @@ namespace CyberSource.Api
         ApiResponse<string> PostTokenPaymentCredentialsWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Retrieve Card Art
+        /// </summary>
+        /// <remarks>
+        /// Retrieves Card Art for a specific Instrument Identifier. The Card Art is a visual representation of the cardholder&#39;s payment card. Card Art is only available if a Network Token is successfully provisioned. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="tokenProvider">The token provider.</param>
+        /// <param name="assetType">The type of asset.</param>
+        /// <returns>Task of InlineResponse200</returns>
+        System.Threading.Tasks.Task<InlineResponse200> GetCardArtAssetAsync (string instrumentIdentifierId, string tokenProvider, string assetType);
+
+        /// <summary>
+        /// Retrieve Card Art
+        /// </summary>
+        /// <remarks>
+        /// Retrieves Card Art for a specific Instrument Identifier. The Card Art is a visual representation of the cardholder&#39;s payment card. Card Art is only available if a Network Token is successfully provisioned. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="tokenProvider">The token provider.</param>
+        /// <param name="assetType">The type of asset.</param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetCardArtAssetAsyncWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType);
         /// <summary>
         /// Generate Payment Credentials for a TMS Token
         /// </summary>
@@ -220,6 +270,278 @@ namespace CyberSource.Api
             this._statusCode = statusCode;
         }
 
+        /// <summary>
+        /// Retrieve Card Art Retrieves Card Art for a specific Instrument Identifier. The Card Art is a visual representation of the cardholder&#39;s payment card. Card Art is only available if a Network Token is successfully provisioned. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="tokenProvider">The token provider.</param>
+        /// <param name="assetType">The type of asset.</param>
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType)
+        {
+            logger.Debug("CALLING API \"GetCardArtAsset\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse200> localVarResponse = GetCardArtAssetWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
+            logger.Debug("CALLING API \"GetCardArtAsset\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve Card Art Retrieves Card Art for a specific Instrument Identifier. The Card Art is a visual representation of the cardholder&#39;s payment card. Card Art is only available if a Network Token is successfully provisioned. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="tokenProvider">The token provider.</param>
+        /// <param name="assetType">The type of asset.</param>
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse< InlineResponse200 > GetCardArtAssetWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling TokenApi->GetCardArtAsset");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling TokenApi->GetCardArtAsset");
+            }
+            // verify the required parameter 'tokenProvider' is set
+            if (tokenProvider == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'tokenProvider' when calling TokenApi->GetCardArtAsset");
+                throw new ApiException(400, "Missing required parameter 'tokenProvider' when calling TokenApi->GetCardArtAsset");
+            }
+            // verify the required parameter 'assetType' is set
+            if (assetType == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'assetType' when calling TokenApi->GetCardArtAsset");
+                throw new ApiException(400, "Missing required parameter 'assetType' when calling TokenApi->GetCardArtAsset");
+            }
+
+            var localVarPath = $"/tms/v2/tokens/{instrumentIdentifierId}/{tokenProvider}/assets/{assetType}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (instrumentIdentifierId != null)
+            {
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
+            }
+            if (tokenProvider != null)
+            {
+                localVarPathParams.Add("tokenProvider", Configuration.ApiClient.ParameterToString(tokenProvider)); // path parameter
+            }
+            if (assetType != null)
+            {
+                localVarPathParams.Add("assetType", Configuration.ApiClient.ParameterToString(assetType)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.Get == Method.Post)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+
+            bool isMLESupportedByCybsForApi = false;
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetCardArtAsset,GetCardArtAssetAsync,GetCardArtAssetWithHttpInfo,GetCardArtAssetAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCardArtAsset", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+        }
+
+        /// <summary>
+        /// Retrieve Card Art Retrieves Card Art for a specific Instrument Identifier. The Card Art is a visual representation of the cardholder&#39;s payment card. Card Art is only available if a Network Token is successfully provisioned. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="tokenProvider">The token provider.</param>
+        /// <param name="assetType">The type of asset.</param>
+        /// <returns>Task of InlineResponse200</returns>
+        public async System.Threading.Tasks.Task<InlineResponse200> GetCardArtAssetAsync (string instrumentIdentifierId, string tokenProvider, string assetType)
+        {
+            logger.Debug("CALLING API \"GetCardArtAssetAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse200> localVarResponse = await GetCardArtAssetAsyncWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
+            logger.Debug("CALLING API \"GetCardArtAssetAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve Card Art Retrieves Card Art for a specific Instrument Identifier. The Card Art is a visual representation of the cardholder&#39;s payment card. Card Art is only available if a Network Token is successfully provisioned. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
+        /// <param name="tokenProvider">The token provider.</param>
+        /// <param name="assetType">The type of asset.</param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetCardArtAssetAsyncWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'instrumentIdentifierId' is set
+            if (instrumentIdentifierId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling TokenApi->GetCardArtAsset");
+                throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling TokenApi->GetCardArtAsset");
+            }
+            // verify the required parameter 'tokenProvider' is set
+            if (tokenProvider == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'tokenProvider' when calling TokenApi->GetCardArtAsset");
+                throw new ApiException(400, "Missing required parameter 'tokenProvider' when calling TokenApi->GetCardArtAsset");
+            }
+            // verify the required parameter 'assetType' is set
+            if (assetType == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'assetType' when calling TokenApi->GetCardArtAsset");
+                throw new ApiException(400, "Missing required parameter 'assetType' when calling TokenApi->GetCardArtAsset");
+            }
+
+            var localVarPath = $"/tms/v2/tokens/{instrumentIdentifierId}/{tokenProvider}/assets/{assetType}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (instrumentIdentifierId != null)
+            {
+                localVarPathParams.Add("instrumentIdentifierId", Configuration.ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
+            }
+            if (tokenProvider != null)
+            {
+                localVarPathParams.Add("tokenProvider", Configuration.ApiClient.ParameterToString(tokenProvider)); // path parameter
+            }
+            if (assetType != null)
+            {
+                localVarPathParams.Add("assetType", Configuration.ApiClient.ParameterToString(assetType)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.Get == Method.Post)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+
+            bool isMLESupportedByCybsForApi = false;
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetCardArtAsset,GetCardArtAssetAsync,GetCardArtAssetWithHttpInfo,GetCardArtAssetAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCardArtAsset", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+        }
         /// <summary>
         /// Generate Payment Credentials for a TMS Token |  |  |  |     | - -- | - -- | - -- |     |**Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument or Instrument Identifier information.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument or Instrument Identifier. 
         /// </summary>

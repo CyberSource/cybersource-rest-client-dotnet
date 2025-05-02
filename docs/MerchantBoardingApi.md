@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getregistration"></a>
 # **GetRegistration**
-> InlineResponse2001 GetRegistration (string registrationId)
+> InlineResponse2002 GetRegistration (string registrationId)
 
 Gets all the information on a boarding registration
 
@@ -36,7 +36,7 @@ namespace Example
             try
             {
                 // Gets all the information on a boarding registration
-                InlineResponse2001 result = apiInstance.GetRegistration(registrationId);
+                InlineResponse2002 result = apiInstance.GetRegistration(registrationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ No authorization required
 
 Create a boarding registration
 
-Create a registration to board merchant  If you have  Card Processing product enabled in your boarding request, select payment processor from Configuration -> Sample Request. You may unselect attributes from the Request Builder tree which you do not need in the request. For VPC, CUP and EFTPOS processors, replace the processor name from VPC or CUP or EFTPOS to the actual processor name in the sample request. e.g. replace VPC with &lt;your vpc processor&gt; 
+Boarding Product is specifically for resellers who onboard merchants to resell their services to merchants and help integrate REST API into their systems.  The Boarding API is designed to simplify and streamline the onboarding process of merchants by enabling administrators and developers to: 1. Enable and Configure Products: The API helps in adding new products to an existing organization and configuring them to suit specific needs. 2. Update Merchant Information: The API allows for updating an organization's information efficiently. 3. Manage Payment Integration: It provides templates for secure payment integration and management. 
 
 ### Example
 ```csharp

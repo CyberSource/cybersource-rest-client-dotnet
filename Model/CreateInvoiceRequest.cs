@@ -33,21 +33,42 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateInvoiceRequest" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected CreateInvoiceRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateInvoiceRequest" /> class.
+        /// </summary>
+        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="CustomerInformation">CustomerInformation.</param>
-        /// <param name="InvoiceInformation">InvoiceInformation.</param>
-        /// <param name="OrderInformation">OrderInformation.</param>
-        public CreateInvoiceRequest(Invoicingv2invoicesCustomerInformation CustomerInformation = default(Invoicingv2invoicesCustomerInformation), Invoicingv2invoicesInvoiceInformation InvoiceInformation = default(Invoicingv2invoicesInvoiceInformation), Invoicingv2invoicesOrderInformation OrderInformation = default(Invoicingv2invoicesOrderInformation))
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
+        /// <param name="InvoiceInformation">InvoiceInformation (required).</param>
+        /// <param name="OrderInformation">OrderInformation (required).</param>
+        public CreateInvoiceRequest(Invoicingv2invoicesClientReferenceInformation ClientReferenceInformation = default(Invoicingv2invoicesClientReferenceInformation), Invoicingv2invoicesCustomerInformation CustomerInformation = default(Invoicingv2invoicesCustomerInformation), Invoicingv2invoicesProcessingInformation ProcessingInformation = default(Invoicingv2invoicesProcessingInformation), Invoicingv2invoicesInvoiceInformation InvoiceInformation = default(Invoicingv2invoicesInvoiceInformation), Invoicingv2invoicesOrderInformation OrderInformation = default(Invoicingv2invoicesOrderInformation))
         {
+            this.ClientReferenceInformation = ClientReferenceInformation;
             this.CustomerInformation = CustomerInformation;
+            this.ProcessingInformation = ProcessingInformation;
             this.InvoiceInformation = InvoiceInformation;
             this.OrderInformation = OrderInformation;
         }
         
         /// <summary>
+        /// Gets or Sets ClientReferenceInformation
+        /// </summary>
+        [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
+        public Invoicingv2invoicesClientReferenceInformation ClientReferenceInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets CustomerInformation
         /// </summary>
         [DataMember(Name="customerInformation", EmitDefaultValue=false)]
         public Invoicingv2invoicesCustomerInformation CustomerInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
+        public Invoicingv2invoicesProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets InvoiceInformation
@@ -69,7 +90,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreateInvoiceRequest {\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             if (CustomerInformation != null) sb.Append("  CustomerInformation: ").Append(CustomerInformation).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (InvoiceInformation != null) sb.Append("  InvoiceInformation: ").Append(InvoiceInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("}\n");
@@ -109,9 +132,19 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
+                    this.ClientReferenceInformation != null &&
+                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
+                ) && 
+                (
                     this.CustomerInformation == other.CustomerInformation ||
                     this.CustomerInformation != null &&
                     this.CustomerInformation.Equals(other.CustomerInformation)
+                ) && 
+                (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
                 ) && 
                 (
                     this.InvoiceInformation == other.InvoiceInformation ||
@@ -136,8 +169,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.ClientReferenceInformation != null)
+                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.CustomerInformation != null)
                     hash = hash * 59 + this.CustomerInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.InvoiceInformation != null)
                     hash = hash * 59 + this.InvoiceInformation.GetHashCode();
                 if (this.OrderInformation != null)

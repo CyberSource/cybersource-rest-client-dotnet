@@ -6,7 +6,7 @@ rd /s /q ..\Model
 rd /s /q ..\docs
 rd /s /q ..\test
 
-java -jar swagger-codegen-cli-2.4.38.jar generate -t cybersource-csharp-template -i cybersource-rest-spec.json -l csharp -o ../ -c cybersource-csharp-config.json
+java -jar swagger-codegen-cli-2.4.38.jar generate -t cybersource-csharp-template -i cybersource-rest-spec-dotnet.json -l csharp -o ../ -c cybersource-csharp-config.json
 
 powershell -Command "Get-ChildItem '..\src\Cybersource\Api\*.cs' -Recurse | ForEach-Object { (Get-Content $_).Replace('Method.POST','Method.Post').Replace('Method.GET','Method.Get').Replace('Method.PATCH','Method.Patch').Replace('Method.DELETE','Method.Delete').Replace('Method.PUT','Method.Put') | Set-Content $_ }"
 

@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="Number">The customer&#39;s payment card number, also known as the Primary Account Number (PAN). .</param>
         /// <param name="ExpirationMonth">Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. .</param>
         /// <param name="ExpirationYear">Four-digit year in which the credit card expires.  Format: &#x60;YYYY&#x60;. .</param>
-        /// <param name="Type">The type of card(Card network). Possible Values: 001: visa .</param>
+        /// <param name="Type">The type of card (Card Network). Possible Values: - 001: visa .</param>
         public Tmsv2TokenizedCardCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string))
         {
             this.Number = Number;
@@ -67,9 +67,9 @@ namespace CyberSource.Model
         public string ExpirationYear { get; set; }
 
         /// <summary>
-        /// The type of card(Card network). Possible Values: 001: visa 
+        /// The type of card (Card Network). Possible Values: - 001: visa 
         /// </summary>
-        /// <value>The type of card(Card network). Possible Values: 001: visa </value>
+        /// <value>The type of card (Card Network). Possible Values: - 001: visa </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

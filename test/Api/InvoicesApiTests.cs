@@ -111,7 +111,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //var response = instance.PerformCancelAction(id);
-            //Assert.IsInstanceOf<InvoicingV2InvoicesPost201Response> (response, "response is InvoicingV2InvoicesPost201Response");
+            //Assert.IsInstanceOf<InvoicingV2InvoicesCancel200Response> (response, "response is InvoicingV2InvoicesCancel200Response");
         }
         
         /// <summary>
@@ -123,7 +123,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
             //var response = instance.PerformSendAction(id);
-            //Assert.IsInstanceOf<InvoicingV2InvoicesPost201Response> (response, "response is InvoicingV2InvoicesPost201Response");
+            //Assert.IsInstanceOf<InvoicingV2InvoicesSend200Response> (response, "response is InvoicingV2InvoicesSend200Response");
         }
         
         /// <summary>
@@ -136,7 +136,7 @@ namespace CyberSource.Test
             //string id = null;
             //UpdateInvoiceRequest updateInvoiceRequest = null;
             //var response = instance.UpdateInvoice(id, updateInvoiceRequest);
-            //Assert.IsInstanceOf<InvoicingV2InvoicesPost201Response> (response, "response is InvoicingV2InvoicesPost201Response");
+            //Assert.IsInstanceOf<InvoicingV2InvoicesPut200Response> (response, "response is InvoicingV2InvoicesPut200Response");
         }
         
     }

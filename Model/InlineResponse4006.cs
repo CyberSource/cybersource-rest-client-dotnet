@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// InlineResponse4006
+    /// Error Bean
     /// </summary>
     [DataContract]
     public partial class InlineResponse4006 :  IEquatable<InlineResponse4006>, IValidatableObject
@@ -33,51 +33,68 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4006" /> class.
         /// </summary>
-        /// <param name="Status">The http status description of the submitted request..</param>
-        /// <param name="Reason">Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39;   - &#39;SYSTEM_ERROR&#39;   - &#39;RESOURCE_NOT_FOUND&#39; .</param>
-        /// <param name="Message">Descriptive message for the error..</param>
-        /// <param name="Details">Details.</param>
-        public InlineResponse4006(string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse4006Details> Details = default(List<InlineResponse4006Details>))
+        [JsonConstructorAttribute]
+        protected InlineResponse4006() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse4006" /> class.
+        /// </summary>
+        /// <param name="Code">Error code (required).</param>
+        /// <param name="Message">Error message (required).</param>
+        /// <param name="LocalizationKey">Localization Key Name.</param>
+        /// <param name="CorrelationId">Correlation Id.</param>
+        /// <param name="Detail">Error Detail.</param>
+        /// <param name="Fields">Error fields List.</param>
+        public InlineResponse4006(string Code = default(string), string Message = default(string), string LocalizationKey = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse4006Fields> Fields = default(List<InlineResponse4006Fields>))
         {
-            this.Status = Status;
-            this.Reason = Reason;
+            this.Code = Code;
             this.Message = Message;
-            this.Details = Details;
+            this.LocalizationKey = LocalizationKey;
+            this.CorrelationId = CorrelationId;
+            this.Detail = Detail;
+            this.Fields = Fields;
         }
         
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// Error code
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public DateTime? SubmitTimeUtc { get; private set; }
+        /// <value>Error code</value>
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public string Code { get; set; }
 
         /// <summary>
-        /// The http status description of the submitted request.
+        /// Error message
         /// </summary>
-        /// <value>The http status description of the submitted request.</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
-
-        /// <summary>
-        /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39;   - &#39;SYSTEM_ERROR&#39;   - &#39;RESOURCE_NOT_FOUND&#39; 
-        /// </summary>
-        /// <value>Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39;   - &#39;SYSTEM_ERROR&#39;   - &#39;RESOURCE_NOT_FOUND&#39; </value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public string Reason { get; set; }
-
-        /// <summary>
-        /// Descriptive message for the error.
-        /// </summary>
-        /// <value>Descriptive message for the error.</value>
+        /// <value>Error message</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets Details
+        /// Localization Key Name
         /// </summary>
-        [DataMember(Name="details", EmitDefaultValue=false)]
-        public List<InlineResponse4006Details> Details { get; set; }
+        /// <value>Localization Key Name</value>
+        [DataMember(Name="localizationKey", EmitDefaultValue=false)]
+        public string LocalizationKey { get; set; }
+
+        /// <summary>
+        /// Correlation Id
+        /// </summary>
+        /// <value>Correlation Id</value>
+        [DataMember(Name="correlationId", EmitDefaultValue=false)]
+        public string CorrelationId { get; set; }
+
+        /// <summary>
+        /// Error Detail
+        /// </summary>
+        /// <value>Error Detail</value>
+        [DataMember(Name="detail", EmitDefaultValue=false)]
+        public string Detail { get; set; }
+
+        /// <summary>
+        /// Error fields List
+        /// </summary>
+        /// <value>Error fields List</value>
+        [DataMember(Name="fields", EmitDefaultValue=false)]
+        public List<InlineResponse4006Fields> Fields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -87,11 +104,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4006 {\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
-            if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
-            if (Details != null) sb.Append("  Details: ").Append(Details).Append("\n");
+            if (LocalizationKey != null) sb.Append("  LocalizationKey: ").Append(LocalizationKey).Append("\n");
+            if (CorrelationId != null) sb.Append("  CorrelationId: ").Append(CorrelationId).Append("\n");
+            if (Detail != null) sb.Append("  Detail: ").Append(Detail).Append("\n");
+            if (Fields != null) sb.Append("  Fields: ").Append(Fields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,19 +147,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
-                ) && 
-                (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
-                ) && 
-                (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.Code == other.Code ||
+                    this.Code != null &&
+                    this.Code.Equals(other.Code)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -149,9 +157,24 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.LocalizationKey == other.LocalizationKey ||
+                    this.LocalizationKey != null &&
+                    this.LocalizationKey.Equals(other.LocalizationKey)
+                ) && 
+                (
+                    this.CorrelationId == other.CorrelationId ||
+                    this.CorrelationId != null &&
+                    this.CorrelationId.Equals(other.CorrelationId)
+                ) && 
+                (
+                    this.Detail == other.Detail ||
+                    this.Detail != null &&
+                    this.Detail.Equals(other.Detail)
+                ) && 
+                (
+                    this.Fields == other.Fields ||
+                    this.Fields != null &&
+                    this.Fields.SequenceEqual(other.Fields)
                 );
         }
 
@@ -166,16 +189,18 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
+                if (this.LocalizationKey != null)
+                    hash = hash * 59 + this.LocalizationKey.GetHashCode();
+                if (this.CorrelationId != null)
+                    hash = hash * 59 + this.CorrelationId.GetHashCode();
+                if (this.Detail != null)
+                    hash = hash * 59 + this.Detail.GetHashCode();
+                if (this.Fields != null)
+                    hash = hash * 59 + this.Fields.GetHashCode();
                 return hash;
             }
         }

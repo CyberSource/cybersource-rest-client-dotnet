@@ -121,6 +121,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CaptureMandate'
         }
         /// <summary>
+        /// Test the property 'CompleteMandate'
+        /// </summary>
+        [Test]
+        public void CompleteMandateTest()
+        {
+            // TODO unit test for the property 'CompleteMandate'
+        }
+        /// <summary>
         /// Test the property 'OrderInformation'
         /// </summary>
         [Test]

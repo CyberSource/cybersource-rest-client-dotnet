@@ -38,16 +38,18 @@ namespace CyberSource.Model
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
         /// <param name="Status">The status of the invoice.  Possible values: - DRAFT - CREATED - SENT - PARTIAL - PAID - CANCELED - PENDING .</param>
         /// <param name="CustomerInformation">CustomerInformation.</param>
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="InvoiceInformation">InvoiceInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="InvoiceHistory">InvoiceHistory.</param>
-        public InvoicingV2InvoicesGet200Response(InvoicingV2InvoicesAllGet200ResponseLinks Links = default(InvoicingV2InvoicesAllGet200ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), Invoicingv2invoicesCustomerInformation CustomerInformation = default(Invoicingv2invoicesCustomerInformation), InvoicingV2InvoicesPost201ResponseInvoiceInformation InvoiceInformation = default(InvoicingV2InvoicesPost201ResponseInvoiceInformation), InvoicingV2InvoicesPost201ResponseOrderInformation OrderInformation = default(InvoicingV2InvoicesPost201ResponseOrderInformation), List<InvoicingV2InvoicesGet200ResponseInvoiceHistory> InvoiceHistory = default(List<InvoicingV2InvoicesGet200ResponseInvoiceHistory>))
+        public InvoicingV2InvoicesGet200Response(InvoicingV2InvoicesAllGet200ResponseLinks Links = default(InvoicingV2InvoicesAllGet200ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), Invoicingv2invoicesCustomerInformation CustomerInformation = default(Invoicingv2invoicesCustomerInformation), Invoicingv2invoicesProcessingInformation ProcessingInformation = default(Invoicingv2invoicesProcessingInformation), InvoicingV2InvoicesPost201ResponseInvoiceInformation InvoiceInformation = default(InvoicingV2InvoicesPost201ResponseInvoiceInformation), InvoicingV2InvoicesPost201ResponseOrderInformation OrderInformation = default(InvoicingV2InvoicesPost201ResponseOrderInformation), List<InvoicingV2InvoicesGet200ResponseInvoiceHistory> InvoiceHistory = default(List<InvoicingV2InvoicesGet200ResponseInvoiceHistory>))
         {
             this.Links = Links;
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
             this.CustomerInformation = CustomerInformation;
+            this.ProcessingInformation = ProcessingInformation;
             this.InvoiceInformation = InvoiceInformation;
             this.OrderInformation = OrderInformation;
             this.InvoiceHistory = InvoiceHistory;
@@ -87,6 +89,12 @@ namespace CyberSource.Model
         public Invoicingv2invoicesCustomerInformation CustomerInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [DataMember(Name="processingInformation", EmitDefaultValue=false)]
+        public Invoicingv2invoicesProcessingInformation ProcessingInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets InvoiceInformation
         /// </summary>
         [DataMember(Name="invoiceInformation", EmitDefaultValue=false)]
@@ -117,6 +125,7 @@ namespace CyberSource.Model
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
             if (CustomerInformation != null) sb.Append("  CustomerInformation: ").Append(CustomerInformation).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (InvoiceInformation != null) sb.Append("  InvoiceInformation: ").Append(InvoiceInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             if (InvoiceHistory != null) sb.Append("  InvoiceHistory: ").Append(InvoiceHistory).Append("\n");
@@ -182,6 +191,11 @@ namespace CyberSource.Model
                     this.CustomerInformation.Equals(other.CustomerInformation)
                 ) && 
                 (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
+                ) && 
+                (
                     this.InvoiceInformation == other.InvoiceInformation ||
                     this.InvoiceInformation != null &&
                     this.InvoiceInformation.Equals(other.InvoiceInformation)
@@ -219,6 +233,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.CustomerInformation != null)
                     hash = hash * 59 + this.CustomerInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.InvoiceInformation != null)
                     hash = hash * 59 + this.InvoiceInformation.GetHashCode();
                 if (this.OrderInformation != null)

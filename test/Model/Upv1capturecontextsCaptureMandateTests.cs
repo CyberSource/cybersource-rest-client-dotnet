@@ -128,6 +128,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ComboCard'
         }
+        /// <summary>
+        /// Test the property 'CPF'
+        /// </summary>
+        [Test]
+        public void CPFTest()
+        {
+            // TODO unit test for the property 'CPF'
+        }
 
     }
 

@@ -32,7 +32,7 @@ namespace CyberSource.Api
         /// Create a New Invoice
         /// </summary>
         /// <remarks>
-        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
+        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments. The availability of API features for a merchant can depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -43,7 +43,7 @@ namespace CyberSource.Api
         /// Create a New Invoice
         /// </summary>
         /// <remarks>
-        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
+        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments. The availability of API features for a merchant can depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -58,7 +58,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
         /// <returns>InvoicingV2InvoicesAllGet200Response</returns>
         InvoicingV2InvoicesAllGet200Response GetAllInvoices (int? offset, int? limit, string status = null);
 
@@ -71,7 +71,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
         /// <returns>ApiResponse of InvoicingV2InvoicesAllGet200Response</returns>
         ApiResponse<InvoicingV2InvoicesAllGet200Response> GetAllInvoicesWithHttpInfo (int? offset, int? limit, string status = null);
         /// <summary>
@@ -103,8 +103,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>InvoicingV2InvoicesPost201Response</returns>
-        InvoicingV2InvoicesPost201Response PerformCancelAction (string id);
+        /// <returns>InvoicingV2InvoicesCancel200Response</returns>
+        InvoicingV2InvoicesCancel200Response PerformCancelAction (string id);
 
         /// <summary>
         /// Cancel an Invoice
@@ -114,8 +114,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>ApiResponse of InvoicingV2InvoicesPost201Response</returns>
-        ApiResponse<InvoicingV2InvoicesPost201Response> PerformCancelActionWithHttpInfo (string id);
+        /// <returns>ApiResponse of InvoicingV2InvoicesCancel200Response</returns>
+        ApiResponse<InvoicingV2InvoicesCancel200Response> PerformCancelActionWithHttpInfo (string id);
         /// <summary>
         /// Send an Invoice
         /// </summary>
@@ -124,8 +124,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>InvoicingV2InvoicesPost201Response</returns>
-        InvoicingV2InvoicesPost201Response PerformSendAction (string id);
+        /// <returns>InvoicingV2InvoicesSend200Response</returns>
+        InvoicingV2InvoicesSend200Response PerformSendAction (string id);
 
         /// <summary>
         /// Send an Invoice
@@ -135,8 +135,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>ApiResponse of InvoicingV2InvoicesPost201Response</returns>
-        ApiResponse<InvoicingV2InvoicesPost201Response> PerformSendActionWithHttpInfo (string id);
+        /// <returns>ApiResponse of InvoicingV2InvoicesSend200Response</returns>
+        ApiResponse<InvoicingV2InvoicesSend200Response> PerformSendActionWithHttpInfo (string id);
         /// <summary>
         /// Update an Invoice
         /// </summary>
@@ -146,8 +146,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
         /// <param name="updateInvoiceRequest">Updating the invoice does not resend the invoice automatically. You must resend the invoice separately.</param>
-        /// <returns>InvoicingV2InvoicesPost201Response</returns>
-        InvoicingV2InvoicesPost201Response UpdateInvoice (string id, UpdateInvoiceRequest updateInvoiceRequest);
+        /// <returns>InvoicingV2InvoicesPut200Response</returns>
+        InvoicingV2InvoicesPut200Response UpdateInvoice (string id, UpdateInvoiceRequest updateInvoiceRequest);
 
         /// <summary>
         /// Update an Invoice
@@ -158,15 +158,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
         /// <param name="updateInvoiceRequest">Updating the invoice does not resend the invoice automatically. You must resend the invoice separately.</param>
-        /// <returns>ApiResponse of InvoicingV2InvoicesPost201Response</returns>
-        ApiResponse<InvoicingV2InvoicesPost201Response> UpdateInvoiceWithHttpInfo (string id, UpdateInvoiceRequest updateInvoiceRequest);
+        /// <returns>ApiResponse of InvoicingV2InvoicesPut200Response</returns>
+        ApiResponse<InvoicingV2InvoicesPut200Response> UpdateInvoiceWithHttpInfo (string id, UpdateInvoiceRequest updateInvoiceRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
         /// Create a New Invoice
         /// </summary>
         /// <remarks>
-        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
+        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments. The availability of API features for a merchant can depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -177,7 +177,7 @@ namespace CyberSource.Api
         /// Create a New Invoice
         /// </summary>
         /// <remarks>
-        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
+        /// The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments. The availability of API features for a merchant can depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -192,7 +192,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
         /// <returns>Task of InvoicingV2InvoicesAllGet200Response</returns>
         System.Threading.Tasks.Task<InvoicingV2InvoicesAllGet200Response> GetAllInvoicesAsync (int? offset, int? limit, string status = null);
 
@@ -205,7 +205,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesAllGet200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesAllGet200Response>> GetAllInvoicesAsyncWithHttpInfo (int? offset, int? limit, string status = null);
         /// <summary>
@@ -237,8 +237,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
-        System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> PerformCancelActionAsync (string id);
+        /// <returns>Task of InvoicingV2InvoicesCancel200Response</returns>
+        System.Threading.Tasks.Task<InvoicingV2InvoicesCancel200Response> PerformCancelActionAsync (string id);
 
         /// <summary>
         /// Cancel an Invoice
@@ -248,8 +248,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>Task of ApiResponse (InvoicingV2InvoicesPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPost201Response>> PerformCancelActionAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (InvoicingV2InvoicesCancel200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesCancel200Response>> PerformCancelActionAsyncWithHttpInfo (string id);
         /// <summary>
         /// Send an Invoice
         /// </summary>
@@ -258,8 +258,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
-        System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> PerformSendActionAsync (string id);
+        /// <returns>Task of InvoicingV2InvoicesSend200Response</returns>
+        System.Threading.Tasks.Task<InvoicingV2InvoicesSend200Response> PerformSendActionAsync (string id);
 
         /// <summary>
         /// Send an Invoice
@@ -269,8 +269,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>Task of ApiResponse (InvoicingV2InvoicesPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPost201Response>> PerformSendActionAsyncWithHttpInfo (string id);
+        /// <returns>Task of ApiResponse (InvoicingV2InvoicesSend200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesSend200Response>> PerformSendActionAsyncWithHttpInfo (string id);
         /// <summary>
         /// Update an Invoice
         /// </summary>
@@ -280,8 +280,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
         /// <param name="updateInvoiceRequest">Updating the invoice does not resend the invoice automatically. You must resend the invoice separately.</param>
-        /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
-        System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> UpdateInvoiceAsync (string id, UpdateInvoiceRequest updateInvoiceRequest);
+        /// <returns>Task of InvoicingV2InvoicesPut200Response</returns>
+        System.Threading.Tasks.Task<InvoicingV2InvoicesPut200Response> UpdateInvoiceAsync (string id, UpdateInvoiceRequest updateInvoiceRequest);
 
         /// <summary>
         /// Update an Invoice
@@ -292,8 +292,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
         /// <param name="updateInvoiceRequest">Updating the invoice does not resend the invoice automatically. You must resend the invoice separately.</param>
-        /// <returns>Task of ApiResponse (InvoicingV2InvoicesPost201Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPost201Response>> UpdateInvoiceAsyncWithHttpInfo (string id, UpdateInvoiceRequest updateInvoiceRequest);
+        /// <returns>Task of ApiResponse (InvoicingV2InvoicesPut200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPut200Response>> UpdateInvoiceAsyncWithHttpInfo (string id, UpdateInvoiceRequest updateInvoiceRequest);
         #endregion Asynchronous Operations
     }
 
@@ -435,7 +435,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
+        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments. The availability of API features for a merchant can depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -451,7 +451,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
+        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments. The availability of API features for a merchant can depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -547,7 +547,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
+        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments. The availability of API features for a merchant can depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -564,7 +564,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments.
+        /// Create a New Invoice The invoicing product enables you to bill any customer with an email address and accept digital payments securely from any connected device. You can either use the system generated email or use the invoice payment link in your own communication. You can add discounts and taxes for the entire invoice or for each line item. To customize the invoice to match your brand see [Invoice Settings](https://developer.cybersource.com/api-reference-assets/index.html#invoicing_invoice-settings_update-invoice-settings). The invoice payment page uses Unified Checkout to process the payments. The availability of API features for a merchant can depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInvoiceRequest"></param>
@@ -663,7 +663,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
         /// <returns>InvoicingV2InvoicesAllGet200Response</returns>
         public InvoicingV2InvoicesAllGet200Response GetAllInvoices (int? offset, int? limit, string status = null)
         {
@@ -681,7 +681,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
         /// <returns>ApiResponse of InvoicingV2InvoicesAllGet200Response</returns>
         public ApiResponse< InvoicingV2InvoicesAllGet200Response > GetAllInvoicesWithHttpInfo (int? offset, int? limit, string status = null)
         {
@@ -796,7 +796,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
         /// <returns>Task of InvoicingV2InvoicesAllGet200Response</returns>
         public async System.Threading.Tasks.Task<InvoicingV2InvoicesAllGet200Response> GetAllInvoicesAsync (int? offset, int? limit, string status = null)
         {
@@ -815,7 +815,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">Page offset number.</param>
         /// <param name="limit">Maximum number of items you would like returned.</param>
-        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED   - PENDING  (optional)</param>
+        /// <param name="status">The status of the invoice.  Possible values:   - DRAFT   - CREATED   - SENT   - PARTIAL   - PAID   - CANCELED  (optional)</param>
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesAllGet200Response)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesAllGet200Response>> GetAllInvoicesAsyncWithHttpInfo (int? offset, int? limit, string status = null)
         {
@@ -1154,12 +1154,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>InvoicingV2InvoicesPost201Response</returns>
-        public InvoicingV2InvoicesPost201Response PerformCancelAction (string id)
+        /// <returns>InvoicingV2InvoicesCancel200Response</returns>
+        public InvoicingV2InvoicesCancel200Response PerformCancelAction (string id)
         {
             logger.Debug("CALLING API \"PerformCancelAction\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = PerformCancelActionWithHttpInfo(id);
+            ApiResponse<InvoicingV2InvoicesCancel200Response> localVarResponse = PerformCancelActionWithHttpInfo(id);
             logger.Debug("CALLING API \"PerformCancelAction\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1170,8 +1170,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>ApiResponse of InvoicingV2InvoicesPost201Response</returns>
-        public ApiResponse< InvoicingV2InvoicesPost201Response > PerformCancelActionWithHttpInfo (string id)
+        /// <returns>ApiResponse of InvoicingV2InvoicesCancel200Response</returns>
+        public ApiResponse< InvoicingV2InvoicesCancel200Response > PerformCancelActionWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1257,9 +1257,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
+            return new ApiResponse<InvoicingV2InvoicesCancel200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
+                (InvoicingV2InvoicesCancel200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesCancel200Response))); // Return statement
         }
 
         /// <summary>
@@ -1267,12 +1267,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
-        public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> PerformCancelActionAsync (string id)
+        /// <returns>Task of InvoicingV2InvoicesCancel200Response</returns>
+        public async System.Threading.Tasks.Task<InvoicingV2InvoicesCancel200Response> PerformCancelActionAsync (string id)
         {
             logger.Debug("CALLING API \"PerformCancelActionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await PerformCancelActionAsyncWithHttpInfo(id);
+            ApiResponse<InvoicingV2InvoicesCancel200Response> localVarResponse = await PerformCancelActionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"PerformCancelActionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1284,8 +1284,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>Task of ApiResponse (InvoicingV2InvoicesPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPost201Response>> PerformCancelActionAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (InvoicingV2InvoicesCancel200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesCancel200Response>> PerformCancelActionAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1371,21 +1371,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
+            return new ApiResponse<InvoicingV2InvoicesCancel200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
+                (InvoicingV2InvoicesCancel200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesCancel200Response))); // Return statement
         }
         /// <summary>
         /// Send an Invoice You can send an invoice in draft or created state or resend a sent or partially paid invoice. Fully paid or canceled invoices cannot be resent.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>InvoicingV2InvoicesPost201Response</returns>
-        public InvoicingV2InvoicesPost201Response PerformSendAction (string id)
+        /// <returns>InvoicingV2InvoicesSend200Response</returns>
+        public InvoicingV2InvoicesSend200Response PerformSendAction (string id)
         {
             logger.Debug("CALLING API \"PerformSendAction\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = PerformSendActionWithHttpInfo(id);
+            ApiResponse<InvoicingV2InvoicesSend200Response> localVarResponse = PerformSendActionWithHttpInfo(id);
             logger.Debug("CALLING API \"PerformSendAction\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1396,8 +1396,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>ApiResponse of InvoicingV2InvoicesPost201Response</returns>
-        public ApiResponse< InvoicingV2InvoicesPost201Response > PerformSendActionWithHttpInfo (string id)
+        /// <returns>ApiResponse of InvoicingV2InvoicesSend200Response</returns>
+        public ApiResponse< InvoicingV2InvoicesSend200Response > PerformSendActionWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1483,9 +1483,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
+            return new ApiResponse<InvoicingV2InvoicesSend200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
+                (InvoicingV2InvoicesSend200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesSend200Response))); // Return statement
         }
 
         /// <summary>
@@ -1493,12 +1493,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
-        public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> PerformSendActionAsync (string id)
+        /// <returns>Task of InvoicingV2InvoicesSend200Response</returns>
+        public async System.Threading.Tasks.Task<InvoicingV2InvoicesSend200Response> PerformSendActionAsync (string id)
         {
             logger.Debug("CALLING API \"PerformSendActionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await PerformSendActionAsyncWithHttpInfo(id);
+            ApiResponse<InvoicingV2InvoicesSend200Response> localVarResponse = await PerformSendActionAsyncWithHttpInfo(id);
             logger.Debug("CALLING API \"PerformSendActionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1510,8 +1510,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
-        /// <returns>Task of ApiResponse (InvoicingV2InvoicesPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPost201Response>> PerformSendActionAsyncWithHttpInfo (string id)
+        /// <returns>Task of ApiResponse (InvoicingV2InvoicesSend200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesSend200Response>> PerformSendActionAsyncWithHttpInfo (string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1597,9 +1597,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
+            return new ApiResponse<InvoicingV2InvoicesSend200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
+                (InvoicingV2InvoicesSend200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesSend200Response))); // Return statement
         }
         /// <summary>
         /// Update an Invoice You can update all information except the invoice number till any payment is received for an invoice. Invoices that are partially or fully paid or cancelled cannot be updated.
@@ -1607,12 +1607,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
         /// <param name="updateInvoiceRequest">Updating the invoice does not resend the invoice automatically. You must resend the invoice separately.</param>
-        /// <returns>InvoicingV2InvoicesPost201Response</returns>
-        public InvoicingV2InvoicesPost201Response UpdateInvoice (string id, UpdateInvoiceRequest updateInvoiceRequest)
+        /// <returns>InvoicingV2InvoicesPut200Response</returns>
+        public InvoicingV2InvoicesPut200Response UpdateInvoice (string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
             logger.Debug("CALLING API \"UpdateInvoice\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = UpdateInvoiceWithHttpInfo(id, updateInvoiceRequest);
+            ApiResponse<InvoicingV2InvoicesPut200Response> localVarResponse = UpdateInvoiceWithHttpInfo(id, updateInvoiceRequest);
             logger.Debug("CALLING API \"UpdateInvoice\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1624,8 +1624,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
         /// <param name="updateInvoiceRequest">Updating the invoice does not resend the invoice automatically. You must resend the invoice separately.</param>
-        /// <returns>ApiResponse of InvoicingV2InvoicesPost201Response</returns>
-        public ApiResponse< InvoicingV2InvoicesPost201Response > UpdateInvoiceWithHttpInfo (string id, UpdateInvoiceRequest updateInvoiceRequest)
+        /// <returns>ApiResponse of InvoicingV2InvoicesPut200Response</returns>
+        public ApiResponse< InvoicingV2InvoicesPut200Response > UpdateInvoiceWithHttpInfo (string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1721,9 +1721,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
+            return new ApiResponse<InvoicingV2InvoicesPut200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
+                (InvoicingV2InvoicesPut200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPut200Response))); // Return statement
         }
 
         /// <summary>
@@ -1732,12 +1732,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
         /// <param name="updateInvoiceRequest">Updating the invoice does not resend the invoice automatically. You must resend the invoice separately.</param>
-        /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
-        public async System.Threading.Tasks.Task<InvoicingV2InvoicesPost201Response> UpdateInvoiceAsync (string id, UpdateInvoiceRequest updateInvoiceRequest)
+        /// <returns>Task of InvoicingV2InvoicesPut200Response</returns>
+        public async System.Threading.Tasks.Task<InvoicingV2InvoicesPut200Response> UpdateInvoiceAsync (string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
             logger.Debug("CALLING API \"UpdateInvoiceAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await UpdateInvoiceAsyncWithHttpInfo(id, updateInvoiceRequest);
+            ApiResponse<InvoicingV2InvoicesPut200Response> localVarResponse = await UpdateInvoiceAsyncWithHttpInfo(id, updateInvoiceRequest);
             logger.Debug("CALLING API \"UpdateInvoiceAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1750,8 +1750,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The invoice number.</param>
         /// <param name="updateInvoiceRequest">Updating the invoice does not resend the invoice automatically. You must resend the invoice separately.</param>
-        /// <returns>Task of ApiResponse (InvoicingV2InvoicesPost201Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPost201Response>> UpdateInvoiceAsyncWithHttpInfo (string id, UpdateInvoiceRequest updateInvoiceRequest)
+        /// <returns>Task of ApiResponse (InvoicingV2InvoicesPut200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPut200Response>> UpdateInvoiceAsyncWithHttpInfo (string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1846,9 +1846,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InvoicingV2InvoicesPost201Response>(localVarStatusCode,
+            return new ApiResponse<InvoicingV2InvoicesPut200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InvoicingV2InvoicesPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPost201Response))); // Return statement
+                (InvoicingV2InvoicesPut200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPut200Response))); // Return statement
         }
     }
 }

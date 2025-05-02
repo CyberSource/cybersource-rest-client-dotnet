@@ -105,12 +105,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'DiscountAmount'
         }
         /// <summary>
-        /// Test the property 'DiscountRate'
+        /// Test the property 'DiscountPercent'
         /// </summary>
         [Test]
-        public void DiscountRateTest()
+        public void DiscountPercentTest()
         {
-            // TODO unit test for the property 'DiscountRate'
+            // TODO unit test for the property 'DiscountPercent'
         }
         /// <summary>
         /// Test the property 'TaxAmount'

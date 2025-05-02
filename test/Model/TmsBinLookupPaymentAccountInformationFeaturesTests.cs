@@ -136,6 +136,86 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'HealthCard'
         }
+        /// <summary>
+        /// Test the property 'SharedBIN'
+        /// </summary>
+        [Test]
+        public void SharedBINTest()
+        {
+            // TODO unit test for the property 'SharedBIN'
+        }
+        /// <summary>
+        /// Test the property 'PosDomesticOnly'
+        /// </summary>
+        [Test]
+        public void PosDomesticOnlyTest()
+        {
+            // TODO unit test for the property 'PosDomesticOnly'
+        }
+        /// <summary>
+        /// Test the property 'GamblingAllowed'
+        /// </summary>
+        [Test]
+        public void GamblingAllowedTest()
+        {
+            // TODO unit test for the property 'GamblingAllowed'
+        }
+        /// <summary>
+        /// Test the property 'CommercialCardLevel2'
+        /// </summary>
+        [Test]
+        public void CommercialCardLevel2Test()
+        {
+            // TODO unit test for the property 'CommercialCardLevel2'
+        }
+        /// <summary>
+        /// Test the property 'CommercialCardLevel3'
+        /// </summary>
+        [Test]
+        public void CommercialCardLevel3Test()
+        {
+            // TODO unit test for the property 'CommercialCardLevel3'
+        }
+        /// <summary>
+        /// Test the property 'ExemptBIN'
+        /// </summary>
+        [Test]
+        public void ExemptBINTest()
+        {
+            // TODO unit test for the property 'ExemptBIN'
+        }
+        /// <summary>
+        /// Test the property 'AccountLevelManagement'
+        /// </summary>
+        [Test]
+        public void AccountLevelManagementTest()
+        {
+            // TODO unit test for the property 'AccountLevelManagement'
+        }
+        /// <summary>
+        /// Test the property 'OnlineGamblingBlock'
+        /// </summary>
+        [Test]
+        public void OnlineGamblingBlockTest()
+        {
+            // TODO unit test for the property 'OnlineGamblingBlock'
+        }
+        /// <summary>
+        /// Test the property 'AutoSubstantiation'
+        /// </summary>
+        [Test]
+        public void AutoSubstantiationTest()
+        {
+            // TODO unit test for the property 'AutoSubstantiation'
+        }
+        /// <summary>
+        /// Test the property 'FlexCredential'
+        /// </summary>
+        [Test]
+        public void FlexCredentialTest()
+        {
+            // TODO unit test for the property 'FlexCredential'
+        }
 
     }
 
