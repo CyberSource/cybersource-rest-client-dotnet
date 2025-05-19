@@ -6,6 +6,11 @@ rd /s /q ..\Model
 rd /s /q ..\docs
 rd /s /q ..\test
 
+setlocal enabledelayedexpansion
+python replaceFieldNamesForPaths.py -i cybersource-rest-spec.json -o cybersource-rest-spec-dotnet.json > replaceFieldLogs.log
+del replaceFieldLogs.log
+endlocal
+
 java -jar swagger-codegen-cli-2.4.38.jar generate -t cybersource-csharp-template -i cybersource-rest-spec-dotnet.json -l csharp -o ../ -c cybersource-csharp-config.json
 
 powershell -Command "Get-ChildItem '..\src\Cybersource\Api\*.cs' -Recurse | ForEach-Object { (Get-Content $_).Replace('Method.POST','Method.Post').Replace('Method.GET','Method.Get').Replace('Method.PATCH','Method.Patch').Replace('Method.DELETE','Method.Delete').Replace('Method.PUT','Method.Put') | Set-Content $_ }"
@@ -116,6 +121,12 @@ del ..\cybersource-rest-client-dotnet.sln
 powershell Rename-Item ..\CyberSource.sln cybersource-rest-client-dotnet.sln
 
 xcopy ..\src\cybersource ..\ /s /e /y /exclude:excludelist.txt
+
+@REM replace sdkLinks fieldName to links for supporting links field name in request/response body
+echo "starting of replacing the links keyword in PblPaymentLinksAllGet200Response.cs model"
+powershell -Command "Set-Content ..\Model\PblPaymentLinksAllGet200Response.cs ((Get-Content ..\Model\PblPaymentLinksAllGet200Response.cs -Raw) -replace '\[DataMember\(Name=\"sdkLinks\", EmitDefaultValue=false\)\]', '[DataMember(Name=\"links\", EmitDefaultValue=false)]')"
+echo "completed the task of replacing the links keyword in PblPaymentLinksAllGet200Response.cs model"
+
 git checkout ..\README.md
 git checkout ..\Api\OAuthApi.cs
 git checkout ..\Model\AccessTokenResponse.cs
