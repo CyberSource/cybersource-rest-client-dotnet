@@ -212,10 +212,10 @@ namespace CyberSource.Client
                 request.AddParameter(param.Key, param.Value);
 
             // add file parameter, if any
-            foreach(var param in fileParams)
-            {
-                request.AddFile(param.Value.Name, param.Value.FileName, param.Value.ContentType);
-            }
+            //foreach(var param in fileParams)
+            //{
+                //request.AddFile(param.Value.Name, param.Value.FileName, param.Value.ContentType);
+            //}
 
             if (postBody != null) // http body (model or byte[]) parameter
             {
@@ -228,6 +228,11 @@ namespace CyberSource.Client
                         {
                             request.AddParameter(param.Key, param.Value, ParameterType.GetOrPost);
                         }
+                    }
+                    else if (contentType.Contains("multipart/form-data"))
+                    {
+                        request.AddBody(postBody, "multipart/form-data");
+                        request.AddHeader("Content-Type", contentType); //required to set in case of file params 
                     }
                     else
                     {
@@ -449,7 +454,7 @@ namespace CyberSource.Client
             RestClientOptions clientOptions = new RestClientOptions(RestClient.Options.BaseUrl)
             {
                 Timeout = TimeSpan.FromMilliseconds(Configuration.Timeout),
-            };
+            };  
 
             // RestClient.ClearHandlers();
 
@@ -510,7 +515,7 @@ namespace CyberSource.Client
             }
 
             logger.Debug($"HTTP Response Headers :\n{logUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
-            
+           
             if (!string.IsNullOrEmpty(httpResponseData))
             {
                 logger.Debug($"HTTP Response Body :\n{logUtility.MaskSensitiveData(httpResponseData)}");
@@ -561,7 +566,7 @@ namespace CyberSource.Client
             };
 
             logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
-
+            
             clientOptions.UserAgent = Configuration.UserAgent;
             RestClient = new RestClient(clientOptions);
 
@@ -955,6 +960,7 @@ namespace CyberSource.Client
 
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
+			
             if (!string.IsNullOrWhiteSpace(merchantConfig.IntermediateHost))
             {
                 //change with intermediate hostname if present

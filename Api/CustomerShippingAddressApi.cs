@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -518,7 +519,13 @@ namespace CyberSource.Api
             {
                 localVarPostBody = null;
             }
-
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
+            }
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "DeleteCustomerShippingAddress,DeleteCustomerShippingAddressAsync,DeleteCustomerShippingAddressWithHttpInfo,DeleteCustomerShippingAddressAsyncWithHttpInfo"))
@@ -645,6 +652,12 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = null;
+            }
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
             bool isMLESupportedByCybsForApi = false;
@@ -775,7 +788,13 @@ namespace CyberSource.Api
             {
                 localVarPostBody = null;
             }
-
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
+            }
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetCustomerShippingAddress,GetCustomerShippingAddressAsync,GetCustomerShippingAddressWithHttpInfo,GetCustomerShippingAddressAsyncWithHttpInfo"))
@@ -904,6 +923,12 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = null;
+            }
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
             bool isMLESupportedByCybsForApi = false;
@@ -1034,7 +1059,13 @@ namespace CyberSource.Api
             {
                 localVarPostBody = null;
             }
-
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
+            }
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetCustomerShippingAddressesList,GetCustomerShippingAddressesListAsync,GetCustomerShippingAddressesListWithHttpInfo,GetCustomerShippingAddressesListAsyncWithHttpInfo"))
@@ -1164,6 +1195,12 @@ namespace CyberSource.Api
             else
             {
                 localVarPostBody = null;
+            }
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
             bool isMLESupportedByCybsForApi = false;
@@ -1309,8 +1346,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = patchCustomerShippingAddressRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PatchCustomersShippingAddress,PatchCustomersShippingAddressAsync,PatchCustomersShippingAddressWithHttpInfo,PatchCustomersShippingAddressAsyncWithHttpInfo"))
@@ -1583,8 +1619,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = postCustomerShippingAddressRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostCustomerShippingAddress,PostCustomerShippingAddressAsync,PostCustomerShippingAddressWithHttpInfo,PostCustomerShippingAddressAsyncWithHttpInfo"))
