@@ -706,7 +706,19 @@ namespace CyberSource.Client
             // at this point, it must be a model (json)
             try
             {
-                return JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
+                if (type == typeof(Model.PblPaymentLinksAllGet200Response))
+                {
+                    JsonSerializerSettings customSerializerSettings = new JsonSerializerSettings
+                    {
+                        ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                        ContractResolver = new Utilities.CustomContractResolver()
+                    };
+                    return JsonConvert.DeserializeObject(response.Content, type, customSerializerSettings);
+                }
+                else
+                {
+                    return JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
+                }
             }
             catch (Exception e)
             {
