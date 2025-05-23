@@ -33,67 +33,45 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse401" /> class.
         /// </summary>
-        /// <param name="Links">Links.</param>
-        /// <param name="Code">Valid Values:   * FORBIDDEN_RESPONSE   * VALIDATION_ERROR   * UNSUPPORTED_MEDIA_TYPE   * MALFORMED_PAYLOAD_ERROR   * SERVER_ERROR .</param>
-        /// <param name="CorrelationId">CorrelationId.</param>
-        /// <param name="Detail">Detail.</param>
-        /// <param name="Fields">Fields.</param>
-        /// <param name="LocalizationKey">Valid Values:   * cybsapi.forbidden.response   * cybsapi.validation.error   * cybsapi.media.notsupported .</param>
-        /// <param name="Message">Message.</param>
-        public InlineResponse401(InlineResponse401Links Links = default(InlineResponse401Links), string Code = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse401Fields> Fields = default(List<InlineResponse401Fields>), string LocalizationKey = default(string), string Message = default(string))
+        /// <param name="Status">The status of the submitted request.   Possible values: - UNAUTHORIZED.</param>
+        /// <param name="Message">The detail message related to the status and reason listed above..</param>
+        /// <param name="Code">An optional short string which identifies the exact error..</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        public InlineResponse401(string Status = default(string), string Message = default(string), string Code = default(string), string SubmitTimeUtc = default(string))
         {
-            this.Links = Links;
-            this.Code = Code;
-            this.CorrelationId = CorrelationId;
-            this.Detail = Detail;
-            this.Fields = Fields;
-            this.LocalizationKey = LocalizationKey;
+            this.Status = Status;
             this.Message = Message;
+            this.Code = Code;
+            this.SubmitTimeUtc = SubmitTimeUtc;
         }
         
         /// <summary>
-        /// Gets or Sets Links
+        /// The status of the submitted request.   Possible values: - UNAUTHORIZED
         /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public InlineResponse401Links Links { get; set; }
+        /// <value>The status of the submitted request.   Possible values: - UNAUTHORIZED</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
-        /// Valid Values:   * FORBIDDEN_RESPONSE   * VALIDATION_ERROR   * UNSUPPORTED_MEDIA_TYPE   * MALFORMED_PAYLOAD_ERROR   * SERVER_ERROR 
+        /// The detail message related to the status and reason listed above.
         /// </summary>
-        /// <value>Valid Values:   * FORBIDDEN_RESPONSE   * VALIDATION_ERROR   * UNSUPPORTED_MEDIA_TYPE   * MALFORMED_PAYLOAD_ERROR   * SERVER_ERROR </value>
+        /// <value>The detail message related to the status and reason listed above.</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
+
+        /// <summary>
+        /// An optional short string which identifies the exact error.
+        /// </summary>
+        /// <value>An optional short string which identifies the exact error.</value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets CorrelationId
+        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
         /// </summary>
-        [DataMember(Name="correlationId", EmitDefaultValue=false)]
-        public string CorrelationId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Detail
-        /// </summary>
-        [DataMember(Name="detail", EmitDefaultValue=false)]
-        public string Detail { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Fields
-        /// </summary>
-        [DataMember(Name="fields", EmitDefaultValue=false)]
-        public List<InlineResponse401Fields> Fields { get; set; }
-
-        /// <summary>
-        /// Valid Values:   * cybsapi.forbidden.response   * cybsapi.validation.error   * cybsapi.media.notsupported 
-        /// </summary>
-        /// <value>Valid Values:   * cybsapi.forbidden.response   * cybsapi.validation.error   * cybsapi.media.notsupported </value>
-        [DataMember(Name="localizationKey", EmitDefaultValue=false)]
-        public string LocalizationKey { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Message
-        /// </summary>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
+        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
+        public string SubmitTimeUtc { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -103,13 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse401 {\n");
-            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
-            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
-            if (CorrelationId != null) sb.Append("  CorrelationId: ").Append(CorrelationId).Append("\n");
-            if (Detail != null) sb.Append("  Detail: ").Append(Detail).Append("\n");
-            if (Fields != null) sb.Append("  Fields: ").Append(Fields).Append("\n");
-            if (LocalizationKey != null) sb.Append("  LocalizationKey: ").Append(LocalizationKey).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,9 +122,14 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.Equals(other.Links)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.Message == other.Message ||
+                    this.Message != null &&
+                    this.Message.Equals(other.Message)
                 ) && 
                 (
                     this.Code == other.Code ||
@@ -157,29 +137,9 @@ namespace CyberSource.Model
                     this.Code.Equals(other.Code)
                 ) && 
                 (
-                    this.CorrelationId == other.CorrelationId ||
-                    this.CorrelationId != null &&
-                    this.CorrelationId.Equals(other.CorrelationId)
-                ) && 
-                (
-                    this.Detail == other.Detail ||
-                    this.Detail != null &&
-                    this.Detail.Equals(other.Detail)
-                ) && 
-                (
-                    this.Fields == other.Fields ||
-                    this.Fields != null &&
-                    this.Fields.SequenceEqual(other.Fields)
-                ) && 
-                (
-                    this.LocalizationKey == other.LocalizationKey ||
-                    this.LocalizationKey != null &&
-                    this.LocalizationKey.Equals(other.LocalizationKey)
-                ) && 
-                (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
+                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
+                    this.SubmitTimeUtc != null &&
+                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
                 );
         }
 
@@ -194,20 +154,14 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
-                if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
-                if (this.CorrelationId != null)
-                    hash = hash * 59 + this.CorrelationId.GetHashCode();
-                if (this.Detail != null)
-                    hash = hash * 59 + this.Detail.GetHashCode();
-                if (this.Fields != null)
-                    hash = hash * 59 + this.Fields.GetHashCode();
-                if (this.LocalizationKey != null)
-                    hash = hash * 59 + this.LocalizationKey.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
+                if (this.SubmitTimeUtc != null)
+                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 return hash;
             }
         }

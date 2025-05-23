@@ -42,12 +42,16 @@ namespace CyberSource.Model
         /// <param name="PlanId">Plan Id. Use Plan Id from Create Plan Service. .</param>
         /// <param name="Name">Subscription Name  (required).</param>
         /// <param name="StartDate">Start date of the Subscription  Start date must be in UTC. Format: YYYY-MM-DDThh:mm:ssZ The T separates the date and the time. The Z indicates UTC.  Note: Subscription starts on the day provided in UTC.  **Example** 2022-08-11T22:47:57Z equals August 11, 2022, at 22:47:57 (10:47:57 p.m.). Subscription will start on August 11,2022.  (required).</param>
-        public Rbsv1subscriptionsSubscriptionInformation(string Code = default(string), string PlanId = default(string), string Name = default(string), string StartDate = default(string))
+        /// <param name="OriginalTransactionId">Network transaction identifier that was returned in the payment response field _processorInformation.transactionId_ in the reply message for the original subscription-initializing payment. .</param>
+        /// <param name="OriginalTransactionAuthorizedAmount">Amount of the original subscription-initializing payment.  *Required when using a Diners or Discover card*. .</param>
+        public Rbsv1subscriptionsSubscriptionInformation(string Code = default(string), string PlanId = default(string), string Name = default(string), string StartDate = default(string), string OriginalTransactionId = default(string), string OriginalTransactionAuthorizedAmount = default(string))
         {
             this.Code = Code;
             this.PlanId = PlanId;
             this.Name = Name;
             this.StartDate = StartDate;
+            this.OriginalTransactionId = OriginalTransactionId;
+            this.OriginalTransactionAuthorizedAmount = OriginalTransactionAuthorizedAmount;
         }
         
         /// <summary>
@@ -79,6 +83,20 @@ namespace CyberSource.Model
         public string StartDate { get; set; }
 
         /// <summary>
+        /// Network transaction identifier that was returned in the payment response field _processorInformation.transactionId_ in the reply message for the original subscription-initializing payment. 
+        /// </summary>
+        /// <value>Network transaction identifier that was returned in the payment response field _processorInformation.transactionId_ in the reply message for the original subscription-initializing payment. </value>
+        [DataMember(Name="originalTransactionId", EmitDefaultValue=false)]
+        public string OriginalTransactionId { get; set; }
+
+        /// <summary>
+        /// Amount of the original subscription-initializing payment.  *Required when using a Diners or Discover card*. 
+        /// </summary>
+        /// <value>Amount of the original subscription-initializing payment.  *Required when using a Diners or Discover card*. </value>
+        [DataMember(Name="originalTransactionAuthorizedAmount", EmitDefaultValue=false)]
+        public string OriginalTransactionAuthorizedAmount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +108,8 @@ namespace CyberSource.Model
             if (PlanId != null) sb.Append("  PlanId: ").Append(PlanId).Append("\n");
             if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
             if (StartDate != null) sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            if (OriginalTransactionId != null) sb.Append("  OriginalTransactionId: ").Append(OriginalTransactionId).Append("\n");
+            if (OriginalTransactionAuthorizedAmount != null) sb.Append("  OriginalTransactionAuthorizedAmount: ").Append(OriginalTransactionAuthorizedAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,6 +165,16 @@ namespace CyberSource.Model
                     this.StartDate == other.StartDate ||
                     this.StartDate != null &&
                     this.StartDate.Equals(other.StartDate)
+                ) && 
+                (
+                    this.OriginalTransactionId == other.OriginalTransactionId ||
+                    this.OriginalTransactionId != null &&
+                    this.OriginalTransactionId.Equals(other.OriginalTransactionId)
+                ) && 
+                (
+                    this.OriginalTransactionAuthorizedAmount == other.OriginalTransactionAuthorizedAmount ||
+                    this.OriginalTransactionAuthorizedAmount != null &&
+                    this.OriginalTransactionAuthorizedAmount.Equals(other.OriginalTransactionAuthorizedAmount)
                 );
         }
 
@@ -167,6 +197,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Name.GetHashCode();
                 if (this.StartDate != null)
                     hash = hash * 59 + this.StartDate.GetHashCode();
+                if (this.OriginalTransactionId != null)
+                    hash = hash * 59 + this.OriginalTransactionId.GetHashCode();
+                if (this.OriginalTransactionAuthorizedAmount != null)
+                    hash = hash * 59 + this.OriginalTransactionAuthorizedAmount.GetHashCode();
                 return hash;
             }
         }

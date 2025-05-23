@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getbatchreport"></a>
 # **GetBatchReport**
-> InlineResponse2007 GetBatchReport (string batchId)
+> InlineResponse2009 GetBatchReport (string batchId)
 
 Retrieve a Batch Report
 
@@ -38,7 +38,7 @@ namespace Example
             try
             {
                 // Retrieve a Batch Report
-                InlineResponse2007 result = apiInstance.GetBatchReport(batchId);
+                InlineResponse2009 result = apiInstance.GetBatchReport(batchId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ No authorization required
 
 <a name="getbatchstatus"></a>
 # **GetBatchStatus**
-> InlineResponse2006 GetBatchStatus (string batchId)
+> InlineResponse2008 GetBatchStatus (string batchId)
 
 Retrieve a Batch Status
 
@@ -99,7 +99,7 @@ namespace Example
             try
             {
                 // Retrieve a Batch Status
-                InlineResponse2006 result = apiInstance.GetBatchStatus(batchId);
+                InlineResponse2008 result = apiInstance.GetBatchStatus(batchId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ No authorization required
 
 <a name="getbatcheslist"></a>
 # **GetBatchesList**
-> InlineResponse2005 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
+> InlineResponse2007 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
 
 List Batches
 
@@ -163,7 +163,7 @@ namespace Example
             try
             {
                 // List Batches
-                InlineResponse2005 result = apiInstance.GetBatchesList(offset, limit, fromDate, toDate);
+                InlineResponse2007 result = apiInstance.GetBatchesList(offset, limit, fromDate, toDate);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 

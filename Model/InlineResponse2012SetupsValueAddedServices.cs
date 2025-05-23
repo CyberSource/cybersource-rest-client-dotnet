@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Reporting">Reporting.</param>
         /// <param name="TransactionSearch">TransactionSearch.</param>
-        public InlineResponse2012SetupsValueAddedServices(InlineResponse2012SetupsPaymentsDigitalPayments Reporting = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsDigitalPayments TransactionSearch = default(InlineResponse2012SetupsPaymentsDigitalPayments))
+        /// <param name="BankAccountValidation">BankAccountValidation.</param>
+        public InlineResponse2012SetupsValueAddedServices(InlineResponse2012SetupsPaymentsDigitalPayments Reporting = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsDigitalPayments TransactionSearch = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsDigitalPayments BankAccountValidation = default(InlineResponse2012SetupsPaymentsDigitalPayments))
         {
             this.Reporting = Reporting;
             this.TransactionSearch = TransactionSearch;
+            this.BankAccountValidation = BankAccountValidation;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         public InlineResponse2012SetupsPaymentsDigitalPayments TransactionSearch { get; set; }
 
         /// <summary>
+        /// Gets or Sets BankAccountValidation
+        /// </summary>
+        [DataMember(Name="bankAccountValidation", EmitDefaultValue=false)]
+        public InlineResponse2012SetupsPaymentsDigitalPayments BankAccountValidation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace CyberSource.Model
             sb.Append("class InlineResponse2012SetupsValueAddedServices {\n");
             if (Reporting != null) sb.Append("  Reporting: ").Append(Reporting).Append("\n");
             if (TransactionSearch != null) sb.Append("  TransactionSearch: ").Append(TransactionSearch).Append("\n");
+            if (BankAccountValidation != null) sb.Append("  BankAccountValidation: ").Append(BankAccountValidation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace CyberSource.Model
                     this.TransactionSearch == other.TransactionSearch ||
                     this.TransactionSearch != null &&
                     this.TransactionSearch.Equals(other.TransactionSearch)
+                ) && 
+                (
+                    this.BankAccountValidation == other.BankAccountValidation ||
+                    this.BankAccountValidation != null &&
+                    this.BankAccountValidation.Equals(other.BankAccountValidation)
                 );
         }
 
@@ -126,6 +140,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Reporting.GetHashCode();
                 if (this.TransactionSearch != null)
                     hash = hash * 59 + this.TransactionSearch.GetHashCode();
+                if (this.BankAccountValidation != null)
+                    hash = hash * 59 + this.BankAccountValidation.GetHashCode();
                 return hash;
             }
         }

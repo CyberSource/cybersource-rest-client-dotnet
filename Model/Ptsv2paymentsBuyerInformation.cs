@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="PersonalIdentification">PersonalIdentification.</param>
         /// <param name="HashedPassword">The merchant&#39;s password that CyberSource hashes and stores as a hashed password. .</param>
         /// <param name="Gender">Customer&#39;s gender. Possible values are F (female), M (male),O (other)..</param>
-        /// <param name="Language">language setting of the user.</param>
+        /// <param name="Language">language setting of the user.  Supports 2-character language codes (e.g., en, fr) and 5-character locale values (e.g., en-US, fr-CA). .</param>
         /// <param name="NoteToSeller">Note to the recipient of the funds in this transaction.</param>
         /// <param name="MobilePhone">Cardholder&#39;s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
         /// <param name="WalletId">The one-time identification code of the Alipay wallet user.  It is scanned from the barcode that is shown by the mobile application. .</param>
@@ -108,9 +108,9 @@ namespace CyberSource.Model
         public string Gender { get; set; }
 
         /// <summary>
-        /// language setting of the user
+        /// language setting of the user.  Supports 2-character language codes (e.g., en, fr) and 5-character locale values (e.g., en-US, fr-CA). 
         /// </summary>
-        /// <value>language setting of the user</value>
+        /// <value>language setting of the user.  Supports 2-character language codes (e.g., en, fr) and 5-character locale values (e.g., en-US, fr-CA). </value>
         [DataMember(Name="language", EmitDefaultValue=false)]
         public string Language { get; set; }
 

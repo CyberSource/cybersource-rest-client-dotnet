@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Rbsv1subscriptionsProcessingInformationAuthorizationOptionsInitiator" /> class.
         /// </summary>
-        /// <param name="Type">This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** .</param>
+        /// <param name="Type">&gt; This field is ignored when you provide the &#x60;subscriptionInformation.originalTransactionId&#x60; or update the subscription.  This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** .</param>
         public Rbsv1subscriptionsProcessingInformationAuthorizationOptionsInitiator(string Type = default(string))
         {
             this.Type = Type;
         }
         
         /// <summary>
-        /// This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** 
+        /// &gt; This field is ignored when you provide the &#x60;subscriptionInformation.originalTransactionId&#x60; or update the subscription.  This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** 
         /// </summary>
-        /// <value>This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** </value>
+        /// <value>&gt; This field is ignored when you provide the &#x60;subscriptionInformation.originalTransactionId&#x60; or update the subscription.  This field indicates whether the transaction is a merchant-initiated transaction or customer-initiated transaction.  Valid values: - **customer** - **merchant** </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

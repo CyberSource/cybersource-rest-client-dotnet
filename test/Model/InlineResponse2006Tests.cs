@@ -65,84 +65,52 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Links'
+        /// Test the property 'TotalCount'
         /// </summary>
         [Test]
-        public void LinksTest()
+        public void TotalCountTest()
         {
-            // TODO unit test for the property 'Links'
+            // TODO unit test for the property 'TotalCount'
         }
         /// <summary>
-        /// Test the property 'BatchId'
+        /// Test the property 'Offset'
         /// </summary>
         [Test]
-        public void BatchIdTest()
+        public void OffsetTest()
         {
-            // TODO unit test for the property 'BatchId'
+            // TODO unit test for the property 'Offset'
         }
         /// <summary>
-        /// Test the property 'BatchCreatedDate'
+        /// Test the property 'Limit'
         /// </summary>
         [Test]
-        public void BatchCreatedDateTest()
+        public void LimitTest()
         {
-            // TODO unit test for the property 'BatchCreatedDate'
+            // TODO unit test for the property 'Limit'
         }
         /// <summary>
-        /// Test the property 'BatchSource'
+        /// Test the property 'Sort'
         /// </summary>
         [Test]
-        public void BatchSourceTest()
+        public void SortTest()
         {
-            // TODO unit test for the property 'BatchSource'
+            // TODO unit test for the property 'Sort'
         }
         /// <summary>
-        /// Test the property 'MerchantReference'
+        /// Test the property 'Count'
         /// </summary>
         [Test]
-        public void MerchantReferenceTest()
+        public void CountTest()
         {
-            // TODO unit test for the property 'MerchantReference'
+            // TODO unit test for the property 'Count'
         }
         /// <summary>
-        /// Test the property 'BatchCaEndpoints'
+        /// Test the property 'Devices'
         /// </summary>
         [Test]
-        public void BatchCaEndpointsTest()
+        public void DevicesTest()
         {
-            // TODO unit test for the property 'BatchCaEndpoints'
-        }
-        /// <summary>
-        /// Test the property 'Status'
-        /// </summary>
-        [Test]
-        public void StatusTest()
-        {
-            // TODO unit test for the property 'Status'
-        }
-        /// <summary>
-        /// Test the property 'Totals'
-        /// </summary>
-        [Test]
-        public void TotalsTest()
-        {
-            // TODO unit test for the property 'Totals'
-        }
-        /// <summary>
-        /// Test the property 'Billing'
-        /// </summary>
-        [Test]
-        public void BillingTest()
-        {
-            // TODO unit test for the property 'Billing'
-        }
-        /// <summary>
-        /// Test the property 'Description'
-        /// </summary>
-        [Test]
-        public void DescriptionTest()
-        {
-            // TODO unit test for the property 'Description'
+            // TODO unit test for the property 'Devices'
         }
 
     }

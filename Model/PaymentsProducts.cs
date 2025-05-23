@@ -34,6 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PaymentsProducts" /> class.
         /// </summary>
         /// <param name="CardProcessing">CardProcessing.</param>
+        /// <param name="AlternativePaymentMethods">AlternativePaymentMethods.</param>
         /// <param name="CardPresentConnect">CardPresentConnect.</param>
         /// <param name="CybsReadyTerminal">CybsReadyTerminal.</param>
         /// <param name="ECheck">ECheck.</param>
@@ -52,9 +53,10 @@ namespace CyberSource.Model
         /// <param name="UnifiedCheckout">UnifiedCheckout.</param>
         /// <param name="ReceivablesManager">ReceivablesManager.</param>
         /// <param name="ServiceFee">ServiceFee.</param>
-        public PaymentsProducts(PaymentsProductsCardProcessing CardProcessing = default(PaymentsProductsCardProcessing), PaymentsProductsCardPresentConnect CardPresentConnect = default(PaymentsProductsCardPresentConnect), PaymentsProductsCybsReadyTerminal CybsReadyTerminal = default(PaymentsProductsCybsReadyTerminal), PaymentsProductsECheck ECheck = default(PaymentsProductsECheck), PaymentsProductsPayerAuthentication PayerAuthentication = default(PaymentsProductsPayerAuthentication), PaymentsProductsDigitalPayments DigitalPayments = default(PaymentsProductsDigitalPayments), PaymentsProductsSecureAcceptance SecureAcceptance = default(PaymentsProductsSecureAcceptance), PaymentsProductsVirtualTerminal VirtualTerminal = default(PaymentsProductsVirtualTerminal), PaymentsProductsCurrencyConversion CurrencyConversion = default(PaymentsProductsCurrencyConversion), PaymentsProductsTax Tax = default(PaymentsProductsTax), PaymentsProductsTax CustomerInvoicing = default(PaymentsProductsTax), PaymentsProductsTax RecurringBilling = default(PaymentsProductsTax), PaymentsProductsTax PaymentOrchestration = default(PaymentsProductsTax), PaymentsProductsPayouts Payouts = default(PaymentsProductsPayouts), PaymentsProductsDifferentialFee DifferentialFee = default(PaymentsProductsDifferentialFee), PaymentsProductsTax PayByLink = default(PaymentsProductsTax), PaymentsProductsTax UnifiedCheckout = default(PaymentsProductsTax), PaymentsProductsTax ReceivablesManager = default(PaymentsProductsTax), PaymentsProductsServiceFee ServiceFee = default(PaymentsProductsServiceFee))
+        public PaymentsProducts(PaymentsProductsCardProcessing CardProcessing = default(PaymentsProductsCardProcessing), PaymentsProductsAlternativePaymentMethods AlternativePaymentMethods = default(PaymentsProductsAlternativePaymentMethods), PaymentsProductsCardPresentConnect CardPresentConnect = default(PaymentsProductsCardPresentConnect), PaymentsProductsCybsReadyTerminal CybsReadyTerminal = default(PaymentsProductsCybsReadyTerminal), PaymentsProductsECheck ECheck = default(PaymentsProductsECheck), PaymentsProductsPayerAuthentication PayerAuthentication = default(PaymentsProductsPayerAuthentication), PaymentsProductsDigitalPayments DigitalPayments = default(PaymentsProductsDigitalPayments), PaymentsProductsSecureAcceptance SecureAcceptance = default(PaymentsProductsSecureAcceptance), PaymentsProductsVirtualTerminal VirtualTerminal = default(PaymentsProductsVirtualTerminal), PaymentsProductsCurrencyConversion CurrencyConversion = default(PaymentsProductsCurrencyConversion), PaymentsProductsTax Tax = default(PaymentsProductsTax), PaymentsProductsTax CustomerInvoicing = default(PaymentsProductsTax), PaymentsProductsTax RecurringBilling = default(PaymentsProductsTax), PaymentsProductsTax PaymentOrchestration = default(PaymentsProductsTax), PaymentsProductsPayouts Payouts = default(PaymentsProductsPayouts), PaymentsProductsDifferentialFee DifferentialFee = default(PaymentsProductsDifferentialFee), PaymentsProductsTax PayByLink = default(PaymentsProductsTax), PaymentsProductsTax UnifiedCheckout = default(PaymentsProductsTax), PaymentsProductsTax ReceivablesManager = default(PaymentsProductsTax), PaymentsProductsServiceFee ServiceFee = default(PaymentsProductsServiceFee))
         {
             this.CardProcessing = CardProcessing;
+            this.AlternativePaymentMethods = AlternativePaymentMethods;
             this.CardPresentConnect = CardPresentConnect;
             this.CybsReadyTerminal = CybsReadyTerminal;
             this.ECheck = ECheck;
@@ -80,6 +82,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="cardProcessing", EmitDefaultValue=false)]
         public PaymentsProductsCardProcessing CardProcessing { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AlternativePaymentMethods
+        /// </summary>
+        [DataMember(Name="alternativePaymentMethods", EmitDefaultValue=false)]
+        public PaymentsProductsAlternativePaymentMethods AlternativePaymentMethods { get; set; }
 
         /// <summary>
         /// Gets or Sets CardPresentConnect
@@ -198,6 +206,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsProducts {\n");
             if (CardProcessing != null) sb.Append("  CardProcessing: ").Append(CardProcessing).Append("\n");
+            if (AlternativePaymentMethods != null) sb.Append("  AlternativePaymentMethods: ").Append(AlternativePaymentMethods).Append("\n");
             if (CardPresentConnect != null) sb.Append("  CardPresentConnect: ").Append(CardPresentConnect).Append("\n");
             if (CybsReadyTerminal != null) sb.Append("  CybsReadyTerminal: ").Append(CybsReadyTerminal).Append("\n");
             if (ECheck != null) sb.Append("  ECheck: ").Append(ECheck).Append("\n");
@@ -256,6 +265,11 @@ namespace CyberSource.Model
                     this.CardProcessing == other.CardProcessing ||
                     this.CardProcessing != null &&
                     this.CardProcessing.Equals(other.CardProcessing)
+                ) && 
+                (
+                    this.AlternativePaymentMethods == other.AlternativePaymentMethods ||
+                    this.AlternativePaymentMethods != null &&
+                    this.AlternativePaymentMethods.Equals(other.AlternativePaymentMethods)
                 ) && 
                 (
                     this.CardPresentConnect == other.CardPresentConnect ||
@@ -362,6 +376,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.CardProcessing != null)
                     hash = hash * 59 + this.CardProcessing.GetHashCode();
+                if (this.AlternativePaymentMethods != null)
+                    hash = hash * 59 + this.AlternativePaymentMethods.GetHashCode();
                 if (this.CardPresentConnect != null)
                     hash = hash * 59 + this.CardPresentConnect.GetHashCode();
                 if (this.CybsReadyTerminal != null)

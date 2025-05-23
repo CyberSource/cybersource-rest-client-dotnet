@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="DateOfBirth">Recipient&#39;s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
         /// <param name="Gender">Customer&#39;s gender. Possible values are F (female), M (male),O (other)..</param>
-        /// <param name="Language">language setting of the user.</param>
+        /// <param name="Language">language setting of the user.  Supports 2-character language codes (e.g., en, fr) and 5-character locale values (e.g., en-US, fr-CA). .</param>
         /// <param name="NoteToSeller">Note to the recipient of the funds in this transaction.</param>
         /// <param name="PersonalIdentification">PersonalIdentification.</param>
         public Ptsv2paymentreferencesBuyerInformation(string DateOfBirth = default(string), string Gender = default(string), string Language = default(string), string NoteToSeller = default(string), List<Ptsv2paymentsidcapturesBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsidcapturesBuyerInformationPersonalIdentification>))
@@ -62,9 +62,9 @@ namespace CyberSource.Model
         public string Gender { get; set; }
 
         /// <summary>
-        /// language setting of the user
+        /// language setting of the user.  Supports 2-character language codes (e.g., en, fr) and 5-character locale values (e.g., en-US, fr-CA). 
         /// </summary>
-        /// <value>language setting of the user</value>
+        /// <value>language setting of the user.  Supports 2-character language codes (e.g., en, fr) and 5-character locale values (e.g., en-US, fr-CA). </value>
         [DataMember(Name="language", EmitDefaultValue=false)]
         public string Language { get; set; }
 

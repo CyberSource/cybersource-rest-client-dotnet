@@ -33,94 +33,65 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2007" /> class.
         /// </summary>
-        /// <param name="Version">Version.</param>
-        /// <param name="ReportCreatedDate">ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ.</param>
-        /// <param name="BatchId">Unique identification number assigned to the submitted request..</param>
-        /// <param name="BatchSource">Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE .</param>
-        /// <param name="BatchCaEndpoints">BatchCaEndpoints.</param>
-        /// <param name="BatchCreatedDate">ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ.</param>
-        /// <param name="MerchantReference">Reference used by merchant to identify batch..</param>
-        /// <param name="Totals">Totals.</param>
-        /// <param name="Billing">Billing.</param>
-        /// <param name="Records">Records.</param>
-        public InlineResponse2007(string Version = default(string), string ReportCreatedDate = default(string), string BatchId = default(string), string BatchSource = default(string), string BatchCaEndpoints = default(string), string BatchCreatedDate = default(string), string MerchantReference = default(string), InlineResponse2005EmbeddedTotals Totals = default(InlineResponse2005EmbeddedTotals), InlineResponse2006Billing Billing = default(InlineResponse2006Billing), List<InlineResponse2007Records> Records = default(List<InlineResponse2007Records>))
+        /// <param name="Links">Links.</param>
+        /// <param name="Object">Object.</param>
+        /// <param name="Offset">Offset.</param>
+        /// <param name="Limit">Limit.</param>
+        /// <param name="Count">Count.</param>
+        /// <param name="Total">Total.</param>
+        /// <param name="Embedded">Embedded.</param>
+        public InlineResponse2007(List<InlineResponse2007Links> Links = default(List<InlineResponse2007Links>), string Object = default(string), int? Offset = default(int?), int? Limit = default(int?), int? Count = default(int?), int? Total = default(int?), InlineResponse2007Embedded Embedded = default(InlineResponse2007Embedded))
         {
-            this.Version = Version;
-            this.ReportCreatedDate = ReportCreatedDate;
-            this.BatchId = BatchId;
-            this.BatchSource = BatchSource;
-            this.BatchCaEndpoints = BatchCaEndpoints;
-            this.BatchCreatedDate = BatchCreatedDate;
-            this.MerchantReference = MerchantReference;
-            this.Totals = Totals;
-            this.Billing = Billing;
-            this.Records = Records;
+            this.Links = Links;
+            this.Object = Object;
+            this.Offset = Offset;
+            this.Limit = Limit;
+            this.Count = Count;
+            this.Total = Total;
+            this.Embedded = Embedded;
         }
         
         /// <summary>
-        /// Gets or Sets Version
+        /// Gets or Sets Links
         /// </summary>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public string Version { get; set; }
+        [DataMember(Name="_links", EmitDefaultValue=false)]
+        public List<InlineResponse2007Links> Links { get; set; }
 
         /// <summary>
-        /// ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ
+        /// Gets or Sets Object
         /// </summary>
-        /// <value>ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ</value>
-        [DataMember(Name="reportCreatedDate", EmitDefaultValue=false)]
-        public string ReportCreatedDate { get; set; }
+        [DataMember(Name="object", EmitDefaultValue=false)]
+        public string Object { get; set; }
 
         /// <summary>
-        /// Unique identification number assigned to the submitted request.
+        /// Gets or Sets Offset
         /// </summary>
-        /// <value>Unique identification number assigned to the submitted request.</value>
-        [DataMember(Name="batchId", EmitDefaultValue=false)]
-        public string BatchId { get; set; }
+        [DataMember(Name="offset", EmitDefaultValue=false)]
+        public int? Offset { get; set; }
 
         /// <summary>
-        /// Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE 
+        /// Gets or Sets Limit
         /// </summary>
-        /// <value>Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE </value>
-        [DataMember(Name="batchSource", EmitDefaultValue=false)]
-        public string BatchSource { get; set; }
+        [DataMember(Name="limit", EmitDefaultValue=false)]
+        public int? Limit { get; set; }
 
         /// <summary>
-        /// Gets or Sets BatchCaEndpoints
+        /// Gets or Sets Count
         /// </summary>
-        [DataMember(Name="batchCaEndpoints", EmitDefaultValue=false)]
-        public string BatchCaEndpoints { get; set; }
+        [DataMember(Name="count", EmitDefaultValue=false)]
+        public int? Count { get; set; }
 
         /// <summary>
-        /// ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ
+        /// Gets or Sets Total
         /// </summary>
-        /// <value>ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ</value>
-        [DataMember(Name="batchCreatedDate", EmitDefaultValue=false)]
-        public string BatchCreatedDate { get; set; }
+        [DataMember(Name="total", EmitDefaultValue=false)]
+        public int? Total { get; set; }
 
         /// <summary>
-        /// Reference used by merchant to identify batch.
+        /// Gets or Sets Embedded
         /// </summary>
-        /// <value>Reference used by merchant to identify batch.</value>
-        [DataMember(Name="merchantReference", EmitDefaultValue=false)]
-        public string MerchantReference { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Totals
-        /// </summary>
-        [DataMember(Name="totals", EmitDefaultValue=false)]
-        public InlineResponse2005EmbeddedTotals Totals { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Billing
-        /// </summary>
-        [DataMember(Name="billing", EmitDefaultValue=false)]
-        public InlineResponse2006Billing Billing { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Records
-        /// </summary>
-        [DataMember(Name="records", EmitDefaultValue=false)]
-        public List<InlineResponse2007Records> Records { get; set; }
+        [DataMember(Name="_embedded", EmitDefaultValue=false)]
+        public InlineResponse2007Embedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -130,16 +101,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2007 {\n");
-            if (Version != null) sb.Append("  Version: ").Append(Version).Append("\n");
-            if (ReportCreatedDate != null) sb.Append("  ReportCreatedDate: ").Append(ReportCreatedDate).Append("\n");
-            if (BatchId != null) sb.Append("  BatchId: ").Append(BatchId).Append("\n");
-            if (BatchSource != null) sb.Append("  BatchSource: ").Append(BatchSource).Append("\n");
-            if (BatchCaEndpoints != null) sb.Append("  BatchCaEndpoints: ").Append(BatchCaEndpoints).Append("\n");
-            if (BatchCreatedDate != null) sb.Append("  BatchCreatedDate: ").Append(BatchCreatedDate).Append("\n");
-            if (MerchantReference != null) sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
-            if (Totals != null) sb.Append("  Totals: ").Append(Totals).Append("\n");
-            if (Billing != null) sb.Append("  Billing: ").Append(Billing).Append("\n");
-            if (Records != null) sb.Append("  Records: ").Append(Records).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Object != null) sb.Append("  Object: ").Append(Object).Append("\n");
+            if (Offset != null) sb.Append("  Offset: ").Append(Offset).Append("\n");
+            if (Limit != null) sb.Append("  Limit: ").Append(Limit).Append("\n");
+            if (Count != null) sb.Append("  Count: ").Append(Count).Append("\n");
+            if (Total != null) sb.Append("  Total: ").Append(Total).Append("\n");
+            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,54 +145,39 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Version == other.Version ||
-                    this.Version != null &&
-                    this.Version.Equals(other.Version)
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.SequenceEqual(other.Links)
                 ) && 
                 (
-                    this.ReportCreatedDate == other.ReportCreatedDate ||
-                    this.ReportCreatedDate != null &&
-                    this.ReportCreatedDate.Equals(other.ReportCreatedDate)
+                    this.Object == other.Object ||
+                    this.Object != null &&
+                    this.Object.Equals(other.Object)
                 ) && 
                 (
-                    this.BatchId == other.BatchId ||
-                    this.BatchId != null &&
-                    this.BatchId.Equals(other.BatchId)
+                    this.Offset == other.Offset ||
+                    this.Offset != null &&
+                    this.Offset.Equals(other.Offset)
                 ) && 
                 (
-                    this.BatchSource == other.BatchSource ||
-                    this.BatchSource != null &&
-                    this.BatchSource.Equals(other.BatchSource)
+                    this.Limit == other.Limit ||
+                    this.Limit != null &&
+                    this.Limit.Equals(other.Limit)
                 ) && 
                 (
-                    this.BatchCaEndpoints == other.BatchCaEndpoints ||
-                    this.BatchCaEndpoints != null &&
-                    this.BatchCaEndpoints.Equals(other.BatchCaEndpoints)
+                    this.Count == other.Count ||
+                    this.Count != null &&
+                    this.Count.Equals(other.Count)
                 ) && 
                 (
-                    this.BatchCreatedDate == other.BatchCreatedDate ||
-                    this.BatchCreatedDate != null &&
-                    this.BatchCreatedDate.Equals(other.BatchCreatedDate)
+                    this.Total == other.Total ||
+                    this.Total != null &&
+                    this.Total.Equals(other.Total)
                 ) && 
                 (
-                    this.MerchantReference == other.MerchantReference ||
-                    this.MerchantReference != null &&
-                    this.MerchantReference.Equals(other.MerchantReference)
-                ) && 
-                (
-                    this.Totals == other.Totals ||
-                    this.Totals != null &&
-                    this.Totals.Equals(other.Totals)
-                ) && 
-                (
-                    this.Billing == other.Billing ||
-                    this.Billing != null &&
-                    this.Billing.Equals(other.Billing)
-                ) && 
-                (
-                    this.Records == other.Records ||
-                    this.Records != null &&
-                    this.Records.SequenceEqual(other.Records)
+                    this.Embedded == other.Embedded ||
+                    this.Embedded != null &&
+                    this.Embedded.Equals(other.Embedded)
                 );
         }
 
@@ -239,26 +192,20 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Version != null)
-                    hash = hash * 59 + this.Version.GetHashCode();
-                if (this.ReportCreatedDate != null)
-                    hash = hash * 59 + this.ReportCreatedDate.GetHashCode();
-                if (this.BatchId != null)
-                    hash = hash * 59 + this.BatchId.GetHashCode();
-                if (this.BatchSource != null)
-                    hash = hash * 59 + this.BatchSource.GetHashCode();
-                if (this.BatchCaEndpoints != null)
-                    hash = hash * 59 + this.BatchCaEndpoints.GetHashCode();
-                if (this.BatchCreatedDate != null)
-                    hash = hash * 59 + this.BatchCreatedDate.GetHashCode();
-                if (this.MerchantReference != null)
-                    hash = hash * 59 + this.MerchantReference.GetHashCode();
-                if (this.Totals != null)
-                    hash = hash * 59 + this.Totals.GetHashCode();
-                if (this.Billing != null)
-                    hash = hash * 59 + this.Billing.GetHashCode();
-                if (this.Records != null)
-                    hash = hash * 59 + this.Records.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
+                if (this.Object != null)
+                    hash = hash * 59 + this.Object.GetHashCode();
+                if (this.Offset != null)
+                    hash = hash * 59 + this.Offset.GetHashCode();
+                if (this.Limit != null)
+                    hash = hash * 59 + this.Limit.GetHashCode();
+                if (this.Count != null)
+                    hash = hash * 59 + this.Count.GetHashCode();
+                if (this.Total != null)
+                    hash = hash * 59 + this.Total.GetHashCode();
+                if (this.Embedded != null)
+                    hash = hash * 59 + this.Embedded.GetHashCode();
                 return hash;
             }
         }

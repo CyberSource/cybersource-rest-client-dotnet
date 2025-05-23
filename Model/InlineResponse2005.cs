@@ -33,65 +33,26 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2005" /> class.
         /// </summary>
-        /// <param name="Links">Links.</param>
-        /// <param name="Object">Object.</param>
-        /// <param name="Offset">Offset.</param>
-        /// <param name="Limit">Limit.</param>
-        /// <param name="Count">Count.</param>
-        /// <param name="Total">Total.</param>
-        /// <param name="Embedded">Embedded.</param>
-        public InlineResponse2005(List<InlineResponse2005Links> Links = default(List<InlineResponse2005Links>), string Object = default(string), int? Offset = default(int?), int? Limit = default(int?), int? Count = default(int?), int? Total = default(int?), InlineResponse2005Embedded Embedded = default(InlineResponse2005Embedded))
+        /// <param name="Status">Possible values: - OK.</param>
+        /// <param name="Devices">Devices.</param>
+        public InlineResponse2005(string Status = default(string), List<Dmsv3devicesdeassociateDevices> Devices = default(List<Dmsv3devicesdeassociateDevices>))
         {
-            this.Links = Links;
-            this.Object = Object;
-            this.Offset = Offset;
-            this.Limit = Limit;
-            this.Count = Count;
-            this.Total = Total;
-            this.Embedded = Embedded;
+            this.Status = Status;
+            this.Devices = Devices;
         }
         
         /// <summary>
-        /// Gets or Sets Links
+        /// Possible values: - OK
         /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public List<InlineResponse2005Links> Links { get; set; }
+        /// <value>Possible values: - OK</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets Object
+        /// Gets or Sets Devices
         /// </summary>
-        [DataMember(Name="object", EmitDefaultValue=false)]
-        public string Object { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Offset
-        /// </summary>
-        [DataMember(Name="offset", EmitDefaultValue=false)]
-        public int? Offset { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Limit
-        /// </summary>
-        [DataMember(Name="limit", EmitDefaultValue=false)]
-        public int? Limit { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Count
-        /// </summary>
-        [DataMember(Name="count", EmitDefaultValue=false)]
-        public int? Count { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Total
-        /// </summary>
-        [DataMember(Name="total", EmitDefaultValue=false)]
-        public int? Total { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Embedded
-        /// </summary>
-        [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public InlineResponse2005Embedded Embedded { get; set; }
+        [DataMember(Name="devices", EmitDefaultValue=false)]
+        public List<Dmsv3devicesdeassociateDevices> Devices { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,13 +62,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2005 {\n");
-            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
-            if (Object != null) sb.Append("  Object: ").Append(Object).Append("\n");
-            if (Offset != null) sb.Append("  Offset: ").Append(Offset).Append("\n");
-            if (Limit != null) sb.Append("  Limit: ").Append(Limit).Append("\n");
-            if (Count != null) sb.Append("  Count: ").Append(Count).Append("\n");
-            if (Total != null) sb.Append("  Total: ").Append(Total).Append("\n");
-            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (Devices != null) sb.Append("  Devices: ").Append(Devices).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,39 +101,14 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.SequenceEqual(other.Links)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Object == other.Object ||
-                    this.Object != null &&
-                    this.Object.Equals(other.Object)
-                ) && 
-                (
-                    this.Offset == other.Offset ||
-                    this.Offset != null &&
-                    this.Offset.Equals(other.Offset)
-                ) && 
-                (
-                    this.Limit == other.Limit ||
-                    this.Limit != null &&
-                    this.Limit.Equals(other.Limit)
-                ) && 
-                (
-                    this.Count == other.Count ||
-                    this.Count != null &&
-                    this.Count.Equals(other.Count)
-                ) && 
-                (
-                    this.Total == other.Total ||
-                    this.Total != null &&
-                    this.Total.Equals(other.Total)
-                ) && 
-                (
-                    this.Embedded == other.Embedded ||
-                    this.Embedded != null &&
-                    this.Embedded.Equals(other.Embedded)
+                    this.Devices == other.Devices ||
+                    this.Devices != null &&
+                    this.Devices.SequenceEqual(other.Devices)
                 );
         }
 
@@ -192,20 +123,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
-                if (this.Object != null)
-                    hash = hash * 59 + this.Object.GetHashCode();
-                if (this.Offset != null)
-                    hash = hash * 59 + this.Offset.GetHashCode();
-                if (this.Limit != null)
-                    hash = hash * 59 + this.Limit.GetHashCode();
-                if (this.Count != null)
-                    hash = hash * 59 + this.Count.GetHashCode();
-                if (this.Total != null)
-                    hash = hash * 59 + this.Total.GetHashCode();
-                if (this.Embedded != null)
-                    hash = hash * 59 + this.Embedded.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Devices != null)
+                    hash = hash * 59 + this.Devices.GetHashCode();
                 return hash;
             }
         }

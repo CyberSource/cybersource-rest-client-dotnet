@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PaymentsProductsTax" /> class.
         /// </summary>
         /// <param name="SubscriptionInformation">SubscriptionInformation.</param>
-        public PaymentsProductsTax(PaymentsProductsPayerAuthenticationSubscriptionInformation SubscriptionInformation = default(PaymentsProductsPayerAuthenticationSubscriptionInformation))
+        public PaymentsProductsTax(PaymentsProductsAlternativePaymentMethodsSubscriptionInformation SubscriptionInformation = default(PaymentsProductsAlternativePaymentMethodsSubscriptionInformation))
         {
             this.SubscriptionInformation = SubscriptionInformation;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets SubscriptionInformation
         /// </summary>
         [DataMember(Name="subscriptionInformation", EmitDefaultValue=false)]
-        public PaymentsProductsPayerAuthenticationSubscriptionInformation SubscriptionInformation { get; set; }
+        public PaymentsProductsAlternativePaymentMethodsSubscriptionInformation SubscriptionInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
