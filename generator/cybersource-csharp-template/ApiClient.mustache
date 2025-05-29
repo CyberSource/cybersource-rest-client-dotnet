@@ -226,22 +226,22 @@ namespace {{packageName}}.Client
                 request.AddParameter(param.Key, param.Value);
 
             // add file parameter, if any
-            foreach(var param in fileParams)
-            {
+            //foreach(var param in fileParams)
+            //{
                 {{#netStandard}}
-                request.AddFile(param.Value);
+                //request.AddFile(param.Value);
                 {{/netStandard}}
                 {{^netStandard}}
                 {{^supportsUWP}}
-                request.AddFile(param.Value.Name, param.Value.FileName, param.Value.ContentType);
+                //request.AddFile(param.Value.Name, param.Value.FileName, param.Value.ContentType);
                 {{/supportsUWP}}
                 {{#supportsUWP}}
-                byte[] paramWriter = null;
-                param.Value.Writer = delegate (Stream stream) { paramWriter = ToByteArray(stream); };
-                request.AddFile(param.Value.Name, param.Value.FileName, param.Value.ContentType);
+                //byte[] paramWriter = null;
+                //param.Value.Writer = delegate (Stream stream) { paramWriter = ToByteArray(stream); };
+                //request.AddFile(param.Value.Name, param.Value.FileName, param.Value.ContentType);
                 {{/supportsUWP}}
                 {{/netStandard}}
-            }
+            //}
 
             if (postBody != null) // http body (model or byte[]) parameter
             {
@@ -259,6 +259,11 @@ namespace {{packageName}}.Client
                             request.AddParameter(param.Key, param.Value, ParameterType.GetOrPost);
                             {{/netStandard}}
                         }
+                    }
+                    else if (contentType.Contains("multipart/form-data"))
+                    {
+                        request.AddBody(postBody, "multipart/form-data");
+                        request.AddHeader("Content-Type", contentType); //required to set in case of file params 
                     }
                     else
                     {
@@ -491,7 +496,7 @@ namespace {{packageName}}.Client
             RestClientOptions clientOptions = new RestClientOptions(RestClient.Options.BaseUrl)
             {
                 Timeout = TimeSpan.FromMilliseconds(Configuration.Timeout),
-            };
+            };  
 
             // RestClient.ClearHandlers();
 
@@ -563,7 +568,7 @@ namespace {{packageName}}.Client
             }
 
             logger.Debug($"HTTP Response Headers :\n{logUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
-            
+           
             if (!string.IsNullOrEmpty(httpResponseData))
             {
                 logger.Debug($"HTTP Response Body :\n{logUtility.MaskSensitiveData(httpResponseData)}");
@@ -615,7 +620,7 @@ namespace {{packageName}}.Client
             };
 
             logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
-
+            
             clientOptions.UserAgent = Configuration.UserAgent;
             RestClient = new RestClient(clientOptions);
 
@@ -760,7 +765,19 @@ namespace {{packageName}}.Client
             // at this point, it must be a model (json)
             try
             {
-                return JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
+                if (type == typeof(Model.PblPaymentLinksAllGet200Response))
+                {
+                    JsonSerializerSettings customSerializerSettings = new JsonSerializerSettings
+                    {
+                        ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                        ContractResolver = new Utilities.CustomContractResolver()
+                    };
+                    return JsonConvert.DeserializeObject(response.Content, type, customSerializerSettings);
+                }
+                else
+                {
+                    return JsonConvert.DeserializeObject(response.Content, type, serializerSettings);
+                }
             }
             catch (Exception e)
             {
@@ -1014,6 +1031,7 @@ namespace {{packageName}}.Client
 
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
+			
             if (!string.IsNullOrWhiteSpace(merchantConfig.IntermediateHost))
             {
                 //change with intermediate hostname if present

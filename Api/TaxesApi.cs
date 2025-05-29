@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -325,8 +326,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = taxRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CalculateTax,CalculateTaxAsync,CalculateTaxWithHttpInfo,CalculateTaxAsyncWithHttpInfo"))
@@ -555,8 +555,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = voidTaxRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidTax,VoidTaxAsync,VoidTaxWithHttpInfo,VoidTaxAsyncWithHttpInfo"))

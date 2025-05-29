@@ -65,12 +65,20 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Links'
+        /// Test the property 'Status'
         /// </summary>
         [Test]
-        public void LinksTest()
+        public void StatusTest()
         {
-            // TODO unit test for the property 'Links'
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
+        /// Test the property 'Message'
+        /// </summary>
+        [Test]
+        public void MessageTest()
+        {
+            // TODO unit test for the property 'Message'
         }
         /// <summary>
         /// Test the property 'Code'
@@ -81,44 +89,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Code'
         }
         /// <summary>
-        /// Test the property 'CorrelationId'
+        /// Test the property 'SubmitTimeUtc'
         /// </summary>
         [Test]
-        public void CorrelationIdTest()
+        public void SubmitTimeUtcTest()
         {
-            // TODO unit test for the property 'CorrelationId'
-        }
-        /// <summary>
-        /// Test the property 'Detail'
-        /// </summary>
-        [Test]
-        public void DetailTest()
-        {
-            // TODO unit test for the property 'Detail'
-        }
-        /// <summary>
-        /// Test the property 'Fields'
-        /// </summary>
-        [Test]
-        public void FieldsTest()
-        {
-            // TODO unit test for the property 'Fields'
-        }
-        /// <summary>
-        /// Test the property 'LocalizationKey'
-        /// </summary>
-        [Test]
-        public void LocalizationKeyTest()
-        {
-            // TODO unit test for the property 'LocalizationKey'
-        }
-        /// <summary>
-        /// Test the property 'Message'
-        /// </summary>
-        [Test]
-        public void MessageTest()
-        {
-            // TODO unit test for the property 'Message'
+            // TODO unit test for the property 'SubmitTimeUtc'
         }
 
     }

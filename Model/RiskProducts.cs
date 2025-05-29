@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="FraudManagementEssentials">FraudManagementEssentials.</param>
         /// <param name="DecisionManager">DecisionManager.</param>
-        public RiskProducts(RiskProductsFraudManagementEssentials FraudManagementEssentials = default(RiskProductsFraudManagementEssentials), RiskProductsDecisionManager DecisionManager = default(RiskProductsDecisionManager))
+        /// <param name="PortfolioRiskControls">PortfolioRiskControls.</param>
+        public RiskProducts(RiskProductsFraudManagementEssentials FraudManagementEssentials = default(RiskProductsFraudManagementEssentials), RiskProductsDecisionManager DecisionManager = default(RiskProductsDecisionManager), RiskProductsPortfolioRiskControls PortfolioRiskControls = default(RiskProductsPortfolioRiskControls))
         {
             this.FraudManagementEssentials = FraudManagementEssentials;
             this.DecisionManager = DecisionManager;
+            this.PortfolioRiskControls = PortfolioRiskControls;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         public RiskProductsDecisionManager DecisionManager { get; set; }
 
         /// <summary>
+        /// Gets or Sets PortfolioRiskControls
+        /// </summary>
+        [DataMember(Name="portfolioRiskControls", EmitDefaultValue=false)]
+        public RiskProductsPortfolioRiskControls PortfolioRiskControls { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace CyberSource.Model
             sb.Append("class RiskProducts {\n");
             if (FraudManagementEssentials != null) sb.Append("  FraudManagementEssentials: ").Append(FraudManagementEssentials).Append("\n");
             if (DecisionManager != null) sb.Append("  DecisionManager: ").Append(DecisionManager).Append("\n");
+            if (PortfolioRiskControls != null) sb.Append("  PortfolioRiskControls: ").Append(PortfolioRiskControls).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace CyberSource.Model
                     this.DecisionManager == other.DecisionManager ||
                     this.DecisionManager != null &&
                     this.DecisionManager.Equals(other.DecisionManager)
+                ) && 
+                (
+                    this.PortfolioRiskControls == other.PortfolioRiskControls ||
+                    this.PortfolioRiskControls != null &&
+                    this.PortfolioRiskControls.Equals(other.PortfolioRiskControls)
                 );
         }
 
@@ -126,6 +140,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FraudManagementEssentials.GetHashCode();
                 if (this.DecisionManager != null)
                     hash = hash * 59 + this.DecisionManager.GetHashCode();
+                if (this.PortfolioRiskControls != null)
+                    hash = hash * 59 + this.PortfolioRiskControls.GetHashCode();
                 return hash;
             }
         }

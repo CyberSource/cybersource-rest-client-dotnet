@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CardProcessing** | [**InlineResponse2012SetupsPaymentsCardProcessing**](InlineResponse2012SetupsPaymentsCardProcessing.md) |  | [optional] 
+**AlternativePaymentMethods** | [**InlineResponse2012SetupsPaymentsAlternativePaymentMethods**](InlineResponse2012SetupsPaymentsAlternativePaymentMethods.md) |  | [optional] 
 **CardPresentConnect** | [**InlineResponse2012SetupsPaymentsCardProcessing**](InlineResponse2012SetupsPaymentsCardProcessing.md) |  | [optional] 
 **ECheck** | [**InlineResponse2012SetupsPaymentsCardProcessing**](InlineResponse2012SetupsPaymentsCardProcessing.md) |  | [optional] 
 **PayerAuthentication** | [**InlineResponse2012SetupsPaymentsCardProcessing**](InlineResponse2012SetupsPaymentsCardProcessing.md) |  | [optional] 

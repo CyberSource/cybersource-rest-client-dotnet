@@ -19,6 +19,7 @@ using NLog;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using AuthenticationSdk.core;
+using CyberSource.Utilities;
 
 namespace CyberSource.Api
 {
@@ -321,8 +322,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = validateExportComplianceRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ValidateExportCompliance,ValidateExportComplianceAsync,ValidateExportComplianceWithHttpInfo,ValidateExportComplianceAsyncWithHttpInfo"))
@@ -538,8 +538,7 @@ namespace CyberSource.Api
             {
                 localVarPostBody = verifyCustomerAddressRequest; // byte array
             }
-
-
+            
             bool isMLESupportedByCybsForApi = false;
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VerifyCustomerAddress,VerifyCustomerAddressAsync,VerifyCustomerAddressWithHttpInfo,VerifyCustomerAddressAsyncWithHttpInfo"))

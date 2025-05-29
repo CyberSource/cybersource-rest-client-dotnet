@@ -33,94 +33,63 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2006" /> class.
         /// </summary>
-        /// <param name="Links">Links.</param>
-        /// <param name="BatchId">Unique identification number assigned to the submitted request..</param>
-        /// <param name="BatchCreatedDate">ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ.</param>
-        /// <param name="BatchSource">Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE .</param>
-        /// <param name="MerchantReference">Reference used by merchant to identify batch..</param>
-        /// <param name="BatchCaEndpoints">BatchCaEndpoints.</param>
-        /// <param name="Status">Valid Values:   * REJECTED   * RECEIVED   * VALIDATED   * DECLINED   * PROCESSING   * COMPLETED .</param>
-        /// <param name="Totals">Totals.</param>
-        /// <param name="Billing">Billing.</param>
-        /// <param name="Description">Description.</param>
-        public InlineResponse2006(InlineResponse2006Links Links = default(InlineResponse2006Links), string BatchId = default(string), string BatchCreatedDate = default(string), string BatchSource = default(string), string MerchantReference = default(string), string BatchCaEndpoints = default(string), string Status = default(string), InlineResponse2005EmbeddedTotals Totals = default(InlineResponse2005EmbeddedTotals), InlineResponse2006Billing Billing = default(InlineResponse2006Billing), string Description = default(string))
+        /// <param name="TotalCount">Total number of results..</param>
+        /// <param name="Offset">Controls the starting point within the collection of results, which defaults to 0. The first item in the collection is retrieved by setting a zero offset.  For example, if you have a collection of 15 items to be retrieved from a resource and you specify limit&#x3D;5, you can retrieve the entire set of results in 3 successive requests by varying the offset value like this:  &#x60;offset&#x3D;0&#x60; &#x60;offset&#x3D;5&#x60; &#x60;offset&#x3D;10&#x60;  **Note:** If an offset larger than the number of results is provided, this will result in no embedded object being returned. .</param>
+        /// <param name="Limit">Controls the maximum number of items that may be returned for a single request. The default is 20, the maximum is 2500. .</param>
+        /// <param name="Sort">A comma separated list of the following form:  &#x60;terminalCreationDate:desc or serialNumber or terminalUpdationDate&#x60; .</param>
+        /// <param name="Count">Results for this page, this could be below the limit..</param>
+        /// <param name="Devices">A collection of devices.</param>
+        public InlineResponse2006(int? TotalCount = default(int?), int? Offset = default(int?), int? Limit = default(int?), string Sort = default(string), int? Count = default(int?), List<InlineResponse2006Devices> Devices = default(List<InlineResponse2006Devices>))
         {
-            this.Links = Links;
-            this.BatchId = BatchId;
-            this.BatchCreatedDate = BatchCreatedDate;
-            this.BatchSource = BatchSource;
-            this.MerchantReference = MerchantReference;
-            this.BatchCaEndpoints = BatchCaEndpoints;
-            this.Status = Status;
-            this.Totals = Totals;
-            this.Billing = Billing;
-            this.Description = Description;
+            this.TotalCount = TotalCount;
+            this.Offset = Offset;
+            this.Limit = Limit;
+            this.Sort = Sort;
+            this.Count = Count;
+            this.Devices = Devices;
         }
         
         /// <summary>
-        /// Gets or Sets Links
+        /// Total number of results.
         /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public InlineResponse2006Links Links { get; set; }
+        /// <value>Total number of results.</value>
+        [DataMember(Name="totalCount", EmitDefaultValue=false)]
+        public int? TotalCount { get; set; }
 
         /// <summary>
-        /// Unique identification number assigned to the submitted request.
+        /// Controls the starting point within the collection of results, which defaults to 0. The first item in the collection is retrieved by setting a zero offset.  For example, if you have a collection of 15 items to be retrieved from a resource and you specify limit&#x3D;5, you can retrieve the entire set of results in 3 successive requests by varying the offset value like this:  &#x60;offset&#x3D;0&#x60; &#x60;offset&#x3D;5&#x60; &#x60;offset&#x3D;10&#x60;  **Note:** If an offset larger than the number of results is provided, this will result in no embedded object being returned. 
         /// </summary>
-        /// <value>Unique identification number assigned to the submitted request.</value>
-        [DataMember(Name="batchId", EmitDefaultValue=false)]
-        public string BatchId { get; set; }
+        /// <value>Controls the starting point within the collection of results, which defaults to 0. The first item in the collection is retrieved by setting a zero offset.  For example, if you have a collection of 15 items to be retrieved from a resource and you specify limit&#x3D;5, you can retrieve the entire set of results in 3 successive requests by varying the offset value like this:  &#x60;offset&#x3D;0&#x60; &#x60;offset&#x3D;5&#x60; &#x60;offset&#x3D;10&#x60;  **Note:** If an offset larger than the number of results is provided, this will result in no embedded object being returned. </value>
+        [DataMember(Name="offset", EmitDefaultValue=false)]
+        public int? Offset { get; set; }
 
         /// <summary>
-        /// ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ
+        /// Controls the maximum number of items that may be returned for a single request. The default is 20, the maximum is 2500. 
         /// </summary>
-        /// <value>ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ</value>
-        [DataMember(Name="batchCreatedDate", EmitDefaultValue=false)]
-        public string BatchCreatedDate { get; set; }
+        /// <value>Controls the maximum number of items that may be returned for a single request. The default is 20, the maximum is 2500. </value>
+        [DataMember(Name="limit", EmitDefaultValue=false)]
+        public int? Limit { get; set; }
 
         /// <summary>
-        /// Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE 
+        /// A comma separated list of the following form:  &#x60;terminalCreationDate:desc or serialNumber or terminalUpdationDate&#x60; 
         /// </summary>
-        /// <value>Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE </value>
-        [DataMember(Name="batchSource", EmitDefaultValue=false)]
-        public string BatchSource { get; set; }
+        /// <value>A comma separated list of the following form:  &#x60;terminalCreationDate:desc or serialNumber or terminalUpdationDate&#x60; </value>
+        [DataMember(Name="sort", EmitDefaultValue=false)]
+        public string Sort { get; set; }
 
         /// <summary>
-        /// Reference used by merchant to identify batch.
+        /// Results for this page, this could be below the limit.
         /// </summary>
-        /// <value>Reference used by merchant to identify batch.</value>
-        [DataMember(Name="merchantReference", EmitDefaultValue=false)]
-        public string MerchantReference { get; set; }
+        /// <value>Results for this page, this could be below the limit.</value>
+        [DataMember(Name="count", EmitDefaultValue=false)]
+        public int? Count { get; set; }
 
         /// <summary>
-        /// Gets or Sets BatchCaEndpoints
+        /// A collection of devices
         /// </summary>
-        [DataMember(Name="batchCaEndpoints", EmitDefaultValue=false)]
-        public string BatchCaEndpoints { get; set; }
-
-        /// <summary>
-        /// Valid Values:   * REJECTED   * RECEIVED   * VALIDATED   * DECLINED   * PROCESSING   * COMPLETED 
-        /// </summary>
-        /// <value>Valid Values:   * REJECTED   * RECEIVED   * VALIDATED   * DECLINED   * PROCESSING   * COMPLETED </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Totals
-        /// </summary>
-        [DataMember(Name="totals", EmitDefaultValue=false)]
-        public InlineResponse2005EmbeddedTotals Totals { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Billing
-        /// </summary>
-        [DataMember(Name="billing", EmitDefaultValue=false)]
-        public InlineResponse2006Billing Billing { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Description
-        /// </summary>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
+        /// <value>A collection of devices</value>
+        [DataMember(Name="devices", EmitDefaultValue=false)]
+        public List<InlineResponse2006Devices> Devices { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -130,16 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2006 {\n");
-            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
-            if (BatchId != null) sb.Append("  BatchId: ").Append(BatchId).Append("\n");
-            if (BatchCreatedDate != null) sb.Append("  BatchCreatedDate: ").Append(BatchCreatedDate).Append("\n");
-            if (BatchSource != null) sb.Append("  BatchSource: ").Append(BatchSource).Append("\n");
-            if (MerchantReference != null) sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
-            if (BatchCaEndpoints != null) sb.Append("  BatchCaEndpoints: ").Append(BatchCaEndpoints).Append("\n");
-            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
-            if (Totals != null) sb.Append("  Totals: ").Append(Totals).Append("\n");
-            if (Billing != null) sb.Append("  Billing: ").Append(Billing).Append("\n");
-            if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
+            if (TotalCount != null) sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
+            if (Offset != null) sb.Append("  Offset: ").Append(Offset).Append("\n");
+            if (Limit != null) sb.Append("  Limit: ").Append(Limit).Append("\n");
+            if (Sort != null) sb.Append("  Sort: ").Append(Sort).Append("\n");
+            if (Count != null) sb.Append("  Count: ").Append(Count).Append("\n");
+            if (Devices != null) sb.Append("  Devices: ").Append(Devices).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,54 +142,34 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.Equals(other.Links)
+                    this.TotalCount == other.TotalCount ||
+                    this.TotalCount != null &&
+                    this.TotalCount.Equals(other.TotalCount)
                 ) && 
                 (
-                    this.BatchId == other.BatchId ||
-                    this.BatchId != null &&
-                    this.BatchId.Equals(other.BatchId)
+                    this.Offset == other.Offset ||
+                    this.Offset != null &&
+                    this.Offset.Equals(other.Offset)
                 ) && 
                 (
-                    this.BatchCreatedDate == other.BatchCreatedDate ||
-                    this.BatchCreatedDate != null &&
-                    this.BatchCreatedDate.Equals(other.BatchCreatedDate)
+                    this.Limit == other.Limit ||
+                    this.Limit != null &&
+                    this.Limit.Equals(other.Limit)
                 ) && 
                 (
-                    this.BatchSource == other.BatchSource ||
-                    this.BatchSource != null &&
-                    this.BatchSource.Equals(other.BatchSource)
+                    this.Sort == other.Sort ||
+                    this.Sort != null &&
+                    this.Sort.Equals(other.Sort)
                 ) && 
                 (
-                    this.MerchantReference == other.MerchantReference ||
-                    this.MerchantReference != null &&
-                    this.MerchantReference.Equals(other.MerchantReference)
+                    this.Count == other.Count ||
+                    this.Count != null &&
+                    this.Count.Equals(other.Count)
                 ) && 
                 (
-                    this.BatchCaEndpoints == other.BatchCaEndpoints ||
-                    this.BatchCaEndpoints != null &&
-                    this.BatchCaEndpoints.Equals(other.BatchCaEndpoints)
-                ) && 
-                (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
-                ) && 
-                (
-                    this.Totals == other.Totals ||
-                    this.Totals != null &&
-                    this.Totals.Equals(other.Totals)
-                ) && 
-                (
-                    this.Billing == other.Billing ||
-                    this.Billing != null &&
-                    this.Billing.Equals(other.Billing)
-                ) && 
-                (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
+                    this.Devices == other.Devices ||
+                    this.Devices != null &&
+                    this.Devices.SequenceEqual(other.Devices)
                 );
         }
 
@@ -239,26 +184,18 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
-                if (this.BatchId != null)
-                    hash = hash * 59 + this.BatchId.GetHashCode();
-                if (this.BatchCreatedDate != null)
-                    hash = hash * 59 + this.BatchCreatedDate.GetHashCode();
-                if (this.BatchSource != null)
-                    hash = hash * 59 + this.BatchSource.GetHashCode();
-                if (this.MerchantReference != null)
-                    hash = hash * 59 + this.MerchantReference.GetHashCode();
-                if (this.BatchCaEndpoints != null)
-                    hash = hash * 59 + this.BatchCaEndpoints.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Totals != null)
-                    hash = hash * 59 + this.Totals.GetHashCode();
-                if (this.Billing != null)
-                    hash = hash * 59 + this.Billing.GetHashCode();
-                if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
+                if (this.TotalCount != null)
+                    hash = hash * 59 + this.TotalCount.GetHashCode();
+                if (this.Offset != null)
+                    hash = hash * 59 + this.Offset.GetHashCode();
+                if (this.Limit != null)
+                    hash = hash * 59 + this.Limit.GetHashCode();
+                if (this.Sort != null)
+                    hash = hash * 59 + this.Sort.GetHashCode();
+                if (this.Count != null)
+                    hash = hash * 59 + this.Count.GetHashCode();
+                if (this.Devices != null)
+                    hash = hash * 59 + this.Devices.GetHashCode();
                 return hash;
             }
         }

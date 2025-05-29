@@ -33,13 +33,13 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Rbsv1subscriptionsClientReferenceInformation" /> class.
         /// </summary>
-        /// <param name="Code">Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. .</param>
-        /// <param name="Comments">Brief description of the order or any comment you wish to add to the order. .</param>
+        /// <param name="Code">&gt; Deprecated: This field is ignored.  Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. .</param>
+        /// <param name="Comments">&gt; Deprecated: This field is ignored.  Brief description of the order or any comment you wish to add to the order. .</param>
         /// <param name="Partner">Partner.</param>
-        /// <param name="ApplicationName">The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. .</param>
-        /// <param name="ApplicationVersion">Version of the CyberSource application or integration used for a transaction. .</param>
-        /// <param name="ApplicationUser">The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. .</param>
-        public Rbsv1subscriptionsClientReferenceInformation(string Code = default(string), string Comments = default(string), Riskv1decisionsClientReferenceInformationPartner Partner = default(Riskv1decisionsClientReferenceInformationPartner), string ApplicationName = default(string), string ApplicationVersion = default(string), string ApplicationUser = default(string))
+        /// <param name="ApplicationName">&gt; Deprecated: This field is ignored.  The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. .</param>
+        /// <param name="ApplicationVersion">&gt; Deprecated: This field is ignored.  Version of the CyberSource application or integration used for a transaction. .</param>
+        /// <param name="ApplicationUser">&gt; Deprecated: This field is ignored.  The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. .</param>
+        public Rbsv1subscriptionsClientReferenceInformation(string Code = default(string), string Comments = default(string), Rbsv1subscriptionsClientReferenceInformationPartner Partner = default(Rbsv1subscriptionsClientReferenceInformationPartner), string ApplicationName = default(string), string ApplicationVersion = default(string), string ApplicationUser = default(string))
         {
             this.Code = Code;
             this.Comments = Comments;
@@ -50,16 +50,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. 
+        /// &gt; Deprecated: This field is ignored.  Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. 
         /// </summary>
-        /// <value>Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. </value>
+        /// <value>&gt; Deprecated: This field is ignored.  Merchant-generated order reference or tracking number. It is recommended that you send a unique value for each transaction so that you can perform meaningful searches for the transaction.  #### Used by **Authorization** Required field.  #### PIN Debit Requests for PIN debit reversals need to use the same merchant reference number that was used in the transaction that is being reversed.  Required field for all PIN Debit requests (purchase, credit, and reversal).  #### FDC Nashville Global Certain circumstances can cause the processor to truncate this value to 15 or 17 characters for Level II and Level III processing, which can cause a discrepancy between the value you submit and the value included in some processor reports. </value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Brief description of the order or any comment you wish to add to the order. 
+        /// &gt; Deprecated: This field is ignored.  Brief description of the order or any comment you wish to add to the order. 
         /// </summary>
-        /// <value>Brief description of the order or any comment you wish to add to the order. </value>
+        /// <value>&gt; Deprecated: This field is ignored.  Brief description of the order or any comment you wish to add to the order. </value>
         [DataMember(Name="comments", EmitDefaultValue=false)]
         public string Comments { get; set; }
 
@@ -67,26 +67,26 @@ namespace CyberSource.Model
         /// Gets or Sets Partner
         /// </summary>
         [DataMember(Name="partner", EmitDefaultValue=false)]
-        public Riskv1decisionsClientReferenceInformationPartner Partner { get; set; }
+        public Rbsv1subscriptionsClientReferenceInformationPartner Partner { get; set; }
 
         /// <summary>
-        /// The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. 
+        /// &gt; Deprecated: This field is ignored.  The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. 
         /// </summary>
-        /// <value>The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. </value>
+        /// <value>&gt; Deprecated: This field is ignored.  The name of the Connection Method client (such as Virtual Terminal or SOAP Toolkit API) that the merchant uses to send a transaction request to CyberSource. </value>
         [DataMember(Name="applicationName", EmitDefaultValue=false)]
         public string ApplicationName { get; set; }
 
         /// <summary>
-        /// Version of the CyberSource application or integration used for a transaction. 
+        /// &gt; Deprecated: This field is ignored.  Version of the CyberSource application or integration used for a transaction. 
         /// </summary>
-        /// <value>Version of the CyberSource application or integration used for a transaction. </value>
+        /// <value>&gt; Deprecated: This field is ignored.  Version of the CyberSource application or integration used for a transaction. </value>
         [DataMember(Name="applicationVersion", EmitDefaultValue=false)]
         public string ApplicationVersion { get; set; }
 
         /// <summary>
-        /// The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. 
+        /// &gt; Deprecated: This field is ignored.  The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. 
         /// </summary>
-        /// <value>The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. </value>
+        /// <value>&gt; Deprecated: This field is ignored.  The entity that is responsible for running the transaction and submitting the processing request to CyberSource. This could be a person, a system, or a connection method. </value>
         [DataMember(Name="applicationUser", EmitDefaultValue=false)]
         public string ApplicationUser { get; set; }
 

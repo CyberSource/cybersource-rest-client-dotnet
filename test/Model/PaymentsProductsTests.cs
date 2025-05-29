@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CardProcessing'
         }
         /// <summary>
+        /// Test the property 'AlternativePaymentMethods'
+        /// </summary>
+        [Test]
+        public void AlternativePaymentMethodsTest()
+        {
+            // TODO unit test for the property 'AlternativePaymentMethods'
+        }
+        /// <summary>
         /// Test the property 'CardPresentConnect'
         /// </summary>
         [Test]

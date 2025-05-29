@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CardProcessing** | [**PaymentsProductsCardProcessing**](PaymentsProductsCardProcessing.md) |  | [optional] 
+**AlternativePaymentMethods** | [**PaymentsProductsAlternativePaymentMethods**](PaymentsProductsAlternativePaymentMethods.md) |  | [optional] 
 **CardPresentConnect** | [**PaymentsProductsCardPresentConnect**](PaymentsProductsCardPresentConnect.md) |  | [optional] 
 **CybsReadyTerminal** | [**PaymentsProductsCybsReadyTerminal**](PaymentsProductsCybsReadyTerminal.md) |  | [optional] 
 **ECheck** | [**PaymentsProductsECheck**](PaymentsProductsECheck.md) |  | [optional] 

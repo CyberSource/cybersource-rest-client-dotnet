@@ -330,7 +330,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (createSubscriptionRequest.ClientReferenceInformation.Partner == null)
                     {
-                        createSubscriptionRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
+                        createSubscriptionRequest.ClientReferenceInformation.Partner = new Rbsv1subscriptionsClientReferenceInformationPartner();
                     }
 
                     if (createSubscriptionRequest.ClientReferenceInformation.Partner.DeveloperId == null)
@@ -349,7 +349,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (updateSubscription.ClientReferenceInformation.Partner == null)
                     {
-                        updateSubscription.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
+                        updateSubscription.ClientReferenceInformation.Partner = new Rbsv1subscriptionsClientReferenceInformationPartner();
                     }
 
                     if (updateSubscription.ClientReferenceInformation.Partner.DeveloperId == null)

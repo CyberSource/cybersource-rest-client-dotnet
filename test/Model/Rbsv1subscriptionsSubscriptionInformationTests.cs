@@ -96,6 +96,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'StartDate'
         }
+        /// <summary>
+        /// Test the property 'OriginalTransactionId'
+        /// </summary>
+        [Test]
+        public void OriginalTransactionIdTest()
+        {
+            // TODO unit test for the property 'OriginalTransactionId'
+        }
+        /// <summary>
+        /// Test the property 'OriginalTransactionAuthorizedAmount'
+        /// </summary>
+        [Test]
+        public void OriginalTransactionAuthorizedAmountTest()
+        {
+            // TODO unit test for the property 'OriginalTransactionAuthorizedAmount'
+        }
 
     }
 

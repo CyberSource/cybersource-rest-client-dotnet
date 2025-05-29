@@ -34,6 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InlineResponse2012SetupsPayments" /> class.
         /// </summary>
         /// <param name="CardProcessing">CardProcessing.</param>
+        /// <param name="AlternativePaymentMethods">AlternativePaymentMethods.</param>
         /// <param name="CardPresentConnect">CardPresentConnect.</param>
         /// <param name="ECheck">ECheck.</param>
         /// <param name="PayerAuthentication">PayerAuthentication.</param>
@@ -51,9 +52,10 @@ namespace CyberSource.Model
         /// <param name="UnifiedCheckout">UnifiedCheckout.</param>
         /// <param name="ReceivablesManager">ReceivablesManager.</param>
         /// <param name="ServiceFee">ServiceFee.</param>
-        public InlineResponse2012SetupsPayments(InlineResponse2012SetupsPaymentsCardProcessing CardProcessing = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing CardPresentConnect = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing ECheck = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing PayerAuthentication = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsDigitalPayments DigitalPayments = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsCardProcessing SecureAcceptance = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing VirtualTerminal = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing CurrencyConversion = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsDigitalPayments Tax = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsDigitalPayments CustomerInvoicing = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsCardProcessing RecurringBilling = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing CybsReadyTerminal = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsDigitalPayments PaymentOrchestration = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsCardProcessing Payouts = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsDigitalPayments PayByLink = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsDigitalPayments UnifiedCheckout = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsDigitalPayments ReceivablesManager = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsCardProcessing ServiceFee = default(InlineResponse2012SetupsPaymentsCardProcessing))
+        public InlineResponse2012SetupsPayments(InlineResponse2012SetupsPaymentsCardProcessing CardProcessing = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsAlternativePaymentMethods AlternativePaymentMethods = default(InlineResponse2012SetupsPaymentsAlternativePaymentMethods), InlineResponse2012SetupsPaymentsCardProcessing CardPresentConnect = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing ECheck = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing PayerAuthentication = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsDigitalPayments DigitalPayments = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsCardProcessing SecureAcceptance = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing VirtualTerminal = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing CurrencyConversion = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsDigitalPayments Tax = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsDigitalPayments CustomerInvoicing = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsCardProcessing RecurringBilling = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsCardProcessing CybsReadyTerminal = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsDigitalPayments PaymentOrchestration = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsCardProcessing Payouts = default(InlineResponse2012SetupsPaymentsCardProcessing), InlineResponse2012SetupsPaymentsDigitalPayments PayByLink = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsDigitalPayments UnifiedCheckout = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsDigitalPayments ReceivablesManager = default(InlineResponse2012SetupsPaymentsDigitalPayments), InlineResponse2012SetupsPaymentsCardProcessing ServiceFee = default(InlineResponse2012SetupsPaymentsCardProcessing))
         {
             this.CardProcessing = CardProcessing;
+            this.AlternativePaymentMethods = AlternativePaymentMethods;
             this.CardPresentConnect = CardPresentConnect;
             this.ECheck = ECheck;
             this.PayerAuthentication = PayerAuthentication;
@@ -78,6 +80,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="cardProcessing", EmitDefaultValue=false)]
         public InlineResponse2012SetupsPaymentsCardProcessing CardProcessing { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AlternativePaymentMethods
+        /// </summary>
+        [DataMember(Name="alternativePaymentMethods", EmitDefaultValue=false)]
+        public InlineResponse2012SetupsPaymentsAlternativePaymentMethods AlternativePaymentMethods { get; set; }
 
         /// <summary>
         /// Gets or Sets CardPresentConnect
@@ -190,6 +198,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2012SetupsPayments {\n");
             if (CardProcessing != null) sb.Append("  CardProcessing: ").Append(CardProcessing).Append("\n");
+            if (AlternativePaymentMethods != null) sb.Append("  AlternativePaymentMethods: ").Append(AlternativePaymentMethods).Append("\n");
             if (CardPresentConnect != null) sb.Append("  CardPresentConnect: ").Append(CardPresentConnect).Append("\n");
             if (ECheck != null) sb.Append("  ECheck: ").Append(ECheck).Append("\n");
             if (PayerAuthentication != null) sb.Append("  PayerAuthentication: ").Append(PayerAuthentication).Append("\n");
@@ -247,6 +256,11 @@ namespace CyberSource.Model
                     this.CardProcessing == other.CardProcessing ||
                     this.CardProcessing != null &&
                     this.CardProcessing.Equals(other.CardProcessing)
+                ) && 
+                (
+                    this.AlternativePaymentMethods == other.AlternativePaymentMethods ||
+                    this.AlternativePaymentMethods != null &&
+                    this.AlternativePaymentMethods.Equals(other.AlternativePaymentMethods)
                 ) && 
                 (
                     this.CardPresentConnect == other.CardPresentConnect ||
@@ -348,6 +362,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.CardProcessing != null)
                     hash = hash * 59 + this.CardProcessing.GetHashCode();
+                if (this.AlternativePaymentMethods != null)
+                    hash = hash * 59 + this.AlternativePaymentMethods.GetHashCode();
                 if (this.CardPresentConnect != null)
                     hash = hash * 59 + this.CardPresentConnect.GetHashCode();
                 if (this.ECheck != null)

@@ -65,84 +65,60 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Version'
+        /// Test the property 'Links'
         /// </summary>
         [Test]
-        public void VersionTest()
+        public void LinksTest()
         {
-            // TODO unit test for the property 'Version'
+            // TODO unit test for the property 'Links'
         }
         /// <summary>
-        /// Test the property 'ReportCreatedDate'
+        /// Test the property 'Object'
         /// </summary>
         [Test]
-        public void ReportCreatedDateTest()
+        public void ObjectTest()
         {
-            // TODO unit test for the property 'ReportCreatedDate'
+            // TODO unit test for the property 'Object'
         }
         /// <summary>
-        /// Test the property 'BatchId'
+        /// Test the property 'Offset'
         /// </summary>
         [Test]
-        public void BatchIdTest()
+        public void OffsetTest()
         {
-            // TODO unit test for the property 'BatchId'
+            // TODO unit test for the property 'Offset'
         }
         /// <summary>
-        /// Test the property 'BatchSource'
+        /// Test the property 'Limit'
         /// </summary>
         [Test]
-        public void BatchSourceTest()
+        public void LimitTest()
         {
-            // TODO unit test for the property 'BatchSource'
+            // TODO unit test for the property 'Limit'
         }
         /// <summary>
-        /// Test the property 'BatchCaEndpoints'
+        /// Test the property 'Count'
         /// </summary>
         [Test]
-        public void BatchCaEndpointsTest()
+        public void CountTest()
         {
-            // TODO unit test for the property 'BatchCaEndpoints'
+            // TODO unit test for the property 'Count'
         }
         /// <summary>
-        /// Test the property 'BatchCreatedDate'
+        /// Test the property 'Total'
         /// </summary>
         [Test]
-        public void BatchCreatedDateTest()
+        public void TotalTest()
         {
-            // TODO unit test for the property 'BatchCreatedDate'
+            // TODO unit test for the property 'Total'
         }
         /// <summary>
-        /// Test the property 'MerchantReference'
+        /// Test the property 'Embedded'
         /// </summary>
         [Test]
-        public void MerchantReferenceTest()
+        public void EmbeddedTest()
         {
-            // TODO unit test for the property 'MerchantReference'
-        }
-        /// <summary>
-        /// Test the property 'Totals'
-        /// </summary>
-        [Test]
-        public void TotalsTest()
-        {
-            // TODO unit test for the property 'Totals'
-        }
-        /// <summary>
-        /// Test the property 'Billing'
-        /// </summary>
-        [Test]
-        public void BillingTest()
-        {
-            // TODO unit test for the property 'Billing'
-        }
-        /// <summary>
-        /// Test the property 'Records'
-        /// </summary>
-        [Test]
-        public void RecordsTest()
-        {
-            // TODO unit test for the property 'Records'
+            // TODO unit test for the property 'Embedded'
         }
 
     }

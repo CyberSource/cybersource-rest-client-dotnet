@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'DecisionManager'
         }
+        /// <summary>
+        /// Test the property 'PortfolioRiskControls'
+        /// </summary>
+        [Test]
+        public void PortfolioRiskControlsTest()
+        {
+            // TODO unit test for the property 'PortfolioRiskControls'
+        }
 
     }
 

@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Self">Self.</param>
         /// <param name="Status">Status.</param>
-        public InlineResponse202Links(InlineResponse401LinksSelf Self = default(InlineResponse401LinksSelf), List<InlineResponse202LinksStatus> Status = default(List<InlineResponse202LinksStatus>))
+        public InlineResponse202Links(InlineResponse4011LinksSelf Self = default(InlineResponse4011LinksSelf), List<InlineResponse202LinksStatus> Status = default(List<InlineResponse202LinksStatus>))
         {
             this.Self = Self;
             this.Status = Status;
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// Gets or Sets Self
         /// </summary>
         [DataMember(Name="self", EmitDefaultValue=false)]
-        public InlineResponse401LinksSelf Self { get; set; }
+        public InlineResponse4011LinksSelf Self { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
