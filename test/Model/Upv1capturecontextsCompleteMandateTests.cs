@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'DecisionManager'
         }
+        /// <summary>
+        /// Test the property 'ConsumerAuthentication'
+        /// </summary>
+        [Test]
+        public void ConsumerAuthenticationTest()
+        {
+            // TODO unit test for the property 'ConsumerAuthentication'
+        }
 
     }
 

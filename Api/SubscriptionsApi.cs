@@ -33,23 +33,25 @@ namespace CyberSource.Api
         /// Activate a Subscription
         /// </summary>
         /// <remarks>
-        /// Activate a &#x60;CANCELLED&#x60; Or &#x60;SUSPENDED&#x60; Subscription 
+        /// Activate a &#x60;SUSPENDED&#x60; Subscription 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
+        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
         /// <returns>ActivateSubscriptionResponse</returns>
-        ActivateSubscriptionResponse ActivateSubscription (string id);
+        ActivateSubscriptionResponse ActivateSubscription (string id, bool? processSkippedPayments = null);
 
         /// <summary>
         /// Activate a Subscription
         /// </summary>
         /// <remarks>
-        /// Activate a &#x60;CANCELLED&#x60; Or &#x60;SUSPENDED&#x60; Subscription 
+        /// Activate a &#x60;SUSPENDED&#x60; Subscription 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
+        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
         /// <returns>ApiResponse of ActivateSubscriptionResponse</returns>
-        ApiResponse<ActivateSubscriptionResponse> ActivateSubscriptionWithHttpInfo (string id);
+        ApiResponse<ActivateSubscriptionResponse> ActivateSubscriptionWithHttpInfo (string id, bool? processSkippedPayments = null);
         /// <summary>
         /// Cancel a Subscription
         /// </summary>
@@ -209,23 +211,25 @@ namespace CyberSource.Api
         /// Activate a Subscription
         /// </summary>
         /// <remarks>
-        /// Activate a &#x60;CANCELLED&#x60; Or &#x60;SUSPENDED&#x60; Subscription 
+        /// Activate a &#x60;SUSPENDED&#x60; Subscription 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
+        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
         /// <returns>Task of ActivateSubscriptionResponse</returns>
-        System.Threading.Tasks.Task<ActivateSubscriptionResponse> ActivateSubscriptionAsync (string id);
+        System.Threading.Tasks.Task<ActivateSubscriptionResponse> ActivateSubscriptionAsync (string id, bool? processSkippedPayments = null);
 
         /// <summary>
         /// Activate a Subscription
         /// </summary>
         /// <remarks>
-        /// Activate a &#x60;CANCELLED&#x60; Or &#x60;SUSPENDED&#x60; Subscription 
+        /// Activate a &#x60;SUSPENDED&#x60; Subscription 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
+        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
         /// <returns>Task of ApiResponse (ActivateSubscriptionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ActivateSubscriptionResponse>> ActivateSubscriptionAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ActivateSubscriptionResponse>> ActivateSubscriptionAsyncWithHttpInfo (string id, bool? processSkippedPayments = null);
         /// <summary>
         /// Cancel a Subscription
         /// </summary>
@@ -520,28 +524,30 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Activate a Subscription Activate a &#x60;CANCELLED&#x60; Or &#x60;SUSPENDED&#x60; Subscription 
+        /// Activate a Subscription Activate a &#x60;SUSPENDED&#x60; Subscription 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
+        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
         /// <returns>ActivateSubscriptionResponse</returns>
-        public ActivateSubscriptionResponse ActivateSubscription (string id)
+        public ActivateSubscriptionResponse ActivateSubscription (string id, bool? processSkippedPayments = null)
         {
             logger.Debug("CALLING API \"ActivateSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<ActivateSubscriptionResponse> localVarResponse = ActivateSubscriptionWithHttpInfo(id);
+            ApiResponse<ActivateSubscriptionResponse> localVarResponse = ActivateSubscriptionWithHttpInfo(id, processSkippedPayments);
             logger.Debug("CALLING API \"ActivateSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Activate a Subscription Activate a &#x60;CANCELLED&#x60; Or &#x60;SUSPENDED&#x60; Subscription 
+        /// Activate a Subscription Activate a &#x60;SUSPENDED&#x60; Subscription 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
+        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
         /// <returns>ApiResponse of ActivateSubscriptionResponse</returns>
-        public ApiResponse< ActivateSubscriptionResponse > ActivateSubscriptionWithHttpInfo (string id)
+        public ApiResponse< ActivateSubscriptionResponse > ActivateSubscriptionWithHttpInfo (string id, bool? processSkippedPayments = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -584,6 +590,11 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (processSkippedPayments != null)
+            {
+                localVarQueryParams.Add("processSkippedPayments", Configuration.ApiClient.ParameterToString(processSkippedPayments)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (Method.Post == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -639,16 +650,17 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Activate a Subscription Activate a &#x60;CANCELLED&#x60; Or &#x60;SUSPENDED&#x60; Subscription 
+        /// Activate a Subscription Activate a &#x60;SUSPENDED&#x60; Subscription 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
+        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
         /// <returns>Task of ActivateSubscriptionResponse</returns>
-        public async System.Threading.Tasks.Task<ActivateSubscriptionResponse> ActivateSubscriptionAsync (string id)
+        public async System.Threading.Tasks.Task<ActivateSubscriptionResponse> ActivateSubscriptionAsync (string id, bool? processSkippedPayments = null)
         {
             logger.Debug("CALLING API \"ActivateSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<ActivateSubscriptionResponse> localVarResponse = await ActivateSubscriptionAsyncWithHttpInfo(id);
+            ApiResponse<ActivateSubscriptionResponse> localVarResponse = await ActivateSubscriptionAsyncWithHttpInfo(id, processSkippedPayments);
             logger.Debug("CALLING API \"ActivateSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -656,12 +668,13 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Activate a Subscription Activate a &#x60;CANCELLED&#x60; Or &#x60;SUSPENDED&#x60; Subscription 
+        /// Activate a Subscription Activate a &#x60;SUSPENDED&#x60; Subscription 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
+        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
         /// <returns>Task of ApiResponse (ActivateSubscriptionResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ActivateSubscriptionResponse>> ActivateSubscriptionAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ActivateSubscriptionResponse>> ActivateSubscriptionAsyncWithHttpInfo (string id, bool? processSkippedPayments = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -704,6 +717,11 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (processSkippedPayments != null)
+            {
+                localVarQueryParams.Add("processSkippedPayments", Configuration.ApiClient.ParameterToString(processSkippedPayments)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (Method.Post == Method.Post)
             {
                 localVarPostBody = "{}";

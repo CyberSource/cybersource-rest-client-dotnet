@@ -72,7 +72,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
-            //var response = instance.ActivateSubscription(id);
+            //bool? processSkippedPayments = null;
+            //var response = instance.ActivateSubscription(id, processSkippedPayments);
             //Assert.IsInstanceOf<ActivateSubscriptionResponse> (response, "response is ActivateSubscriptionResponse");
         }
         

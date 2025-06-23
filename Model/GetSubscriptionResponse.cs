@@ -40,7 +40,8 @@ namespace CyberSource.Model
         /// <param name="SubscriptionInformation">SubscriptionInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public GetSubscriptionResponse(GetAllSubscriptionsResponseLinks Links = default(GetAllSubscriptionsResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), GetAllSubscriptionsResponsePlanInformation PlanInformation = default(GetAllSubscriptionsResponsePlanInformation), GetAllSubscriptionsResponseSubscriptionInformation SubscriptionInformation = default(GetAllSubscriptionsResponseSubscriptionInformation), GetAllSubscriptionsResponsePaymentInformation PaymentInformation = default(GetAllSubscriptionsResponsePaymentInformation), GetAllSubscriptionsResponseOrderInformation OrderInformation = default(GetAllSubscriptionsResponseOrderInformation))
+        /// <param name="ReactivationInformation">ReactivationInformation.</param>
+        public GetSubscriptionResponse(GetAllSubscriptionsResponseLinks Links = default(GetAllSubscriptionsResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), GetAllSubscriptionsResponsePlanInformation PlanInformation = default(GetAllSubscriptionsResponsePlanInformation), GetAllSubscriptionsResponseSubscriptionInformation SubscriptionInformation = default(GetAllSubscriptionsResponseSubscriptionInformation), GetAllSubscriptionsResponsePaymentInformation PaymentInformation = default(GetAllSubscriptionsResponsePaymentInformation), GetAllSubscriptionsResponseOrderInformation OrderInformation = default(GetAllSubscriptionsResponseOrderInformation), GetSubscriptionResponseReactivationInformation ReactivationInformation = default(GetSubscriptionResponseReactivationInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -49,6 +50,7 @@ namespace CyberSource.Model
             this.SubscriptionInformation = SubscriptionInformation;
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
+            this.ReactivationInformation = ReactivationInformation;
         }
         
         /// <summary>
@@ -96,6 +98,12 @@ namespace CyberSource.Model
         public GetAllSubscriptionsResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ReactivationInformation
+        /// </summary>
+        [DataMember(Name="reactivationInformation", EmitDefaultValue=false)]
+        public GetSubscriptionResponseReactivationInformation ReactivationInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -110,6 +118,7 @@ namespace CyberSource.Model
             if (SubscriptionInformation != null) sb.Append("  SubscriptionInformation: ").Append(SubscriptionInformation).Append("\n");
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (ReactivationInformation != null) sb.Append("  ReactivationInformation: ").Append(ReactivationInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -180,6 +189,11 @@ namespace CyberSource.Model
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.ReactivationInformation == other.ReactivationInformation ||
+                    this.ReactivationInformation != null &&
+                    this.ReactivationInformation.Equals(other.ReactivationInformation)
                 );
         }
 
@@ -208,6 +222,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.ReactivationInformation != null)
+                    hash = hash * 59 + this.ReactivationInformation.GetHashCode();
                 return hash;
             }
         }

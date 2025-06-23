@@ -39,10 +39,11 @@ namespace CyberSource.Model
         /// <param name="RequestShipping">Configure Unified Checkout to capture customer shipping details.  Possible values: - True - False .</param>
         /// <param name="ShipToCountries">List of countries available to ship to.   Use the two-character ISO Standard Country Codes. .</param>
         /// <param name="ShowAcceptedNetworkIcons">Configure Unified Checkout to display the list of accepted card networks beneath the payment button  Possible values: - True - False .</param>
+        /// <param name="ShowConfirmationStep">Configure Unified Checkout to display the final confirmation screen when using Click to Pay.&lt;br&gt; Where &#39;BillingType&#39;&#x3D; NONE and &#39;requestShipping&#39;&#x3D; FALSE and the customer is using an existing Click to Pay card as their chosen payment method, a final confirmation screen can be removed allowing the customer to check out as soon as they have selected their payment method from within their Click to Pay card tray.  Possible values: - True - False .</param>
         /// <param name="RequestSaveCard">Configure Unified Checkout to display the \&quot;Save card for future use\&quot; checkbox.&lt;br&gt;  Configurable check box that will show in a Manual card entry flow to allow a Cardholder to give consent to store their manually entered credential with the Merchant that they are paying.&lt;br&gt;  Applicable when manually entering the details and not enrolling in Click to Pay.  Possible values:  - True   - False&lt;br&gt;&lt;br&gt;  **Use Cases:**  **Offer consumers option to save their card in Unified Checkout:**  - Include the captureMandate.requestSaveCard field in the capture context request and set it to true. - When set to true, this will show a checkbox with the message &#39;Save card for future use&#39; in Unified Checkout. - When selected this provides a response in both the Transient Token and Get Credentials API response.&lt;br&gt;&lt;br&gt;  **Do not offer consumers the option to save their card in Unified Checkout:**  - Include the captureMandate.requestSaveCard field in the capture context request and set it to false OR omit the field from the capture context request. - When set to false, the save card option is not shown to consumers when manually entering card details. .</param>
         /// <param name="ComboCard">Configure Unified Checkout to display combo card at checkout.&lt;br&gt;  A combo debit/credit card is a single card that functions both as a Debit/Credit card.  Unified Checkout / Click to Pay Drop-in UI allows the Cardholder to choose whether they would like the transaction to be paid for using either debit or credit card. **Important:** This is applicable to Visa cards only.  Possible values: - True  - False&lt;br&gt;&lt;br&gt;  **Use Cases:**  **Offer Combo Card at Checkout:**  - Include the captureMandate.comboCard field in the capture context request and set it to true. - When set to true, Combo Card selection is shown at checkout &lt;br&gt;&lt;br&gt;  **Do not offer Combo Card at Checkout:**  - Include the captureMandate.comboCard field in the capture context request and set it to false OR omit the field from the capture context request. - The Combo Card selection is not shown at checkout. .</param>
         /// <param name="CPF">Configure Unified Checkout to display and capture the CPF number (Cadastro de Pessoas Físicas).  The CPF number is a unique 11-digit identifier issued to Brazilian citizens and residents for tax purposes.  Possible values: - True - False&lt;br&gt;&lt;br&gt;  This field is optional.   If set to true the field is required. If set to false the field is optional. If the field is not included in the capture context then it is not captured.&lt;br&gt;&lt;br&gt;  **Important:**  - If PANENTRY is specified in the allowedPaymentTypes field, the CPF number will be displayed in Unified Checkout regardless of what card number is entered.  - If CLICKTOPAY is specified in the allowedPaymentTypes field, the CPF number will be displayed in Unified Checkout only when a Visa Click To Pay card is entered. .</param>
-        public Upv1capturecontextsCaptureMandate(string BillingType = default(string), bool? RequestEmail = default(bool?), bool? RequestPhone = default(bool?), bool? RequestShipping = default(bool?), List<string> ShipToCountries = default(List<string>), bool? ShowAcceptedNetworkIcons = default(bool?), bool? RequestSaveCard = default(bool?), bool? ComboCard = default(bool?), bool? CPF = default(bool?))
+        public Upv1capturecontextsCaptureMandate(string BillingType = default(string), bool? RequestEmail = default(bool?), bool? RequestPhone = default(bool?), bool? RequestShipping = default(bool?), List<string> ShipToCountries = default(List<string>), bool? ShowAcceptedNetworkIcons = default(bool?), bool? ShowConfirmationStep = default(bool?), bool? RequestSaveCard = default(bool?), bool? ComboCard = default(bool?), bool? CPF = default(bool?))
         {
             this.BillingType = BillingType;
             this.RequestEmail = RequestEmail;
@@ -50,6 +51,7 @@ namespace CyberSource.Model
             this.RequestShipping = RequestShipping;
             this.ShipToCountries = ShipToCountries;
             this.ShowAcceptedNetworkIcons = ShowAcceptedNetworkIcons;
+            this.ShowConfirmationStep = ShowConfirmationStep;
             this.RequestSaveCard = RequestSaveCard;
             this.ComboCard = ComboCard;
             this.CPF = CPF;
@@ -98,6 +100,13 @@ namespace CyberSource.Model
         public bool? ShowAcceptedNetworkIcons { get; set; }
 
         /// <summary>
+        /// Configure Unified Checkout to display the final confirmation screen when using Click to Pay.&lt;br&gt; Where &#39;BillingType&#39;&#x3D; NONE and &#39;requestShipping&#39;&#x3D; FALSE and the customer is using an existing Click to Pay card as their chosen payment method, a final confirmation screen can be removed allowing the customer to check out as soon as they have selected their payment method from within their Click to Pay card tray.  Possible values: - True - False 
+        /// </summary>
+        /// <value>Configure Unified Checkout to display the final confirmation screen when using Click to Pay.&lt;br&gt; Where &#39;BillingType&#39;&#x3D; NONE and &#39;requestShipping&#39;&#x3D; FALSE and the customer is using an existing Click to Pay card as their chosen payment method, a final confirmation screen can be removed allowing the customer to check out as soon as they have selected their payment method from within their Click to Pay card tray.  Possible values: - True - False </value>
+        [DataMember(Name="showConfirmationStep", EmitDefaultValue=false)]
+        public bool? ShowConfirmationStep { get; set; }
+
+        /// <summary>
         /// Configure Unified Checkout to display the \&quot;Save card for future use\&quot; checkbox.&lt;br&gt;  Configurable check box that will show in a Manual card entry flow to allow a Cardholder to give consent to store their manually entered credential with the Merchant that they are paying.&lt;br&gt;  Applicable when manually entering the details and not enrolling in Click to Pay.  Possible values:  - True   - False&lt;br&gt;&lt;br&gt;  **Use Cases:**  **Offer consumers option to save their card in Unified Checkout:**  - Include the captureMandate.requestSaveCard field in the capture context request and set it to true. - When set to true, this will show a checkbox with the message &#39;Save card for future use&#39; in Unified Checkout. - When selected this provides a response in both the Transient Token and Get Credentials API response.&lt;br&gt;&lt;br&gt;  **Do not offer consumers the option to save their card in Unified Checkout:**  - Include the captureMandate.requestSaveCard field in the capture context request and set it to false OR omit the field from the capture context request. - When set to false, the save card option is not shown to consumers when manually entering card details. 
         /// </summary>
         /// <value>Configure Unified Checkout to display the \&quot;Save card for future use\&quot; checkbox.&lt;br&gt;  Configurable check box that will show in a Manual card entry flow to allow a Cardholder to give consent to store their manually entered credential with the Merchant that they are paying.&lt;br&gt;  Applicable when manually entering the details and not enrolling in Click to Pay.  Possible values:  - True   - False&lt;br&gt;&lt;br&gt;  **Use Cases:**  **Offer consumers option to save their card in Unified Checkout:**  - Include the captureMandate.requestSaveCard field in the capture context request and set it to true. - When set to true, this will show a checkbox with the message &#39;Save card for future use&#39; in Unified Checkout. - When selected this provides a response in both the Transient Token and Get Credentials API response.&lt;br&gt;&lt;br&gt;  **Do not offer consumers the option to save their card in Unified Checkout:**  - Include the captureMandate.requestSaveCard field in the capture context request and set it to false OR omit the field from the capture context request. - When set to false, the save card option is not shown to consumers when manually entering card details. </value>
@@ -132,6 +141,7 @@ namespace CyberSource.Model
             if (RequestShipping != null) sb.Append("  RequestShipping: ").Append(RequestShipping).Append("\n");
             if (ShipToCountries != null) sb.Append("  ShipToCountries: ").Append(ShipToCountries).Append("\n");
             if (ShowAcceptedNetworkIcons != null) sb.Append("  ShowAcceptedNetworkIcons: ").Append(ShowAcceptedNetworkIcons).Append("\n");
+            if (ShowConfirmationStep != null) sb.Append("  ShowConfirmationStep: ").Append(ShowConfirmationStep).Append("\n");
             if (RequestSaveCard != null) sb.Append("  RequestSaveCard: ").Append(RequestSaveCard).Append("\n");
             if (ComboCard != null) sb.Append("  ComboCard: ").Append(ComboCard).Append("\n");
             if (CPF != null) sb.Append("  CPF: ").Append(CPF).Append("\n");
@@ -202,6 +212,11 @@ namespace CyberSource.Model
                     this.ShowAcceptedNetworkIcons.Equals(other.ShowAcceptedNetworkIcons)
                 ) && 
                 (
+                    this.ShowConfirmationStep == other.ShowConfirmationStep ||
+                    this.ShowConfirmationStep != null &&
+                    this.ShowConfirmationStep.Equals(other.ShowConfirmationStep)
+                ) && 
+                (
                     this.RequestSaveCard == other.RequestSaveCard ||
                     this.RequestSaveCard != null &&
                     this.RequestSaveCard.Equals(other.RequestSaveCard)
@@ -241,6 +256,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ShipToCountries.GetHashCode();
                 if (this.ShowAcceptedNetworkIcons != null)
                     hash = hash * 59 + this.ShowAcceptedNetworkIcons.GetHashCode();
+                if (this.ShowConfirmationStep != null)
+                    hash = hash * 59 + this.ShowConfirmationStep.GetHashCode();
                 if (this.RequestSaveCard != null)
                     hash = hash * 59 + this.RequestSaveCard.GetHashCode();
                 if (this.ComboCard != null)

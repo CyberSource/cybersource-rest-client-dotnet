@@ -65,6 +65,18 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test PostSearchQuery
+        /// </summary>
+        [Test]
+        public void PostSearchQueryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //PostDeviceSearchRequest postDeviceSearchRequest = null;
+            //var response = instance.PostSearchQuery(postDeviceSearchRequest);
+            //Assert.IsInstanceOf<InlineResponse2005> (response, "response is InlineResponse2005");
+        }
+        
+        /// <summary>
         /// Test PostSearchQueryV3
         /// </summary>
         [Test]
@@ -73,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //PostDeviceSearchRequestV3 postDeviceSearchRequestV3 = null;
             //var response = instance.PostSearchQueryV3(postDeviceSearchRequestV3);
-            //Assert.IsInstanceOf<InlineResponse2006> (response, "response is InlineResponse2006");
+            //Assert.IsInstanceOf<InlineResponse2007> (response, "response is InlineResponse2007");
         }
         
     }

@@ -33,27 +33,36 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsCompleteMandate" /> class.
         /// </summary>
-        /// <param name="Type">This field is used to indicate how a payment should be processed.  Possible values: - AUTH: Use this value when you want to authorize a payment without capturing it immediately.  Payment types that initiate an immediate transfer of funds are not allowed.  If a capture context request includes a payment type incompatible with this mode, a 400 error will be returned.&lt;br&gt;&lt;br&gt;   - CAPTURE: Use this value when you want to capture the payment immediately during the transaction.  Note: Some payment types may return a PENDING status, requiring an additional status check call to determine the final outcome of the payment.&lt;br&gt;&lt;br&gt; - PREFER_AUTH: Use this value to offer multiple alternative payment options during the Unified Checkout experience. This option authorizes the payment without immediate capture, where available. Payment types like account-to-account transfers that initiate an immediate transfer of funds are allowed and presented to the customer. If selected, an immediate transfer of funds occurs; otherwise, a final backend call is needed to capture the payment. Transactions can be AUTHORIZED, CAPTURED, or PENDING. .</param>
-        /// <param name="DecisionManager">Configure Unified Checkout to determine whether Decision Manager is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True indicates that device fingerprinting will be executed to add additional information for risk service Setting this value to False indicates that you do not wish to run device fingerprinting and skip decision manager services. .</param>
-        public Upv1capturecontextsCompleteMandate(string Type = default(string), bool? DecisionManager = default(bool?))
+        /// <param name="Type">This field is used to indicate how a payment should be processed.  Possible values: - AUTH: Use this value when you want to authorize a payment within Unified Checkout without capturing it immediately.  Payment types that initiate an immediate transfer of funds are NOT allowed.  If a capture context request includes a payment type incompatible with this mode, a 400 error will be returned.  A merchant would need to perform their own capture via API where applicable.&lt;br&gt;&lt;br&gt;   - CAPTURE: Use this value when you want to perform a sale within Unified Checkout and capture the payment immediately during the transaction.  Note: Some payment types may return a PENDING status, requiring an additional status check call to determine the final outcome of the payment.&lt;br&gt;&lt;br&gt; - PREFER_AUTH: Use this value to offer multiple alternative payment options during the Unified Checkout experience. This option authorizes the payment without immediate capture, where available.  It will perform a \&quot;CAPTURE\&quot; where an \&quot;AUTH\&quot; is not allowed by the payment type.  Transactions can be AUTHORIZED, CAPTURED, or PENDING.  If an \&quot;AUTH\&quot; is performed, a merchant would need to perform their own capture via API where applicable. .</param>
+        /// <param name="DecisionManager">Configure Unified Checkout to determine whether Decision Manager is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True indicates that device fingerprinting will be executed to add additional information for risk service Setting this value to False (or not provided) indicates that you do not wish to run device fingerprinting and skip decision manager services. .</param>
+        /// <param name="ConsumerAuthentication">Configure Unified Checkout to determine whether Consumer Authentication is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True will attempt to perform authentication using the Payer Authentication Service. Setting this value to False (or not provided) indicates that you do not wish to perform authentication using the Payer Authentication Service. .</param>
+        public Upv1capturecontextsCompleteMandate(string Type = default(string), bool? DecisionManager = default(bool?), bool? ConsumerAuthentication = default(bool?))
         {
             this.Type = Type;
             this.DecisionManager = DecisionManager;
+            this.ConsumerAuthentication = ConsumerAuthentication;
         }
         
         /// <summary>
-        /// This field is used to indicate how a payment should be processed.  Possible values: - AUTH: Use this value when you want to authorize a payment without capturing it immediately.  Payment types that initiate an immediate transfer of funds are not allowed.  If a capture context request includes a payment type incompatible with this mode, a 400 error will be returned.&lt;br&gt;&lt;br&gt;   - CAPTURE: Use this value when you want to capture the payment immediately during the transaction.  Note: Some payment types may return a PENDING status, requiring an additional status check call to determine the final outcome of the payment.&lt;br&gt;&lt;br&gt; - PREFER_AUTH: Use this value to offer multiple alternative payment options during the Unified Checkout experience. This option authorizes the payment without immediate capture, where available. Payment types like account-to-account transfers that initiate an immediate transfer of funds are allowed and presented to the customer. If selected, an immediate transfer of funds occurs; otherwise, a final backend call is needed to capture the payment. Transactions can be AUTHORIZED, CAPTURED, or PENDING. 
+        /// This field is used to indicate how a payment should be processed.  Possible values: - AUTH: Use this value when you want to authorize a payment within Unified Checkout without capturing it immediately.  Payment types that initiate an immediate transfer of funds are NOT allowed.  If a capture context request includes a payment type incompatible with this mode, a 400 error will be returned.  A merchant would need to perform their own capture via API where applicable.&lt;br&gt;&lt;br&gt;   - CAPTURE: Use this value when you want to perform a sale within Unified Checkout and capture the payment immediately during the transaction.  Note: Some payment types may return a PENDING status, requiring an additional status check call to determine the final outcome of the payment.&lt;br&gt;&lt;br&gt; - PREFER_AUTH: Use this value to offer multiple alternative payment options during the Unified Checkout experience. This option authorizes the payment without immediate capture, where available.  It will perform a \&quot;CAPTURE\&quot; where an \&quot;AUTH\&quot; is not allowed by the payment type.  Transactions can be AUTHORIZED, CAPTURED, or PENDING.  If an \&quot;AUTH\&quot; is performed, a merchant would need to perform their own capture via API where applicable. 
         /// </summary>
-        /// <value>This field is used to indicate how a payment should be processed.  Possible values: - AUTH: Use this value when you want to authorize a payment without capturing it immediately.  Payment types that initiate an immediate transfer of funds are not allowed.  If a capture context request includes a payment type incompatible with this mode, a 400 error will be returned.&lt;br&gt;&lt;br&gt;   - CAPTURE: Use this value when you want to capture the payment immediately during the transaction.  Note: Some payment types may return a PENDING status, requiring an additional status check call to determine the final outcome of the payment.&lt;br&gt;&lt;br&gt; - PREFER_AUTH: Use this value to offer multiple alternative payment options during the Unified Checkout experience. This option authorizes the payment without immediate capture, where available. Payment types like account-to-account transfers that initiate an immediate transfer of funds are allowed and presented to the customer. If selected, an immediate transfer of funds occurs; otherwise, a final backend call is needed to capture the payment. Transactions can be AUTHORIZED, CAPTURED, or PENDING. </value>
+        /// <value>This field is used to indicate how a payment should be processed.  Possible values: - AUTH: Use this value when you want to authorize a payment within Unified Checkout without capturing it immediately.  Payment types that initiate an immediate transfer of funds are NOT allowed.  If a capture context request includes a payment type incompatible with this mode, a 400 error will be returned.  A merchant would need to perform their own capture via API where applicable.&lt;br&gt;&lt;br&gt;   - CAPTURE: Use this value when you want to perform a sale within Unified Checkout and capture the payment immediately during the transaction.  Note: Some payment types may return a PENDING status, requiring an additional status check call to determine the final outcome of the payment.&lt;br&gt;&lt;br&gt; - PREFER_AUTH: Use this value to offer multiple alternative payment options during the Unified Checkout experience. This option authorizes the payment without immediate capture, where available.  It will perform a \&quot;CAPTURE\&quot; where an \&quot;AUTH\&quot; is not allowed by the payment type.  Transactions can be AUTHORIZED, CAPTURED, or PENDING.  If an \&quot;AUTH\&quot; is performed, a merchant would need to perform their own capture via API where applicable. </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Configure Unified Checkout to determine whether Decision Manager is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True indicates that device fingerprinting will be executed to add additional information for risk service Setting this value to False indicates that you do not wish to run device fingerprinting and skip decision manager services. 
+        /// Configure Unified Checkout to determine whether Decision Manager is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True indicates that device fingerprinting will be executed to add additional information for risk service Setting this value to False (or not provided) indicates that you do not wish to run device fingerprinting and skip decision manager services. 
         /// </summary>
-        /// <value>Configure Unified Checkout to determine whether Decision Manager is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True indicates that device fingerprinting will be executed to add additional information for risk service Setting this value to False indicates that you do not wish to run device fingerprinting and skip decision manager services. </value>
+        /// <value>Configure Unified Checkout to determine whether Decision Manager is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True indicates that device fingerprinting will be executed to add additional information for risk service Setting this value to False (or not provided) indicates that you do not wish to run device fingerprinting and skip decision manager services. </value>
         [DataMember(Name="decisionManager", EmitDefaultValue=false)]
         public bool? DecisionManager { get; set; }
+
+        /// <summary>
+        /// Configure Unified Checkout to determine whether Consumer Authentication is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True will attempt to perform authentication using the Payer Authentication Service. Setting this value to False (or not provided) indicates that you do not wish to perform authentication using the Payer Authentication Service. 
+        /// </summary>
+        /// <value>Configure Unified Checkout to determine whether Consumer Authentication is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True will attempt to perform authentication using the Payer Authentication Service. Setting this value to False (or not provided) indicates that you do not wish to perform authentication using the Payer Authentication Service. </value>
+        [DataMember(Name="consumerAuthentication", EmitDefaultValue=false)]
+        public bool? ConsumerAuthentication { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,6 +74,7 @@ namespace CyberSource.Model
             sb.Append("class Upv1capturecontextsCompleteMandate {\n");
             if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
             if (DecisionManager != null) sb.Append("  DecisionManager: ").Append(DecisionManager).Append("\n");
+            if (ConsumerAuthentication != null) sb.Append("  ConsumerAuthentication: ").Append(ConsumerAuthentication).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +120,11 @@ namespace CyberSource.Model
                     this.DecisionManager == other.DecisionManager ||
                     this.DecisionManager != null &&
                     this.DecisionManager.Equals(other.DecisionManager)
+                ) && 
+                (
+                    this.ConsumerAuthentication == other.ConsumerAuthentication ||
+                    this.ConsumerAuthentication != null &&
+                    this.ConsumerAuthentication.Equals(other.ConsumerAuthentication)
                 );
         }
 
@@ -128,6 +143,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.DecisionManager != null)
                     hash = hash * 59 + this.DecisionManager.GetHashCode();
+                if (this.ConsumerAuthentication != null)
+                    hash = hash * 59 + this.ConsumerAuthentication.GetHashCode();
                 return hash;
             }
         }

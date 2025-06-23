@@ -113,6 +113,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ShowAcceptedNetworkIcons'
         }
         /// <summary>
+        /// Test the property 'ShowConfirmationStep'
+        /// </summary>
+        [Test]
+        public void ShowConfirmationStepTest()
+        {
+            // TODO unit test for the property 'ShowConfirmationStep'
+        }
+        /// <summary>
         /// Test the property 'RequestSaveCard'
         /// </summary>
         [Test]

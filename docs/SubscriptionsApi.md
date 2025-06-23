@@ -16,11 +16,11 @@ Method | HTTP request | Description
 
 <a name="activatesubscription"></a>
 # **ActivateSubscription**
-> ActivateSubscriptionResponse ActivateSubscription (string id)
+> ActivateSubscriptionResponse ActivateSubscription (string id, bool? processSkippedPayments = null)
 
 Activate a Subscription
 
-Activate a `CANCELLED` Or `SUSPENDED` Subscription 
+Activate a `SUSPENDED` Subscription 
 
 ### Example
 ```csharp
@@ -38,11 +38,12 @@ namespace Example
         {
             var apiInstance = new SubscriptionsApi();
             var id = id_example;  // string | Subscription Id
+            var processSkippedPayments = true;  // bool? | Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional)  (default to true)
 
             try
             {
                 // Activate a Subscription
-                ActivateSubscriptionResponse result = apiInstance.ActivateSubscription(id);
+                ActivateSubscriptionResponse result = apiInstance.ActivateSubscription(id, processSkippedPayments);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -59,6 +60,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Subscription Id | 
+ **processSkippedPayments** | **bool?**| Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. | [optional] [default to true]
 
 ### Return type
 
