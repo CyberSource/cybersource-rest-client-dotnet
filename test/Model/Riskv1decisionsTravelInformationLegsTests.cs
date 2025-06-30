@@ -96,6 +96,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'DepartureDate'
         }
+        /// <summary>
+        /// Test the property 'DepartureTime'
+        /// </summary>
+        [Test]
+        public void DepartureTimeTest()
+        {
+            // TODO unit test for the property 'DepartureTime'
+        }
 
     }
 

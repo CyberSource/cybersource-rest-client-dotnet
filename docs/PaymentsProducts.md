@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Payouts** | [**PaymentsProductsPayouts**](PaymentsProductsPayouts.md) |  | [optional] 
 **DifferentialFee** | [**PaymentsProductsDifferentialFee**](PaymentsProductsDifferentialFee.md) |  | [optional] 
 **PayByLink** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
-**UnifiedCheckout** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
+**UnifiedCheckout** | [**PaymentsProductsUnifiedCheckout**](PaymentsProductsUnifiedCheckout.md) |  | [optional] 
 **ReceivablesManager** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 **ServiceFee** | [**PaymentsProductsServiceFee**](PaymentsProductsServiceFee.md) |  | [optional] 
 

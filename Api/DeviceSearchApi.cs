@@ -30,49 +30,91 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Retrieve List of Devices for a given search query V3
+        /// Retrieve List of Devices for a given search query V2
         /// </summary>
         /// <remarks>
-        /// Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
+        /// Retrieves list of terminals in paginated format.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>InlineResponse2006</returns>
-        InlineResponse2006 PostSearchQueryV3 (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
+        /// <param name="postDeviceSearchRequest"></param>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 PostSearchQuery (PostDeviceSearchRequest postDeviceSearchRequest);
 
         /// <summary>
-        /// Retrieve List of Devices for a given search query V3
+        /// Retrieve List of Devices for a given search query V2
+        /// </summary>
+        /// <remarks>
+        /// Retrieves list of terminals in paginated format.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postDeviceSearchRequest"></param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> PostSearchQueryWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest);
+        /// <summary>
+        /// Retrieve List of Devices for a given search query
         /// </summary>
         /// <remarks>
         /// Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>ApiResponse of InlineResponse2006</returns>
-        ApiResponse<InlineResponse2006> PostSearchQueryV3WithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
+        /// <returns>InlineResponse2007</returns>
+        InlineResponse2007 PostSearchQueryV3 (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
+
+        /// <summary>
+        /// Retrieve List of Devices for a given search query
+        /// </summary>
+        /// <remarks>
+        /// Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postDeviceSearchRequestV3"></param>
+        /// <returns>ApiResponse of InlineResponse2007</returns>
+        ApiResponse<InlineResponse2007> PostSearchQueryV3WithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Retrieve List of Devices for a given search query V3
+        /// Retrieve List of Devices for a given search query V2
         /// </summary>
         /// <remarks>
-        /// Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
+        /// Retrieves list of terminals in paginated format.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>Task of InlineResponse2006</returns>
-        System.Threading.Tasks.Task<InlineResponse2006> PostSearchQueryV3Async (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
+        /// <param name="postDeviceSearchRequest"></param>
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> PostSearchQueryAsync (PostDeviceSearchRequest postDeviceSearchRequest);
 
         /// <summary>
-        /// Retrieve List of Devices for a given search query V3
+        /// Retrieve List of Devices for a given search query V2
+        /// </summary>
+        /// <remarks>
+        /// Retrieves list of terminals in paginated format.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postDeviceSearchRequest"></param>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostSearchQueryAsyncWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest);
+        /// <summary>
+        /// Retrieve List of Devices for a given search query
         /// </summary>
         /// <remarks>
         /// Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostSearchQueryV3AsyncWithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
+        /// <returns>Task of InlineResponse2007</returns>
+        System.Threading.Tasks.Task<InlineResponse2007> PostSearchQueryV3Async (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
+
+        /// <summary>
+        /// Retrieve List of Devices for a given search query
+        /// </summary>
+        /// <remarks>
+        /// Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postDeviceSearchRequestV3"></param>
+        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostSearchQueryV3AsyncWithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
         #endregion Asynchronous Operations
     }
 
@@ -214,28 +256,244 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve List of Devices for a given search query V3 Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
+        /// Retrieve List of Devices for a given search query V2 Retrieves list of terminals in paginated format.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postDeviceSearchRequest"></param>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 PostSearchQuery (PostDeviceSearchRequest postDeviceSearchRequest)
+        {
+            logger.Debug("CALLING API \"PostSearchQuery\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse2005> localVarResponse = PostSearchQueryWithHttpInfo(postDeviceSearchRequest);
+            logger.Debug("CALLING API \"PostSearchQuery\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve List of Devices for a given search query V2 Retrieves list of terminals in paginated format.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postDeviceSearchRequest"></param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse< InlineResponse2005 > PostSearchQueryWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'postDeviceSearchRequest' is set
+            if (postDeviceSearchRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'postDeviceSearchRequest' when calling DeviceSearchApi->PostSearchQuery");
+                throw new ApiException(400, "Missing required parameter 'postDeviceSearchRequest' when calling DeviceSearchApi->PostSearchQuery");
+            }
+
+            var localVarPath = $"/dms/v2/devices/search";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=UTF-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=UTF-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (postDeviceSearchRequest != null && postDeviceSearchRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                postDeviceSearchRequest = (PostDeviceSearchRequest)sdkTracker.InsertDeveloperIdTracker(postDeviceSearchRequest, postDeviceSearchRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(postDeviceSearchRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = postDeviceSearchRequest; // byte array
+            }
+            
+            bool isMLESupportedByCybsForApi = false;
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostSearchQuery", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+        }
+
+        /// <summary>
+        /// Retrieve List of Devices for a given search query V2 Retrieves list of terminals in paginated format.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postDeviceSearchRequest"></param>
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005> PostSearchQueryAsync (PostDeviceSearchRequest postDeviceSearchRequest)
+        {
+            logger.Debug("CALLING API \"PostSearchQueryAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse2005> localVarResponse = await PostSearchQueryAsyncWithHttpInfo(postDeviceSearchRequest);
+            logger.Debug("CALLING API \"PostSearchQueryAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieve List of Devices for a given search query V2 Retrieves list of terminals in paginated format.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="postDeviceSearchRequest"></param>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostSearchQueryAsyncWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'postDeviceSearchRequest' is set
+            if (postDeviceSearchRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'postDeviceSearchRequest' when calling DeviceSearchApi->PostSearchQuery");
+                throw new ApiException(400, "Missing required parameter 'postDeviceSearchRequest' when calling DeviceSearchApi->PostSearchQuery");
+            }
+
+            var localVarPath = $"/dms/v2/devices/search";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=UTF-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=UTF-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (postDeviceSearchRequest != null && postDeviceSearchRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                postDeviceSearchRequest = (PostDeviceSearchRequest)sdkTracker.InsertDeveloperIdTracker(postDeviceSearchRequest, postDeviceSearchRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(postDeviceSearchRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = postDeviceSearchRequest; // byte array
+            }
+
+            bool isMLESupportedByCybsForApi = false;
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostSearchQuery", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+        }
+        /// <summary>
+        /// Retrieve List of Devices for a given search query Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>InlineResponse2006</returns>
-        public InlineResponse2006 PostSearchQueryV3 (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
+        /// <returns>InlineResponse2007</returns>
+        public InlineResponse2007 PostSearchQueryV3 (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
         {
             logger.Debug("CALLING API \"PostSearchQueryV3\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2006> localVarResponse = PostSearchQueryV3WithHttpInfo(postDeviceSearchRequestV3);
+            ApiResponse<InlineResponse2007> localVarResponse = PostSearchQueryV3WithHttpInfo(postDeviceSearchRequestV3);
             logger.Debug("CALLING API \"PostSearchQueryV3\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve List of Devices for a given search query V3 Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
+        /// Retrieve List of Devices for a given search query Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>ApiResponse of InlineResponse2006</returns>
-        public ApiResponse< InlineResponse2006 > PostSearchQueryV3WithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
+        /// <returns>ApiResponse of InlineResponse2007</returns>
+        public ApiResponse< InlineResponse2007 > PostSearchQueryV3WithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -316,22 +574,22 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006))); // Return statement
+                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007))); // Return statement
         }
 
         /// <summary>
-        /// Retrieve List of Devices for a given search query V3 Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
+        /// Retrieve List of Devices for a given search query Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> PostSearchQueryV3Async (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
+        /// <returns>Task of InlineResponse2007</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2007> PostSearchQueryV3Async (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
         {
             logger.Debug("CALLING API \"PostSearchQueryV3Async\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2006> localVarResponse = await PostSearchQueryV3AsyncWithHttpInfo(postDeviceSearchRequestV3);
+            ApiResponse<InlineResponse2007> localVarResponse = await PostSearchQueryV3AsyncWithHttpInfo(postDeviceSearchRequestV3);
             logger.Debug("CALLING API \"PostSearchQueryV3Async\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -339,12 +597,12 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve List of Devices for a given search query V3 Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
+        /// Retrieve List of Devices for a given search query Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostSearchQueryV3AsyncWithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
+        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostSearchQueryV3AsyncWithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -425,9 +683,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006))); // Return statement
+                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007))); // Return statement
         }
     }
 }

@@ -161,6 +161,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ElectronicVerificationResults'
         }
         /// <summary>
+        /// Test the property 'EventStatus'
+        /// </summary>
+        [Test]
+        public void EventStatusTest()
+        {
+            // TODO unit test for the property 'EventStatus'
+        }
+        /// <summary>
         /// Test the property 'SystemTraceAuditNumber'
         /// </summary>
         [Test]

@@ -45,10 +45,11 @@ namespace CyberSource.Model
         /// <param name="CardVerification">CardVerification.</param>
         /// <param name="AchVerification">AchVerification.</param>
         /// <param name="ElectronicVerificationResults">ElectronicVerificationResults.</param>
+        /// <param name="EventStatus">The event status. .</param>
         /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**. Returned by authorization and incremental authorization services.  #### American Express Direct  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  #### CyberSource through VisaNet  System trace number that must be printed on the customer&#39;s receipt. .</param>
         /// <param name="ResponseCodeSource">Used by Visa only and contains the response source/reason code that identifies the source of the response decision. .</param>
         /// <param name="PaymentAccountReferenceNumber">Payment Account Reference (PAR) is a non-financial reference assigned to each unique payment account and used to link a payment account to associated network tokens, i.e. the same PAR is returned for PAN-based and tokenized transactions, such as from digital wallets. PAR can be returned in authorisation responses for requests initiated with both real PANs and tokenized PANs. PAR can be used by merchants for fraud detection and regulatory compliance across different channels and digital wallets. PAR allows all participants in the payments chain to have a single, non-sensitive value assigned to a consumer. This value can be used in place of sensitive card holder identification fields, and transmitted across the payments ecosystem to facilitate card holder identification.  **Note** On CyberSource through VisaNet, the value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR8 - Position: 79-110 - Field: Payment Account Reference  The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant&#39;s acquirer, who uses this information to facilitate end-of-day clearing processing with payment networks. .</param>
-        public TssV2TransactionsGet200ResponseProcessorInformation(TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor = default(TssV2TransactionsGet200ResponseProcessorInformationProcessor), List<TssV2TransactionsGet200ResponseProcessorInformationMultiProcessorRouting> MultiProcessorRouting = default(List<TssV2TransactionsGet200ResponseProcessorInformationMultiProcessorRouting>), string TransactionId = default(string), string NetworkTransactionId = default(string), string RetrievalReferenceNumber = default(string), string ResponseId = default(string), string ApprovalCode = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), Riskv1decisionsProcessorInformationCardVerification CardVerification = default(Riskv1decisionsProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults), string SystemTraceAuditNumber = default(string), string ResponseCodeSource = default(string), string PaymentAccountReferenceNumber = default(string))
+        public TssV2TransactionsGet200ResponseProcessorInformation(TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor = default(TssV2TransactionsGet200ResponseProcessorInformationProcessor), List<TssV2TransactionsGet200ResponseProcessorInformationMultiProcessorRouting> MultiProcessorRouting = default(List<TssV2TransactionsGet200ResponseProcessorInformationMultiProcessorRouting>), string TransactionId = default(string), string NetworkTransactionId = default(string), string RetrievalReferenceNumber = default(string), string ResponseId = default(string), string ApprovalCode = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), Riskv1decisionsProcessorInformationCardVerification CardVerification = default(Riskv1decisionsProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults), string EventStatus = default(string), string SystemTraceAuditNumber = default(string), string ResponseCodeSource = default(string), string PaymentAccountReferenceNumber = default(string))
         {
             this.Processor = Processor;
             this.MultiProcessorRouting = MultiProcessorRouting;
@@ -62,6 +63,7 @@ namespace CyberSource.Model
             this.CardVerification = CardVerification;
             this.AchVerification = AchVerification;
             this.ElectronicVerificationResults = ElectronicVerificationResults;
+            this.EventStatus = EventStatus;
             this.SystemTraceAuditNumber = SystemTraceAuditNumber;
             this.ResponseCodeSource = ResponseCodeSource;
             this.PaymentAccountReferenceNumber = PaymentAccountReferenceNumber;
@@ -147,6 +149,13 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults { get; set; }
 
         /// <summary>
+        /// The event status. 
+        /// </summary>
+        /// <value>The event status. </value>
+        [DataMember(Name="eventStatus", EmitDefaultValue=false)]
+        public string EventStatus { get; set; }
+
+        /// <summary>
         /// This field is returned only for **American Express Direct** and **CyberSource through VisaNet**. Returned by authorization and incremental authorization services.  #### American Express Direct  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  #### CyberSource through VisaNet  System trace number that must be printed on the customer&#39;s receipt. 
         /// </summary>
         /// <value>This field is returned only for **American Express Direct** and **CyberSource through VisaNet**. Returned by authorization and incremental authorization services.  #### American Express Direct  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  #### CyberSource through VisaNet  System trace number that must be printed on the customer&#39;s receipt. </value>
@@ -187,6 +196,7 @@ namespace CyberSource.Model
             if (CardVerification != null) sb.Append("  CardVerification: ").Append(CardVerification).Append("\n");
             if (AchVerification != null) sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
             if (ElectronicVerificationResults != null) sb.Append("  ElectronicVerificationResults: ").Append(ElectronicVerificationResults).Append("\n");
+            if (EventStatus != null) sb.Append("  EventStatus: ").Append(EventStatus).Append("\n");
             if (SystemTraceAuditNumber != null) sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
             if (ResponseCodeSource != null) sb.Append("  ResponseCodeSource: ").Append(ResponseCodeSource).Append("\n");
             if (PaymentAccountReferenceNumber != null) sb.Append("  PaymentAccountReferenceNumber: ").Append(PaymentAccountReferenceNumber).Append("\n");
@@ -287,6 +297,11 @@ namespace CyberSource.Model
                     this.ElectronicVerificationResults.Equals(other.ElectronicVerificationResults)
                 ) && 
                 (
+                    this.EventStatus == other.EventStatus ||
+                    this.EventStatus != null &&
+                    this.EventStatus.Equals(other.EventStatus)
+                ) && 
+                (
                     this.SystemTraceAuditNumber == other.SystemTraceAuditNumber ||
                     this.SystemTraceAuditNumber != null &&
                     this.SystemTraceAuditNumber.Equals(other.SystemTraceAuditNumber)
@@ -338,6 +353,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AchVerification.GetHashCode();
                 if (this.ElectronicVerificationResults != null)
                     hash = hash * 59 + this.ElectronicVerificationResults.GetHashCode();
+                if (this.EventStatus != null)
+                    hash = hash * 59 + this.EventStatus.GetHashCode();
                 if (this.SystemTraceAuditNumber != null)
                     hash = hash * 59 + this.SystemTraceAuditNumber.GetHashCode();
                 if (this.ResponseCodeSource != null)

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **SubscriptionInformation** | [**GetAllSubscriptionsResponseSubscriptionInformation**](GetAllSubscriptionsResponseSubscriptionInformation.md) |  | [optional] 
 **PaymentInformation** | [**GetAllSubscriptionsResponsePaymentInformation**](GetAllSubscriptionsResponsePaymentInformation.md) |  | [optional] 
 **OrderInformation** | [**GetAllSubscriptionsResponseOrderInformation**](GetAllSubscriptionsResponseOrderInformation.md) |  | [optional] 
+**ReactivationInformation** | [**GetSubscriptionResponseReactivationInformation**](GetSubscriptionResponseReactivationInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

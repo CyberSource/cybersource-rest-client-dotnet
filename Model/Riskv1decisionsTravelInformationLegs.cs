@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="Destination">Use to specify the airport code for the destination of the leg of the trip, which is designated by the pound (#) symbol in the field name. This code is usually three digits long, for example: SFO &#x3D; San Francisco. Do not use the colon (:) or the dash (-). For airport codes, see [IATA Airline and Airport Code Search](https://www.iata.org/publications/Pages/code-search.aspx). The leg number can be a positive integer from 0 to N. For example:  &#x60;travelInformation.legs.0.destination&#x3D;SFO&#x60; &#x60;travelInformation.legs.1.destination&#x3D;SFO&#x60;  **Note** In your request, send either the complete route or the individual legs (&#x60;legs.0.origination&#x60; and &#x60;legs.n.destination&#x60;). If you send all the fields, the complete route takes precedence over the individual legs.  For details, see the &#x60;decision_manager_travel_leg#_dest&#x60; field description in _Decision Manager Using the SCMP API Developer Guide_ on the [CyberSource Business Center.](https://ebc2.cybersource.com/ebc2/) Click **Decision Manager** &gt; **Documentation** &gt; **Guides** &gt; _Decision Manager Using the SCMP API Developer Guide_ (PDF link). .</param>
         /// <param name="CarrierCode">International Air Transport Association (IATA) code for the carrier for this leg of the trip. Required for each leg. Required for American Express SafeKey (U.S.) for travel-related requests. .</param>
         /// <param name="DepartureDate">Departure date for the first leg of the trip. Format: YYYYMMDD. Required for American Express SafeKey (U.S.) for travel-related requests. .</param>
-        public Riskv1decisionsTravelInformationLegs(string Origination = default(string), string Destination = default(string), string CarrierCode = default(string), string DepartureDate = default(string))
+        /// <param name="DepartureTime">Time of departure for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be &#x60;00-23&#x60; and the minutes must be &#x60;00-59&#x60;. Format: English characters only. Optional request field for travel legs. .</param>
+        public Riskv1decisionsTravelInformationLegs(string Origination = default(string), string Destination = default(string), string CarrierCode = default(string), string DepartureDate = default(string), int? DepartureTime = default(int?))
         {
             this.Origination = Origination;
             this.Destination = Destination;
             this.CarrierCode = CarrierCode;
             this.DepartureDate = DepartureDate;
+            this.DepartureTime = DepartureTime;
         }
         
         /// <summary>
@@ -74,6 +76,13 @@ namespace CyberSource.Model
         public string DepartureDate { get; set; }
 
         /// <summary>
+        /// Time of departure for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be &#x60;00-23&#x60; and the minutes must be &#x60;00-59&#x60;. Format: English characters only. Optional request field for travel legs. 
+        /// </summary>
+        /// <value>Time of departure for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be &#x60;00-23&#x60; and the minutes must be &#x60;00-59&#x60;. Format: English characters only. Optional request field for travel legs. </value>
+        [DataMember(Name="departureTime", EmitDefaultValue=false)]
+        public int? DepartureTime { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +94,7 @@ namespace CyberSource.Model
             if (Destination != null) sb.Append("  Destination: ").Append(Destination).Append("\n");
             if (CarrierCode != null) sb.Append("  CarrierCode: ").Append(CarrierCode).Append("\n");
             if (DepartureDate != null) sb.Append("  DepartureDate: ").Append(DepartureDate).Append("\n");
+            if (DepartureTime != null) sb.Append("  DepartureTime: ").Append(DepartureTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +150,11 @@ namespace CyberSource.Model
                     this.DepartureDate == other.DepartureDate ||
                     this.DepartureDate != null &&
                     this.DepartureDate.Equals(other.DepartureDate)
+                ) && 
+                (
+                    this.DepartureTime == other.DepartureTime ||
+                    this.DepartureTime != null &&
+                    this.DepartureTime.Equals(other.DepartureTime)
                 );
         }
 
@@ -162,6 +177,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CarrierCode.GetHashCode();
                 if (this.DepartureDate != null)
                     hash = hash * 59 + this.DepartureDate.GetHashCode();
+                if (this.DepartureTime != null)
+                    hash = hash * 59 + this.DepartureTime.GetHashCode();
                 return hash;
             }
         }
