@@ -35,8 +35,8 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Name">This field contains the issuer name. .</param>
         /// <param name="Country">This field contains [2-character ISO Country Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf) for the issuer. .</param>
-        /// <param name="BinLength">This field contains the length of the BIN. .</param>
-        /// <param name="AccountPrefix">This field contains the first 6 to 8 digits of a primary account number (PAN). The length of the field is determined by [PCI-DSS standards for truncation](https://pcissc.secure.force.com/faq/articles/Frequently_Asked_Question/What-are-acceptable-formats-for-truncation-of-primary-account-numbers). .</param>
+        /// <param name="BinLength">This field contains the length of the BIN. In some cases, this field may be absent if we do not receive accurate information from the network source. .</param>
+        /// <param name="AccountPrefix">This field contains the first 6 to 8 digits of a primary account number (PAN). The length of the field is determined by [PCI-DSS standards for truncation](https://pcissc.secure.force.com/faq/articles/Frequently_Asked_Question/What-are-acceptable-formats-for-truncation-of-primary-account-numbers).In case the input is not the full intrument (PAN or TOKEN), this field may be truncated. .</param>
         /// <param name="PhoneNumber">This field contains the customer service phone number for the issuer. .</param>
         public TmsBinLookupIssuerInformation(string Name = default(string), string Country = default(string), string BinLength = default(string), string AccountPrefix = default(string), string PhoneNumber = default(string))
         {
@@ -62,16 +62,16 @@ namespace CyberSource.Model
         public string Country { get; set; }
 
         /// <summary>
-        /// This field contains the length of the BIN. 
+        /// This field contains the length of the BIN. In some cases, this field may be absent if we do not receive accurate information from the network source. 
         /// </summary>
-        /// <value>This field contains the length of the BIN. </value>
+        /// <value>This field contains the length of the BIN. In some cases, this field may be absent if we do not receive accurate information from the network source. </value>
         [DataMember(Name="binLength", EmitDefaultValue=false)]
         public string BinLength { get; set; }
 
         /// <summary>
-        /// This field contains the first 6 to 8 digits of a primary account number (PAN). The length of the field is determined by [PCI-DSS standards for truncation](https://pcissc.secure.force.com/faq/articles/Frequently_Asked_Question/What-are-acceptable-formats-for-truncation-of-primary-account-numbers). 
+        /// This field contains the first 6 to 8 digits of a primary account number (PAN). The length of the field is determined by [PCI-DSS standards for truncation](https://pcissc.secure.force.com/faq/articles/Frequently_Asked_Question/What-are-acceptable-formats-for-truncation-of-primary-account-numbers).In case the input is not the full intrument (PAN or TOKEN), this field may be truncated. 
         /// </summary>
-        /// <value>This field contains the first 6 to 8 digits of a primary account number (PAN). The length of the field is determined by [PCI-DSS standards for truncation](https://pcissc.secure.force.com/faq/articles/Frequently_Asked_Question/What-are-acceptable-formats-for-truncation-of-primary-account-numbers). </value>
+        /// <value>This field contains the first 6 to 8 digits of a primary account number (PAN). The length of the field is determined by [PCI-DSS standards for truncation](https://pcissc.secure.force.com/faq/articles/Frequently_Asked_Question/What-are-acceptable-formats-for-truncation-of-primary-account-numbers).In case the input is not the full intrument (PAN or TOKEN), this field may be truncated. </value>
         [DataMember(Name="accountPrefix", EmitDefaultValue=false)]
         public string AccountPrefix { get; set; }
 

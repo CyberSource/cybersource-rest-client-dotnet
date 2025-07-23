@@ -41,12 +41,13 @@ namespace CyberSource.Model
         /// <param name="ExchangeRate">Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places. .</param>
         /// <param name="ExchangeRateTimeStamp">Time stamp for the exchange rate. This value is returned by the DCC service.  Format: &#x60;YYYYMMDD~HH:MM&#x60;  where ~ denotes a space. .</param>
         /// <param name="SettlementCurrency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
+        /// <param name="InvoiceAmount">Invoice amount.  The invoice amount issued by the Merchant to the Cardholder, which includes VAT (excluding items such as TIPS or CASHBACK). For transactions that do not have applicable Benefit Laws, the field may be entered as zeros.  This field is only applicable for Uruguay market.  Example: 100.00  Uruguay  The value for this field corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCR9 - Position: 7-18 - Field: Invoice Amount .</param>
         /// <param name="GiftwrapAmount">giftwrap amount (RFU)..</param>
         /// <param name="HandlingAmount">handling amount (RFU).</param>
         /// <param name="ShippingAmount">shipping amount (RFU).</param>
         /// <param name="ShippingDiscountAmount">shipping discount amount (RFU).</param>
         /// <param name="InsuranceAmount">insurance amount (RFU).</param>
-        public Ptsv2paymentreferencesOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string TaxAmount = default(string), string DutyAmount = default(string), string ExchangeRate = default(string), string ExchangeRateTimeStamp = default(string), string SettlementCurrency = default(string), string GiftwrapAmount = default(string), string HandlingAmount = default(string), string ShippingAmount = default(string), string ShippingDiscountAmount = default(string), string InsuranceAmount = default(string))
+        public Ptsv2paymentreferencesOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string TaxAmount = default(string), string DutyAmount = default(string), string ExchangeRate = default(string), string ExchangeRateTimeStamp = default(string), string SettlementCurrency = default(string), string InvoiceAmount = default(string), string GiftwrapAmount = default(string), string HandlingAmount = default(string), string ShippingAmount = default(string), string ShippingDiscountAmount = default(string), string InsuranceAmount = default(string))
         {
             this.TotalAmount = TotalAmount;
             this.Currency = Currency;
@@ -56,6 +57,7 @@ namespace CyberSource.Model
             this.ExchangeRate = ExchangeRate;
             this.ExchangeRateTimeStamp = ExchangeRateTimeStamp;
             this.SettlementCurrency = SettlementCurrency;
+            this.InvoiceAmount = InvoiceAmount;
             this.GiftwrapAmount = GiftwrapAmount;
             this.HandlingAmount = HandlingAmount;
             this.ShippingAmount = ShippingAmount;
@@ -120,6 +122,13 @@ namespace CyberSource.Model
         public string SettlementCurrency { get; set; }
 
         /// <summary>
+        /// Invoice amount.  The invoice amount issued by the Merchant to the Cardholder, which includes VAT (excluding items such as TIPS or CASHBACK). For transactions that do not have applicable Benefit Laws, the field may be entered as zeros.  This field is only applicable for Uruguay market.  Example: 100.00  Uruguay  The value for this field corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCR9 - Position: 7-18 - Field: Invoice Amount 
+        /// </summary>
+        /// <value>Invoice amount.  The invoice amount issued by the Merchant to the Cardholder, which includes VAT (excluding items such as TIPS or CASHBACK). For transactions that do not have applicable Benefit Laws, the field may be entered as zeros.  This field is only applicable for Uruguay market.  Example: 100.00  Uruguay  The value for this field corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCR9 - Position: 7-18 - Field: Invoice Amount </value>
+        [DataMember(Name="invoiceAmount", EmitDefaultValue=false)]
+        public string InvoiceAmount { get; set; }
+
+        /// <summary>
         /// giftwrap amount (RFU).
         /// </summary>
         /// <value>giftwrap amount (RFU).</value>
@@ -170,6 +179,7 @@ namespace CyberSource.Model
             if (ExchangeRate != null) sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
             if (ExchangeRateTimeStamp != null) sb.Append("  ExchangeRateTimeStamp: ").Append(ExchangeRateTimeStamp).Append("\n");
             if (SettlementCurrency != null) sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
+            if (InvoiceAmount != null) sb.Append("  InvoiceAmount: ").Append(InvoiceAmount).Append("\n");
             if (GiftwrapAmount != null) sb.Append("  GiftwrapAmount: ").Append(GiftwrapAmount).Append("\n");
             if (HandlingAmount != null) sb.Append("  HandlingAmount: ").Append(HandlingAmount).Append("\n");
             if (ShippingAmount != null) sb.Append("  ShippingAmount: ").Append(ShippingAmount).Append("\n");
@@ -252,6 +262,11 @@ namespace CyberSource.Model
                     this.SettlementCurrency.Equals(other.SettlementCurrency)
                 ) && 
                 (
+                    this.InvoiceAmount == other.InvoiceAmount ||
+                    this.InvoiceAmount != null &&
+                    this.InvoiceAmount.Equals(other.InvoiceAmount)
+                ) && 
+                (
                     this.GiftwrapAmount == other.GiftwrapAmount ||
                     this.GiftwrapAmount != null &&
                     this.GiftwrapAmount.Equals(other.GiftwrapAmount)
@@ -305,6 +320,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ExchangeRateTimeStamp.GetHashCode();
                 if (this.SettlementCurrency != null)
                     hash = hash * 59 + this.SettlementCurrency.GetHashCode();
+                if (this.InvoiceAmount != null)
+                    hash = hash * 59 + this.InvoiceAmount.GetHashCode();
                 if (this.GiftwrapAmount != null)
                     hash = hash * 59 + this.GiftwrapAmount.GetHashCode();
                 if (this.HandlingAmount != null)

@@ -35,6 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Card">Card.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
+        /// <param name="TokenizedPaymentMethod">TokenizedPaymentMethod.</param>
         /// <param name="AccountFeatures">AccountFeatures.</param>
         /// <param name="Bank">Bank.</param>
         /// <param name="Customer">Customer.</param>
@@ -47,10 +48,11 @@ namespace CyberSource.Model
         /// <param name="Issuer">Name of the bank or entity that issued the card account. .</param>
         /// <param name="BinCountry">Country (two-digit country code) associated with the BIN of the customer&#39;s card used for the payment. Returned if the information is available. Use this field for additional information when reviewing orders. This information is also displayed in the details page of the CyberSource Business Center. .</param>
         /// <param name="EWallet">EWallet.</param>
-        public PtsV2PaymentsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard Card = default(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard), PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard TokenizedCard = default(PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard), PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures AccountFeatures = default(PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures), PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), string Scheme = default(string), string Bin = default(string), string AccountType = default(string), string Issuer = default(string), string BinCountry = default(string), PtsV2PaymentsPost201ResponsePaymentInformationEWallet EWallet = default(PtsV2PaymentsPost201ResponsePaymentInformationEWallet))
+        public PtsV2PaymentsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard Card = default(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard), PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard TokenizedCard = default(PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard), PtsV2PaymentsPost201ResponsePaymentInformationTokenizedPaymentMethod TokenizedPaymentMethod = default(PtsV2PaymentsPost201ResponsePaymentInformationTokenizedPaymentMethod), PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures AccountFeatures = default(PtsV2PaymentsPost201ResponsePaymentInformationAccountFeatures), PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), string Scheme = default(string), string Bin = default(string), string AccountType = default(string), string Issuer = default(string), string BinCountry = default(string), PtsV2PaymentsPost201ResponsePaymentInformationEWallet EWallet = default(PtsV2PaymentsPost201ResponsePaymentInformationEWallet))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
+            this.TokenizedPaymentMethod = TokenizedPaymentMethod;
             this.AccountFeatures = AccountFeatures;
             this.Bank = Bank;
             this.Customer = Customer;
@@ -76,6 +78,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="tokenizedCard", EmitDefaultValue=false)]
         public PtsV2PaymentsPost201ResponsePaymentInformationTokenizedCard TokenizedCard { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenizedPaymentMethod
+        /// </summary>
+        [DataMember(Name="tokenizedPaymentMethod", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponsePaymentInformationTokenizedPaymentMethod TokenizedPaymentMethod { get; set; }
 
         /// <summary>
         /// Gets or Sets AccountFeatures
@@ -164,6 +172,7 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsPost201ResponsePaymentInformation {\n");
             if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
             if (TokenizedCard != null) sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
+            if (TokenizedPaymentMethod != null) sb.Append("  TokenizedPaymentMethod: ").Append(TokenizedPaymentMethod).Append("\n");
             if (AccountFeatures != null) sb.Append("  AccountFeatures: ").Append(AccountFeatures).Append("\n");
             if (Bank != null) sb.Append("  Bank: ").Append(Bank).Append("\n");
             if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
@@ -221,6 +230,11 @@ namespace CyberSource.Model
                     this.TokenizedCard == other.TokenizedCard ||
                     this.TokenizedCard != null &&
                     this.TokenizedCard.Equals(other.TokenizedCard)
+                ) && 
+                (
+                    this.TokenizedPaymentMethod == other.TokenizedPaymentMethod ||
+                    this.TokenizedPaymentMethod != null &&
+                    this.TokenizedPaymentMethod.Equals(other.TokenizedPaymentMethod)
                 ) && 
                 (
                     this.AccountFeatures == other.AccountFeatures ||
@@ -299,6 +313,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.TokenizedCard != null)
                     hash = hash * 59 + this.TokenizedCard.GetHashCode();
+                if (this.TokenizedPaymentMethod != null)
+                    hash = hash * 59 + this.TokenizedPaymentMethod.GetHashCode();
                 if (this.AccountFeatures != null)
                     hash = hash * 59 + this.AccountFeatures.GetHashCode();
                 if (this.Bank != null)

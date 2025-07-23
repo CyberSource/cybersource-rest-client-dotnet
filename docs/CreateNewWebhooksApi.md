@@ -72,7 +72,7 @@ No authorization required
 
 <a name="notificationsubscriptionsv2webhookspost"></a>
 # **NotificationSubscriptionsV2WebhooksPost**
-> InlineResponse2014 NotificationSubscriptionsV2WebhooksPost (CreateWebhook createWebhook = null)
+> InlineResponse2015 NotificationSubscriptionsV2WebhooksPost (CreateWebhook createWebhook = null)
 
 Create a New Webhook Subscription
 
@@ -98,7 +98,7 @@ namespace Example
             try
             {
                 // Create a New Webhook Subscription
-                InlineResponse2014 result = apiInstance.NotificationSubscriptionsV2WebhooksPost(createWebhook);
+                InlineResponse2015 result = apiInstance.NotificationSubscriptionsV2WebhooksPost(createWebhook);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ No authorization required
 
 <a name="savesymegresskey"></a>
 # **SaveSymEgressKey**
-> InlineResponse2013 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+> InlineResponse2014 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
 
 Create Webhook Security Keys
 
@@ -162,7 +162,7 @@ namespace Example
             try
             {
                 // Create Webhook Security Keys
-                InlineResponse2013 result = apiInstance.SaveSymEgressKey(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
+                InlineResponse2014 result = apiInstance.SaveSymEgressKey(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 

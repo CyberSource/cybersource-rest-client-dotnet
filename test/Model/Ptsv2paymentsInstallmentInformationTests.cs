@@ -184,6 +184,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Identifier'
         }
+        /// <summary>
+        /// Test the property 'AnnualInterestRate'
+        /// </summary>
+        [Test]
+        public void AnnualInterestRateTest()
+        {
+            // TODO unit test for the property 'AnnualInterestRate'
+        }
 
     }
 

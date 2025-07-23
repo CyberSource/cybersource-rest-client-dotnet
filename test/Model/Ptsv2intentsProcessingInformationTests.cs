@@ -88,6 +88,102 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ActionList'
         }
+        /// <summary>
+        /// Test the property 'HighRiskTransactionFlag'
+        /// </summary>
+        [Test]
+        public void HighRiskTransactionFlagTest()
+        {
+            // TODO unit test for the property 'HighRiskTransactionFlag'
+        }
+        /// <summary>
+        /// Test the property 'TransactionRetry'
+        /// </summary>
+        [Test]
+        public void TransactionRetryTest()
+        {
+            // TODO unit test for the property 'TransactionRetry'
+        }
+        /// <summary>
+        /// Test the property 'LastOneHrTransactionCount'
+        /// </summary>
+        [Test]
+        public void LastOneHrTransactionCountTest()
+        {
+            // TODO unit test for the property 'LastOneHrTransactionCount'
+        }
+        /// <summary>
+        /// Test the property 'LastOneDayTransactionCount'
+        /// </summary>
+        [Test]
+        public void LastOneDayTransactionCountTest()
+        {
+            // TODO unit test for the property 'LastOneDayTransactionCount'
+        }
+        /// <summary>
+        /// Test the property 'LastThreeMonthsTxnCount'
+        /// </summary>
+        [Test]
+        public void LastThreeMonthsTxnCountTest()
+        {
+            // TODO unit test for the property 'LastThreeMonthsTxnCount'
+        }
+        /// <summary>
+        /// Test the property 'TotalTransactionCount'
+        /// </summary>
+        [Test]
+        public void TotalTransactionCountTest()
+        {
+            // TODO unit test for the property 'TotalTransactionCount'
+        }
+        /// <summary>
+        /// Test the property 'PinVerification'
+        /// </summary>
+        [Test]
+        public void PinVerificationTest()
+        {
+            // TODO unit test for the property 'PinVerification'
+        }
+        /// <summary>
+        /// Test the property 'FaceIdVerification'
+        /// </summary>
+        [Test]
+        public void FaceIdVerificationTest()
+        {
+            // TODO unit test for the property 'FaceIdVerification'
+        }
+        /// <summary>
+        /// Test the property 'UserPassedVerification'
+        /// </summary>
+        [Test]
+        public void UserPassedVerificationTest()
+        {
+            // TODO unit test for the property 'UserPassedVerification'
+        }
+        /// <summary>
+        /// Test the property 'IpAddress'
+        /// </summary>
+        [Test]
+        public void IpAddressTest()
+        {
+            // TODO unit test for the property 'IpAddress'
+        }
+        /// <summary>
+        /// Test the property 'TransactionDate'
+        /// </summary>
+        [Test]
+        public void TransactionDateTest()
+        {
+            // TODO unit test for the property 'TransactionDate'
+        }
+        /// <summary>
+        /// Test the property 'Tangible'
+        /// </summary>
+        [Test]
+        public void TangibleTest()
+        {
+            // TODO unit test for the property 'Tangible'
+        }
 
     }
 

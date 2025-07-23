@@ -89,6 +89,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ApprovalCode'
         }
         /// <summary>
+        /// Test the property 'EventStatus'
+        /// </summary>
+        [Test]
+        public void EventStatusTest()
+        {
+            // TODO unit test for the property 'EventStatus'
+        }
+        /// <summary>
         /// Test the property 'RetrievalReferenceNumber'
         /// </summary>
         [Test]
