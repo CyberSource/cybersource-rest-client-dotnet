@@ -38,13 +38,21 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public CreateOrderRequest(Ptsv2intentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2intentsClientReferenceInformation), Ptsv2intentsProcessingInformation ProcessingInformation = default(Ptsv2intentsProcessingInformation), Ptsv2intentsMerchantInformation MerchantInformation = default(Ptsv2intentsMerchantInformation), Ptsv2intentsPaymentInformation PaymentInformation = default(Ptsv2intentsPaymentInformation), Ptsv2intentsOrderInformation OrderInformation = default(Ptsv2intentsOrderInformation))
+        /// <param name="SenderInformation">SenderInformation.</param>
+        /// <param name="EventInformation">EventInformation.</param>
+        /// <param name="TravelInformation">TravelInformation.</param>
+        /// <param name="RecipientInformation">RecipientInformation.</param>
+        public CreateOrderRequest(Ptsv2intentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2intentsClientReferenceInformation), Ptsv2intentsProcessingInformation ProcessingInformation = default(Ptsv2intentsProcessingInformation), Ptsv2intentsMerchantInformation MerchantInformation = default(Ptsv2intentsMerchantInformation), Ptsv2intentsPaymentInformation PaymentInformation = default(Ptsv2intentsPaymentInformation), Ptsv2intentsOrderInformation OrderInformation = default(Ptsv2intentsOrderInformation), Ptsv2intentsSenderInformation SenderInformation = default(Ptsv2intentsSenderInformation), Ptsv2intentsEventInformation EventInformation = default(Ptsv2intentsEventInformation), Ptsv2intentsTravelInformation TravelInformation = default(Ptsv2intentsTravelInformation), Ptsv2intentsRecipientInformation RecipientInformation = default(Ptsv2intentsRecipientInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.MerchantInformation = MerchantInformation;
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
+            this.SenderInformation = SenderInformation;
+            this.EventInformation = EventInformation;
+            this.TravelInformation = TravelInformation;
+            this.RecipientInformation = RecipientInformation;
         }
         
         /// <summary>
@@ -78,6 +86,30 @@ namespace CyberSource.Model
         public Ptsv2intentsOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets SenderInformation
+        /// </summary>
+        [DataMember(Name="senderInformation", EmitDefaultValue=false)]
+        public Ptsv2intentsSenderInformation SenderInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventInformation
+        /// </summary>
+        [DataMember(Name="eventInformation", EmitDefaultValue=false)]
+        public Ptsv2intentsEventInformation EventInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TravelInformation
+        /// </summary>
+        [DataMember(Name="travelInformation", EmitDefaultValue=false)]
+        public Ptsv2intentsTravelInformation TravelInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecipientInformation
+        /// </summary>
+        [DataMember(Name="recipientInformation", EmitDefaultValue=false)]
+        public Ptsv2intentsRecipientInformation RecipientInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +122,10 @@ namespace CyberSource.Model
             if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
+            if (EventInformation != null) sb.Append("  EventInformation: ").Append(EventInformation).Append("\n");
+            if (TravelInformation != null) sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
+            if (RecipientInformation != null) sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +186,26 @@ namespace CyberSource.Model
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.SenderInformation == other.SenderInformation ||
+                    this.SenderInformation != null &&
+                    this.SenderInformation.Equals(other.SenderInformation)
+                ) && 
+                (
+                    this.EventInformation == other.EventInformation ||
+                    this.EventInformation != null &&
+                    this.EventInformation.Equals(other.EventInformation)
+                ) && 
+                (
+                    this.TravelInformation == other.TravelInformation ||
+                    this.TravelInformation != null &&
+                    this.TravelInformation.Equals(other.TravelInformation)
+                ) && 
+                (
+                    this.RecipientInformation == other.RecipientInformation ||
+                    this.RecipientInformation != null &&
+                    this.RecipientInformation.Equals(other.RecipientInformation)
                 );
         }
 
@@ -174,6 +230,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.SenderInformation != null)
+                    hash = hash * 59 + this.SenderInformation.GetHashCode();
+                if (this.EventInformation != null)
+                    hash = hash * 59 + this.EventInformation.GetHashCode();
+                if (this.TravelInformation != null)
+                    hash = hash * 59 + this.TravelInformation.GetHashCode();
+                if (this.RecipientInformation != null)
+                    hash = hash * 59 + this.RecipientInformation.GetHashCode();
                 return hash;
             }
         }

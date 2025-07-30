@@ -42,7 +42,9 @@ namespace CyberSource.Model
         /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         /// <param name="Country">Country of the shipping address. Use the two-character [ISO Standard Country Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf)  Required field for authorization if any shipping address information is included in the request; otherwise, optional.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         /// <param name="Method">Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). .</param>
-        public Ptsv2intentsOrderInformationShipTo(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string Method = default(string))
+        /// <param name="Email">Customer&#39;s email address, including the full domain name. .</param>
+        /// <param name="PhoneNumber">Phone number associated with the shipping address. .</param>
+        public Ptsv2intentsOrderInformationShipTo(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string Method = default(string), string Email = default(string), string PhoneNumber = default(string))
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
@@ -53,6 +55,8 @@ namespace CyberSource.Model
             this.PostalCode = PostalCode;
             this.Country = Country;
             this.Method = Method;
+            this.Email = Email;
+            this.PhoneNumber = PhoneNumber;
         }
         
         /// <summary>
@@ -119,6 +123,20 @@ namespace CyberSource.Model
         public string Method { get; set; }
 
         /// <summary>
+        /// Customer&#39;s email address, including the full domain name. 
+        /// </summary>
+        /// <value>Customer&#39;s email address, including the full domain name. </value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Phone number associated with the shipping address. 
+        /// </summary>
+        /// <value>Phone number associated with the shipping address. </value>
+        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
+        public string PhoneNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +153,8 @@ namespace CyberSource.Model
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
             if (Method != null) sb.Append("  Method: ").Append(Method).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +235,16 @@ namespace CyberSource.Model
                     this.Method == other.Method ||
                     this.Method != null &&
                     this.Method.Equals(other.Method)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
+                ) && 
+                (
+                    this.PhoneNumber == other.PhoneNumber ||
+                    this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(other.PhoneNumber)
                 );
         }
 
@@ -247,6 +277,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Country.GetHashCode();
                 if (this.Method != null)
                     hash = hash * 59 + this.Method.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
+                if (this.PhoneNumber != null)
+                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 return hash;
             }
         }

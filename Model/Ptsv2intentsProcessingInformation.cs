@@ -36,11 +36,35 @@ namespace CyberSource.Model
         /// <param name="ProcessingInstruction">The instruction to process an order. - default value: &#39;NO_INSTRUCTION&#39; - &#39;ORDER_SAVED_EXPLICITLY&#39; .</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="ActionList">Array of actions (one or more) to be included in the order to invoke bundled services along with order. Possible values: - &#x60;AP_ORDER&#x60;: Use this when Alternative Payment Order service is requested. .</param>
-        public Ptsv2intentsProcessingInformation(string ProcessingInstruction = default(string), Ptsv2intentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2intentsProcessingInformationAuthorizationOptions), List<string> ActionList = default(List<string>))
+        /// <param name="HighRiskTransactionFlag">Indicates if the transaction is flagged as high risk. .</param>
+        /// <param name="TransactionRetry">Indicates if the transaction is a retry. .</param>
+        /// <param name="LastOneHrTransactionCount">The number of transactions in the last one hour. .</param>
+        /// <param name="LastOneDayTransactionCount">The number of transactions in the last one day. .</param>
+        /// <param name="LastThreeMonthsTxnCount">The number of transactions in the last three months. .</param>
+        /// <param name="TotalTransactionCount">The total number of transactions. .</param>
+        /// <param name="PinVerification">Indicates if PIN verification is required. .</param>
+        /// <param name="FaceIdVerification">Indicates if face ID verification is required. .</param>
+        /// <param name="UserPassedVerification">Indicates if the user passed verification. .</param>
+        /// <param name="IpAddress">The IP address of the user. .</param>
+        /// <param name="TransactionDate">The date of the transaction. .</param>
+        /// <param name="Tangible">Indicates if the transaction involves tangible goods. .</param>
+        public Ptsv2intentsProcessingInformation(string ProcessingInstruction = default(string), Ptsv2intentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2intentsProcessingInformationAuthorizationOptions), List<string> ActionList = default(List<string>), string HighRiskTransactionFlag = default(string), string TransactionRetry = default(string), string LastOneHrTransactionCount = default(string), string LastOneDayTransactionCount = default(string), string LastThreeMonthsTxnCount = default(string), string TotalTransactionCount = default(string), string PinVerification = default(string), string FaceIdVerification = default(string), string UserPassedVerification = default(string), string IpAddress = default(string), string TransactionDate = default(string), string Tangible = default(string))
         {
             this.ProcessingInstruction = ProcessingInstruction;
             this.AuthorizationOptions = AuthorizationOptions;
             this.ActionList = ActionList;
+            this.HighRiskTransactionFlag = HighRiskTransactionFlag;
+            this.TransactionRetry = TransactionRetry;
+            this.LastOneHrTransactionCount = LastOneHrTransactionCount;
+            this.LastOneDayTransactionCount = LastOneDayTransactionCount;
+            this.LastThreeMonthsTxnCount = LastThreeMonthsTxnCount;
+            this.TotalTransactionCount = TotalTransactionCount;
+            this.PinVerification = PinVerification;
+            this.FaceIdVerification = FaceIdVerification;
+            this.UserPassedVerification = UserPassedVerification;
+            this.IpAddress = IpAddress;
+            this.TransactionDate = TransactionDate;
+            this.Tangible = Tangible;
         }
         
         /// <summary>
@@ -64,6 +88,90 @@ namespace CyberSource.Model
         public List<string> ActionList { get; set; }
 
         /// <summary>
+        /// Indicates if the transaction is flagged as high risk. 
+        /// </summary>
+        /// <value>Indicates if the transaction is flagged as high risk. </value>
+        [DataMember(Name="highRiskTransactionFlag", EmitDefaultValue=false)]
+        public string HighRiskTransactionFlag { get; set; }
+
+        /// <summary>
+        /// Indicates if the transaction is a retry. 
+        /// </summary>
+        /// <value>Indicates if the transaction is a retry. </value>
+        [DataMember(Name="transactionRetry", EmitDefaultValue=false)]
+        public string TransactionRetry { get; set; }
+
+        /// <summary>
+        /// The number of transactions in the last one hour. 
+        /// </summary>
+        /// <value>The number of transactions in the last one hour. </value>
+        [DataMember(Name="lastOneHrTransactionCount", EmitDefaultValue=false)]
+        public string LastOneHrTransactionCount { get; set; }
+
+        /// <summary>
+        /// The number of transactions in the last one day. 
+        /// </summary>
+        /// <value>The number of transactions in the last one day. </value>
+        [DataMember(Name="lastOneDayTransactionCount", EmitDefaultValue=false)]
+        public string LastOneDayTransactionCount { get; set; }
+
+        /// <summary>
+        /// The number of transactions in the last three months. 
+        /// </summary>
+        /// <value>The number of transactions in the last three months. </value>
+        [DataMember(Name="lastThreeMonthsTxnCount", EmitDefaultValue=false)]
+        public string LastThreeMonthsTxnCount { get; set; }
+
+        /// <summary>
+        /// The total number of transactions. 
+        /// </summary>
+        /// <value>The total number of transactions. </value>
+        [DataMember(Name="totalTransactionCount", EmitDefaultValue=false)]
+        public string TotalTransactionCount { get; set; }
+
+        /// <summary>
+        /// Indicates if PIN verification is required. 
+        /// </summary>
+        /// <value>Indicates if PIN verification is required. </value>
+        [DataMember(Name="pinVerification", EmitDefaultValue=false)]
+        public string PinVerification { get; set; }
+
+        /// <summary>
+        /// Indicates if face ID verification is required. 
+        /// </summary>
+        /// <value>Indicates if face ID verification is required. </value>
+        [DataMember(Name="faceIdVerification", EmitDefaultValue=false)]
+        public string FaceIdVerification { get; set; }
+
+        /// <summary>
+        /// Indicates if the user passed verification. 
+        /// </summary>
+        /// <value>Indicates if the user passed verification. </value>
+        [DataMember(Name="userPassedVerification", EmitDefaultValue=false)]
+        public string UserPassedVerification { get; set; }
+
+        /// <summary>
+        /// The IP address of the user. 
+        /// </summary>
+        /// <value>The IP address of the user. </value>
+        [DataMember(Name="ipAddress", EmitDefaultValue=false)]
+        public string IpAddress { get; set; }
+
+        /// <summary>
+        /// The date of the transaction. 
+        /// </summary>
+        /// <value>The date of the transaction. </value>
+        [DataMember(Name="transactionDate", EmitDefaultValue=false)]
+        public string TransactionDate { get; set; }
+
+        /// <summary>
+        /// Indicates if the transaction involves tangible goods. 
+        /// </summary>
+        /// <value>Indicates if the transaction involves tangible goods. </value>
+        [DataMember(Name="tangible", EmitDefaultValue=false)]
+        public string Tangible { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,6 +182,18 @@ namespace CyberSource.Model
             if (ProcessingInstruction != null) sb.Append("  ProcessingInstruction: ").Append(ProcessingInstruction).Append("\n");
             if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
+            if (HighRiskTransactionFlag != null) sb.Append("  HighRiskTransactionFlag: ").Append(HighRiskTransactionFlag).Append("\n");
+            if (TransactionRetry != null) sb.Append("  TransactionRetry: ").Append(TransactionRetry).Append("\n");
+            if (LastOneHrTransactionCount != null) sb.Append("  LastOneHrTransactionCount: ").Append(LastOneHrTransactionCount).Append("\n");
+            if (LastOneDayTransactionCount != null) sb.Append("  LastOneDayTransactionCount: ").Append(LastOneDayTransactionCount).Append("\n");
+            if (LastThreeMonthsTxnCount != null) sb.Append("  LastThreeMonthsTxnCount: ").Append(LastThreeMonthsTxnCount).Append("\n");
+            if (TotalTransactionCount != null) sb.Append("  TotalTransactionCount: ").Append(TotalTransactionCount).Append("\n");
+            if (PinVerification != null) sb.Append("  PinVerification: ").Append(PinVerification).Append("\n");
+            if (FaceIdVerification != null) sb.Append("  FaceIdVerification: ").Append(FaceIdVerification).Append("\n");
+            if (UserPassedVerification != null) sb.Append("  UserPassedVerification: ").Append(UserPassedVerification).Append("\n");
+            if (IpAddress != null) sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
+            if (TransactionDate != null) sb.Append("  TransactionDate: ").Append(TransactionDate).Append("\n");
+            if (Tangible != null) sb.Append("  Tangible: ").Append(Tangible).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,6 +244,66 @@ namespace CyberSource.Model
                     this.ActionList == other.ActionList ||
                     this.ActionList != null &&
                     this.ActionList.SequenceEqual(other.ActionList)
+                ) && 
+                (
+                    this.HighRiskTransactionFlag == other.HighRiskTransactionFlag ||
+                    this.HighRiskTransactionFlag != null &&
+                    this.HighRiskTransactionFlag.Equals(other.HighRiskTransactionFlag)
+                ) && 
+                (
+                    this.TransactionRetry == other.TransactionRetry ||
+                    this.TransactionRetry != null &&
+                    this.TransactionRetry.Equals(other.TransactionRetry)
+                ) && 
+                (
+                    this.LastOneHrTransactionCount == other.LastOneHrTransactionCount ||
+                    this.LastOneHrTransactionCount != null &&
+                    this.LastOneHrTransactionCount.Equals(other.LastOneHrTransactionCount)
+                ) && 
+                (
+                    this.LastOneDayTransactionCount == other.LastOneDayTransactionCount ||
+                    this.LastOneDayTransactionCount != null &&
+                    this.LastOneDayTransactionCount.Equals(other.LastOneDayTransactionCount)
+                ) && 
+                (
+                    this.LastThreeMonthsTxnCount == other.LastThreeMonthsTxnCount ||
+                    this.LastThreeMonthsTxnCount != null &&
+                    this.LastThreeMonthsTxnCount.Equals(other.LastThreeMonthsTxnCount)
+                ) && 
+                (
+                    this.TotalTransactionCount == other.TotalTransactionCount ||
+                    this.TotalTransactionCount != null &&
+                    this.TotalTransactionCount.Equals(other.TotalTransactionCount)
+                ) && 
+                (
+                    this.PinVerification == other.PinVerification ||
+                    this.PinVerification != null &&
+                    this.PinVerification.Equals(other.PinVerification)
+                ) && 
+                (
+                    this.FaceIdVerification == other.FaceIdVerification ||
+                    this.FaceIdVerification != null &&
+                    this.FaceIdVerification.Equals(other.FaceIdVerification)
+                ) && 
+                (
+                    this.UserPassedVerification == other.UserPassedVerification ||
+                    this.UserPassedVerification != null &&
+                    this.UserPassedVerification.Equals(other.UserPassedVerification)
+                ) && 
+                (
+                    this.IpAddress == other.IpAddress ||
+                    this.IpAddress != null &&
+                    this.IpAddress.Equals(other.IpAddress)
+                ) && 
+                (
+                    this.TransactionDate == other.TransactionDate ||
+                    this.TransactionDate != null &&
+                    this.TransactionDate.Equals(other.TransactionDate)
+                ) && 
+                (
+                    this.Tangible == other.Tangible ||
+                    this.Tangible != null &&
+                    this.Tangible.Equals(other.Tangible)
                 );
         }
 
@@ -144,6 +324,30 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
                 if (this.ActionList != null)
                     hash = hash * 59 + this.ActionList.GetHashCode();
+                if (this.HighRiskTransactionFlag != null)
+                    hash = hash * 59 + this.HighRiskTransactionFlag.GetHashCode();
+                if (this.TransactionRetry != null)
+                    hash = hash * 59 + this.TransactionRetry.GetHashCode();
+                if (this.LastOneHrTransactionCount != null)
+                    hash = hash * 59 + this.LastOneHrTransactionCount.GetHashCode();
+                if (this.LastOneDayTransactionCount != null)
+                    hash = hash * 59 + this.LastOneDayTransactionCount.GetHashCode();
+                if (this.LastThreeMonthsTxnCount != null)
+                    hash = hash * 59 + this.LastThreeMonthsTxnCount.GetHashCode();
+                if (this.TotalTransactionCount != null)
+                    hash = hash * 59 + this.TotalTransactionCount.GetHashCode();
+                if (this.PinVerification != null)
+                    hash = hash * 59 + this.PinVerification.GetHashCode();
+                if (this.FaceIdVerification != null)
+                    hash = hash * 59 + this.FaceIdVerification.GetHashCode();
+                if (this.UserPassedVerification != null)
+                    hash = hash * 59 + this.UserPassedVerification.GetHashCode();
+                if (this.IpAddress != null)
+                    hash = hash * 59 + this.IpAddress.GetHashCode();
+                if (this.TransactionDate != null)
+                    hash = hash * 59 + this.TransactionDate.GetHashCode();
+                if (this.Tangible != null)
+                    hash = hash * 59 + this.Tangible.GetHashCode();
                 return hash;
             }
         }

@@ -89,52 +89,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'RegistrationInformation'
+        /// Test the property 'PaymentAccountInformation'
         /// </summary>
         [Test]
-        public void RegistrationInformationTest()
+        public void PaymentAccountInformationTest()
         {
-            // TODO unit test for the property 'RegistrationInformation'
+            // TODO unit test for the property 'PaymentAccountInformation'
         }
         /// <summary>
-        /// Test the property 'IntegrationInformation'
+        /// Test the property 'IssuerInformation'
         /// </summary>
         [Test]
-        public void IntegrationInformationTest()
+        public void IssuerInformationTest()
         {
-            // TODO unit test for the property 'IntegrationInformation'
+            // TODO unit test for the property 'IssuerInformation'
         }
         /// <summary>
-        /// Test the property 'OrganizationInformation'
+        /// Test the property 'PayoutInformation'
         /// </summary>
         [Test]
-        public void OrganizationInformationTest()
+        public void PayoutInformationTest()
         {
-            // TODO unit test for the property 'OrganizationInformation'
-        }
-        /// <summary>
-        /// Test the property 'ProductInformationSetups'
-        /// </summary>
-        [Test]
-        public void ProductInformationSetupsTest()
-        {
-            // TODO unit test for the property 'ProductInformationSetups'
-        }
-        /// <summary>
-        /// Test the property 'Message'
-        /// </summary>
-        [Test]
-        public void MessageTest()
-        {
-            // TODO unit test for the property 'Message'
-        }
-        /// <summary>
-        /// Test the property 'Details'
-        /// </summary>
-        [Test]
-        public void DetailsTest()
-        {
-            // TODO unit test for the property 'Details'
+            // TODO unit test for the property 'PayoutInformation'
         }
 
     }

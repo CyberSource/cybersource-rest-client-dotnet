@@ -48,7 +48,8 @@ namespace CyberSource.Model
         /// <param name="FirstInstallmentAmount">Amount of the first installment payment. The issuer provides this value when the first installment payment is successful. This field is supported for Mastercard installment payments on CyberSource through VisaNet in all countries except Brazil,Croatia, Georgia, and Greece. The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 23-34 - Field: Amount of Each Installment .</param>
         /// <param name="ValidationIndicator">Standing Instruction/Installment validation indicator. - &#39;1&#39;: Prevalidated - &#39;2&#39;: Not Validated .</param>
         /// <param name="Identifier">Standing Instruction/Installment identifier. .</param>
-        public Ptsv2paymentsInstallmentInformation(string Amount = default(string), string Frequency = default(string), string PlanType = default(string), int? Sequence = default(int?), string TotalAmount = default(string), int? TotalCount = default(int?), string FirstInstallmentDate = default(string), string InvoiceData = default(string), string PaymentType = default(string), string EligibilityInquiry = default(string), string GracePeriodDuration = default(string), string GracePeriodDurationType = default(string), string FirstInstallmentAmount = default(string), string ValidationIndicator = default(string), string Identifier = default(string))
+        /// <param name="AnnualInterestRate">Annual interest rate.  This field is returned only for two kinds of installment payments on Visa Platform Connect: - Crediario with Visa in Brazil: this field is included in the authorization response for the Crediario eligibility request when the issuer approves the customer&#39;s request for Crediario installment payments. - Mastercard in all countries except Brazil, Croatia, Georgia, and Greece.   Example: A value of 1.0 specifies 1%.  Example: A value of 4.0 specifies 4%.  #### Brazil The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR9 - Position: 151-157 - Field: Annual Interest Rate   #### Other Countries The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 58-62 SCMP API Fields| 216 - Field: Mastercard Annual Percentage Rate .</param>
+        public Ptsv2paymentsInstallmentInformation(string Amount = default(string), string Frequency = default(string), string PlanType = default(string), int? Sequence = default(int?), string TotalAmount = default(string), int? TotalCount = default(int?), string FirstInstallmentDate = default(string), string InvoiceData = default(string), string PaymentType = default(string), string EligibilityInquiry = default(string), string GracePeriodDuration = default(string), string GracePeriodDurationType = default(string), string FirstInstallmentAmount = default(string), string ValidationIndicator = default(string), string Identifier = default(string), string AnnualInterestRate = default(string))
         {
             this.Amount = Amount;
             this.Frequency = Frequency;
@@ -65,6 +66,7 @@ namespace CyberSource.Model
             this.FirstInstallmentAmount = FirstInstallmentAmount;
             this.ValidationIndicator = ValidationIndicator;
             this.Identifier = Identifier;
+            this.AnnualInterestRate = AnnualInterestRate;
         }
         
         /// <summary>
@@ -173,6 +175,13 @@ namespace CyberSource.Model
         public string Identifier { get; set; }
 
         /// <summary>
+        /// Annual interest rate.  This field is returned only for two kinds of installment payments on Visa Platform Connect: - Crediario with Visa in Brazil: this field is included in the authorization response for the Crediario eligibility request when the issuer approves the customer&#39;s request for Crediario installment payments. - Mastercard in all countries except Brazil, Croatia, Georgia, and Greece.   Example: A value of 1.0 specifies 1%.  Example: A value of 4.0 specifies 4%.  #### Brazil The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR9 - Position: 151-157 - Field: Annual Interest Rate   #### Other Countries The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 58-62 SCMP API Fields| 216 - Field: Mastercard Annual Percentage Rate 
+        /// </summary>
+        /// <value>Annual interest rate.  This field is returned only for two kinds of installment payments on Visa Platform Connect: - Crediario with Visa in Brazil: this field is included in the authorization response for the Crediario eligibility request when the issuer approves the customer&#39;s request for Crediario installment payments. - Mastercard in all countries except Brazil, Croatia, Georgia, and Greece.   Example: A value of 1.0 specifies 1%.  Example: A value of 4.0 specifies 4%.  #### Brazil The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR9 - Position: 151-157 - Field: Annual Interest Rate   #### Other Countries The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 58-62 SCMP API Fields| 216 - Field: Mastercard Annual Percentage Rate </value>
+        [DataMember(Name="annualInterestRate", EmitDefaultValue=false)]
+        public string AnnualInterestRate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -195,6 +204,7 @@ namespace CyberSource.Model
             if (FirstInstallmentAmount != null) sb.Append("  FirstInstallmentAmount: ").Append(FirstInstallmentAmount).Append("\n");
             if (ValidationIndicator != null) sb.Append("  ValidationIndicator: ").Append(ValidationIndicator).Append("\n");
             if (Identifier != null) sb.Append("  Identifier: ").Append(Identifier).Append("\n");
+            if (AnnualInterestRate != null) sb.Append("  AnnualInterestRate: ").Append(AnnualInterestRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -305,6 +315,11 @@ namespace CyberSource.Model
                     this.Identifier == other.Identifier ||
                     this.Identifier != null &&
                     this.Identifier.Equals(other.Identifier)
+                ) && 
+                (
+                    this.AnnualInterestRate == other.AnnualInterestRate ||
+                    this.AnnualInterestRate != null &&
+                    this.AnnualInterestRate.Equals(other.AnnualInterestRate)
                 );
         }
 
@@ -349,6 +364,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ValidationIndicator.GetHashCode();
                 if (this.Identifier != null)
                     hash = hash * 59 + this.Identifier.GetHashCode();
+                if (this.AnnualInterestRate != null)
+                    hash = hash * 59 + this.AnnualInterestRate.GetHashCode();
                 return hash;
             }
         }

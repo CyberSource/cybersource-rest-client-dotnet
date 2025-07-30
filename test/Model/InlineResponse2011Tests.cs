@@ -88,30 +88,6 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Status'
         }
-        /// <summary>
-        /// Test the property 'PaymentAccountInformation'
-        /// </summary>
-        [Test]
-        public void PaymentAccountInformationTest()
-        {
-            // TODO unit test for the property 'PaymentAccountInformation'
-        }
-        /// <summary>
-        /// Test the property 'IssuerInformation'
-        /// </summary>
-        [Test]
-        public void IssuerInformationTest()
-        {
-            // TODO unit test for the property 'IssuerInformation'
-        }
-        /// <summary>
-        /// Test the property 'PayoutInformation'
-        /// </summary>
-        [Test]
-        public void PayoutInformationTest()
-        {
-            // TODO unit test for the property 'PayoutInformation'
-        }
 
     }
 

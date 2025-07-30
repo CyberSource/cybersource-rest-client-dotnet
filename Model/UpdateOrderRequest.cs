@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
-        public UpdateOrderRequest(Ptsv2intentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2intentsClientReferenceInformation), Ptsv2intentsidOrderInformation OrderInformation = default(Ptsv2intentsidOrderInformation), Ptsv2intentsidMerchantInformation MerchantInformation = default(Ptsv2intentsidMerchantInformation), Ptsv2intentsPaymentInformation PaymentInformation = default(Ptsv2intentsPaymentInformation), Ptsv2intentsidProcessingInformation ProcessingInformation = default(Ptsv2intentsidProcessingInformation))
+        public UpdateOrderRequest(Ptsv2intentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2intentsClientReferenceInformation), Ptsv2intentsidOrderInformation OrderInformation = default(Ptsv2intentsidOrderInformation), Ptsv2intentsidMerchantInformation MerchantInformation = default(Ptsv2intentsidMerchantInformation), Ptsv2intentsidPaymentInformation PaymentInformation = default(Ptsv2intentsidPaymentInformation), Ptsv2intentsidProcessingInformation ProcessingInformation = default(Ptsv2intentsidProcessingInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
@@ -69,7 +69,7 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentInformation
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public Ptsv2intentsPaymentInformation PaymentInformation { get; set; }
+        public Ptsv2intentsidPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation

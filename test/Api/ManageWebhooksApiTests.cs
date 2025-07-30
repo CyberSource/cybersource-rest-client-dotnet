@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string webhookId = null;
             //var response = instance.GetWebhookSubscriptionById(webhookId);
-            //Assert.IsInstanceOf<InlineResponse2014> (response, "response is InlineResponse2014");
+            //Assert.IsInstanceOf<InlineResponse2015> (response, "response is InlineResponse2015");
         }
         
         /// <summary>
@@ -111,7 +111,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string webhookId = null;
             //var response = instance.NotificationSubscriptionsV1WebhooksWebhookIdPost(webhookId);
-            //Assert.IsInstanceOf<InlineResponse2015> (response, "response is InlineResponse2015");
+            //Assert.IsInstanceOf<InlineResponse2016> (response, "response is InlineResponse2016");
         }
         
         /// <summary>
@@ -152,7 +152,7 @@ namespace CyberSource.Test
             //SaveAsymEgressKey saveAsymEgressKey = null;
             //string vCCorrelationId = null;
             //var response = instance.SaveAsymEgressKey(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
-            //Assert.IsInstanceOf<InlineResponse2016> (response, "response is InlineResponse2016");
+            //Assert.IsInstanceOf<InlineResponse2017> (response, "response is InlineResponse2017");
         }
         
     }
