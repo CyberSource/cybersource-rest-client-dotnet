@@ -478,9 +478,9 @@ namespace CyberSource.Api
                 localVarPostBody = caseManagementActionsRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ActionDecisionManagerCase,ActionDecisionManagerCaseAsync,ActionDecisionManagerCaseWithHttpInfo,ActionDecisionManagerCaseAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "ActionDecisionManagerCase,ActionDecisionManagerCaseAsync,ActionDecisionManagerCaseWithHttpInfo,ActionDecisionManagerCaseAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -600,9 +600,9 @@ namespace CyberSource.Api
                 localVarPostBody = caseManagementActionsRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ActionDecisionManagerCase,ActionDecisionManagerCaseAsync,ActionDecisionManagerCaseWithHttpInfo,ActionDecisionManagerCaseAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "ActionDecisionManagerCase,ActionDecisionManagerCaseAsync,ActionDecisionManagerCaseWithHttpInfo,ActionDecisionManagerCaseAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -720,9 +720,9 @@ namespace CyberSource.Api
                 localVarPostBody = addNegativeListRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "AddNegative,AddNegativeAsync,AddNegativeWithHttpInfo,AddNegativeAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "AddNegative,AddNegativeAsync,AddNegativeWithHttpInfo,AddNegativeAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -842,9 +842,9 @@ namespace CyberSource.Api
                 localVarPostBody = addNegativeListRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "AddNegative,AddNegativeAsync,AddNegativeWithHttpInfo,AddNegativeAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "AddNegative,AddNegativeAsync,AddNegativeWithHttpInfo,AddNegativeAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -962,9 +962,9 @@ namespace CyberSource.Api
                 localVarPostBody = caseManagementCommentsRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CommentDecisionManagerCase,CommentDecisionManagerCaseAsync,CommentDecisionManagerCaseWithHttpInfo,CommentDecisionManagerCaseAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CommentDecisionManagerCase,CommentDecisionManagerCaseAsync,CommentDecisionManagerCaseWithHttpInfo,CommentDecisionManagerCaseAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1084,9 +1084,9 @@ namespace CyberSource.Api
                 localVarPostBody = caseManagementCommentsRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CommentDecisionManagerCase,CommentDecisionManagerCaseAsync,CommentDecisionManagerCaseWithHttpInfo,CommentDecisionManagerCaseAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CommentDecisionManagerCase,CommentDecisionManagerCaseAsync,CommentDecisionManagerCaseWithHttpInfo,CommentDecisionManagerCaseAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1191,9 +1191,9 @@ namespace CyberSource.Api
                 localVarPostBody = createBundledDecisionManagerCaseRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateBundledDecisionManagerCase,CreateBundledDecisionManagerCaseAsync,CreateBundledDecisionManagerCaseWithHttpInfo,CreateBundledDecisionManagerCaseAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateBundledDecisionManagerCase,CreateBundledDecisionManagerCaseAsync,CreateBundledDecisionManagerCaseWithHttpInfo,CreateBundledDecisionManagerCaseAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1300,9 +1300,9 @@ namespace CyberSource.Api
                 localVarPostBody = createBundledDecisionManagerCaseRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateBundledDecisionManagerCase,CreateBundledDecisionManagerCaseAsync,CreateBundledDecisionManagerCaseWithHttpInfo,CreateBundledDecisionManagerCaseAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateBundledDecisionManagerCase,CreateBundledDecisionManagerCaseAsync,CreateBundledDecisionManagerCaseWithHttpInfo,CreateBundledDecisionManagerCaseAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1420,9 +1420,9 @@ namespace CyberSource.Api
                 localVarPostBody = fraudMarkingActionRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "FraudUpdate,FraudUpdateAsync,FraudUpdateWithHttpInfo,FraudUpdateAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "FraudUpdate,FraudUpdateAsync,FraudUpdateWithHttpInfo,FraudUpdateAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1542,9 +1542,9 @@ namespace CyberSource.Api
                 localVarPostBody = fraudMarkingActionRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "FraudUpdate,FraudUpdateAsync,FraudUpdateWithHttpInfo,FraudUpdateAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "FraudUpdate,FraudUpdateAsync,FraudUpdateWithHttpInfo,FraudUpdateAsyncWithHttpInfo"))
             {
                 try
                 {

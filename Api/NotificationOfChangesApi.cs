@@ -309,9 +309,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetNotificationOfChangeReport,GetNotificationOfChangeReportAsync,GetNotificationOfChangeReportWithHttpInfo,GetNotificationOfChangeReportAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetNotificationOfChangeReport,GetNotificationOfChangeReportAsync,GetNotificationOfChangeReportWithHttpInfo,GetNotificationOfChangeReportAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -441,9 +441,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetNotificationOfChangeReport,GetNotificationOfChangeReportAsync,GetNotificationOfChangeReportWithHttpInfo,GetNotificationOfChangeReportAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetNotificationOfChangeReport,GetNotificationOfChangeReportAsync,GetNotificationOfChangeReportWithHttpInfo,GetNotificationOfChangeReportAsyncWithHttpInfo"))
             {
                 try
                 {
