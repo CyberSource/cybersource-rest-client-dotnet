@@ -136,10 +136,20 @@ namespace {{packageName}}.Client
                 {
                     ServicePointManager.DefaultConnectionLimit = int.Parse(Constants.DefaultMaxConnectionPoolSize);
                 }
+
+                if (Configuration.MerchantConfigDictionaryObj.ContainsKey("keepAliveTimout"))
+                {
+                    ServicePointManager.MaxServicePointIdleTime = int.Parse(Configuration.MerchantConfigDictionaryObj["keepAliveTimeout"]);
+                }
+                else
+                {
+                    ServicePointManager.MaxServicePointIdleTime = int.Parse(Constants.DefaultKeepAliveTime);
+                }
             }
             else
             {
                 ServicePointManager.DefaultConnectionLimit = int.Parse(Constants.DefaultMaxConnectionPoolSize);
+                ServicePointManager.MaxServicePointIdleTime = int.Parse(Constants.DefaultKeepAliveTime);
             }
         }
 
@@ -387,7 +397,7 @@ namespace {{packageName}}.Client
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
 
-            var newRestClientOptions = GetRestClientOptions(Configuration, RestClient.Options.BaseUrl);
+            var newRestClientOptions = GetRestClientOptions(Configuration);
 
             // RestClient.ClearHandlers();
 
@@ -445,12 +455,34 @@ namespace {{packageName}}.Client
             return response;
         }
 
-        private RestClientOptions GetRestClientOptions(Configuration configuration, Uri baseUrl)
+        private RestClientOptions GetRestClientOptions(Configuration configuration)
         {
-            RestClientOptions clientOptions = new RestClientOptions(baseUrl);
+            RestClientOptions clientOptions = new RestClientOptions();
 
             clientOptions.UserAgent = configuration.UserAgent;
             clientOptions.Timeout = TimeSpan.FromMilliseconds(configuration.Timeout);
+
+            var merchantConfig = configuration.MerchantConfigDictionaryObj != null
+                ? new MerchantConfig(configuration.MerchantConfigDictionaryObj)
+                : new MerchantConfig();
+
+            if (configuration.Proxy == null && merchantConfig.UseProxy != null)
+            {
+                if (bool.Parse(merchantConfig.UseProxy))
+                {
+                    if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress) && int.TryParse(merchantConfig.ProxyPort, out int proxyPortTest))
+                    {
+                        WebProxy proxy = new WebProxy(merchantConfig.ProxyAddress, proxyPortTest);
+
+                        if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyUsername) && !string.IsNullOrWhiteSpace(merchantConfig.ProxyPassword))
+                        {
+                            proxy.Credentials = new NetworkCredential(merchantConfig.ProxyUsername, merchantConfig.ProxyPassword);
+                        }
+
+                        configuration.AddWebProxy(proxy);
+                    }
+                }
+            }
 
             if (configuration.Proxy != null)
             {
@@ -472,6 +504,27 @@ namespace {{packageName}}.Client
                 var certificate = new X509Certificate2(fileName, clientCertPassword);
                 clientCertPassword.Dispose();
                 clientOptions.ClientCertificates = new X509CertificateCollection { certificate };
+            }
+
+            if (!string.IsNullOrWhiteSpace(merchantConfig.IntermediateHost))
+            {
+                //change with intermediate hostname if present
+                //supporting both for http or https for intermediate url
+                if (merchantConfig.IntermediateHost.StartsWith("http://") || merchantConfig.IntermediateHost.StartsWith("https://"))
+                {
+                    //RestClient = new RestClient(merchantConfig.IntermediateHost);
+                    clientOptions.BaseUrl = new Uri(merchantConfig.IntermediateHost);
+                }
+                else
+                {
+                    //RestClient = new RestClient("https://" + merchantConfig.IntermediateHost);
+                    clientOptions.BaseUrl = new Uri("https://" + merchantConfig.IntermediateHost);
+                }
+            }
+            else
+            {
+                //RestClient = new RestClient("https://" + merchantConfig.HostName);
+                clientOptions.BaseUrl = new Uri("https://" + merchantConfig.HostName);
             }
 
             return clientOptions;
@@ -515,7 +568,7 @@ namespace {{packageName}}.Client
 
             logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
 
-            var newRestClientOptions = GetRestClientOptions(Configuration, RestClient.Options.BaseUrl);
+            var newRestClientOptions = GetRestClientOptions(Configuration);
 
             var actualRestClient = RestClientFactory.GetRestClient(newRestClientOptions);
 
@@ -906,56 +959,8 @@ namespace {{packageName}}.Client
             //     authenticationHeaders.Add("v-c-solution-id", Configuration.SolutionId);
             // }
 
-            if (Configuration.Proxy == null && merchantConfig.UseProxy != null)
-            {
-                if (bool.Parse(merchantConfig.UseProxy))
-                {
-                    if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyAddress) && int.TryParse(merchantConfig.ProxyPort, out int proxyPortTest))
-                    {
-                        WebProxy proxy = new WebProxy(merchantConfig.ProxyAddress, proxyPortTest);
-
-                        if (!string.IsNullOrWhiteSpace(merchantConfig.ProxyUsername) && !string.IsNullOrWhiteSpace(merchantConfig.ProxyPassword))
-                        {
-                            proxy.Credentials = new NetworkCredential(merchantConfig.ProxyUsername, merchantConfig.ProxyPassword);
-                        }
-
-                        Configuration.AddWebProxy(proxy);
-                    }
-                }
-            }
-
             //Set the Configuration
             Configuration.DefaultHeader = authenticationHeaders;
-			
-            if (!string.IsNullOrWhiteSpace(merchantConfig.IntermediateHost))
-            {
-                //change with intermediate hostname if present
-                //supporting both for http or https for intermediate url
-                if (merchantConfig.IntermediateHost.StartsWith("http://") || merchantConfig.IntermediateHost.StartsWith("https://"))
-                {
-                    RestClient = new RestClient(merchantConfig.IntermediateHost);
-                }
-                else
-                {
-                    RestClient = new RestClient("https://" + merchantConfig.IntermediateHost);
-                }
-            }
-            else
-            {
-                RestClient = new RestClient("https://" + merchantConfig.HostName);
-            }
-
-            RestClientOptions clientOptions = new RestClientOptions(RestClient.Options.BaseUrl)
-            {
-                Proxy = RestClient.Options.Proxy,
-                UserAgent = RestClient.Options.UserAgent,
-            };
-            if (Configuration.Proxy != null)
-            {
-                clientOptions.Proxy = Configuration.Proxy;
-            }
-
-            RestClient = new RestClient(clientOptions);
         }
     }
 }
