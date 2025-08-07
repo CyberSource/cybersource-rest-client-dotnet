@@ -53,8 +53,6 @@ namespace CyberSource.Client
                              Dictionary<string, bool> mapToControlMLEonAPI = null
                             )
         {
-            SetApiClientUsingDefault(apiClient);
-
             Username = username;
             Password = password;
             AccessToken = accessToken;
@@ -101,6 +99,8 @@ namespace CyberSource.Client
             Timeout = timeout;
             MerchantConfigDictionaryObj = merchConfigDictObj;
             MapToControlMLEonAPI = mapToControlMLEonAPI;
+
+            SetApiClientUsingDefault(apiClient);
         }
 
         private string GetClientId()
@@ -183,7 +183,7 @@ namespace CyberSource.Client
             
             if (apiClient == null)
             {
-                ApiClient = new ApiClient();
+                ApiClient = new ApiClient(this);
             }
             else
             {
