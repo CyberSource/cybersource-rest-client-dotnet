@@ -34,7 +34,6 @@ namespace CyberSource.Client
     /// </summary>
     public partial class ApiClient
     {
-        
         public class RestClientFactory
         {
             private static readonly ConcurrentDictionary<int, Lazy<RestClient>> _restClientInstances = new ConcurrentDictionary<int, Lazy<RestClient>>();
@@ -124,23 +123,10 @@ namespace CyberSource.Client
 
             if (Configuration.MerchantConfigDictionaryObj != null)
             {
-                if (Configuration.MerchantConfigDictionaryObj.ContainsKey("maxConnectionPoolSize"))
-                {
-                    ServicePointManager.DefaultConnectionLimit = int.Parse(Configuration.MerchantConfigDictionaryObj["maxConnectionPoolSize"]);
-                }
-                else
-                {
-                    ServicePointManager.DefaultConnectionLimit = int.Parse(Constants.DefaultMaxConnectionPoolSize);
-                }
+                var merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj);
 
-                if (Configuration.MerchantConfigDictionaryObj.ContainsKey("keepAliveTimout"))
-                {
-                    ServicePointManager.MaxServicePointIdleTime = int.Parse(Configuration.MerchantConfigDictionaryObj["keepAliveTimeout"]);
-                }
-                else
-                {
-                    ServicePointManager.MaxServicePointIdleTime = int.Parse(Constants.DefaultKeepAliveTime);
-                }
+                ServicePointManager.DefaultConnectionLimit = int.Parse(merchantConfig.MaxConnectionPoolSize);
+                ServicePointManager.MaxServicePointIdleTime = int.Parse(merchantConfig.KeepAliveTime);
             }
             else
             {
@@ -439,17 +425,20 @@ namespace CyberSource.Client
                 clientOptions.Proxy = configuration.Proxy;
             }
 
-            if (configuration.MerchantConfigDictionaryObj.ContainsKey("enableClientCert") && Equals(bool.Parse(configuration.MerchantConfigDictionaryObj["enableClientCert"]), true))
+            if (Equals(bool.Parse(merchantConfig.EnableClientCert), true))
             {
-                string clientCertDirectory = configuration.MerchantConfigDictionaryObj["clientCertDirectory"];
-                string clientCertFile = configuration.MerchantConfigDictionaryObj["clientCertFile"];
+                string clientCertDirectory = merchantConfig.ClientCertDirectory;
+                string clientCertFile = merchantConfig.ClientCertFile;
                 SecureString clientCertPassword = new SecureString();
-                foreach (char c in configuration.MerchantConfigDictionaryObj["clientCertPassword"])
+
+                foreach (char c in merchantConfig.ClientCertPassword)
                 {
                     clientCertPassword.AppendChar(c);
                 }
                 clientCertPassword.MakeReadOnly();
+
                 string fileName = Path.Combine(clientCertDirectory, clientCertFile);
+
                 // Importing Certificates
                 var certificate = new X509Certificate2(fileName, clientCertPassword);
                 clientCertPassword.Dispose();
