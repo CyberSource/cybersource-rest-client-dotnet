@@ -38,8 +38,21 @@ namespace CyberSource.Client
         {
             private static readonly ConcurrentDictionary<int, Lazy<RestClient>> _restClientInstances = new ConcurrentDictionary<int, Lazy<RestClient>>();
 
-            public static RestClient GetRestClient(RestClientOptions clientOptions)
+            public static RestClient GetRestClient(Configuration configuration, RestClientOptions clientOptions)
             {
+                if (configuration.MerchantConfigDictionaryObj != null)
+                {
+                    var merchantConfig = new MerchantConfig(configuration.MerchantConfigDictionaryObj);
+
+                    ServicePointManager.DefaultConnectionLimit = int.Parse(merchantConfig.MaxConnectionPoolSize);
+                    ServicePointManager.MaxServicePointIdleTime = int.Parse(merchantConfig.KeepAliveTime);
+                }
+                else
+                {
+                    ServicePointManager.DefaultConnectionLimit = int.Parse(Constants.DefaultMaxConnectionPoolSize);
+                    ServicePointManager.MaxServicePointIdleTime = int.Parse(Constants.DefaultKeepAliveTime);
+                }
+
                 int hash = GetHashOfRestClientOptions(clientOptions);
 
                 if (!_restClientInstances.TryGetValue(hash, out Lazy<RestClient> lazyClient))
@@ -119,19 +132,6 @@ namespace CyberSource.Client
             if (logger == null)
             {
                 logger = LogManager.GetCurrentClassLogger();
-            }
-
-            if (Configuration.MerchantConfigDictionaryObj != null)
-            {
-                var merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj);
-
-                ServicePointManager.DefaultConnectionLimit = int.Parse(merchantConfig.MaxConnectionPoolSize);
-                ServicePointManager.MaxServicePointIdleTime = int.Parse(merchantConfig.KeepAliveTime);
-            }
-            else
-            {
-                ServicePointManager.DefaultConnectionLimit = int.Parse(Constants.DefaultMaxConnectionPoolSize);
-                ServicePointManager.MaxServicePointIdleTime = int.Parse(Constants.DefaultKeepAliveTime);
             }
         }
 
@@ -348,7 +348,7 @@ namespace CyberSource.Client
 
             // RestClient.ClearHandlers();
 
-            var actualRestClient = RestClientFactory.GetRestClient(newRestClientOptions);
+            var actualRestClient = RestClientFactory.GetRestClient(Configuration, newRestClientOptions);
 
             // Logging Request Headers
             var headerPrintOutput = new StringBuilder();
@@ -508,7 +508,7 @@ namespace CyberSource.Client
 
             var newRestClientOptions = GetRestClientOptions(Configuration);
 
-            var actualRestClient = RestClientFactory.GetRestClient(newRestClientOptions);
+            var actualRestClient = RestClientFactory.GetRestClient(Configuration, newRestClientOptions);
 
             InterceptRequest(request);
             var response = await actualRestClient.ExecuteAsync(request);
