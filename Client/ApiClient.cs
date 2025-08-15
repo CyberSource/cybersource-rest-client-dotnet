@@ -38,12 +38,10 @@ namespace CyberSource.Client
         {
             private static readonly ConcurrentDictionary<int, Lazy<RestClient>> _restClientInstances = new ConcurrentDictionary<int, Lazy<RestClient>>();
 
-            public static RestClient GetRestClient(Configuration configuration, RestClientOptions clientOptions)
+            public static RestClient GetRestClient(MerchantConfig merchantConfig, RestClientOptions clientOptions)
             {
-                if (configuration.MerchantConfigDictionaryObj != null)
+                if (merchantConfig != null)
                 {
-                    var merchantConfig = new MerchantConfig(configuration.MerchantConfigDictionaryObj);
-
                     ServicePointManager.DefaultConnectionLimit = int.Parse(merchantConfig.MaxConnectionPoolSize);
                     ServicePointManager.MaxServicePointIdleTime = int.Parse(merchantConfig.KeepAliveTime);
                 }
@@ -344,11 +342,13 @@ namespace CyberSource.Client
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
                 pathParams, contentType);
 
-            var newRestClientOptions = GetRestClientOptions(Configuration);
+            MerchantConfig merchantConfig = new MerchantConfig(merchantConfigDictionary: Configuration.MerchantConfigDictionaryObj, mapToControlMLEonAPI: Configuration.MapToControlMLEonAPI);
+
+            var newRestClientOptions = GetRestClientOptions(merchantConfig, Configuration.UserAgent, TimeSpan.FromMilliseconds(Configuration.Timeout));
 
             // RestClient.ClearHandlers();
 
-            var actualRestClient = RestClientFactory.GetRestClient(Configuration, newRestClientOptions);
+            var actualRestClient = RestClientFactory.GetRestClient(merchantConfig, newRestClientOptions);
 
             // Logging Request Headers
             var headerPrintOutput = new StringBuilder();
@@ -391,18 +391,16 @@ namespace CyberSource.Client
             return response;
         }
 
-        private RestClientOptions GetRestClientOptions(Configuration configuration)
+        private RestClientOptions GetRestClientOptions(MerchantConfig merchantConfig, string userAgent, TimeSpan timeout)
         {
             RestClientOptions clientOptions = new RestClientOptions();
 
-            clientOptions.UserAgent = configuration.UserAgent;
-            clientOptions.Timeout = TimeSpan.FromMilliseconds(configuration.Timeout);
+            clientOptions.UserAgent = userAgent;
+            clientOptions.Timeout = timeout;
 
-            var merchantConfig = configuration.MerchantConfigDictionaryObj != null
-                ? new MerchantConfig(configuration.MerchantConfigDictionaryObj)
-                : new MerchantConfig();
-
-            if (configuration.Proxy == null && merchantConfig.UseProxy != null)
+            IWebProxy webProxy = null;
+            
+            if (merchantConfig.UseProxy != null)
             {
                 if (bool.Parse(merchantConfig.UseProxy))
                 {
@@ -415,14 +413,14 @@ namespace CyberSource.Client
                             proxy.Credentials = new NetworkCredential(merchantConfig.ProxyUsername, merchantConfig.ProxyPassword);
                         }
 
-                        configuration.AddWebProxy(proxy);
+                        webProxy = proxy;
                     }
                 }
             }
 
-            if (configuration.Proxy != null)
+            if (webProxy != null)
             {
-                clientOptions.Proxy = configuration.Proxy;
+                clientOptions.Proxy = webProxy;
             }
 
             if (Equals(bool.Parse(merchantConfig.EnableClientCert), true))
@@ -506,9 +504,11 @@ namespace CyberSource.Client
 
             logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
 
-            var newRestClientOptions = GetRestClientOptions(Configuration);
+            MerchantConfig merchantConfig = new MerchantConfig(merchantConfigDictionary: Configuration.MerchantConfigDictionaryObj, mapToControlMLEonAPI: Configuration.MapToControlMLEonAPI);
 
-            var actualRestClient = RestClientFactory.GetRestClient(Configuration, newRestClientOptions);
+            var newRestClientOptions = GetRestClientOptions(merchantConfig, Configuration.UserAgent, TimeSpan.FromMilliseconds(Configuration.Timeout));
+
+            var actualRestClient = RestClientFactory.GetRestClient(merchantConfig, newRestClientOptions);
 
             InterceptRequest(request);
             var response = await actualRestClient.ExecuteAsync(request);

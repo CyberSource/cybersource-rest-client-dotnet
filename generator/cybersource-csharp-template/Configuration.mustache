@@ -76,6 +76,15 @@ namespace {{packageName}}.Client
                         }
                     }
                 }
+
+                if (merchConfigDictObj.ContainsKey("timeout"))
+                {
+                    Timeout = int.Parse(merchConfigDictObj["timeout"]);
+                }
+                else
+                {
+                    Timeout = {{#netStandard}}TimeSpan.FromMilliseconds({{/netStandard}}timeout{{#netStandard}}){{/netStandard}};
+                }
             }
 
             if (defaultHeader != null)
@@ -87,7 +96,6 @@ namespace {{packageName}}.Client
 
             TempFolderPath = tempFolderPath;
             DateTimeFormat = dateTimeFormat;
-            Timeout = {{#netStandard}}TimeSpan.FromMilliseconds({{/netStandard}}timeout{{#netStandard}}){{/netStandard}};
             MerchantConfigDictionaryObj = merchConfigDictObj;
             MapToControlMLEonAPI = mapToControlMLEonAPI;
 

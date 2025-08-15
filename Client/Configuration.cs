@@ -85,6 +85,15 @@ namespace CyberSource.Client
                         }
                     }
                 }
+
+                if (merchConfigDictObj.ContainsKey("timeout"))
+                {
+                    Timeout = int.Parse(merchConfigDictObj["timeout"]);
+                }
+                else
+                {
+                    Timeout = timeout;
+                }
             }
 
             if (defaultHeader != null)
@@ -96,7 +105,6 @@ namespace CyberSource.Client
 
             TempFolderPath = tempFolderPath;
             DateTimeFormat = dateTimeFormat;
-            Timeout = timeout;
             MerchantConfigDictionaryObj = merchConfigDictObj;
             MapToControlMLEonAPI = mapToControlMLEonAPI;
 
