@@ -139,7 +139,7 @@ No authorization required
 
 <a name="commentdecisionmanagercase"></a>
 # **CommentDecisionManagerCase**
-> InlineResponse201 CommentDecisionManagerCase (string id, CaseManagementCommentsRequest caseManagementCommentsRequest)
+> InlineResponse2011 CommentDecisionManagerCase (string id, CaseManagementCommentsRequest caseManagementCommentsRequest)
 
 Add a comment to a DM post-transactional case
 
@@ -166,7 +166,7 @@ namespace Example
             try
             {
                 // Add a comment to a DM post-transactional case
-                InlineResponse201 result = apiInstance.CommentDecisionManagerCase(id, caseManagementCommentsRequest);
+                InlineResponse2011 result = apiInstance.CommentDecisionManagerCase(id, caseManagementCommentsRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
 

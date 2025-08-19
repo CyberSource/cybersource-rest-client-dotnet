@@ -60,6 +60,7 @@ namespace CyberSource.Model
         /// <param name="ReferenceDataCode">Code that identifies the value of the corresponding &#x60;orderInformation.lineItems[].referenceDataNumber&#x60; field.  Possible values: - AN: Client-defined asset code - MG: Manufacturer&#39;s part number - PO: Purchase order number - SK: Supplier stock keeping unit number - UP: Universal product code - VC: Supplier catalog number - VP: Vendor part number  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
         /// <param name="ReferenceDataNumber">Reference number.  The meaning of this value is identified by the value of the corresponding &#x60;referenceDataCode&#x60; field. See Numbered Elements.  The maximum length for this field depends on the value of the corresponding &#x60;referenceDataCode&#x60; field: - When the code is &#x60;PO&#x60;, the maximum length for the reference number is 22. - When the code is &#x60;VC&#x60;, the maximum length for the reference number is 20. - For all other codes, the maximum length for the reference number is 30.  This field is a pass-through, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. .</param>
         /// <param name="UnitTaxAmount">Per-item tax amount of the product. Note The amount value must be a non-negative number containing 2 decimal places and limited to 7 digits before the decimal point. .</param>
+        /// <param name="Measurement">This field would contain measurement of a line item. .</param>
         /// <param name="ProductDescription">Brief description of item..</param>
         /// <param name="GiftCardCurrency">When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the currency used for the gift card purchase.  For the possible values, see the [ISO Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf) .</param>
         /// <param name="ShippingDestinationTypes">Destination to where the item will be shipped. Example: Commercial, Residential, Store .</param>
@@ -67,7 +68,7 @@ namespace CyberSource.Model
         /// <param name="Passenger">Passenger.</param>
         /// <param name="AllowedExportCountries">AllowedExportCountries.</param>
         /// <param name="RestrictedExportCountries">RestrictedExportCountries.</param>
-        public Ptsv2paymentsOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), string UnitTaxAmount = default(string), string ProductDescription = default(string), int? GiftCardCurrency = default(int?), string ShippingDestinationTypes = default(string), bool? Gift = default(bool?), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), List<string> AllowedExportCountries = default(List<string>), List<string> RestrictedExportCountries = default(List<string>))
+        public Ptsv2paymentsOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), string UnitTaxAmount = default(string), string Measurement = default(string), string ProductDescription = default(string), int? GiftCardCurrency = default(int?), string ShippingDestinationTypes = default(string), bool? Gift = default(bool?), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), List<string> AllowedExportCountries = default(List<string>), List<string> RestrictedExportCountries = default(List<string>))
         {
             this.ProductCode = ProductCode;
             this.ProductName = ProductName;
@@ -96,6 +97,7 @@ namespace CyberSource.Model
             this.ReferenceDataCode = ReferenceDataCode;
             this.ReferenceDataNumber = ReferenceDataNumber;
             this.UnitTaxAmount = UnitTaxAmount;
+            this.Measurement = Measurement;
             this.ProductDescription = ProductDescription;
             this.GiftCardCurrency = GiftCardCurrency;
             this.ShippingDestinationTypes = ShippingDestinationTypes;
@@ -294,6 +296,13 @@ namespace CyberSource.Model
         public string UnitTaxAmount { get; set; }
 
         /// <summary>
+        /// This field would contain measurement of a line item. 
+        /// </summary>
+        /// <value>This field would contain measurement of a line item. </value>
+        [DataMember(Name="measurement", EmitDefaultValue=false)]
+        public string Measurement { get; set; }
+
+        /// <summary>
         /// Brief description of item.
         /// </summary>
         /// <value>Brief description of item.</value>
@@ -374,6 +383,7 @@ namespace CyberSource.Model
             if (ReferenceDataCode != null) sb.Append("  ReferenceDataCode: ").Append(ReferenceDataCode).Append("\n");
             if (ReferenceDataNumber != null) sb.Append("  ReferenceDataNumber: ").Append(ReferenceDataNumber).Append("\n");
             if (UnitTaxAmount != null) sb.Append("  UnitTaxAmount: ").Append(UnitTaxAmount).Append("\n");
+            if (Measurement != null) sb.Append("  Measurement: ").Append(Measurement).Append("\n");
             if (ProductDescription != null) sb.Append("  ProductDescription: ").Append(ProductDescription).Append("\n");
             if (GiftCardCurrency != null) sb.Append("  GiftCardCurrency: ").Append(GiftCardCurrency).Append("\n");
             if (ShippingDestinationTypes != null) sb.Append("  ShippingDestinationTypes: ").Append(ShippingDestinationTypes).Append("\n");
@@ -553,6 +563,11 @@ namespace CyberSource.Model
                     this.UnitTaxAmount.Equals(other.UnitTaxAmount)
                 ) && 
                 (
+                    this.Measurement == other.Measurement ||
+                    this.Measurement != null &&
+                    this.Measurement.Equals(other.Measurement)
+                ) && 
+                (
                     this.ProductDescription == other.ProductDescription ||
                     this.ProductDescription != null &&
                     this.ProductDescription.Equals(other.ProductDescription)
@@ -654,6 +669,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReferenceDataNumber.GetHashCode();
                 if (this.UnitTaxAmount != null)
                     hash = hash * 59 + this.UnitTaxAmount.GetHashCode();
+                if (this.Measurement != null)
+                    hash = hash * 59 + this.Measurement.GetHashCode();
                 if (this.ProductDescription != null)
                     hash = hash * 59 + this.ProductDescription.GetHashCode();
                 if (this.GiftCardCurrency != null)

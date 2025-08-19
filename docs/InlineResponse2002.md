@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **IntegrationInformation** | [**InlineResponse2002IntegrationInformation**](InlineResponse2002IntegrationInformation.md) |  | [optional] 
 **OrganizationInformation** | [**Boardingv1registrationsOrganizationInformation**](Boardingv1registrationsOrganizationInformation.md) |  | [optional] 
 **ProductInformation** | [**Boardingv1registrationsProductInformation**](Boardingv1registrationsProductInformation.md) |  | [optional] 
-**ProductInformationSetups** | [**List&lt;InlineResponse2012ProductInformationSetups&gt;**](InlineResponse2012ProductInformationSetups.md) |  | [optional] 
+**ProductInformationSetups** | [**List&lt;InlineResponse2013ProductInformationSetups&gt;**](InlineResponse2013ProductInformationSetups.md) |  | [optional] 
 **DocumentInformation** | [**Boardingv1registrationsDocumentInformation**](Boardingv1registrationsDocumentInformation.md) |  | [optional] 
 **Details** | **Dictionary&lt;string, List&lt;Object&gt;&gt;** |  | [optional] 
 

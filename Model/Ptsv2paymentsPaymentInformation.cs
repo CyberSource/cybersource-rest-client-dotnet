@@ -35,6 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Card">Card.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
+        /// <param name="TokenizedPaymentMethod">TokenizedPaymentMethod.</param>
         /// <param name="DirectDebit">DirectDebit.</param>
         /// <param name="FluidData">FluidData.</param>
         /// <param name="Customer">Customer.</param>
@@ -49,10 +50,11 @@ namespace CyberSource.Model
         /// <param name="Sepa">Sepa.</param>
         /// <param name="EWallet">EWallet.</param>
         /// <param name="PaymentAccountReference">PaymentAccountReference.</param>
-        public Ptsv2paymentsPaymentInformation(Ptsv2paymentsPaymentInformationCard Card = default(Ptsv2paymentsPaymentInformationCard), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationDirectDebit DirectDebit = default(Ptsv2paymentsPaymentInformationDirectDebit), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationOptions Options = default(Ptsv2paymentsPaymentInformationOptions), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType), string InitiationChannel = default(string), Ptsv2paymentsPaymentInformationSepa Sepa = default(Ptsv2paymentsPaymentInformationSepa), Ptsv2paymentsPaymentInformationEWallet EWallet = default(Ptsv2paymentsPaymentInformationEWallet), Ptsv2paymentsPaymentInformationPaymentAccountReference PaymentAccountReference = default(Ptsv2paymentsPaymentInformationPaymentAccountReference))
+        public Ptsv2paymentsPaymentInformation(Ptsv2paymentsPaymentInformationCard Card = default(Ptsv2paymentsPaymentInformationCard), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationTokenizedPaymentMethod TokenizedPaymentMethod = default(Ptsv2paymentsPaymentInformationTokenizedPaymentMethod), Ptsv2paymentsPaymentInformationDirectDebit DirectDebit = default(Ptsv2paymentsPaymentInformationDirectDebit), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationOptions Options = default(Ptsv2paymentsPaymentInformationOptions), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType), string InitiationChannel = default(string), Ptsv2paymentsPaymentInformationSepa Sepa = default(Ptsv2paymentsPaymentInformationSepa), Ptsv2paymentsPaymentInformationEWallet EWallet = default(Ptsv2paymentsPaymentInformationEWallet), Ptsv2paymentsPaymentInformationPaymentAccountReference PaymentAccountReference = default(Ptsv2paymentsPaymentInformationPaymentAccountReference))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
+            this.TokenizedPaymentMethod = TokenizedPaymentMethod;
             this.DirectDebit = DirectDebit;
             this.FluidData = FluidData;
             this.Customer = Customer;
@@ -80,6 +82,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="tokenizedCard", EmitDefaultValue=false)]
         public Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenizedPaymentMethod
+        /// </summary>
+        [DataMember(Name="tokenizedPaymentMethod", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationTokenizedPaymentMethod TokenizedPaymentMethod { get; set; }
 
         /// <summary>
         /// Gets or Sets DirectDebit
@@ -176,6 +184,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsPaymentInformation {\n");
             if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
             if (TokenizedCard != null) sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
+            if (TokenizedPaymentMethod != null) sb.Append("  TokenizedPaymentMethod: ").Append(TokenizedPaymentMethod).Append("\n");
             if (DirectDebit != null) sb.Append("  DirectDebit: ").Append(DirectDebit).Append("\n");
             if (FluidData != null) sb.Append("  FluidData: ").Append(FluidData).Append("\n");
             if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
@@ -235,6 +244,11 @@ namespace CyberSource.Model
                     this.TokenizedCard == other.TokenizedCard ||
                     this.TokenizedCard != null &&
                     this.TokenizedCard.Equals(other.TokenizedCard)
+                ) && 
+                (
+                    this.TokenizedPaymentMethod == other.TokenizedPaymentMethod ||
+                    this.TokenizedPaymentMethod != null &&
+                    this.TokenizedPaymentMethod.Equals(other.TokenizedPaymentMethod)
                 ) && 
                 (
                     this.DirectDebit == other.DirectDebit ||
@@ -323,6 +337,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.TokenizedCard != null)
                     hash = hash * 59 + this.TokenizedCard.GetHashCode();
+                if (this.TokenizedPaymentMethod != null)
+                    hash = hash * 59 + this.TokenizedPaymentMethod.GetHashCode();
                 if (this.DirectDebit != null)
                     hash = hash * 59 + this.DirectDebit.GetHashCode();
                 if (this.FluidData != null)

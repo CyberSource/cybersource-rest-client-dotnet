@@ -100,7 +100,7 @@ namespace CyberSource.Test
             //string id = null;
             //CaseManagementCommentsRequest caseManagementCommentsRequest = null;
             //var response = instance.CommentDecisionManagerCase(id, caseManagementCommentsRequest);
-            //Assert.IsInstanceOf<InlineResponse201> (response, "response is InlineResponse201");
+            //Assert.IsInstanceOf<InlineResponse2011> (response, "response is InlineResponse2011");
         }
         
         /// <summary>

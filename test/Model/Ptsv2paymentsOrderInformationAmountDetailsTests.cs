@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'GiftWrapAmount'
         }
         /// <summary>
+        /// Test the property 'InvoiceAmount'
+        /// </summary>
+        [Test]
+        public void InvoiceAmountTest()
+        {
+            // TODO unit test for the property 'InvoiceAmount'
+        }
+        /// <summary>
         /// Test the property 'TotalAmount'
         /// </summary>
         [Test]

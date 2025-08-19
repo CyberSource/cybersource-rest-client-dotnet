@@ -34,9 +34,15 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2intentsPaymentInformation" /> class.
         /// </summary>
         /// <param name="PaymentType">PaymentType.</param>
-        public Ptsv2intentsPaymentInformation(Ptsv2intentsPaymentInformationPaymentType PaymentType = default(Ptsv2intentsPaymentInformationPaymentType))
+        /// <param name="TokenizedPaymentMethod">TokenizedPaymentMethod.</param>
+        /// <param name="IndustryType">Indicates the industry type. Possible Values: - \&quot;Events\&quot; - \&quot;Ticketing\&quot; - \&quot;Fuel\&quot; - \&quot;GAMING\&quot; - \&quot;DIGITAL GOODS\&quot; - \&quot;TELCO\&quot; - \&quot;Token Service Providers\&quot; - \&quot;Gambling\&quot; - \&quot;CFDs\&quot; - \&quot;car rental\&quot; - \&quot;hotel\&quot; - \&quot;transportation\&quot; - \&quot;travel package\&quot; - \&quot;Cruise Line\&quot; - \&quot;P2P\&quot; - \&quot;Retail\&quot; - \&quot;Food\&quot; - \&quot;Groceries\&quot; - \&quot;Ride Sharing\&quot; - \&quot;Taxi\&quot; - \&quot;Remittance\&quot; - \&quot;Crypto\&quot; - \&quot;Marketplaces\&quot; .</param>
+        /// <param name="EWallet">EWallet.</param>
+        public Ptsv2intentsPaymentInformation(Ptsv2intentsPaymentInformationPaymentType PaymentType = default(Ptsv2intentsPaymentInformationPaymentType), Ptsv2intentsPaymentInformationTokenizedPaymentMethod TokenizedPaymentMethod = default(Ptsv2intentsPaymentInformationTokenizedPaymentMethod), string IndustryType = default(string), Ptsv2intentsPaymentInformationEWallet EWallet = default(Ptsv2intentsPaymentInformationEWallet))
         {
             this.PaymentType = PaymentType;
+            this.TokenizedPaymentMethod = TokenizedPaymentMethod;
+            this.IndustryType = IndustryType;
+            this.EWallet = EWallet;
         }
         
         /// <summary>
@@ -44,6 +50,25 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="paymentType", EmitDefaultValue=false)]
         public Ptsv2intentsPaymentInformationPaymentType PaymentType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenizedPaymentMethod
+        /// </summary>
+        [DataMember(Name="tokenizedPaymentMethod", EmitDefaultValue=false)]
+        public Ptsv2intentsPaymentInformationTokenizedPaymentMethod TokenizedPaymentMethod { get; set; }
+
+        /// <summary>
+        /// Indicates the industry type. Possible Values: - \&quot;Events\&quot; - \&quot;Ticketing\&quot; - \&quot;Fuel\&quot; - \&quot;GAMING\&quot; - \&quot;DIGITAL GOODS\&quot; - \&quot;TELCO\&quot; - \&quot;Token Service Providers\&quot; - \&quot;Gambling\&quot; - \&quot;CFDs\&quot; - \&quot;car rental\&quot; - \&quot;hotel\&quot; - \&quot;transportation\&quot; - \&quot;travel package\&quot; - \&quot;Cruise Line\&quot; - \&quot;P2P\&quot; - \&quot;Retail\&quot; - \&quot;Food\&quot; - \&quot;Groceries\&quot; - \&quot;Ride Sharing\&quot; - \&quot;Taxi\&quot; - \&quot;Remittance\&quot; - \&quot;Crypto\&quot; - \&quot;Marketplaces\&quot; 
+        /// </summary>
+        /// <value>Indicates the industry type. Possible Values: - \&quot;Events\&quot; - \&quot;Ticketing\&quot; - \&quot;Fuel\&quot; - \&quot;GAMING\&quot; - \&quot;DIGITAL GOODS\&quot; - \&quot;TELCO\&quot; - \&quot;Token Service Providers\&quot; - \&quot;Gambling\&quot; - \&quot;CFDs\&quot; - \&quot;car rental\&quot; - \&quot;hotel\&quot; - \&quot;transportation\&quot; - \&quot;travel package\&quot; - \&quot;Cruise Line\&quot; - \&quot;P2P\&quot; - \&quot;Retail\&quot; - \&quot;Food\&quot; - \&quot;Groceries\&quot; - \&quot;Ride Sharing\&quot; - \&quot;Taxi\&quot; - \&quot;Remittance\&quot; - \&quot;Crypto\&quot; - \&quot;Marketplaces\&quot; </value>
+        [DataMember(Name="industryType", EmitDefaultValue=false)]
+        public string IndustryType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EWallet
+        /// </summary>
+        [DataMember(Name="eWallet", EmitDefaultValue=false)]
+        public Ptsv2intentsPaymentInformationEWallet EWallet { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +79,9 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2intentsPaymentInformation {\n");
             if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (TokenizedPaymentMethod != null) sb.Append("  TokenizedPaymentMethod: ").Append(TokenizedPaymentMethod).Append("\n");
+            if (IndustryType != null) sb.Append("  IndustryType: ").Append(IndustryType).Append("\n");
+            if (EWallet != null) sb.Append("  EWallet: ").Append(EWallet).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +122,21 @@ namespace CyberSource.Model
                     this.PaymentType == other.PaymentType ||
                     this.PaymentType != null &&
                     this.PaymentType.Equals(other.PaymentType)
+                ) && 
+                (
+                    this.TokenizedPaymentMethod == other.TokenizedPaymentMethod ||
+                    this.TokenizedPaymentMethod != null &&
+                    this.TokenizedPaymentMethod.Equals(other.TokenizedPaymentMethod)
+                ) && 
+                (
+                    this.IndustryType == other.IndustryType ||
+                    this.IndustryType != null &&
+                    this.IndustryType.Equals(other.IndustryType)
+                ) && 
+                (
+                    this.EWallet == other.EWallet ||
+                    this.EWallet != null &&
+                    this.EWallet.Equals(other.EWallet)
                 );
         }
 
@@ -110,6 +153,12 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.PaymentType != null)
                     hash = hash * 59 + this.PaymentType.GetHashCode();
+                if (this.TokenizedPaymentMethod != null)
+                    hash = hash * 59 + this.TokenizedPaymentMethod.GetHashCode();
+                if (this.IndustryType != null)
+                    hash = hash * 59 + this.IndustryType.GetHashCode();
+                if (this.EWallet != null)
+                    hash = hash * 59 + this.EWallet.GetHashCode();
                 return hash;
             }
         }
