@@ -323,9 +323,9 @@ namespace CyberSource.Api
                 localVarPostBody = postDeviceSearchRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -432,9 +432,9 @@ namespace CyberSource.Api
                 localVarPostBody = postDeviceSearchRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -539,9 +539,9 @@ namespace CyberSource.Api
                 localVarPostBody = postDeviceSearchRequestV3; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostSearchQueryV3,PostSearchQueryV3Async,PostSearchQueryV3WithHttpInfo,PostSearchQueryV3AsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostSearchQueryV3,PostSearchQueryV3Async,PostSearchQueryV3WithHttpInfo,PostSearchQueryV3AsyncWithHttpInfo"))
             {
                 try
                 {
@@ -648,9 +648,9 @@ namespace CyberSource.Api
                 localVarPostBody = postDeviceSearchRequestV3; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostSearchQueryV3,PostSearchQueryV3Async,PostSearchQueryV3WithHttpInfo,PostSearchQueryV3AsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostSearchQueryV3,PostSearchQueryV3Async,PostSearchQueryV3WithHttpInfo,PostSearchQueryV3AsyncWithHttpInfo"))
             {
                 try
                 {

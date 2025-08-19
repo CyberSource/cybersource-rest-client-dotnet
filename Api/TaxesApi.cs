@@ -327,9 +327,9 @@ namespace CyberSource.Api
                 localVarPostBody = taxRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CalculateTax,CalculateTaxAsync,CalculateTaxWithHttpInfo,CalculateTaxAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CalculateTax,CalculateTaxAsync,CalculateTaxWithHttpInfo,CalculateTaxAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -436,9 +436,9 @@ namespace CyberSource.Api
                 localVarPostBody = taxRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CalculateTax,CalculateTaxAsync,CalculateTaxWithHttpInfo,CalculateTaxAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CalculateTax,CalculateTaxAsync,CalculateTaxWithHttpInfo,CalculateTaxAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -556,9 +556,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidTaxRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidTax,VoidTaxAsync,VoidTaxWithHttpInfo,VoidTaxAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "VoidTax,VoidTaxAsync,VoidTaxWithHttpInfo,VoidTaxAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -678,9 +678,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidTaxRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidTax,VoidTaxAsync,VoidTaxWithHttpInfo,VoidTaxAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "VoidTax,VoidTaxAsync,VoidTaxWithHttpInfo,VoidTaxAsyncWithHttpInfo"))
             {
                 try
                 {

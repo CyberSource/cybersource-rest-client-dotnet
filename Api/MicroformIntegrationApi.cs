@@ -281,9 +281,9 @@ namespace CyberSource.Api
                 localVarPostBody = generateCaptureContextRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GenerateCaptureContext,GenerateCaptureContextAsync,GenerateCaptureContextWithHttpInfo,GenerateCaptureContextAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GenerateCaptureContext,GenerateCaptureContextAsync,GenerateCaptureContextWithHttpInfo,GenerateCaptureContextAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -390,9 +390,9 @@ namespace CyberSource.Api
                 localVarPostBody = generateCaptureContextRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GenerateCaptureContext,GenerateCaptureContextAsync,GenerateCaptureContextWithHttpInfo,GenerateCaptureContextAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GenerateCaptureContext,GenerateCaptureContextAsync,GenerateCaptureContextWithHttpInfo,GenerateCaptureContextAsyncWithHttpInfo"))
             {
                 try
                 {

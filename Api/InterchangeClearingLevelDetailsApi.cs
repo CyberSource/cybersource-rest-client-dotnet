@@ -319,9 +319,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetInterchangeClearingLevelDetails,GetInterchangeClearingLevelDetailsAsync,GetInterchangeClearingLevelDetailsWithHttpInfo,GetInterchangeClearingLevelDetailsAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetInterchangeClearingLevelDetails,GetInterchangeClearingLevelDetailsAsync,GetInterchangeClearingLevelDetailsWithHttpInfo,GetInterchangeClearingLevelDetailsAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -457,9 +457,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetInterchangeClearingLevelDetails,GetInterchangeClearingLevelDetailsAsync,GetInterchangeClearingLevelDetailsWithHttpInfo,GetInterchangeClearingLevelDetailsAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetInterchangeClearingLevelDetails,GetInterchangeClearingLevelDetailsAsync,GetInterchangeClearingLevelDetailsWithHttpInfo,GetInterchangeClearingLevelDetailsAsyncWithHttpInfo"))
             {
                 try
                 {

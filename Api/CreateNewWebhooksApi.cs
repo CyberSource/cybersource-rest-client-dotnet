@@ -386,9 +386,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "FindProductsToSubscribe,FindProductsToSubscribeAsync,FindProductsToSubscribeWithHttpInfo,FindProductsToSubscribeAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "FindProductsToSubscribe,FindProductsToSubscribeAsync,FindProductsToSubscribeWithHttpInfo,FindProductsToSubscribeAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -503,9 +503,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "FindProductsToSubscribe,FindProductsToSubscribeAsync,FindProductsToSubscribeWithHttpInfo,FindProductsToSubscribeAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "FindProductsToSubscribe,FindProductsToSubscribeAsync,FindProductsToSubscribeWithHttpInfo,FindProductsToSubscribeAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -603,9 +603,9 @@ namespace CyberSource.Api
                 localVarPostBody = createWebhook; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "NotificationSubscriptionsV2WebhooksPost,NotificationSubscriptionsV2WebhooksPostAsync,NotificationSubscriptionsV2WebhooksPostWithHttpInfo,NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "NotificationSubscriptionsV2WebhooksPost,NotificationSubscriptionsV2WebhooksPostAsync,NotificationSubscriptionsV2WebhooksPostWithHttpInfo,NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -706,9 +706,9 @@ namespace CyberSource.Api
                 localVarPostBody = createWebhook; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "NotificationSubscriptionsV2WebhooksPost,NotificationSubscriptionsV2WebhooksPostAsync,NotificationSubscriptionsV2WebhooksPostWithHttpInfo,NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "NotificationSubscriptionsV2WebhooksPost,NotificationSubscriptionsV2WebhooksPostAsync,NotificationSubscriptionsV2WebhooksPostWithHttpInfo,NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -837,9 +837,9 @@ namespace CyberSource.Api
                 localVarPostBody = saveSymEgressKey; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "SaveSymEgressKey,SaveSymEgressKeyAsync,SaveSymEgressKeyWithHttpInfo,SaveSymEgressKeyAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "SaveSymEgressKey,SaveSymEgressKeyAsync,SaveSymEgressKeyWithHttpInfo,SaveSymEgressKeyAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -970,9 +970,9 @@ namespace CyberSource.Api
                 localVarPostBody = saveSymEgressKey; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "SaveSymEgressKey,SaveSymEgressKeyAsync,SaveSymEgressKeyWithHttpInfo,SaveSymEgressKeyAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "SaveSymEgressKey,SaveSymEgressKeyAsync,SaveSymEgressKeyWithHttpInfo,SaveSymEgressKeyAsyncWithHttpInfo"))
             {
                 try
                 {

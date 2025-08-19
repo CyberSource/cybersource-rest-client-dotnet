@@ -319,9 +319,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetChargebackSummaries,GetChargebackSummariesAsync,GetChargebackSummariesWithHttpInfo,GetChargebackSummariesAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetChargebackSummaries,GetChargebackSummariesAsync,GetChargebackSummariesWithHttpInfo,GetChargebackSummariesAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -457,9 +457,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetChargebackSummaries,GetChargebackSummariesAsync,GetChargebackSummariesWithHttpInfo,GetChargebackSummariesAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetChargebackSummaries,GetChargebackSummariesAsync,GetChargebackSummariesWithHttpInfo,GetChargebackSummariesAsyncWithHttpInfo"))
             {
                 try
                 {

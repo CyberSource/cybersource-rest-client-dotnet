@@ -320,9 +320,9 @@ namespace CyberSource.Api
                 localVarPostBody = deAssociationRequestBody; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "DeleteTerminalAssociation,DeleteTerminalAssociationAsync,DeleteTerminalAssociationWithHttpInfo,DeleteTerminalAssociationAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeleteTerminalAssociation,DeleteTerminalAssociationAsync,DeleteTerminalAssociationWithHttpInfo,DeleteTerminalAssociationAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -427,9 +427,9 @@ namespace CyberSource.Api
                 localVarPostBody = deAssociationRequestBody; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "DeleteTerminalAssociation,DeleteTerminalAssociationAsync,DeleteTerminalAssociationWithHttpInfo,DeleteTerminalAssociationAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeleteTerminalAssociation,DeleteTerminalAssociationAsync,DeleteTerminalAssociationWithHttpInfo,DeleteTerminalAssociationAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -535,9 +535,9 @@ namespace CyberSource.Api
                 localVarPostBody = deviceDeAssociateV3Request; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostDeAssociateV3Terminal,PostDeAssociateV3TerminalAsync,PostDeAssociateV3TerminalWithHttpInfo,PostDeAssociateV3TerminalAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostDeAssociateV3Terminal,PostDeAssociateV3TerminalAsync,PostDeAssociateV3TerminalWithHttpInfo,PostDeAssociateV3TerminalAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -644,9 +644,9 @@ namespace CyberSource.Api
                 localVarPostBody = deviceDeAssociateV3Request; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostDeAssociateV3Terminal,PostDeAssociateV3TerminalAsync,PostDeAssociateV3TerminalWithHttpInfo,PostDeAssociateV3TerminalAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostDeAssociateV3Terminal,PostDeAssociateV3TerminalAsync,PostDeAssociateV3TerminalWithHttpInfo,PostDeAssociateV3TerminalAsyncWithHttpInfo"))
             {
                 try
                 {

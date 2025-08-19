@@ -323,9 +323,9 @@ namespace CyberSource.Api
                 localVarPostBody = createSearchRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateSearch,CreateSearchAsync,CreateSearchWithHttpInfo,CreateSearchAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateSearch,CreateSearchAsync,CreateSearchWithHttpInfo,CreateSearchAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -432,9 +432,9 @@ namespace CyberSource.Api
                 localVarPostBody = createSearchRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateSearch,CreateSearchAsync,CreateSearchWithHttpInfo,CreateSearchAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateSearch,CreateSearchAsync,CreateSearchWithHttpInfo,CreateSearchAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -548,9 +548,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetSearch,GetSearchAsync,GetSearchWithHttpInfo,GetSearchAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetSearch,GetSearchAsync,GetSearchWithHttpInfo,GetSearchAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -665,9 +665,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetSearch,GetSearchAsync,GetSearchWithHttpInfo,GetSearchAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetSearch,GetSearchAsync,GetSearchWithHttpInfo,GetSearchAsyncWithHttpInfo"))
             {
                 try
                 {
