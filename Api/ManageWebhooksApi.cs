@@ -126,8 +126,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns></returns>
-        void NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null);
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null);
 
         /// <summary>
         /// Update a Webhook Subscription
@@ -138,8 +138,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null);
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null);
         /// <summary>
         /// Update a Webhook Status
         /// </summary>
@@ -289,8 +289,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync (string webhookId, UpdateWebhook updateWebhook = null);
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync (string webhookId, UpdateWebhook updateWebhook = null);
 
         /// <summary>
         /// Update a Webhook Subscription
@@ -301,8 +301,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null);
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null);
         /// <summary>
         /// Update a Webhook Status
         /// </summary>
@@ -1451,12 +1451,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns></returns>
-        public void NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
         {
             logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatch\" STARTED");
             this.SetStatusCode(null);
-            NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo(webhookId, updateWebhook);
+            ApiResponse<InlineResponse2005> localVarResponse = NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo(webhookId, updateWebhook);
+            logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatch\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1465,8 +1468,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null)
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse< InlineResponse2005 > NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1552,10 +1555,9 @@ namespace CyberSource.Api
                 }
             }
 
-            this.SetStatusCode(localVarStatusCode);
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                localVarResponse.Content); // Return statement
+                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
         }
 
         /// <summary>
@@ -1564,12 +1566,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync (string webhookId, UpdateWebhook updateWebhook = null)
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync (string webhookId, UpdateWebhook updateWebhook = null)
         {
             logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync\" STARTED");
             this.SetStatusCode(null);
-            await NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo(webhookId, updateWebhook);
+            ApiResponse<InlineResponse2005> localVarResponse = await NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo(webhookId, updateWebhook);
+            logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
 
         }
 
@@ -1579,8 +1584,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null)
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1666,10 +1671,9 @@ namespace CyberSource.Api
                 }
             }
 
-            this.SetStatusCode(localVarStatusCode);
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                localVarResponse.Content); // Return statement
+                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
         }
         /// <summary>
         /// Update a Webhook Status Users can update the status of a webhook subscription by calling this endpoint.   The webhookId parameter in the URL path identifies the specific webhook subscription to be updated. The request body accepts the values ACTIVE or INACTIVE. If the subscription is set to INACTIVE, webhooks will not be delivered until the subscription is activated again. 

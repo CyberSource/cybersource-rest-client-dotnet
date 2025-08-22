@@ -386,7 +386,7 @@ namespace CyberSource.Api
                 localVarPostBody = modifyBillingAgreement; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsDeRegistration,BillingAgreementsDeRegistrationAsync,BillingAgreementsDeRegistrationWithHttpInfo,BillingAgreementsDeRegistrationAsyncWithHttpInfo"))
             {
@@ -508,7 +508,7 @@ namespace CyberSource.Api
                 localVarPostBody = modifyBillingAgreement; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsDeRegistration,BillingAgreementsDeRegistrationAsync,BillingAgreementsDeRegistrationWithHttpInfo,BillingAgreementsDeRegistrationAsyncWithHttpInfo"))
             {
@@ -628,7 +628,7 @@ namespace CyberSource.Api
                 localVarPostBody = intimateBillingAgreement; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsIntimation,BillingAgreementsIntimationAsync,BillingAgreementsIntimationWithHttpInfo,BillingAgreementsIntimationAsyncWithHttpInfo"))
             {
@@ -750,7 +750,7 @@ namespace CyberSource.Api
                 localVarPostBody = intimateBillingAgreement; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsIntimation,BillingAgreementsIntimationAsync,BillingAgreementsIntimationWithHttpInfo,BillingAgreementsIntimationAsyncWithHttpInfo"))
             {
@@ -857,7 +857,7 @@ namespace CyberSource.Api
                 localVarPostBody = createBillingAgreement; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsRegistration,BillingAgreementsRegistrationAsync,BillingAgreementsRegistrationWithHttpInfo,BillingAgreementsRegistrationAsyncWithHttpInfo"))
             {
@@ -966,7 +966,7 @@ namespace CyberSource.Api
                 localVarPostBody = createBillingAgreement; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsRegistration,BillingAgreementsRegistrationAsync,BillingAgreementsRegistrationWithHttpInfo,BillingAgreementsRegistrationAsyncWithHttpInfo"))
             {

@@ -40,7 +40,8 @@ namespace CyberSource.Model
         /// <param name="AllowPartialPayments">If set to &#x60;true&#x60;, the payer can make a partial invoice payment. (default to false).</param>
         /// <param name="PaymentLink">Returns the payment link to an invoice when the invoice status is &#x60;SENT&#x60;, &#x60;CREATED&#x60;, &#x60;PARTIAL&#x60;, or &#x60;PAID&#x60;..</param>
         /// <param name="DeliveryMode">If this field is set to &#39;None&#39;, an invoice will be generated with the status &#39;CREATED&#39;, but no email will be dispatched.    Possible values:        - &#x60;None&#x60;   - &#x60;Email&#x60;    .</param>
-        public InvoicingV2InvoicesPost201ResponseInvoiceInformation(string InvoiceNumber = default(string), string Description = default(string), DateTime? DueDate = default(DateTime?), DateTime? ExpirationDate = default(DateTime?), bool? AllowPartialPayments = false, string PaymentLink = default(string), string DeliveryMode = default(string))
+        /// <param name="CustomLabels">A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten. .</param>
+        public InvoicingV2InvoicesPost201ResponseInvoiceInformation(string InvoiceNumber = default(string), string Description = default(string), DateTime? DueDate = default(DateTime?), DateTime? ExpirationDate = default(DateTime?), bool? AllowPartialPayments = false, string PaymentLink = default(string), string DeliveryMode = default(string), List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels> CustomLabels = default(List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels>))
         {
             this.InvoiceNumber = InvoiceNumber;
             this.Description = Description;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             }
             this.PaymentLink = PaymentLink;
             this.DeliveryMode = DeliveryMode;
+            this.CustomLabels = CustomLabels;
         }
         
         /// <summary>
@@ -111,6 +113,13 @@ namespace CyberSource.Model
         public string DeliveryMode { get; set; }
 
         /// <summary>
+        /// A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten. 
+        /// </summary>
+        /// <value>A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten. </value>
+        [DataMember(Name="customLabels", EmitDefaultValue=false)]
+        public List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels> CustomLabels { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +134,7 @@ namespace CyberSource.Model
             if (AllowPartialPayments != null) sb.Append("  AllowPartialPayments: ").Append(AllowPartialPayments).Append("\n");
             if (PaymentLink != null) sb.Append("  PaymentLink: ").Append(PaymentLink).Append("\n");
             if (DeliveryMode != null) sb.Append("  DeliveryMode: ").Append(DeliveryMode).Append("\n");
+            if (CustomLabels != null) sb.Append("  CustomLabels: ").Append(CustomLabels).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -195,6 +205,11 @@ namespace CyberSource.Model
                     this.DeliveryMode == other.DeliveryMode ||
                     this.DeliveryMode != null &&
                     this.DeliveryMode.Equals(other.DeliveryMode)
+                ) && 
+                (
+                    this.CustomLabels == other.CustomLabels ||
+                    this.CustomLabels != null &&
+                    this.CustomLabels.SequenceEqual(other.CustomLabels)
                 );
         }
 
@@ -223,6 +238,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentLink.GetHashCode();
                 if (this.DeliveryMode != null)
                     hash = hash * 59 + this.DeliveryMode.GetHashCode();
+                if (this.CustomLabels != null)
+                    hash = hash * 59 + this.CustomLabels.GetHashCode();
                 return hash;
             }
         }

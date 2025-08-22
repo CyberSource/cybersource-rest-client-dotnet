@@ -298,7 +298,7 @@ namespace CyberSource.Api
                 localVarPostBody = capturePaymentRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CapturePayment,CapturePaymentAsync,CapturePaymentWithHttpInfo,CapturePaymentAsyncWithHttpInfo"))
             {
@@ -420,7 +420,7 @@ namespace CyberSource.Api
                 localVarPostBody = capturePaymentRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CapturePayment,CapturePaymentAsync,CapturePaymentWithHttpInfo,CapturePaymentAsyncWithHttpInfo"))
             {

@@ -152,6 +152,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'JapanPaymentOptions'
         }
+        /// <summary>
+        /// Test the property 'ValidationLevel'
+        /// </summary>
+        [Test]
+        public void ValidationLevelTest()
+        {
+            // TODO unit test for the property 'ValidationLevel'
+        }
 
     }
 

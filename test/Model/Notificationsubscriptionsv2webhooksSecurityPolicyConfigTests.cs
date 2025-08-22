@@ -65,14 +65,6 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'OAuthTokenExpiry'
-        /// </summary>
-        [Test]
-        public void OAuthTokenExpiryTest()
-        {
-            // TODO unit test for the property 'OAuthTokenExpiry'
-        }
-        /// <summary>
         /// Test the property 'OAuthURL'
         /// </summary>
         [Test]
@@ -87,6 +79,14 @@ namespace CyberSource.Test
         public void OAuthTokenTypeTest()
         {
             // TODO unit test for the property 'OAuthTokenType'
+        }
+        /// <summary>
+        /// Test the property 'AdditionalConfig'
+        /// </summary>
+        [Test]
+        public void AdditionalConfigTest()
+        {
+            // TODO unit test for the property 'AdditionalConfig'
         }
 
     }

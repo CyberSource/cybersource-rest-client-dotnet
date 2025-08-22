@@ -281,9 +281,9 @@ namespace CyberSource.Api
                 localVarPostBody = request; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "RetrieveOrDeletePaymentToken,RetrieveOrDeletePaymentTokenAsync,RetrieveOrDeletePaymentTokenWithHttpInfo,RetrieveOrDeletePaymentTokenAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "RetrieveOrDeletePaymentToken,RetrieveOrDeletePaymentTokenAsync,RetrieveOrDeletePaymentTokenWithHttpInfo,RetrieveOrDeletePaymentTokenAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -390,9 +390,9 @@ namespace CyberSource.Api
                 localVarPostBody = request; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "RetrieveOrDeletePaymentToken,RetrieveOrDeletePaymentTokenAsync,RetrieveOrDeletePaymentTokenWithHttpInfo,RetrieveOrDeletePaymentTokenAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "RetrieveOrDeletePaymentToken,RetrieveOrDeletePaymentTokenAsync,RetrieveOrDeletePaymentTokenWithHttpInfo,RetrieveOrDeletePaymentTokenAsyncWithHttpInfo"))
             {
                 try
                 {

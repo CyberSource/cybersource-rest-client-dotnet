@@ -38,10 +38,11 @@ namespace CyberSource.Model
         /// <param name="OrganizationId">Organization Identifier (OrgId) or Merchant Identifier (MID)..</param>
         /// <param name="Products">To see the valid productId and eventTypes, call the \&quot;Create and Manage Webhooks - Retrieve a list of event types\&quot; endpoint..</param>
         /// <param name="WebhookUrl">The client&#39;s endpoint (URL) to receive webhooks..</param>
-        /// <param name="HealthCheckUrl">The client&#39;s health check endpoint (URL). This should be as close as possible to the actual webhookUrl. If the user does not provide the health check URL, it is the user&#39;s responsibility to re-activate the webhook if it is deactivated by calling the test endpoint. .</param>
+        /// <param name="HealthCheckUrl">The client&#39;s health check endpoint (URL). If the user does not provide the health check URL, it is the user&#39;s responsibility to re-activate the webhook if it is deactivated by calling the test endpoint. .</param>
         /// <param name="RetryPolicy">RetryPolicy.</param>
+        /// <param name="NotificationScope">The webhook scope. 1. SELF The Webhook is used to deliver webhooks for only this Organization (or Merchant). 2. DESCENDANTS The Webhook is used to deliver webhooks for this Organization and its children. This field is optional.    Possible values: - SELF - DESCENDANTS (default to &quot;DESCENDANTS&quot;).</param>
         /// <param name="SecurityPolicy">SecurityPolicy.</param>
-        public CreateWebhook(string Name = default(string), string Description = default(string), string OrganizationId = default(string), List<Notificationsubscriptionsv2webhooksProducts1> Products = default(List<Notificationsubscriptionsv2webhooksProducts1>), string WebhookUrl = default(string), string HealthCheckUrl = default(string), Notificationsubscriptionsv2webhooksRetryPolicy RetryPolicy = default(Notificationsubscriptionsv2webhooksRetryPolicy), Notificationsubscriptionsv2webhooksSecurityPolicy1 SecurityPolicy = default(Notificationsubscriptionsv2webhooksSecurityPolicy1))
+        public CreateWebhook(string Name = default(string), string Description = default(string), string OrganizationId = default(string), List<Notificationsubscriptionsv2webhooksProducts1> Products = default(List<Notificationsubscriptionsv2webhooksProducts1>), string WebhookUrl = default(string), string HealthCheckUrl = default(string), Notificationsubscriptionsv2webhooksRetryPolicy RetryPolicy = default(Notificationsubscriptionsv2webhooksRetryPolicy), string NotificationScope = "DESCENDANTS", Notificationsubscriptionsv2webhooksSecurityPolicy SecurityPolicy = default(Notificationsubscriptionsv2webhooksSecurityPolicy))
         {
             this.Name = Name;
             this.Description = Description;
@@ -50,6 +51,15 @@ namespace CyberSource.Model
             this.WebhookUrl = WebhookUrl;
             this.HealthCheckUrl = HealthCheckUrl;
             this.RetryPolicy = RetryPolicy;
+            // use default value if no "NotificationScope" provided
+            if (NotificationScope == null)
+            {
+                this.NotificationScope = "DESCENDANTS";
+            }
+            else
+            {
+                this.NotificationScope = NotificationScope;
+            }
             this.SecurityPolicy = SecurityPolicy;
         }
         
@@ -89,9 +99,9 @@ namespace CyberSource.Model
         public string WebhookUrl { get; set; }
 
         /// <summary>
-        /// The client&#39;s health check endpoint (URL). This should be as close as possible to the actual webhookUrl. If the user does not provide the health check URL, it is the user&#39;s responsibility to re-activate the webhook if it is deactivated by calling the test endpoint. 
+        /// The client&#39;s health check endpoint (URL). If the user does not provide the health check URL, it is the user&#39;s responsibility to re-activate the webhook if it is deactivated by calling the test endpoint. 
         /// </summary>
-        /// <value>The client&#39;s health check endpoint (URL). This should be as close as possible to the actual webhookUrl. If the user does not provide the health check URL, it is the user&#39;s responsibility to re-activate the webhook if it is deactivated by calling the test endpoint. </value>
+        /// <value>The client&#39;s health check endpoint (URL). If the user does not provide the health check URL, it is the user&#39;s responsibility to re-activate the webhook if it is deactivated by calling the test endpoint. </value>
         [DataMember(Name="healthCheckUrl", EmitDefaultValue=false)]
         public string HealthCheckUrl { get; set; }
 
@@ -102,10 +112,17 @@ namespace CyberSource.Model
         public Notificationsubscriptionsv2webhooksRetryPolicy RetryPolicy { get; set; }
 
         /// <summary>
+        /// The webhook scope. 1. SELF The Webhook is used to deliver webhooks for only this Organization (or Merchant). 2. DESCENDANTS The Webhook is used to deliver webhooks for this Organization and its children. This field is optional.    Possible values: - SELF - DESCENDANTS
+        /// </summary>
+        /// <value>The webhook scope. 1. SELF The Webhook is used to deliver webhooks for only this Organization (or Merchant). 2. DESCENDANTS The Webhook is used to deliver webhooks for this Organization and its children. This field is optional.    Possible values: - SELF - DESCENDANTS</value>
+        [DataMember(Name="notificationScope", EmitDefaultValue=false)]
+        public string NotificationScope { get; set; }
+
+        /// <summary>
         /// Gets or Sets SecurityPolicy
         /// </summary>
         [DataMember(Name="securityPolicy", EmitDefaultValue=false)]
-        public Notificationsubscriptionsv2webhooksSecurityPolicy1 SecurityPolicy { get; set; }
+        public Notificationsubscriptionsv2webhooksSecurityPolicy SecurityPolicy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -122,6 +139,7 @@ namespace CyberSource.Model
             if (WebhookUrl != null) sb.Append("  WebhookUrl: ").Append(WebhookUrl).Append("\n");
             if (HealthCheckUrl != null) sb.Append("  HealthCheckUrl: ").Append(HealthCheckUrl).Append("\n");
             if (RetryPolicy != null) sb.Append("  RetryPolicy: ").Append(RetryPolicy).Append("\n");
+            if (NotificationScope != null) sb.Append("  NotificationScope: ").Append(NotificationScope).Append("\n");
             if (SecurityPolicy != null) sb.Append("  SecurityPolicy: ").Append(SecurityPolicy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -195,6 +213,11 @@ namespace CyberSource.Model
                     this.RetryPolicy.Equals(other.RetryPolicy)
                 ) && 
                 (
+                    this.NotificationScope == other.NotificationScope ||
+                    this.NotificationScope != null &&
+                    this.NotificationScope.Equals(other.NotificationScope)
+                ) && 
+                (
                     this.SecurityPolicy == other.SecurityPolicy ||
                     this.SecurityPolicy != null &&
                     this.SecurityPolicy.Equals(other.SecurityPolicy)
@@ -226,6 +249,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.HealthCheckUrl.GetHashCode();
                 if (this.RetryPolicy != null)
                     hash = hash * 59 + this.RetryPolicy.GetHashCode();
+                if (this.NotificationScope != null)
+                    hash = hash * 59 + this.NotificationScope.GetHashCode();
                 if (this.SecurityPolicy != null)
                     hash = hash * 59 + this.SecurityPolicy.GetHashCode();
                 return hash;

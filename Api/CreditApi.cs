@@ -281,7 +281,7 @@ namespace CyberSource.Api
                 localVarPostBody = createCreditRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateCredit,CreateCreditAsync,CreateCreditWithHttpInfo,CreateCreditAsyncWithHttpInfo"))
             {
@@ -390,7 +390,7 @@ namespace CyberSource.Api
                 localVarPostBody = createCreditRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateCredit,CreateCreditAsync,CreateCreditWithHttpInfo,CreateCreditAsyncWithHttpInfo"))
             {

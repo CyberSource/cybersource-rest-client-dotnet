@@ -118,6 +118,27 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of InvoicingV2InvoicesCancel200Response</returns>
         ApiResponse<InvoicingV2InvoicesCancel200Response> PerformCancelActionWithHttpInfo (string id);
         /// <summary>
+        /// Publish an Invoice
+        /// </summary>
+        /// <remarks>
+        /// You can publish an invoice in DRAFT status. After invoking this method, the invoice status is changed to CREATED.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The invoice number.</param>
+        /// <returns>InvoicingV2InvoicesPublish200Response</returns>
+        InvoicingV2InvoicesPublish200Response PerformPublishAction (string id);
+
+        /// <summary>
+        /// Publish an Invoice
+        /// </summary>
+        /// <remarks>
+        /// You can publish an invoice in DRAFT status. After invoking this method, the invoice status is changed to CREATED.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The invoice number.</param>
+        /// <returns>ApiResponse of InvoicingV2InvoicesPublish200Response</returns>
+        ApiResponse<InvoicingV2InvoicesPublish200Response> PerformPublishActionWithHttpInfo (string id);
+        /// <summary>
         /// Send an Invoice
         /// </summary>
         /// <remarks>
@@ -251,6 +272,27 @@ namespace CyberSource.Api
         /// <param name="id">The invoice number.</param>
         /// <returns>Task of ApiResponse (InvoicingV2InvoicesCancel200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesCancel200Response>> PerformCancelActionAsyncWithHttpInfo (string id);
+        /// <summary>
+        /// Publish an Invoice
+        /// </summary>
+        /// <remarks>
+        /// You can publish an invoice in DRAFT status. After invoking this method, the invoice status is changed to CREATED.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The invoice number.</param>
+        /// <returns>Task of InvoicingV2InvoicesPublish200Response</returns>
+        System.Threading.Tasks.Task<InvoicingV2InvoicesPublish200Response> PerformPublishActionAsync (string id);
+
+        /// <summary>
+        /// Publish an Invoice
+        /// </summary>
+        /// <remarks>
+        /// You can publish an invoice in DRAFT status. After invoking this method, the invoice status is changed to CREATED.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The invoice number.</param>
+        /// <returns>Task of ApiResponse (InvoicingV2InvoicesPublish200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPublish200Response>> PerformPublishActionAsyncWithHttpInfo (string id);
         /// <summary>
         /// Send an Invoice
         /// </summary>
@@ -1410,6 +1452,244 @@ namespace CyberSource.Api
             return new ApiResponse<InvoicingV2InvoicesCancel200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (InvoicingV2InvoicesCancel200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesCancel200Response))); // Return statement
+        }
+        /// <summary>
+        /// Publish an Invoice You can publish an invoice in DRAFT status. After invoking this method, the invoice status is changed to CREATED.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The invoice number.</param>
+        /// <returns>InvoicingV2InvoicesPublish200Response</returns>
+        public InvoicingV2InvoicesPublish200Response PerformPublishAction (string id)
+        {
+            logger.Debug("CALLING API \"PerformPublishAction\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InvoicingV2InvoicesPublish200Response> localVarResponse = PerformPublishActionWithHttpInfo(id);
+            logger.Debug("CALLING API \"PerformPublishAction\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Publish an Invoice You can publish an invoice in DRAFT status. After invoking this method, the invoice status is changed to CREATED.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The invoice number.</param>
+        /// <returns>ApiResponse of InvoicingV2InvoicesPublish200Response</returns>
+        public ApiResponse< InvoicingV2InvoicesPublish200Response > PerformPublishActionWithHttpInfo (string id)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformPublishAction");
+                throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformPublishAction");
+            }
+
+            var localVarPath = $"/invoicing/v2/invoices/{id}/publication";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json",
+                "application/hal+json",
+                "application/json;charset=utf-8",
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.Post == Method.Post)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
+            }
+            
+            String inboundMLEStatus = "false";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PerformPublishAction,PerformPublishActionAsync,PerformPublishActionWithHttpInfo,PerformPublishActionAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PerformPublishAction", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InvoicingV2InvoicesPublish200Response>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InvoicingV2InvoicesPublish200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPublish200Response))); // Return statement
+        }
+
+        /// <summary>
+        /// Publish an Invoice You can publish an invoice in DRAFT status. After invoking this method, the invoice status is changed to CREATED.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The invoice number.</param>
+        /// <returns>Task of InvoicingV2InvoicesPublish200Response</returns>
+        public async System.Threading.Tasks.Task<InvoicingV2InvoicesPublish200Response> PerformPublishActionAsync (string id)
+        {
+            logger.Debug("CALLING API \"PerformPublishActionAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InvoicingV2InvoicesPublish200Response> localVarResponse = await PerformPublishActionAsyncWithHttpInfo(id);
+            logger.Debug("CALLING API \"PerformPublishActionAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Publish an Invoice You can publish an invoice in DRAFT status. After invoking this method, the invoice status is changed to CREATED.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The invoice number.</param>
+        /// <returns>Task of ApiResponse (InvoicingV2InvoicesPublish200Response)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoicesPublish200Response>> PerformPublishActionAsyncWithHttpInfo (string id)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformPublishAction");
+                throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformPublishAction");
+            }
+
+            var localVarPath = $"/invoicing/v2/invoices/{id}/publication";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json",
+                "application/hal+json",
+                "application/json;charset=utf-8",
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (Method.Post == Method.Post)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
+            }
+
+            String inboundMLEStatus = "false";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PerformPublishAction,PerformPublishActionAsync,PerformPublishActionWithHttpInfo,PerformPublishActionAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PerformPublishAction", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InvoicingV2InvoicesPublish200Response>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InvoicingV2InvoicesPublish200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InvoicingV2InvoicesPublish200Response))); // Return statement
         }
         /// <summary>
         /// Send an Invoice You can send an invoice in draft or created state or resend a sent or partially paid invoice. Fully paid or canceled invoices cannot be resent.

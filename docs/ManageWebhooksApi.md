@@ -262,7 +262,7 @@ No authorization required
 
 <a name="notificationsubscriptionsv2webhookswebhookidpatch"></a>
 # **NotificationSubscriptionsV2WebhooksWebhookIdPatch**
-> void NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
+> InlineResponse2005 NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
 
 Update a Webhook Subscription
 
@@ -289,7 +289,8 @@ namespace Example
             try
             {
                 // Update a Webhook Subscription
-                apiInstance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
+                InlineResponse2005 result = apiInstance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
@@ -309,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 

@@ -115,6 +115,18 @@ namespace CyberSource.Test
         }
         
         /// <summary>
+        /// Test PerformPublishAction
+        /// </summary>
+        [Test]
+        public void PerformPublishActionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string id = null;
+            //var response = instance.PerformPublishAction(id);
+            //Assert.IsInstanceOf<InvoicingV2InvoicesPublish200Response> (response, "response is InvoicingV2InvoicesPublish200Response");
+        }
+        
+        /// <summary>
         /// Test PerformSendAction
         /// </summary>
         [Test]

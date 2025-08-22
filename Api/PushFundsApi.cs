@@ -377,7 +377,7 @@ namespace CyberSource.Api
                 localVarPostBody = pushFundsRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreatePushFundsTransfer,CreatePushFundsTransferAsync,CreatePushFundsTransferWithHttpInfo,CreatePushFundsTransferAsyncWithHttpInfo"))
             {
@@ -558,7 +558,7 @@ namespace CyberSource.Api
                 localVarPostBody = pushFundsRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreatePushFundsTransfer,CreatePushFundsTransferAsync,CreatePushFundsTransferWithHttpInfo,CreatePushFundsTransferAsyncWithHttpInfo"))
             {

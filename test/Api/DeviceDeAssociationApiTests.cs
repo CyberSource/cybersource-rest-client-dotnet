@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request = null;
             //var response = instance.PostDeAssociateV3Terminal(deviceDeAssociateV3Request);
-            //Assert.IsInstanceOf<List<InlineResponse2006>> (response, "response is List<InlineResponse2006>");
+            //Assert.IsInstanceOf<List<InlineResponse2007>> (response, "response is List<InlineResponse2007>");
         }
         
     }

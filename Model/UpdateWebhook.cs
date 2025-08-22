@@ -38,19 +38,27 @@ namespace CyberSource.Model
         /// <param name="Description">Client friendly webhook description..</param>
         /// <param name="Products">Products.</param>
         /// <param name="WebhookUrl">The client&#39;s endpoint (URL) to receive webhooks..</param>
-        /// <param name="HealthCheckUrl">The client&#39;s health check endpoint (URL). This should be as close as possible to the actual webhookUrl..</param>
+        /// <param name="NotificationScope">The webhook scope. 1. SELF The Webhook is used to deliver webhooks for only this Organization (or Merchant). 2. DESCENDANTS The Webhook is used to deliver webhooks for this Organization and its children. This field is optional.    Possible values: - SELF - DESCENDANTS (default to &quot;DESCENDANTS&quot;).</param>
+        /// <param name="HealthCheckUrl">The client&#39;s health check endpoint (URL)..</param>
         /// <param name="SecurityPolicy">SecurityPolicy.</param>
-        /// <param name="AdditionalAttributes">Additional, free form configuration data..</param>
-        public UpdateWebhook(string Name = default(string), string OrganizationId = default(string), string Description = default(string), List<Notificationsubscriptionsv2webhooksProducts> Products = default(List<Notificationsubscriptionsv2webhooksProducts>), string WebhookUrl = default(string), string HealthCheckUrl = default(string), Notificationsubscriptionsv2webhooksSecurityPolicy SecurityPolicy = default(Notificationsubscriptionsv2webhooksSecurityPolicy), List<Dictionary<string, string>> AdditionalAttributes = default(List<Dictionary<string, string>>))
+        public UpdateWebhook(string Name = default(string), string OrganizationId = default(string), string Description = default(string), List<Notificationsubscriptionsv2webhooksProducts> Products = default(List<Notificationsubscriptionsv2webhooksProducts>), string WebhookUrl = default(string), string NotificationScope = "DESCENDANTS", string HealthCheckUrl = default(string), Notificationsubscriptionsv2webhooksSecurityPolicy SecurityPolicy = default(Notificationsubscriptionsv2webhooksSecurityPolicy))
         {
             this.Name = Name;
             this.OrganizationId = OrganizationId;
             this.Description = Description;
             this.Products = Products;
             this.WebhookUrl = WebhookUrl;
+            // use default value if no "NotificationScope" provided
+            if (NotificationScope == null)
+            {
+                this.NotificationScope = "DESCENDANTS";
+            }
+            else
+            {
+                this.NotificationScope = NotificationScope;
+            }
             this.HealthCheckUrl = HealthCheckUrl;
             this.SecurityPolicy = SecurityPolicy;
-            this.AdditionalAttributes = AdditionalAttributes;
         }
         
         /// <summary>
@@ -88,9 +96,16 @@ namespace CyberSource.Model
         public string WebhookUrl { get; set; }
 
         /// <summary>
-        /// The client&#39;s health check endpoint (URL). This should be as close as possible to the actual webhookUrl.
+        /// The webhook scope. 1. SELF The Webhook is used to deliver webhooks for only this Organization (or Merchant). 2. DESCENDANTS The Webhook is used to deliver webhooks for this Organization and its children. This field is optional.    Possible values: - SELF - DESCENDANTS
         /// </summary>
-        /// <value>The client&#39;s health check endpoint (URL). This should be as close as possible to the actual webhookUrl.</value>
+        /// <value>The webhook scope. 1. SELF The Webhook is used to deliver webhooks for only this Organization (or Merchant). 2. DESCENDANTS The Webhook is used to deliver webhooks for this Organization and its children. This field is optional.    Possible values: - SELF - DESCENDANTS</value>
+        [DataMember(Name="notificationScope", EmitDefaultValue=false)]
+        public string NotificationScope { get; set; }
+
+        /// <summary>
+        /// The client&#39;s health check endpoint (URL).
+        /// </summary>
+        /// <value>The client&#39;s health check endpoint (URL).</value>
         [DataMember(Name="healthCheckUrl", EmitDefaultValue=false)]
         public string HealthCheckUrl { get; set; }
 
@@ -99,13 +114,6 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="securityPolicy", EmitDefaultValue=false)]
         public Notificationsubscriptionsv2webhooksSecurityPolicy SecurityPolicy { get; set; }
-
-        /// <summary>
-        /// Additional, free form configuration data.
-        /// </summary>
-        /// <value>Additional, free form configuration data.</value>
-        [DataMember(Name="additionalAttributes", EmitDefaultValue=false)]
-        public List<Dictionary<string, string>> AdditionalAttributes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -120,9 +128,9 @@ namespace CyberSource.Model
             if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
             if (Products != null) sb.Append("  Products: ").Append(Products).Append("\n");
             if (WebhookUrl != null) sb.Append("  WebhookUrl: ").Append(WebhookUrl).Append("\n");
+            if (NotificationScope != null) sb.Append("  NotificationScope: ").Append(NotificationScope).Append("\n");
             if (HealthCheckUrl != null) sb.Append("  HealthCheckUrl: ").Append(HealthCheckUrl).Append("\n");
             if (SecurityPolicy != null) sb.Append("  SecurityPolicy: ").Append(SecurityPolicy).Append("\n");
-            if (AdditionalAttributes != null) sb.Append("  AdditionalAttributes: ").Append(AdditionalAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -185,6 +193,11 @@ namespace CyberSource.Model
                     this.WebhookUrl.Equals(other.WebhookUrl)
                 ) && 
                 (
+                    this.NotificationScope == other.NotificationScope ||
+                    this.NotificationScope != null &&
+                    this.NotificationScope.Equals(other.NotificationScope)
+                ) && 
+                (
                     this.HealthCheckUrl == other.HealthCheckUrl ||
                     this.HealthCheckUrl != null &&
                     this.HealthCheckUrl.Equals(other.HealthCheckUrl)
@@ -193,11 +206,6 @@ namespace CyberSource.Model
                     this.SecurityPolicy == other.SecurityPolicy ||
                     this.SecurityPolicy != null &&
                     this.SecurityPolicy.Equals(other.SecurityPolicy)
-                ) && 
-                (
-                    this.AdditionalAttributes == other.AdditionalAttributes ||
-                    this.AdditionalAttributes != null &&
-                    this.AdditionalAttributes.SequenceEqual(other.AdditionalAttributes)
                 );
         }
 
@@ -222,12 +230,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Products.GetHashCode();
                 if (this.WebhookUrl != null)
                     hash = hash * 59 + this.WebhookUrl.GetHashCode();
+                if (this.NotificationScope != null)
+                    hash = hash * 59 + this.NotificationScope.GetHashCode();
                 if (this.HealthCheckUrl != null)
                     hash = hash * 59 + this.HealthCheckUrl.GetHashCode();
                 if (this.SecurityPolicy != null)
                     hash = hash * 59 + this.SecurityPolicy.GetHashCode();
-                if (this.AdditionalAttributes != null)
-                    hash = hash * 59 + this.AdditionalAttributes.GetHashCode();
                 return hash;
             }
         }

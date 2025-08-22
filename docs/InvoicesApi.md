@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetAllInvoices**](InvoicesApi.md#getallinvoices) | **GET** /invoicing/v2/invoices | Get a List of Invoices
 [**GetInvoice**](InvoicesApi.md#getinvoice) | **GET** /invoicing/v2/invoices/{id} | Get Invoice Details
 [**PerformCancelAction**](InvoicesApi.md#performcancelaction) | **POST** /invoicing/v2/invoices/{id}/cancelation | Cancel an Invoice
+[**PerformPublishAction**](InvoicesApi.md#performpublishaction) | **POST** /invoicing/v2/invoices/{id}/publication | Publish an Invoice
 [**PerformSendAction**](InvoicesApi.md#performsendaction) | **POST** /invoicing/v2/invoices/{id}/delivery | Send an Invoice
 [**UpdateInvoice**](InvoicesApi.md#updateinvoice) | **PUT** /invoicing/v2/invoices/{id} | Update an Invoice
 
@@ -248,6 +249,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InvoicingV2InvoicesCancel200Response**](InvoicingV2InvoicesCancel200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json, application/hal+json, application/json;charset=utf-8, application/hal+json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="performpublishaction"></a>
+# **PerformPublishAction**
+> InvoicingV2InvoicesPublish200Response PerformPublishAction (string id)
+
+Publish an Invoice
+
+You can publish an invoice in DRAFT status. After invoking this method, the invoice status is changed to CREATED.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class PerformPublishActionExample
+    {
+        public void main()
+        {
+            var apiInstance = new InvoicesApi();
+            var id = id_example;  // string | The invoice number.
+
+            try
+            {
+                // Publish an Invoice
+                InvoicingV2InvoicesPublish200Response result = apiInstance.PerformPublishAction(id);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling InvoicesApi.PerformPublishAction: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The invoice number. | 
+
+### Return type
+
+[**InvoicingV2InvoicesPublish200Response**](InvoicingV2InvoicesPublish200Response.md)
 
 ### Authorization
 

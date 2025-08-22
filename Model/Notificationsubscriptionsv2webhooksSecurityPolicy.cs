@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Notificationsubscriptionsv2webhooksSecurityPolicy" /> class.
         /// </summary>
-        /// <param name="SecurityType">Security Policy of the client server..</param>
+        /// <param name="SecurityType">Security Policy of the client server.  Possible values: - key - oAuth - oAuth_JWT.</param>
         /// <param name="Config">Config.</param>
         public Notificationsubscriptionsv2webhooksSecurityPolicy(string SecurityType = default(string), Notificationsubscriptionsv2webhooksSecurityPolicyConfig Config = default(Notificationsubscriptionsv2webhooksSecurityPolicyConfig))
         {
@@ -42,9 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Security Policy of the client server.
+        /// Security Policy of the client server.  Possible values: - key - oAuth - oAuth_JWT
         /// </summary>
-        /// <value>Security Policy of the client server.</value>
+        /// <value>Security Policy of the client server.  Possible values: - key - oAuth - oAuth_JWT</value>
         [DataMember(Name="securityType", EmitDefaultValue=false)]
         public string SecurityType { get; set; }
 

@@ -340,7 +340,7 @@ namespace CyberSource.Api
                 localVarPostBody = authReversalRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "AuthReversal,AuthReversalAsync,AuthReversalWithHttpInfo,AuthReversalAsyncWithHttpInfo"))
             {
@@ -462,7 +462,7 @@ namespace CyberSource.Api
                 localVarPostBody = authReversalRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "AuthReversal,AuthReversalAsync,AuthReversalWithHttpInfo,AuthReversalAsyncWithHttpInfo"))
             {
@@ -569,7 +569,7 @@ namespace CyberSource.Api
                 localVarPostBody = mitReversalRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "MitReversal,MitReversalAsync,MitReversalWithHttpInfo,MitReversalAsyncWithHttpInfo"))
             {
@@ -678,7 +678,7 @@ namespace CyberSource.Api
                 localVarPostBody = mitReversalRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "MitReversal,MitReversalAsync,MitReversalWithHttpInfo,MitReversalAsyncWithHttpInfo"))
             {

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getbatchreport"></a>
 # **GetBatchReport**
-> InlineResponse20010 GetBatchReport (string batchId)
+> InlineResponse20011 GetBatchReport (string batchId)
 
 Retrieve a Batch Report
 
@@ -38,12 +38,73 @@ namespace Example
             try
             {
                 // Retrieve a Batch Report
-                InlineResponse20010 result = apiInstance.GetBatchReport(batchId);
+                InlineResponse20011 result = apiInstance.GetBatchReport(batchId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
                 Debug.Print("Exception when calling BatchesApi.GetBatchReport: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batchId** | **string**| Unique identification number assigned to the submitted request. | 
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getbatchstatus"></a>
+# **GetBatchStatus**
+> InlineResponse20010 GetBatchStatus (string batchId)
+
+Retrieve a Batch Status
+
+**Get Batch Status**<br>This resource accepts a batch id and returns: - The batch status. - The total number of accepted, rejected, updated records. - The total number of card association responses. - The billable quantities of:   - New Account Numbers (NAN)   - New Expiry Dates (NED)   - Account Closures (ACL)   - Contact Card Holders (CCH) 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class GetBatchStatusExample
+    {
+        public void main()
+        {
+            var apiInstance = new BatchesApi();
+            var batchId = batchId_example;  // string | Unique identification number assigned to the submitted request.
+
+            try
+            {
+                // Retrieve a Batch Status
+                InlineResponse20010 result = apiInstance.GetBatchStatus(batchId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling BatchesApi.GetBatchStatus: " + e.Message );
             }
         }
     }
@@ -71,70 +132,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getbatchstatus"></a>
-# **GetBatchStatus**
-> InlineResponse2009 GetBatchStatus (string batchId)
-
-Retrieve a Batch Status
-
-**Get Batch Status**<br>This resource accepts a batch id and returns: - The batch status. - The total number of accepted, rejected, updated records. - The total number of card association responses. - The billable quantities of:   - New Account Numbers (NAN)   - New Expiry Dates (NED)   - Account Closures (ACL)   - Contact Card Holders (CCH) 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class GetBatchStatusExample
-    {
-        public void main()
-        {
-            var apiInstance = new BatchesApi();
-            var batchId = batchId_example;  // string | Unique identification number assigned to the submitted request.
-
-            try
-            {
-                // Retrieve a Batch Status
-                InlineResponse2009 result = apiInstance.GetBatchStatus(batchId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling BatchesApi.GetBatchStatus: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **batchId** | **string**| Unique identification number assigned to the submitted request. | 
-
-### Return type
-
-[**InlineResponse2009**](InlineResponse2009.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="getbatcheslist"></a>
 # **GetBatchesList**
-> InlineResponse2008 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
+> InlineResponse2009 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
 
 List Batches
 
@@ -163,7 +163,7 @@ namespace Example
             try
             {
                 // List Batches
-                InlineResponse2008 result = apiInstance.GetBatchesList(offset, limit, fromDate, toDate);
+                InlineResponse2009 result = apiInstance.GetBatchesList(offset, limit, fromDate, toDate);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
