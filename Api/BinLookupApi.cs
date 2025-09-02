@@ -282,9 +282,9 @@ namespace CyberSource.Api
                 localVarPostBody = createBinLookupRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetAccountInfo,GetAccountInfoAsync,GetAccountInfoWithHttpInfo,GetAccountInfoAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetAccountInfo,GetAccountInfoAsync,GetAccountInfoWithHttpInfo,GetAccountInfoAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -391,9 +391,9 @@ namespace CyberSource.Api
                 localVarPostBody = createBinLookupRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetAccountInfo,GetAccountInfoAsync,GetAccountInfoWithHttpInfo,GetAccountInfoAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetAccountInfo,GetAccountInfoAsync,GetAccountInfoWithHttpInfo,GetAccountInfoAsyncWithHttpInfo"))
             {
                 try
                 {

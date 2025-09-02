@@ -33,23 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Notificationsubscriptionsv2webhooksSecurityPolicyConfig" /> class.
         /// </summary>
-        /// <param name="OAuthTokenExpiry">Token expiration for the oAuth server..</param>
         /// <param name="OAuthURL">Client direct endpoint to the oAuth server..</param>
-        /// <param name="OAuthTokenType">Token type for the oAuth config..</param>
-        public Notificationsubscriptionsv2webhooksSecurityPolicyConfig(string OAuthTokenExpiry = default(string), string OAuthURL = default(string), string OAuthTokenType = default(string))
+        /// <param name="OAuthTokenType">Token type for the oAuth config.  Possible values: - Bearer.</param>
+        /// <param name="AdditionalConfig">AdditionalConfig.</param>
+        public Notificationsubscriptionsv2webhooksSecurityPolicyConfig(string OAuthURL = default(string), string OAuthTokenType = default(string), Notificationsubscriptionsv2webhooksSecurityPolicyConfigAdditionalConfig AdditionalConfig = default(Notificationsubscriptionsv2webhooksSecurityPolicyConfigAdditionalConfig))
         {
-            this.OAuthTokenExpiry = OAuthTokenExpiry;
             this.OAuthURL = OAuthURL;
             this.OAuthTokenType = OAuthTokenType;
+            this.AdditionalConfig = AdditionalConfig;
         }
         
-        /// <summary>
-        /// Token expiration for the oAuth server.
-        /// </summary>
-        /// <value>Token expiration for the oAuth server.</value>
-        [DataMember(Name="oAuthTokenExpiry", EmitDefaultValue=false)]
-        public string OAuthTokenExpiry { get; set; }
-
         /// <summary>
         /// Client direct endpoint to the oAuth server.
         /// </summary>
@@ -58,11 +51,17 @@ namespace CyberSource.Model
         public string OAuthURL { get; set; }
 
         /// <summary>
-        /// Token type for the oAuth config.
+        /// Token type for the oAuth config.  Possible values: - Bearer
         /// </summary>
-        /// <value>Token type for the oAuth config.</value>
+        /// <value>Token type for the oAuth config.  Possible values: - Bearer</value>
         [DataMember(Name="oAuthTokenType", EmitDefaultValue=false)]
         public string OAuthTokenType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AdditionalConfig
+        /// </summary>
+        [DataMember(Name="additionalConfig", EmitDefaultValue=false)]
+        public Notificationsubscriptionsv2webhooksSecurityPolicyConfigAdditionalConfig AdditionalConfig { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,9 +71,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Notificationsubscriptionsv2webhooksSecurityPolicyConfig {\n");
-            if (OAuthTokenExpiry != null) sb.Append("  OAuthTokenExpiry: ").Append(OAuthTokenExpiry).Append("\n");
             if (OAuthURL != null) sb.Append("  OAuthURL: ").Append(OAuthURL).Append("\n");
             if (OAuthTokenType != null) sb.Append("  OAuthTokenType: ").Append(OAuthTokenType).Append("\n");
+            if (AdditionalConfig != null) sb.Append("  AdditionalConfig: ").Append(AdditionalConfig).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,11 +111,6 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.OAuthTokenExpiry == other.OAuthTokenExpiry ||
-                    this.OAuthTokenExpiry != null &&
-                    this.OAuthTokenExpiry.Equals(other.OAuthTokenExpiry)
-                ) && 
-                (
                     this.OAuthURL == other.OAuthURL ||
                     this.OAuthURL != null &&
                     this.OAuthURL.Equals(other.OAuthURL)
@@ -125,6 +119,11 @@ namespace CyberSource.Model
                     this.OAuthTokenType == other.OAuthTokenType ||
                     this.OAuthTokenType != null &&
                     this.OAuthTokenType.Equals(other.OAuthTokenType)
+                ) && 
+                (
+                    this.AdditionalConfig == other.AdditionalConfig ||
+                    this.AdditionalConfig != null &&
+                    this.AdditionalConfig.Equals(other.AdditionalConfig)
                 );
         }
 
@@ -139,12 +138,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.OAuthTokenExpiry != null)
-                    hash = hash * 59 + this.OAuthTokenExpiry.GetHashCode();
                 if (this.OAuthURL != null)
                     hash = hash * 59 + this.OAuthURL.GetHashCode();
                 if (this.OAuthTokenType != null)
                     hash = hash * 59 + this.OAuthTokenType.GetHashCode();
+                if (this.AdditionalConfig != null)
+                    hash = hash * 59 + this.AdditionalConfig.GetHashCode();
                 return hash;
             }
         }

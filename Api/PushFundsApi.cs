@@ -377,9 +377,9 @@ namespace CyberSource.Api
                 localVarPostBody = pushFundsRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreatePushFundsTransfer,CreatePushFundsTransferAsync,CreatePushFundsTransferWithHttpInfo,CreatePushFundsTransferAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreatePushFundsTransfer,CreatePushFundsTransferAsync,CreatePushFundsTransferWithHttpInfo,CreatePushFundsTransferAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -558,9 +558,9 @@ namespace CyberSource.Api
                 localVarPostBody = pushFundsRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreatePushFundsTransfer,CreatePushFundsTransferAsync,CreatePushFundsTransferWithHttpInfo,CreatePushFundsTransferAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreatePushFundsTransfer,CreatePushFundsTransferAsync,CreatePushFundsTransferWithHttpInfo,CreatePushFundsTransferAsyncWithHttpInfo"))
             {
                 try
                 {

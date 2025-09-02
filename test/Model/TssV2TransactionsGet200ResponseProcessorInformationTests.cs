@@ -192,6 +192,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PaymentAccountReferenceNumber'
         }
+        /// <summary>
+        /// Test the property 'Routing'
+        /// </summary>
+        [Test]
+        public void RoutingTest()
+        {
+            // TODO unit test for the property 'Routing'
+        }
 
     }
 

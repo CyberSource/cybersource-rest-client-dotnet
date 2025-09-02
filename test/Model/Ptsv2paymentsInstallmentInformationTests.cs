@@ -192,6 +192,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AnnualInterestRate'
         }
+        /// <summary>
+        /// Test the property 'InterestIndicator'
+        /// </summary>
+        [Test]
+        public void InterestIndicatorTest()
+        {
+            // TODO unit test for the property 'InterestIndicator'
+        }
+        /// <summary>
+        /// Test the property 'IsGovernmentPlan'
+        /// </summary>
+        [Test]
+        public void IsGovernmentPlanTest()
+        {
+            // TODO unit test for the property 'IsGovernmentPlan'
+        }
 
     }
 

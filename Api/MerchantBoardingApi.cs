@@ -336,9 +336,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetRegistration,GetRegistrationAsync,GetRegistrationWithHttpInfo,GetRegistrationAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetRegistration,GetRegistrationAsync,GetRegistrationWithHttpInfo,GetRegistrationAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -453,9 +453,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetRegistration,GetRegistrationAsync,GetRegistrationWithHttpInfo,GetRegistrationAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetRegistration,GetRegistrationAsync,GetRegistrationWithHttpInfo,GetRegistrationAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -565,9 +565,9 @@ namespace CyberSource.Api
                 localVarPostBody = postRegistrationBody; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostRegistration,PostRegistrationAsync,PostRegistrationWithHttpInfo,PostRegistrationAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostRegistration,PostRegistrationAsync,PostRegistrationWithHttpInfo,PostRegistrationAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -680,9 +680,9 @@ namespace CyberSource.Api
                 localVarPostBody = postRegistrationBody; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostRegistration,PostRegistrationAsync,PostRegistrationWithHttpInfo,PostRegistrationAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostRegistration,PostRegistrationAsync,PostRegistrationWithHttpInfo,PostRegistrationAsyncWithHttpInfo"))
             {
                 try
                 {

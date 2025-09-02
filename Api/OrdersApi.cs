@@ -327,9 +327,9 @@ namespace CyberSource.Api
                 localVarPostBody = createOrderRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateOrder,CreateOrderAsync,CreateOrderWithHttpInfo,CreateOrderAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateOrder,CreateOrderAsync,CreateOrderWithHttpInfo,CreateOrderAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -436,9 +436,9 @@ namespace CyberSource.Api
                 localVarPostBody = createOrderRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateOrder,CreateOrderAsync,CreateOrderWithHttpInfo,CreateOrderAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateOrder,CreateOrderAsync,CreateOrderWithHttpInfo,CreateOrderAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -556,9 +556,9 @@ namespace CyberSource.Api
                 localVarPostBody = updateOrderRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "UpdateOrder,UpdateOrderAsync,UpdateOrderWithHttpInfo,UpdateOrderAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "UpdateOrder,UpdateOrderAsync,UpdateOrderWithHttpInfo,UpdateOrderAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -678,9 +678,9 @@ namespace CyberSource.Api
                 localVarPostBody = updateOrderRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "UpdateOrder,UpdateOrderAsync,UpdateOrderWithHttpInfo,UpdateOrderAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "UpdateOrder,UpdateOrderAsync,UpdateOrderWithHttpInfo,UpdateOrderAsyncWithHttpInfo"))
             {
                 try
                 {

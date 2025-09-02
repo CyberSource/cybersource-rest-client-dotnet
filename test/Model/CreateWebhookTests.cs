@@ -121,6 +121,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'RetryPolicy'
         }
         /// <summary>
+        /// Test the property 'NotificationScope'
+        /// </summary>
+        [Test]
+        public void NotificationScopeTest()
+        {
+            // TODO unit test for the property 'NotificationScope'
+        }
+        /// <summary>
         /// Test the property 'SecurityPolicy'
         /// </summary>
         [Test]

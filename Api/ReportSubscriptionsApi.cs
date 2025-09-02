@@ -469,9 +469,9 @@ namespace CyberSource.Api
                 localVarPostBody = predefinedSubscriptionRequestBean; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateStandardOrClassicSubscription,CreateStandardOrClassicSubscriptionAsync,CreateStandardOrClassicSubscriptionWithHttpInfo,CreateStandardOrClassicSubscriptionAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateStandardOrClassicSubscription,CreateStandardOrClassicSubscriptionAsync,CreateStandardOrClassicSubscriptionWithHttpInfo,CreateStandardOrClassicSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -583,9 +583,9 @@ namespace CyberSource.Api
                 localVarPostBody = predefinedSubscriptionRequestBean; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateStandardOrClassicSubscription,CreateStandardOrClassicSubscriptionAsync,CreateStandardOrClassicSubscriptionWithHttpInfo,CreateStandardOrClassicSubscriptionAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateStandardOrClassicSubscription,CreateStandardOrClassicSubscriptionAsync,CreateStandardOrClassicSubscriptionWithHttpInfo,CreateStandardOrClassicSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -695,9 +695,9 @@ namespace CyberSource.Api
                 localVarPostBody = createReportSubscriptionRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateSubscription,CreateSubscriptionAsync,CreateSubscriptionWithHttpInfo,CreateSubscriptionAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateSubscription,CreateSubscriptionAsync,CreateSubscriptionWithHttpInfo,CreateSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -809,9 +809,9 @@ namespace CyberSource.Api
                 localVarPostBody = createReportSubscriptionRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreateSubscription,CreateSubscriptionAsync,CreateSubscriptionWithHttpInfo,CreateSubscriptionAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateSubscription,CreateSubscriptionAsync,CreateSubscriptionWithHttpInfo,CreateSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -930,9 +930,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "DeleteSubscription,DeleteSubscriptionAsync,DeleteSubscriptionWithHttpInfo,DeleteSubscriptionAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeleteSubscription,DeleteSubscriptionAsync,DeleteSubscriptionWithHttpInfo,DeleteSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1052,9 +1052,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "DeleteSubscription,DeleteSubscriptionAsync,DeleteSubscriptionWithHttpInfo,DeleteSubscriptionAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeleteSubscription,DeleteSubscriptionAsync,DeleteSubscriptionWithHttpInfo,DeleteSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1162,9 +1162,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetAllSubscriptions,GetAllSubscriptionsAsync,GetAllSubscriptionsWithHttpInfo,GetAllSubscriptionsAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetAllSubscriptions,GetAllSubscriptionsAsync,GetAllSubscriptionsWithHttpInfo,GetAllSubscriptionsAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1273,9 +1273,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetAllSubscriptions,GetAllSubscriptionsAsync,GetAllSubscriptionsWithHttpInfo,GetAllSubscriptionsAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetAllSubscriptions,GetAllSubscriptionsAsync,GetAllSubscriptionsWithHttpInfo,GetAllSubscriptionsAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1395,9 +1395,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetSubscription,GetSubscriptionAsync,GetSubscriptionWithHttpInfo,GetSubscriptionAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetSubscription,GetSubscriptionAsync,GetSubscriptionWithHttpInfo,GetSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1519,9 +1519,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetSubscription,GetSubscriptionAsync,GetSubscriptionWithHttpInfo,GetSubscriptionAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetSubscription,GetSubscriptionAsync,GetSubscriptionWithHttpInfo,GetSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {

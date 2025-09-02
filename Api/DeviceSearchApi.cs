@@ -37,8 +37,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequest"></param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 PostSearchQuery (PostDeviceSearchRequest postDeviceSearchRequest);
+        /// <returns>InlineResponse2006</returns>
+        InlineResponse2006 PostSearchQuery (PostDeviceSearchRequest postDeviceSearchRequest);
 
         /// <summary>
         /// Retrieve List of Devices for a given search query V2
@@ -48,8 +48,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> PostSearchQueryWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest);
+        /// <returns>ApiResponse of InlineResponse2006</returns>
+        ApiResponse<InlineResponse2006> PostSearchQueryWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest);
         /// <summary>
         /// Retrieve List of Devices for a given search query
         /// </summary>
@@ -58,8 +58,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 PostSearchQueryV3 (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
+        /// <returns>InlineResponse2008</returns>
+        InlineResponse2008 PostSearchQueryV3 (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
 
         /// <summary>
         /// Retrieve List of Devices for a given search query
@@ -69,8 +69,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> PostSearchQueryV3WithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
+        /// <returns>ApiResponse of InlineResponse2008</returns>
+        ApiResponse<InlineResponse2008> PostSearchQueryV3WithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -81,8 +81,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequest"></param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> PostSearchQueryAsync (PostDeviceSearchRequest postDeviceSearchRequest);
+        /// <returns>Task of InlineResponse2006</returns>
+        System.Threading.Tasks.Task<InlineResponse2006> PostSearchQueryAsync (PostDeviceSearchRequest postDeviceSearchRequest);
 
         /// <summary>
         /// Retrieve List of Devices for a given search query V2
@@ -92,8 +92,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostSearchQueryAsyncWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest);
+        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostSearchQueryAsyncWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest);
         /// <summary>
         /// Retrieve List of Devices for a given search query
         /// </summary>
@@ -102,8 +102,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> PostSearchQueryV3Async (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
+        /// <returns>Task of InlineResponse2008</returns>
+        System.Threading.Tasks.Task<InlineResponse2008> PostSearchQueryV3Async (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
 
         /// <summary>
         /// Retrieve List of Devices for a given search query
@@ -113,8 +113,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostSearchQueryV3AsyncWithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
+        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> PostSearchQueryV3AsyncWithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3);
         #endregion Asynchronous Operations
     }
 
@@ -260,12 +260,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequest"></param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 PostSearchQuery (PostDeviceSearchRequest postDeviceSearchRequest)
+        /// <returns>InlineResponse2006</returns>
+        public InlineResponse2006 PostSearchQuery (PostDeviceSearchRequest postDeviceSearchRequest)
         {
             logger.Debug("CALLING API \"PostSearchQuery\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2005> localVarResponse = PostSearchQueryWithHttpInfo(postDeviceSearchRequest);
+            ApiResponse<InlineResponse2006> localVarResponse = PostSearchQueryWithHttpInfo(postDeviceSearchRequest);
             logger.Debug("CALLING API \"PostSearchQuery\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -276,8 +276,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse< InlineResponse2005 > PostSearchQueryWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest)
+        /// <returns>ApiResponse of InlineResponse2006</returns>
+        public ApiResponse< InlineResponse2006 > PostSearchQueryWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -323,9 +323,9 @@ namespace CyberSource.Api
                 localVarPostBody = postDeviceSearchRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -358,9 +358,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006))); // Return statement
         }
 
         /// <summary>
@@ -368,12 +368,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequest"></param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> PostSearchQueryAsync (PostDeviceSearchRequest postDeviceSearchRequest)
+        /// <returns>Task of InlineResponse2006</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2006> PostSearchQueryAsync (PostDeviceSearchRequest postDeviceSearchRequest)
         {
             logger.Debug("CALLING API \"PostSearchQueryAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2005> localVarResponse = await PostSearchQueryAsyncWithHttpInfo(postDeviceSearchRequest);
+            ApiResponse<InlineResponse2006> localVarResponse = await PostSearchQueryAsyncWithHttpInfo(postDeviceSearchRequest);
             logger.Debug("CALLING API \"PostSearchQueryAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -385,8 +385,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostSearchQueryAsyncWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest)
+        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostSearchQueryAsyncWithHttpInfo (PostDeviceSearchRequest postDeviceSearchRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -432,9 +432,9 @@ namespace CyberSource.Api
                 localVarPostBody = postDeviceSearchRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -467,21 +467,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2006>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006))); // Return statement
         }
         /// <summary>
         /// Retrieve List of Devices for a given search query Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 PostSearchQueryV3 (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
+        /// <returns>InlineResponse2008</returns>
+        public InlineResponse2008 PostSearchQueryV3 (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
         {
             logger.Debug("CALLING API \"PostSearchQueryV3\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2007> localVarResponse = PostSearchQueryV3WithHttpInfo(postDeviceSearchRequestV3);
+            ApiResponse<InlineResponse2008> localVarResponse = PostSearchQueryV3WithHttpInfo(postDeviceSearchRequestV3);
             logger.Debug("CALLING API \"PostSearchQueryV3\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -492,8 +492,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse< InlineResponse2007 > PostSearchQueryV3WithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
+        /// <returns>ApiResponse of InlineResponse2008</returns>
+        public ApiResponse< InlineResponse2008 > PostSearchQueryV3WithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -539,9 +539,9 @@ namespace CyberSource.Api
                 localVarPostBody = postDeviceSearchRequestV3; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostSearchQueryV3,PostSearchQueryV3Async,PostSearchQueryV3WithHttpInfo,PostSearchQueryV3AsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostSearchQueryV3,PostSearchQueryV3Async,PostSearchQueryV3WithHttpInfo,PostSearchQueryV3AsyncWithHttpInfo"))
             {
                 try
                 {
@@ -574,9 +574,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007))); // Return statement
+                (InlineResponse2008) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008))); // Return statement
         }
 
         /// <summary>
@@ -584,12 +584,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> PostSearchQueryV3Async (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
+        /// <returns>Task of InlineResponse2008</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2008> PostSearchQueryV3Async (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
         {
             logger.Debug("CALLING API \"PostSearchQueryV3Async\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2007> localVarResponse = await PostSearchQueryV3AsyncWithHttpInfo(postDeviceSearchRequestV3);
+            ApiResponse<InlineResponse2008> localVarResponse = await PostSearchQueryV3AsyncWithHttpInfo(postDeviceSearchRequestV3);
             logger.Debug("CALLING API \"PostSearchQueryV3Async\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -601,8 +601,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postDeviceSearchRequestV3"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostSearchQueryV3AsyncWithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
+        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> PostSearchQueryV3AsyncWithHttpInfo (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -648,9 +648,9 @@ namespace CyberSource.Api
                 localVarPostBody = postDeviceSearchRequestV3; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "PostSearchQueryV3,PostSearchQueryV3Async,PostSearchQueryV3WithHttpInfo,PostSearchQueryV3AsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostSearchQueryV3,PostSearchQueryV3Async,PostSearchQueryV3WithHttpInfo,PostSearchQueryV3AsyncWithHttpInfo"))
             {
                 try
                 {
@@ -683,9 +683,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2007>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007))); // Return statement
+                (InlineResponse2008) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008))); // Return statement
         }
     }
 }

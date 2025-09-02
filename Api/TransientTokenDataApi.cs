@@ -331,9 +331,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetPaymentCredentialsForTransientToken,GetPaymentCredentialsForTransientTokenAsync,GetPaymentCredentialsForTransientTokenWithHttpInfo,GetPaymentCredentialsForTransientTokenAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPaymentCredentialsForTransientToken,GetPaymentCredentialsForTransientTokenAsync,GetPaymentCredentialsForTransientTokenWithHttpInfo,GetPaymentCredentialsForTransientTokenAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -448,9 +448,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetPaymentCredentialsForTransientToken,GetPaymentCredentialsForTransientTokenAsync,GetPaymentCredentialsForTransientTokenWithHttpInfo,GetPaymentCredentialsForTransientTokenAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPaymentCredentialsForTransientToken,GetPaymentCredentialsForTransientTokenAsync,GetPaymentCredentialsForTransientTokenWithHttpInfo,GetPaymentCredentialsForTransientTokenAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -560,9 +560,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetTransactionForTransientToken,GetTransactionForTransientTokenAsync,GetTransactionForTransientTokenWithHttpInfo,GetTransactionForTransientTokenAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetTransactionForTransientToken,GetTransactionForTransientTokenAsync,GetTransactionForTransientTokenWithHttpInfo,GetTransactionForTransientTokenAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -675,9 +675,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetTransactionForTransientToken,GetTransactionForTransientTokenAsync,GetTransactionForTransientTokenWithHttpInfo,GetTransactionForTransientTokenAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetTransactionForTransientToken,GetTransactionForTransientTokenAsync,GetTransactionForTransientTokenWithHttpInfo,GetTransactionForTransientTokenAsyncWithHttpInfo"))
             {
                 try
                 {

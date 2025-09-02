@@ -281,9 +281,9 @@ namespace CyberSource.Api
                 localVarPostBody = searchRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "SearchUsers,SearchUsersAsync,SearchUsersWithHttpInfo,SearchUsersAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "SearchUsers,SearchUsersAsync,SearchUsersWithHttpInfo,SearchUsersAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -390,9 +390,9 @@ namespace CyberSource.Api
                 localVarPostBody = searchRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "SearchUsers,SearchUsersAsync,SearchUsersWithHttpInfo,SearchUsersAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "SearchUsers,SearchUsersAsync,SearchUsersWithHttpInfo,SearchUsersAsyncWithHttpInfo"))
             {
                 try
                 {

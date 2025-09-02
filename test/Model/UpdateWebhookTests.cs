@@ -105,6 +105,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'WebhookUrl'
         }
         /// <summary>
+        /// Test the property 'NotificationScope'
+        /// </summary>
+        [Test]
+        public void NotificationScopeTest()
+        {
+            // TODO unit test for the property 'NotificationScope'
+        }
+        /// <summary>
         /// Test the property 'HealthCheckUrl'
         /// </summary>
         [Test]
@@ -119,14 +127,6 @@ namespace CyberSource.Test
         public void SecurityPolicyTest()
         {
             // TODO unit test for the property 'SecurityPolicy'
-        }
-        /// <summary>
-        /// Test the property 'AdditionalAttributes'
-        /// </summary>
-        [Test]
-        public void AdditionalAttributesTest()
-        {
-            // TODO unit test for the property 'AdditionalAttributes'
         }
 
     }

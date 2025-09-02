@@ -37,15 +37,15 @@ namespace CyberSource.Model
         /// <param name="OrganizationId">Organization ID..</param>
         /// <param name="Products">Products.</param>
         /// <param name="WebhookUrl">The client&#39;s endpoint (URL) to receive webhooks..</param>
-        /// <param name="HealthCheckUrl">The client&#39;s health check endpoint (URL). This should be as close as possible to the actual webhookUrl..</param>
+        /// <param name="HealthCheckUrl">The client&#39;s health check endpoint (URL)..</param>
         /// <param name="Status">Webhook status. (default to &quot;INACTIVE&quot;).</param>
         /// <param name="Name">Client friendly webhook name..</param>
         /// <param name="Description">Client friendly webhook description..</param>
         /// <param name="RetryPolicy">RetryPolicy.</param>
         /// <param name="SecurityPolicy">SecurityPolicy.</param>
         /// <param name="CreatedOn">Date on which webhook was created/registered..</param>
-        /// <param name="UpdatedOn">Date on which webhook was most recently updated..</param>
-        public InlineResponse2004(string WebhookId = default(string), string OrganizationId = default(string), List<Notificationsubscriptionsv2webhooksProducts> Products = default(List<Notificationsubscriptionsv2webhooksProducts>), string WebhookUrl = default(string), string HealthCheckUrl = default(string), string Status = "INACTIVE", string Name = default(string), string Description = default(string), Notificationsubscriptionsv2webhooksRetryPolicy RetryPolicy = default(Notificationsubscriptionsv2webhooksRetryPolicy), Notificationsubscriptionsv2webhooksSecurityPolicy SecurityPolicy = default(Notificationsubscriptionsv2webhooksSecurityPolicy), string CreatedOn = default(string), string UpdatedOn = default(string))
+        /// <param name="NotificationScope">The webhook scope. 1. SELF The Webhook is used to deliver webhooks for only this Organization (or Merchant). 2. DESCENDANTS The Webhook is used to deliver webhooks for this Organization and its children. This field is optional.    Possible values: - SELF - DESCENDANTS (default to &quot;DESCENDANTS&quot;).</param>
+        public InlineResponse2004(string WebhookId = default(string), string OrganizationId = default(string), List<Notificationsubscriptionsv2webhooksProducts> Products = default(List<Notificationsubscriptionsv2webhooksProducts>), string WebhookUrl = default(string), string HealthCheckUrl = default(string), string Status = "INACTIVE", string Name = default(string), string Description = default(string), Notificationsubscriptionsv2webhooksRetryPolicy RetryPolicy = default(Notificationsubscriptionsv2webhooksRetryPolicy), Notificationsubscriptionsv2webhooksSecurityPolicy SecurityPolicy = default(Notificationsubscriptionsv2webhooksSecurityPolicy), string CreatedOn = default(string), string NotificationScope = "DESCENDANTS")
         {
             this.WebhookId = WebhookId;
             this.OrganizationId = OrganizationId;
@@ -66,7 +66,15 @@ namespace CyberSource.Model
             this.RetryPolicy = RetryPolicy;
             this.SecurityPolicy = SecurityPolicy;
             this.CreatedOn = CreatedOn;
-            this.UpdatedOn = UpdatedOn;
+            // use default value if no "NotificationScope" provided
+            if (NotificationScope == null)
+            {
+                this.NotificationScope = "DESCENDANTS";
+            }
+            else
+            {
+                this.NotificationScope = NotificationScope;
+            }
         }
         
         /// <summary>
@@ -97,9 +105,9 @@ namespace CyberSource.Model
         public string WebhookUrl { get; set; }
 
         /// <summary>
-        /// The client&#39;s health check endpoint (URL). This should be as close as possible to the actual webhookUrl.
+        /// The client&#39;s health check endpoint (URL).
         /// </summary>
-        /// <value>The client&#39;s health check endpoint (URL). This should be as close as possible to the actual webhookUrl.</value>
+        /// <value>The client&#39;s health check endpoint (URL).</value>
         [DataMember(Name="healthCheckUrl", EmitDefaultValue=false)]
         public string HealthCheckUrl { get; set; }
 
@@ -144,11 +152,11 @@ namespace CyberSource.Model
         public string CreatedOn { get; set; }
 
         /// <summary>
-        /// Date on which webhook was most recently updated.
+        /// The webhook scope. 1. SELF The Webhook is used to deliver webhooks for only this Organization (or Merchant). 2. DESCENDANTS The Webhook is used to deliver webhooks for this Organization and its children. This field is optional.    Possible values: - SELF - DESCENDANTS
         /// </summary>
-        /// <value>Date on which webhook was most recently updated.</value>
-        [DataMember(Name="updatedOn", EmitDefaultValue=false)]
-        public string UpdatedOn { get; set; }
+        /// <value>The webhook scope. 1. SELF The Webhook is used to deliver webhooks for only this Organization (or Merchant). 2. DESCENDANTS The Webhook is used to deliver webhooks for this Organization and its children. This field is optional.    Possible values: - SELF - DESCENDANTS</value>
+        [DataMember(Name="notificationScope", EmitDefaultValue=false)]
+        public string NotificationScope { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -169,7 +177,7 @@ namespace CyberSource.Model
             if (RetryPolicy != null) sb.Append("  RetryPolicy: ").Append(RetryPolicy).Append("\n");
             if (SecurityPolicy != null) sb.Append("  SecurityPolicy: ").Append(SecurityPolicy).Append("\n");
             if (CreatedOn != null) sb.Append("  CreatedOn: ").Append(CreatedOn).Append("\n");
-            if (UpdatedOn != null) sb.Append("  UpdatedOn: ").Append(UpdatedOn).Append("\n");
+            if (NotificationScope != null) sb.Append("  NotificationScope: ").Append(NotificationScope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -262,9 +270,9 @@ namespace CyberSource.Model
                     this.CreatedOn.Equals(other.CreatedOn)
                 ) && 
                 (
-                    this.UpdatedOn == other.UpdatedOn ||
-                    this.UpdatedOn != null &&
-                    this.UpdatedOn.Equals(other.UpdatedOn)
+                    this.NotificationScope == other.NotificationScope ||
+                    this.NotificationScope != null &&
+                    this.NotificationScope.Equals(other.NotificationScope)
                 );
         }
 
@@ -301,8 +309,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SecurityPolicy.GetHashCode();
                 if (this.CreatedOn != null)
                     hash = hash * 59 + this.CreatedOn.GetHashCode();
-                if (this.UpdatedOn != null)
-                    hash = hash * 59 + this.UpdatedOn.GetHashCode();
+                if (this.NotificationScope != null)
+                    hash = hash * 59 + this.NotificationScope.GetHashCode();
                 return hash;
             }
         }

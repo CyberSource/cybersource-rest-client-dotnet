@@ -47,7 +47,8 @@ namespace CyberSource.Model
         /// <param name="PhoneNumber">Collect the payers phone number. (default to false).</param>
         /// <param name="Email">Collect the payers email address when the email address is not known or confirm it if it is known at the time of invoice creation. (default to false).</param>
         /// <param name="EnableMerchantEmailNotifications">Whether you would like to receive payment notification for successful transaction (default to false).</param>
-        public Invoicingv2invoiceSettingsInvoiceSettingsInformation(string MerchantLogo = default(string), string MerchantDisplayName = default(string), string CustomEmailMessage = default(string), bool? EnableReminders = default(bool?), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle HeaderStyle = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle), string DeliveryLanguage = default(string), string DefaultCurrencyCode = default(string), string PayerAuthenticationInInvoicing = default(string), bool? ShowVatNumber = false, string VatRegistrationNumber = default(string), bool? ShipTo = false, bool? PhoneNumber = false, bool? Email = false, bool? EnableMerchantEmailNotifications = false)
+        /// <param name="CustomLabels">A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten. .</param>
+        public Invoicingv2invoiceSettingsInvoiceSettingsInformation(string MerchantLogo = default(string), string MerchantDisplayName = default(string), string CustomEmailMessage = default(string), bool? EnableReminders = default(bool?), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle HeaderStyle = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle), string DeliveryLanguage = default(string), string DefaultCurrencyCode = default(string), string PayerAuthenticationInInvoicing = default(string), bool? ShowVatNumber = false, string VatRegistrationNumber = default(string), bool? ShipTo = false, bool? PhoneNumber = false, bool? Email = false, bool? EnableMerchantEmailNotifications = false, List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels> CustomLabels = default(List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels>))
         {
             this.MerchantLogo = MerchantLogo;
             this.MerchantDisplayName = MerchantDisplayName;
@@ -103,6 +104,7 @@ namespace CyberSource.Model
             {
                 this.EnableMerchantEmailNotifications = EnableMerchantEmailNotifications;
             }
+            this.CustomLabels = CustomLabels;
         }
         
         /// <summary>
@@ -203,6 +205,13 @@ namespace CyberSource.Model
         public bool? EnableMerchantEmailNotifications { get; set; }
 
         /// <summary>
+        /// A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten. 
+        /// </summary>
+        /// <value>A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten. </value>
+        [DataMember(Name="customLabels", EmitDefaultValue=false)]
+        public List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels> CustomLabels { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -224,6 +233,7 @@ namespace CyberSource.Model
             if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
             if (EnableMerchantEmailNotifications != null) sb.Append("  EnableMerchantEmailNotifications: ").Append(EnableMerchantEmailNotifications).Append("\n");
+            if (CustomLabels != null) sb.Append("  CustomLabels: ").Append(CustomLabels).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -329,6 +339,11 @@ namespace CyberSource.Model
                     this.EnableMerchantEmailNotifications == other.EnableMerchantEmailNotifications ||
                     this.EnableMerchantEmailNotifications != null &&
                     this.EnableMerchantEmailNotifications.Equals(other.EnableMerchantEmailNotifications)
+                ) && 
+                (
+                    this.CustomLabels == other.CustomLabels ||
+                    this.CustomLabels != null &&
+                    this.CustomLabels.SequenceEqual(other.CustomLabels)
                 );
         }
 
@@ -371,6 +386,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Email.GetHashCode();
                 if (this.EnableMerchantEmailNotifications != null)
                     hash = hash * 59 + this.EnableMerchantEmailNotifications.GetHashCode();
+                if (this.CustomLabels != null)
+                    hash = hash * 59 + this.CustomLabels.GetHashCode();
                 return hash;
             }
         }

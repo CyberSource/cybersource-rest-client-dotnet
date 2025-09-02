@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Algorithm** | **string** | This is used to calculate the Retry Sequence.  Sample calculations using firstRetry&#x3D;10, interval&#x3D;30, maxNumberOfRetries&#x3D;3 Arithmetic &#x3D; a+r(n-1) Retry 1 - 10 minutes Retry 2 - 10+30x1 &#x3D; 40 minutes Retry 3 - 10+30x2 &#x3D; 70 minutes  Geometric &#x3D; ar^(n-1) Retry 1 - 10 minutes Retry 2 - 10x30^1 &#x3D; 300 minutes Retry 3 - 10x30^2 &#x3D; 9,000 minutes  | [optional] 
+**Algorithm** | **string** | This is used to calculate the Retry Sequence.  Sample calculations using firstRetry&#x3D;10, interval&#x3D;30, maxNumberOfRetries&#x3D;3 Arithmetic &#x3D; a+r(n-1) Retry 1 - 10 minutes Retry 2 - 10+30x1 &#x3D; 40 minutes Retry 3 - 10+30x2 &#x3D; 70 minutes  Geometric &#x3D; ar^(n-1) Retry 1 - 10 minutes Retry 2 - 10x30^1 &#x3D; 300 minutes Retry 3 - 10x30^2 &#x3D; 9,000 minutes  | [optional] [default to "ARITHMETIC"]
 **FirstRetry** | **int?** | When to initiate first retry, after the initial call failed. (in mins). | [optional] 
 **Interval** | **int?** | The interval between retries (in mins). | [optional] 
 **NumberOfRetries** | **int?** | The number of retries per sequence. | [optional] 

@@ -465,9 +465,9 @@ namespace CyberSource.Api
                 localVarPostBody = mitVoidRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "MitVoid,MitVoidAsync,MitVoidWithHttpInfo,MitVoidAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "MitVoid,MitVoidAsync,MitVoidWithHttpInfo,MitVoidAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -574,9 +574,9 @@ namespace CyberSource.Api
                 localVarPostBody = mitVoidRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "MitVoid,MitVoidAsync,MitVoidWithHttpInfo,MitVoidAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "MitVoid,MitVoidAsync,MitVoidWithHttpInfo,MitVoidAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -694,9 +694,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidCaptureRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidCapture,VoidCaptureAsync,VoidCaptureWithHttpInfo,VoidCaptureAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "VoidCapture,VoidCaptureAsync,VoidCaptureWithHttpInfo,VoidCaptureAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -816,9 +816,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidCaptureRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidCapture,VoidCaptureAsync,VoidCaptureWithHttpInfo,VoidCaptureAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "VoidCapture,VoidCaptureAsync,VoidCaptureWithHttpInfo,VoidCaptureAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -936,9 +936,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidCreditRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidCredit,VoidCreditAsync,VoidCreditWithHttpInfo,VoidCreditAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "VoidCredit,VoidCreditAsync,VoidCreditWithHttpInfo,VoidCreditAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1058,9 +1058,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidCreditRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidCredit,VoidCreditAsync,VoidCreditWithHttpInfo,VoidCreditAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "VoidCredit,VoidCreditAsync,VoidCreditWithHttpInfo,VoidCreditAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1178,9 +1178,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidPaymentRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidPayment,VoidPaymentAsync,VoidPaymentWithHttpInfo,VoidPaymentAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "VoidPayment,VoidPaymentAsync,VoidPaymentWithHttpInfo,VoidPaymentAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1300,9 +1300,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidPaymentRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidPayment,VoidPaymentAsync,VoidPaymentWithHttpInfo,VoidPaymentAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "VoidPayment,VoidPaymentAsync,VoidPaymentWithHttpInfo,VoidPaymentAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1420,9 +1420,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidRefundRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidRefund,VoidRefundAsync,VoidRefundWithHttpInfo,VoidRefundAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "VoidRefund,VoidRefundAsync,VoidRefundWithHttpInfo,VoidRefundAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1542,9 +1542,9 @@ namespace CyberSource.Api
                 localVarPostBody = voidRefundRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "VoidRefund,VoidRefundAsync,VoidRefundWithHttpInfo,VoidRefundAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "VoidRefund,VoidRefundAsync,VoidRefundWithHttpInfo,VoidRefundAsyncWithHttpInfo"))
             {
                 try
                 {

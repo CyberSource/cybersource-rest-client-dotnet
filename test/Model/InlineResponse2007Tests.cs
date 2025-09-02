@@ -65,44 +65,12 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'TotalCount'
+        /// Test the property 'Status'
         /// </summary>
         [Test]
-        public void TotalCountTest()
+        public void StatusTest()
         {
-            // TODO unit test for the property 'TotalCount'
-        }
-        /// <summary>
-        /// Test the property 'Offset'
-        /// </summary>
-        [Test]
-        public void OffsetTest()
-        {
-            // TODO unit test for the property 'Offset'
-        }
-        /// <summary>
-        /// Test the property 'Limit'
-        /// </summary>
-        [Test]
-        public void LimitTest()
-        {
-            // TODO unit test for the property 'Limit'
-        }
-        /// <summary>
-        /// Test the property 'Sort'
-        /// </summary>
-        [Test]
-        public void SortTest()
-        {
-            // TODO unit test for the property 'Sort'
-        }
-        /// <summary>
-        /// Test the property 'Count'
-        /// </summary>
-        [Test]
-        public void CountTest()
-        {
-            // TODO unit test for the property 'Count'
+            // TODO unit test for the property 'Status'
         }
         /// <summary>
         /// Test the property 'Devices'

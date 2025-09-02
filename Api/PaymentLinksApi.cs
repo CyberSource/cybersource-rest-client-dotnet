@@ -33,7 +33,7 @@ namespace CyberSource.Api
         /// Create a Payment Link
         /// </summary>
         /// <remarks>
-        /// Create a new payment link.
+        /// Pay by Link is an easy and fast way to securely sell products or receive donations online. This solution is ideal for distributing the same payment link to multiple customers.   Links for making purchases are referred to as fixed-price links, and links for making donations are referred to as customer-set price links. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentLinkRequest"></param>
@@ -44,7 +44,7 @@ namespace CyberSource.Api
         /// Create a Payment Link
         /// </summary>
         /// <remarks>
-        /// Create a new payment link.
+        /// Pay by Link is an easy and fast way to securely sell products or receive donations online. This solution is ideal for distributing the same payment link to multiple customers.   Links for making purchases are referred to as fixed-price links, and links for making donations are referred to as customer-set price links. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentLinkRequest"></param>
@@ -100,7 +100,7 @@ namespace CyberSource.Api
         /// Update a Payment Link
         /// </summary>
         /// <remarks>
-        /// You can update all information except the payment link number until any payment is received for a payment link.
+        /// You can update all information except the payment link number for a payment link. Changes made to amount/price will apply to new payments made using the payment link. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The purchase number.</param>
@@ -112,7 +112,7 @@ namespace CyberSource.Api
         /// Update a Payment Link
         /// </summary>
         /// <remarks>
-        /// You can update all information except the payment link number until any payment is received for a payment link.
+        /// You can update all information except the payment link number for a payment link. Changes made to amount/price will apply to new payments made using the payment link. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The purchase number.</param>
@@ -125,7 +125,7 @@ namespace CyberSource.Api
         /// Create a Payment Link
         /// </summary>
         /// <remarks>
-        /// Create a new payment link.
+        /// Pay by Link is an easy and fast way to securely sell products or receive donations online. This solution is ideal for distributing the same payment link to multiple customers.   Links for making purchases are referred to as fixed-price links, and links for making donations are referred to as customer-set price links. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentLinkRequest"></param>
@@ -136,7 +136,7 @@ namespace CyberSource.Api
         /// Create a Payment Link
         /// </summary>
         /// <remarks>
-        /// Create a new payment link.
+        /// Pay by Link is an easy and fast way to securely sell products or receive donations online. This solution is ideal for distributing the same payment link to multiple customers.   Links for making purchases are referred to as fixed-price links, and links for making donations are referred to as customer-set price links. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentLinkRequest"></param>
@@ -192,7 +192,7 @@ namespace CyberSource.Api
         /// Update a Payment Link
         /// </summary>
         /// <remarks>
-        /// You can update all information except the payment link number until any payment is received for a payment link.
+        /// You can update all information except the payment link number for a payment link. Changes made to amount/price will apply to new payments made using the payment link. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The purchase number.</param>
@@ -204,7 +204,7 @@ namespace CyberSource.Api
         /// Update a Payment Link
         /// </summary>
         /// <remarks>
-        /// You can update all information except the payment link number until any payment is received for a payment link.
+        /// You can update all information except the payment link number for a payment link. Changes made to amount/price will apply to new payments made using the payment link. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The purchase number.</param>
@@ -352,7 +352,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Payment Link Create a new payment link.
+        /// Create a Payment Link Pay by Link is an easy and fast way to securely sell products or receive donations online. This solution is ideal for distributing the same payment link to multiple customers.   Links for making purchases are referred to as fixed-price links, and links for making donations are referred to as customer-set price links. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentLinkRequest"></param>
@@ -368,7 +368,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Payment Link Create a new payment link.
+        /// Create a Payment Link Pay by Link is an easy and fast way to securely sell products or receive donations online. This solution is ideal for distributing the same payment link to multiple customers.   Links for making purchases are referred to as fixed-price links, and links for making donations are referred to as customer-set price links. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentLinkRequest"></param>
@@ -422,9 +422,9 @@ namespace CyberSource.Api
                 localVarPostBody = createPaymentLinkRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreatePaymentLink,CreatePaymentLinkAsync,CreatePaymentLinkWithHttpInfo,CreatePaymentLinkAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreatePaymentLink,CreatePaymentLinkAsync,CreatePaymentLinkWithHttpInfo,CreatePaymentLinkAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -463,7 +463,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Payment Link Create a new payment link.
+        /// Create a Payment Link Pay by Link is an easy and fast way to securely sell products or receive donations online. This solution is ideal for distributing the same payment link to multiple customers.   Links for making purchases are referred to as fixed-price links, and links for making donations are referred to as customer-set price links. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentLinkRequest"></param>
@@ -480,7 +480,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Create a Payment Link Create a new payment link.
+        /// Create a Payment Link Pay by Link is an easy and fast way to securely sell products or receive donations online. This solution is ideal for distributing the same payment link to multiple customers.   Links for making purchases are referred to as fixed-price links, and links for making donations are referred to as customer-set price links. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createPaymentLinkRequest"></param>
@@ -534,9 +534,9 @@ namespace CyberSource.Api
                 localVarPostBody = createPaymentLinkRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "CreatePaymentLink,CreatePaymentLinkAsync,CreatePaymentLinkWithHttpInfo,CreatePaymentLinkAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreatePaymentLink,CreatePaymentLinkAsync,CreatePaymentLinkWithHttpInfo,CreatePaymentLinkAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -673,9 +673,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetAllPaymentLinks,GetAllPaymentLinksAsync,GetAllPaymentLinksWithHttpInfo,GetAllPaymentLinksAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetAllPaymentLinks,GetAllPaymentLinksAsync,GetAllPaymentLinksWithHttpInfo,GetAllPaymentLinksAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -813,9 +813,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetAllPaymentLinks,GetAllPaymentLinksAsync,GetAllPaymentLinksWithHttpInfo,GetAllPaymentLinksAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetAllPaymentLinks,GetAllPaymentLinksAsync,GetAllPaymentLinksWithHttpInfo,GetAllPaymentLinksAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -931,9 +931,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetPaymentLink,GetPaymentLinkAsync,GetPaymentLinkWithHttpInfo,GetPaymentLinkAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPaymentLink,GetPaymentLinkAsync,GetPaymentLinkWithHttpInfo,GetPaymentLinkAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1051,9 +1051,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetPaymentLink,GetPaymentLinkAsync,GetPaymentLinkWithHttpInfo,GetPaymentLinkAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPaymentLink,GetPaymentLinkAsync,GetPaymentLinkWithHttpInfo,GetPaymentLinkAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1090,7 +1090,7 @@ namespace CyberSource.Api
                 (PblPaymentLinksGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PblPaymentLinksGet200Response))); // Return statement
         }
         /// <summary>
-        /// Update a Payment Link You can update all information except the payment link number until any payment is received for a payment link.
+        /// Update a Payment Link You can update all information except the payment link number for a payment link. Changes made to amount/price will apply to new payments made using the payment link. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The purchase number.</param>
@@ -1107,7 +1107,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update a Payment Link You can update all information except the payment link number until any payment is received for a payment link.
+        /// Update a Payment Link You can update all information except the payment link number for a payment link. Changes made to amount/price will apply to new payments made using the payment link. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The purchase number.</param>
@@ -1173,9 +1173,9 @@ namespace CyberSource.Api
                 localVarPostBody = updatePaymentLinkRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "UpdatePaymentLink,UpdatePaymentLinkAsync,UpdatePaymentLinkWithHttpInfo,UpdatePaymentLinkAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "UpdatePaymentLink,UpdatePaymentLinkAsync,UpdatePaymentLinkWithHttpInfo,UpdatePaymentLinkAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1214,7 +1214,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update a Payment Link You can update all information except the payment link number until any payment is received for a payment link.
+        /// Update a Payment Link You can update all information except the payment link number for a payment link. Changes made to amount/price will apply to new payments made using the payment link. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The purchase number.</param>
@@ -1232,7 +1232,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update a Payment Link You can update all information except the payment link number until any payment is received for a payment link.
+        /// Update a Payment Link You can update all information except the payment link number for a payment link. Changes made to amount/price will apply to new payments made using the payment link. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The purchase number.</param>
@@ -1298,9 +1298,9 @@ namespace CyberSource.Api
                 localVarPostBody = updatePaymentLinkRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "UpdatePaymentLink,UpdatePaymentLinkAsync,UpdatePaymentLinkWithHttpInfo,UpdatePaymentLinkAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "UpdatePaymentLink,UpdatePaymentLinkAsync,UpdatePaymentLinkWithHttpInfo,UpdatePaymentLinkAsyncWithHttpInfo"))
             {
                 try
                 {

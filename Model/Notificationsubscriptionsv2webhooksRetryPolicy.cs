@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Notificationsubscriptionsv2webhooksRetryPolicy" /> class.
         /// </summary>
-        /// <param name="Algorithm">This is used to calculate the Retry Sequence.  Sample calculations using firstRetry&#x3D;10, interval&#x3D;30, maxNumberOfRetries&#x3D;3 Arithmetic &#x3D; a+r(n-1) Retry 1 - 10 minutes Retry 2 - 10+30x1 &#x3D; 40 minutes Retry 3 - 10+30x2 &#x3D; 70 minutes  Geometric &#x3D; ar^(n-1) Retry 1 - 10 minutes Retry 2 - 10x30^1 &#x3D; 300 minutes Retry 3 - 10x30^2 &#x3D; 9,000 minutes .</param>
+        /// <param name="Algorithm">This is used to calculate the Retry Sequence.  Sample calculations using firstRetry&#x3D;10, interval&#x3D;30, maxNumberOfRetries&#x3D;3 Arithmetic &#x3D; a+r(n-1) Retry 1 - 10 minutes Retry 2 - 10+30x1 &#x3D; 40 minutes Retry 3 - 10+30x2 &#x3D; 70 minutes  Geometric &#x3D; ar^(n-1) Retry 1 - 10 minutes Retry 2 - 10x30^1 &#x3D; 300 minutes Retry 3 - 10x30^2 &#x3D; 9,000 minutes  (default to &quot;ARITHMETIC&quot;).</param>
         /// <param name="FirstRetry">When to initiate first retry, after the initial call failed. (in mins)..</param>
         /// <param name="Interval">The interval between retries (in mins)..</param>
         /// <param name="NumberOfRetries">The number of retries per sequence..</param>
@@ -41,9 +41,17 @@ namespace CyberSource.Model
         /// <param name="RepeatSequenceCount">The number of times to repeat the complete retry sequence. 0 &#x3D;&gt; don&#39;t repeat the retry sequence 1 &#x3D;&gt; repeat the retry sequence once (R1, R2, R3)+ (R1, R2, R3) 2 &#x3D;&gt; repeat the retry sequence twice (R1, R2, R3) + (R1, R2, R3) + (R1, R2, R3) .</param>
         /// <param name="RepeatSequenceWaitTime">The time to wait to before repeating the complete retry sequence. Amount of time to wait between each sequence. Sample calculation using repeatSequenceWaitTime&#x3D;10 (R1, R2, R3) + (10) + (R1, R2, R3) + (10) + (R1, R2, R3) .</param>
         /// <param name="AdditionalAttributes">Additional data, if any..</param>
-        public Notificationsubscriptionsv2webhooksRetryPolicy(string Algorithm = default(string), int? FirstRetry = default(int?), int? Interval = default(int?), int? NumberOfRetries = default(int?), string DeactivateFlag = default(string), int? RepeatSequenceCount = default(int?), int? RepeatSequenceWaitTime = default(int?), List<Dictionary<string, string>> AdditionalAttributes = default(List<Dictionary<string, string>>))
+        public Notificationsubscriptionsv2webhooksRetryPolicy(string Algorithm = "ARITHMETIC", int? FirstRetry = default(int?), int? Interval = default(int?), int? NumberOfRetries = default(int?), string DeactivateFlag = default(string), int? RepeatSequenceCount = default(int?), int? RepeatSequenceWaitTime = default(int?), List<Dictionary<string, string>> AdditionalAttributes = default(List<Dictionary<string, string>>))
         {
-            this.Algorithm = Algorithm;
+            // use default value if no "Algorithm" provided
+            if (Algorithm == null)
+            {
+                this.Algorithm = "ARITHMETIC";
+            }
+            else
+            {
+                this.Algorithm = Algorithm;
+            }
             this.FirstRetry = FirstRetry;
             this.Interval = Interval;
             this.NumberOfRetries = NumberOfRetries;

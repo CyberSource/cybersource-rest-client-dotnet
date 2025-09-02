@@ -340,9 +340,9 @@ namespace CyberSource.Api
                 localVarPostBody = authReversalRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "AuthReversal,AuthReversalAsync,AuthReversalWithHttpInfo,AuthReversalAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "AuthReversal,AuthReversalAsync,AuthReversalWithHttpInfo,AuthReversalAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -462,9 +462,9 @@ namespace CyberSource.Api
                 localVarPostBody = authReversalRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "AuthReversal,AuthReversalAsync,AuthReversalWithHttpInfo,AuthReversalAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "AuthReversal,AuthReversalAsync,AuthReversalWithHttpInfo,AuthReversalAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -569,9 +569,9 @@ namespace CyberSource.Api
                 localVarPostBody = mitReversalRequest; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "MitReversal,MitReversalAsync,MitReversalWithHttpInfo,MitReversalAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "MitReversal,MitReversalAsync,MitReversalWithHttpInfo,MitReversalAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -678,9 +678,9 @@ namespace CyberSource.Api
                 localVarPostBody = mitReversalRequest; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = true;
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "MitReversal,MitReversalAsync,MitReversalWithHttpInfo,MitReversalAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "MitReversal,MitReversalAsync,MitReversalWithHttpInfo,MitReversalAsyncWithHttpInfo"))
             {
                 try
                 {

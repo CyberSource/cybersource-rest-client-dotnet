@@ -40,6 +40,7 @@ namespace CyberSource.Model
         /// <param name="SubmitTimeUTC">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
         /// <param name="Status">The status of the submitted transaction..</param>
         /// <param name="ApplicationInformation">ApplicationInformation.</param>
+        /// <param name="BankAccountValidation">BankAccountValidation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
@@ -63,7 +64,7 @@ namespace CyberSource.Model
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="TokenInformation">TokenInformation.</param>
         /// <param name="Links">Links.</param>
-        public TssV2TransactionsGet200Response(string Id = default(string), string RootId = default(string), string ReconciliationId = default(string), string MerchantId = default(string), string SubmitTimeUTC = default(string), string Status = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsGet200ResponseBuyerInformation BuyerInformation = default(TssV2TransactionsGet200ResponseBuyerInformation), TssV2TransactionsGet200ResponseClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsGet200ResponseClientReferenceInformation), TssV2TransactionsGet200ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformation), TssV2TransactionsGet200ResponseDeviceInformation DeviceInformation = default(TssV2TransactionsGet200ResponseDeviceInformation), TssV2TransactionsGet200ResponseErrorInformation ErrorInformation = default(TssV2TransactionsGet200ResponseErrorInformation), TssV2TransactionsGet200ResponseInstallmentInformation InstallmentInformation = default(TssV2TransactionsGet200ResponseInstallmentInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsGet200ResponseMerchantInformation MerchantInformation = default(TssV2TransactionsGet200ResponseMerchantInformation), TssV2TransactionsGet200ResponseOrderInformation OrderInformation = default(TssV2TransactionsGet200ResponseOrderInformation), TssV2TransactionsGet200ResponsePaymentInformation PaymentInformation = default(TssV2TransactionsGet200ResponsePaymentInformation), PtsV2PaymentsPost201ResponsePaymentInsightsInformation PaymentInsightsInformation = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformation), TssV2TransactionsGet200ResponsePayoutOptions PayoutOptions = default(TssV2TransactionsGet200ResponsePayoutOptions), Ptsv2paymentsUnscheduledPaymentInformation UnscheduledPaymentInformation = default(Ptsv2paymentsUnscheduledPaymentInformation), TssV2TransactionsGet200ResponseProcessingInformation ProcessingInformation = default(TssV2TransactionsGet200ResponseProcessingInformation), TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation = default(TssV2TransactionsGet200ResponseProcessorInformation), TssV2TransactionsGet200ResponseRecurringPaymentInformation RecurringPaymentInformation = default(TssV2TransactionsGet200ResponseRecurringPaymentInformation), TssV2TransactionsGet200ResponsePointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsGet200ResponsePointOfSaleInformation), TssV2TransactionsGet200ResponseRiskInformation RiskInformation = default(TssV2TransactionsGet200ResponseRiskInformation), TssV2TransactionsGet200ResponseSenderInformation SenderInformation = default(TssV2TransactionsGet200ResponseSenderInformation), TssV2TransactionsGet200ResponseTokenInformation TokenInformation = default(TssV2TransactionsGet200ResponseTokenInformation), TssV2TransactionsGet200ResponseLinks Links = default(TssV2TransactionsGet200ResponseLinks))
+        public TssV2TransactionsGet200Response(string Id = default(string), string RootId = default(string), string ReconciliationId = default(string), string MerchantId = default(string), string SubmitTimeUTC = default(string), string Status = default(string), TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation = default(TssV2TransactionsGet200ResponseApplicationInformation), TssV2TransactionsGet200ResponseBankAccountValidation BankAccountValidation = default(TssV2TransactionsGet200ResponseBankAccountValidation), TssV2TransactionsGet200ResponseBuyerInformation BuyerInformation = default(TssV2TransactionsGet200ResponseBuyerInformation), TssV2TransactionsGet200ResponseClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsGet200ResponseClientReferenceInformation), TssV2TransactionsGet200ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsGet200ResponseConsumerAuthenticationInformation), TssV2TransactionsGet200ResponseDeviceInformation DeviceInformation = default(TssV2TransactionsGet200ResponseDeviceInformation), TssV2TransactionsGet200ResponseErrorInformation ErrorInformation = default(TssV2TransactionsGet200ResponseErrorInformation), TssV2TransactionsGet200ResponseInstallmentInformation InstallmentInformation = default(TssV2TransactionsGet200ResponseInstallmentInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), Ptsv2paymentsHealthCareInformation HealthCareInformation = default(Ptsv2paymentsHealthCareInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsGet200ResponseMerchantInformation MerchantInformation = default(TssV2TransactionsGet200ResponseMerchantInformation), TssV2TransactionsGet200ResponseOrderInformation OrderInformation = default(TssV2TransactionsGet200ResponseOrderInformation), TssV2TransactionsGet200ResponsePaymentInformation PaymentInformation = default(TssV2TransactionsGet200ResponsePaymentInformation), PtsV2PaymentsPost201ResponsePaymentInsightsInformation PaymentInsightsInformation = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformation), TssV2TransactionsGet200ResponsePayoutOptions PayoutOptions = default(TssV2TransactionsGet200ResponsePayoutOptions), Ptsv2paymentsUnscheduledPaymentInformation UnscheduledPaymentInformation = default(Ptsv2paymentsUnscheduledPaymentInformation), TssV2TransactionsGet200ResponseProcessingInformation ProcessingInformation = default(TssV2TransactionsGet200ResponseProcessingInformation), TssV2TransactionsGet200ResponseProcessorInformation ProcessorInformation = default(TssV2TransactionsGet200ResponseProcessorInformation), TssV2TransactionsGet200ResponseRecurringPaymentInformation RecurringPaymentInformation = default(TssV2TransactionsGet200ResponseRecurringPaymentInformation), TssV2TransactionsGet200ResponsePointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsGet200ResponsePointOfSaleInformation), TssV2TransactionsGet200ResponseRiskInformation RiskInformation = default(TssV2TransactionsGet200ResponseRiskInformation), TssV2TransactionsGet200ResponseSenderInformation SenderInformation = default(TssV2TransactionsGet200ResponseSenderInformation), TssV2TransactionsGet200ResponseTokenInformation TokenInformation = default(TssV2TransactionsGet200ResponseTokenInformation), TssV2TransactionsGet200ResponseLinks Links = default(TssV2TransactionsGet200ResponseLinks))
         {
             this.Id = Id;
             this.RootId = RootId;
@@ -72,6 +73,7 @@ namespace CyberSource.Model
             this.SubmitTimeUTC = SubmitTimeUTC;
             this.Status = Status;
             this.ApplicationInformation = ApplicationInformation;
+            this.BankAccountValidation = BankAccountValidation;
             this.BuyerInformation = BuyerInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ConsumerAuthenticationInformation = ConsumerAuthenticationInformation;
@@ -144,6 +146,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="applicationInformation", EmitDefaultValue=false)]
         public TssV2TransactionsGet200ResponseApplicationInformation ApplicationInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BankAccountValidation
+        /// </summary>
+        [DataMember(Name="bankAccountValidation", EmitDefaultValue=false)]
+        public TssV2TransactionsGet200ResponseBankAccountValidation BankAccountValidation { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
@@ -299,6 +307,7 @@ namespace CyberSource.Model
             if (SubmitTimeUTC != null) sb.Append("  SubmitTimeUTC: ").Append(SubmitTimeUTC).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
             if (ApplicationInformation != null) sb.Append("  ApplicationInformation: ").Append(ApplicationInformation).Append("\n");
+            if (BankAccountValidation != null) sb.Append("  BankAccountValidation: ").Append(BankAccountValidation).Append("\n");
             if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
             if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             if (ConsumerAuthenticationInformation != null) sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
@@ -392,6 +401,11 @@ namespace CyberSource.Model
                     this.ApplicationInformation == other.ApplicationInformation ||
                     this.ApplicationInformation != null &&
                     this.ApplicationInformation.Equals(other.ApplicationInformation)
+                ) && 
+                (
+                    this.BankAccountValidation == other.BankAccountValidation ||
+                    this.BankAccountValidation != null &&
+                    this.BankAccountValidation.Equals(other.BankAccountValidation)
                 ) && 
                 (
                     this.BuyerInformation == other.BuyerInformation ||
@@ -535,6 +549,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.ApplicationInformation != null)
                     hash = hash * 59 + this.ApplicationInformation.GetHashCode();
+                if (this.BankAccountValidation != null)
+                    hash = hash * 59 + this.BankAccountValidation.GetHashCode();
                 if (this.BuyerInformation != null)
                     hash = hash * 59 + this.BuyerInformation.GetHashCode();
                 if (this.ClientReferenceInformation != null)

@@ -123,8 +123,8 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string webhookId = null;
             //UpdateWebhook updateWebhook = null;
-            //instance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
-            
+            //var response = instance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
+            //Assert.IsInstanceOf<InlineResponse2005> (response, "response is InlineResponse2005");
         }
         
         /// <summary>

@@ -126,8 +126,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns></returns>
-        void NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null);
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null);
 
         /// <summary>
         /// Update a Webhook Subscription
@@ -138,8 +138,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null);
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null);
         /// <summary>
         /// Update a Webhook Status
         /// </summary>
@@ -289,8 +289,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync (string webhookId, UpdateWebhook updateWebhook = null);
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync (string webhookId, UpdateWebhook updateWebhook = null);
 
         /// <summary>
         /// Update a Webhook Subscription
@@ -301,8 +301,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null);
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null);
         /// <summary>
         /// Update a Webhook Status
         /// </summary>
@@ -567,9 +567,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "DeleteWebhookSubscription,DeleteWebhookSubscriptionAsync,DeleteWebhookSubscriptionWithHttpInfo,DeleteWebhookSubscriptionAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeleteWebhookSubscription,DeleteWebhookSubscriptionAsync,DeleteWebhookSubscriptionWithHttpInfo,DeleteWebhookSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -682,9 +682,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "DeleteWebhookSubscription,DeleteWebhookSubscriptionAsync,DeleteWebhookSubscriptionWithHttpInfo,DeleteWebhookSubscriptionAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeleteWebhookSubscription,DeleteWebhookSubscriptionAsync,DeleteWebhookSubscriptionWithHttpInfo,DeleteWebhookSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -798,9 +798,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetWebhookSubscriptionById,GetWebhookSubscriptionByIdAsync,GetWebhookSubscriptionByIdWithHttpInfo,GetWebhookSubscriptionByIdAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetWebhookSubscriptionById,GetWebhookSubscriptionByIdAsync,GetWebhookSubscriptionByIdWithHttpInfo,GetWebhookSubscriptionByIdAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -915,9 +915,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetWebhookSubscriptionById,GetWebhookSubscriptionByIdAsync,GetWebhookSubscriptionByIdWithHttpInfo,GetWebhookSubscriptionByIdAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetWebhookSubscriptionById,GetWebhookSubscriptionByIdAsync,GetWebhookSubscriptionByIdWithHttpInfo,GetWebhookSubscriptionByIdAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1044,9 +1044,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetWebhookSubscriptionsByOrg,GetWebhookSubscriptionsByOrgAsync,GetWebhookSubscriptionsByOrgWithHttpInfo,GetWebhookSubscriptionsByOrgAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetWebhookSubscriptionsByOrg,GetWebhookSubscriptionsByOrgAsync,GetWebhookSubscriptionsByOrgWithHttpInfo,GetWebhookSubscriptionsByOrgAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1175,9 +1175,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetWebhookSubscriptionsByOrg,GetWebhookSubscriptionsByOrgAsync,GetWebhookSubscriptionsByOrgWithHttpInfo,GetWebhookSubscriptionsByOrgAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetWebhookSubscriptionsByOrg,GetWebhookSubscriptionsByOrgAsync,GetWebhookSubscriptionsByOrgWithHttpInfo,GetWebhookSubscriptionsByOrgAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1290,9 +1290,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "NotificationSubscriptionsV1WebhooksWebhookIdPost,NotificationSubscriptionsV1WebhooksWebhookIdPostAsync,NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo,NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "NotificationSubscriptionsV1WebhooksWebhookIdPost,NotificationSubscriptionsV1WebhooksWebhookIdPostAsync,NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo,NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1407,9 +1407,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "NotificationSubscriptionsV1WebhooksWebhookIdPost,NotificationSubscriptionsV1WebhooksWebhookIdPostAsync,NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo,NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "NotificationSubscriptionsV1WebhooksWebhookIdPost,NotificationSubscriptionsV1WebhooksWebhookIdPostAsync,NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo,NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1451,12 +1451,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns></returns>
-        public void NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
         {
             logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatch\" STARTED");
             this.SetStatusCode(null);
-            NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo(webhookId, updateWebhook);
+            ApiResponse<InlineResponse2005> localVarResponse = NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo(webhookId, updateWebhook);
+            logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatch\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1465,8 +1468,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null)
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse< InlineResponse2005 > NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1517,9 +1520,9 @@ namespace CyberSource.Api
                 localVarPostBody = updateWebhook; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "NotificationSubscriptionsV2WebhooksWebhookIdPatch,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync,NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "NotificationSubscriptionsV2WebhooksWebhookIdPatch,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync,NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1552,10 +1555,9 @@ namespace CyberSource.Api
                 }
             }
 
-            this.SetStatusCode(localVarStatusCode);
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                localVarResponse.Content); // Return statement
+                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
         }
 
         /// <summary>
@@ -1564,12 +1566,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync (string webhookId, UpdateWebhook updateWebhook = null)
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync (string webhookId, UpdateWebhook updateWebhook = null)
         {
             logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync\" STARTED");
             this.SetStatusCode(null);
-            await NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo(webhookId, updateWebhook);
+            ApiResponse<InlineResponse2005> localVarResponse = await NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo(webhookId, updateWebhook);
+            logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
 
         }
 
@@ -1579,8 +1584,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
         /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null)
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo (string webhookId, UpdateWebhook updateWebhook = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1631,9 +1636,9 @@ namespace CyberSource.Api
                 localVarPostBody = updateWebhook; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "NotificationSubscriptionsV2WebhooksWebhookIdPatch,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync,NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "NotificationSubscriptionsV2WebhooksWebhookIdPatch,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync,NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1666,10 +1671,9 @@ namespace CyberSource.Api
                 }
             }
 
-            this.SetStatusCode(localVarStatusCode);
-            return new ApiResponse<object>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                localVarResponse.Content); // Return statement
+                (InlineResponse2005) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
         }
         /// <summary>
         /// Update a Webhook Status Users can update the status of a webhook subscription by calling this endpoint.   The webhookId parameter in the URL path identifies the specific webhook subscription to be updated. The request body accepts the values ACTIVE or INACTIVE. If the subscription is set to INACTIVE, webhooks will not be delivered until the subscription is activated again. 
@@ -1743,9 +1747,9 @@ namespace CyberSource.Api
                 localVarPostBody = updateStatus; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "NotificationSubscriptionsV2WebhooksWebhookIdStatusPut,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsync,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "NotificationSubscriptionsV2WebhooksWebhookIdStatusPut,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsync,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1857,9 +1861,9 @@ namespace CyberSource.Api
                 localVarPostBody = updateStatus; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "NotificationSubscriptionsV2WebhooksWebhookIdStatusPut,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsync,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "NotificationSubscriptionsV2WebhooksWebhookIdStatusPut,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsync,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -1995,9 +1999,9 @@ namespace CyberSource.Api
                 localVarPostBody = saveAsymEgressKey; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "SaveAsymEgressKey,SaveAsymEgressKeyAsync,SaveAsymEgressKeyWithHttpInfo,SaveAsymEgressKeyAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "SaveAsymEgressKey,SaveAsymEgressKeyAsync,SaveAsymEgressKeyWithHttpInfo,SaveAsymEgressKeyAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -2134,9 +2138,9 @@ namespace CyberSource.Api
                 localVarPostBody = saveAsymEgressKey; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "SaveAsymEgressKey,SaveAsymEgressKeyAsync,SaveAsymEgressKeyWithHttpInfo,SaveAsymEgressKeyAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "SaveAsymEgressKey,SaveAsymEgressKeyAsync,SaveAsymEgressKeyWithHttpInfo,SaveAsymEgressKeyAsyncWithHttpInfo"))
             {
                 try
                 {

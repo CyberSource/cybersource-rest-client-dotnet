@@ -49,7 +49,9 @@ namespace CyberSource.Model
         /// <param name="ValidationIndicator">Standing Instruction/Installment validation indicator. - &#39;1&#39;: Prevalidated - &#39;2&#39;: Not Validated .</param>
         /// <param name="Identifier">Standing Instruction/Installment identifier. .</param>
         /// <param name="AnnualInterestRate">Annual interest rate.  This field is returned only for two kinds of installment payments on Visa Platform Connect: - Crediario with Visa in Brazil: this field is included in the authorization response for the Crediario eligibility request when the issuer approves the customer&#39;s request for Crediario installment payments. - Mastercard in all countries except Brazil, Croatia, Georgia, and Greece.   Example: A value of 1.0 specifies 1%.  Example: A value of 4.0 specifies 4%.  #### Brazil The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR9 - Position: 151-157 - Field: Annual Interest Rate   #### Other Countries The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 58-62 SCMP API Fields| 216 - Field: Mastercard Annual Percentage Rate .</param>
-        public Ptsv2paymentsInstallmentInformation(string Amount = default(string), string Frequency = default(string), string PlanType = default(string), int? Sequence = default(int?), string TotalAmount = default(string), int? TotalCount = default(int?), string FirstInstallmentDate = default(string), string InvoiceData = default(string), string PaymentType = default(string), string EligibilityInquiry = default(string), string GracePeriodDuration = default(string), string GracePeriodDurationType = default(string), string FirstInstallmentAmount = default(string), string ValidationIndicator = default(string), string Identifier = default(string), string AnnualInterestRate = default(string))
+        /// <param name="InterestIndicator">Indicates if the installment plan has interest.  Possible values: -Y - with interest -N - without interest -NULL - Do not send the field if no information available .</param>
+        /// <param name="IsGovernmentPlan">Indicates if an installment plan is a government sponsored or part of a government program.  Possible values:  -true -false  This field defaults to false when no value is provided. .</param>
+        public Ptsv2paymentsInstallmentInformation(string Amount = default(string), string Frequency = default(string), string PlanType = default(string), int? Sequence = default(int?), string TotalAmount = default(string), int? TotalCount = default(int?), string FirstInstallmentDate = default(string), string InvoiceData = default(string), string PaymentType = default(string), string EligibilityInquiry = default(string), string GracePeriodDuration = default(string), string GracePeriodDurationType = default(string), string FirstInstallmentAmount = default(string), string ValidationIndicator = default(string), string Identifier = default(string), string AnnualInterestRate = default(string), string InterestIndicator = default(string), bool? IsGovernmentPlan = default(bool?))
         {
             this.Amount = Amount;
             this.Frequency = Frequency;
@@ -67,6 +69,8 @@ namespace CyberSource.Model
             this.ValidationIndicator = ValidationIndicator;
             this.Identifier = Identifier;
             this.AnnualInterestRate = AnnualInterestRate;
+            this.InterestIndicator = InterestIndicator;
+            this.IsGovernmentPlan = IsGovernmentPlan;
         }
         
         /// <summary>
@@ -182,6 +186,20 @@ namespace CyberSource.Model
         public string AnnualInterestRate { get; set; }
 
         /// <summary>
+        /// Indicates if the installment plan has interest.  Possible values: -Y - with interest -N - without interest -NULL - Do not send the field if no information available 
+        /// </summary>
+        /// <value>Indicates if the installment plan has interest.  Possible values: -Y - with interest -N - without interest -NULL - Do not send the field if no information available </value>
+        [DataMember(Name="interestIndicator", EmitDefaultValue=false)]
+        public string InterestIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates if an installment plan is a government sponsored or part of a government program.  Possible values:  -true -false  This field defaults to false when no value is provided. 
+        /// </summary>
+        /// <value>Indicates if an installment plan is a government sponsored or part of a government program.  Possible values:  -true -false  This field defaults to false when no value is provided. </value>
+        [DataMember(Name="isGovernmentPlan", EmitDefaultValue=false)]
+        public bool? IsGovernmentPlan { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -205,6 +223,8 @@ namespace CyberSource.Model
             if (ValidationIndicator != null) sb.Append("  ValidationIndicator: ").Append(ValidationIndicator).Append("\n");
             if (Identifier != null) sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             if (AnnualInterestRate != null) sb.Append("  AnnualInterestRate: ").Append(AnnualInterestRate).Append("\n");
+            if (InterestIndicator != null) sb.Append("  InterestIndicator: ").Append(InterestIndicator).Append("\n");
+            if (IsGovernmentPlan != null) sb.Append("  IsGovernmentPlan: ").Append(IsGovernmentPlan).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -320,6 +340,16 @@ namespace CyberSource.Model
                     this.AnnualInterestRate == other.AnnualInterestRate ||
                     this.AnnualInterestRate != null &&
                     this.AnnualInterestRate.Equals(other.AnnualInterestRate)
+                ) && 
+                (
+                    this.InterestIndicator == other.InterestIndicator ||
+                    this.InterestIndicator != null &&
+                    this.InterestIndicator.Equals(other.InterestIndicator)
+                ) && 
+                (
+                    this.IsGovernmentPlan == other.IsGovernmentPlan ||
+                    this.IsGovernmentPlan != null &&
+                    this.IsGovernmentPlan.Equals(other.IsGovernmentPlan)
                 );
         }
 
@@ -366,6 +396,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Identifier.GetHashCode();
                 if (this.AnnualInterestRate != null)
                     hash = hash * 59 + this.AnnualInterestRate.GetHashCode();
+                if (this.InterestIndicator != null)
+                    hash = hash * 59 + this.InterestIndicator.GetHashCode();
+                if (this.IsGovernmentPlan != null)
+                    hash = hash * 59 + this.IsGovernmentPlan.GetHashCode();
                 return hash;
             }
         }

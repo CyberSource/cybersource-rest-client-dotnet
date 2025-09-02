@@ -375,9 +375,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetPurchaseAndRefundDetails,GetPurchaseAndRefundDetailsAsync,GetPurchaseAndRefundDetailsWithHttpInfo,GetPurchaseAndRefundDetailsAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPurchaseAndRefundDetails,GetPurchaseAndRefundDetailsAsync,GetPurchaseAndRefundDetailsWithHttpInfo,GetPurchaseAndRefundDetailsAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -549,9 +549,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetPurchaseAndRefundDetails,GetPurchaseAndRefundDetailsAsync,GetPurchaseAndRefundDetailsWithHttpInfo,GetPurchaseAndRefundDetailsAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPurchaseAndRefundDetails,GetPurchaseAndRefundDetailsAsync,GetPurchaseAndRefundDetailsWithHttpInfo,GetPurchaseAndRefundDetailsAsyncWithHttpInfo"))
             {
                 try
                 {

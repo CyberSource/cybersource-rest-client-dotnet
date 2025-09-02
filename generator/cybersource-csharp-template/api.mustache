@@ -343,9 +343,9 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/bodyParam}}
             
-            bool isMLESupportedByCybsForApi = {{#vendorExtensions.x-devcenter-metaData.isMLEsupported}}true;{{/vendorExtensions.x-devcenter-metaData.isMLEsupported}}{{^vendorExtensions.x-devcenter-metaData.isMLEsupported}}false;{{/vendorExtensions.x-devcenter-metaData.isMLEsupported}}
+            String inboundMLEStatus = "{{#vendorExtensions.x-devcenter-metaData.mleForRequest}}{{vendorExtensions.x-devcenter-metaData.mleForRequest}}{{/vendorExtensions.x-devcenter-metaData.mleForRequest}}{{^vendorExtensions.x-devcenter-metaData.mleForRequest}}false{{/vendorExtensions.x-devcenter-metaData.mleForRequest}}";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo"))
             {
                 try
                 {
@@ -549,9 +549,9 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/bodyParam}}
 
-            bool isMLESupportedByCybsForApi = {{#vendorExtensions.x-devcenter-metaData.isMLEsupported}}true;{{/vendorExtensions.x-devcenter-metaData.isMLEsupported}}{{^vendorExtensions.x-devcenter-metaData.isMLEsupported}}false;{{/vendorExtensions.x-devcenter-metaData.isMLEsupported}}
+            String inboundMLEStatus = "{{#vendorExtensions.x-devcenter-metaData.mleForRequest}}{{vendorExtensions.x-devcenter-metaData.mleForRequest}}{{/vendorExtensions.x-devcenter-metaData.mleForRequest}}{{^vendorExtensions.x-devcenter-metaData.mleForRequest}}false{{/vendorExtensions.x-devcenter-metaData.mleForRequest}}";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo"))
             {
                 try
                 {

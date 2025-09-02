@@ -315,9 +315,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetEmvTags,GetEmvTagsAsync,GetEmvTagsWithHttpInfo,GetEmvTagsAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetEmvTags,GetEmvTagsAsync,GetEmvTagsWithHttpInfo,GetEmvTagsAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -419,9 +419,9 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "GetEmvTags,GetEmvTagsAsync,GetEmvTagsWithHttpInfo,GetEmvTagsAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetEmvTags,GetEmvTagsAsync,GetEmvTagsWithHttpInfo,GetEmvTagsAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -525,9 +525,9 @@ namespace CyberSource.Api
                 localVarPostBody = body; // byte array
             }
             
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ParseEmvTags,ParseEmvTagsAsync,ParseEmvTagsWithHttpInfo,ParseEmvTagsAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "ParseEmvTags,ParseEmvTagsAsync,ParseEmvTagsWithHttpInfo,ParseEmvTagsAsyncWithHttpInfo"))
             {
                 try
                 {
@@ -634,9 +634,9 @@ namespace CyberSource.Api
                 localVarPostBody = body; // byte array
             }
 
-            bool isMLESupportedByCybsForApi = false;
+            String inboundMLEStatus = "false";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
-            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, isMLESupportedByCybsForApi, "ParseEmvTags,ParseEmvTagsAsync,ParseEmvTagsWithHttpInfo,ParseEmvTagsAsyncWithHttpInfo"))
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "ParseEmvTags,ParseEmvTagsAsync,ParseEmvTagsWithHttpInfo,ParseEmvTagsAsyncWithHttpInfo"))
             {
                 try
                 {
