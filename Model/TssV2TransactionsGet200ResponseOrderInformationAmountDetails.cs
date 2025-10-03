@@ -39,8 +39,9 @@ namespace CyberSource.Model
         /// <param name="AuthorizedAmount">Amount that was authorized.  Returned by authorization service.  #### PIN debit Amount of the purchase.  Returned by PIN debit purchase. .</param>
         /// <param name="SettlementAmount">This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
         /// <param name="SettlementCurrency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
+        /// <param name="RefundBalance">The remaining amount which can be refunded..</param>
         /// <param name="Surcharge">Surcharge.</param>
-        public TssV2TransactionsGet200ResponseOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string TaxAmount = default(string), string AuthorizedAmount = default(string), string SettlementAmount = default(string), string SettlementCurrency = default(string), Ptsv2payoutsOrderInformationAmountDetailsSurcharge Surcharge = default(Ptsv2payoutsOrderInformationAmountDetailsSurcharge))
+        public TssV2TransactionsGet200ResponseOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string TaxAmount = default(string), string AuthorizedAmount = default(string), string SettlementAmount = default(string), string SettlementCurrency = default(string), string RefundBalance = default(string), Ptsv2payoutsOrderInformationAmountDetailsSurcharge Surcharge = default(Ptsv2payoutsOrderInformationAmountDetailsSurcharge))
         {
             this.TotalAmount = TotalAmount;
             this.Currency = Currency;
@@ -48,6 +49,7 @@ namespace CyberSource.Model
             this.AuthorizedAmount = AuthorizedAmount;
             this.SettlementAmount = SettlementAmount;
             this.SettlementCurrency = SettlementCurrency;
+            this.RefundBalance = RefundBalance;
             this.Surcharge = Surcharge;
         }
         
@@ -94,6 +96,13 @@ namespace CyberSource.Model
         public string SettlementCurrency { get; set; }
 
         /// <summary>
+        /// The remaining amount which can be refunded.
+        /// </summary>
+        /// <value>The remaining amount which can be refunded.</value>
+        [DataMember(Name="refundBalance", EmitDefaultValue=false)]
+        public string RefundBalance { get; set; }
+
+        /// <summary>
         /// Gets or Sets Surcharge
         /// </summary>
         [DataMember(Name="surcharge", EmitDefaultValue=false)]
@@ -113,6 +122,7 @@ namespace CyberSource.Model
             if (AuthorizedAmount != null) sb.Append("  AuthorizedAmount: ").Append(AuthorizedAmount).Append("\n");
             if (SettlementAmount != null) sb.Append("  SettlementAmount: ").Append(SettlementAmount).Append("\n");
             if (SettlementCurrency != null) sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
+            if (RefundBalance != null) sb.Append("  RefundBalance: ").Append(RefundBalance).Append("\n");
             if (Surcharge != null) sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -181,6 +191,11 @@ namespace CyberSource.Model
                     this.SettlementCurrency.Equals(other.SettlementCurrency)
                 ) && 
                 (
+                    this.RefundBalance == other.RefundBalance ||
+                    this.RefundBalance != null &&
+                    this.RefundBalance.Equals(other.RefundBalance)
+                ) && 
+                (
                     this.Surcharge == other.Surcharge ||
                     this.Surcharge != null &&
                     this.Surcharge.Equals(other.Surcharge)
@@ -210,6 +225,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SettlementAmount.GetHashCode();
                 if (this.SettlementCurrency != null)
                     hash = hash * 59 + this.SettlementCurrency.GetHashCode();
+                if (this.RefundBalance != null)
+                    hash = hash * 59 + this.RefundBalance.GetHashCode();
                 if (this.Surcharge != null)
                     hash = hash * 59 + this.Surcharge.GetHashCode();
                 return hash;

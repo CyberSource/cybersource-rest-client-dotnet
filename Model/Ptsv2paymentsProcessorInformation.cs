@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="PreApprovalToken">Token received in original session service..</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="Reversal">Reversal.</param>
-        public Ptsv2paymentsProcessorInformation(string PreApprovalToken = default(string), Ptsv2paymentsProcessorInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessorInformationAuthorizationOptions), Ptsv2paymentsProcessorInformationReversal Reversal = default(Ptsv2paymentsProcessorInformationReversal))
+        /// <param name="Network">Network.</param>
+        public Ptsv2paymentsProcessorInformation(string PreApprovalToken = default(string), Ptsv2paymentsProcessorInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessorInformationAuthorizationOptions), Ptsv2paymentsProcessorInformationReversal Reversal = default(Ptsv2paymentsProcessorInformationReversal), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
         {
             this.PreApprovalToken = PreApprovalToken;
             this.AuthorizationOptions = AuthorizationOptions;
             this.Reversal = Reversal;
+            this.Network = Network;
         }
         
         /// <summary>
@@ -63,6 +65,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsProcessorInformationReversal Reversal { get; set; }
 
         /// <summary>
+        /// Gets or Sets Network
+        /// </summary>
+        [DataMember(Name="network", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +81,7 @@ namespace CyberSource.Model
             if (PreApprovalToken != null) sb.Append("  PreApprovalToken: ").Append(PreApprovalToken).Append("\n");
             if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             if (Reversal != null) sb.Append("  Reversal: ").Append(Reversal).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +132,11 @@ namespace CyberSource.Model
                     this.Reversal == other.Reversal ||
                     this.Reversal != null &&
                     this.Reversal.Equals(other.Reversal)
+                ) && 
+                (
+                    this.Network == other.Network ||
+                    this.Network != null &&
+                    this.Network.Equals(other.Network)
                 );
         }
 
@@ -143,6 +157,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
                 if (this.Reversal != null)
                     hash = hash * 59 + this.Reversal.GetHashCode();
+                if (this.Network != null)
+                    hash = hash * 59 + this.Network.GetHashCode();
                 return hash;
             }
         }

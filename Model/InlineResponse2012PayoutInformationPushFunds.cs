@@ -45,8 +45,8 @@ namespace CyberSource.Model
         /// <param name="OnlineGamblingFastFundsDomestic">This field indicates if domestic gambling OCTs (fast push funds) are allowed. Possible values:   - &#x60;Y&#x60;   - &#x60;N&#x60; .</param>
         /// <param name="OnlineGamblingCrossBorder">This field indicates if cross-border gambling OCTs (push funds) are allowed. Possible values:   - &#x60;Y&#x60;   - &#x60;N&#x60; .</param>
         /// <param name="OnlineGamblingDomestic">This field indicates if domestic gambling OCTs (push funds) are allowed. Possible values:   - &#x60;Y&#x60;   - &#x60;N&#x60; .</param>
-        /// <param name="DomesticParticipant">This field indicates if domestic OCTs (push funds) are allowed. Note: Supported only in US for domestic transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
-        /// <param name="CrossBorderParticipant">This field indicates if cross-border OCTs (push funds) are allowed. Note: Supported only in US for cross-border transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
+        /// <param name="DomesticParticipant">This field indicates if domestic OCTs (push funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
+        /// <param name="CrossBorderParticipant">This field indicates if cross-border OCTs (push funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
         public InlineResponse2012PayoutInformationPushFunds(string MoneyTransferFastFundsCrossBorder = default(string), string MoneyTransferFastFundsDomestic = default(string), string MoneyTransferCrossBorder = default(string), string MoneyTransferDomestic = default(string), string NonMoneyTransferFastFundsCrossBorder = default(string), string NonMoneyTransferFastFundsDomestic = default(string), string NonMoneyTransferCrossBorder = default(string), string NonMoneyTransferDomestic = default(string), string OnlineGamblingFastFundsCrossBorder = default(string), string OnlineGamblingFastFundsDomestic = default(string), string OnlineGamblingCrossBorder = default(string), string OnlineGamblingDomestic = default(string), string DomesticParticipant = default(string), string CrossBorderParticipant = default(string))
         {
             this.MoneyTransferFastFundsCrossBorder = MoneyTransferFastFundsCrossBorder;
@@ -150,16 +150,16 @@ namespace CyberSource.Model
         public string OnlineGamblingDomestic { get; set; }
 
         /// <summary>
-        /// This field indicates if domestic OCTs (push funds) are allowed. Note: Supported only in US for domestic transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
+        /// This field indicates if domestic OCTs (push funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
         /// </summary>
-        /// <value>This field indicates if domestic OCTs (push funds) are allowed. Note: Supported only in US for domestic transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
+        /// <value>This field indicates if domestic OCTs (push funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
         [DataMember(Name="domesticParticipant", EmitDefaultValue=false)]
         public string DomesticParticipant { get; set; }
 
         /// <summary>
-        /// This field indicates if cross-border OCTs (push funds) are allowed. Note: Supported only in US for cross-border transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
+        /// This field indicates if cross-border OCTs (push funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
         /// </summary>
-        /// <value>This field indicates if cross-border OCTs (push funds) are allowed. Note: Supported only in US for cross-border transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
+        /// <value>This field indicates if cross-border OCTs (push funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
         [DataMember(Name="crossBorderParticipant", EmitDefaultValue=false)]
         public string CrossBorderParticipant { get; set; }
 

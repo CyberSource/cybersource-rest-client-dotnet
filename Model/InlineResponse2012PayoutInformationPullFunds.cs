@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2012PayoutInformationPullFunds" /> class.
         /// </summary>
-        /// <param name="DomesticParticipant">This field indicates if domestic AFTs (pull funds) are allowed. Note: Supported only in US for domestic transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
-        /// <param name="CrossBorderParticipant">This field indicates if cross-border AFTs (pull funds) are allowed. Note: Supported only in US for cross-border transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
+        /// <param name="DomesticParticipant">This field indicates if domestic AFTs (pull funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
+        /// <param name="CrossBorderParticipant">This field indicates if cross-border AFTs (pull funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; .</param>
         public InlineResponse2012PayoutInformationPullFunds(string DomesticParticipant = default(string), string CrossBorderParticipant = default(string))
         {
             this.DomesticParticipant = DomesticParticipant;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// This field indicates if domestic AFTs (pull funds) are allowed. Note: Supported only in US for domestic transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
+        /// This field indicates if domestic AFTs (pull funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
         /// </summary>
-        /// <value>This field indicates if domestic AFTs (pull funds) are allowed. Note: Supported only in US for domestic transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
+        /// <value>This field indicates if domestic AFTs (pull funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
         [DataMember(Name="domesticParticipant", EmitDefaultValue=false)]
         public string DomesticParticipant { get; set; }
 
         /// <summary>
-        /// This field indicates if cross-border AFTs (pull funds) are allowed. Note: Supported only in US for cross-border transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
+        /// This field indicates if cross-border AFTs (pull funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; 
         /// </summary>
-        /// <value>This field indicates if cross-border AFTs (pull funds) are allowed. Note: Supported only in US for cross-border transactions involving Push Payments Gateway Service(PPGS). Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
+        /// <value>This field indicates if cross-border AFTs (pull funds) are allowed. Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; </value>
         [DataMember(Name="crossBorderParticipant", EmitDefaultValue=false)]
         public string CrossBorderParticipant { get; set; }
 

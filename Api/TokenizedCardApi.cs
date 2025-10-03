@@ -76,6 +76,31 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of TokenizedcardRequest</returns>
         ApiResponse<TokenizedcardRequest> GetTokenizedCardWithHttpInfo (string tokenizedCardId, string profileId = null);
         /// <summary>
+        /// Simulate Issuer Life Cycle Management Events
+        /// </summary>
+        /// <remarks>
+        /// **Lifecycle Management Events**&lt;br&gt;Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration.</param>
+        /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
+        /// <param name="postIssuerLifeCycleSimulationRequest"></param>
+        /// <returns></returns>
+        void PostIssuerLifeCycleSimulation (string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest);
+
+        /// <summary>
+        /// Simulate Issuer Life Cycle Management Events
+        /// </summary>
+        /// <remarks>
+        /// **Lifecycle Management Events**&lt;br&gt;Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration.</param>
+        /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
+        /// <param name="postIssuerLifeCycleSimulationRequest"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> PostIssuerLifeCycleSimulationWithHttpInfo (string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest);
+        /// <summary>
         /// Create a Tokenized Card
         /// </summary>
         /// <remarks>
@@ -146,6 +171,31 @@ namespace CyberSource.Api
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (TokenizedcardRequest)</returns>
         System.Threading.Tasks.Task<ApiResponse<TokenizedcardRequest>> GetTokenizedCardAsyncWithHttpInfo (string tokenizedCardId, string profileId = null);
+        /// <summary>
+        /// Simulate Issuer Life Cycle Management Events
+        /// </summary>
+        /// <remarks>
+        /// **Lifecycle Management Events**&lt;br&gt;Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration.</param>
+        /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
+        /// <param name="postIssuerLifeCycleSimulationRequest"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task PostIssuerLifeCycleSimulationAsync (string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest);
+
+        /// <summary>
+        /// Simulate Issuer Life Cycle Management Events
+        /// </summary>
+        /// <remarks>
+        /// **Lifecycle Management Events**&lt;br&gt;Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration.</param>
+        /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
+        /// <param name="postIssuerLifeCycleSimulationRequest"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> PostIssuerLifeCycleSimulationAsyncWithHttpInfo (string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest);
         /// <summary>
         /// Create a Tokenized Card
         /// </summary>
@@ -792,6 +842,268 @@ namespace CyberSource.Api
             return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest))); // Return statement
+        }
+        /// <summary>
+        /// Simulate Issuer Life Cycle Management Events **Lifecycle Management Events**&lt;br&gt;Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration.</param>
+        /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
+        /// <param name="postIssuerLifeCycleSimulationRequest"></param>
+        /// <returns></returns>
+        public void PostIssuerLifeCycleSimulation (string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest)
+        {
+            logger.Debug("CALLING API \"PostIssuerLifeCycleSimulation\" STARTED");
+            this.SetStatusCode(null);
+            PostIssuerLifeCycleSimulationWithHttpInfo(profileId, tokenizedCardId, postIssuerLifeCycleSimulationRequest);
+        }
+
+        /// <summary>
+        /// Simulate Issuer Life Cycle Management Events **Lifecycle Management Events**&lt;br&gt;Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration.</param>
+        /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
+        /// <param name="postIssuerLifeCycleSimulationRequest"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> PostIssuerLifeCycleSimulationWithHttpInfo (string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'profileId' is set
+            if (profileId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'profileId' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+                throw new ApiException(400, "Missing required parameter 'profileId' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+            }
+            // verify the required parameter 'tokenizedCardId' is set
+            if (tokenizedCardId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'tokenizedCardId' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+                throw new ApiException(400, "Missing required parameter 'tokenizedCardId' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+            }
+            // verify the required parameter 'postIssuerLifeCycleSimulationRequest' is set
+            if (postIssuerLifeCycleSimulationRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'postIssuerLifeCycleSimulationRequest' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+                throw new ApiException(400, "Missing required parameter 'postIssuerLifeCycleSimulationRequest' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+            }
+
+            var localVarPath = $"/tms/v2/tokenized-cards/{tokenizedCardId}/issuer-life-cycle-event-simulations";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (tokenizedCardId != null)
+            {
+                localVarPathParams.Add("tokenizedCardId", Configuration.ApiClient.ParameterToString(tokenizedCardId)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (profileId != null)
+            {
+                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (postIssuerLifeCycleSimulationRequest != null && postIssuerLifeCycleSimulationRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                postIssuerLifeCycleSimulationRequest = (PostIssuerLifeCycleSimulationRequest)sdkTracker.InsertDeveloperIdTracker(postIssuerLifeCycleSimulationRequest, postIssuerLifeCycleSimulationRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(postIssuerLifeCycleSimulationRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = postIssuerLifeCycleSimulationRequest; // byte array
+            }
+            
+            String inboundMLEStatus = "false";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostIssuerLifeCycleSimulation,PostIssuerLifeCycleSimulationAsync,PostIssuerLifeCycleSimulationWithHttpInfo,PostIssuerLifeCycleSimulationAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostIssuerLifeCycleSimulation", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            this.SetStatusCode(localVarStatusCode);
+            return new ApiResponse<object>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Content); // Return statement
+        }
+
+        /// <summary>
+        /// Simulate Issuer Life Cycle Management Events **Lifecycle Management Events**&lt;br&gt;Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration.</param>
+        /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
+        /// <param name="postIssuerLifeCycleSimulationRequest"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task PostIssuerLifeCycleSimulationAsync (string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest)
+        {
+            logger.Debug("CALLING API \"PostIssuerLifeCycleSimulationAsync\" STARTED");
+            this.SetStatusCode(null);
+            await PostIssuerLifeCycleSimulationAsyncWithHttpInfo(profileId, tokenizedCardId, postIssuerLifeCycleSimulationRequest);
+
+        }
+
+        /// <summary>
+        /// Simulate Issuer Life Cycle Management Events **Lifecycle Management Events**&lt;br&gt;Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration.</param>
+        /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
+        /// <param name="postIssuerLifeCycleSimulationRequest"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> PostIssuerLifeCycleSimulationAsyncWithHttpInfo (string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'profileId' is set
+            if (profileId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'profileId' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+                throw new ApiException(400, "Missing required parameter 'profileId' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+            }
+            // verify the required parameter 'tokenizedCardId' is set
+            if (tokenizedCardId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'tokenizedCardId' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+                throw new ApiException(400, "Missing required parameter 'tokenizedCardId' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+            }
+            // verify the required parameter 'postIssuerLifeCycleSimulationRequest' is set
+            if (postIssuerLifeCycleSimulationRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'postIssuerLifeCycleSimulationRequest' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+                throw new ApiException(400, "Missing required parameter 'postIssuerLifeCycleSimulationRequest' when calling TokenizedCardApi->PostIssuerLifeCycleSimulation");
+            }
+
+            var localVarPath = $"/tms/v2/tokenized-cards/{tokenizedCardId}/issuer-life-cycle-event-simulations";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (tokenizedCardId != null)
+            {
+                localVarPathParams.Add("tokenizedCardId", Configuration.ApiClient.ParameterToString(tokenizedCardId)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (profileId != null)
+            {
+                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (postIssuerLifeCycleSimulationRequest != null && postIssuerLifeCycleSimulationRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                postIssuerLifeCycleSimulationRequest = (PostIssuerLifeCycleSimulationRequest)sdkTracker.InsertDeveloperIdTracker(postIssuerLifeCycleSimulationRequest, postIssuerLifeCycleSimulationRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(postIssuerLifeCycleSimulationRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = postIssuerLifeCycleSimulationRequest; // byte array
+            }
+
+            String inboundMLEStatus = "false";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostIssuerLifeCycleSimulation,PostIssuerLifeCycleSimulationAsync,PostIssuerLifeCycleSimulationWithHttpInfo,PostIssuerLifeCycleSimulationAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostIssuerLifeCycleSimulation", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            this.SetStatusCode(localVarStatusCode);
+            return new ApiResponse<object>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Content); // Return statement
         }
         /// <summary>
         /// Create a Tokenized Card |  |  |  | | - -- | - -- | - -- | |**Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. 

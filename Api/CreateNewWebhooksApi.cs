@@ -37,8 +37,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>List&lt;InlineResponse2003&gt;</returns>
-        List<InlineResponse2003> FindProductsToSubscribe (string organizationId);
+        /// <returns>List&lt;InlineResponse2004&gt;</returns>
+        List<InlineResponse2004> FindProductsToSubscribe (string organizationId);
 
         /// <summary>
         /// Find Products You Can Subscribe To
@@ -48,8 +48,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2003&gt;</returns>
-        ApiResponse<List<InlineResponse2003>> FindProductsToSubscribeWithHttpInfo (string organizationId);
+        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
+        ApiResponse<List<InlineResponse2004>> FindProductsToSubscribeWithHttpInfo (string organizationId);
         /// <summary>
         /// Create a New Webhook Subscription
         /// </summary>
@@ -108,8 +108,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of List&lt;InlineResponse2003&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2003>> FindProductsToSubscribeAsync (string organizationId);
+        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
+        System.Threading.Tasks.Task<List<InlineResponse2004>> FindProductsToSubscribeAsync (string organizationId);
 
         /// <summary>
         /// Find Products You Can Subscribe To
@@ -119,8 +119,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2003&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2003>>> FindProductsToSubscribeAsyncWithHttpInfo (string organizationId);
+        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> FindProductsToSubscribeAsyncWithHttpInfo (string organizationId);
         /// <summary>
         /// Create a New Webhook Subscription
         /// </summary>
@@ -314,12 +314,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>List&lt;InlineResponse2003&gt;</returns>
-        public List<InlineResponse2003> FindProductsToSubscribe (string organizationId)
+        /// <returns>List&lt;InlineResponse2004&gt;</returns>
+        public List<InlineResponse2004> FindProductsToSubscribe (string organizationId)
         {
             logger.Debug("CALLING API \"FindProductsToSubscribe\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2003>> localVarResponse = FindProductsToSubscribeWithHttpInfo(organizationId);
+            ApiResponse<List<InlineResponse2004>> localVarResponse = FindProductsToSubscribeWithHttpInfo(organizationId);
             logger.Debug("CALLING API \"FindProductsToSubscribe\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -330,8 +330,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2003&gt;</returns>
-        public ApiResponse< List<InlineResponse2003> > FindProductsToSubscribeWithHttpInfo (string organizationId)
+        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
+        public ApiResponse< List<InlineResponse2004> > FindProductsToSubscribeWithHttpInfo (string organizationId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -420,9 +420,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2003>>(localVarStatusCode,
+            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2003>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2003>))); // Return statement
+                (List<InlineResponse2004>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
         }
 
         /// <summary>
@@ -430,12 +430,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of List&lt;InlineResponse2003&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InlineResponse2003>> FindProductsToSubscribeAsync (string organizationId)
+        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
+        public async System.Threading.Tasks.Task<List<InlineResponse2004>> FindProductsToSubscribeAsync (string organizationId)
         {
             logger.Debug("CALLING API \"FindProductsToSubscribeAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2003>> localVarResponse = await FindProductsToSubscribeAsyncWithHttpInfo(organizationId);
+            ApiResponse<List<InlineResponse2004>> localVarResponse = await FindProductsToSubscribeAsyncWithHttpInfo(organizationId);
             logger.Debug("CALLING API \"FindProductsToSubscribeAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -447,8 +447,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2003&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2003>>> FindProductsToSubscribeAsyncWithHttpInfo (string organizationId)
+        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> FindProductsToSubscribeAsyncWithHttpInfo (string organizationId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -537,9 +537,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2003>>(localVarStatusCode,
+            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2003>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2003>))); // Return statement
+                (List<InlineResponse2004>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
         }
         /// <summary>
         /// Create a New Webhook Subscription Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \&quot;Create Webhook using oAuth with Client Credentials\&quot; - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \&quot;Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\&quot; to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \&quot;Create Webhook using oAuth with JWT\&quot; 

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteTokenizedCard**](TokenizedCardApi.md#deletetokenizedcard) | **DELETE** /tms/v2/tokenized-cards/{tokenizedCardId} | Delete a Tokenized Card
 [**GetTokenizedCard**](TokenizedCardApi.md#gettokenizedcard) | **GET** /tms/v2/tokenized-cards/{tokenizedCardId} | Retrieve a Tokenized Card
+[**PostIssuerLifeCycleSimulation**](TokenizedCardApi.md#postissuerlifecyclesimulation) | **POST** /tms/v2/tokenized-cards/{tokenizedCardId}/issuer-life-cycle-event-simulations | Simulate Issuer Life Cycle Management Events
 [**PostTokenizedCard**](TokenizedCardApi.md#posttokenizedcard) | **POST** /tms/v2/tokenized-cards | Create a Tokenized Card
 
 
@@ -122,6 +123,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TokenizedcardRequest**](TokenizedcardRequest.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="postissuerlifecyclesimulation"></a>
+# **PostIssuerLifeCycleSimulation**
+> void PostIssuerLifeCycleSimulation (string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest)
+
+Simulate Issuer Life Cycle Management Events
+
+**Lifecycle Management Events**<br>Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class PostIssuerLifeCycleSimulationExample
+    {
+        public void main()
+        {
+            var apiInstance = new TokenizedCardApi();
+            var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration.
+            var tokenizedCardId = tokenizedCardId_example;  // string | The Id of a tokenized card.
+            var postIssuerLifeCycleSimulationRequest = new PostIssuerLifeCycleSimulationRequest(); // PostIssuerLifeCycleSimulationRequest | 
+
+            try
+            {
+                // Simulate Issuer Life Cycle Management Events
+                apiInstance.PostIssuerLifeCycleSimulation(profileId, tokenizedCardId, postIssuerLifeCycleSimulationRequest);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling TokenizedCardApi.PostIssuerLifeCycleSimulation: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | 
+ **tokenizedCardId** | **string**| The Id of a tokenized card. | 
+ **postIssuerLifeCycleSimulationRequest** | [**PostIssuerLifeCycleSimulationRequest**](PostIssuerLifeCycleSimulationRequest.md)|  | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

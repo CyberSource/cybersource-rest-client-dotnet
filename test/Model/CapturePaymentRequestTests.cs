@@ -176,6 +176,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PromotionInformation'
         }
+        /// <summary>
+        /// Test the property 'ProcessorInformation'
+        /// </summary>
+        [Test]
+        public void ProcessorInformationTest()
+        {
+            // TODO unit test for the property 'ProcessorInformation'
+        }
 
     }
 

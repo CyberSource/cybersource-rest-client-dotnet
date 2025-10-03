@@ -40,9 +40,10 @@ namespace CyberSource.Model
         /// <param name="ForwardedAcquirerCode">Name of the Japanese acquirer that processed the transaction. Returned only for JCN Gateway. Please contact the CyberSource Japan Support Group for more information. .</param>
         /// <param name="MasterCardServiceCode">Mastercard service that was used for the transaction. Mastercard provides this value to CyberSource.  Possible value:  - 53: Mastercard card-on-file token service  #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 133-134 - Field: Mastercard Merchant on-behalf service. **Note** This field is returned only for CyberSource through VisaNet. .</param>
         /// <param name="MasterCardServiceReplyCode">Result of the Mastercard card-on-file token service. Mastercard provides this value to CyberSource.  Possible values:   - &#x60;C&#x60;: Service completed successfully.  - &#x60;F&#x60;: One of the following:    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 81 for an authorization or      authorization reversal.    - Incorrect Mastercard POS entry mode. The Mastercard POS entry mode should be 01 for a tokenized request.    - Token requestor ID is missing or formatted incorrectly.  - &#x60;I&#x60;: One of the following:    - Invalid token requestor ID.    - Suspended or deactivated token.    - Invalid token (not in mapping table).  - &#x60;T&#x60;: Invalid combination of token requestor ID and token.  - &#x60;U&#x60;: Expired token.  - &#x60;W&#x60;: Primary account number (PAN) listed in electronic warning bulletin.  **Note** This field is returned only for **CyberSource through VisaNet**. .</param>
-        /// <param name="ResponseDetails">This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. .</param>
+        /// <param name="ResponseDetails">This field might contain information about a decline. .</param>
         /// <param name="ProviderResponse">Processor response to the API request. .</param>
-        public PtsV2PaymentsReversalsPost201ResponseProcessorInformation(string TransactionId = default(string), string ResponseCode = default(string), string NetworkTransactionId = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string ResponseDetails = default(string), string ProviderResponse = default(string))
+        /// <param name="Network">Network.</param>
+        public PtsV2PaymentsReversalsPost201ResponseProcessorInformation(string TransactionId = default(string), string ResponseCode = default(string), string NetworkTransactionId = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string ResponseDetails = default(string), string ProviderResponse = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
         {
             this.TransactionId = TransactionId;
             this.ResponseCode = ResponseCode;
@@ -53,6 +54,7 @@ namespace CyberSource.Model
             this.MasterCardServiceReplyCode = MasterCardServiceReplyCode;
             this.ResponseDetails = ResponseDetails;
             this.ProviderResponse = ProviderResponse;
+            this.Network = Network;
         }
         
         /// <summary>
@@ -105,9 +107,9 @@ namespace CyberSource.Model
         public string MasterCardServiceReplyCode { get; set; }
 
         /// <summary>
-        /// This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. 
+        /// This field might contain information about a decline. 
         /// </summary>
-        /// <value>This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. </value>
+        /// <value>This field might contain information about a decline. </value>
         [DataMember(Name="responseDetails", EmitDefaultValue=false)]
         public string ResponseDetails { get; set; }
 
@@ -117,6 +119,12 @@ namespace CyberSource.Model
         /// <value>Processor response to the API request. </value>
         [DataMember(Name="providerResponse", EmitDefaultValue=false)]
         public string ProviderResponse { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Network
+        /// </summary>
+        [DataMember(Name="network", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,6 +143,7 @@ namespace CyberSource.Model
             if (MasterCardServiceReplyCode != null) sb.Append("  MasterCardServiceReplyCode: ").Append(MasterCardServiceReplyCode).Append("\n");
             if (ResponseDetails != null) sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
             if (ProviderResponse != null) sb.Append("  ProviderResponse: ").Append(ProviderResponse).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +224,11 @@ namespace CyberSource.Model
                     this.ProviderResponse == other.ProviderResponse ||
                     this.ProviderResponse != null &&
                     this.ProviderResponse.Equals(other.ProviderResponse)
+                ) && 
+                (
+                    this.Network == other.Network ||
+                    this.Network != null &&
+                    this.Network.Equals(other.Network)
                 );
         }
 
@@ -247,6 +261,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ResponseDetails.GetHashCode();
                 if (this.ProviderResponse != null)
                     hash = hash * 59 + this.ProviderResponse.GetHashCode();
+                if (this.Network != null)
+                    hash = hash * 59 + this.Network.GetHashCode();
                 return hash;
             }
         }

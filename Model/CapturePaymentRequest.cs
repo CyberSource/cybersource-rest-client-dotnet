@@ -47,7 +47,8 @@ namespace CyberSource.Model
         /// <param name="InstallmentInformation">InstallmentInformation.</param>
         /// <param name="TravelInformation">TravelInformation.</param>
         /// <param name="PromotionInformation">PromotionInformation.</param>
-        public CapturePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidcapturesProcessingInformation ProcessingInformation = default(Ptsv2paymentsidcapturesProcessingInformation), Ptsv2paymentsidcapturesPaymentInformation PaymentInformation = default(Ptsv2paymentsidcapturesPaymentInformation), Ptsv2paymentsidcapturesOrderInformation OrderInformation = default(Ptsv2paymentsidcapturesOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsidcapturesDeviceInformation DeviceInformation = default(Ptsv2paymentsidcapturesDeviceInformation), Ptsv2paymentsidcapturesMerchantInformation MerchantInformation = default(Ptsv2paymentsidcapturesMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidcapturesPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsMerchantDefinedSecureInformation MerchantDefinedSecureInformation = default(Ptsv2paymentsMerchantDefinedSecureInformation), Ptsv2paymentsidcapturesInstallmentInformation InstallmentInformation = default(Ptsv2paymentsidcapturesInstallmentInformation), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation))
+        /// <param name="ProcessorInformation">ProcessorInformation.</param>
+        public CapturePaymentRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidcapturesProcessingInformation ProcessingInformation = default(Ptsv2paymentsidcapturesProcessingInformation), Ptsv2paymentsidcapturesPaymentInformation PaymentInformation = default(Ptsv2paymentsidcapturesPaymentInformation), Ptsv2paymentsidcapturesOrderInformation OrderInformation = default(Ptsv2paymentsidcapturesOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsidcapturesDeviceInformation DeviceInformation = default(Ptsv2paymentsidcapturesDeviceInformation), Ptsv2paymentsidcapturesMerchantInformation MerchantInformation = default(Ptsv2paymentsidcapturesMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidcapturesPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidcapturesPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsMerchantDefinedSecureInformation MerchantDefinedSecureInformation = default(Ptsv2paymentsMerchantDefinedSecureInformation), Ptsv2paymentsidcapturesInstallmentInformation InstallmentInformation = default(Ptsv2paymentsidcapturesInstallmentInformation), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation), Ptsv2reversalsProcessorInformation ProcessorInformation = default(Ptsv2reversalsProcessorInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -63,6 +64,7 @@ namespace CyberSource.Model
             this.InstallmentInformation = InstallmentInformation;
             this.TravelInformation = TravelInformation;
             this.PromotionInformation = PromotionInformation;
+            this.ProcessorInformation = ProcessorInformation;
         }
         
         /// <summary>
@@ -151,6 +153,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsPromotionInformation PromotionInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProcessorInformation
+        /// </summary>
+        [DataMember(Name="processorInformation", EmitDefaultValue=false)]
+        public Ptsv2reversalsProcessorInformation ProcessorInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -172,6 +180,7 @@ namespace CyberSource.Model
             if (InstallmentInformation != null) sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
             if (TravelInformation != null) sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
             if (PromotionInformation != null) sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
+            if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -277,6 +286,11 @@ namespace CyberSource.Model
                     this.PromotionInformation == other.PromotionInformation ||
                     this.PromotionInformation != null &&
                     this.PromotionInformation.Equals(other.PromotionInformation)
+                ) && 
+                (
+                    this.ProcessorInformation == other.ProcessorInformation ||
+                    this.ProcessorInformation != null &&
+                    this.ProcessorInformation.Equals(other.ProcessorInformation)
                 );
         }
 
@@ -319,6 +333,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TravelInformation.GetHashCode();
                 if (this.PromotionInformation != null)
                     hash = hash * 59 + this.PromotionInformation.GetHashCode();
+                if (this.ProcessorInformation != null)
+                    hash = hash * 59 + this.ProcessorInformation.GetHashCode();
                 return hash;
             }
         }

@@ -153,14 +153,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CreatedOn'
         }
         /// <summary>
-        /// Test the property 'UpdatedOn'
-        /// </summary>
-        [Test]
-        public void UpdatedOnTest()
-        {
-            // TODO unit test for the property 'UpdatedOn'
-        }
-        /// <summary>
         /// Test the property 'NotificationScope'
         /// </summary>
         [Test]

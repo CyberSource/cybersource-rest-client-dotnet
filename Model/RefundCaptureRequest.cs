@@ -45,7 +45,8 @@ namespace CyberSource.Model
         /// <param name="MerchantDefinedInformation">The object containing the custom data that the merchant defines. .</param>
         /// <param name="TravelInformation">TravelInformation.</param>
         /// <param name="PromotionInformation">PromotionInformation.</param>
-        public RefundCaptureRequest(Ptsv2paymentsidrefundsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidrefundsClientReferenceInformation), Ptsv2paymentsidrefundsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidrefundsProcessingInformation), Ptsv2paymentsidrefundsPaymentInformation PaymentInformation = default(Ptsv2paymentsidrefundsPaymentInformation), Ptsv2paymentsidrefundsOrderInformation OrderInformation = default(Ptsv2paymentsidrefundsOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsidcapturesDeviceInformation DeviceInformation = default(Ptsv2paymentsidcapturesDeviceInformation), Ptsv2paymentsidrefundsMerchantInformation MerchantInformation = default(Ptsv2paymentsidrefundsMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidrefundsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidrefundsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation))
+        /// <param name="ProcessorInformation">ProcessorInformation.</param>
+        public RefundCaptureRequest(Ptsv2paymentsidrefundsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidrefundsClientReferenceInformation), Ptsv2paymentsidrefundsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidrefundsProcessingInformation), Ptsv2paymentsidrefundsPaymentInformation PaymentInformation = default(Ptsv2paymentsidrefundsPaymentInformation), Ptsv2paymentsidrefundsOrderInformation OrderInformation = default(Ptsv2paymentsidrefundsOrderInformation), Ptsv2paymentsidcapturesBuyerInformation BuyerInformation = default(Ptsv2paymentsidcapturesBuyerInformation), Ptsv2paymentsidcapturesDeviceInformation DeviceInformation = default(Ptsv2paymentsidcapturesDeviceInformation), Ptsv2paymentsidrefundsMerchantInformation MerchantInformation = default(Ptsv2paymentsidrefundsMerchantInformation), Ptsv2paymentsidcapturesAggregatorInformation AggregatorInformation = default(Ptsv2paymentsidcapturesAggregatorInformation), Ptsv2paymentsidrefundsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidrefundsPointOfSaleInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentsTravelInformation TravelInformation = default(Ptsv2paymentsTravelInformation), Ptsv2paymentsPromotionInformation PromotionInformation = default(Ptsv2paymentsPromotionInformation), Ptsv2reversalsProcessorInformation ProcessorInformation = default(Ptsv2reversalsProcessorInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -59,6 +60,7 @@ namespace CyberSource.Model
             this.MerchantDefinedInformation = MerchantDefinedInformation;
             this.TravelInformation = TravelInformation;
             this.PromotionInformation = PromotionInformation;
+            this.ProcessorInformation = ProcessorInformation;
         }
         
         /// <summary>
@@ -135,6 +137,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsPromotionInformation PromotionInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProcessorInformation
+        /// </summary>
+        [DataMember(Name="processorInformation", EmitDefaultValue=false)]
+        public Ptsv2reversalsProcessorInformation ProcessorInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -154,6 +162,7 @@ namespace CyberSource.Model
             if (MerchantDefinedInformation != null) sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
             if (TravelInformation != null) sb.Append("  TravelInformation: ").Append(TravelInformation).Append("\n");
             if (PromotionInformation != null) sb.Append("  PromotionInformation: ").Append(PromotionInformation).Append("\n");
+            if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -249,6 +258,11 @@ namespace CyberSource.Model
                     this.PromotionInformation == other.PromotionInformation ||
                     this.PromotionInformation != null &&
                     this.PromotionInformation.Equals(other.PromotionInformation)
+                ) && 
+                (
+                    this.ProcessorInformation == other.ProcessorInformation ||
+                    this.ProcessorInformation != null &&
+                    this.ProcessorInformation.Equals(other.ProcessorInformation)
                 );
         }
 
@@ -287,6 +301,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TravelInformation.GetHashCode();
                 if (this.PromotionInformation != null)
                     hash = hash * 59 + this.PromotionInformation.GetHashCode();
+                if (this.ProcessorInformation != null)
+                    hash = hash * 59 + this.ProcessorInformation.GetHashCode();
                 return hash;
             }
         }
