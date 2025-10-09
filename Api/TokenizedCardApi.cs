@@ -674,7 +674,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), ,merchantConfig)); // Return statement
+                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -914,7 +914,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), ,merchantConfig)); // Return statement
+                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>

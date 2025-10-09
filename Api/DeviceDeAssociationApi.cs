@@ -578,7 +578,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2007>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2007>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2007>), ,merchantConfig)); // Return statement
+                (List<InlineResponse2007>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2007>), merchantConfig)); // Return statement
         }
 
         /// <summary>

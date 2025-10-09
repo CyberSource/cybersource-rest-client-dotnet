@@ -357,7 +357,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3ChargebackDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ReportingV3ChargebackDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ChargebackDetailsGet200Response), ,merchantConfig)); // Return statement
+                (ReportingV3ChargebackDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3ChargebackDetailsGet200Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

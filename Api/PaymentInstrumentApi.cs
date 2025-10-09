@@ -747,7 +747,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest), ,merchantConfig)); // Return statement
+                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1020,7 +1020,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PatchPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PatchPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchPaymentInstrumentRequest), ,merchantConfig)); // Return statement
+                (PatchPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1285,7 +1285,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest), ,merchantConfig)); // Return statement
+                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>

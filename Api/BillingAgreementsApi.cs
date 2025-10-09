@@ -425,7 +425,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2ModifyBillingAgreementPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2ModifyBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2ModifyBillingAgreementPost201Response), ,merchantConfig)); // Return statement
+                (PtsV2ModifyBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2ModifyBillingAgreementPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -671,7 +671,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2CreditsPost201Response1>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1), ,merchantConfig)); // Return statement
+                (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -904,7 +904,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2CreateBillingAgreementPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2CreateBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreateBillingAgreementPost201Response), ,merchantConfig)); // Return statement
+                (PtsV2CreateBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreateBillingAgreementPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

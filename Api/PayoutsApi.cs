@@ -320,7 +320,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PayoutsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PayoutsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PayoutsPost201Response), ,merchantConfig)); // Return statement
+                (PtsV2PayoutsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PayoutsPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

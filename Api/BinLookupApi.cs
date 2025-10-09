@@ -321,7 +321,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2012>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2012), ,merchantConfig)); // Return statement
+                (InlineResponse2012) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2012), merchantConfig)); // Return statement
         }
 
         /// <summary>

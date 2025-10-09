@@ -366,7 +366,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<VasV2PaymentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (VasV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VasV2PaymentsPost201Response), ,merchantConfig)); // Return statement
+                (VasV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VasV2PaymentsPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -599,7 +599,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<VasV2TaxVoid200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (VasV2TaxVoid200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VasV2TaxVoid200Response), ,merchantConfig)); // Return statement
+                (VasV2TaxVoid200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VasV2TaxVoid200Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

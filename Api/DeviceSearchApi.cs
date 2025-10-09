@@ -362,7 +362,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2006>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006), ,merchantConfig)); // Return statement
+                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -582,7 +582,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2008>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2008) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008), ,merchantConfig)); // Return statement
+                (InlineResponse2008) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008), merchantConfig)); // Return statement
         }
 
         /// <summary>

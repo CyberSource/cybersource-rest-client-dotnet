@@ -837,7 +837,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostCustomerShippingAddressRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostCustomerShippingAddressRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerShippingAddressRequest), ,merchantConfig)); // Return statement
+                (PostCustomerShippingAddressRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerShippingAddressRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1112,7 +1112,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ShippingAddressListForCustomer>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ShippingAddressListForCustomer) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShippingAddressListForCustomer), ,merchantConfig)); // Return statement
+                (ShippingAddressListForCustomer) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ShippingAddressListForCustomer), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1398,7 +1398,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PatchCustomerShippingAddressRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PatchCustomerShippingAddressRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchCustomerShippingAddressRequest), ,merchantConfig)); // Return statement
+                (PatchCustomerShippingAddressRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchCustomerShippingAddressRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1675,7 +1675,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostCustomerShippingAddressRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostCustomerShippingAddressRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerShippingAddressRequest), ,merchantConfig)); // Return statement
+                (PostCustomerShippingAddressRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerShippingAddressRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>

@@ -728,7 +728,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostCustomerRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerRequest), ,merchantConfig)); // Return statement
+                (PostCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -987,7 +987,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PatchCustomerRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PatchCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchCustomerRequest), ,merchantConfig)); // Return statement
+                (PatchCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchCustomerRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1238,7 +1238,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostCustomerRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerRequest), ,merchantConfig)); // Return statement
+                (PostCustomerRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>

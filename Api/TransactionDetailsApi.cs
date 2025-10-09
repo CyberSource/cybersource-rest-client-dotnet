@@ -328,7 +328,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TssV2TransactionsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TssV2TransactionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsGet200Response), ,merchantConfig)); // Return statement
+                (TssV2TransactionsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2TransactionsGet200Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

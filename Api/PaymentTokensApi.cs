@@ -320,7 +320,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse201>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse201) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201), ,merchantConfig)); // Return statement
+                (InlineResponse201) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201), merchantConfig)); // Return statement
         }
 
         /// <summary>

@@ -368,7 +368,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3NetFundingsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ReportingV3NetFundingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NetFundingsGet200Response), ,merchantConfig)); // Return statement
+                (ReportingV3NetFundingsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NetFundingsGet200Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

@@ -855,7 +855,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostInstrumentIdentifierRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostInstrumentIdentifierRequest), ,merchantConfig)); // Return statement
+                (PostInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostInstrumentIdentifierRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1131,7 +1131,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PaymentInstrumentList1>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PaymentInstrumentList1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList1), ,merchantConfig)); // Return statement
+                (PaymentInstrumentList1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList1), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1418,7 +1418,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PatchInstrumentIdentifierRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PatchInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchInstrumentIdentifierRequest), ,merchantConfig)); // Return statement
+                (PatchInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchInstrumentIdentifierRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1683,7 +1683,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostInstrumentIdentifierRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostInstrumentIdentifierRequest), ,merchantConfig)); // Return statement
+                (PostInstrumentIdentifierRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostInstrumentIdentifierRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>

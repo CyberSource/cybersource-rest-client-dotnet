@@ -559,7 +559,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsOrderPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsOrderPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsOrderPost201Response), ,merchantConfig)); // Return statement
+                (PtsV2PaymentsOrderPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsOrderPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -792,7 +792,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response), ,merchantConfig)); // Return statement
+                (PtsV2PaymentsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1012,7 +1012,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsPost201Response2>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsPost201Response2) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2), ,merchantConfig)); // Return statement
+                (PtsV2PaymentsPost201Response2) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1245,7 +1245,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2IncrementalAuthorizationPatch201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2IncrementalAuthorizationPatch201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2IncrementalAuthorizationPatch201Response), ,merchantConfig)); // Return statement
+                (PtsV2IncrementalAuthorizationPatch201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2IncrementalAuthorizationPatch201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1491,7 +1491,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsPost201Response1>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response1), ,merchantConfig)); // Return statement
+                (PtsV2PaymentsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response1), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1737,7 +1737,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsPost201Response2>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsPost201Response2) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2), ,merchantConfig)); // Return statement
+                (PtsV2PaymentsPost201Response2) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2), merchantConfig)); // Return statement
         }
 
         /// <summary>

@@ -641,7 +641,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse), ,merchantConfig)); // Return statement
+                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -875,7 +875,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<CreatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (CreatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse), ,merchantConfig)); // Return statement
+                (CreatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1109,7 +1109,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse), ,merchantConfig)); // Return statement
+                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1351,7 +1351,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<DeletePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (DeletePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse), ,merchantConfig)); // Return statement
+                (DeletePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1593,7 +1593,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetPlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetPlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse), ,merchantConfig)); // Return statement
+                (GetPlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1822,7 +1822,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetPlanCodeResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetPlanCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse), ,merchantConfig)); // Return statement
+                (GetPlanCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -2073,7 +2073,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetAllPlansResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetAllPlansResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse), ,merchantConfig)); // Return statement
+                (GetAllPlansResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -2342,7 +2342,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<UpdatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (UpdatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse), ,merchantConfig)); // Return statement
+                (UpdatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>

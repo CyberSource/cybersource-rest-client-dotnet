@@ -353,7 +353,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TssV2GetEmvTags200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TssV2GetEmvTags200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2GetEmvTags200Response), ,merchantConfig)); // Return statement
+                (TssV2GetEmvTags200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2GetEmvTags200Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -568,7 +568,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TssV2PostEmvTags200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TssV2PostEmvTags200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2PostEmvTags200Response), ,merchantConfig)); // Return statement
+                (TssV2PostEmvTags200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TssV2PostEmvTags200Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

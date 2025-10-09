@@ -347,7 +347,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3NotificationofChangesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ReportingV3NotificationofChangesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NotificationofChangesGet200Response), ,merchantConfig)); // Return statement
+                (ReportingV3NotificationofChangesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3NotificationofChangesGet200Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

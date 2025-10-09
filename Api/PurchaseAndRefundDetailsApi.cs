@@ -413,7 +413,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ReportingV3PurchaseRefundDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PurchaseRefundDetailsGet200Response), ,merchantConfig)); // Return statement
+                (ReportingV3PurchaseRefundDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ReportingV3PurchaseRefundDetailsGet200Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

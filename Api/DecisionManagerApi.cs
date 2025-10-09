@@ -517,7 +517,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2001>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001), ,merchantConfig)); // Return statement
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -763,7 +763,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response), ,merchantConfig)); // Return statement
+                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1009,7 +1009,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2011>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011), ,merchantConfig)); // Return statement
+                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1242,7 +1242,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1DecisionsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (RiskV1DecisionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1DecisionsPost201Response), ,merchantConfig)); // Return statement
+                (RiskV1DecisionsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1DecisionsPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1475,7 +1475,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1UpdatePost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response), ,merchantConfig)); // Return statement
+                (RiskV1UpdatePost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1UpdatePost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

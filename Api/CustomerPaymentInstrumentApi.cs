@@ -837,7 +837,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostCustomerPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostCustomerPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerPaymentInstrumentRequest), ,merchantConfig)); // Return statement
+                (PostCustomerPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1112,7 +1112,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PaymentInstrumentList>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PaymentInstrumentList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList), ,merchantConfig)); // Return statement
+                (PaymentInstrumentList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1398,7 +1398,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PatchCustomerPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PatchCustomerPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchCustomerPaymentInstrumentRequest), ,merchantConfig)); // Return statement
+                (PatchCustomerPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchCustomerPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1675,7 +1675,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostCustomerPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostCustomerPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerPaymentInstrumentRequest), ,merchantConfig)); // Return statement
+                (PostCustomerPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostCustomerPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>

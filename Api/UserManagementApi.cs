@@ -355,7 +355,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<UmsV1UsersGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (UmsV1UsersGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UmsV1UsersGet200Response), ,merchantConfig)); // Return statement
+                (UmsV1UsersGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UmsV1UsersGet200Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

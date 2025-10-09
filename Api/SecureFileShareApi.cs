@@ -663,7 +663,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<V1FileDetailsGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (V1FileDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(V1FileDetailsGet200Response), ,merchantConfig)); // Return statement
+                (V1FileDetailsGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(V1FileDetailsGet200Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

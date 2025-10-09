@@ -416,7 +416,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PushFunds201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PushFunds201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PushFunds201Response), ,merchantConfig)); // Return statement
+                (PushFunds201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PushFunds201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>

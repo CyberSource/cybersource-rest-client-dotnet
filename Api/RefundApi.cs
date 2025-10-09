@@ -383,7 +383,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsRefundPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response), ,merchantConfig)); // Return statement
+                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -629,7 +629,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsRefundPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response), ,merchantConfig)); // Return statement
+                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
