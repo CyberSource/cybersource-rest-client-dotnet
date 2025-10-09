@@ -366,7 +366,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CheckPayerAuthEnrollment,CheckPayerAuthEnrollmentAsync,CheckPayerAuthEnrollmentWithHttpInfo,CheckPayerAuthEnrollmentAsyncWithHttpInfo"))
             {
                 try
@@ -380,13 +380,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "CheckPayerAuthEnrollment,CheckPayerAuthEnrollmentAsync,CheckPayerAuthEnrollmentWithHttpInfo,CheckPayerAuthEnrollmentAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -402,7 +404,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AuthenticationsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response))); // Return statement
+                (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response), ,merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -475,7 +477,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CheckPayerAuthEnrollment,CheckPayerAuthEnrollmentAsync,CheckPayerAuthEnrollmentWithHttpInfo,CheckPayerAuthEnrollmentAsyncWithHttpInfo"))
             {
                 try
@@ -489,13 +491,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "CheckPayerAuthEnrollment,CheckPayerAuthEnrollmentAsync,CheckPayerAuthEnrollmentWithHttpInfo,CheckPayerAuthEnrollmentAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -511,7 +515,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AuthenticationsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response))); // Return statement
+                (RiskV1AuthenticationsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationsPost201Response), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Setup Payer Auth A new service for Merchants to get reference_id for Digital Wallets to use in place of BIN number in Cardinal. Set up file while authenticating with Cardinal. This service should be called by Merchant when payment instrument chosen or changes. This service has to be called before enrollment check. The availability of API features for a merchant may depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts.
@@ -582,7 +586,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PayerAuthSetup,PayerAuthSetupAsync,PayerAuthSetupWithHttpInfo,PayerAuthSetupAsyncWithHttpInfo"))
             {
                 try
@@ -596,13 +600,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "PayerAuthSetup,PayerAuthSetupAsync,PayerAuthSetupWithHttpInfo,PayerAuthSetupAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -618,7 +624,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AuthenticationSetupsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (RiskV1AuthenticationSetupsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationSetupsPost201Response))); // Return statement
+                (RiskV1AuthenticationSetupsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationSetupsPost201Response), ,merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -691,7 +697,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PayerAuthSetup,PayerAuthSetupAsync,PayerAuthSetupWithHttpInfo,PayerAuthSetupAsyncWithHttpInfo"))
             {
                 try
@@ -705,13 +711,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "PayerAuthSetup,PayerAuthSetupAsync,PayerAuthSetupWithHttpInfo,PayerAuthSetupAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -727,7 +735,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AuthenticationSetupsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (RiskV1AuthenticationSetupsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationSetupsPost201Response))); // Return statement
+                (RiskV1AuthenticationSetupsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationSetupsPost201Response), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Validate Authentication Results This call retrieves and validates the authentication results from issuer and allows the merchant to proceed with processing the payment. 
@@ -798,7 +806,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "ValidateAuthenticationResults,ValidateAuthenticationResultsAsync,ValidateAuthenticationResultsWithHttpInfo,ValidateAuthenticationResultsAsyncWithHttpInfo"))
             {
                 try
@@ -812,13 +820,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "ValidateAuthenticationResults,ValidateAuthenticationResultsAsync,ValidateAuthenticationResultsWithHttpInfo,ValidateAuthenticationResultsAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -834,7 +844,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AuthenticationResultsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response))); // Return statement
+                (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response), ,merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -907,7 +917,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "ValidateAuthenticationResults,ValidateAuthenticationResultsAsync,ValidateAuthenticationResultsWithHttpInfo,ValidateAuthenticationResultsAsyncWithHttpInfo"))
             {
                 try
@@ -921,13 +931,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "ValidateAuthenticationResults,ValidateAuthenticationResultsAsync,ValidateAuthenticationResultsWithHttpInfo,ValidateAuthenticationResultsAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -943,7 +955,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<RiskV1AuthenticationResultsPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response))); // Return statement
+                (RiskV1AuthenticationResultsPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(RiskV1AuthenticationResultsPost201Response), merchantConfig)); // Return statement
         }
     }
 }

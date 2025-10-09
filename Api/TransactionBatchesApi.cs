@@ -442,7 +442,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetTransactionBatchDetails,GetTransactionBatchDetailsAsync,GetTransactionBatchDetailsWithHttpInfo,GetTransactionBatchDetailsAsyncWithHttpInfo"))
             {
                 try
@@ -456,12 +456,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetTransactionBatchDetails,GetTransactionBatchDetailsAsync,GetTransactionBatchDetailsWithHttpInfo,GetTransactionBatchDetailsAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -573,7 +575,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetTransactionBatchDetails,GetTransactionBatchDetailsAsync,GetTransactionBatchDetailsWithHttpInfo,GetTransactionBatchDetailsAsyncWithHttpInfo"))
             {
                 try
@@ -587,12 +589,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetTransactionBatchDetails,GetTransactionBatchDetailsAsync,GetTransactionBatchDetailsWithHttpInfo,GetTransactionBatchDetailsAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -689,7 +693,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetTransactionBatchId,GetTransactionBatchIdAsync,GetTransactionBatchIdWithHttpInfo,GetTransactionBatchIdAsyncWithHttpInfo"))
             {
                 try
@@ -703,12 +707,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetTransactionBatchId,GetTransactionBatchIdAsync,GetTransactionBatchIdWithHttpInfo,GetTransactionBatchIdAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -724,7 +730,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV1TransactionBatchesIdGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response))); // Return statement
+                (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response), ,merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -806,7 +812,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetTransactionBatchId,GetTransactionBatchIdAsync,GetTransactionBatchIdWithHttpInfo,GetTransactionBatchIdAsyncWithHttpInfo"))
             {
                 try
@@ -820,12 +826,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetTransactionBatchId,GetTransactionBatchIdAsync,GetTransactionBatchIdWithHttpInfo,GetTransactionBatchIdAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -841,7 +849,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV1TransactionBatchesIdGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response))); // Return statement
+                (PtsV1TransactionBatchesIdGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesIdGet200Response), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Get a List of Batch Files Provide the date and time search range to get a list of Batch Files ready for settlement
@@ -934,7 +942,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetTransactionBatches,GetTransactionBatchesAsync,GetTransactionBatchesWithHttpInfo,GetTransactionBatchesAsyncWithHttpInfo"))
             {
                 try
@@ -948,12 +956,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetTransactionBatches,GetTransactionBatchesAsync,GetTransactionBatchesWithHttpInfo,GetTransactionBatchesAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -969,7 +979,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV1TransactionBatchesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV1TransactionBatchesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesGet200Response))); // Return statement
+                (PtsV1TransactionBatchesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesGet200Response), ,merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1064,7 +1074,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetTransactionBatches,GetTransactionBatchesAsync,GetTransactionBatchesWithHttpInfo,GetTransactionBatchesAsyncWithHttpInfo"))
             {
                 try
@@ -1078,12 +1088,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetTransactionBatches,GetTransactionBatchesAsync,GetTransactionBatchesWithHttpInfo,GetTransactionBatchesAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1099,7 +1111,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV1TransactionBatchesGet200Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV1TransactionBatchesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesGet200Response))); // Return statement
+                (PtsV1TransactionBatchesGet200Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV1TransactionBatchesGet200Response), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Upload a Batch File This endpoint enables the upload of a batch file containing transactions for processing.
@@ -1175,7 +1187,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "UploadTransactionBatch,UploadTransactionBatchAsync,UploadTransactionBatchWithHttpInfo,UploadTransactionBatchAsyncWithHttpInfo"))
             {
                 try
@@ -1189,12 +1201,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "UploadTransactionBatch,UploadTransactionBatchAsync,UploadTransactionBatchWithHttpInfo,UploadTransactionBatchAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1289,7 +1303,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "UploadTransactionBatch,UploadTransactionBatchAsync,UploadTransactionBatchWithHttpInfo,UploadTransactionBatchAsyncWithHttpInfo"))
             {
                 try
@@ -1303,12 +1317,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "UploadTransactionBatch,UploadTransactionBatchAsync,UploadTransactionBatchWithHttpInfo,UploadTransactionBatchAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
