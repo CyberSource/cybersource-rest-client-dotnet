@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SubmitTimeUtc** | **DateTime?** | Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC.  | [optional] 
-**Status** | **string** | The http status description of the submitted request. | [optional] 
-**Reason** | **string** | Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39;  | [optional] 
-**Message** | **string** | Descriptive message for the error. | [optional] 
-**Details** | [**List&lt;InlineResponse4007Details&gt;**](InlineResponse4007Details.md) |  | [optional] 
+**SubmitTimeUtc** | **string** | The time the response was submitted | [optional] 
+**Status** | **int?** | The status code of the response | [optional] 
+**Reason** | **string** | The reason for the response | [optional] 
+**Message** | **string** | The message of the response | [optional] 
+**Details** | [**List&lt;InlineResponse4041Details&gt;**](InlineResponse4041Details.md) | The details of the validation error | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

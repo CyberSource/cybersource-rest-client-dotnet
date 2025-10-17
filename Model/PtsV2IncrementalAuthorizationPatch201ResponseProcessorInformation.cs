@@ -38,11 +38,12 @@ namespace CyberSource.Model
         /// <param name="NetworkTransactionId">Same value as &#x60;processorInformation.transactionId&#x60;.</param>
         /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3)  #### paypalgateway Processor generated ID for the itemized detail. .</param>
         /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**. Returned by authorization and incremental authorization services.  #### American Express Direct  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  #### CyberSource through VisaNet  System trace number that must be printed on the customer&#39;s receipt. .</param>
-        /// <param name="ResponseDetails">This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. .</param>
+        /// <param name="ResponseDetails">This field might contain information about a decline. .</param>
         /// <param name="MerchantAdvice">MerchantAdvice.</param>
         /// <param name="MerchantRiskPrediction">Mastercard is introducing the Merchant Risk Predict Service in the middle East/Africa Region. A newly launched service comprised of seven independent artificial intelligence (AI)-powered scores intended to augment existing merchant risk management practices. .</param>
         /// <param name="SellerProtection">SellerProtection.</param>
-        public PtsV2IncrementalAuthorizationPatch201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string ResponseDetails = default(string), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), string MerchantRiskPrediction = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection))
+        /// <param name="Network">Network.</param>
+        public PtsV2IncrementalAuthorizationPatch201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string ResponseDetails = default(string), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), string MerchantRiskPrediction = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
         {
             this.ApprovalCode = ApprovalCode;
             this.TransactionId = TransactionId;
@@ -53,6 +54,7 @@ namespace CyberSource.Model
             this.MerchantAdvice = MerchantAdvice;
             this.MerchantRiskPrediction = MerchantRiskPrediction;
             this.SellerProtection = SellerProtection;
+            this.Network = Network;
         }
         
         /// <summary>
@@ -91,9 +93,9 @@ namespace CyberSource.Model
         public string SystemTraceAuditNumber { get; set; }
 
         /// <summary>
-        /// This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. 
+        /// This field might contain information about a decline. 
         /// </summary>
-        /// <value>This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. </value>
+        /// <value>This field might contain information about a decline. </value>
         [DataMember(Name="responseDetails", EmitDefaultValue=false)]
         public string ResponseDetails { get; set; }
 
@@ -117,6 +119,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection { get; set; }
 
         /// <summary>
+        /// Gets or Sets Network
+        /// </summary>
+        [DataMember(Name="network", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -133,6 +141,7 @@ namespace CyberSource.Model
             if (MerchantAdvice != null) sb.Append("  MerchantAdvice: ").Append(MerchantAdvice).Append("\n");
             if (MerchantRiskPrediction != null) sb.Append("  MerchantRiskPrediction: ").Append(MerchantRiskPrediction).Append("\n");
             if (SellerProtection != null) sb.Append("  SellerProtection: ").Append(SellerProtection).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -213,6 +222,11 @@ namespace CyberSource.Model
                     this.SellerProtection == other.SellerProtection ||
                     this.SellerProtection != null &&
                     this.SellerProtection.Equals(other.SellerProtection)
+                ) && 
+                (
+                    this.Network == other.Network ||
+                    this.Network != null &&
+                    this.Network.Equals(other.Network)
                 );
         }
 
@@ -245,6 +259,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantRiskPrediction.GetHashCode();
                 if (this.SellerProtection != null)
                     hash = hash * 59 + this.SellerProtection.GetHashCode();
+                if (this.Network != null)
+                    hash = hash * 59 + this.Network.GetHashCode();
                 return hash;
             }
         }

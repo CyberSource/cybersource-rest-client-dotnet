@@ -45,12 +45,16 @@ namespace CyberSource.Model
         /// <param name="CardVerification">CardVerification.</param>
         /// <param name="AchVerification">AchVerification.</param>
         /// <param name="ElectronicVerificationResults">ElectronicVerificationResults.</param>
+        /// <param name="IssuerInformation">IssuerInformation.</param>
         /// <param name="EventStatus">The event status. .</param>
         /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**. Returned by authorization and incremental authorization services.  #### American Express Direct  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  #### CyberSource through VisaNet  System trace number that must be printed on the customer&#39;s receipt. .</param>
         /// <param name="ResponseCodeSource">Used by Visa only and contains the response source/reason code that identifies the source of the response decision. .</param>
         /// <param name="PaymentAccountReferenceNumber">Payment Account Reference (PAR) is a non-financial reference assigned to each unique payment account and used to link a payment account to associated network tokens, i.e. the same PAR is returned for PAN-based and tokenized transactions, such as from digital wallets. PAR can be returned in authorisation responses for requests initiated with both real PANs and tokenized PANs. PAR can be used by merchants for fraud detection and regulatory compliance across different channels and digital wallets. PAR allows all participants in the payments chain to have a single, non-sensitive value assigned to a consumer. This value can be used in place of sensitive card holder identification fields, and transmitted across the payments ecosystem to facilitate card holder identification.  **Note** On CyberSource through VisaNet, the value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR8 - Position: 79-110 - Field: Payment Account Reference  The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant&#39;s acquirer, who uses this information to facilitate end-of-day clearing processing with payment networks. .</param>
+        /// <param name="ResponseDetails">This field might contain information about a decline. .</param>
+        /// <param name="RawResponseLocal">Failure reason returned by the processor in the local language of the processor..</param>
+        /// <param name="RawResponse">Failure reason returned by the processor..</param>
         /// <param name="Routing">Routing.</param>
-        public TssV2TransactionsGet200ResponseProcessorInformation(TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor = default(TssV2TransactionsGet200ResponseProcessorInformationProcessor), List<TssV2TransactionsGet200ResponseProcessorInformationMultiProcessorRouting> MultiProcessorRouting = default(List<TssV2TransactionsGet200ResponseProcessorInformationMultiProcessorRouting>), string TransactionId = default(string), string NetworkTransactionId = default(string), string RetrievalReferenceNumber = default(string), string ResponseId = default(string), string ApprovalCode = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), Riskv1decisionsProcessorInformationCardVerification CardVerification = default(Riskv1decisionsProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults), string EventStatus = default(string), string SystemTraceAuditNumber = default(string), string ResponseCodeSource = default(string), string PaymentAccountReferenceNumber = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting))
+        public TssV2TransactionsGet200ResponseProcessorInformation(TssV2TransactionsGet200ResponseProcessorInformationProcessor Processor = default(TssV2TransactionsGet200ResponseProcessorInformationProcessor), List<TssV2TransactionsGet200ResponseProcessorInformationMultiProcessorRouting> MultiProcessorRouting = default(List<TssV2TransactionsGet200ResponseProcessorInformationMultiProcessorRouting>), string TransactionId = default(string), string NetworkTransactionId = default(string), string RetrievalReferenceNumber = default(string), string ResponseId = default(string), string ApprovalCode = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), Riskv1decisionsProcessorInformationCardVerification CardVerification = default(Riskv1decisionsProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201Response1IssuerInformation IssuerInformation = default(PtsV2PaymentsPost201Response1IssuerInformation), string EventStatus = default(string), string SystemTraceAuditNumber = default(string), string ResponseCodeSource = default(string), string PaymentAccountReferenceNumber = default(string), string ResponseDetails = default(string), string RawResponseLocal = default(string), string RawResponse = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting))
         {
             this.Processor = Processor;
             this.MultiProcessorRouting = MultiProcessorRouting;
@@ -64,10 +68,14 @@ namespace CyberSource.Model
             this.CardVerification = CardVerification;
             this.AchVerification = AchVerification;
             this.ElectronicVerificationResults = ElectronicVerificationResults;
+            this.IssuerInformation = IssuerInformation;
             this.EventStatus = EventStatus;
             this.SystemTraceAuditNumber = SystemTraceAuditNumber;
             this.ResponseCodeSource = ResponseCodeSource;
             this.PaymentAccountReferenceNumber = PaymentAccountReferenceNumber;
+            this.ResponseDetails = ResponseDetails;
+            this.RawResponseLocal = RawResponseLocal;
+            this.RawResponse = RawResponse;
             this.Routing = Routing;
         }
         
@@ -151,6 +159,12 @@ namespace CyberSource.Model
         public TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults { get; set; }
 
         /// <summary>
+        /// Gets or Sets IssuerInformation
+        /// </summary>
+        [DataMember(Name="issuerInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201Response1IssuerInformation IssuerInformation { get; set; }
+
+        /// <summary>
         /// The event status. 
         /// </summary>
         /// <value>The event status. </value>
@@ -179,6 +193,27 @@ namespace CyberSource.Model
         public string PaymentAccountReferenceNumber { get; set; }
 
         /// <summary>
+        /// This field might contain information about a decline. 
+        /// </summary>
+        /// <value>This field might contain information about a decline. </value>
+        [DataMember(Name="responseDetails", EmitDefaultValue=false)]
+        public string ResponseDetails { get; set; }
+
+        /// <summary>
+        /// Failure reason returned by the processor in the local language of the processor.
+        /// </summary>
+        /// <value>Failure reason returned by the processor in the local language of the processor.</value>
+        [DataMember(Name="rawResponseLocal", EmitDefaultValue=false)]
+        public string RawResponseLocal { get; set; }
+
+        /// <summary>
+        /// Failure reason returned by the processor.
+        /// </summary>
+        /// <value>Failure reason returned by the processor.</value>
+        [DataMember(Name="rawResponse", EmitDefaultValue=false)]
+        public string RawResponse { get; set; }
+
+        /// <summary>
         /// Gets or Sets Routing
         /// </summary>
         [DataMember(Name="routing", EmitDefaultValue=false)]
@@ -204,10 +239,14 @@ namespace CyberSource.Model
             if (CardVerification != null) sb.Append("  CardVerification: ").Append(CardVerification).Append("\n");
             if (AchVerification != null) sb.Append("  AchVerification: ").Append(AchVerification).Append("\n");
             if (ElectronicVerificationResults != null) sb.Append("  ElectronicVerificationResults: ").Append(ElectronicVerificationResults).Append("\n");
+            if (IssuerInformation != null) sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
             if (EventStatus != null) sb.Append("  EventStatus: ").Append(EventStatus).Append("\n");
             if (SystemTraceAuditNumber != null) sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
             if (ResponseCodeSource != null) sb.Append("  ResponseCodeSource: ").Append(ResponseCodeSource).Append("\n");
             if (PaymentAccountReferenceNumber != null) sb.Append("  PaymentAccountReferenceNumber: ").Append(PaymentAccountReferenceNumber).Append("\n");
+            if (ResponseDetails != null) sb.Append("  ResponseDetails: ").Append(ResponseDetails).Append("\n");
+            if (RawResponseLocal != null) sb.Append("  RawResponseLocal: ").Append(RawResponseLocal).Append("\n");
+            if (RawResponse != null) sb.Append("  RawResponse: ").Append(RawResponse).Append("\n");
             if (Routing != null) sb.Append("  Routing: ").Append(Routing).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -306,6 +345,11 @@ namespace CyberSource.Model
                     this.ElectronicVerificationResults.Equals(other.ElectronicVerificationResults)
                 ) && 
                 (
+                    this.IssuerInformation == other.IssuerInformation ||
+                    this.IssuerInformation != null &&
+                    this.IssuerInformation.Equals(other.IssuerInformation)
+                ) && 
+                (
                     this.EventStatus == other.EventStatus ||
                     this.EventStatus != null &&
                     this.EventStatus.Equals(other.EventStatus)
@@ -324,6 +368,21 @@ namespace CyberSource.Model
                     this.PaymentAccountReferenceNumber == other.PaymentAccountReferenceNumber ||
                     this.PaymentAccountReferenceNumber != null &&
                     this.PaymentAccountReferenceNumber.Equals(other.PaymentAccountReferenceNumber)
+                ) && 
+                (
+                    this.ResponseDetails == other.ResponseDetails ||
+                    this.ResponseDetails != null &&
+                    this.ResponseDetails.Equals(other.ResponseDetails)
+                ) && 
+                (
+                    this.RawResponseLocal == other.RawResponseLocal ||
+                    this.RawResponseLocal != null &&
+                    this.RawResponseLocal.Equals(other.RawResponseLocal)
+                ) && 
+                (
+                    this.RawResponse == other.RawResponse ||
+                    this.RawResponse != null &&
+                    this.RawResponse.Equals(other.RawResponse)
                 ) && 
                 (
                     this.Routing == other.Routing ||
@@ -367,6 +426,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AchVerification.GetHashCode();
                 if (this.ElectronicVerificationResults != null)
                     hash = hash * 59 + this.ElectronicVerificationResults.GetHashCode();
+                if (this.IssuerInformation != null)
+                    hash = hash * 59 + this.IssuerInformation.GetHashCode();
                 if (this.EventStatus != null)
                     hash = hash * 59 + this.EventStatus.GetHashCode();
                 if (this.SystemTraceAuditNumber != null)
@@ -375,6 +436,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ResponseCodeSource.GetHashCode();
                 if (this.PaymentAccountReferenceNumber != null)
                     hash = hash * 59 + this.PaymentAccountReferenceNumber.GetHashCode();
+                if (this.ResponseDetails != null)
+                    hash = hash * 59 + this.ResponseDetails.GetHashCode();
+                if (this.RawResponseLocal != null)
+                    hash = hash * 59 + this.RawResponseLocal.GetHashCode();
+                if (this.RawResponse != null)
+                    hash = hash * 59 + this.RawResponse.GetHashCode();
                 if (this.Routing != null)
                     hash = hash * 59 + this.Routing.GetHashCode();
                 return hash;

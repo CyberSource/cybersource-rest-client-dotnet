@@ -161,6 +161,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ElectronicVerificationResults'
         }
         /// <summary>
+        /// Test the property 'IssuerInformation'
+        /// </summary>
+        [Test]
+        public void IssuerInformationTest()
+        {
+            // TODO unit test for the property 'IssuerInformation'
+        }
+        /// <summary>
         /// Test the property 'EventStatus'
         /// </summary>
         [Test]
@@ -191,6 +199,30 @@ namespace CyberSource.Test
         public void PaymentAccountReferenceNumberTest()
         {
             // TODO unit test for the property 'PaymentAccountReferenceNumber'
+        }
+        /// <summary>
+        /// Test the property 'ResponseDetails'
+        /// </summary>
+        [Test]
+        public void ResponseDetailsTest()
+        {
+            // TODO unit test for the property 'ResponseDetails'
+        }
+        /// <summary>
+        /// Test the property 'RawResponseLocal'
+        /// </summary>
+        [Test]
+        public void RawResponseLocalTest()
+        {
+            // TODO unit test for the property 'RawResponseLocal'
+        }
+        /// <summary>
+        /// Test the property 'RawResponse'
+        /// </summary>
+        [Test]
+        public void RawResponseTest()
+        {
+            // TODO unit test for the property 'RawResponse'
         }
         /// <summary>
         /// Test the property 'Routing'

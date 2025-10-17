@@ -34,19 +34,9 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PaymentsProductsAlternativePaymentMethodsSubscriptionInformation" /> class.
         /// </summary>
         /// <param name="Enabled">Enabled.</param>
-        /// <param name="SelfServiceability">Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY (default to &quot;NOT_SELF_SERVICEABLE&quot;).</param>
-        public PaymentsProductsAlternativePaymentMethodsSubscriptionInformation(bool? Enabled = default(bool?), string SelfServiceability = "NOT_SELF_SERVICEABLE")
+        public PaymentsProductsAlternativePaymentMethodsSubscriptionInformation(bool? Enabled = default(bool?))
         {
             this.Enabled = Enabled;
-            // use default value if no "SelfServiceability" provided
-            if (SelfServiceability == null)
-            {
-                this.SelfServiceability = "NOT_SELF_SERVICEABLE";
-            }
-            else
-            {
-                this.SelfServiceability = SelfServiceability;
-            }
         }
         
         /// <summary>
@@ -54,13 +44,6 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="enabled", EmitDefaultValue=false)]
         public bool? Enabled { get; set; }
-
-        /// <summary>
-        /// Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY
-        /// </summary>
-        /// <value>Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY</value>
-        [DataMember(Name="selfServiceability", EmitDefaultValue=false)]
-        public string SelfServiceability { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,7 +54,6 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsAlternativePaymentMethodsSubscriptionInformation {\n");
             if (Enabled != null) sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            if (SelfServiceability != null) sb.Append("  SelfServiceability: ").Append(SelfServiceability).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,11 +94,6 @@ namespace CyberSource.Model
                     this.Enabled == other.Enabled ||
                     this.Enabled != null &&
                     this.Enabled.Equals(other.Enabled)
-                ) && 
-                (
-                    this.SelfServiceability == other.SelfServiceability ||
-                    this.SelfServiceability != null &&
-                    this.SelfServiceability.Equals(other.SelfServiceability)
                 );
         }
 
@@ -133,8 +110,6 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Enabled != null)
                     hash = hash * 59 + this.Enabled.GetHashCode();
-                if (this.SelfServiceability != null)
-                    hash = hash * 59 + this.SelfServiceability.GetHashCode();
                 return hash;
             }
         }

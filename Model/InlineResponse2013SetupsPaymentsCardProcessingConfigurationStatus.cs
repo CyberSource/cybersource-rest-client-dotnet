@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="Reason">Possible values: - PENDING_PROVISIONING_PROCESS - MISSING_DATA - INVALID_DATA - DUPLICATE_FIELD - NOT_APPLICABLE.</param>
         /// <param name="Details">Details.</param>
         /// <param name="Message">Message.</param>
-        public InlineResponse2013SetupsPaymentsCardProcessingConfigurationStatus(Guid? ConfigurationId = default(Guid?), string Version = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), List<Dictionary<string, string>> Details = default(List<Dictionary<string, string>>), string Message = default(string))
+        public InlineResponse2013SetupsPaymentsCardProcessingConfigurationStatus(string ConfigurationId = default(string), string Version = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), List<Dictionary<string, string>> Details = default(List<Dictionary<string, string>>), string Message = default(string))
         {
             this.ConfigurationId = ConfigurationId;
             this.Version = Version;
@@ -56,7 +56,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>This is NOT for MVP</value>
         [DataMember(Name="configurationId", EmitDefaultValue=false)]
-        public Guid? ConfigurationId { get; set; }
+        public string ConfigurationId { get; set; }
 
         /// <summary>
         /// Gets or Sets Version

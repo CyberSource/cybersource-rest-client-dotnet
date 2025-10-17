@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ProcessingInformation** | [**Invoicingv2invoicesProcessingInformation**](Invoicingv2invoicesProcessingInformation.md) |  | [optional] 
 **InvoiceInformation** | [**InvoicingV2InvoicesPost201ResponseInvoiceInformation**](InvoicingV2InvoicesPost201ResponseInvoiceInformation.md) |  | [optional] 
 **OrderInformation** | [**InvoicingV2InvoicesPost201ResponseOrderInformation**](InvoicingV2InvoicesPost201ResponseOrderInformation.md) |  | [optional] 
+**MerchantDefinedFieldValuesWithDefinition** | [**List&lt;InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition&gt;**](InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition.md) |  | [optional] 
 **InvoiceHistory** | [**List&lt;InvoicingV2InvoicesGet200ResponseInvoiceHistory&gt;**](InvoicingV2InvoicesGet200ResponseInvoiceHistory.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

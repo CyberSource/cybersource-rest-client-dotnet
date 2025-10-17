@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201Response1IssuerInformation" /> class.
         /// </summary>
         /// <param name="Name">Name of the card issuer provided by the processor. .</param>
-        /// <param name="Code">Unique code for card issuer provided by the processor. .</param>
+        /// <param name="Code">Unique code for card issuer provided by the processor..</param>
         public PtsV2PaymentsPost201Response1IssuerInformation(string Name = default(string), string Code = default(string))
         {
             this.Name = Name;
@@ -49,9 +49,9 @@ namespace CyberSource.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Unique code for card issuer provided by the processor. 
+        /// Unique code for card issuer provided by the processor.
         /// </summary>
-        /// <value>Unique code for card issuer provided by the processor. </value>
+        /// <value>Unique code for card issuer provided by the processor.</value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 

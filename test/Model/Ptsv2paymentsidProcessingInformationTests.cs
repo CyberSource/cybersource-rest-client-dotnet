@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AuthorizationOptions'
         }
+        /// <summary>
+        /// Test the property 'Network'
+        /// </summary>
+        [Test]
+        public void NetworkTest()
+        {
+            // TODO unit test for the property 'Network'
+        }
 
     }
 

@@ -65,20 +65,20 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Pullfunds'
+        /// Test the property 'Common'
         /// </summary>
         [Test]
-        public void PullfundsTest()
+        public void CommonTest()
         {
-            // TODO unit test for the property 'Pullfunds'
+            // TODO unit test for the property 'Common'
         }
         /// <summary>
-        /// Test the property 'Pushfunds'
+        /// Test the property 'Processors'
         /// </summary>
         [Test]
-        public void PushfundsTest()
+        public void ProcessorsTest()
         {
-            // TODO unit test for the property 'Pushfunds'
+            // TODO unit test for the property 'Processors'
         }
 
     }

@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'RefundBalance'
+        /// </summary>
+        [Test]
+        public void RefundBalanceTest()
+        {
+            // TODO unit test for the property 'RefundBalance'
+        }
+        /// <summary>
         /// Test the property 'GiftWrapAmount'
         /// </summary>
         [Test]

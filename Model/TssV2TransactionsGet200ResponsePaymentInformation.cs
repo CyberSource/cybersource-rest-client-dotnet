@@ -34,6 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponsePaymentInformation" /> class.
         /// </summary>
         /// <param name="PaymentType">PaymentType.</param>
+        /// <param name="EWallet">EWallet.</param>
         /// <param name="Customer">Customer.</param>
         /// <param name="Card">Card.</param>
         /// <param name="Brands">This array contains the supported brands. .</param>
@@ -47,9 +48,10 @@ namespace CyberSource.Model
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
         /// <param name="ShippingAddress">ShippingAddress.</param>
         /// <param name="FluidData">FluidData.</param>
-        public TssV2TransactionsGet200ResponsePaymentInformation(TssV2TransactionsGet200ResponsePaymentInformationPaymentType PaymentType = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentType), TssV2TransactionsGet200ResponsePaymentInformationCustomer Customer = default(TssV2TransactionsGet200ResponsePaymentInformationCustomer), TssV2TransactionsGet200ResponsePaymentInformationCard Card = default(TssV2TransactionsGet200ResponsePaymentInformationCard), List<TssV2TransactionsGet200ResponsePaymentInformationBrands> Brands = default(List<TssV2TransactionsGet200ResponsePaymentInformationBrands>), TssV2TransactionsGet200ResponsePaymentInformationFeatures Features = default(TssV2TransactionsGet200ResponsePaymentInformationFeatures), TssV2TransactionsGet200ResponsePaymentInformationInvoice Invoice = default(TssV2TransactionsGet200ResponsePaymentInformationInvoice), TssV2TransactionsGet200ResponsePaymentInformationNetwork Network = default(TssV2TransactionsGet200ResponsePaymentInformationNetwork), TssV2TransactionsGet200ResponsePaymentInformationIssuerInformation IssuerInformation = default(TssV2TransactionsGet200ResponsePaymentInformationIssuerInformation), TssV2TransactionsGet200ResponsePaymentInformationBank Bank = default(TssV2TransactionsGet200ResponsePaymentInformationBank), TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures AccountFeatures = default(TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures), PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument PaymentInstrument = default(PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument), TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier), PtsV2PaymentsPost201ResponseTokenInformationShippingAddress ShippingAddress = default(PtsV2PaymentsPost201ResponseTokenInformationShippingAddress), TssV2TransactionsGet200ResponsePaymentInformationFluidData FluidData = default(TssV2TransactionsGet200ResponsePaymentInformationFluidData))
+        public TssV2TransactionsGet200ResponsePaymentInformation(TssV2TransactionsGet200ResponsePaymentInformationPaymentType PaymentType = default(TssV2TransactionsGet200ResponsePaymentInformationPaymentType), PtsV2PaymentsPost201Response1PaymentInformationEWallet EWallet = default(PtsV2PaymentsPost201Response1PaymentInformationEWallet), TssV2TransactionsGet200ResponsePaymentInformationCustomer Customer = default(TssV2TransactionsGet200ResponsePaymentInformationCustomer), TssV2TransactionsGet200ResponsePaymentInformationCard Card = default(TssV2TransactionsGet200ResponsePaymentInformationCard), List<TssV2TransactionsGet200ResponsePaymentInformationBrands> Brands = default(List<TssV2TransactionsGet200ResponsePaymentInformationBrands>), TssV2TransactionsGet200ResponsePaymentInformationFeatures Features = default(TssV2TransactionsGet200ResponsePaymentInformationFeatures), TssV2TransactionsGet200ResponsePaymentInformationInvoice Invoice = default(TssV2TransactionsGet200ResponsePaymentInformationInvoice), TssV2TransactionsGet200ResponsePaymentInformationNetwork Network = default(TssV2TransactionsGet200ResponsePaymentInformationNetwork), TssV2TransactionsGet200ResponsePaymentInformationIssuerInformation IssuerInformation = default(TssV2TransactionsGet200ResponsePaymentInformationIssuerInformation), TssV2TransactionsGet200ResponsePaymentInformationBank Bank = default(TssV2TransactionsGet200ResponsePaymentInformationBank), TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures AccountFeatures = default(TssV2TransactionsGet200ResponsePaymentInformationAccountFeatures), PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument PaymentInstrument = default(PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument), TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(TssV2TransactionsGet200ResponsePaymentInformationInstrumentIdentifier), PtsV2PaymentsPost201ResponseTokenInformationShippingAddress ShippingAddress = default(PtsV2PaymentsPost201ResponseTokenInformationShippingAddress), TssV2TransactionsGet200ResponsePaymentInformationFluidData FluidData = default(TssV2TransactionsGet200ResponsePaymentInformationFluidData))
         {
             this.PaymentType = PaymentType;
+            this.EWallet = EWallet;
             this.Customer = Customer;
             this.Card = Card;
             this.Brands = Brands;
@@ -70,6 +72,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="paymentType", EmitDefaultValue=false)]
         public TssV2TransactionsGet200ResponsePaymentInformationPaymentType PaymentType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EWallet
+        /// </summary>
+        [DataMember(Name="eWallet", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201Response1PaymentInformationEWallet EWallet { get; set; }
 
         /// <summary>
         /// Gets or Sets Customer
@@ -159,6 +167,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class TssV2TransactionsGet200ResponsePaymentInformation {\n");
             if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (EWallet != null) sb.Append("  EWallet: ").Append(EWallet).Append("\n");
             if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
             if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
             if (Brands != null) sb.Append("  Brands: ").Append(Brands).Append("\n");
@@ -212,6 +221,11 @@ namespace CyberSource.Model
                     this.PaymentType == other.PaymentType ||
                     this.PaymentType != null &&
                     this.PaymentType.Equals(other.PaymentType)
+                ) && 
+                (
+                    this.EWallet == other.EWallet ||
+                    this.EWallet != null &&
+                    this.EWallet.Equals(other.EWallet)
                 ) && 
                 (
                     this.Customer == other.Customer ||
@@ -293,6 +307,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.PaymentType != null)
                     hash = hash * 59 + this.PaymentType.GetHashCode();
+                if (this.EWallet != null)
+                    hash = hash * 59 + this.EWallet.GetHashCode();
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
                 if (this.Card != null)
