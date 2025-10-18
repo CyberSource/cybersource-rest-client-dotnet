@@ -456,7 +456,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeletePaymentInstrument,DeletePaymentInstrumentAsync,DeletePaymentInstrumentWithHttpInfo,DeletePaymentInstrumentAsyncWithHttpInfo"))
             {
                 try
@@ -470,12 +470,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "DeletePaymentInstrument,DeletePaymentInstrumentAsync,DeletePaymentInstrumentWithHttpInfo,DeletePaymentInstrumentAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -577,7 +579,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeletePaymentInstrument,DeletePaymentInstrumentAsync,DeletePaymentInstrumentWithHttpInfo,DeletePaymentInstrumentAsyncWithHttpInfo"))
             {
                 try
@@ -591,12 +593,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "DeletePaymentInstrument,DeletePaymentInstrumentAsync,DeletePaymentInstrumentWithHttpInfo,DeletePaymentInstrumentAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -706,7 +710,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPaymentInstrument,GetPaymentInstrumentAsync,GetPaymentInstrumentWithHttpInfo,GetPaymentInstrumentAsyncWithHttpInfo"))
             {
                 try
@@ -720,12 +724,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetPaymentInstrument,GetPaymentInstrumentAsync,GetPaymentInstrumentWithHttpInfo,GetPaymentInstrumentAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -741,7 +747,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest))); // Return statement
+                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -836,7 +842,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPaymentInstrument,GetPaymentInstrumentAsync,GetPaymentInstrumentWithHttpInfo,GetPaymentInstrumentAsyncWithHttpInfo"))
             {
                 try
@@ -850,12 +856,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetPaymentInstrument,GetPaymentInstrumentAsync,GetPaymentInstrumentWithHttpInfo,GetPaymentInstrumentAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -871,7 +879,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest))); // Return statement
+                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Update a Payment Instrument |  |  |  | | - -- | - -- | - -- | |**Standalone Payment Instruments**&lt;br&gt;A Payment Instrument represents tokenized payment information such as expiration date, billing address &amp; card type.&lt;br&gt;A Payment Instrument token does not store the card number. A Payment Instrument is associated with an [Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier) that represents either a payment card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;**Standalone Payment Instruments do not belong to a [Customer](#token-management_customer_create-a-customer).**|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating a Payment Instrument**&lt;br&gt;Your system can use this API to update an existing Payment Instrument. 
@@ -974,7 +982,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PatchPaymentInstrument,PatchPaymentInstrumentAsync,PatchPaymentInstrumentWithHttpInfo,PatchPaymentInstrumentAsyncWithHttpInfo"))
             {
                 try
@@ -988,13 +996,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "PatchPaymentInstrument,PatchPaymentInstrumentAsync,PatchPaymentInstrumentWithHttpInfo,PatchPaymentInstrumentAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1010,7 +1020,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PatchPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PatchPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchPaymentInstrumentRequest))); // Return statement
+                (PatchPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1115,7 +1125,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PatchPaymentInstrument,PatchPaymentInstrumentAsync,PatchPaymentInstrumentWithHttpInfo,PatchPaymentInstrumentAsyncWithHttpInfo"))
             {
                 try
@@ -1129,13 +1139,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "PatchPaymentInstrument,PatchPaymentInstrumentAsync,PatchPaymentInstrumentWithHttpInfo,PatchPaymentInstrumentAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1151,7 +1163,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PatchPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PatchPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchPaymentInstrumentRequest))); // Return statement
+                (PatchPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PatchPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Create a Payment Instrument |  |  |  | | - -- | - -- | - -- | |**Standalone Payment Instruments**&lt;br&gt;A Payment Instrument represents tokenized payment information such as expiration date, billing address &amp; card type.&lt;br&gt;A Payment Instrument token does not store the card number. A Payment Instrument is associated with an [Instrument Identifier](#token-management_instrument-identifier_create-an-instrument-identifier) that represents either a payment card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;**Standalone Payment Instruments do not belong to a [Customer](#token-management_customer_create-a-customer).**&lt;br&gt;&lt;br&gt;**Creating a Payment Instrument**&lt;br&gt;It is recommended you [create a Payment Instrument via a Payment Authorization](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-with-token-create_authorization-with-customer-token-creation_liveconsole-tab-request-body), this can be for a zero amount.&lt;br&gt;In Europe: You should perform Payer Authentication alongside the Authorization.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Network Tokens**&lt;br&gt;Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires.&lt;br&gt;A Payment Network Token will be automatically created and used in future payments if you are enabled for the service.&lt;br&gt;A Payment Network Token can also be [provisioned for an existing Instrument Identifier](#token-management_instrument-identifier_enroll-an-instrument-identifier-for-payment-network-token).&lt;br&gt;For more information about Payment Network Tokens see the Developer Guide.&lt;br&gt;&lt;br&gt;**Payments with Payment Instruments**&lt;br&gt;To perform a payment with a particular Payment Instrument specify the [Payment Instrument in the payment request](#payments_payments_process-a-payment_samplerequests-dropdown_authorization-using-tokens_authorization-with-customer-payment-instrument-and-shipping-address-token-id_liveconsole-tab-request-body). 
@@ -1235,7 +1247,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostPaymentInstrument,PostPaymentInstrumentAsync,PostPaymentInstrumentWithHttpInfo,PostPaymentInstrumentAsyncWithHttpInfo"))
             {
                 try
@@ -1249,13 +1261,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "PostPaymentInstrument,PostPaymentInstrumentAsync,PostPaymentInstrumentWithHttpInfo,PostPaymentInstrumentAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1271,7 +1285,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest))); // Return statement
+                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1357,7 +1371,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostPaymentInstrument,PostPaymentInstrumentAsync,PostPaymentInstrumentWithHttpInfo,PostPaymentInstrumentAsyncWithHttpInfo"))
             {
                 try
@@ -1371,13 +1385,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "PostPaymentInstrument,PostPaymentInstrumentAsync,PostPaymentInstrumentWithHttpInfo,PostPaymentInstrumentAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1393,7 +1409,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PostPaymentInstrumentRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest))); // Return statement
+                (PostPaymentInstrumentRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PostPaymentInstrumentRequest), merchantConfig)); // Return statement
         }
     }
 }

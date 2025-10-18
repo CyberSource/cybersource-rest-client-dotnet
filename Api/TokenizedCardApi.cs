@@ -390,7 +390,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeleteTokenizedCard,DeleteTokenizedCardAsync,DeleteTokenizedCardWithHttpInfo,DeleteTokenizedCardAsyncWithHttpInfo"))
             {
                 try
@@ -404,12 +404,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "DeleteTokenizedCard,DeleteTokenizedCardAsync,DeleteTokenizedCardWithHttpInfo,DeleteTokenizedCardAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -511,7 +513,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeleteTokenizedCard,DeleteTokenizedCardAsync,DeleteTokenizedCardWithHttpInfo,DeleteTokenizedCardAsyncWithHttpInfo"))
             {
                 try
@@ -525,12 +527,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "DeleteTokenizedCard,DeleteTokenizedCardAsync,DeleteTokenizedCardWithHttpInfo,DeleteTokenizedCardAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -633,7 +637,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetTokenizedCard,GetTokenizedCardAsync,GetTokenizedCardWithHttpInfo,GetTokenizedCardAsyncWithHttpInfo"))
             {
                 try
@@ -647,12 +651,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetTokenizedCard,GetTokenizedCardAsync,GetTokenizedCardWithHttpInfo,GetTokenizedCardAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -668,7 +674,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest))); // Return statement
+                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -756,7 +762,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetTokenizedCard,GetTokenizedCardAsync,GetTokenizedCardWithHttpInfo,GetTokenizedCardAsyncWithHttpInfo"))
             {
                 try
@@ -770,12 +776,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetTokenizedCard,GetTokenizedCardAsync,GetTokenizedCardWithHttpInfo,GetTokenizedCardAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -791,7 +799,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest))); // Return statement
+                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Create a Tokenized Card |  |  |  | | - -- | - -- | - -- | |**Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. 
@@ -868,7 +876,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostTokenizedCard,PostTokenizedCardAsync,PostTokenizedCardWithHttpInfo,PostTokenizedCardAsyncWithHttpInfo"))
             {
                 try
@@ -882,13 +890,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "PostTokenizedCard,PostTokenizedCardAsync,PostTokenizedCardWithHttpInfo,PostTokenizedCardAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -904,7 +914,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest))); // Return statement
+                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -983,7 +993,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostTokenizedCard,PostTokenizedCardAsync,PostTokenizedCardWithHttpInfo,PostTokenizedCardAsyncWithHttpInfo"))
             {
                 try
@@ -997,13 +1007,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "PostTokenizedCard,PostTokenizedCardAsync,PostTokenizedCardWithHttpInfo,PostTokenizedCardAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1019,7 +1031,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest))); // Return statement
+                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), merchantConfig)); // Return statement
         }
     }
 }

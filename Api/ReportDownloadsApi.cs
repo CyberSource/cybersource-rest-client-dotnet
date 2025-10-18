@@ -317,7 +317,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DownloadReport,DownloadReportAsync,DownloadReportWithHttpInfo,DownloadReportAsyncWithHttpInfo"))
             {
                 try
@@ -331,12 +331,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "DownloadReport,DownloadReportAsync,DownloadReportWithHttpInfo,DownloadReportAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -453,7 +455,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DownloadReport,DownloadReportAsync,DownloadReportWithHttpInfo,DownloadReportAsyncWithHttpInfo"))
             {
                 try
@@ -467,12 +469,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "DownloadReport,DownloadReportAsync,DownloadReportWithHttpInfo,DownloadReportAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
