@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="SubscriptionInformation">SubscriptionInformation.</param>
         /// <param name="ConfigurationInformation">ConfigurationInformation.</param>
-        public PaymentsProductsCurrencyConversion(PaymentsProductsAlternativePaymentMethodsSubscriptionInformation SubscriptionInformation = default(PaymentsProductsAlternativePaymentMethodsSubscriptionInformation), PaymentsProductsCurrencyConversionConfigurationInformation ConfigurationInformation = default(PaymentsProductsCurrencyConversionConfigurationInformation))
+        public PaymentsProductsCurrencyConversion(PaymentsProductsPayerAuthenticationSubscriptionInformation SubscriptionInformation = default(PaymentsProductsPayerAuthenticationSubscriptionInformation), PaymentsProductsCurrencyConversionConfigurationInformation ConfigurationInformation = default(PaymentsProductsCurrencyConversionConfigurationInformation))
         {
             this.SubscriptionInformation = SubscriptionInformation;
             this.ConfigurationInformation = ConfigurationInformation;
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// Gets or Sets SubscriptionInformation
         /// </summary>
         [DataMember(Name="subscriptionInformation", EmitDefaultValue=false)]
-        public PaymentsProductsAlternativePaymentMethodsSubscriptionInformation SubscriptionInformation { get; set; }
+        public PaymentsProductsPayerAuthenticationSubscriptionInformation SubscriptionInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ConfigurationInformation

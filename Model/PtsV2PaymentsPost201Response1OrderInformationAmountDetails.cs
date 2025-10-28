@@ -33,16 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201Response1OrderInformationAmountDetails" /> class.
         /// </summary>
-        /// <param name="RefundBalance">This field will carry the remaning amount which can be refunded. .</param>
+        /// <param name="RefundBalance">The remaining amount which can be refunded..</param>
         public PtsV2PaymentsPost201Response1OrderInformationAmountDetails(string RefundBalance = default(string))
         {
             this.RefundBalance = RefundBalance;
         }
         
         /// <summary>
-        /// This field will carry the remaning amount which can be refunded. 
+        /// The remaining amount which can be refunded.
         /// </summary>
-        /// <value>This field will carry the remaning amount which can be refunded. </value>
+        /// <value>The remaining amount which can be refunded.</value>
         [DataMember(Name="refundBalance", EmitDefaultValue=false)]
         public string RefundBalance { get; set; }
 

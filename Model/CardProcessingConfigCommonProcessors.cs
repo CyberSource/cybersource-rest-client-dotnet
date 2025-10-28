@@ -43,6 +43,7 @@ namespace CyberSource.Model
         /// <param name="MerchantVerificationValue">Identify merchants that participate in Select Merchant Fee (SMF) programs. Unique to the merchant. Applicable for GPX (gpx) and VPC processors..</param>
         /// <param name="AbaNumber">Routing Number to identify banks within the United States. Applicable for GPX (gpx) processors..</param>
         /// <param name="Acquirer">Acquirer.</param>
+        /// <param name="Acquirers">Identifies the financial institution acting as the acquirer of this customer transaction. The acquirer is the member or system user that signed the merchant..</param>
         /// <param name="MerchantId">Merchant ID assigned by an acquirer or a processor. Should not be overriden by any other party.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays HISO&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Barclays&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt;  (required).</param>
         /// <param name="TerminalId">The &#39;Terminal Id&#39; aka TID, is an identifier used for with your payments processor. Depending on the processor and payment acceptance type this may also be the default Terminal ID used for Card Present and Virtual Terminal transactions.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays HISO&lt;/td&gt;&lt;td&gt;cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;16&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Barclays HISO&lt;/td&gt;&lt;td&gt;cp&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;16&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
         /// <param name="PaymentTypes">Valid values are: * VISA * MASTERCARD * AMERICAN_EXPRESS * CUP * EFTPOS * DINERS_CLUB * DISCOVER * JCB .</param>
@@ -85,13 +86,14 @@ namespace CyberSource.Model
         /// <param name="EnablePosNetworkSwitching">&#39;POS Network Switching&#39; or &#39;Alternate Routing&#39; means merchant can process PIN Debit transactions without a PIN. Set the value to &#39;Yes&#39; if it is supported. Applicable for FDI Global (fdiglobal) processor..</param>
         /// <param name="EnableDynamicCurrencyConversion">Enable dynamic currency conversion for a merchant..</param>
         /// <param name="MerchantTier">Merchant Tier defines the type of merchant, the numeric Merchant Tier value is allocated by EFTPOS. Applicable for EFTPOS processors..</param>
-        public CardProcessingConfigCommonProcessors(string BatchGroup = default(string), string BusinessApplicationId = default(string), string MerchantVerificationValue = default(string), string AbaNumber = default(string), CardProcessingConfigCommonAcquirer Acquirer = default(CardProcessingConfigCommonAcquirer), string MerchantId = default(string), string TerminalId = default(string), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CardProcessingConfigCommonCurrencies1> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies1>), string VisaAggregatorId = default(string), string AmexAggregatorId = default(string), string MasterCardAggregatorId = default(string), string SicCode = default(string), bool? AllowMultipleBills = default(bool?), bool? AllowMerchantDescriptorOverride = default(bool?), string EnhancedData = default(string), bool? FireSafetyIndicator = default(bool?), bool? QuasiCash = default(bool?), string AcquirerMerchantId = default(string), string AvsFormat = default(string), bool? EnableLongTransRefNo = default(bool?), bool? EnableLevel2 = default(bool?), bool? EnableMultipleTransactionAdviceAddendum = default(bool?), string AmexTransactionAdviceAddendum1 = default(string), bool? EnableMultiLineItems = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), bool? EnableAutoAuthReversalAfterVoid = default(bool?), bool? EnableExpresspayPanTranslation = default(bool?), bool? EnableCreditAuth = default(bool?), string IndustryCode = default(string), bool? SendAmexLevel2Data = default(bool?), string SoftDescriptorType = default(string), string VitalNumber = default(string), string BankNumber = default(string), string ChainNumber = default(string), string MerchantBinNumber = default(string), string MerchantLocationNumber = default(string), string StoreID = default(string), string TravelAgencyCode = default(string), string TravelAgencyName = default(string), string SettlementCurrency = default(string), bool? EnableLeastCostRouting = default(bool?), bool? EnableCVVResponseIndicator = default(bool?), string EnableMultiCurrencyProcessing = default(string), bool? EnablePosNetworkSwitching = default(bool?), bool? EnableDynamicCurrencyConversion = default(bool?), string MerchantTier = default(string))
+        public CardProcessingConfigCommonProcessors(string BatchGroup = default(string), string BusinessApplicationId = default(string), string MerchantVerificationValue = default(string), string AbaNumber = default(string), CardProcessingConfigCommonAcquirer Acquirer = default(CardProcessingConfigCommonAcquirer), Dictionary<string, CardProcessingConfigCommonAcquirers> Acquirers = default(Dictionary<string, CardProcessingConfigCommonAcquirers>), string MerchantId = default(string), string TerminalId = default(string), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CardProcessingConfigCommonCurrencies1> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies1>), string VisaAggregatorId = default(string), string AmexAggregatorId = default(string), string MasterCardAggregatorId = default(string), string SicCode = default(string), bool? AllowMultipleBills = default(bool?), bool? AllowMerchantDescriptorOverride = default(bool?), string EnhancedData = default(string), bool? FireSafetyIndicator = default(bool?), bool? QuasiCash = default(bool?), string AcquirerMerchantId = default(string), string AvsFormat = default(string), bool? EnableLongTransRefNo = default(bool?), bool? EnableLevel2 = default(bool?), bool? EnableMultipleTransactionAdviceAddendum = default(bool?), string AmexTransactionAdviceAddendum1 = default(string), bool? EnableMultiLineItems = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), bool? EnableAutoAuthReversalAfterVoid = default(bool?), bool? EnableExpresspayPanTranslation = default(bool?), bool? EnableCreditAuth = default(bool?), string IndustryCode = default(string), bool? SendAmexLevel2Data = default(bool?), string SoftDescriptorType = default(string), string VitalNumber = default(string), string BankNumber = default(string), string ChainNumber = default(string), string MerchantBinNumber = default(string), string MerchantLocationNumber = default(string), string StoreID = default(string), string TravelAgencyCode = default(string), string TravelAgencyName = default(string), string SettlementCurrency = default(string), bool? EnableLeastCostRouting = default(bool?), bool? EnableCVVResponseIndicator = default(bool?), string EnableMultiCurrencyProcessing = default(string), bool? EnablePosNetworkSwitching = default(bool?), bool? EnableDynamicCurrencyConversion = default(bool?), string MerchantTier = default(string))
         {
             this.BatchGroup = BatchGroup;
             this.BusinessApplicationId = BusinessApplicationId;
             this.MerchantVerificationValue = MerchantVerificationValue;
             this.AbaNumber = AbaNumber;
             this.Acquirer = Acquirer;
+            this.Acquirers = Acquirers;
             this.MerchantId = MerchantId;
             this.TerminalId = TerminalId;
             this.PaymentTypes = PaymentTypes;
@@ -169,6 +171,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="acquirer", EmitDefaultValue=false)]
         public CardProcessingConfigCommonAcquirer Acquirer { get; set; }
+
+        /// <summary>
+        /// Identifies the financial institution acting as the acquirer of this customer transaction. The acquirer is the member or system user that signed the merchant.
+        /// </summary>
+        /// <value>Identifies the financial institution acting as the acquirer of this customer transaction. The acquirer is the member or system user that signed the merchant.</value>
+        [DataMember(Name="acquirers", EmitDefaultValue=false)]
+        public Dictionary<string, CardProcessingConfigCommonAcquirers> Acquirers { get; set; }
 
         /// <summary>
         /// Merchant ID assigned by an acquirer or a processor. Should not be overriden by any other party.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays HISO&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Barclays&lt;/td&gt;&lt;td&gt;cp, cnp, hybrid&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; 
@@ -477,6 +486,7 @@ namespace CyberSource.Model
             if (MerchantVerificationValue != null) sb.Append("  MerchantVerificationValue: ").Append(MerchantVerificationValue).Append("\n");
             if (AbaNumber != null) sb.Append("  AbaNumber: ").Append(AbaNumber).Append("\n");
             if (Acquirer != null) sb.Append("  Acquirer: ").Append(Acquirer).Append("\n");
+            if (Acquirers != null) sb.Append("  Acquirers: ").Append(Acquirers).Append("\n");
             if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             if (TerminalId != null) sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
             if (PaymentTypes != null) sb.Append("  PaymentTypes: ").Append(PaymentTypes).Append("\n");
@@ -579,6 +589,11 @@ namespace CyberSource.Model
                     this.Acquirer == other.Acquirer ||
                     this.Acquirer != null &&
                     this.Acquirer.Equals(other.Acquirer)
+                ) && 
+                (
+                    this.Acquirers == other.Acquirers ||
+                    this.Acquirers != null &&
+                    this.Acquirers.SequenceEqual(other.Acquirers)
                 ) && 
                 (
                     this.MerchantId == other.MerchantId ||
@@ -813,6 +828,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AbaNumber.GetHashCode();
                 if (this.Acquirer != null)
                     hash = hash * 59 + this.Acquirer.GetHashCode();
+                if (this.Acquirers != null)
+                    hash = hash * 59 + this.Acquirers.GetHashCode();
                 if (this.MerchantId != null)
                     hash = hash * 59 + this.MerchantId.GetHashCode();
                 if (this.TerminalId != null)

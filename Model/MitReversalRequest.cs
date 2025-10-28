@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public MitReversalRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidreversalsReversalInformation ReversalInformation = default(Ptsv2paymentsidreversalsReversalInformation), Ptsv2paymentsidreversalsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidreversalsProcessingInformation), Ptsv2paymentsidreversalsOrderInformation OrderInformation = default(Ptsv2paymentsidreversalsOrderInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation))
+        /// <param name="ProcessorInformation">ProcessorInformation.</param>
+        public MitReversalRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidreversalsReversalInformation ReversalInformation = default(Ptsv2paymentsidreversalsReversalInformation), Ptsv2paymentsidreversalsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidreversalsProcessingInformation), Ptsv2paymentsidreversalsOrderInformation OrderInformation = default(Ptsv2paymentsidreversalsOrderInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation), Ptsv2reversalsProcessorInformation ProcessorInformation = default(Ptsv2reversalsProcessorInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ReversalInformation = ReversalInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.OrderInformation = OrderInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
+            this.ProcessorInformation = ProcessorInformation;
         }
         
         /// <summary>
@@ -78,6 +80,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProcessorInformation
+        /// </summary>
+        [DataMember(Name="processorInformation", EmitDefaultValue=false)]
+        public Ptsv2reversalsProcessorInformation ProcessorInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +98,7 @@ namespace CyberSource.Model
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             if (PointOfSaleInformation != null) sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
+            if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +159,11 @@ namespace CyberSource.Model
                     this.PointOfSaleInformation == other.PointOfSaleInformation ||
                     this.PointOfSaleInformation != null &&
                     this.PointOfSaleInformation.Equals(other.PointOfSaleInformation)
+                ) && 
+                (
+                    this.ProcessorInformation == other.ProcessorInformation ||
+                    this.ProcessorInformation != null &&
+                    this.ProcessorInformation.Equals(other.ProcessorInformation)
                 );
         }
 
@@ -174,6 +188,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.PointOfSaleInformation != null)
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
+                if (this.ProcessorInformation != null)
+                    hash = hash * 59 + this.ProcessorInformation.GetHashCode();
                 return hash;
             }
         }

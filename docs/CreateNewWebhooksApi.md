@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="findproductstosubscribe"></a>
 # **FindProductsToSubscribe**
-> List<InlineResponse2003> FindProductsToSubscribe (string organizationId)
+> List<InlineResponse2004> FindProductsToSubscribe (string organizationId)
 
 Find Products You Can Subscribe To
 
@@ -37,7 +37,7 @@ namespace Example
             try
             {
                 // Find Products You Can Subscribe To
-                List&lt;InlineResponse2003&gt; result = apiInstance.FindProductsToSubscribe(organizationId);
+                List&lt;InlineResponse2004&gt; result = apiInstance.FindProductsToSubscribe(organizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2003>**](InlineResponse2003.md)
+[**List<InlineResponse2004>**](InlineResponse2004.md)
 
 ### Authorization
 

@@ -129,6 +129,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'OrderInformation'
         }
         /// <summary>
+        /// Test the property 'MerchantDefinedFieldValuesWithDefinition'
+        /// </summary>
+        [Test]
+        public void MerchantDefinedFieldValuesWithDefinitionTest()
+        {
+            // TODO unit test for the property 'MerchantDefinedFieldValuesWithDefinition'
+        }
+        /// <summary>
         /// Test the property 'InvoiceHistory'
         /// </summary>
         [Test]

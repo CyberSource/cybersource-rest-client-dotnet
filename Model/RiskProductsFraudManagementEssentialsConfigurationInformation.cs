@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="RiskProductsFraudManagementEssentialsConfigurationInformation" /> class.
         /// </summary>
         /// <param name="TemplateId">TemplateId.</param>
-        public RiskProductsFraudManagementEssentialsConfigurationInformation(Guid? TemplateId = default(Guid?))
+        public RiskProductsFraudManagementEssentialsConfigurationInformation(string TemplateId = default(string))
         {
             this.TemplateId = TemplateId;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets TemplateId
         /// </summary>
         [DataMember(Name="templateId", EmitDefaultValue=false)]
-        public Guid? TemplateId { get; set; }
+        public string TemplateId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

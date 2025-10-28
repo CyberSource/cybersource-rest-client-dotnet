@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PaymentType** | [**TssV2TransactionsGet200ResponsePaymentInformationPaymentType**](TssV2TransactionsGet200ResponsePaymentInformationPaymentType.md) |  | [optional] 
+**EWallet** | [**PtsV2PaymentsPost201Response1PaymentInformationEWallet**](PtsV2PaymentsPost201Response1PaymentInformationEWallet.md) |  | [optional] 
 **Customer** | [**TssV2TransactionsGet200ResponsePaymentInformationCustomer**](TssV2TransactionsGet200ResponsePaymentInformationCustomer.md) |  | [optional] 
 **Card** | [**TssV2TransactionsGet200ResponsePaymentInformationCard**](TssV2TransactionsGet200ResponsePaymentInformationCard.md) |  | [optional] 
 **Brands** | [**List&lt;TssV2TransactionsGet200ResponsePaymentInformationBrands&gt;**](TssV2TransactionsGet200ResponsePaymentInformationBrands.md) | This array contains the supported brands.  | [optional] 

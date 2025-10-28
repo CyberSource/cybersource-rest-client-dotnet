@@ -99,7 +99,7 @@ namespace CyberSource.Test
             //string productId = null;
             //string eventType = null;
             //var response = instance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
-            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
+            //Assert.IsInstanceOf<List<InlineResponse2005>> (response, "response is List<InlineResponse2005>");
         }
         
         /// <summary>
@@ -124,7 +124,7 @@ namespace CyberSource.Test
             //string webhookId = null;
             //UpdateWebhook updateWebhook = null;
             //var response = instance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
-            //Assert.IsInstanceOf<InlineResponse2005> (response, "response is InlineResponse2005");
+            //Assert.IsInstanceOf<InlineResponse2006> (response, "response is InlineResponse2006");
         }
         
         /// <summary>

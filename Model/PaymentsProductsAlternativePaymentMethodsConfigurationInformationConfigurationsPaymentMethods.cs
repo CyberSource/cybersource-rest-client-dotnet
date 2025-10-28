@@ -38,14 +38,16 @@ namespace CyberSource.Model
         /// <param name="RedirectSuccessUrl">URL to redirect to after a successful transaction. This is where the user will be sent after completing the payment. example: http://www.test.com/success .</param>
         /// <param name="RedirectCancelUrl">URL to redirect to if the user cancels the transaction. This is where the user will be sent if they choose to cancel the payment. example: http://www.test.com/cancel .</param>
         /// <param name="RedirectFailureUrl">URL to redirect to if the transaction fails. This is where the user will be sent if there is an error during the payment process. example: http://www.test.com/failure .</param>
+        /// <param name="Underwriting">Underwriting.</param>
         /// <param name="AdditionalConfigurations">Additional configurations for the payment method. This can include various settings specific to the payment method. .</param>
-        public PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsPaymentMethods(string MerchantId = default(string), string LogoUrl = default(string), string RedirectSuccessUrl = default(string), string RedirectCancelUrl = default(string), string RedirectFailureUrl = default(string), List<PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsAdditionalConfigurations> AdditionalConfigurations = default(List<PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsAdditionalConfigurations>))
+        public PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsPaymentMethods(string MerchantId = default(string), string LogoUrl = default(string), string RedirectSuccessUrl = default(string), string RedirectCancelUrl = default(string), string RedirectFailureUrl = default(string), UnderwritingConfiguration Underwriting = default(UnderwritingConfiguration), List<PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsAdditionalConfigurations> AdditionalConfigurations = default(List<PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsAdditionalConfigurations>))
         {
             this.MerchantId = MerchantId;
             this.LogoUrl = LogoUrl;
             this.RedirectSuccessUrl = RedirectSuccessUrl;
             this.RedirectCancelUrl = RedirectCancelUrl;
             this.RedirectFailureUrl = RedirectFailureUrl;
+            this.Underwriting = Underwriting;
             this.AdditionalConfigurations = AdditionalConfigurations;
         }
         
@@ -85,6 +87,12 @@ namespace CyberSource.Model
         public string RedirectFailureUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets Underwriting
+        /// </summary>
+        [DataMember(Name="underwriting", EmitDefaultValue=false)]
+        public UnderwritingConfiguration Underwriting { get; set; }
+
+        /// <summary>
         /// Additional configurations for the payment method. This can include various settings specific to the payment method. 
         /// </summary>
         /// <value>Additional configurations for the payment method. This can include various settings specific to the payment method. </value>
@@ -104,6 +112,7 @@ namespace CyberSource.Model
             if (RedirectSuccessUrl != null) sb.Append("  RedirectSuccessUrl: ").Append(RedirectSuccessUrl).Append("\n");
             if (RedirectCancelUrl != null) sb.Append("  RedirectCancelUrl: ").Append(RedirectCancelUrl).Append("\n");
             if (RedirectFailureUrl != null) sb.Append("  RedirectFailureUrl: ").Append(RedirectFailureUrl).Append("\n");
+            if (Underwriting != null) sb.Append("  Underwriting: ").Append(Underwriting).Append("\n");
             if (AdditionalConfigurations != null) sb.Append("  AdditionalConfigurations: ").Append(AdditionalConfigurations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -167,6 +176,11 @@ namespace CyberSource.Model
                     this.RedirectFailureUrl.Equals(other.RedirectFailureUrl)
                 ) && 
                 (
+                    this.Underwriting == other.Underwriting ||
+                    this.Underwriting != null &&
+                    this.Underwriting.Equals(other.Underwriting)
+                ) && 
+                (
                     this.AdditionalConfigurations == other.AdditionalConfigurations ||
                     this.AdditionalConfigurations != null &&
                     this.AdditionalConfigurations.SequenceEqual(other.AdditionalConfigurations)
@@ -194,6 +208,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RedirectCancelUrl.GetHashCode();
                 if (this.RedirectFailureUrl != null)
                     hash = hash * 59 + this.RedirectFailureUrl.GetHashCode();
+                if (this.Underwriting != null)
+                    hash = hash * 59 + this.Underwriting.GetHashCode();
                 if (this.AdditionalConfigurations != null)
                     hash = hash * 59 + this.AdditionalConfigurations.GetHashCode();
                 return hash;

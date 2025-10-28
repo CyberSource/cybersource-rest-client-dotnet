@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="postsearchquery"></a>
 # **PostSearchQuery**
-> InlineResponse2006 PostSearchQuery (PostDeviceSearchRequest postDeviceSearchRequest)
+> InlineResponse2007 PostSearchQuery (PostDeviceSearchRequest postDeviceSearchRequest)
 
 Retrieve List of Devices for a given search query V2
 
@@ -36,7 +36,7 @@ namespace Example
             try
             {
                 // Retrieve List of Devices for a given search query V2
-                InlineResponse2006 result = apiInstance.PostSearchQuery(postDeviceSearchRequest);
+                InlineResponse2007 result = apiInstance.PostSearchQuery(postDeviceSearchRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ No authorization required
 
 <a name="postsearchqueryv3"></a>
 # **PostSearchQueryV3**
-> InlineResponse2008 PostSearchQueryV3 (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
+> InlineResponse2009 PostSearchQueryV3 (PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
 
 Retrieve List of Devices for a given search query
 
@@ -97,7 +97,7 @@ namespace Example
             try
             {
                 // Retrieve List of Devices for a given search query
-                InlineResponse2008 result = apiInstance.PostSearchQueryV3(postDeviceSearchRequestV3);
+                InlineResponse2009 result = apiInstance.PostSearchQueryV3(postDeviceSearchRequestV3);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 

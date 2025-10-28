@@ -33,6 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsOrderInformationAmountDetails" /> class.
         /// </summary>
+        /// <param name="RefundBalance">The remaining amount which can be refunded..</param>
         /// <param name="GiftWrapAmount">Amount being charged as gift wrap fee. .</param>
         /// <param name="InvoiceAmount">Invoice amount.  The invoice amount issued by the Merchant to the Cardholder, which includes VAT (excluding items such as TIPS or CASHBACK). For transactions that do not have applicable Benefit Laws, the field may be entered as zeros.  This field is only applicable for Uruguay market.  Example: 100.00  Uruguay  The value for this field corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCR9 - Position: 7-18 - Field: Invoice Amount .</param>
         /// <param name="TotalAmount">Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  **Note** For CTV, FDCCompass, Paymentech processors, the maximum length for this field is 12.  **Important** Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths.  If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen.   #### Card Present Required to include either this field or &#x60;orderInformation.lineItems[].unitPrice&#x60; for the order.  #### Invoicing / Pay By Link Required for creating a new invoice or payment link.  #### PIN Debit Amount you requested for the PIN debit purchase. This value is returned for partial authorizations. The issuing bank can approve a partial amount if the balance on the debit card is less than the requested transaction amount.  Required field for PIN Debit purchase and PIN Debit credit requests. Optional field for PIN Debit reversal requests.  #### GPX This field is optional for reversing an authorization or credit; however, for all other processors, these fields are required.  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either this field or the 1st line item in the order and the specific line-order amount in your request.   #### DCC for First Data Not used. .</param>
@@ -64,8 +65,9 @@ namespace CyberSource.Model
         /// <param name="OctSurcharge">OctSurcharge.</param>
         /// <param name="Order">Order.</param>
         /// <param name="AnticipatedAmount">This API Field contains the anticipated amount details. This supports use cases where the Merchant does not wish to have funds held against the account, but needs to confirm an amount prior to authorization, such as for a trial subscription, reservation service, or loyalty program. In an account verification, the anticipated amount is used to confirm the account has availability to accept purchases. .</param>
-        public Ptsv2paymentsOrderInformationAmountDetails(string GiftWrapAmount = default(string), string InvoiceAmount = default(string), string TotalAmount = default(string), string SubTotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string DutyAmount = default(string), string GratuityAmount = default(string), string TaxAmount = default(string), string NationalTaxIncluded = default(string), string TaxAppliedAfterDiscount = default(string), string TaxAppliedLevel = default(string), string TaxTypeCode = default(string), string FreightAmount = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string), string ExchangeRate = default(string), string ExchangeRateTimeStamp = default(string), Ptsv2paymentsOrderInformationAmountDetailsSurcharge Surcharge = default(Ptsv2paymentsOrderInformationAmountDetailsSurcharge), string SettlementAmount = default(string), string SettlementCurrency = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts> AmexAdditionalAmounts = default(List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts>), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string ServiceFeeAmount = default(string), string OriginalAmount = default(string), string OriginalCurrency = default(string), string CashbackAmount = default(string), Ptsv2paymentsOrderInformationAmountDetailsCurrencyConversion CurrencyConversion = default(Ptsv2paymentsOrderInformationAmountDetailsCurrencyConversion), Ptsv2paymentsOrderInformationAmountDetailsOctsurcharge OctSurcharge = default(Ptsv2paymentsOrderInformationAmountDetailsOctsurcharge), Ptsv2paymentsOrderInformationAmountDetailsOrder Order = default(Ptsv2paymentsOrderInformationAmountDetailsOrder), string AnticipatedAmount = default(string))
+        public Ptsv2paymentsOrderInformationAmountDetails(string RefundBalance = default(string), string GiftWrapAmount = default(string), string InvoiceAmount = default(string), string TotalAmount = default(string), string SubTotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string DutyAmount = default(string), string GratuityAmount = default(string), string TaxAmount = default(string), string NationalTaxIncluded = default(string), string TaxAppliedAfterDiscount = default(string), string TaxAppliedLevel = default(string), string TaxTypeCode = default(string), string FreightAmount = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string), string ExchangeRate = default(string), string ExchangeRateTimeStamp = default(string), Ptsv2paymentsOrderInformationAmountDetailsSurcharge Surcharge = default(Ptsv2paymentsOrderInformationAmountDetailsSurcharge), string SettlementAmount = default(string), string SettlementCurrency = default(string), List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts> AmexAdditionalAmounts = default(List<Ptsv2paymentsOrderInformationAmountDetailsAmexAdditionalAmounts>), List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ptsv2paymentsOrderInformationAmountDetailsTaxDetails>), string ServiceFeeAmount = default(string), string OriginalAmount = default(string), string OriginalCurrency = default(string), string CashbackAmount = default(string), Ptsv2paymentsOrderInformationAmountDetailsCurrencyConversion CurrencyConversion = default(Ptsv2paymentsOrderInformationAmountDetailsCurrencyConversion), Ptsv2paymentsOrderInformationAmountDetailsOctsurcharge OctSurcharge = default(Ptsv2paymentsOrderInformationAmountDetailsOctsurcharge), Ptsv2paymentsOrderInformationAmountDetailsOrder Order = default(Ptsv2paymentsOrderInformationAmountDetailsOrder), string AnticipatedAmount = default(string))
         {
+            this.RefundBalance = RefundBalance;
             this.GiftWrapAmount = GiftWrapAmount;
             this.InvoiceAmount = InvoiceAmount;
             this.TotalAmount = TotalAmount;
@@ -99,6 +101,13 @@ namespace CyberSource.Model
             this.AnticipatedAmount = AnticipatedAmount;
         }
         
+        /// <summary>
+        /// The remaining amount which can be refunded.
+        /// </summary>
+        /// <value>The remaining amount which can be refunded.</value>
+        [DataMember(Name="refundBalance", EmitDefaultValue=false)]
+        public string RefundBalance { get; set; }
+
         /// <summary>
         /// Amount being charged as gift wrap fee. 
         /// </summary>
@@ -318,6 +327,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsOrderInformationAmountDetails {\n");
+            if (RefundBalance != null) sb.Append("  RefundBalance: ").Append(RefundBalance).Append("\n");
             if (GiftWrapAmount != null) sb.Append("  GiftWrapAmount: ").Append(GiftWrapAmount).Append("\n");
             if (InvoiceAmount != null) sb.Append("  InvoiceAmount: ").Append(InvoiceAmount).Append("\n");
             if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
@@ -385,6 +395,11 @@ namespace CyberSource.Model
                 return false;
 
             return 
+                (
+                    this.RefundBalance == other.RefundBalance ||
+                    this.RefundBalance != null &&
+                    this.RefundBalance.Equals(other.RefundBalance)
+                ) && 
                 (
                     this.GiftWrapAmount == other.GiftWrapAmount ||
                     this.GiftWrapAmount != null &&
@@ -553,6 +568,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.RefundBalance != null)
+                    hash = hash * 59 + this.RefundBalance.GetHashCode();
                 if (this.GiftWrapAmount != null)
                     hash = hash * 59 + this.GiftWrapAmount.GetHashCode();
                 if (this.InvoiceAmount != null)

@@ -33,45 +33,33 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4043" /> class.
         /// </summary>
-        /// <param name="Status">The status of the submitted request.   Possible values: - NOT_FOUND.</param>
-        /// <param name="Message">The detail message related to the status and reason listed above..</param>
-        /// <param name="Code">An optional short string which identifies the exact error..</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        public InlineResponse4043(string Status = default(string), string Message = default(string), string Code = default(string), string SubmitTimeUtc = default(string))
+        /// <param name="Reason">Reason.</param>
+        /// <param name="Message">Message.</param>
+        /// <param name="Details">Details.</param>
+        public InlineResponse4043(string Reason = default(string), string Message = default(string), List<InlineResponse4043Details> Details = default(List<InlineResponse4043Details>))
         {
-            this.Status = Status;
+            this.Reason = Reason;
             this.Message = Message;
-            this.Code = Code;
-            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Details = Details;
         }
         
         /// <summary>
-        /// The status of the submitted request.   Possible values: - NOT_FOUND
+        /// Gets or Sets Reason
         /// </summary>
-        /// <value>The status of the submitted request.   Possible values: - NOT_FOUND</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
-        /// The detail message related to the status and reason listed above.
+        /// Gets or Sets Message
         /// </summary>
-        /// <value>The detail message related to the status and reason listed above.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 
         /// <summary>
-        /// An optional short string which identifies the exact error.
+        /// Gets or Sets Details
         /// </summary>
-        /// <value>An optional short string which identifies the exact error.</value>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public string Code { get; set; }
-
-        /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
-        /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public List<InlineResponse4043Details> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,10 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4043 {\n");
-            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
-            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (Details != null) sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,9 +109,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -132,14 +119,9 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
-                ) && 
-                (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -154,14 +136,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
-                if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
                 return hash;
             }
         }

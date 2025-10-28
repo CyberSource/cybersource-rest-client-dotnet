@@ -113,6 +113,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'SettlementCurrency'
         }
         /// <summary>
+        /// Test the property 'RefundBalance'
+        /// </summary>
+        [Test]
+        public void RefundBalanceTest()
+        {
+            // TODO unit test for the property 'RefundBalance'
+        }
+        /// <summary>
         /// Test the property 'Surcharge'
         /// </summary>
         [Test]

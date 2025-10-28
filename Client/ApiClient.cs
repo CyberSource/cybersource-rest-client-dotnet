@@ -399,7 +399,7 @@ namespace CyberSource.Client
             clientOptions.Timeout = timeout;
 
             IWebProxy webProxy = null;
-            
+
             if (merchantConfig.UseProxy != null)
             {
                 if (bool.Parse(merchantConfig.UseProxy))
