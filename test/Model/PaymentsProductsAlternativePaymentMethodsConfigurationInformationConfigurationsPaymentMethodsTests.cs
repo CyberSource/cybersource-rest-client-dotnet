@@ -105,6 +105,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'RedirectFailureUrl'
         }
         /// <summary>
+        /// Test the property 'Underwriting'
+        /// </summary>
+        [Test]
+        public void UnderwritingTest()
+        {
+            // TODO unit test for the property 'Underwriting'
+        }
+        /// <summary>
         /// Test the property 'AdditionalConfigurations'
         /// </summary>
         [Test]

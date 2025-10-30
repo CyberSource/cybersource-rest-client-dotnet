@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3)  #### paypalgateway Processor generated ID for the itemized detail. .</param>
         /// <param name="ProviderResponse">Processor response to the API request. .</param>
         /// <param name="UpdateTimeUtc">The date and time when the transaction was last updated, in Internet date and time format. .</param>
-        public PtsV2PaymentsCapturesPost201ResponseProcessorInformation(string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseDetails = default(string), string ResponseCode = default(string), string ProviderResponse = default(string), string UpdateTimeUtc = default(string))
+        /// <param name="Network">Network.</param>
+        public PtsV2PaymentsCapturesPost201ResponseProcessorInformation(string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseDetails = default(string), string ResponseCode = default(string), string ProviderResponse = default(string), string UpdateTimeUtc = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
         {
             this.TransactionId = TransactionId;
             this.NetworkTransactionId = NetworkTransactionId;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.ResponseCode = ResponseCode;
             this.ProviderResponse = ProviderResponse;
             this.UpdateTimeUtc = UpdateTimeUtc;
+            this.Network = Network;
         }
         
         /// <summary>
@@ -92,6 +94,12 @@ namespace CyberSource.Model
         public string UpdateTimeUtc { get; set; }
 
         /// <summary>
+        /// Gets or Sets Network
+        /// </summary>
+        [DataMember(Name="network", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +113,7 @@ namespace CyberSource.Model
             if (ResponseCode != null) sb.Append("  ResponseCode: ").Append(ResponseCode).Append("\n");
             if (ProviderResponse != null) sb.Append("  ProviderResponse: ").Append(ProviderResponse).Append("\n");
             if (UpdateTimeUtc != null) sb.Append("  UpdateTimeUtc: ").Append(UpdateTimeUtc).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +179,11 @@ namespace CyberSource.Model
                     this.UpdateTimeUtc == other.UpdateTimeUtc ||
                     this.UpdateTimeUtc != null &&
                     this.UpdateTimeUtc.Equals(other.UpdateTimeUtc)
+                ) && 
+                (
+                    this.Network == other.Network ||
+                    this.Network != null &&
+                    this.Network.Equals(other.Network)
                 );
         }
 
@@ -196,6 +210,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProviderResponse.GetHashCode();
                 if (this.UpdateTimeUtc != null)
                     hash = hash * 59 + this.UpdateTimeUtc.GetHashCode();
+                if (this.Network != null)
+                    hash = hash * 59 + this.Network.GetHashCode();
                 return hash;
             }
         }

@@ -136,7 +136,7 @@ No authorization required
 
 <a name="getwebhooksubscriptionsbyorg"></a>
 # **GetWebhookSubscriptionsByOrg**
-> List<InlineResponse2004> GetWebhookSubscriptionsByOrg (string organizationId, string productId = null, string eventType = null)
+> List<InlineResponse2005> GetWebhookSubscriptionsByOrg (string organizationId, string productId = null, string eventType = null)
 
 Get Details On All Created Webhooks
 
@@ -164,7 +164,7 @@ namespace Example
             try
             {
                 // Get Details On All Created Webhooks
-                List&lt;InlineResponse2004&gt; result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
+                List&lt;InlineResponse2005&gt; result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2004>**](InlineResponse2004.md)
+[**List<InlineResponse2005>**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ No authorization required
 
 <a name="notificationsubscriptionsv2webhookswebhookidpatch"></a>
 # **NotificationSubscriptionsV2WebhooksWebhookIdPatch**
-> InlineResponse2005 NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
+> InlineResponse2006 NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
 
 Update a Webhook Subscription
 
@@ -289,7 +289,7 @@ namespace Example
             try
             {
                 // Update a Webhook Subscription
-                InlineResponse2005 result = apiInstance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
+                InlineResponse2006 result = apiInstance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 

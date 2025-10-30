@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="TemplateId">TemplateId.</param>
         /// <param name="Configurations">Configurations.</param>
-        public RiskProductsDecisionManagerConfigurationInformation(Guid? TemplateId = default(Guid?), DmConfig Configurations = default(DmConfig))
+        public RiskProductsDecisionManagerConfigurationInformation(string TemplateId = default(string), DmConfig Configurations = default(DmConfig))
         {
             this.TemplateId = TemplateId;
             this.Configurations = Configurations;
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// Gets or Sets TemplateId
         /// </summary>
         [DataMember(Name="templateId", EmitDefaultValue=false)]
-        public Guid? TemplateId { get; set; }
+        public string TemplateId { get; set; }
 
         /// <summary>
         /// Gets or Sets Configurations

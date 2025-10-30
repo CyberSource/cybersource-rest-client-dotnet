@@ -33,25 +33,25 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsProductsPayoutsConfigurationInformationConfigurations" /> class.
         /// </summary>
-        /// <param name="Pullfunds">Pullfunds.</param>
-        /// <param name="Pushfunds">Pushfunds.</param>
-        public PaymentsProductsPayoutsConfigurationInformationConfigurations(Dictionary<string, PaymentsProductsPayoutsConfigurationInformationConfigurationsPullfunds> Pullfunds = default(Dictionary<string, PaymentsProductsPayoutsConfigurationInformationConfigurationsPullfunds>), Dictionary<string, PaymentsProductsPayoutsConfigurationInformationConfigurationsPushfunds> Pushfunds = default(Dictionary<string, PaymentsProductsPayoutsConfigurationInformationConfigurationsPushfunds>))
+        /// <param name="Common">Common.</param>
+        /// <param name="Processors">Processors.</param>
+        public PaymentsProductsPayoutsConfigurationInformationConfigurations(PaymentsProductsPayoutsConfigurationInformationConfigurationsCommon Common = default(PaymentsProductsPayoutsConfigurationInformationConfigurationsCommon), Dictionary<string, Object> Processors = default(Dictionary<string, Object>))
         {
-            this.Pullfunds = Pullfunds;
-            this.Pushfunds = Pushfunds;
+            this.Common = Common;
+            this.Processors = Processors;
         }
         
         /// <summary>
-        /// Gets or Sets Pullfunds
+        /// Gets or Sets Common
         /// </summary>
-        [DataMember(Name="pullfunds", EmitDefaultValue=false)]
-        public Dictionary<string, PaymentsProductsPayoutsConfigurationInformationConfigurationsPullfunds> Pullfunds { get; set; }
+        [DataMember(Name="common", EmitDefaultValue=false)]
+        public PaymentsProductsPayoutsConfigurationInformationConfigurationsCommon Common { get; set; }
 
         /// <summary>
-        /// Gets or Sets Pushfunds
+        /// Gets or Sets Processors
         /// </summary>
-        [DataMember(Name="pushfunds", EmitDefaultValue=false)]
-        public Dictionary<string, PaymentsProductsPayoutsConfigurationInformationConfigurationsPushfunds> Pushfunds { get; set; }
+        [DataMember(Name="processors", EmitDefaultValue=false)]
+        public Dictionary<string, Object> Processors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,8 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsPayoutsConfigurationInformationConfigurations {\n");
-            if (Pullfunds != null) sb.Append("  Pullfunds: ").Append(Pullfunds).Append("\n");
-            if (Pushfunds != null) sb.Append("  Pushfunds: ").Append(Pushfunds).Append("\n");
+            if (Common != null) sb.Append("  Common: ").Append(Common).Append("\n");
+            if (Processors != null) sb.Append("  Processors: ").Append(Processors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +100,14 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Pullfunds == other.Pullfunds ||
-                    this.Pullfunds != null &&
-                    this.Pullfunds.SequenceEqual(other.Pullfunds)
+                    this.Common == other.Common ||
+                    this.Common != null &&
+                    this.Common.Equals(other.Common)
                 ) && 
                 (
-                    this.Pushfunds == other.Pushfunds ||
-                    this.Pushfunds != null &&
-                    this.Pushfunds.SequenceEqual(other.Pushfunds)
+                    this.Processors == other.Processors ||
+                    this.Processors != null &&
+                    this.Processors.SequenceEqual(other.Processors)
                 );
         }
 
@@ -122,10 +122,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Pullfunds != null)
-                    hash = hash * 59 + this.Pullfunds.GetHashCode();
-                if (this.Pushfunds != null)
-                    hash = hash * 59 + this.Pushfunds.GetHashCode();
+                if (this.Common != null)
+                    hash = hash * 59 + this.Common.GetHashCode();
+                if (this.Processors != null)
+                    hash = hash * 59 + this.Processors.GetHashCode();
                 return hash;
             }
         }

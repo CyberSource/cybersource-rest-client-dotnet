@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="NetworkTransactionId">Same value as &#x60;processorInformation.transactionId&#x60;.</param>
         /// <param name="ResponseCode">For most processors, this is the error message sent directly from the bank. Returned only when the processor returns this value.  **Important** Do not use this field to evaluate the result of the authorization.  #### PIN debit Response value that is returned by the processor or bank. **Important** Do not use this field to evaluate the results of the transaction request.  Returned by PIN debit credit, PIN debit purchase, and PIN debit reversal.  #### AIBMS If this value is &#x60;08&#x60;, you can accept the transaction if the customer provides you with identification.  #### Atos This value is the response code sent from Atos and it might also include the response code from the bank. Format: &#x60;aa,bb&#x60; with the two values separated by a comma and where: - &#x60;aa&#x60; is the two-digit error message from Atos. - &#x60;bb&#x60; is the optional two-digit error message from the bank.  #### Comercio Latino This value is the status code and the error or response code received from the processor separated by a colon. Format: [status code]:E[error code] or [status code]:R[response code] Example &#x60;2:R06&#x60;  #### JCN Gateway Processor-defined detail error code. The associated response category code is in the &#x60;processorInformation.responseCategoryCode&#x60; field. String (3)  #### paypalgateway Processor generated ID for the itemized detail. .</param>
         /// <param name="ResponseCodeSource">Used by Visa only and contains the response source/reason code that identifies the source of the response decision. .</param>
-        /// <param name="ResponseDetails">This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. .</param>
+        /// <param name="ResponseDetails">This field might contain information about a decline. .</param>
         /// <param name="ResponseCategoryCode">Processor-defined response category code. The associated detail error code is in the &#x60;processorInformation.responseCode&#x60; or &#x60;issuerInformation.responseCode&#x60; field of the service you requested.  This field is supported only for:   - Japanese issuers  - Domestic transactions in Japan  - Comercio Latino—processor transaction ID required for troubleshooting  #### Maximum length for processors   - Comercio Latino: 36  - All other processors: 3 .</param>
         /// <param name="ForwardedAcquirerCode">Name of the Japanese acquirer that processed the transaction. Returned only for JCN Gateway. Please contact the CyberSource Japan Support Group for more information. .</param>
         /// <param name="SettlementDate">Field contains a settlement date. The date is in mmdd format, where: mm &#x3D; month and dd &#x3D; day. .</param>
@@ -78,7 +78,8 @@ namespace CyberSource.Model
         /// <param name="OrderId">The id of the order .</param>
         /// <param name="OrderStatus">The order status.  Possible values: - &#x60;CREATED&#x60; - &#x60;VOIDED&#x60; - &#x60;COMPLETED&#x60; - &#x60;PAYER_ACTION_REQUIRED&#x60; .</param>
         /// <param name="MerchantRiskPrediction">Mastercard is introducing the Merchant Risk Predict Service in the middle East/Africa Region. A newly launched service comprised of seven independent artificial intelligence (AI)-powered scores intended to augment existing merchant risk management practices. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), string SequenceNumber = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), string TransactionExpiryDate = default(string), string CustomUrl = default(string), string SchemeAssignedId = default(string), string DeviceUrl = default(string), string DisbursementMode = default(string), string UpdateTimeUtc = default(string), string ExpirationTimeUtc = default(string), string OrderId = default(string), string OrderStatus = default(string), string MerchantRiskPrediction = default(string))
+        /// <param name="Network">Network.</param>
+        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), string SequenceNumber = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), string TransactionExpiryDate = default(string), string CustomUrl = default(string), string SchemeAssignedId = default(string), string DeviceUrl = default(string), string DisbursementMode = default(string), string UpdateTimeUtc = default(string), string ExpirationTimeUtc = default(string), string OrderId = default(string), string OrderStatus = default(string), string MerchantRiskPrediction = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
         {
             this.AuthIndicator = AuthIndicator;
             this.ApprovalCode = ApprovalCode;
@@ -125,6 +126,7 @@ namespace CyberSource.Model
             this.OrderId = OrderId;
             this.OrderStatus = OrderStatus;
             this.MerchantRiskPrediction = MerchantRiskPrediction;
+            this.Network = Network;
         }
         
         /// <summary>
@@ -177,9 +179,9 @@ namespace CyberSource.Model
         public string ResponseCodeSource { get; set; }
 
         /// <summary>
-        /// This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. 
+        /// This field might contain information about a decline. 
         /// </summary>
-        /// <value>This field might contain information about a decline. This field is supported only for **CyberSource through VisaNet**. </value>
+        /// <value>This field might contain information about a decline. </value>
         [DataMember(Name="responseDetails", EmitDefaultValue=false)]
         public string ResponseDetails { get; set; }
 
@@ -432,6 +434,12 @@ namespace CyberSource.Model
         public string MerchantRiskPrediction { get; set; }
 
         /// <summary>
+        /// Gets or Sets Network
+        /// </summary>
+        [DataMember(Name="network", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -484,6 +492,7 @@ namespace CyberSource.Model
             if (OrderId != null) sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             if (OrderStatus != null) sb.Append("  OrderStatus: ").Append(OrderStatus).Append("\n");
             if (MerchantRiskPrediction != null) sb.Append("  MerchantRiskPrediction: ").Append(MerchantRiskPrediction).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -744,6 +753,11 @@ namespace CyberSource.Model
                     this.MerchantRiskPrediction == other.MerchantRiskPrediction ||
                     this.MerchantRiskPrediction != null &&
                     this.MerchantRiskPrediction.Equals(other.MerchantRiskPrediction)
+                ) && 
+                (
+                    this.Network == other.Network ||
+                    this.Network != null &&
+                    this.Network.Equals(other.Network)
                 );
         }
 
@@ -848,6 +862,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OrderStatus.GetHashCode();
                 if (this.MerchantRiskPrediction != null)
                     hash = hash * 59 + this.MerchantRiskPrediction.GetHashCode();
+                if (this.Network != null)
+                    hash = hash * 59 + this.Network.GetHashCode();
                 return hash;
             }
         }

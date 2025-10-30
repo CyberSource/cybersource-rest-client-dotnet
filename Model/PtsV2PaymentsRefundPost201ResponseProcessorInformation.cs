@@ -42,7 +42,8 @@ namespace CyberSource.Model
         /// <param name="NetworkTransactionId">Same value as &#x60;processorInformation.transactionId&#x60;.</param>
         /// <param name="SettlementDate">Field contains a settlement date. The date is in mmdd format, where: mm &#x3D; month and dd &#x3D; day. .</param>
         /// <param name="UpdateTimeUtc">The date and time when the transaction was last updated, in Internet date and time format. .</param>
-        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), string NetworkTransactionId = default(string), string SettlementDate = default(string), string UpdateTimeUtc = default(string))
+        /// <param name="Network">Network.</param>
+        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), string NetworkTransactionId = default(string), string SettlementDate = default(string), string UpdateTimeUtc = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
         {
             this.ApprovalCode = ApprovalCode;
             this.TransactionId = TransactionId;
@@ -53,6 +54,7 @@ namespace CyberSource.Model
             this.NetworkTransactionId = NetworkTransactionId;
             this.SettlementDate = SettlementDate;
             this.UpdateTimeUtc = UpdateTimeUtc;
+            this.Network = Network;
         }
         
         /// <summary>
@@ -118,6 +120,12 @@ namespace CyberSource.Model
         public string UpdateTimeUtc { get; set; }
 
         /// <summary>
+        /// Gets or Sets Network
+        /// </summary>
+        [DataMember(Name="network", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -134,6 +142,7 @@ namespace CyberSource.Model
             if (NetworkTransactionId != null) sb.Append("  NetworkTransactionId: ").Append(NetworkTransactionId).Append("\n");
             if (SettlementDate != null) sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
             if (UpdateTimeUtc != null) sb.Append("  UpdateTimeUtc: ").Append(UpdateTimeUtc).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -214,6 +223,11 @@ namespace CyberSource.Model
                     this.UpdateTimeUtc == other.UpdateTimeUtc ||
                     this.UpdateTimeUtc != null &&
                     this.UpdateTimeUtc.Equals(other.UpdateTimeUtc)
+                ) && 
+                (
+                    this.Network == other.Network ||
+                    this.Network != null &&
+                    this.Network.Equals(other.Network)
                 );
         }
 
@@ -246,6 +260,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SettlementDate.GetHashCode();
                 if (this.UpdateTimeUtc != null)
                     hash = hash * 59 + this.UpdateTimeUtc.GetHashCode();
+                if (this.Network != null)
+                    hash = hash * 59 + this.Network.GetHashCode();
                 return hash;
             }
         }

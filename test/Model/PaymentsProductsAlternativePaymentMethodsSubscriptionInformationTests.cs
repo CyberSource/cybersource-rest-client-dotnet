@@ -72,14 +72,6 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Enabled'
         }
-        /// <summary>
-        /// Test the property 'SelfServiceability'
-        /// </summary>
-        [Test]
-        public void SelfServiceabilityTest()
-        {
-            // TODO unit test for the property 'SelfServiceability'
-        }
 
     }
 

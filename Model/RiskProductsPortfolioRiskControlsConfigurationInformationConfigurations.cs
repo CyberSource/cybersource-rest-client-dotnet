@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="RiskProductsPortfolioRiskControlsConfigurationInformationConfigurations" /> class.
         /// </summary>
         /// <param name="ProfileId">ProfileId.</param>
-        public RiskProductsPortfolioRiskControlsConfigurationInformationConfigurations(Guid? ProfileId = default(Guid?))
+        public RiskProductsPortfolioRiskControlsConfigurationInformationConfigurations(string ProfileId = default(string))
         {
             this.ProfileId = ProfileId;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets ProfileId
         /// </summary>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
-        public Guid? ProfileId { get; set; }
+        public string ProfileId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidProcessingInformation" /> class.
         /// </summary>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
-        public Ptsv2paymentsidProcessingInformation(Ptsv2paymentsidProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidProcessingInformationAuthorizationOptions))
+        /// <param name="Network">Network.</param>
+        public Ptsv2paymentsidProcessingInformation(Ptsv2paymentsidProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
         {
             this.AuthorizationOptions = AuthorizationOptions;
+            this.Network = Network;
         }
         
         /// <summary>
@@ -44,6 +46,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="authorizationOptions", EmitDefaultValue=false)]
         public Ptsv2paymentsidProcessingInformationAuthorizationOptions AuthorizationOptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Network
+        /// </summary>
+        [DataMember(Name="network", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +62,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidProcessingInformation {\n");
             if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
+            if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +103,11 @@ namespace CyberSource.Model
                     this.AuthorizationOptions == other.AuthorizationOptions ||
                     this.AuthorizationOptions != null &&
                     this.AuthorizationOptions.Equals(other.AuthorizationOptions)
+                ) && 
+                (
+                    this.Network == other.Network ||
+                    this.Network != null &&
+                    this.Network.Equals(other.Network)
                 );
         }
 
@@ -110,6 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AuthorizationOptions != null)
                     hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
+                if (this.Network != null)
+                    hash = hash * 59 + this.Network.GetHashCode();
                 return hash;
             }
         }

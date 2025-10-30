@@ -52,7 +52,12 @@ namespace CyberSource.Model
         /// <param name="OnlineGamblingBlock">This field indicates if online gambling is blocked on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
         /// <param name="AutoSubstantiation">This field indicates if auto-substantiation is enabled on the BIN. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
         /// <param name="FlexCredential">This field indicates if the instrument is a flex credential. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
-        public TmsBinLookupPaymentAccountInformationFeatures(string AccountFundingSource = default(string), string AccountFundingSourceSubType = default(string), string CardProduct = default(string), string MessageType = default(string), string AcceptanceLevel = default(string), string CardPlatform = default(string), string ComboCard = default(string), bool? CorporatePurchase = default(bool?), bool? HealthCard = default(bool?), bool? SharedBIN = default(bool?), bool? PosDomesticOnly = default(bool?), bool? GamblingAllowed = default(bool?), bool? CommercialCardLevel2 = default(bool?), bool? CommercialCardLevel3 = default(bool?), bool? ExemptBIN = default(bool?), bool? AccountLevelManagement = default(bool?), bool? OnlineGamblingBlock = default(bool?), bool? AutoSubstantiation = default(bool?), bool? FlexCredential = default(bool?))
+        /// <param name="ProductId">This field contains the Visa-assigned product identifier associated with the BIN. This field is only supported for Visa BINs. Example values:   - Q4   - P   - AX .</param>
+        /// <param name="ProductIdSubtype">This field contains the Visa-assigned product subtype identifier associated with the BIN. This field is only supported for Visa BINs. Example values:   - BB   - EX   - L2   - C2 .</param>
+        /// <param name="ThreeDSSupport">This field indicates if the payment instrument supports 3D Secure authentication. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="SiEligible">This field indicates if the payment instrument is eligible for Standing Instructions (recurring payments). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="EmiEligible">This field indicates if the card is eligible for Equated Monthly Installments (EMI). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        public TmsBinLookupPaymentAccountInformationFeatures(string AccountFundingSource = default(string), string AccountFundingSourceSubType = default(string), string CardProduct = default(string), string MessageType = default(string), string AcceptanceLevel = default(string), string CardPlatform = default(string), string ComboCard = default(string), bool? CorporatePurchase = default(bool?), bool? HealthCard = default(bool?), bool? SharedBIN = default(bool?), bool? PosDomesticOnly = default(bool?), bool? GamblingAllowed = default(bool?), bool? CommercialCardLevel2 = default(bool?), bool? CommercialCardLevel3 = default(bool?), bool? ExemptBIN = default(bool?), bool? AccountLevelManagement = default(bool?), bool? OnlineGamblingBlock = default(bool?), bool? AutoSubstantiation = default(bool?), bool? FlexCredential = default(bool?), string ProductId = default(string), string ProductIdSubtype = default(string), bool? ThreeDSSupport = default(bool?), bool? SiEligible = default(bool?), bool? EmiEligible = default(bool?))
         {
             this.AccountFundingSource = AccountFundingSource;
             this.AccountFundingSourceSubType = AccountFundingSourceSubType;
@@ -73,6 +78,11 @@ namespace CyberSource.Model
             this.OnlineGamblingBlock = OnlineGamblingBlock;
             this.AutoSubstantiation = AutoSubstantiation;
             this.FlexCredential = FlexCredential;
+            this.ProductId = ProductId;
+            this.ProductIdSubtype = ProductIdSubtype;
+            this.ThreeDSSupport = ThreeDSSupport;
+            this.SiEligible = SiEligible;
+            this.EmiEligible = EmiEligible;
         }
         
         /// <summary>
@@ -209,6 +219,41 @@ namespace CyberSource.Model
         public bool? FlexCredential { get; set; }
 
         /// <summary>
+        /// This field contains the Visa-assigned product identifier associated with the BIN. This field is only supported for Visa BINs. Example values:   - Q4   - P   - AX 
+        /// </summary>
+        /// <value>This field contains the Visa-assigned product identifier associated with the BIN. This field is only supported for Visa BINs. Example values:   - Q4   - P   - AX </value>
+        [DataMember(Name="productId", EmitDefaultValue=false)]
+        public string ProductId { get; set; }
+
+        /// <summary>
+        /// This field contains the Visa-assigned product subtype identifier associated with the BIN. This field is only supported for Visa BINs. Example values:   - BB   - EX   - L2   - C2 
+        /// </summary>
+        /// <value>This field contains the Visa-assigned product subtype identifier associated with the BIN. This field is only supported for Visa BINs. Example values:   - BB   - EX   - L2   - C2 </value>
+        [DataMember(Name="productIdSubtype", EmitDefaultValue=false)]
+        public string ProductIdSubtype { get; set; }
+
+        /// <summary>
+        /// This field indicates if the payment instrument supports 3D Secure authentication. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the payment instrument supports 3D Secure authentication. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="threeDSSupport", EmitDefaultValue=false)]
+        public bool? ThreeDSSupport { get; set; }
+
+        /// <summary>
+        /// This field indicates if the payment instrument is eligible for Standing Instructions (recurring payments). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the payment instrument is eligible for Standing Instructions (recurring payments). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="siEligible", EmitDefaultValue=false)]
+        public bool? SiEligible { get; set; }
+
+        /// <summary>
+        /// This field indicates if the card is eligible for Equated Monthly Installments (EMI). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the card is eligible for Equated Monthly Installments (EMI). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="emiEligible", EmitDefaultValue=false)]
+        public bool? EmiEligible { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -235,6 +280,11 @@ namespace CyberSource.Model
             if (OnlineGamblingBlock != null) sb.Append("  OnlineGamblingBlock: ").Append(OnlineGamblingBlock).Append("\n");
             if (AutoSubstantiation != null) sb.Append("  AutoSubstantiation: ").Append(AutoSubstantiation).Append("\n");
             if (FlexCredential != null) sb.Append("  FlexCredential: ").Append(FlexCredential).Append("\n");
+            if (ProductId != null) sb.Append("  ProductId: ").Append(ProductId).Append("\n");
+            if (ProductIdSubtype != null) sb.Append("  ProductIdSubtype: ").Append(ProductIdSubtype).Append("\n");
+            if (ThreeDSSupport != null) sb.Append("  ThreeDSSupport: ").Append(ThreeDSSupport).Append("\n");
+            if (SiEligible != null) sb.Append("  SiEligible: ").Append(SiEligible).Append("\n");
+            if (EmiEligible != null) sb.Append("  EmiEligible: ").Append(EmiEligible).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -365,6 +415,31 @@ namespace CyberSource.Model
                     this.FlexCredential == other.FlexCredential ||
                     this.FlexCredential != null &&
                     this.FlexCredential.Equals(other.FlexCredential)
+                ) && 
+                (
+                    this.ProductId == other.ProductId ||
+                    this.ProductId != null &&
+                    this.ProductId.Equals(other.ProductId)
+                ) && 
+                (
+                    this.ProductIdSubtype == other.ProductIdSubtype ||
+                    this.ProductIdSubtype != null &&
+                    this.ProductIdSubtype.Equals(other.ProductIdSubtype)
+                ) && 
+                (
+                    this.ThreeDSSupport == other.ThreeDSSupport ||
+                    this.ThreeDSSupport != null &&
+                    this.ThreeDSSupport.Equals(other.ThreeDSSupport)
+                ) && 
+                (
+                    this.SiEligible == other.SiEligible ||
+                    this.SiEligible != null &&
+                    this.SiEligible.Equals(other.SiEligible)
+                ) && 
+                (
+                    this.EmiEligible == other.EmiEligible ||
+                    this.EmiEligible != null &&
+                    this.EmiEligible.Equals(other.EmiEligible)
                 );
         }
 
@@ -417,6 +492,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AutoSubstantiation.GetHashCode();
                 if (this.FlexCredential != null)
                     hash = hash * 59 + this.FlexCredential.GetHashCode();
+                if (this.ProductId != null)
+                    hash = hash * 59 + this.ProductId.GetHashCode();
+                if (this.ProductIdSubtype != null)
+                    hash = hash * 59 + this.ProductIdSubtype.GetHashCode();
+                if (this.ThreeDSSupport != null)
+                    hash = hash * 59 + this.ThreeDSSupport.GetHashCode();
+                if (this.SiEligible != null)
+                    hash = hash * 59 + this.SiEligible.GetHashCode();
+                if (this.EmiEligible != null)
+                    hash = hash * 59 + this.EmiEligible.GetHashCode();
                 return hash;
             }
         }

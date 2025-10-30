@@ -216,6 +216,46 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'FlexCredential'
         }
+        /// <summary>
+        /// Test the property 'ProductId'
+        /// </summary>
+        [Test]
+        public void ProductIdTest()
+        {
+            // TODO unit test for the property 'ProductId'
+        }
+        /// <summary>
+        /// Test the property 'ProductIdSubtype'
+        /// </summary>
+        [Test]
+        public void ProductIdSubtypeTest()
+        {
+            // TODO unit test for the property 'ProductIdSubtype'
+        }
+        /// <summary>
+        /// Test the property 'ThreeDSSupport'
+        /// </summary>
+        [Test]
+        public void ThreeDSSupportTest()
+        {
+            // TODO unit test for the property 'ThreeDSSupport'
+        }
+        /// <summary>
+        /// Test the property 'SiEligible'
+        /// </summary>
+        [Test]
+        public void SiEligibleTest()
+        {
+            // TODO unit test for the property 'SiEligible'
+        }
+        /// <summary>
+        /// Test the property 'EmiEligible'
+        /// </summary>
+        [Test]
+        public void EmiEligibleTest()
+        {
+            // TODO unit test for the property 'EmiEligible'
+        }
 
     }
 

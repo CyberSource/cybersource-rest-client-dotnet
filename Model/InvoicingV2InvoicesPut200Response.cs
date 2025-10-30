@@ -41,7 +41,8 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="InvoiceInformation">InvoiceInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public InvoicingV2InvoicesPut200Response(InvoicingV2InvoicesAllGet200ResponseLinks Links = default(InvoicingV2InvoicesAllGet200ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), Invoicingv2invoicesCustomerInformation CustomerInformation = default(Invoicingv2invoicesCustomerInformation), Invoicingv2invoicesProcessingInformation ProcessingInformation = default(Invoicingv2invoicesProcessingInformation), InvoicingV2InvoicesPost201ResponseInvoiceInformation InvoiceInformation = default(InvoicingV2InvoicesPost201ResponseInvoiceInformation), InvoicingV2InvoicesPost201ResponseOrderInformation OrderInformation = default(InvoicingV2InvoicesPost201ResponseOrderInformation))
+        /// <param name="MerchantDefinedFieldValuesWithDefinition">MerchantDefinedFieldValuesWithDefinition.</param>
+        public InvoicingV2InvoicesPut200Response(InvoicingV2InvoicesAllGet200ResponseLinks Links = default(InvoicingV2InvoicesAllGet200ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), Invoicingv2invoicesCustomerInformation CustomerInformation = default(Invoicingv2invoicesCustomerInformation), Invoicingv2invoicesProcessingInformation ProcessingInformation = default(Invoicingv2invoicesProcessingInformation), InvoicingV2InvoicesPost201ResponseInvoiceInformation InvoiceInformation = default(InvoicingV2InvoicesPost201ResponseInvoiceInformation), InvoicingV2InvoicesPost201ResponseOrderInformation OrderInformation = default(InvoicingV2InvoicesPost201ResponseOrderInformation), List<InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition> MerchantDefinedFieldValuesWithDefinition = default(List<InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition>))
         {
             this.Links = Links;
             this.Id = Id;
@@ -51,6 +52,7 @@ namespace CyberSource.Model
             this.ProcessingInformation = ProcessingInformation;
             this.InvoiceInformation = InvoiceInformation;
             this.OrderInformation = OrderInformation;
+            this.MerchantDefinedFieldValuesWithDefinition = MerchantDefinedFieldValuesWithDefinition;
         }
         
         /// <summary>
@@ -105,6 +107,12 @@ namespace CyberSource.Model
         public InvoicingV2InvoicesPost201ResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets MerchantDefinedFieldValuesWithDefinition
+        /// </summary>
+        [DataMember(Name="merchantDefinedFieldValuesWithDefinition", EmitDefaultValue=false)]
+        public List<InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition> MerchantDefinedFieldValuesWithDefinition { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -120,6 +128,7 @@ namespace CyberSource.Model
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (InvoiceInformation != null) sb.Append("  InvoiceInformation: ").Append(InvoiceInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (MerchantDefinedFieldValuesWithDefinition != null) sb.Append("  MerchantDefinedFieldValuesWithDefinition: ").Append(MerchantDefinedFieldValuesWithDefinition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -195,6 +204,11 @@ namespace CyberSource.Model
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.MerchantDefinedFieldValuesWithDefinition == other.MerchantDefinedFieldValuesWithDefinition ||
+                    this.MerchantDefinedFieldValuesWithDefinition != null &&
+                    this.MerchantDefinedFieldValuesWithDefinition.SequenceEqual(other.MerchantDefinedFieldValuesWithDefinition)
                 );
         }
 
@@ -225,6 +239,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InvoiceInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.MerchantDefinedFieldValuesWithDefinition != null)
+                    hash = hash * 59 + this.MerchantDefinedFieldValuesWithDefinition.GetHashCode();
                 return hash;
             }
         }

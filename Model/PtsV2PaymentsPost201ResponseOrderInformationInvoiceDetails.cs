@@ -33,20 +33,20 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails" /> class.
         /// </summary>
-        /// <param name="Level3TransmissionStatus">Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  Possible values: - **true** - **false** .</param>
+        /// <param name="Level3TransmissionStatus">Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  Possible values: - **Y** for true - **N** for false .</param>
         /// <param name="SalesSlipNumber">Transaction identifier that is generated. You have the option of printing the sales slip number on the receipt. This field is supported only on Cybersource through Visanet and JCN gateway.  Optional field.  #### Card Present processing message If you included this field in the request, the returned value is the value that you sent in the request. If you did not include this field in the request, the system generated this value for you.  The difference between this reply field and the &#x60;processorInformation.systemTraceAuditNumber&#x60; field is that the system generates the system trace audit number (STAN), and you must print the receipt number on the receipt; whereas you can generate the sales slip number, and you can choose to print the sales slip number on the receipt. .</param>
-        public PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails(bool? Level3TransmissionStatus = default(bool?), int? SalesSlipNumber = default(int?))
+        public PtsV2PaymentsPost201ResponseOrderInformationInvoiceDetails(string Level3TransmissionStatus = default(string), int? SalesSlipNumber = default(int?))
         {
             this.Level3TransmissionStatus = Level3TransmissionStatus;
             this.SalesSlipNumber = SalesSlipNumber;
         }
         
         /// <summary>
-        /// Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  Possible values: - **true** - **false** 
+        /// Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  Possible values: - **Y** for true - **N** for false 
         /// </summary>
-        /// <value>Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  Possible values: - **true** - **false** </value>
+        /// <value>Indicates whether CyberSource sent the Level III information to the processor. The possible values are:  If your account is not enabled for Level III data or if you did not include the purchasing level field in your request, CyberSource does not include the Level III data in the request sent to the processor.  Possible values: - **Y** for true - **N** for false </value>
         [DataMember(Name="level3TransmissionStatus", EmitDefaultValue=false)]
-        public bool? Level3TransmissionStatus { get; set; }
+        public string Level3TransmissionStatus { get; set; }
 
         /// <summary>
         /// Transaction identifier that is generated. You have the option of printing the sales slip number on the receipt. This field is supported only on Cybersource through Visanet and JCN gateway.  Optional field.  #### Card Present processing message If you included this field in the request, the returned value is the value that you sent in the request. If you did not include this field in the request, the system generated this value for you.  The difference between this reply field and the &#x60;processorInformation.systemTraceAuditNumber&#x60; field is that the system generates the system trace audit number (STAN), and you must print the receipt number on the receipt; whereas you can generate the sales slip number, and you can choose to print the sales slip number on the receipt. 

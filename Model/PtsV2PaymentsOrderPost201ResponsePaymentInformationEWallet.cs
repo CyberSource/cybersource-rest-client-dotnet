@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="AccountId">The ID of the customer, passed in the return_url field by PayPal after customer approval..</param>
         /// <param name="FundingSource">Payment mode for the authorization or order transaction.  INSTANT_TRANSFER  MANUAL_BANK_TRANSFER  DELAYED_TRANSFER  ECHECK  UNRESTRICTED (default)—this value is available only when configured by PayPal for the merchant. INSTANT.</param>
         /// <param name="FundingSourceSale">Payment method for the unit purchase. Possible values: - &#x60;UNRESTRICTED (default)—this value is only available if configured by PayPal for the merchant.&#x60; - &#x60;INSTANT&#x60; .</param>
-        /// <param name="UserName">The Venmo user name chosen by the user, also know as a Venmo handle. .</param>
+        /// <param name="UserName">The Venmo user name chosen by the user, also known as a Venmo handle. .</param>
         public PtsV2PaymentsOrderPost201ResponsePaymentInformationEWallet(string AccountId = default(string), string FundingSource = default(string), string FundingSourceSale = default(string), string UserName = default(string))
         {
             this.AccountId = AccountId;
@@ -67,9 +67,9 @@ namespace CyberSource.Model
         public string FundingSourceSale { get; set; }
 
         /// <summary>
-        /// The Venmo user name chosen by the user, also know as a Venmo handle. 
+        /// The Venmo user name chosen by the user, also known as a Venmo handle. 
         /// </summary>
-        /// <value>The Venmo user name chosen by the user, also know as a Venmo handle. </value>
+        /// <value>The Venmo user name chosen by the user, also known as a Venmo handle. </value>
         [DataMember(Name="userName", EmitDefaultValue=false)]
         public string UserName { get; set; }
 
