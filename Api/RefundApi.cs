@@ -345,7 +345,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "RefundCapture,RefundCaptureAsync,RefundCaptureWithHttpInfo,RefundCaptureAsyncWithHttpInfo"))
             {
                 try
@@ -359,13 +359,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "RefundCapture,RefundCaptureAsync,RefundCaptureWithHttpInfo,RefundCaptureAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -381,7 +383,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsRefundPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response))); // Return statement
+                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -467,7 +469,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "RefundCapture,RefundCaptureAsync,RefundCaptureWithHttpInfo,RefundCaptureAsyncWithHttpInfo"))
             {
                 try
@@ -481,13 +483,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "RefundCapture,RefundCaptureAsync,RefundCaptureWithHttpInfo,RefundCaptureAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -503,7 +507,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsRefundPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response))); // Return statement
+                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Refund a Payment Refund a Payment API is only used, if you have requested Authorization and Capture together in [/pts/v2/payments](https://developer.cybersource.com/api-reference-assets/index.html#payments_payments) API call. Include the payment ID in the POST request to refund the payment amount. 
@@ -587,7 +591,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "RefundPayment,RefundPaymentAsync,RefundPaymentWithHttpInfo,RefundPaymentAsyncWithHttpInfo"))
             {
                 try
@@ -601,13 +605,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "RefundPayment,RefundPaymentAsync,RefundPaymentWithHttpInfo,RefundPaymentAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -623,7 +629,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsRefundPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response))); // Return statement
+                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -709,7 +715,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "RefundPayment,RefundPaymentAsync,RefundPaymentWithHttpInfo,RefundPaymentAsyncWithHttpInfo"))
             {
                 try
@@ -723,13 +729,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "RefundPayment,RefundPaymentAsync,RefundPaymentWithHttpInfo,RefundPaymentAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -745,7 +753,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2PaymentsRefundPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response))); // Return statement
+                (PtsV2PaymentsRefundPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsRefundPost201Response), merchantConfig)); // Return statement
         }
     }
 }
