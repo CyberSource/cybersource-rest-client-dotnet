@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="Reversal">Reversal.</param>
         /// <param name="Network">Network.</param>
-        public Ptsv2paymentsProcessorInformation(string PreApprovalToken = default(string), Ptsv2paymentsProcessorInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessorInformationAuthorizationOptions), Ptsv2paymentsProcessorInformationReversal Reversal = default(Ptsv2paymentsProcessorInformationReversal), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
+        /// <param name="ResponseSourceCode">Field contains the response source code that identifies the source. .</param>
+        public Ptsv2paymentsProcessorInformation(string PreApprovalToken = default(string), Ptsv2paymentsProcessorInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessorInformationAuthorizationOptions), Ptsv2paymentsProcessorInformationReversal Reversal = default(Ptsv2paymentsProcessorInformationReversal), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), string ResponseSourceCode = default(string))
         {
             this.PreApprovalToken = PreApprovalToken;
             this.AuthorizationOptions = AuthorizationOptions;
             this.Reversal = Reversal;
             this.Network = Network;
+            this.ResponseSourceCode = ResponseSourceCode;
         }
         
         /// <summary>
@@ -71,6 +73,13 @@ namespace CyberSource.Model
         public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
 
         /// <summary>
+        /// Field contains the response source code that identifies the source. 
+        /// </summary>
+        /// <value>Field contains the response source code that identifies the source. </value>
+        [DataMember(Name="responseSourceCode", EmitDefaultValue=false)]
+        public string ResponseSourceCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +91,7 @@ namespace CyberSource.Model
             if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             if (Reversal != null) sb.Append("  Reversal: ").Append(Reversal).Append("\n");
             if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
+            if (ResponseSourceCode != null) sb.Append("  ResponseSourceCode: ").Append(ResponseSourceCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,6 +147,11 @@ namespace CyberSource.Model
                     this.Network == other.Network ||
                     this.Network != null &&
                     this.Network.Equals(other.Network)
+                ) && 
+                (
+                    this.ResponseSourceCode == other.ResponseSourceCode ||
+                    this.ResponseSourceCode != null &&
+                    this.ResponseSourceCode.Equals(other.ResponseSourceCode)
                 );
         }
 
@@ -159,6 +174,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Reversal.GetHashCode();
                 if (this.Network != null)
                     hash = hash * 59 + this.Network.GetHashCode();
+                if (this.ResponseSourceCode != null)
+                    hash = hash * 59 + this.ResponseSourceCode.GetHashCode();
                 return hash;
             }
         }

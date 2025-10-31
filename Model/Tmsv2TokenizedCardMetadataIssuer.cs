@@ -39,25 +39,46 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// issuer name. 
+        /// Issuer name. 
         /// </summary>
-        /// <value>issuer name. </value>
+        /// <value>Issuer name. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; private set; }
 
         /// <summary>
-        /// issuer short description. 
+        /// Short description of the card. 
         /// </summary>
-        /// <value>issuer short description. </value>
+        /// <value>Short description of the card. </value>
         [DataMember(Name="shortDescription", EmitDefaultValue=false)]
         public string ShortDescription { get; private set; }
 
         /// <summary>
-        /// issuer long  description. 
+        /// Long description of the card. 
         /// </summary>
-        /// <value>issuer long  description. </value>
+        /// <value>Long description of the card. </value>
         [DataMember(Name="longDescription", EmitDefaultValue=false)]
         public string LongDescription { get; private set; }
+
+        /// <summary>
+        /// Issuer customer service email address.
+        /// </summary>
+        /// <value>Issuer customer service email address.</value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; private set; }
+
+        /// <summary>
+        /// Issuer customer service phone number.
+        /// </summary>
+        /// <value>Issuer customer service phone number.</value>
+        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
+        public string PhoneNumber { get; private set; }
+
+        /// <summary>
+        /// Issuer customer service url.
+        /// </summary>
+        /// <value>Issuer customer service url.</value>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,6 +91,9 @@ namespace CyberSource.Model
             if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
             if (ShortDescription != null) sb.Append("  ShortDescription: ").Append(ShortDescription).Append("\n");
             if (LongDescription != null) sb.Append("  LongDescription: ").Append(LongDescription).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (Url != null) sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,6 +144,21 @@ namespace CyberSource.Model
                     this.LongDescription == other.LongDescription ||
                     this.LongDescription != null &&
                     this.LongDescription.Equals(other.LongDescription)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
+                ) && 
+                (
+                    this.PhoneNumber == other.PhoneNumber ||
+                    this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(other.PhoneNumber)
+                ) && 
+                (
+                    this.Url == other.Url ||
+                    this.Url != null &&
+                    this.Url.Equals(other.Url)
                 );
         }
 
@@ -140,6 +179,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ShortDescription.GetHashCode();
                 if (this.LongDescription != null)
                     hash = hash * 59 + this.LongDescription.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
+                if (this.PhoneNumber != null)
+                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                if (this.Url != null)
+                    hash = hash * 59 + this.Url.GetHashCode();
                 return hash;
             }
         }

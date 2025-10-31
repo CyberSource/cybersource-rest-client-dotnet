@@ -35,10 +35,20 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="PaymentCredentialType">The type of payment credentials to be returned. By default, payment credentials include network token and cryptogram or dynamic CVV. If \&quot;NETWORK_TOKEN\&quot; is supplied then only network token card number will be returned and no cryptogram or dynamic CVV will be requested. If \&quot;SECURITY_CODE\&quot; is supplied then dynamic CVV will be requested and returned with the network token card number. Dynamic CVV is only supported for Amex and SCOF. If \&quot;CRYPTOGRAM\&quot; is supplied then cryptogram will be requested and returned with the network token card number. Cryptogram is NOT supported for Amex.  Possible Values:   - NETWORK_TOKEN   - SECURITY_CODE   - CRYPTOGRAM .</param>
         /// <param name="TransactionType">Specifies the type of transaction for which the network token credentials are required. Possible Values:   - ECOM: Ecommerce transaction. If transactionType is not provided, ECOM is set as the default.   - AFT: Account Funding Transaction. This is only supported for VISA and paymentCredentialType of CRYPTOGRAM. .</param>
-        public PostPaymentCredentialsRequest(string PaymentCredentialType = default(string), string TransactionType = default(string))
+        /// <param name="ClientCorrelationId">Used to correlate authentication and payment credential requests. .</param>
+        /// <param name="OrderInformation">OrderInformation.</param>
+        /// <param name="MerchantInformation">MerchantInformation.</param>
+        /// <param name="DeviceInformation">DeviceInformation.</param>
+        /// <param name="AuthenticatedIdentities">AuthenticatedIdentities.</param>
+        public PostPaymentCredentialsRequest(string PaymentCredentialType = default(string), string TransactionType = default(string), string ClientCorrelationId = default(string), Tmsv2tokenstokenIdpaymentcredentialsOrderInformation OrderInformation = default(Tmsv2tokenstokenIdpaymentcredentialsOrderInformation), Tmsv2tokenstokenIdpaymentcredentialsMerchantInformation MerchantInformation = default(Tmsv2tokenstokenIdpaymentcredentialsMerchantInformation), Tmsv2tokenstokenIdpaymentcredentialsDeviceInformation DeviceInformation = default(Tmsv2tokenstokenIdpaymentcredentialsDeviceInformation), List<Tmsv2tokenstokenIdpaymentcredentialsAuthenticatedIdentities> AuthenticatedIdentities = default(List<Tmsv2tokenstokenIdpaymentcredentialsAuthenticatedIdentities>))
         {
             this.PaymentCredentialType = PaymentCredentialType;
             this.TransactionType = TransactionType;
+            this.ClientCorrelationId = ClientCorrelationId;
+            this.OrderInformation = OrderInformation;
+            this.MerchantInformation = MerchantInformation;
+            this.DeviceInformation = DeviceInformation;
+            this.AuthenticatedIdentities = AuthenticatedIdentities;
         }
         
         /// <summary>
@@ -56,6 +66,37 @@ namespace CyberSource.Model
         public string TransactionType { get; set; }
 
         /// <summary>
+        /// Used to correlate authentication and payment credential requests. 
+        /// </summary>
+        /// <value>Used to correlate authentication and payment credential requests. </value>
+        [DataMember(Name="clientCorrelationId", EmitDefaultValue=false)]
+        public string ClientCorrelationId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OrderInformation
+        /// </summary>
+        [DataMember(Name="orderInformation", EmitDefaultValue=false)]
+        public Tmsv2tokenstokenIdpaymentcredentialsOrderInformation OrderInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantInformation
+        /// </summary>
+        [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
+        public Tmsv2tokenstokenIdpaymentcredentialsMerchantInformation MerchantInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DeviceInformation
+        /// </summary>
+        [DataMember(Name="deviceInformation", EmitDefaultValue=false)]
+        public Tmsv2tokenstokenIdpaymentcredentialsDeviceInformation DeviceInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AuthenticatedIdentities
+        /// </summary>
+        [DataMember(Name="authenticatedIdentities", EmitDefaultValue=false)]
+        public List<Tmsv2tokenstokenIdpaymentcredentialsAuthenticatedIdentities> AuthenticatedIdentities { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +106,11 @@ namespace CyberSource.Model
             sb.Append("class PostPaymentCredentialsRequest {\n");
             if (PaymentCredentialType != null) sb.Append("  PaymentCredentialType: ").Append(PaymentCredentialType).Append("\n");
             if (TransactionType != null) sb.Append("  TransactionType: ").Append(TransactionType).Append("\n");
+            if (ClientCorrelationId != null) sb.Append("  ClientCorrelationId: ").Append(ClientCorrelationId).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            if (DeviceInformation != null) sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
+            if (AuthenticatedIdentities != null) sb.Append("  AuthenticatedIdentities: ").Append(AuthenticatedIdentities).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +156,31 @@ namespace CyberSource.Model
                     this.TransactionType == other.TransactionType ||
                     this.TransactionType != null &&
                     this.TransactionType.Equals(other.TransactionType)
+                ) && 
+                (
+                    this.ClientCorrelationId == other.ClientCorrelationId ||
+                    this.ClientCorrelationId != null &&
+                    this.ClientCorrelationId.Equals(other.ClientCorrelationId)
+                ) && 
+                (
+                    this.OrderInformation == other.OrderInformation ||
+                    this.OrderInformation != null &&
+                    this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.MerchantInformation == other.MerchantInformation ||
+                    this.MerchantInformation != null &&
+                    this.MerchantInformation.Equals(other.MerchantInformation)
+                ) && 
+                (
+                    this.DeviceInformation == other.DeviceInformation ||
+                    this.DeviceInformation != null &&
+                    this.DeviceInformation.Equals(other.DeviceInformation)
+                ) && 
+                (
+                    this.AuthenticatedIdentities == other.AuthenticatedIdentities ||
+                    this.AuthenticatedIdentities != null &&
+                    this.AuthenticatedIdentities.SequenceEqual(other.AuthenticatedIdentities)
                 );
         }
 
@@ -128,6 +199,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentCredentialType.GetHashCode();
                 if (this.TransactionType != null)
                     hash = hash * 59 + this.TransactionType.GetHashCode();
+                if (this.ClientCorrelationId != null)
+                    hash = hash * 59 + this.ClientCorrelationId.GetHashCode();
+                if (this.OrderInformation != null)
+                    hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.MerchantInformation != null)
+                    hash = hash * 59 + this.MerchantInformation.GetHashCode();
+                if (this.DeviceInformation != null)
+                    hash = hash * 59 + this.DeviceInformation.GetHashCode();
+                if (this.AuthenticatedIdentities != null)
+                    hash = hash * 59 + this.AuthenticatedIdentities.GetHashCode();
                 return hash;
             }
         }

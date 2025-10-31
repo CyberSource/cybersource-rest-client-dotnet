@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="ExpirationMonth">Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. .</param>
         /// <param name="ExpirationYear">Four-digit year in which the credit card expires.  Format: &#x60;YYYY&#x60;. .</param>
         /// <param name="Type">The type of card (Card Network). Possible Values: - 001: visa .</param>
-        public Tmsv2TokenizedCardCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string))
+        /// <param name="TermsAndConditions">TermsAndConditions.</param>
+        public Tmsv2TokenizedCardCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), Tmsv2TokenizedCardCardTermsAndConditions TermsAndConditions = default(Tmsv2TokenizedCardCardTermsAndConditions))
         {
             this.Number = Number;
             this.ExpirationMonth = ExpirationMonth;
             this.ExpirationYear = ExpirationYear;
             this.Type = Type;
+            this.TermsAndConditions = TermsAndConditions;
         }
         
         /// <summary>
@@ -81,6 +83,42 @@ namespace CyberSource.Model
         public string Suffix { get; private set; }
 
         /// <summary>
+        /// Card issuance date. XML date format: YYYY-MM-DD.
+        /// </summary>
+        /// <value>Card issuance date. XML date format: YYYY-MM-DD.</value>
+        [DataMember(Name="issueDate", EmitDefaultValue=false)]
+        [JsonConverter(typeof(SwaggerDateConverter))]
+        public DateTime? IssueDate { get; private set; }
+
+        /// <summary>
+        /// Card activation date. XML date format: YYYY-MM-DD
+        /// </summary>
+        /// <value>Card activation date. XML date format: YYYY-MM-DD</value>
+        [DataMember(Name="activationDate", EmitDefaultValue=false)]
+        [JsonConverter(typeof(SwaggerDateConverter))]
+        public DateTime? ActivationDate { get; private set; }
+
+        /// <summary>
+        /// Indicates if the expiration date is printed on the card.
+        /// </summary>
+        /// <value>Indicates if the expiration date is printed on the card.</value>
+        [DataMember(Name="expirationPrinted", EmitDefaultValue=false)]
+        public bool? ExpirationPrinted { get; private set; }
+
+        /// <summary>
+        /// Indicates if the Card Verification Number is printed on the card.
+        /// </summary>
+        /// <value>Indicates if the Card Verification Number is printed on the card.</value>
+        [DataMember(Name="securityCodePrinted", EmitDefaultValue=false)]
+        public bool? SecurityCodePrinted { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TermsAndConditions
+        /// </summary>
+        [DataMember(Name="termsAndConditions", EmitDefaultValue=false)]
+        public Tmsv2TokenizedCardCardTermsAndConditions TermsAndConditions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +131,11 @@ namespace CyberSource.Model
             if (ExpirationYear != null) sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
             if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
             if (Suffix != null) sb.Append("  Suffix: ").Append(Suffix).Append("\n");
+            if (IssueDate != null) sb.Append("  IssueDate: ").Append(IssueDate).Append("\n");
+            if (ActivationDate != null) sb.Append("  ActivationDate: ").Append(ActivationDate).Append("\n");
+            if (ExpirationPrinted != null) sb.Append("  ExpirationPrinted: ").Append(ExpirationPrinted).Append("\n");
+            if (SecurityCodePrinted != null) sb.Append("  SecurityCodePrinted: ").Append(SecurityCodePrinted).Append("\n");
+            if (TermsAndConditions != null) sb.Append("  TermsAndConditions: ").Append(TermsAndConditions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +196,31 @@ namespace CyberSource.Model
                     this.Suffix == other.Suffix ||
                     this.Suffix != null &&
                     this.Suffix.Equals(other.Suffix)
+                ) && 
+                (
+                    this.IssueDate == other.IssueDate ||
+                    this.IssueDate != null &&
+                    this.IssueDate.Equals(other.IssueDate)
+                ) && 
+                (
+                    this.ActivationDate == other.ActivationDate ||
+                    this.ActivationDate != null &&
+                    this.ActivationDate.Equals(other.ActivationDate)
+                ) && 
+                (
+                    this.ExpirationPrinted == other.ExpirationPrinted ||
+                    this.ExpirationPrinted != null &&
+                    this.ExpirationPrinted.Equals(other.ExpirationPrinted)
+                ) && 
+                (
+                    this.SecurityCodePrinted == other.SecurityCodePrinted ||
+                    this.SecurityCodePrinted != null &&
+                    this.SecurityCodePrinted.Equals(other.SecurityCodePrinted)
+                ) && 
+                (
+                    this.TermsAndConditions == other.TermsAndConditions ||
+                    this.TermsAndConditions != null &&
+                    this.TermsAndConditions.Equals(other.TermsAndConditions)
                 );
         }
 
@@ -177,6 +245,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Suffix != null)
                     hash = hash * 59 + this.Suffix.GetHashCode();
+                if (this.IssueDate != null)
+                    hash = hash * 59 + this.IssueDate.GetHashCode();
+                if (this.ActivationDate != null)
+                    hash = hash * 59 + this.ActivationDate.GetHashCode();
+                if (this.ExpirationPrinted != null)
+                    hash = hash * 59 + this.ExpirationPrinted.GetHashCode();
+                if (this.SecurityCodePrinted != null)
+                    hash = hash * 59 + this.SecurityCodePrinted.GetHashCode();
+                if (this.TermsAndConditions != null)
+                    hash = hash * 59 + this.TermsAndConditions.GetHashCode();
                 return hash;
             }
         }

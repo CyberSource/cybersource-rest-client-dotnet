@@ -97,6 +97,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'FingerprintSessionId'
         }
         /// <summary>
+        /// Test the property 'UseRawFingerprintSessionId'
+        /// </summary>
+        [Test]
+        public void UseRawFingerprintSessionIdTest()
+        {
+            // TODO unit test for the property 'UseRawFingerprintSessionId'
+        }
+        /// <summary>
         /// Test the property 'HttpBrowserEmail'
         /// </summary>
         [Test]
