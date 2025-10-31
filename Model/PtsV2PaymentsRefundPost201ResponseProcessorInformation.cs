@@ -43,7 +43,8 @@ namespace CyberSource.Model
         /// <param name="SettlementDate">Field contains a settlement date. The date is in mmdd format, where: mm &#x3D; month and dd &#x3D; day. .</param>
         /// <param name="UpdateTimeUtc">The date and time when the transaction was last updated, in Internet date and time format. .</param>
         /// <param name="Network">Network.</param>
-        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), string NetworkTransactionId = default(string), string SettlementDate = default(string), string UpdateTimeUtc = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
+        /// <param name="MerchantAdvice">MerchantAdvice.</param>
+        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), string NetworkTransactionId = default(string), string SettlementDate = default(string), string UpdateTimeUtc = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice))
         {
             this.ApprovalCode = ApprovalCode;
             this.TransactionId = TransactionId;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.SettlementDate = SettlementDate;
             this.UpdateTimeUtc = UpdateTimeUtc;
             this.Network = Network;
+            this.MerchantAdvice = MerchantAdvice;
         }
         
         /// <summary>
@@ -126,6 +128,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
 
         /// <summary>
+        /// Gets or Sets MerchantAdvice
+        /// </summary>
+        [DataMember(Name="merchantAdvice", EmitDefaultValue=false)]
+        public PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -143,6 +151,7 @@ namespace CyberSource.Model
             if (SettlementDate != null) sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
             if (UpdateTimeUtc != null) sb.Append("  UpdateTimeUtc: ").Append(UpdateTimeUtc).Append("\n");
             if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
+            if (MerchantAdvice != null) sb.Append("  MerchantAdvice: ").Append(MerchantAdvice).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -228,6 +237,11 @@ namespace CyberSource.Model
                     this.Network == other.Network ||
                     this.Network != null &&
                     this.Network.Equals(other.Network)
+                ) && 
+                (
+                    this.MerchantAdvice == other.MerchantAdvice ||
+                    this.MerchantAdvice != null &&
+                    this.MerchantAdvice.Equals(other.MerchantAdvice)
                 );
         }
 
@@ -262,6 +276,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.UpdateTimeUtc.GetHashCode();
                 if (this.Network != null)
                     hash = hash * 59 + this.Network.GetHashCode();
+                if (this.MerchantAdvice != null)
+                    hash = hash * 59 + this.MerchantAdvice.GetHashCode();
                 return hash;
             }
         }

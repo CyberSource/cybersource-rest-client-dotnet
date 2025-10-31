@@ -46,7 +46,8 @@ namespace CyberSource.Model
         /// <param name="LoanOptions">LoanOptions.</param>
         /// <param name="PayByPointsIndicator">Flag that indicates if the transaction is pay by points transaction true: Transaction uses loyalty points false: Transaction does not use loyalty points Default: false .</param>
         /// <param name="ActionList">Array of actions (one or more) to be included in the capture to invoke bundled services along with capture.  Possible values :   - &#x60;AP_CAPTURE&#x60;: Use this when Alternative Payment Capture service is requested. .</param>
-        public Ptsv2paymentsidcapturesProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions), Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsidcapturesProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), bool? PayByPointsIndicator = default(bool?), List<string> ActionList = default(List<string>))
+        /// <param name="JapanPaymentOptions">JapanPaymentOptions.</param>
+        public Ptsv2paymentsidcapturesProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions), Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsidcapturesProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), bool? PayByPointsIndicator = default(bool?), List<string> ActionList = default(List<string>), Ptsv2paymentsidcapturesProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsidcapturesProcessingInformationJapanPaymentOptions))
         {
             this.PaymentSolution = PaymentSolution;
             this.ReconciliationId = ReconciliationId;
@@ -61,6 +62,7 @@ namespace CyberSource.Model
             this.LoanOptions = LoanOptions;
             this.PayByPointsIndicator = PayByPointsIndicator;
             this.ActionList = ActionList;
+            this.JapanPaymentOptions = JapanPaymentOptions;
         }
         
         /// <summary>
@@ -151,6 +153,12 @@ namespace CyberSource.Model
         public List<string> ActionList { get; set; }
 
         /// <summary>
+        /// Gets or Sets JapanPaymentOptions
+        /// </summary>
+        [DataMember(Name="japanPaymentOptions", EmitDefaultValue=false)]
+        public Ptsv2paymentsidcapturesProcessingInformationJapanPaymentOptions JapanPaymentOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -171,6 +179,7 @@ namespace CyberSource.Model
             if (LoanOptions != null) sb.Append("  LoanOptions: ").Append(LoanOptions).Append("\n");
             if (PayByPointsIndicator != null) sb.Append("  PayByPointsIndicator: ").Append(PayByPointsIndicator).Append("\n");
             if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
+            if (JapanPaymentOptions != null) sb.Append("  JapanPaymentOptions: ").Append(JapanPaymentOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -271,6 +280,11 @@ namespace CyberSource.Model
                     this.ActionList == other.ActionList ||
                     this.ActionList != null &&
                     this.ActionList.SequenceEqual(other.ActionList)
+                ) && 
+                (
+                    this.JapanPaymentOptions == other.JapanPaymentOptions ||
+                    this.JapanPaymentOptions != null &&
+                    this.JapanPaymentOptions.Equals(other.JapanPaymentOptions)
                 );
         }
 
@@ -311,6 +325,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PayByPointsIndicator.GetHashCode();
                 if (this.ActionList != null)
                     hash = hash * 59 + this.ActionList.GetHashCode();
+                if (this.JapanPaymentOptions != null)
+                    hash = hash * 59 + this.JapanPaymentOptions.GetHashCode();
                 return hash;
             }
         }

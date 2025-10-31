@@ -78,6 +78,19 @@ namespace CyberSource.Test
         }
         
         /// <summary>
+        /// Test DeleteMerchantDefinedFieldsDefinitions
+        /// </summary>
+        [Test]
+        public void DeleteMerchantDefinedFieldsDefinitionsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string referenceType = null;
+            //long? id = null;
+            //instance.DeleteMerchantDefinedFieldsDefinitions(referenceType, id);
+            
+        }
+        
+        /// <summary>
         /// Test GetMerchantDefinedFieldsDefinitions
         /// </summary>
         [Test]
@@ -90,29 +103,16 @@ namespace CyberSource.Test
         }
         
         /// <summary>
-        /// Test InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete
+        /// Test PutMerchantDefinedFieldsDefinitions
         /// </summary>
         [Test]
-        public void InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string referenceType = null;
-            //long? id = null;
-            //instance.InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete(referenceType, id);
-            
-        }
-        
-        /// <summary>
-        /// Test InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut
-        /// </summary>
-        [Test]
-        public void InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutTest()
+        public void PutMerchantDefinedFieldsDefinitionsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string referenceType = null;
             //long? id = null;
             //MerchantDefinedFieldCore merchantDefinedFieldCore = null;
-            //var response = instance.InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut(referenceType, id, merchantDefinedFieldCore);
+            //var response = instance.PutMerchantDefinedFieldsDefinitions(referenceType, id, merchantDefinedFieldCore);
             //Assert.IsInstanceOf<List<InlineResponse2002>> (response, "response is List<InlineResponse2002>");
         }
         

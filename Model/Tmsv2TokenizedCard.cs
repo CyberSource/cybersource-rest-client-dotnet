@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="AccountReferenceId">An identifier provided by the issuer for the account. .</param>
         /// <param name="ConsumerId">Identifier of the consumer within the wallet. Maximum 24 characters for VTS..</param>
         /// <param name="CreateInstrumentIdentifier">Specifies whether the InstrumentId should be created (true) or not (false). Possible Values: - &#x60;true&#x60;: The InstrumentId should be created. - &#x60;false&#x60;: The InstrumentId should be created. .</param>
-        /// <param name="Source">Source of the payment instrument. Possible Values: - ONFILE - TOKEN - ISSUER .</param>
+        /// <param name="Source">Source of the card details. Possible Values: - ONFILE - TOKEN - ISSUER .</param>
         /// <param name="Type">The type of card (Card Network). Possible Values: - visa - mastercard - americanexpress .</param>
         /// <param name="Card">Card.</param>
         /// <param name="Passcode">Passcode.</param>
@@ -97,9 +97,9 @@ namespace CyberSource.Model
         public bool? CreateInstrumentIdentifier { get; set; }
 
         /// <summary>
-        /// Source of the payment instrument. Possible Values: - ONFILE - TOKEN - ISSUER 
+        /// Source of the card details. Possible Values: - ONFILE - TOKEN - ISSUER 
         /// </summary>
-        /// <value>Source of the payment instrument. Possible Values: - ONFILE - TOKEN - ISSUER </value>
+        /// <value>Source of the card details. Possible Values: - ONFILE - TOKEN - ISSUER </value>
         [DataMember(Name="source", EmitDefaultValue=false)]
         public string Source { get; set; }
 

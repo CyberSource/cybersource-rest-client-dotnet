@@ -129,20 +129,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CompleteMandate'
         }
         /// <summary>
-        /// Test the property 'OrderInformation'
-        /// </summary>
-        [Test]
-        public void OrderInformationTest()
-        {
-            // TODO unit test for the property 'OrderInformation'
-        }
-        /// <summary>
         /// Test the property 'TransientTokenResponseOptions'
         /// </summary>
         [Test]
         public void TransientTokenResponseOptionsTest()
         {
             // TODO unit test for the property 'TransientTokenResponseOptions'
+        }
+        /// <summary>
+        /// Test the property 'Data'
+        /// </summary>
+        [Test]
+        public void DataTest()
+        {
+            // TODO unit test for the property 'Data'
+        }
+        /// <summary>
+        /// Test the property 'OrderInformation'
+        /// </summary>
+        [Test]
+        public void OrderInformationTest()
+        {
+            // TODO unit test for the property 'OrderInformation'
         }
 
     }

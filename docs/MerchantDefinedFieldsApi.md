@@ -5,9 +5,9 @@ All URIs are relative to *https://apitest.cybersource.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateMerchantDefinedFieldDefinition**](MerchantDefinedFieldsApi.md#createmerchantdefinedfielddefinition) | **POST** /invoicing/v2/{referenceType}/merchantDefinedFields | Create merchant defined field for a given reference type
+[**DeleteMerchantDefinedFieldsDefinitions**](MerchantDefinedFieldsApi.md#deletemerchantdefinedfieldsdefinitions) | **DELETE** /invoicing/v2/{referenceType}/merchantDefinedFields/{id} | Delete a MerchantDefinedField by ID
 [**GetMerchantDefinedFieldsDefinitions**](MerchantDefinedFieldsApi.md#getmerchantdefinedfieldsdefinitions) | **GET** /invoicing/v2/{referenceType}/merchantDefinedFields | Get all merchant defined fields for a given reference type
-[**InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete**](MerchantDefinedFieldsApi.md#invoicingv2referencetypemerchantdefinedfieldsiddelete) | **DELETE** /invoicing/v2/{referenceType}/merchantDefinedFields/{id} | Delete a MerchantDefinedField by ID
-[**InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut**](MerchantDefinedFieldsApi.md#invoicingv2referencetypemerchantdefinedfieldsidput) | **PUT** /invoicing/v2/{referenceType}/merchantDefinedFields/{id} | Update a MerchantDefinedField by ID
+[**PutMerchantDefinedFieldsDefinitions**](MerchantDefinedFieldsApi.md#putmerchantdefinedfieldsdefinitions) | **PUT** /invoicing/v2/{referenceType}/merchantDefinedFields/{id} | Update a MerchantDefinedField by ID
 
 
 <a name="createmerchantdefinedfielddefinition"></a>
@@ -71,6 +71,66 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="deletemerchantdefinedfieldsdefinitions"></a>
+# **DeleteMerchantDefinedFieldsDefinitions**
+> void DeleteMerchantDefinedFieldsDefinitions (string referenceType, long? id)
+
+Delete a MerchantDefinedField by ID
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class DeleteMerchantDefinedFieldsDefinitionsExample
+    {
+        public void main()
+        {
+            var apiInstance = new MerchantDefinedFieldsApi();
+            var referenceType = referenceType_example;  // string | 
+            var id = 789;  // long? | 
+
+            try
+            {
+                // Delete a MerchantDefinedField by ID
+                apiInstance.DeleteMerchantDefinedFieldsDefinitions(referenceType, id);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MerchantDefinedFieldsApi.DeleteMerchantDefinedFieldsDefinitions: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **referenceType** | **string**|  | 
+ **id** | **long?**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/hal+json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getmerchantdefinedfieldsdefinitions"></a>
 # **GetMerchantDefinedFieldsDefinitions**
 > List<InlineResponse2002> GetMerchantDefinedFieldsDefinitions (string referenceType)
@@ -130,69 +190,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="invoicingv2referencetypemerchantdefinedfieldsiddelete"></a>
-# **InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete**
-> void InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete (string referenceType, long? id)
-
-Delete a MerchantDefinedField by ID
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteExample
-    {
-        public void main()
-        {
-            var apiInstance = new MerchantDefinedFieldsApi();
-            var referenceType = referenceType_example;  // string | 
-            var id = 789;  // long? | 
-
-            try
-            {
-                // Delete a MerchantDefinedField by ID
-                apiInstance.InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete(referenceType, id);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MerchantDefinedFieldsApi.InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **referenceType** | **string**|  | 
- **id** | **long?**|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="invoicingv2referencetypemerchantdefinedfieldsidput"></a>
-# **InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut**
-> List<InlineResponse2002> InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut (string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore)
+<a name="putmerchantdefinedfieldsdefinitions"></a>
+# **PutMerchantDefinedFieldsDefinitions**
+> List<InlineResponse2002> PutMerchantDefinedFieldsDefinitions (string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore)
 
 Update a MerchantDefinedField by ID
 
@@ -206,7 +206,7 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutExample
+    public class PutMerchantDefinedFieldsDefinitionsExample
     {
         public void main()
         {
@@ -218,12 +218,12 @@ namespace Example
             try
             {
                 // Update a MerchantDefinedField by ID
-                List&lt;InlineResponse2002&gt; result = apiInstance.InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut(referenceType, id, merchantDefinedFieldCore);
+                List&lt;InlineResponse2002&gt; result = apiInstance.PutMerchantDefinedFieldsDefinitions(referenceType, id, merchantDefinedFieldCore);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MerchantDefinedFieldsApi.InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut: " + e.Message );
+                Debug.Print("Exception when calling MerchantDefinedFieldsApi.PutMerchantDefinedFieldsDefinitions: " + e.Message );
             }
         }
     }

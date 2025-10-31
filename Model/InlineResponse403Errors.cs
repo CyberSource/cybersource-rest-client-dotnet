@@ -39,9 +39,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The type of error.  Possible Values:   - forbidden 
+        /// The type of error.  Possible Values:   - forbidden   - declined 
         /// </summary>
-        /// <value>The type of error.  Possible Values:   - forbidden </value>
+        /// <value>The type of error.  Possible Values:   - forbidden   - declined </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; private set; }
 
