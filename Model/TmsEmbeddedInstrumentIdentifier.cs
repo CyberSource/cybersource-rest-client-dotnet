@@ -36,8 +36,10 @@ namespace CyberSource.Model
         /// <param name="Links">Links.</param>
         /// <param name="Id">The Id of the Instrument Identifier Token. .</param>
         /// <param name="Type">The type of Instrument Identifier. Possible Values: - enrollable card - enrollable token .</param>
+        /// <param name="Source">Source of the card details. Possible Values: - CONTACTLESS_TAP .</param>
         /// <param name="TokenProvisioningInformation">TokenProvisioningInformation.</param>
         /// <param name="Card">Card.</param>
+        /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
         /// <param name="BankAccount">BankAccount.</param>
         /// <param name="TokenizedCard">TokenizedCard.</param>
         /// <param name="Issuer">Issuer.</param>
@@ -45,13 +47,15 @@ namespace CyberSource.Model
         /// <param name="BillTo">BillTo.</param>
         /// <param name="Metadata">Metadata.</param>
         /// <param name="Embedded">Embedded.</param>
-        public TmsEmbeddedInstrumentIdentifier(TmsEmbeddedInstrumentIdentifierLinks Links = default(TmsEmbeddedInstrumentIdentifierLinks), string Id = default(string), string Type = default(string), Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation = default(Ptsv2paymentsTokenInformationTokenProvisioningInformation), TmsEmbeddedInstrumentIdentifierCard Card = default(TmsEmbeddedInstrumentIdentifierCard), TmsEmbeddedInstrumentIdentifierBankAccount BankAccount = default(TmsEmbeddedInstrumentIdentifierBankAccount), Tmsv2TokenizedCard TokenizedCard = default(Tmsv2TokenizedCard), TmsEmbeddedInstrumentIdentifierIssuer Issuer = default(TmsEmbeddedInstrumentIdentifierIssuer), TmsEmbeddedInstrumentIdentifierProcessingInformation ProcessingInformation = default(TmsEmbeddedInstrumentIdentifierProcessingInformation), TmsEmbeddedInstrumentIdentifierBillTo BillTo = default(TmsEmbeddedInstrumentIdentifierBillTo), TmsEmbeddedInstrumentIdentifierMetadata Metadata = default(TmsEmbeddedInstrumentIdentifierMetadata), TmsEmbeddedInstrumentIdentifierEmbedded Embedded = default(TmsEmbeddedInstrumentIdentifierEmbedded))
+        public TmsEmbeddedInstrumentIdentifier(TmsEmbeddedInstrumentIdentifierLinks Links = default(TmsEmbeddedInstrumentIdentifierLinks), string Id = default(string), string Type = default(string), string Source = default(string), Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation = default(Ptsv2paymentsTokenInformationTokenProvisioningInformation), TmsEmbeddedInstrumentIdentifierCard Card = default(TmsEmbeddedInstrumentIdentifierCard), TmsEmbeddedInstrumentIdentifierPointOfSaleInformation PointOfSaleInformation = default(TmsEmbeddedInstrumentIdentifierPointOfSaleInformation), TmsEmbeddedInstrumentIdentifierBankAccount BankAccount = default(TmsEmbeddedInstrumentIdentifierBankAccount), Tmsv2TokenizedCard TokenizedCard = default(Tmsv2TokenizedCard), TmsEmbeddedInstrumentIdentifierIssuer Issuer = default(TmsEmbeddedInstrumentIdentifierIssuer), TmsEmbeddedInstrumentIdentifierProcessingInformation ProcessingInformation = default(TmsEmbeddedInstrumentIdentifierProcessingInformation), TmsEmbeddedInstrumentIdentifierBillTo BillTo = default(TmsEmbeddedInstrumentIdentifierBillTo), TmsEmbeddedInstrumentIdentifierMetadata Metadata = default(TmsEmbeddedInstrumentIdentifierMetadata), TmsEmbeddedInstrumentIdentifierEmbedded Embedded = default(TmsEmbeddedInstrumentIdentifierEmbedded))
         {
             this.Links = Links;
             this.Id = Id;
             this.Type = Type;
+            this.Source = Source;
             this.TokenProvisioningInformation = TokenProvisioningInformation;
             this.Card = Card;
+            this.PointOfSaleInformation = PointOfSaleInformation;
             this.BankAccount = BankAccount;
             this.TokenizedCard = TokenizedCard;
             this.Issuer = Issuer;
@@ -96,6 +100,13 @@ namespace CyberSource.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Source of the card details. Possible Values: - CONTACTLESS_TAP 
+        /// </summary>
+        /// <value>Source of the card details. Possible Values: - CONTACTLESS_TAP </value>
+        [DataMember(Name="source", EmitDefaultValue=false)]
+        public string Source { get; set; }
+
+        /// <summary>
         /// Gets or Sets TokenProvisioningInformation
         /// </summary>
         [DataMember(Name="tokenProvisioningInformation", EmitDefaultValue=false)]
@@ -106,6 +117,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
         public TmsEmbeddedInstrumentIdentifierCard Card { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PointOfSaleInformation
+        /// </summary>
+        [DataMember(Name="pointOfSaleInformation", EmitDefaultValue=false)]
+        public TmsEmbeddedInstrumentIdentifierPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BankAccount
@@ -162,8 +179,10 @@ namespace CyberSource.Model
             if (Object != null) sb.Append("  Object: ").Append(Object).Append("\n");
             if (State != null) sb.Append("  State: ").Append(State).Append("\n");
             if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Source != null) sb.Append("  Source: ").Append(Source).Append("\n");
             if (TokenProvisioningInformation != null) sb.Append("  TokenProvisioningInformation: ").Append(TokenProvisioningInformation).Append("\n");
             if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
+            if (PointOfSaleInformation != null) sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             if (BankAccount != null) sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             if (TokenizedCard != null) sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             if (Issuer != null) sb.Append("  Issuer: ").Append(Issuer).Append("\n");
@@ -233,6 +252,11 @@ namespace CyberSource.Model
                     this.Type.Equals(other.Type)
                 ) && 
                 (
+                    this.Source == other.Source ||
+                    this.Source != null &&
+                    this.Source.Equals(other.Source)
+                ) && 
+                (
                     this.TokenProvisioningInformation == other.TokenProvisioningInformation ||
                     this.TokenProvisioningInformation != null &&
                     this.TokenProvisioningInformation.Equals(other.TokenProvisioningInformation)
@@ -241,6 +265,11 @@ namespace CyberSource.Model
                     this.Card == other.Card ||
                     this.Card != null &&
                     this.Card.Equals(other.Card)
+                ) && 
+                (
+                    this.PointOfSaleInformation == other.PointOfSaleInformation ||
+                    this.PointOfSaleInformation != null &&
+                    this.PointOfSaleInformation.Equals(other.PointOfSaleInformation)
                 ) && 
                 (
                     this.BankAccount == other.BankAccount ||
@@ -300,10 +329,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.State.GetHashCode();
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Source != null)
+                    hash = hash * 59 + this.Source.GetHashCode();
                 if (this.TokenProvisioningInformation != null)
                     hash = hash * 59 + this.TokenProvisioningInformation.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
+                if (this.PointOfSaleInformation != null)
+                    hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 if (this.BankAccount != null)
                     hash = hash * 59 + this.BankAccount.GetHashCode();
                 if (this.TokenizedCard != null)
