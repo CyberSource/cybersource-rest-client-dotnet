@@ -344,7 +344,7 @@ namespace {{packageName}}.{{apiPackage}}
             {{/bodyParam}}
             
             String inboundMLEStatus = "{{#vendorExtensions.x-devcenter-metaData.mleForRequest}}{{vendorExtensions.x-devcenter-metaData.mleForRequest}}{{/vendorExtensions.x-devcenter-metaData.mleForRequest}}{{^vendorExtensions.x-devcenter-metaData.mleForRequest}}false{{/vendorExtensions.x-devcenter-metaData.mleForRequest}}";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo"))
             {
                 try
@@ -357,6 +357,8 @@ namespace {{packageName}}.{{apiPackage}}
                     throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
                 }
             }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo");
 
             {{#bodyParam}}
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
@@ -396,7 +398,7 @@ namespace {{packageName}}.{{apiPackage}}
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.{{httpMethod}}, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -413,7 +415,7 @@ namespace {{packageName}}.{{apiPackage}}
             {{#returnType}}
             return new ApiResponse<{{{returnType}}}>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                ({{{returnType}}}) Configuration.ApiClient.Deserialize(localVarResponse, typeof({{#returnContainer}}{{{returnContainer}}}{{/returnContainer}}{{^returnContainer}}{{{returnType}}}{{/returnContainer}}))); // Return statement
+                ({{{returnType}}}) Configuration.ApiClient.Deserialize(localVarResponse, typeof({{#returnContainer}}{{{returnContainer}}}{{/returnContainer}}{{^returnContainer}}{{{returnType}}}{{/returnContainer}}), merchantConfig)); // Return statement
             {{/returnType}}
             {{^returnType}}
             this.SetStatusCode(localVarStatusCode);
@@ -550,7 +552,7 @@ namespace {{packageName}}.{{apiPackage}}
             {{/bodyParam}}
 
             String inboundMLEStatus = "{{#vendorExtensions.x-devcenter-metaData.mleForRequest}}{{vendorExtensions.x-devcenter-metaData.mleForRequest}}{{/vendorExtensions.x-devcenter-metaData.mleForRequest}}{{^vendorExtensions.x-devcenter-metaData.mleForRequest}}false{{/vendorExtensions.x-devcenter-metaData.mleForRequest}}";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo"))
             {
                 try
@@ -563,6 +565,8 @@ namespace {{packageName}}.{{apiPackage}}
                     throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
                 }
             }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo");
 
             {{#bodyParam}}
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
@@ -602,7 +606,7 @@ namespace {{packageName}}.{{apiPackage}}
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.{{httpMethod}}, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -619,7 +623,7 @@ namespace {{packageName}}.{{apiPackage}}
             {{#returnType}}
             return new ApiResponse<{{{returnType}}}>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                ({{{returnType}}}) Configuration.ApiClient.Deserialize(localVarResponse, typeof({{#returnContainer}}{{{returnContainer}}}{{/returnContainer}}{{^returnContainer}}{{{returnType}}}{{/returnContainer}}))); // Return statement
+                ({{{returnType}}}) Configuration.ApiClient.Deserialize(localVarResponse, typeof({{#returnContainer}}{{{returnContainer}}}{{/returnContainer}}{{^returnContainer}}{{{returnType}}}{{/returnContainer}}), merchantConfig)); // Return statement
             {{/returnType}}
             {{^returnType}}
             this.SetStatusCode(localVarStatusCode);

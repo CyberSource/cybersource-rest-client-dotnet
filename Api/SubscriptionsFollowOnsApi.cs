@@ -344,7 +344,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateFollowOnSubscription,CreateFollowOnSubscriptionAsync,CreateFollowOnSubscriptionWithHttpInfo,CreateFollowOnSubscriptionAsyncWithHttpInfo"))
             {
                 try
@@ -358,13 +358,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "CreateFollowOnSubscription,CreateFollowOnSubscriptionAsync,CreateFollowOnSubscriptionWithHttpInfo,CreateFollowOnSubscriptionAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -380,7 +382,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<CreateSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (CreateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateSubscriptionResponse))); // Return statement
+                (CreateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateSubscriptionResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -469,7 +471,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateFollowOnSubscription,CreateFollowOnSubscriptionAsync,CreateFollowOnSubscriptionWithHttpInfo,CreateFollowOnSubscriptionAsyncWithHttpInfo"))
             {
                 try
@@ -483,13 +485,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "CreateFollowOnSubscription,CreateFollowOnSubscriptionAsync,CreateFollowOnSubscriptionWithHttpInfo,CreateFollowOnSubscriptionAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -505,7 +509,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<CreateSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (CreateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateSubscriptionResponse))); // Return statement
+                (CreateSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateSubscriptionResponse), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Get a Follow-On Subscription Get details of the Subscription being created based on the Request Id of an existing successful Transaction. 
@@ -588,7 +592,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetFollowOnSubscription,GetFollowOnSubscriptionAsync,GetFollowOnSubscriptionWithHttpInfo,GetFollowOnSubscriptionAsyncWithHttpInfo"))
             {
                 try
@@ -602,12 +606,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetFollowOnSubscription,GetFollowOnSubscriptionAsync,GetFollowOnSubscriptionWithHttpInfo,GetFollowOnSubscriptionAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -623,7 +629,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetSubscriptionResponse1>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetSubscriptionResponse1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionResponse1))); // Return statement
+                (GetSubscriptionResponse1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionResponse1), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -708,7 +714,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetFollowOnSubscription,GetFollowOnSubscriptionAsync,GetFollowOnSubscriptionWithHttpInfo,GetFollowOnSubscriptionAsyncWithHttpInfo"))
             {
                 try
@@ -722,12 +728,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetFollowOnSubscription,GetFollowOnSubscriptionAsync,GetFollowOnSubscriptionWithHttpInfo,GetFollowOnSubscriptionAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -743,7 +751,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetSubscriptionResponse1>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetSubscriptionResponse1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionResponse1))); // Return statement
+                (GetSubscriptionResponse1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionResponse1), merchantConfig)); // Return statement
         }
     }
 }
