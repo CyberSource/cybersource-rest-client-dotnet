@@ -1,7 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 using CyberSource.Client;
-using Jose;
 using CyberSource.Utilities.CaptureContext;
 using System.Threading.Tasks;
 using AuthenticationSdk.util;
@@ -14,19 +13,22 @@ namespace CyberSource.Utilities.CaptureContext
         {
             // Parse JWT Token for any malformations
 
-            JWTUtility.Parse(jwtToken);
+            string payLoad = JWTUtility.Parse(jwtToken);
+            var jsonPayLoad = JObject.Parse(payLoad);
             if (!verifyJWT)
             {
-                return JObject.Parse(JWT.Payload(jwtToken));
+                return jsonPayLoad;
             }
             // Extract 'kid' from JWT header
-            var header = JWT.Headers(jwtToken);
+
+            var header = JWTUtility.getHeader(jwtToken);
             var kid = header.ContainsKey("kid") ? header["kid"].ToString() : null;
-            var runEnvironment = config.MerchantConfigDictionaryObj.ContainsKey("runEnvironment") ? config.MerchantConfigDictionaryObj["runEnvironment"] : Constants.HostName;
             if (string.IsNullOrEmpty(kid))
             {
                 throw new Exception("JWT token does not contain 'kid' in header");
             }
+
+            var runEnvironment = config.MerchantConfigDictionaryObj.ContainsKey("runEnvironment") ? config.MerchantConfigDictionaryObj["runEnvironment"] : Constants.HostName;
 
             string publicKey = "";
             bool isPublicKeyFromCache = false;
@@ -45,29 +47,44 @@ namespace CyberSource.Utilities.CaptureContext
             // After fetching publicKey (from cache or API), verify JWT signature
             try
             {
-                if (publicKey == null)
+                try
                 {
-                    throw new Exception("Public key is null. No public key is available in the cache or could be retrieved from the API for the specified KID.");
+                    if (publicKey == null)
+                    {
+                        throw new Exception("Public key is null. No public key is available in the cache or could be retrieved from the API for the specified KID.");
+                    }
+
+                    isJWTVerified = JWTUtility.VerifyJWT(jwtToken, publicKey);
+                }
+                catch (Exception)
+                {
+                    if (isPublicKeyFromCache)
+                    {
+                        // Try to fetch fresh public key from API and re-verify
+                        publicKey = FetchPublicKeyFromApi(kid, runEnvironment).GetAwaiter().GetResult();
+                        isJWTVerified = JWTUtility.VerifyJWT(jwtToken, publicKey);
+                    }
                 }
 
-                isJWTVerified = JWTUtility.VerifyJWT(jwtToken, publicKey);
+                if (!isJWTVerified)
+                {
+                    throw new JwtSignatureValidationException("JWT signature verification has failed");
+                }
+            }
+            catch (JwtSignatureValidationException)
+            {
+                throw;
+            }
+            catch (InvalidJwkException)
+            {
+                throw;
             }
             catch (Exception)
             {
-                if (isPublicKeyFromCache)
-                {
-                    // Try to fetch fresh public key from API and re-verify
-                    publicKey = FetchPublicKeyFromApi(kid, runEnvironment).GetAwaiter().GetResult();
-                    isJWTVerified = JWTUtility.VerifyJWT(jwtToken, publicKey);
-                }
+                throw;
             }
 
-            if (!isJWTVerified)
-            {
-                throw new Exception("JWT signature verification failed");
-            }
-
-            return JObject.Parse(JWT.Payload(jwtToken));
+            return jsonPayLoad;
         }
 
         private static async Task<string> FetchPublicKeyFromApi(string kid, string runEnvironment)
@@ -77,9 +94,10 @@ namespace CyberSource.Utilities.CaptureContext
             {
                 publicKey = await PublicKeyApiController.FetchPublicKeyAsync(kid, runEnvironment);
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Failed to fetch public key from API");
+                Console.WriteLine(ex);
+                throw;
             }
 
             Cache.AddPublicKeyToCache(publicKey, runEnvironment, kid);
