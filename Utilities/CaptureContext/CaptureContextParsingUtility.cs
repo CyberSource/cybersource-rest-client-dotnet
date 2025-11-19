@@ -4,6 +4,7 @@ using CyberSource.Client;
 using CyberSource.Utilities.CaptureContext;
 using System.Threading.Tasks;
 using AuthenticationSdk.util;
+using AuthenticationSdk.util.jwtExceptions;
 
 namespace CyberSource.Utilities.CaptureContext
 {
@@ -21,7 +22,7 @@ namespace CyberSource.Utilities.CaptureContext
             }
             // Extract 'kid' from JWT header
 
-            var header = JWTUtility.getHeader(jwtToken);
+            var header = JWTUtility.GetJwtHeaders(jwtToken);
             var kid = header.ContainsKey("kid") ? header["kid"].ToString() : null;
             if (string.IsNullOrEmpty(kid))
             {
@@ -54,7 +55,7 @@ namespace CyberSource.Utilities.CaptureContext
                         throw new Exception("Public key is null. No public key is available in the cache or could be retrieved from the API for the specified KID.");
                     }
 
-                    isJWTVerified = JWTUtility.VerifyJWT(jwtToken, publicKey);
+                    isJWTVerified = JWTUtility.VerifyJwt(jwtToken, publicKey);
                 }
                 catch (Exception)
                 {
@@ -62,7 +63,7 @@ namespace CyberSource.Utilities.CaptureContext
                     {
                         // Try to fetch fresh public key from API and re-verify
                         publicKey = FetchPublicKeyFromApi(kid, runEnvironment).GetAwaiter().GetResult();
-                        isJWTVerified = JWTUtility.VerifyJWT(jwtToken, publicKey);
+                        isJWTVerified = JWTUtility.VerifyJwt(jwtToken, publicKey);
                     }
                 }
 
