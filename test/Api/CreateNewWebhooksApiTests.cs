@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string organizationId = null;
             //var response = instance.FindProductsToSubscribe(organizationId);
-            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
+            //Assert.IsInstanceOf<List<InlineResponse2005>> (response, "response is List<InlineResponse2005>");
         }
         
         /// <summary>

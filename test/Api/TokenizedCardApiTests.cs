@@ -91,6 +91,20 @@ namespace CyberSource.Test
         }
         
         /// <summary>
+        /// Test PostIssuerLifeCycleSimulation
+        /// </summary>
+        [Test]
+        public void PostIssuerLifeCycleSimulationTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string profileId = null;
+            //string tokenizedCardId = null;
+            //PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest = null;
+            //instance.PostIssuerLifeCycleSimulation(profileId, tokenizedCardId, postIssuerLifeCycleSimulationRequest);
+            
+        }
+        
+        /// <summary>
         /// Test PostTokenizedCard
         /// </summary>
         [Test]

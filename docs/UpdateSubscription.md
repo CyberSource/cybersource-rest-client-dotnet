@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientReferenceInformation** | [**Rbsv1subscriptionsClientReferenceInformation**](Rbsv1subscriptionsClientReferenceInformation.md) |  | [optional] 
+**ClientReferenceInformation** | [**GetAllSubscriptionsResponseClientReferenceInformation**](GetAllSubscriptionsResponseClientReferenceInformation.md) |  | [optional] 
 **ProcessingInformation** | [**Rbsv1subscriptionsProcessingInformation**](Rbsv1subscriptionsProcessingInformation.md) |  | [optional] 
 **PlanInformation** | [**Rbsv1subscriptionsidPlanInformation**](Rbsv1subscriptionsidPlanInformation.md) |  | [optional] 
 **SubscriptionInformation** | [**Rbsv1subscriptionsidSubscriptionInformation**](Rbsv1subscriptionsidSubscriptionInformation.md) |  | [optional] 

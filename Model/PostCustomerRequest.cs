@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// <param name="DefaultShippingAddress">DefaultShippingAddress.</param>
         /// <param name="Metadata">Metadata.</param>
         /// <param name="Embedded">Embedded.</param>
-        public PostCustomerRequest(Tmsv2customersLinks Links = default(Tmsv2customersLinks), string Id = default(string), Tmsv2customersObjectInformation ObjectInformation = default(Tmsv2customersObjectInformation), Tmsv2customersBuyerInformation BuyerInformation = default(Tmsv2customersBuyerInformation), Tmsv2customersClientReferenceInformation ClientReferenceInformation = default(Tmsv2customersClientReferenceInformation), List<Tmsv2customersMerchantDefinedInformation> MerchantDefinedInformation = default(List<Tmsv2customersMerchantDefinedInformation>), Tmsv2customersDefaultPaymentInstrument DefaultPaymentInstrument = default(Tmsv2customersDefaultPaymentInstrument), Tmsv2customersDefaultShippingAddress DefaultShippingAddress = default(Tmsv2customersDefaultShippingAddress), Tmsv2customersMetadata Metadata = default(Tmsv2customersMetadata), Tmsv2customersEmbedded Embedded = default(Tmsv2customersEmbedded))
+        public PostCustomerRequest(Tmsv2tokenizeTokenInformationCustomerLinks Links = default(Tmsv2tokenizeTokenInformationCustomerLinks), string Id = default(string), Tmsv2tokenizeTokenInformationCustomerObjectInformation ObjectInformation = default(Tmsv2tokenizeTokenInformationCustomerObjectInformation), Tmsv2tokenizeTokenInformationCustomerBuyerInformation BuyerInformation = default(Tmsv2tokenizeTokenInformationCustomerBuyerInformation), Tmsv2tokenizeTokenInformationCustomerClientReferenceInformation ClientReferenceInformation = default(Tmsv2tokenizeTokenInformationCustomerClientReferenceInformation), List<Tmsv2tokenizeTokenInformationCustomerMerchantDefinedInformation> MerchantDefinedInformation = default(List<Tmsv2tokenizeTokenInformationCustomerMerchantDefinedInformation>), Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument DefaultPaymentInstrument = default(Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument), Tmsv2tokenizeTokenInformationCustomerDefaultShippingAddress DefaultShippingAddress = default(Tmsv2tokenizeTokenInformationCustomerDefaultShippingAddress), Tmsv2tokenizeTokenInformationCustomerMetadata Metadata = default(Tmsv2tokenizeTokenInformationCustomerMetadata), Tmsv2tokenizeTokenInformationCustomerEmbedded Embedded = default(Tmsv2tokenizeTokenInformationCustomerEmbedded))
         {
             this.Links = Links;
             this.Id = Id;
@@ -61,7 +61,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public Tmsv2customersLinks Links { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerLinks Links { get; set; }
 
         /// <summary>
         /// The Id of the Customer Token.
@@ -74,50 +74,50 @@ namespace CyberSource.Model
         /// Gets or Sets ObjectInformation
         /// </summary>
         [DataMember(Name="objectInformation", EmitDefaultValue=false)]
-        public Tmsv2customersObjectInformation ObjectInformation { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerObjectInformation ObjectInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
         /// </summary>
         [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
-        public Tmsv2customersBuyerInformation BuyerInformation { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerBuyerInformation BuyerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Tmsv2customersClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Object containing the custom data that the merchant defines. 
         /// </summary>
         /// <value>Object containing the custom data that the merchant defines. </value>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
-        public List<Tmsv2customersMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
+        public List<Tmsv2tokenizeTokenInformationCustomerMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultPaymentInstrument
         /// </summary>
         [DataMember(Name="defaultPaymentInstrument", EmitDefaultValue=false)]
-        public Tmsv2customersDefaultPaymentInstrument DefaultPaymentInstrument { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument DefaultPaymentInstrument { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultShippingAddress
         /// </summary>
         [DataMember(Name="defaultShippingAddress", EmitDefaultValue=false)]
-        public Tmsv2customersDefaultShippingAddress DefaultShippingAddress { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerDefaultShippingAddress DefaultShippingAddress { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public Tmsv2customersMetadata Metadata { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerMetadata Metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
         [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public Tmsv2customersEmbedded Embedded { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerEmbedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

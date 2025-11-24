@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// Gets or Sets ShippingAddresses
         /// </summary>
         [DataMember(Name="shippingAddresses", EmitDefaultValue=false)]
-        public List<Tmsv2customersEmbeddedDefaultShippingAddress> ShippingAddresses { get; private set; }
+        public List<Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddress> ShippingAddresses { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

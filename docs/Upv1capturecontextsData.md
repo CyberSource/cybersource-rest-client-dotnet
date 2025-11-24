@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **ProcessingInformation** | [**Upv1capturecontextsDataProcessingInformation**](Upv1capturecontextsDataProcessingInformation.md) |  | [optional] 
 **RecipientInformation** | [**Upv1capturecontextsDataRecipientInformation**](Upv1capturecontextsDataRecipientInformation.md) |  | [optional] 
 **MerchantDefinedInformation** | [**Upv1capturecontextsDataMerchantDefinedInformation**](Upv1capturecontextsDataMerchantDefinedInformation.md) |  | [optional] 
+**DeviceInformation** | [**Upv1capturecontextsDataDeviceInformation**](Upv1capturecontextsDataDeviceInformation.md) |  | [optional] 
+**PaymentInformation** | [**Upv1capturecontextsDataPaymentInformation**](Upv1capturecontextsDataPaymentInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

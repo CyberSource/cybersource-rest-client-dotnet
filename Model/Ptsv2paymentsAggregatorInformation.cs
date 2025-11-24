@@ -41,7 +41,8 @@ namespace CyberSource.Model
         /// <param name="State">Acquirer state..</param>
         /// <param name="PostalCode">Acquirer postal code..</param>
         /// <param name="Country">Acquirer country..</param>
-        public Ptsv2paymentsAggregatorInformation(string AggregatorId = default(string), string Name = default(string), Ptsv2paymentsAggregatorInformationSubMerchant SubMerchant = default(Ptsv2paymentsAggregatorInformationSubMerchant), string StreetAddress = default(string), string City = default(string), string State = default(string), string PostalCode = default(string), string Country = default(string))
+        /// <param name="ServiceProvidername">Contains transfer service provider name..</param>
+        public Ptsv2paymentsAggregatorInformation(string AggregatorId = default(string), string Name = default(string), Ptsv2paymentsAggregatorInformationSubMerchant SubMerchant = default(Ptsv2paymentsAggregatorInformationSubMerchant), string StreetAddress = default(string), string City = default(string), string State = default(string), string PostalCode = default(string), string Country = default(string), string ServiceProvidername = default(string))
         {
             this.AggregatorId = AggregatorId;
             this.Name = Name;
@@ -51,6 +52,7 @@ namespace CyberSource.Model
             this.State = State;
             this.PostalCode = PostalCode;
             this.Country = Country;
+            this.ServiceProvidername = ServiceProvidername;
         }
         
         /// <summary>
@@ -109,6 +111,13 @@ namespace CyberSource.Model
         public string Country { get; set; }
 
         /// <summary>
+        /// Contains transfer service provider name.
+        /// </summary>
+        /// <value>Contains transfer service provider name.</value>
+        [DataMember(Name="serviceProvidername", EmitDefaultValue=false)]
+        public string ServiceProvidername { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -124,6 +133,7 @@ namespace CyberSource.Model
             if (State != null) sb.Append("  State: ").Append(State).Append("\n");
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (ServiceProvidername != null) sb.Append("  ServiceProvidername: ").Append(ServiceProvidername).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,6 +209,11 @@ namespace CyberSource.Model
                     this.Country == other.Country ||
                     this.Country != null &&
                     this.Country.Equals(other.Country)
+                ) && 
+                (
+                    this.ServiceProvidername == other.ServiceProvidername ||
+                    this.ServiceProvidername != null &&
+                    this.ServiceProvidername.Equals(other.ServiceProvidername)
                 );
         }
 
@@ -229,6 +244,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.Country != null)
                     hash = hash * 59 + this.Country.GetHashCode();
+                if (this.ServiceProvidername != null)
+                    hash = hash * 59 + this.ServiceProvidername.GetHashCode();
                 return hash;
             }
         }

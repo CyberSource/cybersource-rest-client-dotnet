@@ -33,37 +33,37 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataOrderInformationLineItems" /> class.
         /// </summary>
-        /// <param name="ProductCode">ProductCode.</param>
-        /// <param name="ProductName">ProductName.</param>
-        /// <param name="ProductSku">ProductSku.</param>
-        /// <param name="Quantity">Quantity.</param>
-        /// <param name="UnitPrice">UnitPrice.</param>
-        /// <param name="UnitOfMeasure">UnitOfMeasure.</param>
-        /// <param name="TotalAmount">TotalAmount.</param>
-        /// <param name="TaxAmount">TaxAmount.</param>
-        /// <param name="TaxRate">TaxRate.</param>
-        /// <param name="TaxAppliedAfterDiscount">TaxAppliedAfterDiscount.</param>
-        /// <param name="TaxStatusIndicator">TaxStatusIndicator.</param>
-        /// <param name="TaxTypeCode">TaxTypeCode.</param>
-        /// <param name="AmountIncludesTax">AmountIncludesTax.</param>
-        /// <param name="TypeOfSupply">TypeOfSupply.</param>
-        /// <param name="CommodityCode">CommodityCode.</param>
-        /// <param name="DiscountAmount">DiscountAmount.</param>
-        /// <param name="DiscountApplied">DiscountApplied.</param>
-        /// <param name="DiscountRate">DiscountRate.</param>
-        /// <param name="InvoiceNumber">InvoiceNumber.</param>
+        /// <param name="ProductCode">Code identifying the product..</param>
+        /// <param name="ProductName">Name of the product..</param>
+        /// <param name="ProductSku">Stock Keeping Unit identifier.</param>
+        /// <param name="Quantity">Quantity of the product.</param>
+        /// <param name="UnitPrice">Price per unit.</param>
+        /// <param name="UnitOfMeasure">Unit of measure (e.g. EA, KG, LB).</param>
+        /// <param name="TotalAmount">Total amount for the line item.</param>
+        /// <param name="TaxAmount">Tax amount applied.</param>
+        /// <param name="TaxRate">Tax rate applied.</param>
+        /// <param name="TaxAppliedAfterDiscount">Indicates if tax applied after discount.</param>
+        /// <param name="TaxStatusIndicator">Tax status indicator.</param>
+        /// <param name="TaxTypeCode">Tax type code.</param>
+        /// <param name="AmountIncludesTax">Indicates if amount includes tax.</param>
+        /// <param name="TypeOfSupply">Type of supply.</param>
+        /// <param name="CommodityCode">Commodity code.</param>
+        /// <param name="DiscountAmount">Discount amount applied.</param>
+        /// <param name="DiscountApplied">Indicates if discount applied.</param>
+        /// <param name="DiscountRate">Discount rate applied.</param>
+        /// <param name="InvoiceNumber">Invoice number for the line item.</param>
         /// <param name="TaxDetails">TaxDetails.</param>
-        /// <param name="FulfillmentType">FulfillmentType.</param>
-        /// <param name="Weight">Weight.</param>
-        /// <param name="WeightIdentifier">WeightIdentifier.</param>
-        /// <param name="WeightUnit">WeightUnit.</param>
-        /// <param name="ReferenceDataCode">ReferenceDataCode.</param>
-        /// <param name="ReferenceDataNumber">ReferenceDataNumber.</param>
-        /// <param name="UnitTaxAmount">UnitTaxAmount.</param>
-        /// <param name="ProductDescription">ProductDescription.</param>
-        /// <param name="GiftCardCurrency">GiftCardCurrency.</param>
-        /// <param name="ShippingDestinationTypes">ShippingDestinationTypes.</param>
-        /// <param name="Gift">Gift.</param>
+        /// <param name="FulfillmentType">Fulfillment type.</param>
+        /// <param name="Weight">Weight of the product.</param>
+        /// <param name="WeightIdentifier">Weight identifier.</param>
+        /// <param name="WeightUnit">Unit of weight of the product.</param>
+        /// <param name="ReferenceDataCode">Reference data code.</param>
+        /// <param name="ReferenceDataNumber">Reference data number.</param>
+        /// <param name="UnitTaxAmount">Unit tax amount.</param>
+        /// <param name="ProductDescription">Description of the product.</param>
+        /// <param name="GiftCardCurrency">Gift card currency.</param>
+        /// <param name="ShippingDestinationTypes">Shipping destination types.</param>
+        /// <param name="Gift">Indicates if item is a gift.</param>
         /// <param name="Passenger">Passenger.</param>
         public Upv1capturecontextsDataOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), Upv1capturecontextsDataOrderInformationLineItemsTaxDetails TaxDetails = default(Upv1capturecontextsDataOrderInformationLineItemsTaxDetails), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), string UnitTaxAmount = default(string), string ProductDescription = default(string), string GiftCardCurrency = default(string), string ShippingDestinationTypes = default(string), bool? Gift = default(bool?), Upv1capturecontextsDataOrderInformationLineItemsPassenger Passenger = default(Upv1capturecontextsDataOrderInformationLineItemsPassenger))
         {
@@ -102,116 +102,135 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Gets or Sets ProductCode
+        /// Code identifying the product.
         /// </summary>
+        /// <value>Code identifying the product.</value>
         [DataMember(Name="productCode", EmitDefaultValue=false)]
         public string ProductCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProductName
+        /// Name of the product.
         /// </summary>
+        /// <value>Name of the product.</value>
         [DataMember(Name="productName", EmitDefaultValue=false)]
         public string ProductName { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProductSku
+        /// Stock Keeping Unit identifier
         /// </summary>
+        /// <value>Stock Keeping Unit identifier</value>
         [DataMember(Name="productSku", EmitDefaultValue=false)]
         public string ProductSku { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quantity
+        /// Quantity of the product
         /// </summary>
+        /// <value>Quantity of the product</value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public int? Quantity { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnitPrice
+        /// Price per unit
         /// </summary>
+        /// <value>Price per unit</value>
         [DataMember(Name="unitPrice", EmitDefaultValue=false)]
         public string UnitPrice { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnitOfMeasure
+        /// Unit of measure (e.g. EA, KG, LB)
         /// </summary>
+        /// <value>Unit of measure (e.g. EA, KG, LB)</value>
         [DataMember(Name="unitOfMeasure", EmitDefaultValue=false)]
         public string UnitOfMeasure { get; set; }
 
         /// <summary>
-        /// Gets or Sets TotalAmount
+        /// Total amount for the line item
         /// </summary>
+        /// <value>Total amount for the line item</value>
         [DataMember(Name="totalAmount", EmitDefaultValue=false)]
         public string TotalAmount { get; set; }
 
         /// <summary>
-        /// Gets or Sets TaxAmount
+        /// Tax amount applied
         /// </summary>
+        /// <value>Tax amount applied</value>
         [DataMember(Name="taxAmount", EmitDefaultValue=false)]
         public string TaxAmount { get; set; }
 
         /// <summary>
-        /// Gets or Sets TaxRate
+        /// Tax rate applied
         /// </summary>
+        /// <value>Tax rate applied</value>
         [DataMember(Name="taxRate", EmitDefaultValue=false)]
         public string TaxRate { get; set; }
 
         /// <summary>
-        /// Gets or Sets TaxAppliedAfterDiscount
+        /// Indicates if tax applied after discount
         /// </summary>
+        /// <value>Indicates if tax applied after discount</value>
         [DataMember(Name="taxAppliedAfterDiscount", EmitDefaultValue=false)]
         public string TaxAppliedAfterDiscount { get; set; }
 
         /// <summary>
-        /// Gets or Sets TaxStatusIndicator
+        /// Tax status indicator
         /// </summary>
+        /// <value>Tax status indicator</value>
         [DataMember(Name="taxStatusIndicator", EmitDefaultValue=false)]
         public string TaxStatusIndicator { get; set; }
 
         /// <summary>
-        /// Gets or Sets TaxTypeCode
+        /// Tax type code
         /// </summary>
+        /// <value>Tax type code</value>
         [DataMember(Name="taxTypeCode", EmitDefaultValue=false)]
         public string TaxTypeCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets AmountIncludesTax
+        /// Indicates if amount includes tax
         /// </summary>
+        /// <value>Indicates if amount includes tax</value>
         [DataMember(Name="amountIncludesTax", EmitDefaultValue=false)]
         public bool? AmountIncludesTax { get; set; }
 
         /// <summary>
-        /// Gets or Sets TypeOfSupply
+        /// Type of supply
         /// </summary>
+        /// <value>Type of supply</value>
         [DataMember(Name="typeOfSupply", EmitDefaultValue=false)]
         public string TypeOfSupply { get; set; }
 
         /// <summary>
-        /// Gets or Sets CommodityCode
+        /// Commodity code
         /// </summary>
+        /// <value>Commodity code</value>
         [DataMember(Name="commodityCode", EmitDefaultValue=false)]
         public string CommodityCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets DiscountAmount
+        /// Discount amount applied
         /// </summary>
+        /// <value>Discount amount applied</value>
         [DataMember(Name="discountAmount", EmitDefaultValue=false)]
         public string DiscountAmount { get; set; }
 
         /// <summary>
-        /// Gets or Sets DiscountApplied
+        /// Indicates if discount applied
         /// </summary>
+        /// <value>Indicates if discount applied</value>
         [DataMember(Name="discountApplied", EmitDefaultValue=false)]
         public bool? DiscountApplied { get; set; }
 
         /// <summary>
-        /// Gets or Sets DiscountRate
+        /// Discount rate applied
         /// </summary>
+        /// <value>Discount rate applied</value>
         [DataMember(Name="discountRate", EmitDefaultValue=false)]
         public string DiscountRate { get; set; }
 
         /// <summary>
-        /// Gets or Sets InvoiceNumber
+        /// Invoice number for the line item
         /// </summary>
+        /// <value>Invoice number for the line item</value>
         [DataMember(Name="invoiceNumber", EmitDefaultValue=false)]
         public string InvoiceNumber { get; set; }
 
@@ -222,68 +241,79 @@ namespace CyberSource.Model
         public Upv1capturecontextsDataOrderInformationLineItemsTaxDetails TaxDetails { get; set; }
 
         /// <summary>
-        /// Gets or Sets FulfillmentType
+        /// Fulfillment type
         /// </summary>
+        /// <value>Fulfillment type</value>
         [DataMember(Name="fulfillmentType", EmitDefaultValue=false)]
         public string FulfillmentType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Weight
+        /// Weight of the product
         /// </summary>
+        /// <value>Weight of the product</value>
         [DataMember(Name="weight", EmitDefaultValue=false)]
         public string Weight { get; set; }
 
         /// <summary>
-        /// Gets or Sets WeightIdentifier
+        /// Weight identifier
         /// </summary>
+        /// <value>Weight identifier</value>
         [DataMember(Name="weightIdentifier", EmitDefaultValue=false)]
         public string WeightIdentifier { get; set; }
 
         /// <summary>
-        /// Gets or Sets WeightUnit
+        /// Unit of weight of the product
         /// </summary>
+        /// <value>Unit of weight of the product</value>
         [DataMember(Name="weightUnit", EmitDefaultValue=false)]
         public string WeightUnit { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReferenceDataCode
+        /// Reference data code
         /// </summary>
+        /// <value>Reference data code</value>
         [DataMember(Name="referenceDataCode", EmitDefaultValue=false)]
         public string ReferenceDataCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReferenceDataNumber
+        /// Reference data number
         /// </summary>
+        /// <value>Reference data number</value>
         [DataMember(Name="referenceDataNumber", EmitDefaultValue=false)]
         public string ReferenceDataNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnitTaxAmount
+        /// Unit tax amount
         /// </summary>
+        /// <value>Unit tax amount</value>
         [DataMember(Name="unitTaxAmount", EmitDefaultValue=false)]
         public string UnitTaxAmount { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProductDescription
+        /// Description of the product
         /// </summary>
+        /// <value>Description of the product</value>
         [DataMember(Name="productDescription", EmitDefaultValue=false)]
         public string ProductDescription { get; set; }
 
         /// <summary>
-        /// Gets or Sets GiftCardCurrency
+        /// Gift card currency
         /// </summary>
+        /// <value>Gift card currency</value>
         [DataMember(Name="giftCardCurrency", EmitDefaultValue=false)]
         public string GiftCardCurrency { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShippingDestinationTypes
+        /// Shipping destination types
         /// </summary>
+        /// <value>Shipping destination types</value>
         [DataMember(Name="shippingDestinationTypes", EmitDefaultValue=false)]
         public string ShippingDestinationTypes { get; set; }
 
         /// <summary>
-        /// Gets or Sets Gift
+        /// Indicates if item is a gift
         /// </summary>
+        /// <value>Indicates if item is a gift</value>
         [DataMember(Name="gift", EmitDefaultValue=false)]
         public bool? Gift { get; set; }
 

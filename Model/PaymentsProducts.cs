@@ -53,7 +53,8 @@ namespace CyberSource.Model
         /// <param name="UnifiedCheckout">UnifiedCheckout.</param>
         /// <param name="ReceivablesManager">ReceivablesManager.</param>
         /// <param name="ServiceFee">ServiceFee.</param>
-        public PaymentsProducts(PaymentsProductsCardProcessing CardProcessing = default(PaymentsProductsCardProcessing), PaymentsProductsAlternativePaymentMethods AlternativePaymentMethods = default(PaymentsProductsAlternativePaymentMethods), PaymentsProductsCardPresentConnect CardPresentConnect = default(PaymentsProductsCardPresentConnect), PaymentsProductsCybsReadyTerminal CybsReadyTerminal = default(PaymentsProductsCybsReadyTerminal), PaymentsProductsECheck ECheck = default(PaymentsProductsECheck), PaymentsProductsPayerAuthentication PayerAuthentication = default(PaymentsProductsPayerAuthentication), PaymentsProductsDigitalPayments DigitalPayments = default(PaymentsProductsDigitalPayments), PaymentsProductsSecureAcceptance SecureAcceptance = default(PaymentsProductsSecureAcceptance), PaymentsProductsVirtualTerminal VirtualTerminal = default(PaymentsProductsVirtualTerminal), PaymentsProductsCurrencyConversion CurrencyConversion = default(PaymentsProductsCurrencyConversion), PaymentsProductsTax Tax = default(PaymentsProductsTax), PaymentsProductsTax CustomerInvoicing = default(PaymentsProductsTax), PaymentsProductsTax RecurringBilling = default(PaymentsProductsTax), PaymentsProductsTax PaymentOrchestration = default(PaymentsProductsTax), PaymentsProductsPayouts Payouts = default(PaymentsProductsPayouts), PaymentsProductsDifferentialFee DifferentialFee = default(PaymentsProductsDifferentialFee), PaymentsProductsTax PayByLink = default(PaymentsProductsTax), PaymentsProductsUnifiedCheckout UnifiedCheckout = default(PaymentsProductsUnifiedCheckout), PaymentsProductsTax ReceivablesManager = default(PaymentsProductsTax), PaymentsProductsServiceFee ServiceFee = default(PaymentsProductsServiceFee))
+        /// <param name="BatchUpload">BatchUpload.</param>
+        public PaymentsProducts(PaymentsProductsCardProcessing CardProcessing = default(PaymentsProductsCardProcessing), PaymentsProductsAlternativePaymentMethods AlternativePaymentMethods = default(PaymentsProductsAlternativePaymentMethods), PaymentsProductsCardPresentConnect CardPresentConnect = default(PaymentsProductsCardPresentConnect), PaymentsProductsCybsReadyTerminal CybsReadyTerminal = default(PaymentsProductsCybsReadyTerminal), PaymentsProductsECheck ECheck = default(PaymentsProductsECheck), PaymentsProductsPayerAuthentication PayerAuthentication = default(PaymentsProductsPayerAuthentication), PaymentsProductsDigitalPayments DigitalPayments = default(PaymentsProductsDigitalPayments), PaymentsProductsSecureAcceptance SecureAcceptance = default(PaymentsProductsSecureAcceptance), PaymentsProductsVirtualTerminal VirtualTerminal = default(PaymentsProductsVirtualTerminal), PaymentsProductsCurrencyConversion CurrencyConversion = default(PaymentsProductsCurrencyConversion), PaymentsProductsTax Tax = default(PaymentsProductsTax), PaymentsProductsTax CustomerInvoicing = default(PaymentsProductsTax), PaymentsProductsTax RecurringBilling = default(PaymentsProductsTax), PaymentsProductsTax PaymentOrchestration = default(PaymentsProductsTax), PaymentsProductsPayouts Payouts = default(PaymentsProductsPayouts), PaymentsProductsDifferentialFee DifferentialFee = default(PaymentsProductsDifferentialFee), PaymentsProductsTax PayByLink = default(PaymentsProductsTax), PaymentsProductsUnifiedCheckout UnifiedCheckout = default(PaymentsProductsUnifiedCheckout), PaymentsProductsTax ReceivablesManager = default(PaymentsProductsTax), PaymentsProductsServiceFee ServiceFee = default(PaymentsProductsServiceFee), PaymentsProductsTax BatchUpload = default(PaymentsProductsTax))
         {
             this.CardProcessing = CardProcessing;
             this.AlternativePaymentMethods = AlternativePaymentMethods;
@@ -75,6 +76,7 @@ namespace CyberSource.Model
             this.UnifiedCheckout = UnifiedCheckout;
             this.ReceivablesManager = ReceivablesManager;
             this.ServiceFee = ServiceFee;
+            this.BatchUpload = BatchUpload;
         }
         
         /// <summary>
@@ -198,6 +200,12 @@ namespace CyberSource.Model
         public PaymentsProductsServiceFee ServiceFee { get; set; }
 
         /// <summary>
+        /// Gets or Sets BatchUpload
+        /// </summary>
+        [DataMember(Name="batchUpload", EmitDefaultValue=false)]
+        public PaymentsProductsTax BatchUpload { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -225,6 +233,7 @@ namespace CyberSource.Model
             if (UnifiedCheckout != null) sb.Append("  UnifiedCheckout: ").Append(UnifiedCheckout).Append("\n");
             if (ReceivablesManager != null) sb.Append("  ReceivablesManager: ").Append(ReceivablesManager).Append("\n");
             if (ServiceFee != null) sb.Append("  ServiceFee: ").Append(ServiceFee).Append("\n");
+            if (BatchUpload != null) sb.Append("  BatchUpload: ").Append(BatchUpload).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -360,6 +369,11 @@ namespace CyberSource.Model
                     this.ServiceFee == other.ServiceFee ||
                     this.ServiceFee != null &&
                     this.ServiceFee.Equals(other.ServiceFee)
+                ) && 
+                (
+                    this.BatchUpload == other.BatchUpload ||
+                    this.BatchUpload != null &&
+                    this.BatchUpload.Equals(other.BatchUpload)
                 );
         }
 
@@ -414,6 +428,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReceivablesManager.GetHashCode();
                 if (this.ServiceFee != null)
                     hash = hash * 59 + this.ServiceFee.GetHashCode();
+                if (this.BatchUpload != null)
+                    hash = hash * 59 + this.BatchUpload.GetHashCode();
                 return hash;
             }
         }

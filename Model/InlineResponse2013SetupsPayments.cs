@@ -52,7 +52,8 @@ namespace CyberSource.Model
         /// <param name="UnifiedCheckout">UnifiedCheckout.</param>
         /// <param name="ReceivablesManager">ReceivablesManager.</param>
         /// <param name="ServiceFee">ServiceFee.</param>
-        public InlineResponse2013SetupsPayments(InlineResponse2013SetupsPaymentsCardProcessing CardProcessing = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsAlternativePaymentMethods AlternativePaymentMethods = default(InlineResponse2013SetupsPaymentsAlternativePaymentMethods), InlineResponse2013SetupsPaymentsCardProcessing CardPresentConnect = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsCardProcessing ECheck = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsCardProcessing PayerAuthentication = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsDigitalPayments DigitalPayments = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsCardProcessing SecureAcceptance = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsCardProcessing VirtualTerminal = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsCardProcessing CurrencyConversion = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsDigitalPayments Tax = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsDigitalPayments CustomerInvoicing = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsCardProcessing RecurringBilling = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsCardProcessing CybsReadyTerminal = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsDigitalPayments PaymentOrchestration = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsCardProcessing Payouts = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsDigitalPayments PayByLink = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsDigitalPayments UnifiedCheckout = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsDigitalPayments ReceivablesManager = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsCardProcessing ServiceFee = default(InlineResponse2013SetupsPaymentsCardProcessing))
+        /// <param name="BatchUpload">BatchUpload.</param>
+        public InlineResponse2013SetupsPayments(InlineResponse2013SetupsPaymentsCardProcessing CardProcessing = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsAlternativePaymentMethods AlternativePaymentMethods = default(InlineResponse2013SetupsPaymentsAlternativePaymentMethods), InlineResponse2013SetupsPaymentsCardProcessing CardPresentConnect = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsCardProcessing ECheck = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsCardProcessing PayerAuthentication = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsDigitalPayments DigitalPayments = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsCardProcessing SecureAcceptance = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsCardProcessing VirtualTerminal = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsCardProcessing CurrencyConversion = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsDigitalPayments Tax = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsDigitalPayments CustomerInvoicing = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsCardProcessing RecurringBilling = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsCardProcessing CybsReadyTerminal = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsDigitalPayments PaymentOrchestration = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsCardProcessing Payouts = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsDigitalPayments PayByLink = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsDigitalPayments UnifiedCheckout = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsDigitalPayments ReceivablesManager = default(InlineResponse2013SetupsPaymentsDigitalPayments), InlineResponse2013SetupsPaymentsCardProcessing ServiceFee = default(InlineResponse2013SetupsPaymentsCardProcessing), InlineResponse2013SetupsPaymentsDigitalPayments BatchUpload = default(InlineResponse2013SetupsPaymentsDigitalPayments))
         {
             this.CardProcessing = CardProcessing;
             this.AlternativePaymentMethods = AlternativePaymentMethods;
@@ -73,6 +74,7 @@ namespace CyberSource.Model
             this.UnifiedCheckout = UnifiedCheckout;
             this.ReceivablesManager = ReceivablesManager;
             this.ServiceFee = ServiceFee;
+            this.BatchUpload = BatchUpload;
         }
         
         /// <summary>
@@ -190,6 +192,12 @@ namespace CyberSource.Model
         public InlineResponse2013SetupsPaymentsCardProcessing ServiceFee { get; set; }
 
         /// <summary>
+        /// Gets or Sets BatchUpload
+        /// </summary>
+        [DataMember(Name="batchUpload", EmitDefaultValue=false)]
+        public InlineResponse2013SetupsPaymentsDigitalPayments BatchUpload { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -216,6 +224,7 @@ namespace CyberSource.Model
             if (UnifiedCheckout != null) sb.Append("  UnifiedCheckout: ").Append(UnifiedCheckout).Append("\n");
             if (ReceivablesManager != null) sb.Append("  ReceivablesManager: ").Append(ReceivablesManager).Append("\n");
             if (ServiceFee != null) sb.Append("  ServiceFee: ").Append(ServiceFee).Append("\n");
+            if (BatchUpload != null) sb.Append("  BatchUpload: ").Append(BatchUpload).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -346,6 +355,11 @@ namespace CyberSource.Model
                     this.ServiceFee == other.ServiceFee ||
                     this.ServiceFee != null &&
                     this.ServiceFee.Equals(other.ServiceFee)
+                ) && 
+                (
+                    this.BatchUpload == other.BatchUpload ||
+                    this.BatchUpload != null &&
+                    this.BatchUpload.Equals(other.BatchUpload)
                 );
         }
 
@@ -398,6 +412,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReceivablesManager.GetHashCode();
                 if (this.ServiceFee != null)
                     hash = hash * 59 + this.ServiceFee.GetHashCode();
+                if (this.BatchUpload != null)
+                    hash = hash * 59 + this.BatchUpload.GetHashCode();
                 return hash;
             }
         }

@@ -120,6 +120,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AccountType'
         }
+        /// <summary>
+        /// Test the property 'DateOfBirth'
+        /// </summary>
+        [Test]
+        public void DateOfBirthTest()
+        {
+            // TODO unit test for the property 'DateOfBirth'
+        }
+        /// <summary>
+        /// Test the property 'PostalCode'
+        /// </summary>
+        [Test]
+        public void PostalCodeTest()
+        {
+            // TODO unit test for the property 'PostalCode'
+        }
 
     }
 

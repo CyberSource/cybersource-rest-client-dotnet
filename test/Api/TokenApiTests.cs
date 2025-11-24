@@ -75,7 +75,7 @@ namespace CyberSource.Test
             //string tokenProvider = null;
             //string assetType = null;
             //var response = instance.GetCardArtAsset(instrumentIdentifierId, tokenProvider, assetType);
-            //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
+            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
         }
         
         /// <summary>

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getcardartasset"></a>
 # **GetCardArtAsset**
-> InlineResponse200 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType)
+> InlineResponse2001 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType)
 
 Retrieve Card Art
 
@@ -38,7 +38,7 @@ namespace Example
             try
             {
                 // Retrieve Card Art
-                InlineResponse200 result = apiInstance.GetCardArtAsset(instrumentIdentifierId, tokenProvider, assetType);
+                InlineResponse2001 result = apiInstance.GetCardArtAsset(instrumentIdentifierId, tokenProvider, assetType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Represents the Card Art Asset associated to the Network Token. 
+    /// InlineResponse200
     /// </summary>
     [DataContract]
     public partial class InlineResponse200 :  IEquatable<InlineResponse200>, IValidatableObject
@@ -33,45 +33,17 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
         /// </summary>
-        /// <param name="Id">Unique identifier for the Card Art Asset. .</param>
-        /// <param name="Type">The type of Card Art Asset. .</param>
-        /// <param name="Provider">The provider of the Card Art Asset. .</param>
-        /// <param name="Content">Array of content objects representing the Card Art Asset. .</param>
-        public InlineResponse200(string Id = default(string), string Type = default(string), string Provider = default(string), List<InlineResponse200Content> Content = default(List<InlineResponse200Content>))
+        /// <param name="Responses">Responses.</param>
+        public InlineResponse200(List<InlineResponse200Responses> Responses = default(List<InlineResponse200Responses>))
         {
-            this.Id = Id;
-            this.Type = Type;
-            this.Provider = Provider;
-            this.Content = Content;
+            this.Responses = Responses;
         }
         
         /// <summary>
-        /// Unique identifier for the Card Art Asset. 
+        /// Gets or Sets Responses
         /// </summary>
-        /// <value>Unique identifier for the Card Art Asset. </value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// The type of Card Art Asset. 
-        /// </summary>
-        /// <value>The type of Card Art Asset. </value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// The provider of the Card Art Asset. 
-        /// </summary>
-        /// <value>The provider of the Card Art Asset. </value>
-        [DataMember(Name="provider", EmitDefaultValue=false)]
-        public string Provider { get; set; }
-
-        /// <summary>
-        /// Array of content objects representing the Card Art Asset. 
-        /// </summary>
-        /// <value>Array of content objects representing the Card Art Asset. </value>
-        [DataMember(Name="content", EmitDefaultValue=false)]
-        public List<InlineResponse200Content> Content { get; set; }
+        [DataMember(Name="responses", EmitDefaultValue=false)]
+        public List<InlineResponse200Responses> Responses { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,10 +53,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse200 {\n");
-            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
-            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
-            if (Provider != null) sb.Append("  Provider: ").Append(Provider).Append("\n");
-            if (Content != null) sb.Append("  Content: ").Append(Content).Append("\n");
+            if (Responses != null) sb.Append("  Responses: ").Append(Responses).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,24 +91,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
-                ) && 
-                (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
-                ) && 
-                (
-                    this.Provider == other.Provider ||
-                    this.Provider != null &&
-                    this.Provider.Equals(other.Provider)
-                ) && 
-                (
-                    this.Content == other.Content ||
-                    this.Content != null &&
-                    this.Content.SequenceEqual(other.Content)
+                    this.Responses == other.Responses ||
+                    this.Responses != null &&
+                    this.Responses.SequenceEqual(other.Responses)
                 );
         }
 
@@ -154,14 +108,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
-                if (this.Provider != null)
-                    hash = hash * 59 + this.Provider.GetHashCode();
-                if (this.Content != null)
-                    hash = hash * 59 + this.Content.GetHashCode();
+                if (this.Responses != null)
+                    hash = hash * 59 + this.Responses.GetHashCode();
                 return hash;
             }
         }

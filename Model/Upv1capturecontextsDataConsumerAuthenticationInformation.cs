@@ -33,25 +33,36 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataConsumerAuthenticationInformation" /> class.
         /// </summary>
-        /// <param name="ChallengeCode">ChallengeCode.</param>
-        /// <param name="MessageCategory">MessageCategory.</param>
-        public Upv1capturecontextsDataConsumerAuthenticationInformation(string ChallengeCode = default(string), string MessageCategory = default(string))
+        /// <param name="ChallengeCode">The challenge code .</param>
+        /// <param name="MessageCategory">The message category .</param>
+        /// <param name="AcsWindowSize">The acs window size .</param>
+        public Upv1capturecontextsDataConsumerAuthenticationInformation(string ChallengeCode = default(string), string MessageCategory = default(string), string AcsWindowSize = default(string))
         {
             this.ChallengeCode = ChallengeCode;
             this.MessageCategory = MessageCategory;
+            this.AcsWindowSize = AcsWindowSize;
         }
         
         /// <summary>
-        /// Gets or Sets ChallengeCode
+        /// The challenge code 
         /// </summary>
+        /// <value>The challenge code </value>
         [DataMember(Name="challengeCode", EmitDefaultValue=false)]
         public string ChallengeCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets MessageCategory
+        /// The message category 
         /// </summary>
+        /// <value>The message category </value>
         [DataMember(Name="messageCategory", EmitDefaultValue=false)]
         public string MessageCategory { get; set; }
+
+        /// <summary>
+        /// The acs window size 
+        /// </summary>
+        /// <value>The acs window size </value>
+        [DataMember(Name="acsWindowSize", EmitDefaultValue=false)]
+        public string AcsWindowSize { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,6 +74,7 @@ namespace CyberSource.Model
             sb.Append("class Upv1capturecontextsDataConsumerAuthenticationInformation {\n");
             if (ChallengeCode != null) sb.Append("  ChallengeCode: ").Append(ChallengeCode).Append("\n");
             if (MessageCategory != null) sb.Append("  MessageCategory: ").Append(MessageCategory).Append("\n");
+            if (AcsWindowSize != null) sb.Append("  AcsWindowSize: ").Append(AcsWindowSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +120,11 @@ namespace CyberSource.Model
                     this.MessageCategory == other.MessageCategory ||
                     this.MessageCategory != null &&
                     this.MessageCategory.Equals(other.MessageCategory)
+                ) && 
+                (
+                    this.AcsWindowSize == other.AcsWindowSize ||
+                    this.AcsWindowSize != null &&
+                    this.AcsWindowSize.Equals(other.AcsWindowSize)
                 );
         }
 
@@ -126,6 +143,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ChallengeCode.GetHashCode();
                 if (this.MessageCategory != null)
                     hash = hash * 59 + this.MessageCategory.GetHashCode();
+                if (this.AcsWindowSize != null)
+                    hash = hash * 59 + this.AcsWindowSize.GetHashCode();
                 return hash;
             }
         }

@@ -30,28 +30,28 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate a Subscription
+        /// Reactivating a Suspended Subscription
         /// </summary>
         /// <remarks>
-        /// Activate a &#x60;SUSPENDED&#x60; Subscription 
+        /// # Reactivating a Suspended Subscription  You can reactivate a suspended subscription for the next billing cycle. You cannot reactivate a canceled or completed subscription.  You can specify whether you want to process missed payments for the period during which the subscription was suspended using the &#x60;processMissedPayments&#x60; query parameter by setting it to true or false.  If no value is specified, the system will default to &#x60;true&#x60;.  **Important:** The \&quot;processMissedPayments\&quot; query parameter is only effective when the Ask each time before reactivating option is selected in the reactivation settings. If any other option is chosen, the value provided in the request will be ignored by the system. For more information, see the [Recurring Billing User Guide](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/user/all/rest/recurring-billing-user/recurring-billing-user-about-guide.html).  You can check how many payments were missed and the total amount by retrieving the subscription details, where you will find the &#x60;reactivationInformation&#x60; object. See: [Retrieving a Subscription](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/developer/all/rest/recurring-billing-dev/recur-bill-subscriptions/recur-bill-getting-a-subscription.html). 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
+        /// <param name="processMissedPayments">Indicates if missed payments should be processed from the period when the subscription was suspended. By default, this is set to true. When any option other than \&quot;Ask each time before reactivating\&quot; is selected in the reactivation settings, the value that you enter will be ignored.  (optional, default to true)</param>
         /// <returns>ActivateSubscriptionResponse</returns>
-        ActivateSubscriptionResponse ActivateSubscription (string id, bool? processSkippedPayments = null);
+        ActivateSubscriptionResponse ActivateSubscription (string id, bool? processMissedPayments = null);
 
         /// <summary>
-        /// Activate a Subscription
+        /// Reactivating a Suspended Subscription
         /// </summary>
         /// <remarks>
-        /// Activate a &#x60;SUSPENDED&#x60; Subscription 
+        /// # Reactivating a Suspended Subscription  You can reactivate a suspended subscription for the next billing cycle. You cannot reactivate a canceled or completed subscription.  You can specify whether you want to process missed payments for the period during which the subscription was suspended using the &#x60;processMissedPayments&#x60; query parameter by setting it to true or false.  If no value is specified, the system will default to &#x60;true&#x60;.  **Important:** The \&quot;processMissedPayments\&quot; query parameter is only effective when the Ask each time before reactivating option is selected in the reactivation settings. If any other option is chosen, the value provided in the request will be ignored by the system. For more information, see the [Recurring Billing User Guide](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/user/all/rest/recurring-billing-user/recurring-billing-user-about-guide.html).  You can check how many payments were missed and the total amount by retrieving the subscription details, where you will find the &#x60;reactivationInformation&#x60; object. See: [Retrieving a Subscription](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/developer/all/rest/recurring-billing-dev/recur-bill-subscriptions/recur-bill-getting-a-subscription.html). 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
+        /// <param name="processMissedPayments">Indicates if missed payments should be processed from the period when the subscription was suspended. By default, this is set to true. When any option other than \&quot;Ask each time before reactivating\&quot; is selected in the reactivation settings, the value that you enter will be ignored.  (optional, default to true)</param>
         /// <returns>ApiResponse of ActivateSubscriptionResponse</returns>
-        ApiResponse<ActivateSubscriptionResponse> ActivateSubscriptionWithHttpInfo (string id, bool? processSkippedPayments = null);
+        ApiResponse<ActivateSubscriptionResponse> ActivateSubscriptionWithHttpInfo (string id, bool? processMissedPayments = null);
         /// <summary>
         /// Cancel a Subscription
         /// </summary>
@@ -165,7 +165,7 @@ namespace CyberSource.Api
         /// Suspend a Subscription
         /// </summary>
         /// <remarks>
-        /// Suspend a Subscription
+        /// Suspend a Subscription 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
@@ -176,7 +176,7 @@ namespace CyberSource.Api
         /// Suspend a Subscription
         /// </summary>
         /// <remarks>
-        /// Suspend a Subscription
+        /// Suspend a Subscription 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
@@ -208,28 +208,28 @@ namespace CyberSource.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Activate a Subscription
+        /// Reactivating a Suspended Subscription
         /// </summary>
         /// <remarks>
-        /// Activate a &#x60;SUSPENDED&#x60; Subscription 
+        /// # Reactivating a Suspended Subscription  You can reactivate a suspended subscription for the next billing cycle. You cannot reactivate a canceled or completed subscription.  You can specify whether you want to process missed payments for the period during which the subscription was suspended using the &#x60;processMissedPayments&#x60; query parameter by setting it to true or false.  If no value is specified, the system will default to &#x60;true&#x60;.  **Important:** The \&quot;processMissedPayments\&quot; query parameter is only effective when the Ask each time before reactivating option is selected in the reactivation settings. If any other option is chosen, the value provided in the request will be ignored by the system. For more information, see the [Recurring Billing User Guide](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/user/all/rest/recurring-billing-user/recurring-billing-user-about-guide.html).  You can check how many payments were missed and the total amount by retrieving the subscription details, where you will find the &#x60;reactivationInformation&#x60; object. See: [Retrieving a Subscription](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/developer/all/rest/recurring-billing-dev/recur-bill-subscriptions/recur-bill-getting-a-subscription.html). 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
+        /// <param name="processMissedPayments">Indicates if missed payments should be processed from the period when the subscription was suspended. By default, this is set to true. When any option other than \&quot;Ask each time before reactivating\&quot; is selected in the reactivation settings, the value that you enter will be ignored.  (optional, default to true)</param>
         /// <returns>Task of ActivateSubscriptionResponse</returns>
-        System.Threading.Tasks.Task<ActivateSubscriptionResponse> ActivateSubscriptionAsync (string id, bool? processSkippedPayments = null);
+        System.Threading.Tasks.Task<ActivateSubscriptionResponse> ActivateSubscriptionAsync (string id, bool? processMissedPayments = null);
 
         /// <summary>
-        /// Activate a Subscription
+        /// Reactivating a Suspended Subscription
         /// </summary>
         /// <remarks>
-        /// Activate a &#x60;SUSPENDED&#x60; Subscription 
+        /// # Reactivating a Suspended Subscription  You can reactivate a suspended subscription for the next billing cycle. You cannot reactivate a canceled or completed subscription.  You can specify whether you want to process missed payments for the period during which the subscription was suspended using the &#x60;processMissedPayments&#x60; query parameter by setting it to true or false.  If no value is specified, the system will default to &#x60;true&#x60;.  **Important:** The \&quot;processMissedPayments\&quot; query parameter is only effective when the Ask each time before reactivating option is selected in the reactivation settings. If any other option is chosen, the value provided in the request will be ignored by the system. For more information, see the [Recurring Billing User Guide](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/user/all/rest/recurring-billing-user/recurring-billing-user-about-guide.html).  You can check how many payments were missed and the total amount by retrieving the subscription details, where you will find the &#x60;reactivationInformation&#x60; object. See: [Retrieving a Subscription](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/developer/all/rest/recurring-billing-dev/recur-bill-subscriptions/recur-bill-getting-a-subscription.html). 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
+        /// <param name="processMissedPayments">Indicates if missed payments should be processed from the period when the subscription was suspended. By default, this is set to true. When any option other than \&quot;Ask each time before reactivating\&quot; is selected in the reactivation settings, the value that you enter will be ignored.  (optional, default to true)</param>
         /// <returns>Task of ApiResponse (ActivateSubscriptionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ActivateSubscriptionResponse>> ActivateSubscriptionAsyncWithHttpInfo (string id, bool? processSkippedPayments = null);
+        System.Threading.Tasks.Task<ApiResponse<ActivateSubscriptionResponse>> ActivateSubscriptionAsyncWithHttpInfo (string id, bool? processMissedPayments = null);
         /// <summary>
         /// Cancel a Subscription
         /// </summary>
@@ -343,7 +343,7 @@ namespace CyberSource.Api
         /// Suspend a Subscription
         /// </summary>
         /// <remarks>
-        /// Suspend a Subscription
+        /// Suspend a Subscription 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
@@ -354,7 +354,7 @@ namespace CyberSource.Api
         /// Suspend a Subscription
         /// </summary>
         /// <remarks>
-        /// Suspend a Subscription
+        /// Suspend a Subscription 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
@@ -524,30 +524,30 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Activate a Subscription Activate a &#x60;SUSPENDED&#x60; Subscription 
+        /// Reactivating a Suspended Subscription # Reactivating a Suspended Subscription  You can reactivate a suspended subscription for the next billing cycle. You cannot reactivate a canceled or completed subscription.  You can specify whether you want to process missed payments for the period during which the subscription was suspended using the &#x60;processMissedPayments&#x60; query parameter by setting it to true or false.  If no value is specified, the system will default to &#x60;true&#x60;.  **Important:** The \&quot;processMissedPayments\&quot; query parameter is only effective when the Ask each time before reactivating option is selected in the reactivation settings. If any other option is chosen, the value provided in the request will be ignored by the system. For more information, see the [Recurring Billing User Guide](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/user/all/rest/recurring-billing-user/recurring-billing-user-about-guide.html).  You can check how many payments were missed and the total amount by retrieving the subscription details, where you will find the &#x60;reactivationInformation&#x60; object. See: [Retrieving a Subscription](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/developer/all/rest/recurring-billing-dev/recur-bill-subscriptions/recur-bill-getting-a-subscription.html). 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
+        /// <param name="processMissedPayments">Indicates if missed payments should be processed from the period when the subscription was suspended. By default, this is set to true. When any option other than \&quot;Ask each time before reactivating\&quot; is selected in the reactivation settings, the value that you enter will be ignored.  (optional, default to true)</param>
         /// <returns>ActivateSubscriptionResponse</returns>
-        public ActivateSubscriptionResponse ActivateSubscription (string id, bool? processSkippedPayments = null)
+        public ActivateSubscriptionResponse ActivateSubscription (string id, bool? processMissedPayments = null)
         {
             logger.Debug("CALLING API \"ActivateSubscription\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<ActivateSubscriptionResponse> localVarResponse = ActivateSubscriptionWithHttpInfo(id, processSkippedPayments);
+            ApiResponse<ActivateSubscriptionResponse> localVarResponse = ActivateSubscriptionWithHttpInfo(id, processMissedPayments);
             logger.Debug("CALLING API \"ActivateSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Activate a Subscription Activate a &#x60;SUSPENDED&#x60; Subscription 
+        /// Reactivating a Suspended Subscription # Reactivating a Suspended Subscription  You can reactivate a suspended subscription for the next billing cycle. You cannot reactivate a canceled or completed subscription.  You can specify whether you want to process missed payments for the period during which the subscription was suspended using the &#x60;processMissedPayments&#x60; query parameter by setting it to true or false.  If no value is specified, the system will default to &#x60;true&#x60;.  **Important:** The \&quot;processMissedPayments\&quot; query parameter is only effective when the Ask each time before reactivating option is selected in the reactivation settings. If any other option is chosen, the value provided in the request will be ignored by the system. For more information, see the [Recurring Billing User Guide](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/user/all/rest/recurring-billing-user/recurring-billing-user-about-guide.html).  You can check how many payments were missed and the total amount by retrieving the subscription details, where you will find the &#x60;reactivationInformation&#x60; object. See: [Retrieving a Subscription](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/developer/all/rest/recurring-billing-dev/recur-bill-subscriptions/recur-bill-getting-a-subscription.html). 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
+        /// <param name="processMissedPayments">Indicates if missed payments should be processed from the period when the subscription was suspended. By default, this is set to true. When any option other than \&quot;Ask each time before reactivating\&quot; is selected in the reactivation settings, the value that you enter will be ignored.  (optional, default to true)</param>
         /// <returns>ApiResponse of ActivateSubscriptionResponse</returns>
-        public ApiResponse< ActivateSubscriptionResponse > ActivateSubscriptionWithHttpInfo (string id, bool? processSkippedPayments = null)
+        public ApiResponse< ActivateSubscriptionResponse > ActivateSubscriptionWithHttpInfo (string id, bool? processMissedPayments = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -590,9 +590,9 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (processSkippedPayments != null)
+            if (processMissedPayments != null)
             {
-                localVarQueryParams.Add("processSkippedPayments", Configuration.ApiClient.ParameterToString(processSkippedPayments)); // query parameter
+                localVarQueryParams.Add("processMissedPayments", Configuration.ApiClient.ParameterToString(processMissedPayments)); // query parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (Method.Post == Method.Post)
@@ -650,17 +650,17 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Activate a Subscription Activate a &#x60;SUSPENDED&#x60; Subscription 
+        /// Reactivating a Suspended Subscription # Reactivating a Suspended Subscription  You can reactivate a suspended subscription for the next billing cycle. You cannot reactivate a canceled or completed subscription.  You can specify whether you want to process missed payments for the period during which the subscription was suspended using the &#x60;processMissedPayments&#x60; query parameter by setting it to true or false.  If no value is specified, the system will default to &#x60;true&#x60;.  **Important:** The \&quot;processMissedPayments\&quot; query parameter is only effective when the Ask each time before reactivating option is selected in the reactivation settings. If any other option is chosen, the value provided in the request will be ignored by the system. For more information, see the [Recurring Billing User Guide](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/user/all/rest/recurring-billing-user/recurring-billing-user-about-guide.html).  You can check how many payments were missed and the total amount by retrieving the subscription details, where you will find the &#x60;reactivationInformation&#x60; object. See: [Retrieving a Subscription](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/developer/all/rest/recurring-billing-dev/recur-bill-subscriptions/recur-bill-getting-a-subscription.html). 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
+        /// <param name="processMissedPayments">Indicates if missed payments should be processed from the period when the subscription was suspended. By default, this is set to true. When any option other than \&quot;Ask each time before reactivating\&quot; is selected in the reactivation settings, the value that you enter will be ignored.  (optional, default to true)</param>
         /// <returns>Task of ActivateSubscriptionResponse</returns>
-        public async System.Threading.Tasks.Task<ActivateSubscriptionResponse> ActivateSubscriptionAsync (string id, bool? processSkippedPayments = null)
+        public async System.Threading.Tasks.Task<ActivateSubscriptionResponse> ActivateSubscriptionAsync (string id, bool? processMissedPayments = null)
         {
             logger.Debug("CALLING API \"ActivateSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<ActivateSubscriptionResponse> localVarResponse = await ActivateSubscriptionAsyncWithHttpInfo(id, processSkippedPayments);
+            ApiResponse<ActivateSubscriptionResponse> localVarResponse = await ActivateSubscriptionAsyncWithHttpInfo(id, processMissedPayments);
             logger.Debug("CALLING API \"ActivateSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -668,13 +668,13 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Activate a Subscription Activate a &#x60;SUSPENDED&#x60; Subscription 
+        /// Reactivating a Suspended Subscription # Reactivating a Suspended Subscription  You can reactivate a suspended subscription for the next billing cycle. You cannot reactivate a canceled or completed subscription.  You can specify whether you want to process missed payments for the period during which the subscription was suspended using the &#x60;processMissedPayments&#x60; query parameter by setting it to true or false.  If no value is specified, the system will default to &#x60;true&#x60;.  **Important:** The \&quot;processMissedPayments\&quot; query parameter is only effective when the Ask each time before reactivating option is selected in the reactivation settings. If any other option is chosen, the value provided in the request will be ignored by the system. For more information, see the [Recurring Billing User Guide](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/user/all/rest/recurring-billing-user/recurring-billing-user-about-guide.html).  You can check how many payments were missed and the total amount by retrieving the subscription details, where you will find the &#x60;reactivationInformation&#x60; object. See: [Retrieving a Subscription](https://developer.cybersource.com/docs/cybs/en-us/recurring-billing/developer/all/rest/recurring-billing-dev/recur-bill-subscriptions/recur-bill-getting-a-subscription.html). 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
-        /// <param name="processSkippedPayments">Indicates if skipped payments should be processed from the period when the subscription was suspended. By default, this is set to true. (optional, default to true)</param>
+        /// <param name="processMissedPayments">Indicates if missed payments should be processed from the period when the subscription was suspended. By default, this is set to true. When any option other than \&quot;Ask each time before reactivating\&quot; is selected in the reactivation settings, the value that you enter will be ignored.  (optional, default to true)</param>
         /// <returns>Task of ApiResponse (ActivateSubscriptionResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ActivateSubscriptionResponse>> ActivateSubscriptionAsyncWithHttpInfo (string id, bool? processSkippedPayments = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ActivateSubscriptionResponse>> ActivateSubscriptionAsyncWithHttpInfo (string id, bool? processMissedPayments = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -717,9 +717,9 @@ namespace CyberSource.Api
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
-            if (processSkippedPayments != null)
+            if (processMissedPayments != null)
             {
-                localVarQueryParams.Add("processSkippedPayments", Configuration.ApiClient.ParameterToString(processSkippedPayments)); // query parameter
+                localVarQueryParams.Add("processMissedPayments", Configuration.ApiClient.ParameterToString(processMissedPayments)); // query parameter
             }
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (Method.Post == Method.Post)
@@ -1954,7 +1954,7 @@ namespace CyberSource.Api
                 (GetSubscriptionCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionCodeResponse))); // Return statement
         }
         /// <summary>
-        /// Suspend a Subscription Suspend a Subscription
+        /// Suspend a Subscription Suspend a Subscription 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
@@ -1970,7 +1970,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Suspend a Subscription Suspend a Subscription
+        /// Suspend a Subscription Suspend a Subscription 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
@@ -2073,7 +2073,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Suspend a Subscription Suspend a Subscription
+        /// Suspend a Subscription Suspend a Subscription 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
@@ -2090,7 +2090,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Suspend a Subscription Suspend a Subscription
+        /// Suspend a Subscription Suspend a Subscription 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>

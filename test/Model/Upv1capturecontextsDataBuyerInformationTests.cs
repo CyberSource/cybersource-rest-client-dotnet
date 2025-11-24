@@ -88,6 +88,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CompanyTaxId'
         }
+        /// <summary>
+        /// Test the property 'DateOfBirth'
+        /// </summary>
+        [Test]
+        public void DateOfBirthTest()
+        {
+            // TODO unit test for the property 'DateOfBirth'
+        }
+        /// <summary>
+        /// Test the property 'Language'
+        /// </summary>
+        [Test]
+        public void LanguageTest()
+        {
+            // TODO unit test for the property 'Language'
+        }
 
     }
 

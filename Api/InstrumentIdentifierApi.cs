@@ -1367,7 +1367,7 @@ namespace CyberSource.Api
                 localVarPostBody = patchInstrumentIdentifierRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PatchInstrumentIdentifier,PatchInstrumentIdentifierAsync,PatchInstrumentIdentifierWithHttpInfo,PatchInstrumentIdentifierAsyncWithHttpInfo"))
             {
@@ -1508,7 +1508,7 @@ namespace CyberSource.Api
                 localVarPostBody = patchInstrumentIdentifierRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PatchInstrumentIdentifier,PatchInstrumentIdentifierAsync,PatchInstrumentIdentifierWithHttpInfo,PatchInstrumentIdentifierAsyncWithHttpInfo"))
             {
@@ -1628,7 +1628,7 @@ namespace CyberSource.Api
                 localVarPostBody = postInstrumentIdentifierRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostInstrumentIdentifier,PostInstrumentIdentifierAsync,PostInstrumentIdentifierWithHttpInfo,PostInstrumentIdentifierAsyncWithHttpInfo"))
             {
@@ -1750,7 +1750,7 @@ namespace CyberSource.Api
                 localVarPostBody = postInstrumentIdentifierRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostInstrumentIdentifier,PostInstrumentIdentifierAsync,PostInstrumentIdentifierWithHttpInfo,PostInstrumentIdentifierAsyncWithHttpInfo"))
             {
@@ -1873,7 +1873,7 @@ namespace CyberSource.Api
                 localVarPostBody = postInstrumentIdentifierEnrollmentRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostInstrumentIdentifierEnrollment,PostInstrumentIdentifierEnrollmentAsync,PostInstrumentIdentifierEnrollmentWithHttpInfo,PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo"))
             {
@@ -1999,7 +1999,7 @@ namespace CyberSource.Api
                 localVarPostBody = postInstrumentIdentifierEnrollmentRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostInstrumentIdentifierEnrollment,PostInstrumentIdentifierEnrollmentAsync,PostInstrumentIdentifierEnrollmentWithHttpInfo,PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo"))
             {

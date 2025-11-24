@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'MessageCategory'
         }
+        /// <summary>
+        /// Test the property 'AcsWindowSize'
+        /// </summary>
+        [Test]
+        public void AcsWindowSizeTest()
+        {
+            // TODO unit test for the property 'AcsWindowSize'
+        }
 
     }
 

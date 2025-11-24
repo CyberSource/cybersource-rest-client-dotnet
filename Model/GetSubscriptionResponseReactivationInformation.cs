@@ -33,27 +33,27 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetSubscriptionResponseReactivationInformation" /> class.
         /// </summary>
-        /// <param name="SkippedPaymentsCount">Number of payments that should have occurred while the subscription was in a suspended status. .</param>
-        /// <param name="SkippedPaymentsTotalAmount">Total amount that will be charged upon reactivation if &#x60;processSkippedPayments&#x60; is set to &#x60;true&#x60;. .</param>
-        public GetSubscriptionResponseReactivationInformation(string SkippedPaymentsCount = default(string), string SkippedPaymentsTotalAmount = default(string))
+        /// <param name="MissedPaymentsCount">Number of payments that should have occurred while the subscription was in a suspended status. .</param>
+        /// <param name="MissedPaymentsTotalAmount">Total amount that will be charged upon reactivation if &#x60;processMissedPayments&#x60; is set to &#x60;true&#x60;. .</param>
+        public GetSubscriptionResponseReactivationInformation(string MissedPaymentsCount = default(string), string MissedPaymentsTotalAmount = default(string))
         {
-            this.SkippedPaymentsCount = SkippedPaymentsCount;
-            this.SkippedPaymentsTotalAmount = SkippedPaymentsTotalAmount;
+            this.MissedPaymentsCount = MissedPaymentsCount;
+            this.MissedPaymentsTotalAmount = MissedPaymentsTotalAmount;
         }
         
         /// <summary>
         /// Number of payments that should have occurred while the subscription was in a suspended status. 
         /// </summary>
         /// <value>Number of payments that should have occurred while the subscription was in a suspended status. </value>
-        [DataMember(Name="skippedPaymentsCount", EmitDefaultValue=false)]
-        public string SkippedPaymentsCount { get; set; }
+        [DataMember(Name="missedPaymentsCount", EmitDefaultValue=false)]
+        public string MissedPaymentsCount { get; set; }
 
         /// <summary>
-        /// Total amount that will be charged upon reactivation if &#x60;processSkippedPayments&#x60; is set to &#x60;true&#x60;. 
+        /// Total amount that will be charged upon reactivation if &#x60;processMissedPayments&#x60; is set to &#x60;true&#x60;. 
         /// </summary>
-        /// <value>Total amount that will be charged upon reactivation if &#x60;processSkippedPayments&#x60; is set to &#x60;true&#x60;. </value>
-        [DataMember(Name="skippedPaymentsTotalAmount", EmitDefaultValue=false)]
-        public string SkippedPaymentsTotalAmount { get; set; }
+        /// <value>Total amount that will be charged upon reactivation if &#x60;processMissedPayments&#x60; is set to &#x60;true&#x60;. </value>
+        [DataMember(Name="missedPaymentsTotalAmount", EmitDefaultValue=false)]
+        public string MissedPaymentsTotalAmount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,8 +63,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetSubscriptionResponseReactivationInformation {\n");
-            if (SkippedPaymentsCount != null) sb.Append("  SkippedPaymentsCount: ").Append(SkippedPaymentsCount).Append("\n");
-            if (SkippedPaymentsTotalAmount != null) sb.Append("  SkippedPaymentsTotalAmount: ").Append(SkippedPaymentsTotalAmount).Append("\n");
+            if (MissedPaymentsCount != null) sb.Append("  MissedPaymentsCount: ").Append(MissedPaymentsCount).Append("\n");
+            if (MissedPaymentsTotalAmount != null) sb.Append("  MissedPaymentsTotalAmount: ").Append(MissedPaymentsTotalAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,14 +102,14 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.SkippedPaymentsCount == other.SkippedPaymentsCount ||
-                    this.SkippedPaymentsCount != null &&
-                    this.SkippedPaymentsCount.Equals(other.SkippedPaymentsCount)
+                    this.MissedPaymentsCount == other.MissedPaymentsCount ||
+                    this.MissedPaymentsCount != null &&
+                    this.MissedPaymentsCount.Equals(other.MissedPaymentsCount)
                 ) && 
                 (
-                    this.SkippedPaymentsTotalAmount == other.SkippedPaymentsTotalAmount ||
-                    this.SkippedPaymentsTotalAmount != null &&
-                    this.SkippedPaymentsTotalAmount.Equals(other.SkippedPaymentsTotalAmount)
+                    this.MissedPaymentsTotalAmount == other.MissedPaymentsTotalAmount ||
+                    this.MissedPaymentsTotalAmount != null &&
+                    this.MissedPaymentsTotalAmount.Equals(other.MissedPaymentsTotalAmount)
                 );
         }
 
@@ -124,10 +124,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SkippedPaymentsCount != null)
-                    hash = hash * 59 + this.SkippedPaymentsCount.GetHashCode();
-                if (this.SkippedPaymentsTotalAmount != null)
-                    hash = hash * 59 + this.SkippedPaymentsTotalAmount.GetHashCode();
+                if (this.MissedPaymentsCount != null)
+                    hash = hash * 59 + this.MissedPaymentsCount.GetHashCode();
+                if (this.MissedPaymentsTotalAmount != null)
+                    hash = hash * 59 + this.MissedPaymentsTotalAmount.GetHashCode();
                 return hash;
             }
         }

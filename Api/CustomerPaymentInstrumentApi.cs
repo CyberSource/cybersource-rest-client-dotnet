@@ -1347,7 +1347,7 @@ namespace CyberSource.Api
                 localVarPostBody = patchCustomerPaymentInstrumentRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PatchCustomersPaymentInstrument,PatchCustomersPaymentInstrumentAsync,PatchCustomersPaymentInstrumentWithHttpInfo,PatchCustomersPaymentInstrumentAsyncWithHttpInfo"))
             {
@@ -1494,7 +1494,7 @@ namespace CyberSource.Api
                 localVarPostBody = patchCustomerPaymentInstrumentRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PatchCustomersPaymentInstrument,PatchCustomersPaymentInstrumentAsync,PatchCustomersPaymentInstrumentWithHttpInfo,PatchCustomersPaymentInstrumentAsyncWithHttpInfo"))
             {
@@ -1620,7 +1620,7 @@ namespace CyberSource.Api
                 localVarPostBody = postCustomerPaymentInstrumentRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostCustomerPaymentInstrument,PostCustomerPaymentInstrumentAsync,PostCustomerPaymentInstrumentWithHttpInfo,PostCustomerPaymentInstrumentAsyncWithHttpInfo"))
             {
@@ -1748,7 +1748,7 @@ namespace CyberSource.Api
                 localVarPostBody = postCustomerPaymentInstrumentRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostCustomerPaymentInstrument,PostCustomerPaymentInstrumentAsync,PostCustomerPaymentInstrumentWithHttpInfo,PostCustomerPaymentInstrumentAsyncWithHttpInfo"))
             {

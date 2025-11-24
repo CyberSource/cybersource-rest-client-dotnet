@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
         /// <param name="Status">The status of the submitted transaction.  Possible values:  - COMPLETED  - PENDING_REVIEW  - DECLINED  - INVALID_REQUEST .</param>
         /// <param name="SubscriptionInformation">SubscriptionInformation.</param>
-        public CreateSubscriptionResponse(CreateSubscriptionResponseLinks Links = default(CreateSubscriptionResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), CreateSubscriptionResponseSubscriptionInformation SubscriptionInformation = default(CreateSubscriptionResponseSubscriptionInformation))
+        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
+        public CreateSubscriptionResponse(CreateSubscriptionResponseLinks Links = default(CreateSubscriptionResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), CreateSubscriptionResponseSubscriptionInformation SubscriptionInformation = default(CreateSubscriptionResponseSubscriptionInformation), GetAllSubscriptionsResponseClientReferenceInformation ClientReferenceInformation = default(GetAllSubscriptionsResponseClientReferenceInformation))
         {
             this.Links = Links;
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
             this.SubscriptionInformation = SubscriptionInformation;
+            this.ClientReferenceInformation = ClientReferenceInformation;
         }
         
         /// <summary>
@@ -81,6 +83,12 @@ namespace CyberSource.Model
         public CreateSubscriptionResponseSubscriptionInformation SubscriptionInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ClientReferenceInformation
+        /// </summary>
+        [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
+        public GetAllSubscriptionsResponseClientReferenceInformation ClientReferenceInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +101,7 @@ namespace CyberSource.Model
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
             if (SubscriptionInformation != null) sb.Append("  SubscriptionInformation: ").Append(SubscriptionInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +162,11 @@ namespace CyberSource.Model
                     this.SubscriptionInformation == other.SubscriptionInformation ||
                     this.SubscriptionInformation != null &&
                     this.SubscriptionInformation.Equals(other.SubscriptionInformation)
+                ) && 
+                (
+                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
+                    this.ClientReferenceInformation != null &&
+                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
                 );
         }
 
@@ -177,6 +191,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.SubscriptionInformation != null)
                     hash = hash * 59 + this.SubscriptionInformation.GetHashCode();
+                if (this.ClientReferenceInformation != null)
+                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 return hash;
             }
         }

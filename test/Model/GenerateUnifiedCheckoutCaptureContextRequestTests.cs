@@ -113,6 +113,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Locale'
         }
         /// <summary>
+        /// Test the property 'ButtonType'
+        /// </summary>
+        [Test]
+        public void ButtonTypeTest()
+        {
+            // TODO unit test for the property 'ButtonType'
+        }
+        /// <summary>
         /// Test the property 'CaptureMandate'
         /// </summary>
         [Test]

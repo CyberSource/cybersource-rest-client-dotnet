@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="Default">Flag that indicates whether customer shipping address is the dafault. Possible Values:  - &#x60;true&#x60;: Shipping Address is customer&#39;s default.  - &#x60;false&#x60;: Shipping Address is not customer&#39;s default. .</param>
         /// <param name="ShipTo">ShipTo.</param>
         /// <param name="Metadata">Metadata.</param>
-        public PatchCustomerShippingAddressRequest(Tmsv2customersEmbeddedDefaultShippingAddressLinks Links = default(Tmsv2customersEmbeddedDefaultShippingAddressLinks), string Id = default(string), bool? Default = default(bool?), Tmsv2customersEmbeddedDefaultShippingAddressShipTo ShipTo = default(Tmsv2customersEmbeddedDefaultShippingAddressShipTo), Tmsv2customersEmbeddedDefaultShippingAddressMetadata Metadata = default(Tmsv2customersEmbeddedDefaultShippingAddressMetadata))
+        public PatchCustomerShippingAddressRequest(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressLinks Links = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressLinks), string Id = default(string), bool? Default = default(bool?), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressShipTo ShipTo = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressShipTo), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressMetadata Metadata = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressMetadata))
         {
             this.Links = Links;
             this.Id = Id;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public Tmsv2customersEmbeddedDefaultShippingAddressLinks Links { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressLinks Links { get; set; }
 
         /// <summary>
         /// The Id of the Shipping Address Token.
@@ -71,13 +71,13 @@ namespace CyberSource.Model
         /// Gets or Sets ShipTo
         /// </summary>
         [DataMember(Name="shipTo", EmitDefaultValue=false)]
-        public Tmsv2customersEmbeddedDefaultShippingAddressShipTo ShipTo { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressShipTo ShipTo { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public Tmsv2customersEmbeddedDefaultShippingAddressMetadata Metadata { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressMetadata Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

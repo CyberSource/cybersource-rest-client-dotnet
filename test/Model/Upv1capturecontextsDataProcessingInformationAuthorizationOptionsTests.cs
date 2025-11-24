@@ -73,6 +73,30 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AftIndicator'
         }
         /// <summary>
+        /// Test the property 'AuthIndicator'
+        /// </summary>
+        [Test]
+        public void AuthIndicatorTest()
+        {
+            // TODO unit test for the property 'AuthIndicator'
+        }
+        /// <summary>
+        /// Test the property 'IgnoreCvResult'
+        /// </summary>
+        [Test]
+        public void IgnoreCvResultTest()
+        {
+            // TODO unit test for the property 'IgnoreCvResult'
+        }
+        /// <summary>
+        /// Test the property 'IgnoreAvsResult'
+        /// </summary>
+        [Test]
+        public void IgnoreAvsResultTest()
+        {
+            // TODO unit test for the property 'IgnoreAvsResult'
+        }
+        /// <summary>
         /// Test the property 'Initiator'
         /// </summary>
         [Test]
@@ -87,6 +111,22 @@ namespace CyberSource.Test
         public void BusinessApplicationIdTest()
         {
             // TODO unit test for the property 'BusinessApplicationId'
+        }
+        /// <summary>
+        /// Test the property 'CommerceIndicator'
+        /// </summary>
+        [Test]
+        public void CommerceIndicatorTest()
+        {
+            // TODO unit test for the property 'CommerceIndicator'
+        }
+        /// <summary>
+        /// Test the property 'ProcessingInstruction'
+        /// </summary>
+        [Test]
+        public void ProcessingInstructionTest()
+        {
+            // TODO unit test for the property 'ProcessingInstruction'
         }
 
     }

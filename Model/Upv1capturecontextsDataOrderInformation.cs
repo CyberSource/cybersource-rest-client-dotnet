@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="BillTo">BillTo.</param>
         /// <param name="ShipTo">ShipTo.</param>
         /// <param name="LineItems">LineItems.</param>
-        public Upv1capturecontextsDataOrderInformation(Upv1capturecontextsDataOrderInformationAmountDetails AmountDetails = default(Upv1capturecontextsDataOrderInformationAmountDetails), Upv1capturecontextsDataOrderInformationBillTo BillTo = default(Upv1capturecontextsDataOrderInformationBillTo), Upv1capturecontextsDataOrderInformationShipTo ShipTo = default(Upv1capturecontextsDataOrderInformationShipTo), Upv1capturecontextsDataOrderInformationLineItems LineItems = default(Upv1capturecontextsDataOrderInformationLineItems))
+        /// <param name="InvoiceDetails">InvoiceDetails.</param>
+        public Upv1capturecontextsDataOrderInformation(Upv1capturecontextsDataOrderInformationAmountDetails AmountDetails = default(Upv1capturecontextsDataOrderInformationAmountDetails), Upv1capturecontextsDataOrderInformationBillTo BillTo = default(Upv1capturecontextsDataOrderInformationBillTo), Upv1capturecontextsDataOrderInformationShipTo ShipTo = default(Upv1capturecontextsDataOrderInformationShipTo), Upv1capturecontextsDataOrderInformationLineItems LineItems = default(Upv1capturecontextsDataOrderInformationLineItems), Upv1capturecontextsDataOrderInformationInvoiceDetails InvoiceDetails = default(Upv1capturecontextsDataOrderInformationInvoiceDetails))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
             this.ShipTo = ShipTo;
             this.LineItems = LineItems;
+            this.InvoiceDetails = InvoiceDetails;
         }
         
         /// <summary>
@@ -70,6 +72,12 @@ namespace CyberSource.Model
         public Upv1capturecontextsDataOrderInformationLineItems LineItems { get; set; }
 
         /// <summary>
+        /// Gets or Sets InvoiceDetails
+        /// </summary>
+        [DataMember(Name="invoiceDetails", EmitDefaultValue=false)]
+        public Upv1capturecontextsDataOrderInformationInvoiceDetails InvoiceDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +89,7 @@ namespace CyberSource.Model
             if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
             if (ShipTo != null) sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
             if (LineItems != null) sb.Append("  LineItems: ").Append(LineItems).Append("\n");
+            if (InvoiceDetails != null) sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +145,11 @@ namespace CyberSource.Model
                     this.LineItems == other.LineItems ||
                     this.LineItems != null &&
                     this.LineItems.Equals(other.LineItems)
+                ) && 
+                (
+                    this.InvoiceDetails == other.InvoiceDetails ||
+                    this.InvoiceDetails != null &&
+                    this.InvoiceDetails.Equals(other.InvoiceDetails)
                 );
         }
 
@@ -158,6 +172,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ShipTo.GetHashCode();
                 if (this.LineItems != null)
                     hash = hash * 59 + this.LineItems.GetHashCode();
+                if (this.InvoiceDetails != null)
+                    hash = hash * 59 + this.InvoiceDetails.GetHashCode();
                 return hash;
             }
         }

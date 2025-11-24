@@ -50,7 +50,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Gets or Sets SolutionId
         /// </summary>
-        [DataMember(Name="SolutionId", EmitDefaultValue=false)]
+        [DataMember(Name="solutionId", EmitDefaultValue=false)]
         public string SolutionId { get; set; }
 
         /// <summary>

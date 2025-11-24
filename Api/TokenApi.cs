@@ -39,8 +39,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>InlineResponse2001</returns>
+        InlineResponse2001 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType);
 
         /// <summary>
         /// Retrieve Card Art
@@ -52,8 +52,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GetCardArtAssetWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        ApiResponse<InlineResponse2001> GetCardArtAssetWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType);
         /// <summary>
         /// Generate Payment Credentials for a TMS Token
         /// </summary>
@@ -91,8 +91,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> GetCardArtAssetAsync (string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>Task of InlineResponse2001</returns>
+        System.Threading.Tasks.Task<InlineResponse2001> GetCardArtAssetAsync (string instrumentIdentifierId, string tokenProvider, string assetType);
 
         /// <summary>
         /// Retrieve Card Art
@@ -104,8 +104,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetCardArtAssetAsyncWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetCardArtAssetAsyncWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType);
         /// <summary>
         /// Generate Payment Credentials for a TMS Token
         /// </summary>
@@ -278,12 +278,12 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>InlineResponse2001</returns>
+        public InlineResponse2001 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             logger.Debug("CALLING API \"GetCardArtAsset\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse200> localVarResponse = GetCardArtAssetWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
+            ApiResponse<InlineResponse2001> localVarResponse = GetCardArtAssetWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
             logger.Debug("CALLING API \"GetCardArtAsset\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -296,8 +296,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > GetCardArtAssetWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        public ApiResponse< InlineResponse2001 > GetCardArtAssetWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -408,9 +408,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001))); // Return statement
         }
 
         /// <summary>
@@ -420,12 +420,12 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetCardArtAssetAsync (string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>Task of InlineResponse2001</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2001> GetCardArtAssetAsync (string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             logger.Debug("CALLING API \"GetCardArtAssetAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse200> localVarResponse = await GetCardArtAssetAsyncWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
+            ApiResponse<InlineResponse2001> localVarResponse = await GetCardArtAssetAsyncWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
             logger.Debug("CALLING API \"GetCardArtAssetAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -439,8 +439,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetCardArtAssetAsyncWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetCardArtAssetAsyncWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -551,9 +551,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001))); // Return statement
         }
         /// <summary>
         /// Generate Payment Credentials for a TMS Token |  |  |  |     | - -- | - -- | - -- |     |**Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
@@ -642,7 +642,7 @@ namespace CyberSource.Api
                 localVarPostBody = postPaymentCredentialsRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostTokenPaymentCredentials,PostTokenPaymentCredentialsAsync,PostTokenPaymentCredentialsWithHttpInfo,PostTokenPaymentCredentialsAsyncWithHttpInfo"))
             {
@@ -770,7 +770,7 @@ namespace CyberSource.Api
                 localVarPostBody = postPaymentCredentialsRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostTokenPaymentCredentials,PostTokenPaymentCredentialsAsync,PostTokenPaymentCredentialsWithHttpInfo,PostTokenPaymentCredentialsAsyncWithHttpInfo"))
             {
