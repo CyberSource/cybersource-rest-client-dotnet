@@ -228,20 +228,20 @@ namespace CyberSource.Utilities.Tracking
                 case "CreatePlanRequest":
                     CreatePlanRequest createPlanRequest = (CreatePlanRequest)requestObj;
 
-                    if (createPlanRequest.ClientReferenceInformation == null)
-                    {
-                        createPlanRequest.ClientReferenceInformation = new Rbsv1plansClientReferenceInformation();
-                    }
+                    //if (createPlanRequest.ClientReferenceInformation == null)
+                    //{
+                    //    createPlanRequest.ClientReferenceInformation = new Rbsv1plansClientReferenceInformation();
+                    //}
 
-                    if (createPlanRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        createPlanRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
+                    //if (createPlanRequest.ClientReferenceInformation.Partner == null)
+                    //{
+                    //    createPlanRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
+                    //}
 
-                    if (createPlanRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        createPlanRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
+                    //if (createPlanRequest.ClientReferenceInformation.Partner.DeveloperId == null)
+                    //{
+                    //    createPlanRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
+                    //}
 
                     return createPlanRequest;
                 case "RefundCaptureRequest":
@@ -323,39 +323,39 @@ namespace CyberSource.Utilities.Tracking
                 case "CreateSubscriptionRequest":
                     CreateSubscriptionRequest createSubscriptionRequest = (CreateSubscriptionRequest)requestObj;
 
-                    if (createSubscriptionRequest.ClientReferenceInformation == null)
-                    {
-                        createSubscriptionRequest.ClientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation();
-                    }
+                    //if (createSubscriptionRequest.ClientReferenceInformation == null)
+                    //{
+                    //    createSubscriptionRequest.ClientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation();
+                    //}
 
-                    if (createSubscriptionRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        createSubscriptionRequest.ClientReferenceInformation.Partner = new Rbsv1subscriptionsClientReferenceInformationPartner();
-                    }
+                    //if (createSubscriptionRequest.ClientReferenceInformation.Partner == null)
+                    //{
+                    //    createSubscriptionRequest.ClientReferenceInformation.Partner = new Rbsv1subscriptionsClientReferenceInformationPartner();
+                    //}
 
-                    if (createSubscriptionRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        createSubscriptionRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
+                    //if (createSubscriptionRequest.ClientReferenceInformation.Partner.DeveloperId == null)
+                    //{
+                    //    createSubscriptionRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
+                    //}
 
                     return createSubscriptionRequest;
                 case "UpdateSubscription":
                     UpdateSubscription updateSubscription = (UpdateSubscription)requestObj;
 
-                    if (updateSubscription.ClientReferenceInformation == null)
-                    {
-                        updateSubscription.ClientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation();
-                    }
+                    //if (updateSubscription.ClientReferenceInformation == null)
+                    //{
+                    //    updateSubscription.ClientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation();
+                    //}
 
-                    if (updateSubscription.ClientReferenceInformation.Partner == null)
-                    {
-                        updateSubscription.ClientReferenceInformation.Partner = new Rbsv1subscriptionsClientReferenceInformationPartner();
-                    }
+                    //if (updateSubscription.ClientReferenceInformation.Partner == null)
+                    //{
+                    //    updateSubscription.ClientReferenceInformation.Partner = new Rbsv1subscriptionsClientReferenceInformationPartner();
+                    //}
 
-                    if (updateSubscription.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        updateSubscription.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
+                    //if (updateSubscription.ClientReferenceInformation.Partner.DeveloperId == null)
+                    //{
+                    //    updateSubscription.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
+                    //}
 
                     return updateSubscription;
                 case "TaxRequest":
