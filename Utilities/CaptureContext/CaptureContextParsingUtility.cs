@@ -10,8 +10,9 @@ namespace CyberSource.Utilities.CaptureContext
 {
     public static class CaptureContextParsingUtility
     {
-        public static JObject parseCaptureContextResponse(string jwtToken, Configuration config, bool verifyJWT)
+        public static JObject parseCaptureContextResponse(string jwtToken, Configuration config)
         {
+            bool verifyJWT = true;
             // Parse JWT Token for any malformations
 
             string payLoad = JWTUtility.Parse(jwtToken);
