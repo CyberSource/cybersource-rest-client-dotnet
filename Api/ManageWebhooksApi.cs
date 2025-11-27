@@ -1090,7 +1090,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2005>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2005>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2005>))); // Return statement
+                (List<InlineResponse2005>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2005>), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1223,7 +1223,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2005>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2005>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2005>))); // Return statement
+                (List<InlineResponse2005>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2005>), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Test a Webhook Configuration Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
@@ -1575,7 +1575,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2006>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006))); // Return statement
+                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1693,7 +1693,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2006>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006))); // Return statement
+                (InlineResponse2006) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2006), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Update a Webhook Status Users can update the status of a webhook subscription by calling this endpoint.   The webhookId parameter in the URL path identifies the specific webhook subscription to be updated. The request body accepts the values ACTIVE or INACTIVE. If the subscription is set to INACTIVE, webhooks will not be delivered until the subscription is activated again. 

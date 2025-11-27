@@ -362,7 +362,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2007>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007))); // Return statement
+                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -473,7 +473,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2007>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007))); // Return statement
+                (InlineResponse2007) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2007), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Retrieve List of Devices for a given search query Search for devices matching a given search query.  The search query supports serialNumber, readerId, terminalId, status, statusChangeReason or organizationId  Matching results are paginated. 
@@ -582,7 +582,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2009>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2009) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2009))); // Return statement
+                (InlineResponse2009) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2009), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -693,7 +693,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<InlineResponse2009>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2009) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2009))); // Return statement
+                (InlineResponse2009) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2009), merchantConfig)); // Return statement
         }
     }
 }

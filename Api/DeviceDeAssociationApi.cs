@@ -578,7 +578,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2008>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2008>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2008>))); // Return statement
+                (List<InlineResponse2008>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2008>), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -689,7 +689,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2008>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2008>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2008>))); // Return statement
+                (List<InlineResponse2008>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2008>), merchantConfig)); // Return statement
         }
     }
 }

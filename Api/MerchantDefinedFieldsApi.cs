@@ -437,7 +437,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateMerchantDefinedFieldDefinition,CreateMerchantDefinedFieldDefinitionAsync,CreateMerchantDefinedFieldDefinitionWithHttpInfo,CreateMerchantDefinedFieldDefinitionAsyncWithHttpInfo"))
             {
                 try
@@ -451,13 +451,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "CreateMerchantDefinedFieldDefinition,CreateMerchantDefinedFieldDefinitionAsync,CreateMerchantDefinedFieldDefinitionWithHttpInfo,CreateMerchantDefinedFieldDefinitionAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -473,7 +475,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2002>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>))); // Return statement
+                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -559,7 +561,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateMerchantDefinedFieldDefinition,CreateMerchantDefinedFieldDefinitionAsync,CreateMerchantDefinedFieldDefinitionWithHttpInfo,CreateMerchantDefinedFieldDefinitionAsyncWithHttpInfo"))
             {
                 try
@@ -573,13 +575,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "CreateMerchantDefinedFieldDefinition,CreateMerchantDefinedFieldDefinitionAsync,CreateMerchantDefinedFieldDefinitionWithHttpInfo,CreateMerchantDefinedFieldDefinitionAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -595,7 +599,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2002>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>))); // Return statement
+                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Get all merchant defined fields for a given reference type 
@@ -675,7 +679,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetMerchantDefinedFieldsDefinitions,GetMerchantDefinedFieldsDefinitionsAsync,GetMerchantDefinedFieldsDefinitionsWithHttpInfo,GetMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo"))
             {
                 try
@@ -689,12 +693,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetMerchantDefinedFieldsDefinitions,GetMerchantDefinedFieldsDefinitionsAsync,GetMerchantDefinedFieldsDefinitionsWithHttpInfo,GetMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -710,7 +716,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2002>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>))); // Return statement
+                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -792,7 +798,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetMerchantDefinedFieldsDefinitions,GetMerchantDefinedFieldsDefinitionsAsync,GetMerchantDefinedFieldsDefinitionsWithHttpInfo,GetMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo"))
             {
                 try
@@ -806,12 +812,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetMerchantDefinedFieldsDefinitions,GetMerchantDefinedFieldsDefinitionsAsync,GetMerchantDefinedFieldsDefinitionsWithHttpInfo,GetMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -827,7 +835,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2002>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>))); // Return statement
+                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Delete a MerchantDefinedField by ID 
@@ -917,7 +925,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteAsync,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteWithHttpInfo,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteAsyncWithHttpInfo"))
             {
                 try
@@ -931,12 +939,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteAsync,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteWithHttpInfo,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1045,7 +1055,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteAsync,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteWithHttpInfo,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteAsyncWithHttpInfo"))
             {
                 try
@@ -1059,12 +1069,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDelete,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteAsync,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteWithHttpInfo,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdDeleteAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1178,7 +1190,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutAsync,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutWithHttpInfo,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutAsyncWithHttpInfo"))
             {
                 try
@@ -1192,13 +1204,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutAsync,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutWithHttpInfo,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1214,7 +1228,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2002>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>))); // Return statement
+                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1313,7 +1327,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutAsync,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutWithHttpInfo,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutAsyncWithHttpInfo"))
             {
                 try
@@ -1327,13 +1341,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPut,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutAsync,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutWithHttpInfo,InvoicingV2ReferenceTypeMerchantDefinedFieldsIdPutAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1349,7 +1365,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<List<InlineResponse2002>>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>))); // Return statement
+                (List<InlineResponse2002>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2002>), merchantConfig)); // Return statement
         }
     }
 }
