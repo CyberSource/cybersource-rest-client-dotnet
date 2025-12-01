@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataProcessingInformation" /> class.
         /// </summary>
-        /// <param name="ReconciliationId">ReconciliationId.</param>
+        /// <param name="ReconciliationId">The reconciliation ID.</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         public Upv1capturecontextsDataProcessingInformation(string ReconciliationId = default(string), Upv1capturecontextsDataProcessingInformationAuthorizationOptions AuthorizationOptions = default(Upv1capturecontextsDataProcessingInformationAuthorizationOptions))
         {
@@ -42,8 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Gets or Sets ReconciliationId
+        /// The reconciliation ID
         /// </summary>
+        /// <value>The reconciliation ID</value>
         [DataMember(Name="reconciliationId", EmitDefaultValue=false)]
         public string ReconciliationId { get; set; }
 

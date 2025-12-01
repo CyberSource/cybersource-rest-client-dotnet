@@ -65,20 +65,20 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'SkippedPaymentsCount'
+        /// Test the property 'MissedPaymentsCount'
         /// </summary>
         [Test]
-        public void SkippedPaymentsCountTest()
+        public void MissedPaymentsCountTest()
         {
-            // TODO unit test for the property 'SkippedPaymentsCount'
+            // TODO unit test for the property 'MissedPaymentsCount'
         }
         /// <summary>
-        /// Test the property 'SkippedPaymentsTotalAmount'
+        /// Test the property 'MissedPaymentsTotalAmount'
         /// </summary>
         [Test]
-        public void SkippedPaymentsTotalAmountTest()
+        public void MissedPaymentsTotalAmountTest()
         {
-            // TODO unit test for the property 'SkippedPaymentsTotalAmount'
+            // TODO unit test for the property 'MissedPaymentsTotalAmount'
         }
 
     }

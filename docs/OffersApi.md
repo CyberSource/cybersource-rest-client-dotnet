@@ -81,7 +81,7 @@ No authorization required
 
 <a name="getoffer"></a>
 # **GetOffer**
-> InlineResponse20014 GetOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, string id)
+> InlineResponse20015 GetOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, string id)
 
 Retrieve an Offer
 
@@ -112,7 +112,7 @@ namespace Example
             try
             {
                 // Retrieve an Offer
-                InlineResponse20014 result = apiInstance.GetOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
+                InlineResponse20015 result = apiInstance.GetOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 

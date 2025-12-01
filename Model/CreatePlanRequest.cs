@@ -33,22 +33,14 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreatePlanRequest" /> class.
         /// </summary>
-        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="PlanInformation">PlanInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public CreatePlanRequest(Rbsv1plansClientReferenceInformation ClientReferenceInformation = default(Rbsv1plansClientReferenceInformation), Rbsv1plansPlanInformation PlanInformation = default(Rbsv1plansPlanInformation), Rbsv1plansOrderInformation OrderInformation = default(Rbsv1plansOrderInformation))
+        public CreatePlanRequest(Rbsv1plansPlanInformation PlanInformation = default(Rbsv1plansPlanInformation), Rbsv1plansOrderInformation OrderInformation = default(Rbsv1plansOrderInformation))
         {
-            this.ClientReferenceInformation = ClientReferenceInformation;
             this.PlanInformation = PlanInformation;
             this.OrderInformation = OrderInformation;
         }
         
-        /// <summary>
-        /// Gets or Sets ClientReferenceInformation
-        /// </summary>
-        [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Rbsv1plansClientReferenceInformation ClientReferenceInformation { get; set; }
-
         /// <summary>
         /// Gets or Sets PlanInformation
         /// </summary>
@@ -69,7 +61,6 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CreatePlanRequest {\n");
-            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             if (PlanInformation != null) sb.Append("  PlanInformation: ").Append(PlanInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             sb.Append("}\n");
@@ -109,11 +100,6 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
-                    this.ClientReferenceInformation != null &&
-                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
-                ) && 
-                (
                     this.PlanInformation == other.PlanInformation ||
                     this.PlanInformation != null &&
                     this.PlanInformation.Equals(other.PlanInformation)
@@ -136,8 +122,6 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.ClientReferenceInformation != null)
-                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.PlanInformation != null)
                     hash = hash * 59 + this.PlanInformation.GetHashCode();
                 if (this.OrderInformation != null)

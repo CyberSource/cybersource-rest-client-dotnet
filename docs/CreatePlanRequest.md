@@ -3,7 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientReferenceInformation** | [**Rbsv1plansClientReferenceInformation**](Rbsv1plansClientReferenceInformation.md) |  | [optional] 
 **PlanInformation** | [**Rbsv1plansPlanInformation**](Rbsv1plansPlanInformation.md) |  | [optional] 
 **OrderInformation** | [**Rbsv1plansOrderInformation**](Rbsv1plansOrderInformation.md) |  | [optional] 
 

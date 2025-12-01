@@ -224,6 +224,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ServiceFee'
         }
+        /// <summary>
+        /// Test the property 'BatchUpload'
+        /// </summary>
+        [Test]
+        public void BatchUploadTest()
+        {
+            // TODO unit test for the property 'BatchUpload'
+        }
 
     }
 

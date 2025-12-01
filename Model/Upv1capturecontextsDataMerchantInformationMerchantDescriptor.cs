@@ -34,9 +34,23 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataMerchantInformationMerchantDescriptor" /> class.
         /// </summary>
         /// <param name="Name">The name of the merchant.</param>
-        public Upv1capturecontextsDataMerchantInformationMerchantDescriptor(string Name = default(string))
+        /// <param name="AlternateName">The alternate name of the merchant.</param>
+        /// <param name="Locality">The locality of the merchant.</param>
+        /// <param name="Phone">The phone number of the merchant.</param>
+        /// <param name="Country">The country code of the merchant.</param>
+        /// <param name="PostalCode">The postal code of the merchant.</param>
+        /// <param name="AdministrativeArea">The administrative area of the merchant.</param>
+        /// <param name="Address1">The first line of the merchant&#39;s address.</param>
+        public Upv1capturecontextsDataMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Locality = default(string), string Phone = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Address1 = default(string))
         {
             this.Name = Name;
+            this.AlternateName = AlternateName;
+            this.Locality = Locality;
+            this.Phone = Phone;
+            this.Country = Country;
+            this.PostalCode = PostalCode;
+            this.AdministrativeArea = AdministrativeArea;
+            this.Address1 = Address1;
         }
         
         /// <summary>
@@ -47,6 +61,55 @@ namespace CyberSource.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// The alternate name of the merchant
+        /// </summary>
+        /// <value>The alternate name of the merchant</value>
+        [DataMember(Name="alternateName", EmitDefaultValue=false)]
+        public string AlternateName { get; set; }
+
+        /// <summary>
+        /// The locality of the merchant
+        /// </summary>
+        /// <value>The locality of the merchant</value>
+        [DataMember(Name="locality", EmitDefaultValue=false)]
+        public string Locality { get; set; }
+
+        /// <summary>
+        /// The phone number of the merchant
+        /// </summary>
+        /// <value>The phone number of the merchant</value>
+        [DataMember(Name="phone", EmitDefaultValue=false)]
+        public string Phone { get; set; }
+
+        /// <summary>
+        /// The country code of the merchant
+        /// </summary>
+        /// <value>The country code of the merchant</value>
+        [DataMember(Name="country", EmitDefaultValue=false)]
+        public string Country { get; set; }
+
+        /// <summary>
+        /// The postal code of the merchant
+        /// </summary>
+        /// <value>The postal code of the merchant</value>
+        [DataMember(Name="postalCode", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
+        /// The administrative area of the merchant
+        /// </summary>
+        /// <value>The administrative area of the merchant</value>
+        [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
+        public string AdministrativeArea { get; set; }
+
+        /// <summary>
+        /// The first line of the merchant&#39;s address
+        /// </summary>
+        /// <value>The first line of the merchant&#39;s address</value>
+        [DataMember(Name="address1", EmitDefaultValue=false)]
+        public string Address1 { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +118,13 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Upv1capturecontextsDataMerchantInformationMerchantDescriptor {\n");
             if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (AlternateName != null) sb.Append("  AlternateName: ").Append(AlternateName).Append("\n");
+            if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
+            if (Phone != null) sb.Append("  Phone: ").Append(Phone).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
+            if (Address1 != null) sb.Append("  Address1: ").Append(Address1).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +165,41 @@ namespace CyberSource.Model
                     this.Name == other.Name ||
                     this.Name != null &&
                     this.Name.Equals(other.Name)
+                ) && 
+                (
+                    this.AlternateName == other.AlternateName ||
+                    this.AlternateName != null &&
+                    this.AlternateName.Equals(other.AlternateName)
+                ) && 
+                (
+                    this.Locality == other.Locality ||
+                    this.Locality != null &&
+                    this.Locality.Equals(other.Locality)
+                ) && 
+                (
+                    this.Phone == other.Phone ||
+                    this.Phone != null &&
+                    this.Phone.Equals(other.Phone)
+                ) && 
+                (
+                    this.Country == other.Country ||
+                    this.Country != null &&
+                    this.Country.Equals(other.Country)
+                ) && 
+                (
+                    this.PostalCode == other.PostalCode ||
+                    this.PostalCode != null &&
+                    this.PostalCode.Equals(other.PostalCode)
+                ) && 
+                (
+                    this.AdministrativeArea == other.AdministrativeArea ||
+                    this.AdministrativeArea != null &&
+                    this.AdministrativeArea.Equals(other.AdministrativeArea)
+                ) && 
+                (
+                    this.Address1 == other.Address1 ||
+                    this.Address1 != null &&
+                    this.Address1.Equals(other.Address1)
                 );
         }
 
@@ -111,6 +216,20 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
+                if (this.AlternateName != null)
+                    hash = hash * 59 + this.AlternateName.GetHashCode();
+                if (this.Locality != null)
+                    hash = hash * 59 + this.Locality.GetHashCode();
+                if (this.Phone != null)
+                    hash = hash * 59 + this.Phone.GetHashCode();
+                if (this.Country != null)
+                    hash = hash * 59 + this.Country.GetHashCode();
+                if (this.PostalCode != null)
+                    hash = hash * 59 + this.PostalCode.GetHashCode();
+                if (this.AdministrativeArea != null)
+                    hash = hash * 59 + this.AdministrativeArea.GetHashCode();
+                if (this.Address1 != null)
+                    hash = hash * 59 + this.Address1.GetHashCode();
                 return hash;
             }
         }

@@ -33,14 +33,14 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataOrderInformationLineItemsPassenger" /> class.
         /// </summary>
-        /// <param name="Type">Type.</param>
-        /// <param name="Status">Status.</param>
-        /// <param name="Phone">Phone.</param>
-        /// <param name="FirstName">FirstName.</param>
-        /// <param name="LastName">LastName.</param>
-        /// <param name="Id">Id.</param>
-        /// <param name="Email">Email.</param>
-        /// <param name="Nationality">Nationality.</param>
+        /// <param name="Type">Passenger type.</param>
+        /// <param name="Status">Passenger status.</param>
+        /// <param name="Phone">Passenger phone number.</param>
+        /// <param name="FirstName">Passenger first name.</param>
+        /// <param name="LastName">Passenger last name.</param>
+        /// <param name="Id">Passenger ID.</param>
+        /// <param name="Email">Passenger email.</param>
+        /// <param name="Nationality">Passenger nationality.</param>
         public Upv1capturecontextsDataOrderInformationLineItemsPassenger(string Type = default(string), string Status = default(string), string Phone = default(string), string FirstName = default(string), string LastName = default(string), string Id = default(string), string Email = default(string), string Nationality = default(string))
         {
             this.Type = Type;
@@ -54,50 +54,58 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Passenger type
         /// </summary>
+        /// <value>Passenger type</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Passenger status
         /// </summary>
+        /// <value>Passenger status</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets Phone
+        /// Passenger phone number
         /// </summary>
+        /// <value>Passenger phone number</value>
         [DataMember(Name="phone", EmitDefaultValue=false)]
         public string Phone { get; set; }
 
         /// <summary>
-        /// Gets or Sets FirstName
+        /// Passenger first name
         /// </summary>
+        /// <value>Passenger first name</value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastName
+        /// Passenger last name
         /// </summary>
+        /// <value>Passenger last name</value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Passenger ID
         /// </summary>
+        /// <value>Passenger ID</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Email
+        /// Passenger email
         /// </summary>
+        /// <value>Passenger email</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or Sets Nationality
+        /// Passenger nationality
         /// </summary>
+        /// <value>Passenger nationality</value>
         [DataMember(Name="nationality", EmitDefaultValue=false)]
         public string Nationality { get; set; }
 

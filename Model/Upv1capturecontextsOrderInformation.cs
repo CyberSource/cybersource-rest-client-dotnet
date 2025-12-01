@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Upv1capturecontextsOrderInformation
+    /// If you need to include any fields within the data object, you must use the orderInformation object that is nested inside the data object. This ensures proper structure and compliance with the Unified Checkout schema. This top-level orderInformation field is not intended for use when working with the data object.
     /// </summary>
     [DataContract]
     public partial class Upv1capturecontextsOrderInformation :  IEquatable<Upv1capturecontextsOrderInformation>, IValidatableObject

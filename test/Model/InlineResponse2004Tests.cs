@@ -65,28 +65,60 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'ProductId'
+        /// Test the property 'RegistrationInformation'
         /// </summary>
         [Test]
-        public void ProductIdTest()
+        public void RegistrationInformationTest()
         {
-            // TODO unit test for the property 'ProductId'
+            // TODO unit test for the property 'RegistrationInformation'
         }
         /// <summary>
-        /// Test the property 'ProductName'
+        /// Test the property 'IntegrationInformation'
         /// </summary>
         [Test]
-        public void ProductNameTest()
+        public void IntegrationInformationTest()
         {
-            // TODO unit test for the property 'ProductName'
+            // TODO unit test for the property 'IntegrationInformation'
         }
         /// <summary>
-        /// Test the property 'EventTypes'
+        /// Test the property 'OrganizationInformation'
         /// </summary>
         [Test]
-        public void EventTypesTest()
+        public void OrganizationInformationTest()
         {
-            // TODO unit test for the property 'EventTypes'
+            // TODO unit test for the property 'OrganizationInformation'
+        }
+        /// <summary>
+        /// Test the property 'ProductInformation'
+        /// </summary>
+        [Test]
+        public void ProductInformationTest()
+        {
+            // TODO unit test for the property 'ProductInformation'
+        }
+        /// <summary>
+        /// Test the property 'ProductInformationSetups'
+        /// </summary>
+        [Test]
+        public void ProductInformationSetupsTest()
+        {
+            // TODO unit test for the property 'ProductInformationSetups'
+        }
+        /// <summary>
+        /// Test the property 'DocumentInformation'
+        /// </summary>
+        [Test]
+        public void DocumentInformationTest()
+        {
+            // TODO unit test for the property 'DocumentInformation'
+        }
+        /// <summary>
+        /// Test the property 'Details'
+        /// </summary>
+        [Test]
+        public void DetailsTest()
+        {
+            // TODO unit test for the property 'Details'
         }
 
     }

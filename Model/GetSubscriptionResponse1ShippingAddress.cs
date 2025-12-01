@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Id">The Id of the Shipping Address Token..</param>
         /// <param name="ShipTo">ShipTo.</param>
-        public GetSubscriptionResponse1ShippingAddress(string Id = default(string), Tmsv2customersEmbeddedDefaultShippingAddressShipTo ShipTo = default(Tmsv2customersEmbeddedDefaultShippingAddressShipTo))
+        public GetSubscriptionResponse1ShippingAddress(string Id = default(string), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressShipTo ShipTo = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressShipTo))
         {
             this.Id = Id;
             this.ShipTo = ShipTo;
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         /// Gets or Sets ShipTo
         /// </summary>
         [DataMember(Name="shipTo", EmitDefaultValue=false)]
-        public Tmsv2customersEmbeddedDefaultShippingAddressShipTo ShipTo { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddressShipTo ShipTo { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

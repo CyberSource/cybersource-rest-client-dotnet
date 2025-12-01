@@ -41,7 +41,9 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="RecipientInformation">RecipientInformation.</param>
         /// <param name="MerchantDefinedInformation">MerchantDefinedInformation.</param>
-        public Upv1capturecontextsData(Upv1capturecontextsDataOrderInformation OrderInformation = default(Upv1capturecontextsDataOrderInformation), Upv1capturecontextsDataBuyerInformation BuyerInformation = default(Upv1capturecontextsDataBuyerInformation), Upv1capturecontextsDataClientReferenceInformation ClientReferenceInformation = default(Upv1capturecontextsDataClientReferenceInformation), Upv1capturecontextsDataConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Upv1capturecontextsDataConsumerAuthenticationInformation), Upv1capturecontextsDataMerchantInformation MerchantInformation = default(Upv1capturecontextsDataMerchantInformation), Upv1capturecontextsDataProcessingInformation ProcessingInformation = default(Upv1capturecontextsDataProcessingInformation), Upv1capturecontextsDataRecipientInformation RecipientInformation = default(Upv1capturecontextsDataRecipientInformation), Upv1capturecontextsDataMerchantDefinedInformation MerchantDefinedInformation = default(Upv1capturecontextsDataMerchantDefinedInformation))
+        /// <param name="DeviceInformation">DeviceInformation.</param>
+        /// <param name="PaymentInformation">PaymentInformation.</param>
+        public Upv1capturecontextsData(Upv1capturecontextsDataOrderInformation OrderInformation = default(Upv1capturecontextsDataOrderInformation), Upv1capturecontextsDataBuyerInformation BuyerInformation = default(Upv1capturecontextsDataBuyerInformation), Upv1capturecontextsDataClientReferenceInformation ClientReferenceInformation = default(Upv1capturecontextsDataClientReferenceInformation), Upv1capturecontextsDataConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Upv1capturecontextsDataConsumerAuthenticationInformation), Upv1capturecontextsDataMerchantInformation MerchantInformation = default(Upv1capturecontextsDataMerchantInformation), Upv1capturecontextsDataProcessingInformation ProcessingInformation = default(Upv1capturecontextsDataProcessingInformation), Upv1capturecontextsDataRecipientInformation RecipientInformation = default(Upv1capturecontextsDataRecipientInformation), Upv1capturecontextsDataMerchantDefinedInformation MerchantDefinedInformation = default(Upv1capturecontextsDataMerchantDefinedInformation), Upv1capturecontextsDataDeviceInformation DeviceInformation = default(Upv1capturecontextsDataDeviceInformation), Upv1capturecontextsDataPaymentInformation PaymentInformation = default(Upv1capturecontextsDataPaymentInformation))
         {
             this.OrderInformation = OrderInformation;
             this.BuyerInformation = BuyerInformation;
@@ -51,6 +53,8 @@ namespace CyberSource.Model
             this.ProcessingInformation = ProcessingInformation;
             this.RecipientInformation = RecipientInformation;
             this.MerchantDefinedInformation = MerchantDefinedInformation;
+            this.DeviceInformation = DeviceInformation;
+            this.PaymentInformation = PaymentInformation;
         }
         
         /// <summary>
@@ -102,6 +106,18 @@ namespace CyberSource.Model
         public Upv1capturecontextsDataMerchantDefinedInformation MerchantDefinedInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets DeviceInformation
+        /// </summary>
+        [DataMember(Name="deviceInformation", EmitDefaultValue=false)]
+        public Upv1capturecontextsDataDeviceInformation DeviceInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentInformation
+        /// </summary>
+        [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
+        public Upv1capturecontextsDataPaymentInformation PaymentInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,6 +133,8 @@ namespace CyberSource.Model
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (RecipientInformation != null) sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
             if (MerchantDefinedInformation != null) sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
+            if (DeviceInformation != null) sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
+            if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +210,16 @@ namespace CyberSource.Model
                     this.MerchantDefinedInformation == other.MerchantDefinedInformation ||
                     this.MerchantDefinedInformation != null &&
                     this.MerchantDefinedInformation.Equals(other.MerchantDefinedInformation)
+                ) && 
+                (
+                    this.DeviceInformation == other.DeviceInformation ||
+                    this.DeviceInformation != null &&
+                    this.DeviceInformation.Equals(other.DeviceInformation)
+                ) && 
+                (
+                    this.PaymentInformation == other.PaymentInformation ||
+                    this.PaymentInformation != null &&
+                    this.PaymentInformation.Equals(other.PaymentInformation)
                 );
         }
 
@@ -222,6 +250,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RecipientInformation.GetHashCode();
                 if (this.MerchantDefinedInformation != null)
                     hash = hash * 59 + this.MerchantDefinedInformation.GetHashCode();
+                if (this.DeviceInformation != null)
+                    hash = hash * 59 + this.DeviceInformation.GetHashCode();
+                if (this.PaymentInformation != null)
+                    hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 return hash;
             }
         }

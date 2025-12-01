@@ -37,8 +37,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>InlineResponse20013</returns>
-        InlineResponse20013 BankAccountValidationRequest (AccountValidationsRequest accountValidationsRequest);
+        /// <returns>InlineResponse20014</returns>
+        InlineResponse20014 BankAccountValidationRequest (AccountValidationsRequest accountValidationsRequest);
 
         /// <summary>
         /// Visa Bank Account Validation Service
@@ -48,8 +48,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>ApiResponse of InlineResponse20013</returns>
-        ApiResponse<InlineResponse20013> BankAccountValidationRequestWithHttpInfo (AccountValidationsRequest accountValidationsRequest);
+        /// <returns>ApiResponse of InlineResponse20014</returns>
+        ApiResponse<InlineResponse20014> BankAccountValidationRequestWithHttpInfo (AccountValidationsRequest accountValidationsRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -60,8 +60,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>Task of InlineResponse20013</returns>
-        System.Threading.Tasks.Task<InlineResponse20013> BankAccountValidationRequestAsync (AccountValidationsRequest accountValidationsRequest);
+        /// <returns>Task of InlineResponse20014</returns>
+        System.Threading.Tasks.Task<InlineResponse20014> BankAccountValidationRequestAsync (AccountValidationsRequest accountValidationsRequest);
 
         /// <summary>
         /// Visa Bank Account Validation Service
@@ -71,8 +71,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> BankAccountValidationRequestAsyncWithHttpInfo (AccountValidationsRequest accountValidationsRequest);
+        /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> BankAccountValidationRequestAsyncWithHttpInfo (AccountValidationsRequest accountValidationsRequest);
         #endregion Asynchronous Operations
     }
 
@@ -218,13 +218,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>InlineResponse20013</returns>
+        /// <returns>InlineResponse20014</returns>
         /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public InlineResponse20013 BankAccountValidationRequest (AccountValidationsRequest accountValidationsRequest)
+        public InlineResponse20014 BankAccountValidationRequest (AccountValidationsRequest accountValidationsRequest)
         {
             logger.Debug("CALLING API \"BankAccountValidationRequest\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20013> localVarResponse = BankAccountValidationRequestWithHttpInfo(accountValidationsRequest);
+            ApiResponse<InlineResponse20014> localVarResponse = BankAccountValidationRequestWithHttpInfo(accountValidationsRequest);
             logger.Debug("CALLING API \"BankAccountValidationRequest\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -235,8 +235,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>ApiResponse of InlineResponse20013</returns>
-        public ApiResponse< InlineResponse20013 > BankAccountValidationRequestWithHttpInfo (AccountValidationsRequest accountValidationsRequest)
+        /// <returns>ApiResponse of InlineResponse20014</returns>
+        public ApiResponse< InlineResponse20014 > BankAccountValidationRequestWithHttpInfo (AccountValidationsRequest accountValidationsRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -317,9 +317,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20013>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20014>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20013))); // Return statement
+                (InlineResponse20014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20014))); // Return statement
         }
 
         /// <summary>
@@ -327,12 +327,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>Task of InlineResponse20013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20013> BankAccountValidationRequestAsync (AccountValidationsRequest accountValidationsRequest)
+        /// <returns>Task of InlineResponse20014</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20014> BankAccountValidationRequestAsync (AccountValidationsRequest accountValidationsRequest)
         {
             logger.Debug("CALLING API \"BankAccountValidationRequestAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20013> localVarResponse = await BankAccountValidationRequestAsyncWithHttpInfo(accountValidationsRequest);
+            ApiResponse<InlineResponse20014> localVarResponse = await BankAccountValidationRequestAsyncWithHttpInfo(accountValidationsRequest);
             logger.Debug("CALLING API \"BankAccountValidationRequestAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -344,8 +344,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> BankAccountValidationRequestAsyncWithHttpInfo (AccountValidationsRequest accountValidationsRequest)
+        /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> BankAccountValidationRequestAsyncWithHttpInfo (AccountValidationsRequest accountValidationsRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -426,9 +426,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20013>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20014>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20013) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20013))); // Return statement
+                (InlineResponse20014) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20014))); // Return statement
         }
     }
 }

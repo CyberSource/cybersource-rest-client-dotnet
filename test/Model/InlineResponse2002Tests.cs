@@ -73,92 +73,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'FieldType'
+        /// Test the property 'SubmitTimeUtc'
         /// </summary>
         [Test]
-        public void FieldTypeTest()
+        public void SubmitTimeUtcTest()
         {
-            // TODO unit test for the property 'FieldType'
+            // TODO unit test for the property 'SubmitTimeUtc'
         }
         /// <summary>
-        /// Test the property 'Label'
+        /// Test the property 'Status'
         /// </summary>
         [Test]
-        public void LabelTest()
+        public void StatusTest()
         {
-            // TODO unit test for the property 'Label'
+            // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'CustomerVisible'
+        /// Test the property 'Embedded'
         /// </summary>
         [Test]
-        public void CustomerVisibleTest()
+        public void EmbeddedTest()
         {
-            // TODO unit test for the property 'CustomerVisible'
-        }
-        /// <summary>
-        /// Test the property 'TextMinLength'
-        /// </summary>
-        [Test]
-        public void TextMinLengthTest()
-        {
-            // TODO unit test for the property 'TextMinLength'
-        }
-        /// <summary>
-        /// Test the property 'TextMaxLength'
-        /// </summary>
-        [Test]
-        public void TextMaxLengthTest()
-        {
-            // TODO unit test for the property 'TextMaxLength'
-        }
-        /// <summary>
-        /// Test the property 'PossibleValues'
-        /// </summary>
-        [Test]
-        public void PossibleValuesTest()
-        {
-            // TODO unit test for the property 'PossibleValues'
-        }
-        /// <summary>
-        /// Test the property 'TextDefaultValue'
-        /// </summary>
-        [Test]
-        public void TextDefaultValueTest()
-        {
-            // TODO unit test for the property 'TextDefaultValue'
-        }
-        /// <summary>
-        /// Test the property 'MerchantId'
-        /// </summary>
-        [Test]
-        public void MerchantIdTest()
-        {
-            // TODO unit test for the property 'MerchantId'
-        }
-        /// <summary>
-        /// Test the property 'ReferenceType'
-        /// </summary>
-        [Test]
-        public void ReferenceTypeTest()
-        {
-            // TODO unit test for the property 'ReferenceType'
-        }
-        /// <summary>
-        /// Test the property 'ReadOnly'
-        /// </summary>
-        [Test]
-        public void ReadOnlyTest()
-        {
-            // TODO unit test for the property 'ReadOnly'
-        }
-        /// <summary>
-        /// Test the property 'MerchantDefinedDataIndex'
-        /// </summary>
-        [Test]
-        public void MerchantDefinedDataIndexTest()
-        {
-            // TODO unit test for the property 'MerchantDefinedDataIndex'
+            // TODO unit test for the property 'Embedded'
         }
 
     }

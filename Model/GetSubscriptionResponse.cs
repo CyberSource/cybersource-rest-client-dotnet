@@ -40,8 +40,9 @@ namespace CyberSource.Model
         /// <param name="SubscriptionInformation">SubscriptionInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
+        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ReactivationInformation">ReactivationInformation.</param>
-        public GetSubscriptionResponse(GetAllSubscriptionsResponseLinks Links = default(GetAllSubscriptionsResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), GetAllSubscriptionsResponsePlanInformation PlanInformation = default(GetAllSubscriptionsResponsePlanInformation), GetAllSubscriptionsResponseSubscriptionInformation SubscriptionInformation = default(GetAllSubscriptionsResponseSubscriptionInformation), GetAllSubscriptionsResponsePaymentInformation PaymentInformation = default(GetAllSubscriptionsResponsePaymentInformation), GetAllSubscriptionsResponseOrderInformation OrderInformation = default(GetAllSubscriptionsResponseOrderInformation), GetSubscriptionResponseReactivationInformation ReactivationInformation = default(GetSubscriptionResponseReactivationInformation))
+        public GetSubscriptionResponse(GetAllSubscriptionsResponseLinks Links = default(GetAllSubscriptionsResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), GetAllSubscriptionsResponsePlanInformation PlanInformation = default(GetAllSubscriptionsResponsePlanInformation), GetAllSubscriptionsResponseSubscriptionInformation SubscriptionInformation = default(GetAllSubscriptionsResponseSubscriptionInformation), GetAllSubscriptionsResponsePaymentInformation PaymentInformation = default(GetAllSubscriptionsResponsePaymentInformation), GetAllSubscriptionsResponseOrderInformation OrderInformation = default(GetAllSubscriptionsResponseOrderInformation), GetAllSubscriptionsResponseClientReferenceInformation ClientReferenceInformation = default(GetAllSubscriptionsResponseClientReferenceInformation), GetSubscriptionResponseReactivationInformation ReactivationInformation = default(GetSubscriptionResponseReactivationInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -50,6 +51,7 @@ namespace CyberSource.Model
             this.SubscriptionInformation = SubscriptionInformation;
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
+            this.ClientReferenceInformation = ClientReferenceInformation;
             this.ReactivationInformation = ReactivationInformation;
         }
         
@@ -98,6 +100,12 @@ namespace CyberSource.Model
         public GetAllSubscriptionsResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ClientReferenceInformation
+        /// </summary>
+        [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
+        public GetAllSubscriptionsResponseClientReferenceInformation ClientReferenceInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets ReactivationInformation
         /// </summary>
         [DataMember(Name="reactivationInformation", EmitDefaultValue=false)]
@@ -118,6 +126,7 @@ namespace CyberSource.Model
             if (SubscriptionInformation != null) sb.Append("  SubscriptionInformation: ").Append(SubscriptionInformation).Append("\n");
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             if (ReactivationInformation != null) sb.Append("  ReactivationInformation: ").Append(ReactivationInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -191,6 +200,11 @@ namespace CyberSource.Model
                     this.OrderInformation.Equals(other.OrderInformation)
                 ) && 
                 (
+                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
+                    this.ClientReferenceInformation != null &&
+                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
+                ) && 
+                (
                     this.ReactivationInformation == other.ReactivationInformation ||
                     this.ReactivationInformation != null &&
                     this.ReactivationInformation.Equals(other.ReactivationInformation)
@@ -222,6 +236,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.ClientReferenceInformation != null)
+                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.ReactivationInformation != null)
                     hash = hash * 59 + this.ReactivationInformation.GetHashCode();
                 return hash;

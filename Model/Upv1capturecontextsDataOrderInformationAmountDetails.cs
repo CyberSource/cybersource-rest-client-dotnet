@@ -40,7 +40,8 @@ namespace CyberSource.Model
         /// <param name="SubTotalAmount">This field defines the sub total amount applicable to the order. .</param>
         /// <param name="ServiceFeeAmount">This field defines the service fee amount applicable to the order. .</param>
         /// <param name="TaxAmount">This field defines the tax amount applicable to the order. .</param>
-        public Upv1capturecontextsDataOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), Upv1capturecontextsDataOrderInformationAmountDetailsSurcharge Surcharge = default(Upv1capturecontextsDataOrderInformationAmountDetailsSurcharge), string DiscountAmount = default(string), string SubTotalAmount = default(string), string ServiceFeeAmount = default(string), string TaxAmount = default(string))
+        /// <param name="TaxDetails">TaxDetails.</param>
+        public Upv1capturecontextsDataOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), Upv1capturecontextsDataOrderInformationAmountDetailsSurcharge Surcharge = default(Upv1capturecontextsDataOrderInformationAmountDetailsSurcharge), string DiscountAmount = default(string), string SubTotalAmount = default(string), string ServiceFeeAmount = default(string), string TaxAmount = default(string), Upv1capturecontextsDataOrderInformationAmountDetailsTaxDetails TaxDetails = default(Upv1capturecontextsDataOrderInformationAmountDetailsTaxDetails))
         {
             this.TotalAmount = TotalAmount;
             this.Currency = Currency;
@@ -49,6 +50,7 @@ namespace CyberSource.Model
             this.SubTotalAmount = SubTotalAmount;
             this.ServiceFeeAmount = ServiceFeeAmount;
             this.TaxAmount = TaxAmount;
+            this.TaxDetails = TaxDetails;
         }
         
         /// <summary>
@@ -100,6 +102,12 @@ namespace CyberSource.Model
         public string TaxAmount { get; set; }
 
         /// <summary>
+        /// Gets or Sets TaxDetails
+        /// </summary>
+        [DataMember(Name="taxDetails", EmitDefaultValue=false)]
+        public Upv1capturecontextsDataOrderInformationAmountDetailsTaxDetails TaxDetails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +122,7 @@ namespace CyberSource.Model
             if (SubTotalAmount != null) sb.Append("  SubTotalAmount: ").Append(SubTotalAmount).Append("\n");
             if (ServiceFeeAmount != null) sb.Append("  ServiceFeeAmount: ").Append(ServiceFeeAmount).Append("\n");
             if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (TaxDetails != null) sb.Append("  TaxDetails: ").Append(TaxDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -184,6 +193,11 @@ namespace CyberSource.Model
                     this.TaxAmount == other.TaxAmount ||
                     this.TaxAmount != null &&
                     this.TaxAmount.Equals(other.TaxAmount)
+                ) && 
+                (
+                    this.TaxDetails == other.TaxDetails ||
+                    this.TaxDetails != null &&
+                    this.TaxDetails.Equals(other.TaxDetails)
                 );
         }
 
@@ -212,6 +226,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ServiceFeeAmount.GetHashCode();
                 if (this.TaxAmount != null)
                     hash = hash * 59 + this.TaxAmount.GetHashCode();
+                if (this.TaxDetails != null)
+                    hash = hash * 59 + this.TaxDetails.GetHashCode();
                 return hash;
             }
         }

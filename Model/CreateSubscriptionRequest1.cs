@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="PlanInformation">PlanInformation.</param>
         /// <param name="SubscriptionInformation">SubscriptionInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public CreateSubscriptionRequest1(Rbsv1subscriptionsClientReferenceInformation ClientReferenceInformation = default(Rbsv1subscriptionsClientReferenceInformation), Rbsv1subscriptionsProcessingInformation ProcessingInformation = default(Rbsv1subscriptionsProcessingInformation), Rbsv1subscriptionsPlanInformation PlanInformation = default(Rbsv1subscriptionsPlanInformation), Rbsv1subscriptionsSubscriptionInformation SubscriptionInformation = default(Rbsv1subscriptionsSubscriptionInformation), GetAllPlansResponseOrderInformation OrderInformation = default(GetAllPlansResponseOrderInformation))
+        public CreateSubscriptionRequest1(GetAllSubscriptionsResponseClientReferenceInformation ClientReferenceInformation = default(GetAllSubscriptionsResponseClientReferenceInformation), Rbsv1subscriptionsProcessingInformation ProcessingInformation = default(Rbsv1subscriptionsProcessingInformation), Rbsv1subscriptionsPlanInformation PlanInformation = default(Rbsv1subscriptionsPlanInformation), Rbsv1subscriptionsSubscriptionInformation SubscriptionInformation = default(Rbsv1subscriptionsSubscriptionInformation), GetAllPlansResponseOrderInformation OrderInformation = default(GetAllPlansResponseOrderInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Rbsv1subscriptionsClientReferenceInformation ClientReferenceInformation { get; set; }
+        public GetAllSubscriptionsResponseClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation

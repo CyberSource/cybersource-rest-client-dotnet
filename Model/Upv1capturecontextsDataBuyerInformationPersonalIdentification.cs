@@ -33,15 +33,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataBuyerInformationPersonalIdentification" /> class.
         /// </summary>
-        /// <param name="Cpf">Cpf.</param>
+        /// <param name="Cpf">CPF Number (Brazil).  Must be 11 digits in length. .</param>
         public Upv1capturecontextsDataBuyerInformationPersonalIdentification(string Cpf = default(string))
         {
             this.Cpf = Cpf;
         }
         
         /// <summary>
-        /// Gets or Sets Cpf
+        /// CPF Number (Brazil).  Must be 11 digits in length. 
         /// </summary>
+        /// <value>CPF Number (Brazil).  Must be 11 digits in length. </value>
         [DataMember(Name="cpf", EmitDefaultValue=false)]
         public string Cpf { get; set; }
 

@@ -128,6 +128,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Country'
         }
+        /// <summary>
+        /// Test the property 'ServiceProvidername'
+        /// </summary>
+        [Test]
+        public void ServiceProvidernameTest()
+        {
+            // TODO unit test for the property 'ServiceProvidername'
+        }
 
     }
 

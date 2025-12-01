@@ -40,7 +40,9 @@ namespace CyberSource.Model
         /// <param name="AccountId">The account ID of the recipient.</param>
         /// <param name="AdministrativeArea">The administrative area of the recipient.</param>
         /// <param name="AccountType">The account type of the recipient.</param>
-        public Upv1capturecontextsDataRecipientInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Country = default(string), string AccountId = default(string), string AdministrativeArea = default(string), string AccountType = default(string))
+        /// <param name="DateOfBirth">The date of birth of the recipient.</param>
+        /// <param name="PostalCode">The postal code of the recipient.</param>
+        public Upv1capturecontextsDataRecipientInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Country = default(string), string AccountId = default(string), string AdministrativeArea = default(string), string AccountType = default(string), string DateOfBirth = default(string), string PostalCode = default(string))
         {
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
@@ -49,6 +51,8 @@ namespace CyberSource.Model
             this.AccountId = AccountId;
             this.AdministrativeArea = AdministrativeArea;
             this.AccountType = AccountType;
+            this.DateOfBirth = DateOfBirth;
+            this.PostalCode = PostalCode;
         }
         
         /// <summary>
@@ -98,6 +102,20 @@ namespace CyberSource.Model
         public string AccountType { get; set; }
 
         /// <summary>
+        /// The date of birth of the recipient
+        /// </summary>
+        /// <value>The date of birth of the recipient</value>
+        [DataMember(Name="dateOfBirth", EmitDefaultValue=false)]
+        public string DateOfBirth { get; set; }
+
+        /// <summary>
+        /// The postal code of the recipient
+        /// </summary>
+        /// <value>The postal code of the recipient</value>
+        [DataMember(Name="postalCode", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,6 +130,8 @@ namespace CyberSource.Model
             if (AccountId != null) sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,6 +202,16 @@ namespace CyberSource.Model
                     this.AccountType == other.AccountType ||
                     this.AccountType != null &&
                     this.AccountType.Equals(other.AccountType)
+                ) && 
+                (
+                    this.DateOfBirth == other.DateOfBirth ||
+                    this.DateOfBirth != null &&
+                    this.DateOfBirth.Equals(other.DateOfBirth)
+                ) && 
+                (
+                    this.PostalCode == other.PostalCode ||
+                    this.PostalCode != null &&
+                    this.PostalCode.Equals(other.PostalCode)
                 );
         }
 
@@ -210,6 +240,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
                 if (this.AccountType != null)
                     hash = hash * 59 + this.AccountType.GetHashCode();
+                if (this.DateOfBirth != null)
+                    hash = hash * 59 + this.DateOfBirth.GetHashCode();
+                if (this.PostalCode != null)
+                    hash = hash * 59 + this.PostalCode.GetHashCode();
                 return hash;
             }
         }

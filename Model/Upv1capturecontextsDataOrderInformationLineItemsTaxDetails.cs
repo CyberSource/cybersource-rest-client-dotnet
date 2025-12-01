@@ -33,13 +33,13 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataOrderInformationLineItemsTaxDetails" /> class.
         /// </summary>
-        /// <param name="Type">Type.</param>
-        /// <param name="Amount">Amount.</param>
-        /// <param name="Rate">Rate.</param>
-        /// <param name="Code">Code.</param>
-        /// <param name="TaxId">TaxId.</param>
-        /// <param name="Applied">Applied.</param>
-        /// <param name="ExemptionCode">ExemptionCode.</param>
+        /// <param name="Type">Type of tax.</param>
+        /// <param name="Amount">Tax amount.</param>
+        /// <param name="Rate">Tax rate.</param>
+        /// <param name="Code">Tax code.</param>
+        /// <param name="TaxId">Tax Identifier.</param>
+        /// <param name="Applied">Indicates if tax applied.</param>
+        /// <param name="ExemptionCode">Tax exemption code.</param>
         public Upv1capturecontextsDataOrderInformationLineItemsTaxDetails(string Type = default(string), string Amount = default(string), string Rate = default(string), string Code = default(string), string TaxId = default(string), bool? Applied = default(bool?), string ExemptionCode = default(string))
         {
             this.Type = Type;
@@ -52,44 +52,51 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Type of tax
         /// </summary>
+        /// <value>Type of tax</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Amount
+        /// Tax amount
         /// </summary>
+        /// <value>Tax amount</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public string Amount { get; set; }
 
         /// <summary>
-        /// Gets or Sets Rate
+        /// Tax rate
         /// </summary>
+        /// <value>Tax rate</value>
         [DataMember(Name="rate", EmitDefaultValue=false)]
         public string Rate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Tax code
         /// </summary>
+        /// <value>Tax code</value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets TaxId
+        /// Tax Identifier
         /// </summary>
+        /// <value>Tax Identifier</value>
         [DataMember(Name="taxId", EmitDefaultValue=false)]
         public string TaxId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Applied
+        /// Indicates if tax applied
         /// </summary>
+        /// <value>Indicates if tax applied</value>
         [DataMember(Name="applied", EmitDefaultValue=false)]
         public bool? Applied { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExemptionCode
+        /// Tax exemption code
         /// </summary>
+        /// <value>Tax exemption code</value>
         [DataMember(Name="exemptionCode", EmitDefaultValue=false)]
         public string ExemptionCode { get; set; }
 

@@ -95,7 +95,7 @@ namespace CyberSource.Test
             //string vCOrganizationId = null;
             //string id = null;
             //var response = instance.GetOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
-            //Assert.IsInstanceOf<InlineResponse20014> (response, "response is InlineResponse20014");
+            //Assert.IsInstanceOf<InlineResponse20015> (response, "response is InlineResponse20015");
         }
         
     }

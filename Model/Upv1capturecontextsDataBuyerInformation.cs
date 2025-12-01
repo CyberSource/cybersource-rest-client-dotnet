@@ -34,13 +34,17 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataBuyerInformation" /> class.
         /// </summary>
         /// <param name="PersonalIdentification">PersonalIdentification.</param>
-        /// <param name="MerchantCustomerId">MerchantCustomerId.</param>
-        /// <param name="CompanyTaxId">CompanyTaxId.</param>
-        public Upv1capturecontextsDataBuyerInformation(Upv1capturecontextsDataBuyerInformationPersonalIdentification PersonalIdentification = default(Upv1capturecontextsDataBuyerInformationPersonalIdentification), string MerchantCustomerId = default(string), string CompanyTaxId = default(string))
+        /// <param name="MerchantCustomerId">The Merchant Customer ID .</param>
+        /// <param name="CompanyTaxId">The Company Tax ID .</param>
+        /// <param name="DateOfBirth">The date of birth .</param>
+        /// <param name="Language">The preferred language .</param>
+        public Upv1capturecontextsDataBuyerInformation(Upv1capturecontextsDataBuyerInformationPersonalIdentification PersonalIdentification = default(Upv1capturecontextsDataBuyerInformationPersonalIdentification), string MerchantCustomerId = default(string), string CompanyTaxId = default(string), string DateOfBirth = default(string), string Language = default(string))
         {
             this.PersonalIdentification = PersonalIdentification;
             this.MerchantCustomerId = MerchantCustomerId;
             this.CompanyTaxId = CompanyTaxId;
+            this.DateOfBirth = DateOfBirth;
+            this.Language = Language;
         }
         
         /// <summary>
@@ -50,16 +54,32 @@ namespace CyberSource.Model
         public Upv1capturecontextsDataBuyerInformationPersonalIdentification PersonalIdentification { get; set; }
 
         /// <summary>
-        /// Gets or Sets MerchantCustomerId
+        /// The Merchant Customer ID 
         /// </summary>
+        /// <value>The Merchant Customer ID </value>
         [DataMember(Name="merchantCustomerId", EmitDefaultValue=false)]
         public string MerchantCustomerId { get; set; }
 
         /// <summary>
-        /// Gets or Sets CompanyTaxId
+        /// The Company Tax ID 
         /// </summary>
+        /// <value>The Company Tax ID </value>
         [DataMember(Name="companyTaxId", EmitDefaultValue=false)]
         public string CompanyTaxId { get; set; }
+
+        /// <summary>
+        /// The date of birth 
+        /// </summary>
+        /// <value>The date of birth </value>
+        [DataMember(Name="dateOfBirth", EmitDefaultValue=false)]
+        public string DateOfBirth { get; set; }
+
+        /// <summary>
+        /// The preferred language 
+        /// </summary>
+        /// <value>The preferred language </value>
+        [DataMember(Name="language", EmitDefaultValue=false)]
+        public string Language { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +92,8 @@ namespace CyberSource.Model
             if (PersonalIdentification != null) sb.Append("  PersonalIdentification: ").Append(PersonalIdentification).Append("\n");
             if (MerchantCustomerId != null) sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
             if (CompanyTaxId != null) sb.Append("  CompanyTaxId: ").Append(CompanyTaxId).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (Language != null) sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +144,16 @@ namespace CyberSource.Model
                     this.CompanyTaxId == other.CompanyTaxId ||
                     this.CompanyTaxId != null &&
                     this.CompanyTaxId.Equals(other.CompanyTaxId)
+                ) && 
+                (
+                    this.DateOfBirth == other.DateOfBirth ||
+                    this.DateOfBirth != null &&
+                    this.DateOfBirth.Equals(other.DateOfBirth)
+                ) && 
+                (
+                    this.Language == other.Language ||
+                    this.Language != null &&
+                    this.Language.Equals(other.Language)
                 );
         }
 
@@ -142,6 +174,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantCustomerId.GetHashCode();
                 if (this.CompanyTaxId != null)
                     hash = hash * 59 + this.CompanyTaxId.GetHashCode();
+                if (this.DateOfBirth != null)
+                    hash = hash * 59 + this.DateOfBirth.GetHashCode();
+                if (this.Language != null)
+                    hash = hash * 59 + this.Language.GetHashCode();
                 return hash;
             }
         }

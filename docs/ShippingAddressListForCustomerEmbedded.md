@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ShippingAddresses** | [**List&lt;Tmsv2customersEmbeddedDefaultShippingAddress&gt;**](Tmsv2customersEmbeddedDefaultShippingAddress.md) |  | [optional] 
+**ShippingAddresses** | [**List&lt;Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddress&gt;**](Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddress.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

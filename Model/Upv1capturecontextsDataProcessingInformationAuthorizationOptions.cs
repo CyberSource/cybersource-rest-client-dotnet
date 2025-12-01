@@ -33,21 +33,53 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataProcessingInformationAuthorizationOptions" /> class.
         /// </summary>
-        /// <param name="AftIndicator">AftIndicator.</param>
+        /// <param name="AftIndicator">The AFT indicator.</param>
+        /// <param name="AuthIndicator">The authorization indicator.</param>
+        /// <param name="IgnoreCvResult">Ignore the CV result.</param>
+        /// <param name="IgnoreAvsResult">Ignore the AVS result.</param>
         /// <param name="Initiator">Initiator.</param>
-        /// <param name="BusinessApplicationId">BusinessApplicationId.</param>
-        public Upv1capturecontextsDataProcessingInformationAuthorizationOptions(bool? AftIndicator = default(bool?), Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiator Initiator = default(Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiator), string BusinessApplicationId = default(string))
+        /// <param name="BusinessApplicationId">The business application Id.</param>
+        /// <param name="CommerceIndicator">The commerce indicator.</param>
+        /// <param name="ProcessingInstruction">The processing instruction.</param>
+        public Upv1capturecontextsDataProcessingInformationAuthorizationOptions(bool? AftIndicator = default(bool?), string AuthIndicator = default(string), bool? IgnoreCvResult = default(bool?), bool? IgnoreAvsResult = default(bool?), Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiator Initiator = default(Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiator), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string ProcessingInstruction = default(string))
         {
             this.AftIndicator = AftIndicator;
+            this.AuthIndicator = AuthIndicator;
+            this.IgnoreCvResult = IgnoreCvResult;
+            this.IgnoreAvsResult = IgnoreAvsResult;
             this.Initiator = Initiator;
             this.BusinessApplicationId = BusinessApplicationId;
+            this.CommerceIndicator = CommerceIndicator;
+            this.ProcessingInstruction = ProcessingInstruction;
         }
         
         /// <summary>
-        /// Gets or Sets AftIndicator
+        /// The AFT indicator
         /// </summary>
+        /// <value>The AFT indicator</value>
         [DataMember(Name="aftIndicator", EmitDefaultValue=false)]
         public bool? AftIndicator { get; set; }
+
+        /// <summary>
+        /// The authorization indicator
+        /// </summary>
+        /// <value>The authorization indicator</value>
+        [DataMember(Name="authIndicator", EmitDefaultValue=false)]
+        public string AuthIndicator { get; set; }
+
+        /// <summary>
+        /// Ignore the CV result
+        /// </summary>
+        /// <value>Ignore the CV result</value>
+        [DataMember(Name="ignoreCvResult", EmitDefaultValue=false)]
+        public bool? IgnoreCvResult { get; set; }
+
+        /// <summary>
+        /// Ignore the AVS result
+        /// </summary>
+        /// <value>Ignore the AVS result</value>
+        [DataMember(Name="ignoreAvsResult", EmitDefaultValue=false)]
+        public bool? IgnoreAvsResult { get; set; }
 
         /// <summary>
         /// Gets or Sets Initiator
@@ -56,10 +88,25 @@ namespace CyberSource.Model
         public Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiator Initiator { get; set; }
 
         /// <summary>
-        /// Gets or Sets BusinessApplicationId
+        /// The business application Id
         /// </summary>
+        /// <value>The business application Id</value>
         [DataMember(Name="businessApplicationId", EmitDefaultValue=false)]
         public string BusinessApplicationId { get; set; }
+
+        /// <summary>
+        /// The commerce indicator
+        /// </summary>
+        /// <value>The commerce indicator</value>
+        [DataMember(Name="commerceIndicator", EmitDefaultValue=false)]
+        public string CommerceIndicator { get; set; }
+
+        /// <summary>
+        /// The processing instruction
+        /// </summary>
+        /// <value>The processing instruction</value>
+        [DataMember(Name="processingInstruction", EmitDefaultValue=false)]
+        public string ProcessingInstruction { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,8 +117,13 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Upv1capturecontextsDataProcessingInformationAuthorizationOptions {\n");
             if (AftIndicator != null) sb.Append("  AftIndicator: ").Append(AftIndicator).Append("\n");
+            if (AuthIndicator != null) sb.Append("  AuthIndicator: ").Append(AuthIndicator).Append("\n");
+            if (IgnoreCvResult != null) sb.Append("  IgnoreCvResult: ").Append(IgnoreCvResult).Append("\n");
+            if (IgnoreAvsResult != null) sb.Append("  IgnoreAvsResult: ").Append(IgnoreAvsResult).Append("\n");
             if (Initiator != null) sb.Append("  Initiator: ").Append(Initiator).Append("\n");
             if (BusinessApplicationId != null) sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
+            if (CommerceIndicator != null) sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
+            if (ProcessingInstruction != null) sb.Append("  ProcessingInstruction: ").Append(ProcessingInstruction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,6 +166,21 @@ namespace CyberSource.Model
                     this.AftIndicator.Equals(other.AftIndicator)
                 ) && 
                 (
+                    this.AuthIndicator == other.AuthIndicator ||
+                    this.AuthIndicator != null &&
+                    this.AuthIndicator.Equals(other.AuthIndicator)
+                ) && 
+                (
+                    this.IgnoreCvResult == other.IgnoreCvResult ||
+                    this.IgnoreCvResult != null &&
+                    this.IgnoreCvResult.Equals(other.IgnoreCvResult)
+                ) && 
+                (
+                    this.IgnoreAvsResult == other.IgnoreAvsResult ||
+                    this.IgnoreAvsResult != null &&
+                    this.IgnoreAvsResult.Equals(other.IgnoreAvsResult)
+                ) && 
+                (
                     this.Initiator == other.Initiator ||
                     this.Initiator != null &&
                     this.Initiator.Equals(other.Initiator)
@@ -122,6 +189,16 @@ namespace CyberSource.Model
                     this.BusinessApplicationId == other.BusinessApplicationId ||
                     this.BusinessApplicationId != null &&
                     this.BusinessApplicationId.Equals(other.BusinessApplicationId)
+                ) && 
+                (
+                    this.CommerceIndicator == other.CommerceIndicator ||
+                    this.CommerceIndicator != null &&
+                    this.CommerceIndicator.Equals(other.CommerceIndicator)
+                ) && 
+                (
+                    this.ProcessingInstruction == other.ProcessingInstruction ||
+                    this.ProcessingInstruction != null &&
+                    this.ProcessingInstruction.Equals(other.ProcessingInstruction)
                 );
         }
 
@@ -138,10 +215,20 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AftIndicator != null)
                     hash = hash * 59 + this.AftIndicator.GetHashCode();
+                if (this.AuthIndicator != null)
+                    hash = hash * 59 + this.AuthIndicator.GetHashCode();
+                if (this.IgnoreCvResult != null)
+                    hash = hash * 59 + this.IgnoreCvResult.GetHashCode();
+                if (this.IgnoreAvsResult != null)
+                    hash = hash * 59 + this.IgnoreAvsResult.GetHashCode();
                 if (this.Initiator != null)
                     hash = hash * 59 + this.Initiator.GetHashCode();
                 if (this.BusinessApplicationId != null)
                     hash = hash * 59 + this.BusinessApplicationId.GetHashCode();
+                if (this.CommerceIndicator != null)
+                    hash = hash * 59 + this.CommerceIndicator.GetHashCode();
+                if (this.ProcessingInstruction != null)
+                    hash = hash * 59 + this.ProcessingInstruction.GetHashCode();
                 return hash;
             }
         }

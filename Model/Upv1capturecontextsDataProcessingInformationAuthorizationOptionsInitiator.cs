@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiator" /> class.
         /// </summary>
-        /// <param name="CredentialStoredOnFile">CredentialStoredOnFile.</param>
+        /// <param name="CredentialStoredOnFile">Store the credential on file.</param>
         /// <param name="MerchantInitiatedTransaction">MerchantInitiatedTransaction.</param>
         public Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiator(bool? CredentialStoredOnFile = default(bool?), Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction MerchantInitiatedTransaction = default(Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction))
         {
@@ -42,8 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Gets or Sets CredentialStoredOnFile
+        /// Store the credential on file
         /// </summary>
+        /// <value>Store the credential on file</value>
         [DataMember(Name="credentialStoredOnFile", EmitDefaultValue=false)]
         public bool? CredentialStoredOnFile { get; set; }
 
