@@ -35,10 +35,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="CategoryCode">Category code for the ancillary service that is provided. Obtain the codes from the International Air Transport Association (IATA). **Note** &#x60;#&#x60; is either 0, 1, 2, or 3. **Important** This field is required in the U.S. in order for you to qualify for either the custom payment service (CPS) or the electronic interchange reimbursement fee (EIRF)program. Format: English characters only. Optional request field for ancillary services. .</param>
         /// <param name="SubCategoryCode">Subcategory code for the ancillary service category. Obtain the codes from the International Air Transport Association (IATA). **Note** &#x60;#&#x60; is either 0, 1, 2, or 3. Format  English characters only. Optional request field for ancillary services. .</param>
-        public Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService(string CategoryCode = default(string), string SubCategoryCode = default(string))
+        /// <param name="FeeAmount">This field contains the fee amount. This value cannot be negative.  You can include a decimal point (.), but no other special characters. Format: String, 15 characters maximum. Optional field for ancillary services. .</param>
+        /// <param name="FeeCode">This field contains the ancillary fee code. Format: Alphanumeric, 4 characters maximum. Optional field for ancillary services. .</param>
+        public Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService(string CategoryCode = default(string), string SubCategoryCode = default(string), string FeeAmount = default(string), string FeeCode = default(string))
         {
             this.CategoryCode = CategoryCode;
             this.SubCategoryCode = SubCategoryCode;
+            this.FeeAmount = FeeAmount;
+            this.FeeCode = FeeCode;
         }
         
         /// <summary>
@@ -56,6 +60,20 @@ namespace CyberSource.Model
         public string SubCategoryCode { get; set; }
 
         /// <summary>
+        /// This field contains the fee amount. This value cannot be negative.  You can include a decimal point (.), but no other special characters. Format: String, 15 characters maximum. Optional field for ancillary services. 
+        /// </summary>
+        /// <value>This field contains the fee amount. This value cannot be negative.  You can include a decimal point (.), but no other special characters. Format: String, 15 characters maximum. Optional field for ancillary services. </value>
+        [DataMember(Name="feeAmount", EmitDefaultValue=false)]
+        public string FeeAmount { get; set; }
+
+        /// <summary>
+        /// This field contains the ancillary fee code. Format: Alphanumeric, 4 characters maximum. Optional field for ancillary services. 
+        /// </summary>
+        /// <value>This field contains the ancillary fee code. Format: Alphanumeric, 4 characters maximum. Optional field for ancillary services. </value>
+        [DataMember(Name="feeCode", EmitDefaultValue=false)]
+        public string FeeCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +83,8 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService {\n");
             if (CategoryCode != null) sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
             if (SubCategoryCode != null) sb.Append("  SubCategoryCode: ").Append(SubCategoryCode).Append("\n");
+            if (FeeAmount != null) sb.Append("  FeeAmount: ").Append(FeeAmount).Append("\n");
+            if (FeeCode != null) sb.Append("  FeeCode: ").Append(FeeCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +130,16 @@ namespace CyberSource.Model
                     this.SubCategoryCode == other.SubCategoryCode ||
                     this.SubCategoryCode != null &&
                     this.SubCategoryCode.Equals(other.SubCategoryCode)
+                ) && 
+                (
+                    this.FeeAmount == other.FeeAmount ||
+                    this.FeeAmount != null &&
+                    this.FeeAmount.Equals(other.FeeAmount)
+                ) && 
+                (
+                    this.FeeCode == other.FeeCode ||
+                    this.FeeCode != null &&
+                    this.FeeCode.Equals(other.FeeCode)
                 );
         }
 
@@ -128,6 +158,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CategoryCode.GetHashCode();
                 if (this.SubCategoryCode != null)
                     hash = hash * 59 + this.SubCategoryCode.GetHashCode();
+                if (this.FeeAmount != null)
+                    hash = hash * 59 + this.FeeAmount.GetHashCode();
+                if (this.FeeCode != null)
+                    hash = hash * 59 + this.FeeCode.GetHashCode();
                 return hash;
             }
         }

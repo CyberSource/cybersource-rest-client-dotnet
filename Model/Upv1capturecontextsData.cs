@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// <param name="MerchantDefinedInformation">MerchantDefinedInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
-        public Upv1capturecontextsData(Upv1capturecontextsDataOrderInformation OrderInformation = default(Upv1capturecontextsDataOrderInformation), Upv1capturecontextsDataBuyerInformation BuyerInformation = default(Upv1capturecontextsDataBuyerInformation), Upv1capturecontextsDataClientReferenceInformation ClientReferenceInformation = default(Upv1capturecontextsDataClientReferenceInformation), Upv1capturecontextsDataConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Upv1capturecontextsDataConsumerAuthenticationInformation), Upv1capturecontextsDataMerchantInformation MerchantInformation = default(Upv1capturecontextsDataMerchantInformation), Upv1capturecontextsDataProcessingInformation ProcessingInformation = default(Upv1capturecontextsDataProcessingInformation), Upv1capturecontextsDataRecipientInformation RecipientInformation = default(Upv1capturecontextsDataRecipientInformation), Upv1capturecontextsDataMerchantDefinedInformation MerchantDefinedInformation = default(Upv1capturecontextsDataMerchantDefinedInformation), Upv1capturecontextsDataDeviceInformation DeviceInformation = default(Upv1capturecontextsDataDeviceInformation), Upv1capturecontextsDataPaymentInformation PaymentInformation = default(Upv1capturecontextsDataPaymentInformation))
+        public Upv1capturecontextsData(Upv1capturecontextsDataOrderInformation OrderInformation = default(Upv1capturecontextsDataOrderInformation), Upv1capturecontextsDataBuyerInformation BuyerInformation = default(Upv1capturecontextsDataBuyerInformation), Upv1capturecontextsDataClientReferenceInformation ClientReferenceInformation = default(Upv1capturecontextsDataClientReferenceInformation), Upv1capturecontextsDataConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Upv1capturecontextsDataConsumerAuthenticationInformation), Upv1capturecontextsDataMerchantInformation MerchantInformation = default(Upv1capturecontextsDataMerchantInformation), Upv1capturecontextsDataProcessingInformation ProcessingInformation = default(Upv1capturecontextsDataProcessingInformation), Upv1capturecontextsDataRecipientInformation RecipientInformation = default(Upv1capturecontextsDataRecipientInformation), List<Upv1capturecontextsDataMerchantDefinedInformation> MerchantDefinedInformation = default(List<Upv1capturecontextsDataMerchantDefinedInformation>), Upv1capturecontextsDataDeviceInformation DeviceInformation = default(Upv1capturecontextsDataDeviceInformation), Upv1capturecontextsDataPaymentInformation PaymentInformation = default(Upv1capturecontextsDataPaymentInformation))
         {
             this.OrderInformation = OrderInformation;
             this.BuyerInformation = BuyerInformation;
@@ -103,7 +103,7 @@ namespace CyberSource.Model
         /// Gets or Sets MerchantDefinedInformation
         /// </summary>
         [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
-        public Upv1capturecontextsDataMerchantDefinedInformation MerchantDefinedInformation { get; set; }
+        public List<Upv1capturecontextsDataMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceInformation
@@ -209,7 +209,7 @@ namespace CyberSource.Model
                 (
                     this.MerchantDefinedInformation == other.MerchantDefinedInformation ||
                     this.MerchantDefinedInformation != null &&
-                    this.MerchantDefinedInformation.Equals(other.MerchantDefinedInformation)
+                    this.MerchantDefinedInformation.SequenceEqual(other.MerchantDefinedInformation)
                 ) && 
                 (
                     this.DeviceInformation == other.DeviceInformation ||

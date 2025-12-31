@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Upv1capturecontextsDataMerchantDefinedInformation
+    /// Contains merchant-defined key-value pairs
     /// </summary>
     [DataContract]
     public partial class Upv1capturecontextsDataMerchantDefinedInformation :  IEquatable<Upv1capturecontextsDataMerchantDefinedInformation>, IValidatableObject
@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataMerchantDefinedInformation" /> class.
         /// </summary>
-        /// <param name="Key">The key or identifier for the merchant-defined data field.</param>
-        /// <param name="Value">The value associated with the merchant-defined data field.</param>
+        /// <param name="Key">The key or identifier for the merchant-defined data field.  Valid values are 1 to 100..</param>
+        /// <param name="Value">The value you assign for your merchant-defined data field..</param>
         public Upv1capturecontextsDataMerchantDefinedInformation(string Key = default(string), string Value = default(string))
         {
             this.Key = Key;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The key or identifier for the merchant-defined data field
+        /// The key or identifier for the merchant-defined data field.  Valid values are 1 to 100.
         /// </summary>
-        /// <value>The key or identifier for the merchant-defined data field</value>
+        /// <value>The key or identifier for the merchant-defined data field.  Valid values are 1 to 100.</value>
         [DataMember(Name="key", EmitDefaultValue=false)]
         public string Key { get; set; }
 
         /// <summary>
-        /// The value associated with the merchant-defined data field
+        /// The value you assign for your merchant-defined data field.
         /// </summary>
-        /// <value>The value associated with the merchant-defined data field</value>
+        /// <value>The value you assign for your merchant-defined data field.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
 
