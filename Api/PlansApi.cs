@@ -604,7 +604,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "ActivatePlan,ActivatePlanAsync,ActivatePlanWithHttpInfo,ActivatePlanAsyncWithHttpInfo"))
             {
                 try
@@ -618,12 +618,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "ActivatePlan,ActivatePlanAsync,ActivatePlanWithHttpInfo,ActivatePlanAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -639,7 +641,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
+                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -724,7 +726,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "ActivatePlan,ActivatePlanAsync,ActivatePlanWithHttpInfo,ActivatePlanAsyncWithHttpInfo"))
             {
                 try
@@ -738,12 +740,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "ActivatePlan,ActivatePlanAsync,ActivatePlanWithHttpInfo,ActivatePlanAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -759,7 +763,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
+                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Create a Plan The recurring billing service enables you to manage payment plans and subscriptions for recurring payment schedules. It securely stores your customer&#39;s payment information and personal data within secure Visa data centers, reducing storage risks and PCI DSS scope through the use of *Token Management* (*TMS*).  The three key elements of *Cybersource* Recurring Billing are:  -  **Token**: stores customer billing, shipping, and payment details.  -  **Plan**: stores the billing schedule.  -  **Subscription**: combines the token and plan, and defines the subscription start date, name, and description.  The APIs in this section demonstrate the management of the Plans and Subscriptions. For Tokens please refer to [Token Management](#token-management) The availability of API features for a merchant can depend on the portfolio configuration and may need to be enabled at the portfolio level before they can be added to merchant accounts. 
@@ -833,7 +837,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreatePlan,CreatePlanAsync,CreatePlanWithHttpInfo,CreatePlanAsyncWithHttpInfo"))
             {
                 try
@@ -847,13 +851,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "CreatePlan,CreatePlanAsync,CreatePlanWithHttpInfo,CreatePlanAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -869,7 +875,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<CreatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (CreatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse))); // Return statement
+                (CreatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -945,7 +951,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreatePlan,CreatePlanAsync,CreatePlanWithHttpInfo,CreatePlanAsyncWithHttpInfo"))
             {
                 try
@@ -959,13 +965,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "CreatePlan,CreatePlanAsync,CreatePlanWithHttpInfo,CreatePlanAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -981,7 +989,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<CreatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (CreatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse))); // Return statement
+                (CreatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Deactivate a Plan Deactivate a Plan
@@ -1064,7 +1072,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeactivatePlan,DeactivatePlanAsync,DeactivatePlanWithHttpInfo,DeactivatePlanAsyncWithHttpInfo"))
             {
                 try
@@ -1078,12 +1086,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "DeactivatePlan,DeactivatePlanAsync,DeactivatePlanWithHttpInfo,DeactivatePlanAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1099,7 +1109,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
+                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1184,7 +1194,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeactivatePlan,DeactivatePlanAsync,DeactivatePlanWithHttpInfo,DeactivatePlanAsyncWithHttpInfo"))
             {
                 try
@@ -1198,12 +1208,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "DeactivatePlan,DeactivatePlanAsync,DeactivatePlanWithHttpInfo,DeactivatePlanAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1219,7 +1231,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
+                (ActivateDeactivatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Delete a Plan Delete a Plan is only allowed: - plan status is in &#x60;DRAFT&#x60; - plan status is in &#x60;ACTIVE&#x60;, and &#x60;INACTIVE&#x60; only allowed when no subscriptions attached to a plan in the lifetime of a plan 
@@ -1302,7 +1314,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeletePlan,DeletePlanAsync,DeletePlanWithHttpInfo,DeletePlanAsyncWithHttpInfo"))
             {
                 try
@@ -1316,12 +1328,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "DeletePlan,DeletePlanAsync,DeletePlanWithHttpInfo,DeletePlanAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1337,7 +1351,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<DeletePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (DeletePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse))); // Return statement
+                (DeletePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1422,7 +1436,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "DeletePlan,DeletePlanAsync,DeletePlanWithHttpInfo,DeletePlanAsyncWithHttpInfo"))
             {
                 try
@@ -1436,12 +1450,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "DeletePlan,DeletePlanAsync,DeletePlanWithHttpInfo,DeletePlanAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1457,7 +1473,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<DeletePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (DeletePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse))); // Return statement
+                (DeletePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Get a Plan Retrieve a Plan details by Plan Id.
@@ -1540,7 +1556,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPlan,GetPlanAsync,GetPlanWithHttpInfo,GetPlanAsyncWithHttpInfo"))
             {
                 try
@@ -1554,12 +1570,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetPlan,GetPlanAsync,GetPlanWithHttpInfo,GetPlanAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1575,7 +1593,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetPlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetPlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse))); // Return statement
+                (GetPlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1660,7 +1678,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPlan,GetPlanAsync,GetPlanWithHttpInfo,GetPlanAsyncWithHttpInfo"))
             {
                 try
@@ -1674,12 +1692,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetPlan,GetPlanAsync,GetPlanWithHttpInfo,GetPlanAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1695,7 +1715,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetPlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetPlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse))); // Return statement
+                (GetPlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Get a Plan Code Get a Unique Plan Code
@@ -1765,7 +1785,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPlanCode,GetPlanCodeAsync,GetPlanCodeWithHttpInfo,GetPlanCodeAsyncWithHttpInfo"))
             {
                 try
@@ -1779,12 +1799,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetPlanCode,GetPlanCodeAsync,GetPlanCodeWithHttpInfo,GetPlanCodeAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1800,7 +1822,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetPlanCodeResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetPlanCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse))); // Return statement
+                (GetPlanCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1872,7 +1894,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPlanCode,GetPlanCodeAsync,GetPlanCodeWithHttpInfo,GetPlanCodeAsyncWithHttpInfo"))
             {
                 try
@@ -1886,12 +1908,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetPlanCode,GetPlanCodeAsync,GetPlanCodeWithHttpInfo,GetPlanCodeAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1907,7 +1931,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetPlanCodeResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetPlanCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse))); // Return statement
+                (GetPlanCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Get a List of Plans Retrieve Plans by Plan Code &amp; Plan Status. 
@@ -2012,7 +2036,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPlans,GetPlansAsync,GetPlansWithHttpInfo,GetPlansAsyncWithHttpInfo"))
             {
                 try
@@ -2026,12 +2050,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetPlans,GetPlansAsync,GetPlansWithHttpInfo,GetPlansAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2047,7 +2073,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetAllPlansResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetAllPlansResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse))); // Return statement
+                (GetAllPlansResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -2154,7 +2180,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetPlans,GetPlansAsync,GetPlansWithHttpInfo,GetPlansAsyncWithHttpInfo"))
             {
                 try
@@ -2168,12 +2194,14 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "GetPlans,GetPlansAsync,GetPlansWithHttpInfo,GetPlansAsyncWithHttpInfo");
+
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -2189,7 +2217,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<GetAllPlansResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (GetAllPlansResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse))); // Return statement
+                (GetAllPlansResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Update a Plan Update a Plan  Plan in &#x60;DRAFT&#x60; status - All updates are allowed on Plan with &#x60;DRAFT&#x60; status  Plan in &#x60;ACTIVE&#x60; status [Following fields are **Not Updatable**] - &#x60;planInformation.billingPeriod&#x60; - &#x60;planInformation.billingCycles&#x60; [Update is only allowed to **increase** billingCycles] - &#x60;orderInformation.amountDetails.currency&#x60; 
@@ -2276,7 +2304,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "UpdatePlan,UpdatePlanAsync,UpdatePlanWithHttpInfo,UpdatePlanAsyncWithHttpInfo"))
             {
                 try
@@ -2290,13 +2318,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "UpdatePlan,UpdatePlanAsync,UpdatePlanWithHttpInfo,UpdatePlanAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2312,7 +2342,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<UpdatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (UpdatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse))); // Return statement
+                (UpdatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -2401,7 +2431,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "false";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "UpdatePlan,UpdatePlanAsync,UpdatePlanWithHttpInfo,UpdatePlanAsyncWithHttpInfo"))
             {
                 try
@@ -2415,13 +2445,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "UpdatePlan,UpdatePlanAsync,UpdatePlanWithHttpInfo,UpdatePlanAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -2437,7 +2469,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<UpdatePlanResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (UpdatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse))); // Return statement
+                (UpdatePlanResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse), merchantConfig)); // Return statement
         }
     }
 }

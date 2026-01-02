@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="ConnectedTicketNumber">Number for the airline ticket to which the ancillary purchase is connected.  If this purchase has a connection or relationship to another purchase such as a baggage fee for a passenger transport ticket, this field must contain the ticket number for the other purchase.  For a stand-alone purchase, the value for this field must be the same as the value for the &#x60;travelInformation.transit.airline.ancillaryInformation.ticketNumber&#x60; field. **Important** This field is required in the U.S. in order for you to qualify for either the custom payment service (CPS) or the electronic interchange reimbursement fee (EIRF) program. Format: English characters only. Optional request field for ancillary services. .</param>
         /// <param name="CreditReasonIndicator">Reason for the credit. Possible values: - &#x60;A&#x60;: Cancellation of the ancillary passenger transport purchase. - &#x60;B&#x60;: Cancellation of the airline ticket and the passenger transport ancillary purchase. - &#x60;C&#x60;: Cancellation of the airline ticket. - &#x60;O&#x60;: Other. - &#x60;P&#x60;: Partial refund of the airline ticket. Format: English characters only. Optional field for ancillary services. .</param>
         /// <param name="Service">Service.</param>
-        public Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation(string TicketNumber = default(string), string PassengerName = default(string), string ConnectedTicketNumber = default(string), string CreditReasonIndicator = default(string), List<Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService> Service = default(List<Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService>))
+        /// <param name="FeeDescription">This field contains the fee description for the airline ancillary service provided. Format: Alphanumeric, 100 characters maximum. Optional field for ancillary services. .</param>
+        public Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation(string TicketNumber = default(string), string PassengerName = default(string), string ConnectedTicketNumber = default(string), string CreditReasonIndicator = default(string), List<Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService> Service = default(List<Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService>), string FeeDescription = default(string))
         {
             this.TicketNumber = TicketNumber;
             this.PassengerName = PassengerName;
             this.ConnectedTicketNumber = ConnectedTicketNumber;
             this.CreditReasonIndicator = CreditReasonIndicator;
             this.Service = Service;
+            this.FeeDescription = FeeDescription;
         }
         
         /// <summary>
@@ -82,6 +84,13 @@ namespace CyberSource.Model
         public List<Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformationService> Service { get; set; }
 
         /// <summary>
+        /// This field contains the fee description for the airline ancillary service provided. Format: Alphanumeric, 100 characters maximum. Optional field for ancillary services. 
+        /// </summary>
+        /// <value>This field contains the fee description for the airline ancillary service provided. Format: Alphanumeric, 100 characters maximum. Optional field for ancillary services. </value>
+        [DataMember(Name="feeDescription", EmitDefaultValue=false)]
+        public string FeeDescription { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,6 +103,7 @@ namespace CyberSource.Model
             if (ConnectedTicketNumber != null) sb.Append("  ConnectedTicketNumber: ").Append(ConnectedTicketNumber).Append("\n");
             if (CreditReasonIndicator != null) sb.Append("  CreditReasonIndicator: ").Append(CreditReasonIndicator).Append("\n");
             if (Service != null) sb.Append("  Service: ").Append(Service).Append("\n");
+            if (FeeDescription != null) sb.Append("  FeeDescription: ").Append(FeeDescription).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -154,6 +164,11 @@ namespace CyberSource.Model
                     this.Service == other.Service ||
                     this.Service != null &&
                     this.Service.SequenceEqual(other.Service)
+                ) && 
+                (
+                    this.FeeDescription == other.FeeDescription ||
+                    this.FeeDescription != null &&
+                    this.FeeDescription.Equals(other.FeeDescription)
                 );
         }
 
@@ -178,6 +193,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CreditReasonIndicator.GetHashCode();
                 if (this.Service != null)
                     hash = hash * 59 + this.Service.GetHashCode();
+                if (this.FeeDescription != null)
+                    hash = hash * 59 + this.FeeDescription.GetHashCode();
                 return hash;
             }
         }

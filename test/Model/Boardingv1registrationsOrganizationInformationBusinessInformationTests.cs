@@ -73,6 +73,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Name'
         }
         /// <summary>
+        /// Test the property 'Locale'
+        /// </summary>
+        [Test]
+        public void LocaleTest()
+        {
+            // TODO unit test for the property 'Locale'
+        }
+        /// <summary>
+        /// Test the property 'LocalizedNames'
+        /// </summary>
+        [Test]
+        public void LocalizedNamesTest()
+        {
+            // TODO unit test for the property 'LocalizedNames'
+        }
+        /// <summary>
         /// Test the property 'DoingBusinessAs'
         /// </summary>
         [Test]

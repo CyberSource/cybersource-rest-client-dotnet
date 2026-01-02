@@ -39,6 +39,8 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Boardingv1registrationsOrganizationInformationBusinessInformation" /> class.
         /// </summary>
         /// <param name="Name">Name (required).</param>
+        /// <param name="Locale">Locale.</param>
+        /// <param name="LocalizedNames">LocalizedNames.</param>
         /// <param name="DoingBusinessAs">DoingBusinessAs.</param>
         /// <param name="Description">Description.</param>
         /// <param name="StartDate">&#x60;Format: YYYY-MM-DD&#x60; Example 2016-08-11 equals August 11, 2016 .</param>
@@ -52,9 +54,11 @@ namespace CyberSource.Model
         /// <param name="TechnicalContact">TechnicalContact.</param>
         /// <param name="EmergencyContact">EmergencyContact.</param>
         /// <param name="MerchantCategoryCode">Industry standard Merchant Category Code (MCC).</param>
-        public Boardingv1registrationsOrganizationInformationBusinessInformation(string Name = default(string), string DoingBusinessAs = default(string), string Description = default(string), DateTime? StartDate = default(DateTime?), Boardingv1registrationsOrganizationInformationBusinessInformationAddress Address = default(Boardingv1registrationsOrganizationInformationBusinessInformationAddress), string TimeZone = default(string), string WebsiteUrl = default(string), string Type = default(string), string TaxId = default(string), string PhoneNumber = default(string), Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact BusinessContact = default(Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact), Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact TechnicalContact = default(Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact), Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact EmergencyContact = default(Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact), string MerchantCategoryCode = default(string))
+        public Boardingv1registrationsOrganizationInformationBusinessInformation(string Name = default(string), string Locale = default(string), Boardingv1registrationsOrganizationInformationBusinessInformationLocalizedNames LocalizedNames = default(Boardingv1registrationsOrganizationInformationBusinessInformationLocalizedNames), string DoingBusinessAs = default(string), string Description = default(string), DateTime? StartDate = default(DateTime?), Boardingv1registrationsOrganizationInformationBusinessInformationAddress Address = default(Boardingv1registrationsOrganizationInformationBusinessInformationAddress), string TimeZone = default(string), string WebsiteUrl = default(string), string Type = default(string), string TaxId = default(string), string PhoneNumber = default(string), Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact BusinessContact = default(Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact), Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact TechnicalContact = default(Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact), Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact EmergencyContact = default(Boardingv1registrationsOrganizationInformationBusinessInformationBusinessContact), string MerchantCategoryCode = default(string))
         {
             this.Name = Name;
+            this.Locale = Locale;
+            this.LocalizedNames = LocalizedNames;
             this.DoingBusinessAs = DoingBusinessAs;
             this.Description = Description;
             this.StartDate = StartDate;
@@ -75,6 +79,18 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Locale
+        /// </summary>
+        [DataMember(Name="locale", EmitDefaultValue=false)]
+        public string Locale { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LocalizedNames
+        /// </summary>
+        [DataMember(Name="localizedNames", EmitDefaultValue=false)]
+        public Boardingv1registrationsOrganizationInformationBusinessInformationLocalizedNames LocalizedNames { get; set; }
 
         /// <summary>
         /// Gets or Sets DoingBusinessAs
@@ -168,6 +184,8 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Boardingv1registrationsOrganizationInformationBusinessInformation {\n");
             if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
+            if (Locale != null) sb.Append("  Locale: ").Append(Locale).Append("\n");
+            if (LocalizedNames != null) sb.Append("  LocalizedNames: ").Append(LocalizedNames).Append("\n");
             if (DoingBusinessAs != null) sb.Append("  DoingBusinessAs: ").Append(DoingBusinessAs).Append("\n");
             if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
             if (StartDate != null) sb.Append("  StartDate: ").Append(StartDate).Append("\n");
@@ -221,6 +239,16 @@ namespace CyberSource.Model
                     this.Name == other.Name ||
                     this.Name != null &&
                     this.Name.Equals(other.Name)
+                ) && 
+                (
+                    this.Locale == other.Locale ||
+                    this.Locale != null &&
+                    this.Locale.Equals(other.Locale)
+                ) && 
+                (
+                    this.LocalizedNames == other.LocalizedNames ||
+                    this.LocalizedNames != null &&
+                    this.LocalizedNames.Equals(other.LocalizedNames)
                 ) && 
                 (
                     this.DoingBusinessAs == other.DoingBusinessAs ||
@@ -302,6 +330,10 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
+                if (this.Locale != null)
+                    hash = hash * 59 + this.Locale.GetHashCode();
+                if (this.LocalizedNames != null)
+                    hash = hash * 59 + this.LocalizedNames.GetHashCode();
                 if (this.DoingBusinessAs != null)
                     hash = hash * 59 + this.DoingBusinessAs.GetHashCode();
                 if (this.Description != null)

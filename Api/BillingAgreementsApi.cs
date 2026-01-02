@@ -387,7 +387,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsDeRegistration,BillingAgreementsDeRegistrationAsync,BillingAgreementsDeRegistrationWithHttpInfo,BillingAgreementsDeRegistrationAsyncWithHttpInfo"))
             {
                 try
@@ -401,13 +401,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "BillingAgreementsDeRegistration,BillingAgreementsDeRegistrationAsync,BillingAgreementsDeRegistrationWithHttpInfo,BillingAgreementsDeRegistrationAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -423,7 +425,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2ModifyBillingAgreementPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2ModifyBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2ModifyBillingAgreementPost201Response))); // Return statement
+                (PtsV2ModifyBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2ModifyBillingAgreementPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -509,7 +511,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsDeRegistration,BillingAgreementsDeRegistrationAsync,BillingAgreementsDeRegistrationWithHttpInfo,BillingAgreementsDeRegistrationAsyncWithHttpInfo"))
             {
                 try
@@ -523,13 +525,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "BillingAgreementsDeRegistration,BillingAgreementsDeRegistrationAsync,BillingAgreementsDeRegistrationWithHttpInfo,BillingAgreementsDeRegistrationAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -545,7 +549,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2ModifyBillingAgreementPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2ModifyBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2ModifyBillingAgreementPost201Response))); // Return statement
+                (PtsV2ModifyBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2ModifyBillingAgreementPost201Response), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Standing Instruction intimation Standing Instruction with or without Token.
@@ -629,7 +633,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsIntimation,BillingAgreementsIntimationAsync,BillingAgreementsIntimationWithHttpInfo,BillingAgreementsIntimationAsyncWithHttpInfo"))
             {
                 try
@@ -643,13 +647,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "BillingAgreementsIntimation,BillingAgreementsIntimationAsync,BillingAgreementsIntimationWithHttpInfo,BillingAgreementsIntimationAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -665,7 +671,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2CreditsPost201Response1>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1))); // Return statement
+                (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -751,7 +757,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsIntimation,BillingAgreementsIntimationAsync,BillingAgreementsIntimationWithHttpInfo,BillingAgreementsIntimationAsyncWithHttpInfo"))
             {
                 try
@@ -765,13 +771,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "BillingAgreementsIntimation,BillingAgreementsIntimationAsync,BillingAgreementsIntimationWithHttpInfo,BillingAgreementsIntimationAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -787,7 +795,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2CreditsPost201Response1>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1))); // Return statement
+                (PtsV2CreditsPost201Response1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Create a Billing Agreement #### Standing Instruction: Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed  #### Create Mandate: You can create a mandate through the direct debit mandate flow. Possible create mandate status values:   - Pending—the create mandate request was successfully processed.   - Failed—the create mandate request was not accepted.  #### Import Mandate: In the Bacs scheme, a mandate is created with a status of active. Direct debit collections can be made against it immediately. You can import a mandate to the CyberSource database when:   - You have existing customers with signed, active mandates   - You manage mandates outside of CyberSource.  When you import an existing mandate to the CyberSource database, provide a unique value for the mandate ID or the request results in an error. If an import mandate request is not accepted, the import mandate status value is failed. 
@@ -858,7 +866,7 @@ namespace CyberSource.Api
             }
             
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsRegistration,BillingAgreementsRegistrationAsync,BillingAgreementsRegistrationWithHttpInfo,BillingAgreementsRegistrationAsyncWithHttpInfo"))
             {
                 try
@@ -872,13 +880,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "BillingAgreementsRegistration,BillingAgreementsRegistrationAsync,BillingAgreementsRegistrationWithHttpInfo,BillingAgreementsRegistrationAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -894,7 +904,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2CreateBillingAgreementPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2CreateBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreateBillingAgreementPost201Response))); // Return statement
+                (PtsV2CreateBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreateBillingAgreementPost201Response), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -967,7 +977,7 @@ namespace CyberSource.Api
             }
 
             String inboundMLEStatus = "optional";
-            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI);
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "BillingAgreementsRegistration,BillingAgreementsRegistrationAsync,BillingAgreementsRegistrationWithHttpInfo,BillingAgreementsRegistrationAsyncWithHttpInfo"))
             {
                 try
@@ -981,13 +991,15 @@ namespace CyberSource.Api
                 }
             }
 
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "BillingAgreementsRegistration,BillingAgreementsRegistrationAsync,BillingAgreementsRegistrationWithHttpInfo,BillingAgreementsRegistrationAsyncWithHttpInfo");
+
             logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
 
 
             // make the HTTP request
             RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int)localVarResponse.StatusCode;
 
@@ -1003,7 +1015,7 @@ namespace CyberSource.Api
 
             return new ApiResponse<PtsV2CreateBillingAgreementPost201Response>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PtsV2CreateBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreateBillingAgreementPost201Response))); // Return statement
+                (PtsV2CreateBillingAgreementPost201Response) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreateBillingAgreementPost201Response), merchantConfig)); // Return statement
         }
     }
 }
