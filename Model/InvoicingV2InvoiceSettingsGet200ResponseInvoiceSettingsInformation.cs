@@ -48,7 +48,8 @@ namespace CyberSource.Model
         /// <param name="Email">Collect the payers email address when the email address is not known or confirm it if it is known at the time of invoice creation. (default to false).</param>
         /// <param name="EnableMerchantEmailNotifications">Whether you would like to receive payment notification for successful transaction (default to false).</param>
         /// <param name="CustomLabels">A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten. .</param>
-        public InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformation(string MerchantLogo = default(string), string MerchantDisplayName = default(string), string CustomEmailMessage = default(string), bool? EnableReminders = default(bool?), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle HeaderStyle = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle), string DeliveryLanguage = default(string), string DefaultCurrencyCode = default(string), bool? PayerAuthentication3DSVersion = false, bool? ShowVatNumber = false, string VatRegistrationNumber = default(string), bool? ShipTo = false, bool? PhoneNumber = false, bool? Email = false, bool? EnableMerchantEmailNotifications = false, List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels> CustomLabels = default(List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels>))
+        /// <param name="CustomRedirectUrls">CustomRedirectUrls.</param>
+        public InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformation(string MerchantLogo = default(string), string MerchantDisplayName = default(string), string CustomEmailMessage = default(string), bool? EnableReminders = default(bool?), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle HeaderStyle = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle), string DeliveryLanguage = default(string), string DefaultCurrencyCode = default(string), bool? PayerAuthentication3DSVersion = false, bool? ShowVatNumber = false, string VatRegistrationNumber = default(string), bool? ShipTo = false, bool? PhoneNumber = false, bool? Email = false, bool? EnableMerchantEmailNotifications = false, List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels> CustomLabels = default(List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels>), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationCustomRedirectUrls CustomRedirectUrls = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationCustomRedirectUrls))
         {
             this.MerchantLogo = MerchantLogo;
             this.MerchantDisplayName = MerchantDisplayName;
@@ -113,6 +114,7 @@ namespace CyberSource.Model
                 this.EnableMerchantEmailNotifications = EnableMerchantEmailNotifications;
             }
             this.CustomLabels = CustomLabels;
+            this.CustomRedirectUrls = CustomRedirectUrls;
         }
         
         /// <summary>
@@ -220,6 +222,12 @@ namespace CyberSource.Model
         public List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels> CustomLabels { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustomRedirectUrls
+        /// </summary>
+        [DataMember(Name="customRedirectUrls", EmitDefaultValue=false)]
+        public InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationCustomRedirectUrls CustomRedirectUrls { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -242,6 +250,7 @@ namespace CyberSource.Model
             if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
             if (EnableMerchantEmailNotifications != null) sb.Append("  EnableMerchantEmailNotifications: ").Append(EnableMerchantEmailNotifications).Append("\n");
             if (CustomLabels != null) sb.Append("  CustomLabels: ").Append(CustomLabels).Append("\n");
+            if (CustomRedirectUrls != null) sb.Append("  CustomRedirectUrls: ").Append(CustomRedirectUrls).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -352,6 +361,11 @@ namespace CyberSource.Model
                     this.CustomLabels == other.CustomLabels ||
                     this.CustomLabels != null &&
                     this.CustomLabels.SequenceEqual(other.CustomLabels)
+                ) && 
+                (
+                    this.CustomRedirectUrls == other.CustomRedirectUrls ||
+                    this.CustomRedirectUrls != null &&
+                    this.CustomRedirectUrls.Equals(other.CustomRedirectUrls)
                 );
         }
 
@@ -396,6 +410,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EnableMerchantEmailNotifications.GetHashCode();
                 if (this.CustomLabels != null)
                     hash = hash * 59 + this.CustomLabels.GetHashCode();
+                if (this.CustomRedirectUrls != null)
+                    hash = hash * 59 + this.CustomRedirectUrls.GetHashCode();
                 return hash;
             }
         }

@@ -33,105 +33,44 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
         /// </summary>
-        /// <param name="Id">Id.</param>
-        /// <param name="FieldType">FieldType.</param>
-        /// <param name="Label">Label.</param>
-        /// <param name="CustomerVisible">CustomerVisible.</param>
-        /// <param name="TextMinLength">TextMinLength.</param>
-        /// <param name="TextMaxLength">TextMaxLength.</param>
-        /// <param name="PossibleValues">PossibleValues.</param>
-        /// <param name="TextDefaultValue">TextDefaultValue.</param>
-        /// <param name="MerchantId">MerchantId.</param>
-        /// <param name="ReferenceType">ReferenceType.</param>
-        /// <param name="ReadOnly">ReadOnly.</param>
-        /// <param name="MerchantDefinedDataIndex">MerchantDefinedDataIndex.</param>
-        public InlineResponse2003(long? Id = default(long?), string FieldType = default(string), string Label = default(string), bool? CustomerVisible = default(bool?), int? TextMinLength = default(int?), int? TextMaxLength = default(int?), string PossibleValues = default(string), string TextDefaultValue = default(string), string MerchantId = default(string), string ReferenceType = default(string), bool? ReadOnly = default(bool?), int? MerchantDefinedDataIndex = default(int?))
+        /// <param name="Id">UUID uniquely generated for this comments. .</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
+        /// <param name="Status">The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; .</param>
+        /// <param name="Embedded">Embedded.</param>
+        public InlineResponse2003(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), InlineResponse2003Embedded Embedded = default(InlineResponse2003Embedded))
         {
             this.Id = Id;
-            this.FieldType = FieldType;
-            this.Label = Label;
-            this.CustomerVisible = CustomerVisible;
-            this.TextMinLength = TextMinLength;
-            this.TextMaxLength = TextMaxLength;
-            this.PossibleValues = PossibleValues;
-            this.TextDefaultValue = TextDefaultValue;
-            this.MerchantId = MerchantId;
-            this.ReferenceType = ReferenceType;
-            this.ReadOnly = ReadOnly;
-            this.MerchantDefinedDataIndex = MerchantDefinedDataIndex;
+            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Status = Status;
+            this.Embedded = Embedded;
         }
         
         /// <summary>
-        /// Gets or Sets Id
+        /// UUID uniquely generated for this comments. 
         /// </summary>
+        /// <value>UUID uniquely generated for this comments. </value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public long? Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets FieldType
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
         /// </summary>
-        [DataMember(Name="fieldType", EmitDefaultValue=false)]
-        public string FieldType { get; set; }
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
+        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
+        public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// Gets or Sets Label
+        /// The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; 
         /// </summary>
-        [DataMember(Name="label", EmitDefaultValue=false)]
-        public string Label { get; set; }
+        /// <value>The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; </value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets CustomerVisible
+        /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name="customerVisible", EmitDefaultValue=false)]
-        public bool? CustomerVisible { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TextMinLength
-        /// </summary>
-        [DataMember(Name="textMinLength", EmitDefaultValue=false)]
-        public int? TextMinLength { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TextMaxLength
-        /// </summary>
-        [DataMember(Name="textMaxLength", EmitDefaultValue=false)]
-        public int? TextMaxLength { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PossibleValues
-        /// </summary>
-        [DataMember(Name="possibleValues", EmitDefaultValue=false)]
-        public string PossibleValues { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TextDefaultValue
-        /// </summary>
-        [DataMember(Name="textDefaultValue", EmitDefaultValue=false)]
-        public string TextDefaultValue { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MerchantId
-        /// </summary>
-        [DataMember(Name="merchantId", EmitDefaultValue=false)]
-        public string MerchantId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ReferenceType
-        /// </summary>
-        [DataMember(Name="referenceType", EmitDefaultValue=false)]
-        public string ReferenceType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ReadOnly
-        /// </summary>
-        [DataMember(Name="readOnly", EmitDefaultValue=false)]
-        public bool? ReadOnly { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MerchantDefinedDataIndex
-        /// </summary>
-        [DataMember(Name="merchantDefinedDataIndex", EmitDefaultValue=false)]
-        public int? MerchantDefinedDataIndex { get; set; }
+        [DataMember(Name="_embedded", EmitDefaultValue=false)]
+        public InlineResponse2003Embedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -142,17 +81,9 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2003 {\n");
             if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
-            if (FieldType != null) sb.Append("  FieldType: ").Append(FieldType).Append("\n");
-            if (Label != null) sb.Append("  Label: ").Append(Label).Append("\n");
-            if (CustomerVisible != null) sb.Append("  CustomerVisible: ").Append(CustomerVisible).Append("\n");
-            if (TextMinLength != null) sb.Append("  TextMinLength: ").Append(TextMinLength).Append("\n");
-            if (TextMaxLength != null) sb.Append("  TextMaxLength: ").Append(TextMaxLength).Append("\n");
-            if (PossibleValues != null) sb.Append("  PossibleValues: ").Append(PossibleValues).Append("\n");
-            if (TextDefaultValue != null) sb.Append("  TextDefaultValue: ").Append(TextDefaultValue).Append("\n");
-            if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
-            if (ReferenceType != null) sb.Append("  ReferenceType: ").Append(ReferenceType).Append("\n");
-            if (ReadOnly != null) sb.Append("  ReadOnly: ").Append(ReadOnly).Append("\n");
-            if (MerchantDefinedDataIndex != null) sb.Append("  MerchantDefinedDataIndex: ").Append(MerchantDefinedDataIndex).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -195,59 +126,19 @@ namespace CyberSource.Model
                     this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.FieldType == other.FieldType ||
-                    this.FieldType != null &&
-                    this.FieldType.Equals(other.FieldType)
+                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
+                    this.SubmitTimeUtc != null &&
+                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
                 ) && 
                 (
-                    this.Label == other.Label ||
-                    this.Label != null &&
-                    this.Label.Equals(other.Label)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.CustomerVisible == other.CustomerVisible ||
-                    this.CustomerVisible != null &&
-                    this.CustomerVisible.Equals(other.CustomerVisible)
-                ) && 
-                (
-                    this.TextMinLength == other.TextMinLength ||
-                    this.TextMinLength != null &&
-                    this.TextMinLength.Equals(other.TextMinLength)
-                ) && 
-                (
-                    this.TextMaxLength == other.TextMaxLength ||
-                    this.TextMaxLength != null &&
-                    this.TextMaxLength.Equals(other.TextMaxLength)
-                ) && 
-                (
-                    this.PossibleValues == other.PossibleValues ||
-                    this.PossibleValues != null &&
-                    this.PossibleValues.Equals(other.PossibleValues)
-                ) && 
-                (
-                    this.TextDefaultValue == other.TextDefaultValue ||
-                    this.TextDefaultValue != null &&
-                    this.TextDefaultValue.Equals(other.TextDefaultValue)
-                ) && 
-                (
-                    this.MerchantId == other.MerchantId ||
-                    this.MerchantId != null &&
-                    this.MerchantId.Equals(other.MerchantId)
-                ) && 
-                (
-                    this.ReferenceType == other.ReferenceType ||
-                    this.ReferenceType != null &&
-                    this.ReferenceType.Equals(other.ReferenceType)
-                ) && 
-                (
-                    this.ReadOnly == other.ReadOnly ||
-                    this.ReadOnly != null &&
-                    this.ReadOnly.Equals(other.ReadOnly)
-                ) && 
-                (
-                    this.MerchantDefinedDataIndex == other.MerchantDefinedDataIndex ||
-                    this.MerchantDefinedDataIndex != null &&
-                    this.MerchantDefinedDataIndex.Equals(other.MerchantDefinedDataIndex)
+                    this.Embedded == other.Embedded ||
+                    this.Embedded != null &&
+                    this.Embedded.Equals(other.Embedded)
                 );
         }
 
@@ -264,28 +155,12 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
-                if (this.FieldType != null)
-                    hash = hash * 59 + this.FieldType.GetHashCode();
-                if (this.Label != null)
-                    hash = hash * 59 + this.Label.GetHashCode();
-                if (this.CustomerVisible != null)
-                    hash = hash * 59 + this.CustomerVisible.GetHashCode();
-                if (this.TextMinLength != null)
-                    hash = hash * 59 + this.TextMinLength.GetHashCode();
-                if (this.TextMaxLength != null)
-                    hash = hash * 59 + this.TextMaxLength.GetHashCode();
-                if (this.PossibleValues != null)
-                    hash = hash * 59 + this.PossibleValues.GetHashCode();
-                if (this.TextDefaultValue != null)
-                    hash = hash * 59 + this.TextDefaultValue.GetHashCode();
-                if (this.MerchantId != null)
-                    hash = hash * 59 + this.MerchantId.GetHashCode();
-                if (this.ReferenceType != null)
-                    hash = hash * 59 + this.ReferenceType.GetHashCode();
-                if (this.ReadOnly != null)
-                    hash = hash * 59 + this.ReadOnly.GetHashCode();
-                if (this.MerchantDefinedDataIndex != null)
-                    hash = hash * 59 + this.MerchantDefinedDataIndex.GetHashCode();
+                if (this.SubmitTimeUtc != null)
+                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Embedded != null)
+                    hash = hash * 59 + this.Embedded.GetHashCode();
                 return hash;
             }
         }

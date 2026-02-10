@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'Id'
+        /// </summary>
+        [Test]
+        public void IdTest()
+        {
+            // TODO unit test for the property 'Id'
+        }
+        /// <summary>
         /// Test the property 'SubmitTimeUtc'
         /// </summary>
         [Test]
@@ -81,20 +89,52 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'ClientReferenceInformation'
+        /// Test the property 'RegistrationInformation'
         /// </summary>
         [Test]
-        public void ClientReferenceInformationTest()
+        public void RegistrationInformationTest()
         {
-            // TODO unit test for the property 'ClientReferenceInformation'
+            // TODO unit test for the property 'RegistrationInformation'
         }
         /// <summary>
-        /// Test the property 'KeyInformation'
+        /// Test the property 'IntegrationInformation'
         /// </summary>
         [Test]
-        public void KeyInformationTest()
+        public void IntegrationInformationTest()
         {
-            // TODO unit test for the property 'KeyInformation'
+            // TODO unit test for the property 'IntegrationInformation'
+        }
+        /// <summary>
+        /// Test the property 'OrganizationInformation'
+        /// </summary>
+        [Test]
+        public void OrganizationInformationTest()
+        {
+            // TODO unit test for the property 'OrganizationInformation'
+        }
+        /// <summary>
+        /// Test the property 'ProductInformationSetups'
+        /// </summary>
+        [Test]
+        public void ProductInformationSetupsTest()
+        {
+            // TODO unit test for the property 'ProductInformationSetups'
+        }
+        /// <summary>
+        /// Test the property 'Message'
+        /// </summary>
+        [Test]
+        public void MessageTest()
+        {
+            // TODO unit test for the property 'Message'
+        }
+        /// <summary>
+        /// Test the property 'Details'
+        /// </summary>
+        [Test]
+        public void DetailsTest()
+        {
+            // TODO unit test for the property 'Details'
         }
 
     }

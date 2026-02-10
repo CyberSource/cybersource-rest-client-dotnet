@@ -4,84 +4,12 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateOffer**](OffersApi.md#createoffer) | **POST** /vas/v1/currencyconversion | Create an Offer
 [**GetOffer**](OffersApi.md#getoffer) | **GET** /vas/v1/currencyconversion/{id} | Retrieve an Offer
 
 
-<a name="createoffer"></a>
-# **CreateOffer**
-> InlineResponse2018 CreateOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
-
-Create an Offer
-
-Creates an offer record on the provider system. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class CreateOfferExample
-    {
-        public void main()
-        {
-            var apiInstance = new OffersApi();
-            var contentType = contentType_example;  // string | 
-            var xRequestid = xRequestid_example;  // string | 
-            var vCMerchantId = vCMerchantId_example;  // string | 
-            var vCCorrelationId = vCCorrelationId_example;  // string | 
-            var vCOrganizationId = vCOrganizationId_example;  // string | 
-            var offerRequest = new OfferRequest(); // OfferRequest | 
-
-            try
-            {
-                // Create an Offer
-                InlineResponse2018 result = apiInstance.CreateOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling OffersApi.CreateOffer: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contentType** | **string**|  | 
- **xRequestid** | **string**|  | 
- **vCMerchantId** | **string**|  | 
- **vCCorrelationId** | **string**|  | 
- **vCOrganizationId** | **string**|  | 
- **offerRequest** | [**OfferRequest**](OfferRequest.md)|  | 
-
-### Return type
-
-[**InlineResponse2018**](InlineResponse2018.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="getoffer"></a>
 # **GetOffer**
-> InlineResponse20015 GetOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, string id)
+> InlineResponse20016 GetOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, string id)
 
 Retrieve an Offer
 
@@ -112,7 +40,7 @@ namespace Example
             try
             {
                 // Retrieve an Offer
-                InlineResponse20015 result = apiInstance.GetOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
+                InlineResponse20016 result = apiInstance.GetOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -137,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 

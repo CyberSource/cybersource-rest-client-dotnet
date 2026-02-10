@@ -3,10 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique identifier for the Card Art Asset.  | [optional] 
-**Type** | **string** | The type of Card Art Asset.  | [optional] 
-**Provider** | **string** | The provider of the Card Art Asset.  | [optional] 
-**Content** | [**List&lt;InlineResponse2001Content&gt;**](InlineResponse2001Content.md) | Array of content objects representing the Card Art Asset.  | [optional] 
+**Links** | [**InlineResponse2001Links**](InlineResponse2001Links.md) |  | [optional] 
+**TokenizedCard** | [**Tmsv2TokenizedCard**](Tmsv2TokenizedCard.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

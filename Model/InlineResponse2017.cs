@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Egress Asymmetric Key Information Response. 
+    /// InlineResponse2017
     /// </summary>
     [DataContract]
     public partial class InlineResponse2017 :  IEquatable<InlineResponse2017>, IValidatableObject
@@ -33,27 +33,89 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2017" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted transaction. Possible values:  - ACCEPTED .</param>
-        public InlineResponse2017(string SubmitTimeUtc = default(string), string Status = default(string))
+        /// <param name="EventDate">Date that the webhook was delivered.</param>
+        /// <param name="EventType">The event name the webhook was delivered for.</param>
+        /// <param name="OrganizationId">The Organization Identifier..</param>
+        /// <param name="Payloads">Payloads.</param>
+        /// <param name="ProductId">The product the webhook was delivered for.</param>
+        /// <param name="RequestType">Identifies the the type of request.</param>
+        /// <param name="RetryNumber">The number of retry attempts for a given webhook.</param>
+        /// <param name="TransactionTraceId">The identifier for the webhook.</param>
+        /// <param name="WebhookId">The identifier of the subscription.</param>
+        public InlineResponse2017(string EventDate = default(string), string EventType = default(string), string OrganizationId = default(string), InlineResponse2017Payloads Payloads = default(InlineResponse2017Payloads), string ProductId = default(string), string RequestType = default(string), int? RetryNumber = default(int?), string TransactionTraceId = default(string), string WebhookId = default(string))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
-            this.Status = Status;
+            this.EventDate = EventDate;
+            this.EventType = EventType;
+            this.OrganizationId = OrganizationId;
+            this.Payloads = Payloads;
+            this.ProductId = ProductId;
+            this.RequestType = RequestType;
+            this.RetryNumber = RetryNumber;
+            this.TransactionTraceId = TransactionTraceId;
+            this.WebhookId = WebhookId;
         }
         
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
+        /// Date that the webhook was delivered
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
+        /// <value>Date that the webhook was delivered</value>
+        [DataMember(Name="eventDate", EmitDefaultValue=false)]
+        public string EventDate { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction. Possible values:  - ACCEPTED 
+        /// The event name the webhook was delivered for
         /// </summary>
-        /// <value>The status of the submitted transaction. Possible values:  - ACCEPTED </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
+        /// <value>The event name the webhook was delivered for</value>
+        [DataMember(Name="eventType", EmitDefaultValue=false)]
+        public string EventType { get; set; }
+
+        /// <summary>
+        /// The Organization Identifier.
+        /// </summary>
+        /// <value>The Organization Identifier.</value>
+        [DataMember(Name="organizationId", EmitDefaultValue=false)]
+        public string OrganizationId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Payloads
+        /// </summary>
+        [DataMember(Name="payloads", EmitDefaultValue=false)]
+        public InlineResponse2017Payloads Payloads { get; set; }
+
+        /// <summary>
+        /// The product the webhook was delivered for
+        /// </summary>
+        /// <value>The product the webhook was delivered for</value>
+        [DataMember(Name="productId", EmitDefaultValue=false)]
+        public string ProductId { get; set; }
+
+        /// <summary>
+        /// Identifies the the type of request
+        /// </summary>
+        /// <value>Identifies the the type of request</value>
+        [DataMember(Name="requestType", EmitDefaultValue=false)]
+        public string RequestType { get; set; }
+
+        /// <summary>
+        /// The number of retry attempts for a given webhook
+        /// </summary>
+        /// <value>The number of retry attempts for a given webhook</value>
+        [DataMember(Name="retryNumber", EmitDefaultValue=false)]
+        public int? RetryNumber { get; set; }
+
+        /// <summary>
+        /// The identifier for the webhook
+        /// </summary>
+        /// <value>The identifier for the webhook</value>
+        [DataMember(Name="transactionTraceId", EmitDefaultValue=false)]
+        public string TransactionTraceId { get; set; }
+
+        /// <summary>
+        /// The identifier of the subscription
+        /// </summary>
+        /// <value>The identifier of the subscription</value>
+        [DataMember(Name="webhookId", EmitDefaultValue=false)]
+        public string WebhookId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,8 +125,15 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2017 {\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (EventDate != null) sb.Append("  EventDate: ").Append(EventDate).Append("\n");
+            if (EventType != null) sb.Append("  EventType: ").Append(EventType).Append("\n");
+            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(OrganizationId).Append("\n");
+            if (Payloads != null) sb.Append("  Payloads: ").Append(Payloads).Append("\n");
+            if (ProductId != null) sb.Append("  ProductId: ").Append(ProductId).Append("\n");
+            if (RequestType != null) sb.Append("  RequestType: ").Append(RequestType).Append("\n");
+            if (RetryNumber != null) sb.Append("  RetryNumber: ").Append(RetryNumber).Append("\n");
+            if (TransactionTraceId != null) sb.Append("  TransactionTraceId: ").Append(TransactionTraceId).Append("\n");
+            if (WebhookId != null) sb.Append("  WebhookId: ").Append(WebhookId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,14 +171,49 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.EventDate == other.EventDate ||
+                    this.EventDate != null &&
+                    this.EventDate.Equals(other.EventDate)
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.EventType == other.EventType ||
+                    this.EventType != null &&
+                    this.EventType.Equals(other.EventType)
+                ) && 
+                (
+                    this.OrganizationId == other.OrganizationId ||
+                    this.OrganizationId != null &&
+                    this.OrganizationId.Equals(other.OrganizationId)
+                ) && 
+                (
+                    this.Payloads == other.Payloads ||
+                    this.Payloads != null &&
+                    this.Payloads.Equals(other.Payloads)
+                ) && 
+                (
+                    this.ProductId == other.ProductId ||
+                    this.ProductId != null &&
+                    this.ProductId.Equals(other.ProductId)
+                ) && 
+                (
+                    this.RequestType == other.RequestType ||
+                    this.RequestType != null &&
+                    this.RequestType.Equals(other.RequestType)
+                ) && 
+                (
+                    this.RetryNumber == other.RetryNumber ||
+                    this.RetryNumber != null &&
+                    this.RetryNumber.Equals(other.RetryNumber)
+                ) && 
+                (
+                    this.TransactionTraceId == other.TransactionTraceId ||
+                    this.TransactionTraceId != null &&
+                    this.TransactionTraceId.Equals(other.TransactionTraceId)
+                ) && 
+                (
+                    this.WebhookId == other.WebhookId ||
+                    this.WebhookId != null &&
+                    this.WebhookId.Equals(other.WebhookId)
                 );
         }
 
@@ -124,10 +228,24 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.EventDate != null)
+                    hash = hash * 59 + this.EventDate.GetHashCode();
+                if (this.EventType != null)
+                    hash = hash * 59 + this.EventType.GetHashCode();
+                if (this.OrganizationId != null)
+                    hash = hash * 59 + this.OrganizationId.GetHashCode();
+                if (this.Payloads != null)
+                    hash = hash * 59 + this.Payloads.GetHashCode();
+                if (this.ProductId != null)
+                    hash = hash * 59 + this.ProductId.GetHashCode();
+                if (this.RequestType != null)
+                    hash = hash * 59 + this.RequestType.GetHashCode();
+                if (this.RetryNumber != null)
+                    hash = hash * 59 + this.RetryNumber.GetHashCode();
+                if (this.TransactionTraceId != null)
+                    hash = hash * 59 + this.TransactionTraceId.GetHashCode();
+                if (this.WebhookId != null)
+                    hash = hash * 59 + this.WebhookId.GetHashCode();
                 return hash;
             }
         }

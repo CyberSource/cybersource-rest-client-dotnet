@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// InlineResponse2002
+    /// Represents the Card Art Asset associated to the Network Token. 
     /// </summary>
     [DataContract]
     public partial class InlineResponse2002 :  IEquatable<InlineResponse2002>, IValidatableObject
@@ -33,44 +33,45 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002" /> class.
         /// </summary>
-        /// <param name="Id">UUID uniquely generated for this comments. .</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="Status">The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; .</param>
-        /// <param name="Embedded">Embedded.</param>
-        public InlineResponse2002(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), InlineResponse2002Embedded Embedded = default(InlineResponse2002Embedded))
+        /// <param name="Id">Unique identifier for the Card Art Asset. .</param>
+        /// <param name="Type">The type of Card Art Asset. .</param>
+        /// <param name="Provider">The provider of the Card Art Asset. .</param>
+        /// <param name="Content">Array of content objects representing the Card Art Asset. .</param>
+        public InlineResponse2002(string Id = default(string), string Type = default(string), string Provider = default(string), List<InlineResponse2002Content> Content = default(List<InlineResponse2002Content>))
         {
             this.Id = Id;
-            this.SubmitTimeUtc = SubmitTimeUtc;
-            this.Status = Status;
-            this.Embedded = Embedded;
+            this.Type = Type;
+            this.Provider = Provider;
+            this.Content = Content;
         }
         
         /// <summary>
-        /// UUID uniquely generated for this comments. 
+        /// Unique identifier for the Card Art Asset. 
         /// </summary>
-        /// <value>UUID uniquely generated for this comments. </value>
+        /// <value>Unique identifier for the Card Art Asset. </value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
+        /// The type of Card Art Asset. 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
+        /// <value>The type of Card Art Asset. </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; 
+        /// The provider of the Card Art Asset. 
         /// </summary>
-        /// <value>The status of the submitted transaction. Possible values are: - &#x60;ACCEPTED&#x60; - &#x60;REJECTED&#x60; </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
+        /// <value>The provider of the Card Art Asset. </value>
+        [DataMember(Name="provider", EmitDefaultValue=false)]
+        public string Provider { get; set; }
 
         /// <summary>
-        /// Gets or Sets Embedded
+        /// Array of content objects representing the Card Art Asset. 
         /// </summary>
-        [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public InlineResponse2002Embedded Embedded { get; set; }
+        /// <value>Array of content objects representing the Card Art Asset. </value>
+        [DataMember(Name="content", EmitDefaultValue=false)]
+        public List<InlineResponse2002Content> Content { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,9 +82,9 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2002 {\n");
             if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
-            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Provider != null) sb.Append("  Provider: ").Append(Provider).Append("\n");
+            if (Content != null) sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,19 +127,19 @@ namespace CyberSource.Model
                     this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Provider == other.Provider ||
+                    this.Provider != null &&
+                    this.Provider.Equals(other.Provider)
                 ) && 
                 (
-                    this.Embedded == other.Embedded ||
-                    this.Embedded != null &&
-                    this.Embedded.Equals(other.Embedded)
+                    this.Content == other.Content ||
+                    this.Content != null &&
+                    this.Content.SequenceEqual(other.Content)
                 );
         }
 
@@ -155,12 +156,12 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Embedded != null)
-                    hash = hash * 59 + this.Embedded.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Provider != null)
+                    hash = hash * 59 + this.Provider.GetHashCode();
+                if (this.Content != null)
+                    hash = hash * 59 + this.Content.GetHashCode();
                 return hash;
             }
         }

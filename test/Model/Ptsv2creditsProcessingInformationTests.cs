@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'ActionList'
+        /// </summary>
+        [Test]
+        public void ActionListTest()
+        {
+            // TODO unit test for the property 'ActionList'
+        }
+        /// <summary>
         /// Test the property 'CommerceIndicator'
         /// </summary>
         [Test]

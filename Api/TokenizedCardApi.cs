@@ -61,8 +61,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>TokenizedcardRequest</returns>
-        TokenizedcardRequest GetTokenizedCard (string tokenizedCardId, string profileId = null);
+        /// <returns>InlineResponse2001</returns>
+        InlineResponse2001 GetTokenizedCard (string tokenizedCardId, string profileId = null);
 
         /// <summary>
         /// Retrieve a Tokenized Card
@@ -73,8 +73,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of TokenizedcardRequest</returns>
-        ApiResponse<TokenizedcardRequest> GetTokenizedCardWithHttpInfo (string tokenizedCardId, string profileId = null);
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        ApiResponse<InlineResponse2001> GetTokenizedCardWithHttpInfo (string tokenizedCardId, string profileId = null);
         /// <summary>
         /// Simulate Issuer Life Cycle Management Events
         /// </summary>
@@ -107,10 +107,10 @@ namespace CyberSource.Api
         /// |  |  |  | | - -- | - -- | - -- | |**Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenizedcardRequest"></param>
+        /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>TokenizedcardRequest</returns>
-        TokenizedcardRequest PostTokenizedCard (TokenizedcardRequest tokenizedcardRequest, string profileId = null);
+        /// <returns>InlineResponse2001</returns>
+        InlineResponse2001 PostTokenizedCard (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
 
         /// <summary>
         /// Create a Tokenized Card
@@ -119,10 +119,10 @@ namespace CyberSource.Api
         /// |  |  |  | | - -- | - -- | - -- | |**Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenizedcardRequest"></param>
+        /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of TokenizedcardRequest</returns>
-        ApiResponse<TokenizedcardRequest> PostTokenizedCardWithHttpInfo (TokenizedcardRequest tokenizedcardRequest, string profileId = null);
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        ApiResponse<InlineResponse2001> PostTokenizedCardWithHttpInfo (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -157,8 +157,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of TokenizedcardRequest</returns>
-        System.Threading.Tasks.Task<TokenizedcardRequest> GetTokenizedCardAsync (string tokenizedCardId, string profileId = null);
+        /// <returns>Task of InlineResponse2001</returns>
+        System.Threading.Tasks.Task<InlineResponse2001> GetTokenizedCardAsync (string tokenizedCardId, string profileId = null);
 
         /// <summary>
         /// Retrieve a Tokenized Card
@@ -169,8 +169,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (TokenizedcardRequest)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TokenizedcardRequest>> GetTokenizedCardAsyncWithHttpInfo (string tokenizedCardId, string profileId = null);
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetTokenizedCardAsyncWithHttpInfo (string tokenizedCardId, string profileId = null);
         /// <summary>
         /// Simulate Issuer Life Cycle Management Events
         /// </summary>
@@ -203,10 +203,10 @@ namespace CyberSource.Api
         /// |  |  |  | | - -- | - -- | - -- | |**Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenizedcardRequest"></param>
+        /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of TokenizedcardRequest</returns>
-        System.Threading.Tasks.Task<TokenizedcardRequest> PostTokenizedCardAsync (TokenizedcardRequest tokenizedcardRequest, string profileId = null);
+        /// <returns>Task of InlineResponse2001</returns>
+        System.Threading.Tasks.Task<InlineResponse2001> PostTokenizedCardAsync (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
 
         /// <summary>
         /// Create a Tokenized Card
@@ -215,10 +215,10 @@ namespace CyberSource.Api
         /// |  |  |  | | - -- | - -- | - -- | |**Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenizedcardRequest"></param>
+        /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (TokenizedcardRequest)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TokenizedcardRequest>> PostTokenizedCardAsyncWithHttpInfo (TokenizedcardRequest tokenizedcardRequest, string profileId = null);
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PostTokenizedCardAsyncWithHttpInfo (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
         #endregion Asynchronous Operations
     }
 
@@ -609,12 +609,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>TokenizedcardRequest</returns>
-        public TokenizedcardRequest GetTokenizedCard (string tokenizedCardId, string profileId = null)
+        /// <returns>InlineResponse2001</returns>
+        public InlineResponse2001 GetTokenizedCard (string tokenizedCardId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetTokenizedCard\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TokenizedcardRequest> localVarResponse = GetTokenizedCardWithHttpInfo(tokenizedCardId, profileId);
+            ApiResponse<InlineResponse2001> localVarResponse = GetTokenizedCardWithHttpInfo(tokenizedCardId, profileId);
             logger.Debug("CALLING API \"GetTokenizedCard\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -626,8 +626,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of TokenizedcardRequest</returns>
-        public ApiResponse< TokenizedcardRequest > GetTokenizedCardWithHttpInfo (string tokenizedCardId, string profileId = null)
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        public ApiResponse< InlineResponse2001 > GetTokenizedCardWithHttpInfo (string tokenizedCardId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -722,9 +722,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), merchantConfig)); // Return statement
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -733,12 +733,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of TokenizedcardRequest</returns>
-        public async System.Threading.Tasks.Task<TokenizedcardRequest> GetTokenizedCardAsync (string tokenizedCardId, string profileId = null)
+        /// <returns>Task of InlineResponse2001</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2001> GetTokenizedCardAsync (string tokenizedCardId, string profileId = null)
         {
             logger.Debug("CALLING API \"GetTokenizedCardAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TokenizedcardRequest> localVarResponse = await GetTokenizedCardAsyncWithHttpInfo(tokenizedCardId, profileId);
+            ApiResponse<InlineResponse2001> localVarResponse = await GetTokenizedCardAsyncWithHttpInfo(tokenizedCardId, profileId);
             logger.Debug("CALLING API \"GetTokenizedCardAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -751,8 +751,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (TokenizedcardRequest)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TokenizedcardRequest>> GetTokenizedCardAsyncWithHttpInfo (string tokenizedCardId, string profileId = null)
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetTokenizedCardAsyncWithHttpInfo (string tokenizedCardId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -847,9 +847,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), merchantConfig)); // Return statement
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Simulate Issuer Life Cycle Management Events **Lifecycle Management Events**&lt;br&gt;Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
@@ -1121,14 +1121,14 @@ namespace CyberSource.Api
         /// Create a Tokenized Card |  |  |  | | - -- | - -- | - -- | |**Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenizedcardRequest"></param>
+        /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>TokenizedcardRequest</returns>
-        public TokenizedcardRequest PostTokenizedCard (TokenizedcardRequest tokenizedcardRequest, string profileId = null)
+        /// <returns>InlineResponse2001</returns>
+        public InlineResponse2001 PostTokenizedCard (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostTokenizedCard\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TokenizedcardRequest> localVarResponse = PostTokenizedCardWithHttpInfo(tokenizedcardRequest, profileId);
+            ApiResponse<InlineResponse2001> localVarResponse = PostTokenizedCardWithHttpInfo(postTokenizedCardRequest, profileId);
             logger.Debug("CALLING API \"PostTokenizedCard\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1138,18 +1138,18 @@ namespace CyberSource.Api
         /// Create a Tokenized Card |  |  |  | | - -- | - -- | - -- | |**Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenizedcardRequest"></param>
+        /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of TokenizedcardRequest</returns>
-        public ApiResponse< TokenizedcardRequest > PostTokenizedCardWithHttpInfo (TokenizedcardRequest tokenizedcardRequest, string profileId = null)
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        public ApiResponse< InlineResponse2001 > PostTokenizedCardWithHttpInfo (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'tokenizedcardRequest' is set
-            if (tokenizedcardRequest == null)
+            // verify the required parameter 'postTokenizedCardRequest' is set
+            if (postTokenizedCardRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenizedcardRequest' when calling TokenizedCardApi->PostTokenizedCard");
-                throw new ApiException(400, "Missing required parameter 'tokenizedcardRequest' when calling TokenizedCardApi->PostTokenizedCard");
+                logger.Error("ApiException : Missing required parameter 'postTokenizedCardRequest' when calling TokenizedCardApi->PostTokenizedCard");
+                throw new ApiException(400, "Missing required parameter 'postTokenizedCardRequest' when calling TokenizedCardApi->PostTokenizedCard");
             }
 
             var localVarPath = $"/tms/v2/tokenized-cards";
@@ -1180,15 +1180,15 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
-            if (tokenizedcardRequest != null && tokenizedcardRequest.GetType() != typeof(byte[]))
+            if (postTokenizedCardRequest != null && postTokenizedCardRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                tokenizedcardRequest = (TokenizedcardRequest)sdkTracker.InsertDeveloperIdTracker(tokenizedcardRequest, tokenizedcardRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
-                localVarPostBody = Configuration.ApiClient.Serialize(tokenizedcardRequest); // http body (model) parameter
+                postTokenizedCardRequest = (PostTokenizedCardRequest)sdkTracker.InsertDeveloperIdTracker(postTokenizedCardRequest, postTokenizedCardRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(postTokenizedCardRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = tokenizedcardRequest; // byte array
+                localVarPostBody = postTokenizedCardRequest; // byte array
             }
             
             String inboundMLEStatus = "optional";
@@ -1228,23 +1228,23 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), merchantConfig)); // Return statement
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001), merchantConfig)); // Return statement
         }
 
         /// <summary>
         /// Create a Tokenized Card |  |  |  | | - -- | - -- | - -- | |**Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenizedcardRequest"></param>
+        /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of TokenizedcardRequest</returns>
-        public async System.Threading.Tasks.Task<TokenizedcardRequest> PostTokenizedCardAsync (TokenizedcardRequest tokenizedcardRequest, string profileId = null)
+        /// <returns>Task of InlineResponse2001</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2001> PostTokenizedCardAsync (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostTokenizedCardAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TokenizedcardRequest> localVarResponse = await PostTokenizedCardAsyncWithHttpInfo(tokenizedcardRequest, profileId);
+            ApiResponse<InlineResponse2001> localVarResponse = await PostTokenizedCardAsyncWithHttpInfo(postTokenizedCardRequest, profileId);
             logger.Debug("CALLING API \"PostTokenizedCardAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1255,18 +1255,18 @@ namespace CyberSource.Api
         /// Create a Tokenized Card |  |  |  | | - -- | - -- | - -- | |**Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tokenizedcardRequest"></param>
+        /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (TokenizedcardRequest)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TokenizedcardRequest>> PostTokenizedCardAsyncWithHttpInfo (TokenizedcardRequest tokenizedcardRequest, string profileId = null)
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PostTokenizedCardAsyncWithHttpInfo (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'tokenizedcardRequest' is set
-            if (tokenizedcardRequest == null)
+            // verify the required parameter 'postTokenizedCardRequest' is set
+            if (postTokenizedCardRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenizedcardRequest' when calling TokenizedCardApi->PostTokenizedCard");
-                throw new ApiException(400, "Missing required parameter 'tokenizedcardRequest' when calling TokenizedCardApi->PostTokenizedCard");
+                logger.Error("ApiException : Missing required parameter 'postTokenizedCardRequest' when calling TokenizedCardApi->PostTokenizedCard");
+                throw new ApiException(400, "Missing required parameter 'postTokenizedCardRequest' when calling TokenizedCardApi->PostTokenizedCard");
             }
 
             var localVarPath = $"/tms/v2/tokenized-cards";
@@ -1297,15 +1297,15 @@ namespace CyberSource.Api
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
             }
-            if (tokenizedcardRequest != null && tokenizedcardRequest.GetType() != typeof(byte[]))
+            if (postTokenizedCardRequest != null && postTokenizedCardRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                tokenizedcardRequest = (TokenizedcardRequest)sdkTracker.InsertDeveloperIdTracker(tokenizedcardRequest, tokenizedcardRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
-                localVarPostBody = Configuration.ApiClient.Serialize(tokenizedcardRequest); // http body (model) parameter
+                postTokenizedCardRequest = (PostTokenizedCardRequest)sdkTracker.InsertDeveloperIdTracker(postTokenizedCardRequest, postTokenizedCardRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(postTokenizedCardRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = tokenizedcardRequest; // byte array
+                localVarPostBody = postTokenizedCardRequest; // byte array
             }
 
             String inboundMLEStatus = "optional";
@@ -1345,9 +1345,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<TokenizedcardRequest>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (TokenizedcardRequest) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TokenizedcardRequest), merchantConfig)); // Return statement
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001), merchantConfig)); // Return statement
         }
     }
 }

@@ -112,7 +112,8 @@ namespace CyberSource.Test
             //int? limit = null;
             //string code = null;
             //string status = null;
-            //var response = instance.GetAllSubscriptions(offset, limit, code, status);
+            //string customerId = null;
+            //var response = instance.GetAllSubscriptions(offset, limit, code, status, customerId);
             //Assert.IsInstanceOf<GetAllSubscriptionsResponse> (response, "response is GetAllSubscriptionsResponse");
         }
         

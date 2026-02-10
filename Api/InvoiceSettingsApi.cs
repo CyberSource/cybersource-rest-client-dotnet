@@ -36,8 +36,9 @@ namespace CyberSource.Api
         /// Allows you to retrieve the invoice settings for the payment page.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>InvoicingV2InvoiceSettingsGet200Response</returns>
-        InvoicingV2InvoiceSettingsGet200Response GetInvoiceSettings ();
+        InvoicingV2InvoiceSettingsGet200Response GetInvoiceSettings (string productType = null);
 
         /// <summary>
         /// Get Invoice Settings
@@ -46,8 +47,9 @@ namespace CyberSource.Api
         /// Allows you to retrieve the invoice settings for the payment page.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>ApiResponse of InvoicingV2InvoiceSettingsGet200Response</returns>
-        ApiResponse<InvoicingV2InvoiceSettingsGet200Response> GetInvoiceSettingsWithHttpInfo ();
+        ApiResponse<InvoicingV2InvoiceSettingsGet200Response> GetInvoiceSettingsWithHttpInfo (string productType = null);
         /// <summary>
         /// Update Invoice Settings
         /// </summary>
@@ -56,8 +58,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>InvoicingV2InvoiceSettingsGet200Response</returns>
-        InvoicingV2InvoiceSettingsGet200Response UpdateInvoiceSettings (InvoiceSettingsRequest invoiceSettingsRequest);
+        InvoicingV2InvoiceSettingsGet200Response UpdateInvoiceSettings (InvoiceSettingsRequest invoiceSettingsRequest, string productType = null);
 
         /// <summary>
         /// Update Invoice Settings
@@ -67,8 +70,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>ApiResponse of InvoicingV2InvoiceSettingsGet200Response</returns>
-        ApiResponse<InvoicingV2InvoiceSettingsGet200Response> UpdateInvoiceSettingsWithHttpInfo (InvoiceSettingsRequest invoiceSettingsRequest);
+        ApiResponse<InvoicingV2InvoiceSettingsGet200Response> UpdateInvoiceSettingsWithHttpInfo (InvoiceSettingsRequest invoiceSettingsRequest, string productType = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -78,8 +82,9 @@ namespace CyberSource.Api
         /// Allows you to retrieve the invoice settings for the payment page.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>Task of InvoicingV2InvoiceSettingsGet200Response</returns>
-        System.Threading.Tasks.Task<InvoicingV2InvoiceSettingsGet200Response> GetInvoiceSettingsAsync ();
+        System.Threading.Tasks.Task<InvoicingV2InvoiceSettingsGet200Response> GetInvoiceSettingsAsync (string productType = null);
 
         /// <summary>
         /// Get Invoice Settings
@@ -88,8 +93,9 @@ namespace CyberSource.Api
         /// Allows you to retrieve the invoice settings for the payment page.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>Task of ApiResponse (InvoicingV2InvoiceSettingsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoiceSettingsGet200Response>> GetInvoiceSettingsAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoiceSettingsGet200Response>> GetInvoiceSettingsAsyncWithHttpInfo (string productType = null);
         /// <summary>
         /// Update Invoice Settings
         /// </summary>
@@ -98,8 +104,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>Task of InvoicingV2InvoiceSettingsGet200Response</returns>
-        System.Threading.Tasks.Task<InvoicingV2InvoiceSettingsGet200Response> UpdateInvoiceSettingsAsync (InvoiceSettingsRequest invoiceSettingsRequest);
+        System.Threading.Tasks.Task<InvoicingV2InvoiceSettingsGet200Response> UpdateInvoiceSettingsAsync (InvoiceSettingsRequest invoiceSettingsRequest, string productType = null);
 
         /// <summary>
         /// Update Invoice Settings
@@ -109,8 +116,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>Task of ApiResponse (InvoicingV2InvoiceSettingsGet200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoiceSettingsGet200Response>> UpdateInvoiceSettingsAsyncWithHttpInfo (InvoiceSettingsRequest invoiceSettingsRequest);
+        System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoiceSettingsGet200Response>> UpdateInvoiceSettingsAsyncWithHttpInfo (InvoiceSettingsRequest invoiceSettingsRequest, string productType = null);
         #endregion Asynchronous Operations
     }
 
@@ -255,12 +263,13 @@ namespace CyberSource.Api
         /// Get Invoice Settings Allows you to retrieve the invoice settings for the payment page.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>InvoicingV2InvoiceSettingsGet200Response</returns>
-        public InvoicingV2InvoiceSettingsGet200Response GetInvoiceSettings ()
+        public InvoicingV2InvoiceSettingsGet200Response GetInvoiceSettings (string productType = null)
         {
             logger.Debug("CALLING API \"GetInvoiceSettings\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InvoicingV2InvoiceSettingsGet200Response> localVarResponse = GetInvoiceSettingsWithHttpInfo();
+            ApiResponse<InvoicingV2InvoiceSettingsGet200Response> localVarResponse = GetInvoiceSettingsWithHttpInfo(productType);
             logger.Debug("CALLING API \"GetInvoiceSettings\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -270,8 +279,9 @@ namespace CyberSource.Api
         /// Get Invoice Settings Allows you to retrieve the invoice settings for the payment page.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>ApiResponse of InvoicingV2InvoiceSettingsGet200Response</returns>
-        public ApiResponse< InvoicingV2InvoiceSettingsGet200Response > GetInvoiceSettingsWithHttpInfo ()
+        public ApiResponse< InvoicingV2InvoiceSettingsGet200Response > GetInvoiceSettingsWithHttpInfo (string productType = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -303,6 +313,11 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
+            if (productType != null)
+            {
+                localVarQueryParams.Add("productType", Configuration.ApiClient.ParameterToString(productType)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -363,12 +378,13 @@ namespace CyberSource.Api
         /// Get Invoice Settings Allows you to retrieve the invoice settings for the payment page.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>Task of InvoicingV2InvoiceSettingsGet200Response</returns>
-        public async System.Threading.Tasks.Task<InvoicingV2InvoiceSettingsGet200Response> GetInvoiceSettingsAsync ()
+        public async System.Threading.Tasks.Task<InvoicingV2InvoiceSettingsGet200Response> GetInvoiceSettingsAsync (string productType = null)
         {
             logger.Debug("CALLING API \"GetInvoiceSettingsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InvoicingV2InvoiceSettingsGet200Response> localVarResponse = await GetInvoiceSettingsAsyncWithHttpInfo();
+            ApiResponse<InvoicingV2InvoiceSettingsGet200Response> localVarResponse = await GetInvoiceSettingsAsyncWithHttpInfo(productType);
             logger.Debug("CALLING API \"GetInvoiceSettingsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -379,8 +395,9 @@ namespace CyberSource.Api
         /// Get Invoice Settings Allows you to retrieve the invoice settings for the payment page.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>Task of ApiResponse (InvoicingV2InvoiceSettingsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoiceSettingsGet200Response>> GetInvoiceSettingsAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoiceSettingsGet200Response>> GetInvoiceSettingsAsyncWithHttpInfo (string productType = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -412,6 +429,11 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
+            if (productType != null)
+            {
+                localVarQueryParams.Add("productType", Configuration.ApiClient.ParameterToString(productType)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -472,12 +494,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>InvoicingV2InvoiceSettingsGet200Response</returns>
-        public InvoicingV2InvoiceSettingsGet200Response UpdateInvoiceSettings (InvoiceSettingsRequest invoiceSettingsRequest)
+        public InvoicingV2InvoiceSettingsGet200Response UpdateInvoiceSettings (InvoiceSettingsRequest invoiceSettingsRequest, string productType = null)
         {
             logger.Debug("CALLING API \"UpdateInvoiceSettings\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InvoicingV2InvoiceSettingsGet200Response> localVarResponse = UpdateInvoiceSettingsWithHttpInfo(invoiceSettingsRequest);
+            ApiResponse<InvoicingV2InvoiceSettingsGet200Response> localVarResponse = UpdateInvoiceSettingsWithHttpInfo(invoiceSettingsRequest, productType);
             logger.Debug("CALLING API \"UpdateInvoiceSettings\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -488,8 +511,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>ApiResponse of InvoicingV2InvoiceSettingsGet200Response</returns>
-        public ApiResponse< InvoicingV2InvoiceSettingsGet200Response > UpdateInvoiceSettingsWithHttpInfo (InvoiceSettingsRequest invoiceSettingsRequest)
+        public ApiResponse< InvoicingV2InvoiceSettingsGet200Response > UpdateInvoiceSettingsWithHttpInfo (InvoiceSettingsRequest invoiceSettingsRequest, string productType = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -527,6 +551,11 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
+            if (productType != null)
+            {
+                localVarQueryParams.Add("productType", Configuration.ApiClient.ParameterToString(productType)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (invoiceSettingsRequest != null && invoiceSettingsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
@@ -585,12 +614,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>Task of InvoicingV2InvoiceSettingsGet200Response</returns>
-        public async System.Threading.Tasks.Task<InvoicingV2InvoiceSettingsGet200Response> UpdateInvoiceSettingsAsync (InvoiceSettingsRequest invoiceSettingsRequest)
+        public async System.Threading.Tasks.Task<InvoicingV2InvoiceSettingsGet200Response> UpdateInvoiceSettingsAsync (InvoiceSettingsRequest invoiceSettingsRequest, string productType = null)
         {
             logger.Debug("CALLING API \"UpdateInvoiceSettingsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InvoicingV2InvoiceSettingsGet200Response> localVarResponse = await UpdateInvoiceSettingsAsyncWithHttpInfo(invoiceSettingsRequest);
+            ApiResponse<InvoicingV2InvoiceSettingsGet200Response> localVarResponse = await UpdateInvoiceSettingsAsyncWithHttpInfo(invoiceSettingsRequest, productType);
             logger.Debug("CALLING API \"UpdateInvoiceSettingsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -602,8 +632,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="invoiceSettingsRequest"></param>
+        /// <param name="productType">Allows you to choose which product type settings you want to update. (optional)</param>
         /// <returns>Task of ApiResponse (InvoicingV2InvoiceSettingsGet200Response)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoiceSettingsGet200Response>> UpdateInvoiceSettingsAsyncWithHttpInfo (InvoiceSettingsRequest invoiceSettingsRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<InvoicingV2InvoiceSettingsGet200Response>> UpdateInvoiceSettingsAsyncWithHttpInfo (InvoiceSettingsRequest invoiceSettingsRequest, string productType = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -641,6 +672,11 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
+            if (productType != null)
+            {
+                localVarQueryParams.Add("productType", Configuration.ApiClient.ParameterToString(productType)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             if (invoiceSettingsRequest != null && invoiceSettingsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();

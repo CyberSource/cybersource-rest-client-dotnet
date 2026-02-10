@@ -74,7 +74,7 @@ namespace CyberSource.Test
             //string id = null;
             //CaseManagementActionsRequest caseManagementActionsRequest = null;
             //var response = instance.ActionDecisionManagerCase(id, caseManagementActionsRequest);
-            //Assert.IsInstanceOf<InlineResponse2002> (response, "response is InlineResponse2002");
+            //Assert.IsInstanceOf<InlineResponse2003> (response, "response is InlineResponse2003");
         }
         
         /// <summary>
@@ -100,7 +100,7 @@ namespace CyberSource.Test
             //string id = null;
             //CaseManagementCommentsRequest caseManagementCommentsRequest = null;
             //var response = instance.CommentDecisionManagerCase(id, caseManagementCommentsRequest);
-            //Assert.IsInstanceOf<InlineResponse2011> (response, "response is InlineResponse2011");
+            //Assert.IsInstanceOf<InlineResponse2012> (response, "response is InlineResponse2012");
         }
         
         /// <summary>

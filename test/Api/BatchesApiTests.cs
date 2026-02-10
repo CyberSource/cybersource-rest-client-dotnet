@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string batchId = null;
             //var response = instance.GetBatchReport(batchId);
-            //Assert.IsInstanceOf<InlineResponse20013> (response, "response is InlineResponse20013");
+            //Assert.IsInstanceOf<InlineResponse20014> (response, "response is InlineResponse20014");
         }
         
         /// <summary>
@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string batchId = null;
             //var response = instance.GetBatchStatus(batchId);
-            //Assert.IsInstanceOf<InlineResponse20012> (response, "response is InlineResponse20012");
+            //Assert.IsInstanceOf<InlineResponse20013> (response, "response is InlineResponse20013");
         }
         
         /// <summary>
@@ -100,7 +100,7 @@ namespace CyberSource.Test
             //string fromDate = null;
             //string toDate = null;
             //var response = instance.GetBatchesList(offset, limit, fromDate, toDate);
-            //Assert.IsInstanceOf<InlineResponse20011> (response, "response is InlineResponse20011");
+            //Assert.IsInstanceOf<InlineResponse20012> (response, "response is InlineResponse20012");
         }
         
         /// <summary>

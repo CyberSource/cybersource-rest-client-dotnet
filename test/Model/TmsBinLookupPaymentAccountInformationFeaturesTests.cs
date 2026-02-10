@@ -256,6 +256,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'EmiEligible'
         }
+        /// <summary>
+        /// Test the property 'FleetCard'
+        /// </summary>
+        [Test]
+        public void FleetCardTest()
+        {
+            // TODO unit test for the property 'FleetCard'
+        }
 
     }
 

@@ -74,7 +74,7 @@ No authorization required
 
 <a name="gettokenizedcard"></a>
 # **GetTokenizedCard**
-> TokenizedcardRequest GetTokenizedCard (string tokenizedCardId, string profileId = null)
+> InlineResponse2001 GetTokenizedCard (string tokenizedCardId, string profileId = null)
 
 Retrieve a Tokenized Card
 
@@ -101,7 +101,7 @@ namespace Example
             try
             {
                 // Retrieve a Tokenized Card
-                TokenizedcardRequest result = apiInstance.GetTokenizedCard(tokenizedCardId, profileId);
+                InlineResponse2001 result = apiInstance.GetTokenizedCard(tokenizedCardId, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TokenizedcardRequest**](TokenizedcardRequest.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ No authorization required
 
 <a name="posttokenizedcard"></a>
 # **PostTokenizedCard**
-> TokenizedcardRequest PostTokenizedCard (TokenizedcardRequest tokenizedcardRequest, string profileId = null)
+> InlineResponse2001 PostTokenizedCard (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
 
 Create a Tokenized Card
 
@@ -222,13 +222,13 @@ namespace Example
         public void main()
         {
             var apiInstance = new TokenizedCardApi();
-            var tokenizedcardRequest = new TokenizedcardRequest(); // TokenizedcardRequest | 
+            var postTokenizedCardRequest = new PostTokenizedCardRequest(); // PostTokenizedCardRequest | 
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
 
             try
             {
                 // Create a Tokenized Card
-                TokenizedcardRequest result = apiInstance.PostTokenizedCard(tokenizedcardRequest, profileId);
+                InlineResponse2001 result = apiInstance.PostTokenizedCard(postTokenizedCardRequest, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -244,12 +244,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tokenizedcardRequest** | [**TokenizedcardRequest**](TokenizedcardRequest.md)|  | 
+ **postTokenizedCardRequest** | [**PostTokenizedCardRequest**](PostTokenizedCardRequest.md)|  | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
 
 ### Return type
 
-[**TokenizedcardRequest**](TokenizedcardRequest.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

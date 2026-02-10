@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="findproductstosubscribe"></a>
 # **FindProductsToSubscribe**
-> List<InlineResponse2005> FindProductsToSubscribe (string organizationId)
+> List<InlineResponse2006> FindProductsToSubscribe (string organizationId)
 
 Find Products You Can Subscribe To
 
@@ -37,7 +37,7 @@ namespace Example
             try
             {
                 // Find Products You Can Subscribe To
-                List&lt;InlineResponse2005&gt; result = apiInstance.FindProductsToSubscribe(organizationId);
+                List&lt;InlineResponse2006&gt; result = apiInstance.FindProductsToSubscribe(organizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2005>**](InlineResponse2005.md)
+[**List<InlineResponse2006>**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ No authorization required
 
 <a name="notificationsubscriptionsv2webhookspost"></a>
 # **NotificationSubscriptionsV2WebhooksPost**
-> InlineResponse2015 NotificationSubscriptionsV2WebhooksPost (CreateWebhook createWebhook = null)
+> InlineResponse2016 NotificationSubscriptionsV2WebhooksPost (CreateWebhook createWebhook = null)
 
 Create a New Webhook Subscription
 
@@ -98,7 +98,7 @@ namespace Example
             try
             {
                 // Create a New Webhook Subscription
-                InlineResponse2015 result = apiInstance.NotificationSubscriptionsV2WebhooksPost(createWebhook);
+                InlineResponse2016 result = apiInstance.NotificationSubscriptionsV2WebhooksPost(createWebhook);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2015**](InlineResponse2015.md)
+[**InlineResponse2016**](InlineResponse2016.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ No authorization required
 
 <a name="savesymegresskey"></a>
 # **SaveSymEgressKey**
-> InlineResponse2014 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+> InlineResponse2015 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
 
 Create Webhook Security Keys
 
@@ -162,7 +162,7 @@ namespace Example
             try
             {
                 // Create Webhook Security Keys
-                InlineResponse2014 result = apiInstance.SaveSymEgressKey(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
+                InlineResponse2015 result = apiInstance.SaveSymEgressKey(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2015**](InlineResponse2015.md)
 
 ### Authorization
 

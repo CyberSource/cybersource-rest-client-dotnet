@@ -65,23 +65,6 @@ namespace CyberSource.Test
 
         
         /// <summary>
-        /// Test CreateOffer
-        /// </summary>
-        [Test]
-        public void CreateOfferTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string contentType = null;
-            //string xRequestid = null;
-            //string vCMerchantId = null;
-            //string vCCorrelationId = null;
-            //string vCOrganizationId = null;
-            //OfferRequest offerRequest = null;
-            //var response = instance.CreateOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
-            //Assert.IsInstanceOf<InlineResponse2018> (response, "response is InlineResponse2018");
-        }
-        
-        /// <summary>
         /// Test GetOffer
         /// </summary>
         [Test]
@@ -95,7 +78,7 @@ namespace CyberSource.Test
             //string vCOrganizationId = null;
             //string id = null;
             //var response = instance.GetOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
-            //Assert.IsInstanceOf<InlineResponse20015> (response, "response is InlineResponse20015");
+            //Assert.IsInstanceOf<InlineResponse20016> (response, "response is InlineResponse20016");
         }
         
     }

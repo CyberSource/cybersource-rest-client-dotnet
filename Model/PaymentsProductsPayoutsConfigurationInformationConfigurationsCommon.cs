@@ -35,11 +35,13 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="PaymentTypes">List of card types supported by this merchant. .</param>
         /// <param name="BusinessApplicationId">List of supported Business Application Indicators. .</param>
+        /// <param name="DefaultBusinessApplicationId">Default Business Application Indicator. Must match one of the values in businessApplicationId array.   Possible values: - AA - BB - BI - BP - CB - CD - CI - CO - CP - FD - FT - GD - GP - LA - LO - MD - MI - MP - OG - PD - PG - PP - PS - RP - TU - WT.</param>
         /// <param name="Aggregator">Aggregator.</param>
-        public PaymentsProductsPayoutsConfigurationInformationConfigurationsCommon(List<string> PaymentTypes = default(List<string>), List<string> BusinessApplicationId = default(List<string>), PaymentsProductsPayoutsConfigurationInformationConfigurationsCommonAggregator Aggregator = default(PaymentsProductsPayoutsConfigurationInformationConfigurationsCommonAggregator))
+        public PaymentsProductsPayoutsConfigurationInformationConfigurationsCommon(List<string> PaymentTypes = default(List<string>), List<string> BusinessApplicationId = default(List<string>), string DefaultBusinessApplicationId = default(string), PaymentsProductsPayoutsConfigurationInformationConfigurationsCommonAggregator Aggregator = default(PaymentsProductsPayoutsConfigurationInformationConfigurationsCommonAggregator))
         {
             this.PaymentTypes = PaymentTypes;
             this.BusinessApplicationId = BusinessApplicationId;
+            this.DefaultBusinessApplicationId = DefaultBusinessApplicationId;
             this.Aggregator = Aggregator;
         }
         
@@ -58,6 +60,13 @@ namespace CyberSource.Model
         public List<string> BusinessApplicationId { get; set; }
 
         /// <summary>
+        /// Default Business Application Indicator. Must match one of the values in businessApplicationId array.   Possible values: - AA - BB - BI - BP - CB - CD - CI - CO - CP - FD - FT - GD - GP - LA - LO - MD - MI - MP - OG - PD - PG - PP - PS - RP - TU - WT
+        /// </summary>
+        /// <value>Default Business Application Indicator. Must match one of the values in businessApplicationId array.   Possible values: - AA - BB - BI - BP - CB - CD - CI - CO - CP - FD - FT - GD - GP - LA - LO - MD - MI - MP - OG - PD - PG - PP - PS - RP - TU - WT</value>
+        [DataMember(Name="defaultBusinessApplicationId", EmitDefaultValue=false)]
+        public string DefaultBusinessApplicationId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Aggregator
         /// </summary>
         [DataMember(Name="aggregator", EmitDefaultValue=false)]
@@ -73,6 +82,7 @@ namespace CyberSource.Model
             sb.Append("class PaymentsProductsPayoutsConfigurationInformationConfigurationsCommon {\n");
             if (PaymentTypes != null) sb.Append("  PaymentTypes: ").Append(PaymentTypes).Append("\n");
             if (BusinessApplicationId != null) sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
+            if (DefaultBusinessApplicationId != null) sb.Append("  DefaultBusinessApplicationId: ").Append(DefaultBusinessApplicationId).Append("\n");
             if (Aggregator != null) sb.Append("  Aggregator: ").Append(Aggregator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -121,6 +131,11 @@ namespace CyberSource.Model
                     this.BusinessApplicationId.SequenceEqual(other.BusinessApplicationId)
                 ) && 
                 (
+                    this.DefaultBusinessApplicationId == other.DefaultBusinessApplicationId ||
+                    this.DefaultBusinessApplicationId != null &&
+                    this.DefaultBusinessApplicationId.Equals(other.DefaultBusinessApplicationId)
+                ) && 
+                (
                     this.Aggregator == other.Aggregator ||
                     this.Aggregator != null &&
                     this.Aggregator.Equals(other.Aggregator)
@@ -142,6 +157,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentTypes.GetHashCode();
                 if (this.BusinessApplicationId != null)
                     hash = hash * 59 + this.BusinessApplicationId.GetHashCode();
+                if (this.DefaultBusinessApplicationId != null)
+                    hash = hash * 59 + this.DefaultBusinessApplicationId.GetHashCode();
                 if (this.Aggregator != null)
                     hash = hash * 59 + this.Aggregator.GetHashCode();
                 return hash;

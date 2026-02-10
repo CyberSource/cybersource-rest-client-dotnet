@@ -33,65 +33,105 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2004" /> class.
         /// </summary>
-        /// <param name="RegistrationInformation">RegistrationInformation.</param>
-        /// <param name="IntegrationInformation">IntegrationInformation.</param>
-        /// <param name="OrganizationInformation">OrganizationInformation.</param>
-        /// <param name="ProductInformation">ProductInformation.</param>
-        /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
-        /// <param name="DocumentInformation">DocumentInformation.</param>
-        /// <param name="Details">Details.</param>
-        public InlineResponse2004(Boardingv1registrationsRegistrationInformation RegistrationInformation = default(Boardingv1registrationsRegistrationInformation), InlineResponse2004IntegrationInformation IntegrationInformation = default(InlineResponse2004IntegrationInformation), Boardingv1registrationsOrganizationInformation OrganizationInformation = default(Boardingv1registrationsOrganizationInformation), Boardingv1registrationsProductInformation ProductInformation = default(Boardingv1registrationsProductInformation), List<InlineResponse2013ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2013ProductInformationSetups>), Boardingv1registrationsDocumentInformation DocumentInformation = default(Boardingv1registrationsDocumentInformation), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
+        /// <param name="Id">Id.</param>
+        /// <param name="FieldType">FieldType.</param>
+        /// <param name="Label">Label.</param>
+        /// <param name="CustomerVisible">CustomerVisible.</param>
+        /// <param name="TextMinLength">TextMinLength.</param>
+        /// <param name="TextMaxLength">TextMaxLength.</param>
+        /// <param name="PossibleValues">PossibleValues.</param>
+        /// <param name="TextDefaultValue">TextDefaultValue.</param>
+        /// <param name="MerchantId">MerchantId.</param>
+        /// <param name="ReferenceType">ReferenceType.</param>
+        /// <param name="ReadOnly">ReadOnly.</param>
+        /// <param name="MerchantDefinedDataIndex">MerchantDefinedDataIndex.</param>
+        public InlineResponse2004(long? Id = default(long?), string FieldType = default(string), string Label = default(string), bool? CustomerVisible = default(bool?), int? TextMinLength = default(int?), int? TextMaxLength = default(int?), string PossibleValues = default(string), string TextDefaultValue = default(string), string MerchantId = default(string), string ReferenceType = default(string), bool? ReadOnly = default(bool?), int? MerchantDefinedDataIndex = default(int?))
         {
-            this.RegistrationInformation = RegistrationInformation;
-            this.IntegrationInformation = IntegrationInformation;
-            this.OrganizationInformation = OrganizationInformation;
-            this.ProductInformation = ProductInformation;
-            this.ProductInformationSetups = ProductInformationSetups;
-            this.DocumentInformation = DocumentInformation;
-            this.Details = Details;
+            this.Id = Id;
+            this.FieldType = FieldType;
+            this.Label = Label;
+            this.CustomerVisible = CustomerVisible;
+            this.TextMinLength = TextMinLength;
+            this.TextMaxLength = TextMaxLength;
+            this.PossibleValues = PossibleValues;
+            this.TextDefaultValue = TextDefaultValue;
+            this.MerchantId = MerchantId;
+            this.ReferenceType = ReferenceType;
+            this.ReadOnly = ReadOnly;
+            this.MerchantDefinedDataIndex = MerchantDefinedDataIndex;
         }
         
         /// <summary>
-        /// Gets or Sets RegistrationInformation
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="registrationInformation", EmitDefaultValue=false)]
-        public Boardingv1registrationsRegistrationInformation RegistrationInformation { get; set; }
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public long? Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets IntegrationInformation
+        /// Gets or Sets FieldType
         /// </summary>
-        [DataMember(Name="integrationInformation", EmitDefaultValue=false)]
-        public InlineResponse2004IntegrationInformation IntegrationInformation { get; set; }
+        [DataMember(Name="fieldType", EmitDefaultValue=false)]
+        public string FieldType { get; set; }
 
         /// <summary>
-        /// Gets or Sets OrganizationInformation
+        /// Gets or Sets Label
         /// </summary>
-        [DataMember(Name="organizationInformation", EmitDefaultValue=false)]
-        public Boardingv1registrationsOrganizationInformation OrganizationInformation { get; set; }
+        [DataMember(Name="label", EmitDefaultValue=false)]
+        public string Label { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProductInformation
+        /// Gets or Sets CustomerVisible
         /// </summary>
-        [DataMember(Name="productInformation", EmitDefaultValue=false)]
-        public Boardingv1registrationsProductInformation ProductInformation { get; set; }
+        [DataMember(Name="customerVisible", EmitDefaultValue=false)]
+        public bool? CustomerVisible { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProductInformationSetups
+        /// Gets or Sets TextMinLength
         /// </summary>
-        [DataMember(Name="productInformationSetups", EmitDefaultValue=false)]
-        public List<InlineResponse2013ProductInformationSetups> ProductInformationSetups { get; set; }
+        [DataMember(Name="textMinLength", EmitDefaultValue=false)]
+        public int? TextMinLength { get; set; }
 
         /// <summary>
-        /// Gets or Sets DocumentInformation
+        /// Gets or Sets TextMaxLength
         /// </summary>
-        [DataMember(Name="documentInformation", EmitDefaultValue=false)]
-        public Boardingv1registrationsDocumentInformation DocumentInformation { get; set; }
+        [DataMember(Name="textMaxLength", EmitDefaultValue=false)]
+        public int? TextMaxLength { get; set; }
 
         /// <summary>
-        /// Gets or Sets Details
+        /// Gets or Sets PossibleValues
         /// </summary>
-        [DataMember(Name="details", EmitDefaultValue=false)]
-        public Dictionary<string, List<Object>> Details { get; set; }
+        [DataMember(Name="possibleValues", EmitDefaultValue=false)]
+        public string PossibleValues { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TextDefaultValue
+        /// </summary>
+        [DataMember(Name="textDefaultValue", EmitDefaultValue=false)]
+        public string TextDefaultValue { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantId
+        /// </summary>
+        [DataMember(Name="merchantId", EmitDefaultValue=false)]
+        public string MerchantId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReferenceType
+        /// </summary>
+        [DataMember(Name="referenceType", EmitDefaultValue=false)]
+        public string ReferenceType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReadOnly
+        /// </summary>
+        [DataMember(Name="readOnly", EmitDefaultValue=false)]
+        public bool? ReadOnly { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantDefinedDataIndex
+        /// </summary>
+        [DataMember(Name="merchantDefinedDataIndex", EmitDefaultValue=false)]
+        public int? MerchantDefinedDataIndex { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,13 +141,18 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2004 {\n");
-            if (RegistrationInformation != null) sb.Append("  RegistrationInformation: ").Append(RegistrationInformation).Append("\n");
-            if (IntegrationInformation != null) sb.Append("  IntegrationInformation: ").Append(IntegrationInformation).Append("\n");
-            if (OrganizationInformation != null) sb.Append("  OrganizationInformation: ").Append(OrganizationInformation).Append("\n");
-            if (ProductInformation != null) sb.Append("  ProductInformation: ").Append(ProductInformation).Append("\n");
-            if (ProductInformationSetups != null) sb.Append("  ProductInformationSetups: ").Append(ProductInformationSetups).Append("\n");
-            if (DocumentInformation != null) sb.Append("  DocumentInformation: ").Append(DocumentInformation).Append("\n");
-            if (Details != null) sb.Append("  Details: ").Append(Details).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (FieldType != null) sb.Append("  FieldType: ").Append(FieldType).Append("\n");
+            if (Label != null) sb.Append("  Label: ").Append(Label).Append("\n");
+            if (CustomerVisible != null) sb.Append("  CustomerVisible: ").Append(CustomerVisible).Append("\n");
+            if (TextMinLength != null) sb.Append("  TextMinLength: ").Append(TextMinLength).Append("\n");
+            if (TextMaxLength != null) sb.Append("  TextMaxLength: ").Append(TextMaxLength).Append("\n");
+            if (PossibleValues != null) sb.Append("  PossibleValues: ").Append(PossibleValues).Append("\n");
+            if (TextDefaultValue != null) sb.Append("  TextDefaultValue: ").Append(TextDefaultValue).Append("\n");
+            if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
+            if (ReferenceType != null) sb.Append("  ReferenceType: ").Append(ReferenceType).Append("\n");
+            if (ReadOnly != null) sb.Append("  ReadOnly: ").Append(ReadOnly).Append("\n");
+            if (MerchantDefinedDataIndex != null) sb.Append("  MerchantDefinedDataIndex: ").Append(MerchantDefinedDataIndex).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,39 +190,64 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.RegistrationInformation == other.RegistrationInformation ||
-                    this.RegistrationInformation != null &&
-                    this.RegistrationInformation.Equals(other.RegistrationInformation)
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.IntegrationInformation == other.IntegrationInformation ||
-                    this.IntegrationInformation != null &&
-                    this.IntegrationInformation.Equals(other.IntegrationInformation)
+                    this.FieldType == other.FieldType ||
+                    this.FieldType != null &&
+                    this.FieldType.Equals(other.FieldType)
                 ) && 
                 (
-                    this.OrganizationInformation == other.OrganizationInformation ||
-                    this.OrganizationInformation != null &&
-                    this.OrganizationInformation.Equals(other.OrganizationInformation)
+                    this.Label == other.Label ||
+                    this.Label != null &&
+                    this.Label.Equals(other.Label)
                 ) && 
                 (
-                    this.ProductInformation == other.ProductInformation ||
-                    this.ProductInformation != null &&
-                    this.ProductInformation.Equals(other.ProductInformation)
+                    this.CustomerVisible == other.CustomerVisible ||
+                    this.CustomerVisible != null &&
+                    this.CustomerVisible.Equals(other.CustomerVisible)
                 ) && 
                 (
-                    this.ProductInformationSetups == other.ProductInformationSetups ||
-                    this.ProductInformationSetups != null &&
-                    this.ProductInformationSetups.SequenceEqual(other.ProductInformationSetups)
+                    this.TextMinLength == other.TextMinLength ||
+                    this.TextMinLength != null &&
+                    this.TextMinLength.Equals(other.TextMinLength)
                 ) && 
                 (
-                    this.DocumentInformation == other.DocumentInformation ||
-                    this.DocumentInformation != null &&
-                    this.DocumentInformation.Equals(other.DocumentInformation)
+                    this.TextMaxLength == other.TextMaxLength ||
+                    this.TextMaxLength != null &&
+                    this.TextMaxLength.Equals(other.TextMaxLength)
                 ) && 
                 (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.PossibleValues == other.PossibleValues ||
+                    this.PossibleValues != null &&
+                    this.PossibleValues.Equals(other.PossibleValues)
+                ) && 
+                (
+                    this.TextDefaultValue == other.TextDefaultValue ||
+                    this.TextDefaultValue != null &&
+                    this.TextDefaultValue.Equals(other.TextDefaultValue)
+                ) && 
+                (
+                    this.MerchantId == other.MerchantId ||
+                    this.MerchantId != null &&
+                    this.MerchantId.Equals(other.MerchantId)
+                ) && 
+                (
+                    this.ReferenceType == other.ReferenceType ||
+                    this.ReferenceType != null &&
+                    this.ReferenceType.Equals(other.ReferenceType)
+                ) && 
+                (
+                    this.ReadOnly == other.ReadOnly ||
+                    this.ReadOnly != null &&
+                    this.ReadOnly.Equals(other.ReadOnly)
+                ) && 
+                (
+                    this.MerchantDefinedDataIndex == other.MerchantDefinedDataIndex ||
+                    this.MerchantDefinedDataIndex != null &&
+                    this.MerchantDefinedDataIndex.Equals(other.MerchantDefinedDataIndex)
                 );
         }
 
@@ -192,20 +262,30 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.RegistrationInformation != null)
-                    hash = hash * 59 + this.RegistrationInformation.GetHashCode();
-                if (this.IntegrationInformation != null)
-                    hash = hash * 59 + this.IntegrationInformation.GetHashCode();
-                if (this.OrganizationInformation != null)
-                    hash = hash * 59 + this.OrganizationInformation.GetHashCode();
-                if (this.ProductInformation != null)
-                    hash = hash * 59 + this.ProductInformation.GetHashCode();
-                if (this.ProductInformationSetups != null)
-                    hash = hash * 59 + this.ProductInformationSetups.GetHashCode();
-                if (this.DocumentInformation != null)
-                    hash = hash * 59 + this.DocumentInformation.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
+                if (this.FieldType != null)
+                    hash = hash * 59 + this.FieldType.GetHashCode();
+                if (this.Label != null)
+                    hash = hash * 59 + this.Label.GetHashCode();
+                if (this.CustomerVisible != null)
+                    hash = hash * 59 + this.CustomerVisible.GetHashCode();
+                if (this.TextMinLength != null)
+                    hash = hash * 59 + this.TextMinLength.GetHashCode();
+                if (this.TextMaxLength != null)
+                    hash = hash * 59 + this.TextMaxLength.GetHashCode();
+                if (this.PossibleValues != null)
+                    hash = hash * 59 + this.PossibleValues.GetHashCode();
+                if (this.TextDefaultValue != null)
+                    hash = hash * 59 + this.TextDefaultValue.GetHashCode();
+                if (this.MerchantId != null)
+                    hash = hash * 59 + this.MerchantId.GetHashCode();
+                if (this.ReferenceType != null)
+                    hash = hash * 59 + this.ReferenceType.GetHashCode();
+                if (this.ReadOnly != null)
+                    hash = hash * 59 + this.ReadOnly.GetHashCode();
+                if (this.MerchantDefinedDataIndex != null)
+                    hash = hash * 59 + this.MerchantDefinedDataIndex.GetHashCode();
                 return hash;
             }
         }

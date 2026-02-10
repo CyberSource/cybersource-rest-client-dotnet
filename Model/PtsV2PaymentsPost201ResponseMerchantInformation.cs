@@ -35,11 +35,13 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="MerchantName">Use this field only if you are requesting payment with Payer Authentication serice together.  Your company&#39;s name as you want it to appear to the customer in the issuing bank&#39;s authentication form. This value overrides the value specified by your merchant bank. .</param>
         /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
+        /// <param name="CategoryCode">The value for this field is a four-digit number that the payment card industry uses to classify merchants into market segments. A payment card company assigned one or more of these values to your business when you started accepting the payment card company&#39;s cards. When you do not include this field in your request, Cybersource uses the value in your Cybersource account. Use this field only for clearing with your acquirer. .</param>
         /// <param name="ReturnUrl">URL for displaying payment results to the consumer (notifications) after the transaction is processed. Usually this URL belongs to merchant and its behavior is defined by merchant .</param>
-        public PtsV2PaymentsPost201ResponseMerchantInformation(string MerchantName = default(string), PtsV2PaymentsPost201ResponseMerchantInformationMerchantDescriptor MerchantDescriptor = default(PtsV2PaymentsPost201ResponseMerchantInformationMerchantDescriptor), string ReturnUrl = default(string))
+        public PtsV2PaymentsPost201ResponseMerchantInformation(string MerchantName = default(string), PtsV2PaymentsPost201ResponseMerchantInformationMerchantDescriptor MerchantDescriptor = default(PtsV2PaymentsPost201ResponseMerchantInformationMerchantDescriptor), string CategoryCode = default(string), string ReturnUrl = default(string))
         {
             this.MerchantName = MerchantName;
             this.MerchantDescriptor = MerchantDescriptor;
+            this.CategoryCode = CategoryCode;
             this.ReturnUrl = ReturnUrl;
         }
         
@@ -55,6 +57,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="merchantDescriptor", EmitDefaultValue=false)]
         public PtsV2PaymentsPost201ResponseMerchantInformationMerchantDescriptor MerchantDescriptor { get; set; }
+
+        /// <summary>
+        /// The value for this field is a four-digit number that the payment card industry uses to classify merchants into market segments. A payment card company assigned one or more of these values to your business when you started accepting the payment card company&#39;s cards. When you do not include this field in your request, Cybersource uses the value in your Cybersource account. Use this field only for clearing with your acquirer. 
+        /// </summary>
+        /// <value>The value for this field is a four-digit number that the payment card industry uses to classify merchants into market segments. A payment card company assigned one or more of these values to your business when you started accepting the payment card company&#39;s cards. When you do not include this field in your request, Cybersource uses the value in your Cybersource account. Use this field only for clearing with your acquirer. </value>
+        [DataMember(Name="categoryCode", EmitDefaultValue=false)]
+        public string CategoryCode { get; set; }
 
         /// <summary>
         /// URL for displaying payment results to the consumer (notifications) after the transaction is processed. Usually this URL belongs to merchant and its behavior is defined by merchant 
@@ -73,6 +82,7 @@ namespace CyberSource.Model
             sb.Append("class PtsV2PaymentsPost201ResponseMerchantInformation {\n");
             if (MerchantName != null) sb.Append("  MerchantName: ").Append(MerchantName).Append("\n");
             if (MerchantDescriptor != null) sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
+            if (CategoryCode != null) sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
             if (ReturnUrl != null) sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -121,6 +131,11 @@ namespace CyberSource.Model
                     this.MerchantDescriptor.Equals(other.MerchantDescriptor)
                 ) && 
                 (
+                    this.CategoryCode == other.CategoryCode ||
+                    this.CategoryCode != null &&
+                    this.CategoryCode.Equals(other.CategoryCode)
+                ) && 
+                (
                     this.ReturnUrl == other.ReturnUrl ||
                     this.ReturnUrl != null &&
                     this.ReturnUrl.Equals(other.ReturnUrl)
@@ -142,6 +157,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantName.GetHashCode();
                 if (this.MerchantDescriptor != null)
                     hash = hash * 59 + this.MerchantDescriptor.GetHashCode();
+                if (this.CategoryCode != null)
+                    hash = hash * 59 + this.CategoryCode.GetHashCode();
                 if (this.ReturnUrl != null)
                     hash = hash * 59 + this.ReturnUrl.GetHashCode();
                 return hash;

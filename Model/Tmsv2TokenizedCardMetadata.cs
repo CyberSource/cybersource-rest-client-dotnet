@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Metadata associated with the tokenized card. 
+    /// Tmsv2TokenizedCardMetadata
     /// </summary>
     [DataContract]
     public partial class Tmsv2TokenizedCardMetadata :  IEquatable<Tmsv2TokenizedCardMetadata>, IValidatableObject

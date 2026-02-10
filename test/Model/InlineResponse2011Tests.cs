@@ -65,28 +65,28 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Id'
+        /// Test the property 'Links'
         /// </summary>
         [Test]
-        public void IdTest()
+        public void LinksTest()
         {
-            // TODO unit test for the property 'Id'
+            // TODO unit test for the property 'Links'
         }
         /// <summary>
-        /// Test the property 'SubmitTimeUtc'
+        /// Test the property 'Card'
         /// </summary>
         [Test]
-        public void SubmitTimeUtcTest()
+        public void CardTest()
         {
-            // TODO unit test for the property 'SubmitTimeUtc'
+            // TODO unit test for the property 'Card'
         }
         /// <summary>
-        /// Test the property 'Status'
+        /// Test the property 'TokenizedCard'
         /// </summary>
         [Test]
-        public void StatusTest()
+        public void TokenizedCardTest()
         {
-            // TODO unit test for the property 'Status'
+            // TODO unit test for the property 'TokenizedCard'
         }
 
     }

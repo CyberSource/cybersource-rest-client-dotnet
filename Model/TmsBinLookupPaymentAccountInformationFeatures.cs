@@ -57,7 +57,8 @@ namespace CyberSource.Model
         /// <param name="ThreeDSSupport">This field indicates if the payment instrument supports 3D Secure authentication. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
         /// <param name="SiEligible">This field indicates if the payment instrument is eligible for Standing Instructions (recurring payments). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
         /// <param name="EmiEligible">This field indicates if the card is eligible for Equated Monthly Installments (EMI). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
-        public TmsBinLookupPaymentAccountInformationFeatures(string AccountFundingSource = default(string), string AccountFundingSourceSubType = default(string), string CardProduct = default(string), string MessageType = default(string), string AcceptanceLevel = default(string), string CardPlatform = default(string), string ComboCard = default(string), bool? CorporatePurchase = default(bool?), bool? HealthCard = default(bool?), bool? SharedBIN = default(bool?), bool? PosDomesticOnly = default(bool?), bool? GamblingAllowed = default(bool?), bool? CommercialCardLevel2 = default(bool?), bool? CommercialCardLevel3 = default(bool?), bool? ExemptBIN = default(bool?), bool? AccountLevelManagement = default(bool?), bool? OnlineGamblingBlock = default(bool?), bool? AutoSubstantiation = default(bool?), bool? FlexCredential = default(bool?), string ProductId = default(string), string ProductIdSubtype = default(string), bool? ThreeDSSupport = default(bool?), bool? SiEligible = default(bool?), bool? EmiEligible = default(bool?))
+        /// <param name="FleetCard">This field indicates if the BIN is designated for fuel/fleet usage. These specialized BINs support additional Level2/Level 3 transaction data. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        public TmsBinLookupPaymentAccountInformationFeatures(string AccountFundingSource = default(string), string AccountFundingSourceSubType = default(string), string CardProduct = default(string), string MessageType = default(string), string AcceptanceLevel = default(string), string CardPlatform = default(string), string ComboCard = default(string), bool? CorporatePurchase = default(bool?), bool? HealthCard = default(bool?), bool? SharedBIN = default(bool?), bool? PosDomesticOnly = default(bool?), bool? GamblingAllowed = default(bool?), bool? CommercialCardLevel2 = default(bool?), bool? CommercialCardLevel3 = default(bool?), bool? ExemptBIN = default(bool?), bool? AccountLevelManagement = default(bool?), bool? OnlineGamblingBlock = default(bool?), bool? AutoSubstantiation = default(bool?), bool? FlexCredential = default(bool?), string ProductId = default(string), string ProductIdSubtype = default(string), bool? ThreeDSSupport = default(bool?), bool? SiEligible = default(bool?), bool? EmiEligible = default(bool?), bool? FleetCard = default(bool?))
         {
             this.AccountFundingSource = AccountFundingSource;
             this.AccountFundingSourceSubType = AccountFundingSourceSubType;
@@ -83,6 +84,7 @@ namespace CyberSource.Model
             this.ThreeDSSupport = ThreeDSSupport;
             this.SiEligible = SiEligible;
             this.EmiEligible = EmiEligible;
+            this.FleetCard = FleetCard;
         }
         
         /// <summary>
@@ -254,6 +256,13 @@ namespace CyberSource.Model
         public bool? EmiEligible { get; set; }
 
         /// <summary>
+        /// This field indicates if the BIN is designated for fuel/fleet usage. These specialized BINs support additional Level2/Level 3 transaction data. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the BIN is designated for fuel/fleet usage. These specialized BINs support additional Level2/Level 3 transaction data. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="fleetCard", EmitDefaultValue=false)]
+        public bool? FleetCard { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -285,6 +294,7 @@ namespace CyberSource.Model
             if (ThreeDSSupport != null) sb.Append("  ThreeDSSupport: ").Append(ThreeDSSupport).Append("\n");
             if (SiEligible != null) sb.Append("  SiEligible: ").Append(SiEligible).Append("\n");
             if (EmiEligible != null) sb.Append("  EmiEligible: ").Append(EmiEligible).Append("\n");
+            if (FleetCard != null) sb.Append("  FleetCard: ").Append(FleetCard).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -440,6 +450,11 @@ namespace CyberSource.Model
                     this.EmiEligible == other.EmiEligible ||
                     this.EmiEligible != null &&
                     this.EmiEligible.Equals(other.EmiEligible)
+                ) && 
+                (
+                    this.FleetCard == other.FleetCard ||
+                    this.FleetCard != null &&
+                    this.FleetCard.Equals(other.FleetCard)
                 );
         }
 
@@ -502,6 +517,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SiEligible.GetHashCode();
                 if (this.EmiEligible != null)
                     hash = hash * 59 + this.EmiEligible.GetHashCode();
+                if (this.FleetCard != null)
+                    hash = hash * 59 + this.FleetCard.GetHashCode();
                 return hash;
             }
         }

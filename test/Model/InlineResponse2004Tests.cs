@@ -65,60 +65,100 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'RegistrationInformation'
+        /// Test the property 'Id'
         /// </summary>
         [Test]
-        public void RegistrationInformationTest()
+        public void IdTest()
         {
-            // TODO unit test for the property 'RegistrationInformation'
+            // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'IntegrationInformation'
+        /// Test the property 'FieldType'
         /// </summary>
         [Test]
-        public void IntegrationInformationTest()
+        public void FieldTypeTest()
         {
-            // TODO unit test for the property 'IntegrationInformation'
+            // TODO unit test for the property 'FieldType'
         }
         /// <summary>
-        /// Test the property 'OrganizationInformation'
+        /// Test the property 'Label'
         /// </summary>
         [Test]
-        public void OrganizationInformationTest()
+        public void LabelTest()
         {
-            // TODO unit test for the property 'OrganizationInformation'
+            // TODO unit test for the property 'Label'
         }
         /// <summary>
-        /// Test the property 'ProductInformation'
+        /// Test the property 'CustomerVisible'
         /// </summary>
         [Test]
-        public void ProductInformationTest()
+        public void CustomerVisibleTest()
         {
-            // TODO unit test for the property 'ProductInformation'
+            // TODO unit test for the property 'CustomerVisible'
         }
         /// <summary>
-        /// Test the property 'ProductInformationSetups'
+        /// Test the property 'TextMinLength'
         /// </summary>
         [Test]
-        public void ProductInformationSetupsTest()
+        public void TextMinLengthTest()
         {
-            // TODO unit test for the property 'ProductInformationSetups'
+            // TODO unit test for the property 'TextMinLength'
         }
         /// <summary>
-        /// Test the property 'DocumentInformation'
+        /// Test the property 'TextMaxLength'
         /// </summary>
         [Test]
-        public void DocumentInformationTest()
+        public void TextMaxLengthTest()
         {
-            // TODO unit test for the property 'DocumentInformation'
+            // TODO unit test for the property 'TextMaxLength'
         }
         /// <summary>
-        /// Test the property 'Details'
+        /// Test the property 'PossibleValues'
         /// </summary>
         [Test]
-        public void DetailsTest()
+        public void PossibleValuesTest()
         {
-            // TODO unit test for the property 'Details'
+            // TODO unit test for the property 'PossibleValues'
+        }
+        /// <summary>
+        /// Test the property 'TextDefaultValue'
+        /// </summary>
+        [Test]
+        public void TextDefaultValueTest()
+        {
+            // TODO unit test for the property 'TextDefaultValue'
+        }
+        /// <summary>
+        /// Test the property 'MerchantId'
+        /// </summary>
+        [Test]
+        public void MerchantIdTest()
+        {
+            // TODO unit test for the property 'MerchantId'
+        }
+        /// <summary>
+        /// Test the property 'ReferenceType'
+        /// </summary>
+        [Test]
+        public void ReferenceTypeTest()
+        {
+            // TODO unit test for the property 'ReferenceType'
+        }
+        /// <summary>
+        /// Test the property 'ReadOnly'
+        /// </summary>
+        [Test]
+        public void ReadOnlyTest()
+        {
+            // TODO unit test for the property 'ReadOnly'
+        }
+        /// <summary>
+        /// Test the property 'MerchantDefinedDataIndex'
+        /// </summary>
+        [Test]
+        public void MerchantDefinedDataIndexTest()
+        {
+            // TODO unit test for the property 'MerchantDefinedDataIndex'
         }
 
     }

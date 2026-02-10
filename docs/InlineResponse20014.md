@@ -3,10 +3,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientReferenceInformation** | [**Bavsv1accountvalidationsClientReferenceInformation**](Bavsv1accountvalidationsClientReferenceInformation.md) |  | [optional] 
-**RequestId** | **string** | Request Id sent as part of the request. | [optional] 
-**SubmitTimeUtc** | **string** | Time of request in UTC.  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.)  | [optional] 
-**BankAccountValidation** | [**TssV2TransactionsGet200ResponseBankAccountValidation**](TssV2TransactionsGet200ResponseBankAccountValidation.md) |  | [optional] 
+**Version** | **string** |  | [optional] 
+**ReportCreatedDate** | **string** | ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ | [optional] 
+**BatchId** | **string** | Unique identification number assigned to the submitted request. | [optional] 
+**BatchSource** | **string** | Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE  | [optional] 
+**BatchCaEndpoints** | **string** |  | [optional] 
+**BatchCreatedDate** | **string** | ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ | [optional] 
+**MerchantReference** | **string** | Reference used by merchant to identify batch. | [optional] 
+**Totals** | [**InlineResponse20012EmbeddedTotals**](InlineResponse20012EmbeddedTotals.md) |  | [optional] 
+**Billing** | [**InlineResponse20013Billing**](InlineResponse20013Billing.md) |  | [optional] 
+**Records** | [**List&lt;InlineResponse20014Records&gt;**](InlineResponse20014Records.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

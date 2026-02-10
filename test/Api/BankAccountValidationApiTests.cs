@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //AccountValidationsRequest accountValidationsRequest = null;
             //var response = instance.BankAccountValidationRequest(accountValidationsRequest);
-            //Assert.IsInstanceOf<InlineResponse20014> (response, "response is InlineResponse20014");
+            //Assert.IsInstanceOf<InlineResponse20015> (response, "response is InlineResponse20015");
         }
         
     }

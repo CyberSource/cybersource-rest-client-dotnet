@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getinvoicesettings"></a>
 # **GetInvoiceSettings**
-> InvoicingV2InvoiceSettingsGet200Response GetInvoiceSettings ()
+> InvoicingV2InvoiceSettingsGet200Response GetInvoiceSettings (string productType = null)
 
 Get Invoice Settings
 
@@ -31,11 +31,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new InvoiceSettingsApi();
+            var productType = productType_example;  // string | Allows you to choose which product type settings you want to update. (optional) 
 
             try
             {
                 // Get Invoice Settings
-                InvoicingV2InvoiceSettingsGet200Response result = apiInstance.GetInvoiceSettings();
+                InvoicingV2InvoiceSettingsGet200Response result = apiInstance.GetInvoiceSettings(productType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -48,7 +49,10 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **productType** | **string**| Allows you to choose which product type settings you want to update. | [optional] 
 
 ### Return type
 
@@ -67,7 +71,7 @@ No authorization required
 
 <a name="updateinvoicesettings"></a>
 # **UpdateInvoiceSettings**
-> InvoicingV2InvoiceSettingsGet200Response UpdateInvoiceSettings (InvoiceSettingsRequest invoiceSettingsRequest)
+> InvoicingV2InvoiceSettingsGet200Response UpdateInvoiceSettings (InvoiceSettingsRequest invoiceSettingsRequest, string productType = null)
 
 Update Invoice Settings
 
@@ -89,11 +93,12 @@ namespace Example
         {
             var apiInstance = new InvoiceSettingsApi();
             var invoiceSettingsRequest = new InvoiceSettingsRequest(); // InvoiceSettingsRequest | 
+            var productType = productType_example;  // string | Allows you to choose which product type settings you want to update. (optional) 
 
             try
             {
                 // Update Invoice Settings
-                InvoicingV2InvoiceSettingsGet200Response result = apiInstance.UpdateInvoiceSettings(invoiceSettingsRequest);
+                InvoicingV2InvoiceSettingsGet200Response result = apiInstance.UpdateInvoiceSettings(invoiceSettingsRequest, productType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -110,6 +115,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **invoiceSettingsRequest** | [**InvoiceSettingsRequest**](InvoiceSettingsRequest.md)|  | 
+ **productType** | **string**| Allows you to choose which product type settings you want to update. | [optional] 
 
 ### Return type
 

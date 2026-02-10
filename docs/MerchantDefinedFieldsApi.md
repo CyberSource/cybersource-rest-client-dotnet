@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createmerchantdefinedfielddefinition"></a>
 # **CreateMerchantDefinedFieldDefinition**
-> List<InlineResponse2003> CreateMerchantDefinedFieldDefinition (string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
+> List<InlineResponse2004> CreateMerchantDefinedFieldDefinition (string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
 
 Create merchant defined field for a given reference type
 
@@ -37,7 +37,7 @@ namespace Example
             try
             {
                 // Create merchant defined field for a given reference type
-                List&lt;InlineResponse2003&gt; result = apiInstance.CreateMerchantDefinedFieldDefinition(referenceType, merchantDefinedFieldDefinitionRequest);
+                List&lt;InlineResponse2004&gt; result = apiInstance.CreateMerchantDefinedFieldDefinition(referenceType, merchantDefinedFieldDefinitionRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2003>**](InlineResponse2003.md)
+[**List<InlineResponse2004>**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ No authorization required
 
 <a name="getmerchantdefinedfieldsdefinitions"></a>
 # **GetMerchantDefinedFieldsDefinitions**
-> List<InlineResponse2003> GetMerchantDefinedFieldsDefinitions (string referenceType)
+> List<InlineResponse2004> GetMerchantDefinedFieldsDefinitions (string referenceType)
 
 Get all merchant defined fields for a given reference type
 
@@ -157,7 +157,7 @@ namespace Example
             try
             {
                 // Get all merchant defined fields for a given reference type
-                List&lt;InlineResponse2003&gt; result = apiInstance.GetMerchantDefinedFieldsDefinitions(referenceType);
+                List&lt;InlineResponse2004&gt; result = apiInstance.GetMerchantDefinedFieldsDefinitions(referenceType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2003>**](InlineResponse2003.md)
+[**List<InlineResponse2004>**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ No authorization required
 
 <a name="putmerchantdefinedfieldsdefinitions"></a>
 # **PutMerchantDefinedFieldsDefinitions**
-> List<InlineResponse2003> PutMerchantDefinedFieldsDefinitions (string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore)
+> List<InlineResponse2004> PutMerchantDefinedFieldsDefinitions (string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore)
 
 Update a MerchantDefinedField by ID
 
@@ -218,7 +218,7 @@ namespace Example
             try
             {
                 // Update a MerchantDefinedField by ID
-                List&lt;InlineResponse2003&gt; result = apiInstance.PutMerchantDefinedFieldsDefinitions(referenceType, id, merchantDefinedFieldCore);
+                List&lt;InlineResponse2004&gt; result = apiInstance.PutMerchantDefinedFieldsDefinitions(referenceType, id, merchantDefinedFieldCore);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2003>**](InlineResponse2003.md)
+[**List<InlineResponse2004>**](InlineResponse2004.md)
 
 ### Authorization
 

@@ -201,7 +201,7 @@ No authorization required
 
 <a name="getallsubscriptions"></a>
 # **GetAllSubscriptions**
-> GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null)
+> GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null)
 
 Get a List of Subscriptions
 
@@ -226,11 +226,12 @@ namespace Example
             var limit = 56;  // int? | Number of items to be returned. Default - `20`, Max - `100`  (optional) 
             var code = code_example;  // string | Filter by Subscription Code (optional) 
             var status = status_example;  // string | Filter by Subscription Status (optional) 
+            var customerId = customerId_example;  // string | Filter by Customer Id (optional) 
 
             try
             {
                 // Get a List of Subscriptions
-                GetAllSubscriptionsResponse result = apiInstance.GetAllSubscriptions(offset, limit, code, status);
+                GetAllSubscriptionsResponse result = apiInstance.GetAllSubscriptions(offset, limit, code, status, customerId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -250,6 +251,7 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  | [optional] 
  **code** | **string**| Filter by Subscription Code | [optional] 
  **status** | **string**| Filter by Subscription Status | [optional] 
+ **customerId** | **string**| Filter by Customer Id | [optional] 
 
 ### Return type
 

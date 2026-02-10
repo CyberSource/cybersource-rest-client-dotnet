@@ -70,7 +70,7 @@ No authorization required
 
 <a name="postdeassociatev3terminal"></a>
 # **PostDeAssociateV3Terminal**
-> List<InlineResponse2009> PostDeAssociateV3Terminal (List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
+> List<InlineResponse20010> PostDeAssociateV3Terminal (List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
 
 De-associate a device from merchant to account or reseller and from account to reseller
 
@@ -96,7 +96,7 @@ namespace Example
             try
             {
                 // De-associate a device from merchant to account or reseller and from account to reseller
-                List&lt;InlineResponse2009&gt; result = apiInstance.PostDeAssociateV3Terminal(deviceDeAssociateV3Request);
+                List&lt;InlineResponse20010&gt; result = apiInstance.PostDeAssociateV3Terminal(deviceDeAssociateV3Request);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2009>**](InlineResponse2009.md)
+[**List<InlineResponse20010>**](InlineResponse20010.md)
 
 ### Authorization
 

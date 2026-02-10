@@ -137,6 +137,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ResponseCategoryCode'
         }
         /// <summary>
+        /// Test the property 'ResponseSourceCode'
+        /// </summary>
+        [Test]
+        public void ResponseSourceCodeTest()
+        {
+            // TODO unit test for the property 'ResponseSourceCode'
+        }
+        /// <summary>
         /// Test the property 'ForwardedAcquirerCode'
         /// </summary>
         [Test]
