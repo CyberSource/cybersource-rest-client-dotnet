@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Represents the Card Art Asset associated to the Network Token. 
+    /// InlineResponse2001
     /// </summary>
     [DataContract]
     public partial class InlineResponse2001 :  IEquatable<InlineResponse2001>, IValidatableObject
@@ -33,45 +33,25 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
         /// </summary>
-        /// <param name="Id">Unique identifier for the Card Art Asset. .</param>
-        /// <param name="Type">The type of Card Art Asset. .</param>
-        /// <param name="Provider">The provider of the Card Art Asset. .</param>
-        /// <param name="Content">Array of content objects representing the Card Art Asset. .</param>
-        public InlineResponse2001(string Id = default(string), string Type = default(string), string Provider = default(string), List<InlineResponse2001Content> Content = default(List<InlineResponse2001Content>))
+        /// <param name="Links">Links.</param>
+        /// <param name="TokenizedCard">TokenizedCard.</param>
+        public InlineResponse2001(InlineResponse2001Links Links = default(InlineResponse2001Links), Tmsv2TokenizedCard TokenizedCard = default(Tmsv2TokenizedCard))
         {
-            this.Id = Id;
-            this.Type = Type;
-            this.Provider = Provider;
-            this.Content = Content;
+            this.Links = Links;
+            this.TokenizedCard = TokenizedCard;
         }
         
         /// <summary>
-        /// Unique identifier for the Card Art Asset. 
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>Unique identifier for the Card Art Asset. </value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
+        [DataMember(Name="_links", EmitDefaultValue=false)]
+        public InlineResponse2001Links Links { get; set; }
 
         /// <summary>
-        /// The type of Card Art Asset. 
+        /// Gets or Sets TokenizedCard
         /// </summary>
-        /// <value>The type of Card Art Asset. </value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// The provider of the Card Art Asset. 
-        /// </summary>
-        /// <value>The provider of the Card Art Asset. </value>
-        [DataMember(Name="provider", EmitDefaultValue=false)]
-        public string Provider { get; set; }
-
-        /// <summary>
-        /// Array of content objects representing the Card Art Asset. 
-        /// </summary>
-        /// <value>Array of content objects representing the Card Art Asset. </value>
-        [DataMember(Name="content", EmitDefaultValue=false)]
-        public List<InlineResponse2001Content> Content { get; set; }
+        [DataMember(Name="tokenizedCard", EmitDefaultValue=false)]
+        public Tmsv2TokenizedCard TokenizedCard { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,10 +61,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2001 {\n");
-            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
-            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
-            if (Provider != null) sb.Append("  Provider: ").Append(Provider).Append("\n");
-            if (Content != null) sb.Append("  Content: ").Append(Content).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (TokenizedCard != null) sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,24 +100,14 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.Equals(other.Links)
                 ) && 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
-                ) && 
-                (
-                    this.Provider == other.Provider ||
-                    this.Provider != null &&
-                    this.Provider.Equals(other.Provider)
-                ) && 
-                (
-                    this.Content == other.Content ||
-                    this.Content != null &&
-                    this.Content.SequenceEqual(other.Content)
+                    this.TokenizedCard == other.TokenizedCard ||
+                    this.TokenizedCard != null &&
+                    this.TokenizedCard.Equals(other.TokenizedCard)
                 );
         }
 
@@ -154,14 +122,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
-                if (this.Provider != null)
-                    hash = hash * 59 + this.Provider.GetHashCode();
-                if (this.Content != null)
-                    hash = hash * 59 + this.Content.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
+                if (this.TokenizedCard != null)
+                    hash = hash * 59 + this.TokenizedCard.GetHashCode();
                 return hash;
             }
         }

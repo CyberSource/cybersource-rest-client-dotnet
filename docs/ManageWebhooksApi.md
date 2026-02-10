@@ -75,7 +75,7 @@ No authorization required
 
 <a name="getwebhooksubscriptionbyid"></a>
 # **GetWebhookSubscriptionById**
-> InlineResponse2015 GetWebhookSubscriptionById (string webhookId)
+> InlineResponse2016 GetWebhookSubscriptionById (string webhookId)
 
 Get Details On a Single Webhook
 
@@ -101,7 +101,7 @@ namespace Example
             try
             {
                 // Get Details On a Single Webhook
-                InlineResponse2015 result = apiInstance.GetWebhookSubscriptionById(webhookId);
+                InlineResponse2016 result = apiInstance.GetWebhookSubscriptionById(webhookId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2015**](InlineResponse2015.md)
+[**InlineResponse2016**](InlineResponse2016.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 
 <a name="getwebhooksubscriptionsbyorg"></a>
 # **GetWebhookSubscriptionsByOrg**
-> List<InlineResponse2006> GetWebhookSubscriptionsByOrg (string organizationId, string productId = null, string eventType = null)
+> List<InlineResponse2007> GetWebhookSubscriptionsByOrg (string organizationId, string productId = null, string eventType = null)
 
 Get Details On All Created Webhooks
 
@@ -164,7 +164,7 @@ namespace Example
             try
             {
                 // Get Details On All Created Webhooks
-                List&lt;InlineResponse2006&gt; result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
+                List&lt;InlineResponse2007&gt; result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2006>**](InlineResponse2006.md)
+[**List<InlineResponse2007>**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ No authorization required
 
 <a name="notificationsubscriptionsv1webhookswebhookidpost"></a>
 # **NotificationSubscriptionsV1WebhooksWebhookIdPost**
-> InlineResponse2016 NotificationSubscriptionsV1WebhooksWebhookIdPost (string webhookId)
+> InlineResponse2017 NotificationSubscriptionsV1WebhooksWebhookIdPost (string webhookId)
 
 Test a Webhook Configuration
 
@@ -227,7 +227,7 @@ namespace Example
             try
             {
                 // Test a Webhook Configuration
-                InlineResponse2016 result = apiInstance.NotificationSubscriptionsV1WebhooksWebhookIdPost(webhookId);
+                InlineResponse2017 result = apiInstance.NotificationSubscriptionsV1WebhooksWebhookIdPost(webhookId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2016**](InlineResponse2016.md)
+[**InlineResponse2017**](InlineResponse2017.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ No authorization required
 
 <a name="notificationsubscriptionsv2webhookswebhookidpatch"></a>
 # **NotificationSubscriptionsV2WebhooksWebhookIdPatch**
-> InlineResponse2007 NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
+> InlineResponse2008 NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
 
 Update a Webhook Subscription
 
@@ -289,7 +289,7 @@ namespace Example
             try
             {
                 // Update a Webhook Subscription
-                InlineResponse2007 result = apiInstance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
+                InlineResponse2008 result = apiInstance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -387,7 +387,7 @@ No authorization required
 
 <a name="saveasymegresskey"></a>
 # **SaveAsymEgressKey**
-> InlineResponse2017 SaveAsymEgressKey (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
+> InlineResponse2018 SaveAsymEgressKey (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
 
 Message Level Encryption
 
@@ -416,7 +416,7 @@ namespace Example
             try
             {
                 // Message Level Encryption
-                InlineResponse2017 result = apiInstance.SaveAsymEgressKey(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
+                InlineResponse2018 result = apiInstance.SaveAsymEgressKey(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2017**](InlineResponse2017.md)
+[**InlineResponse2018**](InlineResponse2018.md)
 
 ### Authorization
 

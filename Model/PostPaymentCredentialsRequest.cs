@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="AuthenticatedIdentities">AuthenticatedIdentities.</param>
-        public PostPaymentCredentialsRequest(string PaymentCredentialType = default(string), string TransactionType = default(string), string ClientCorrelationId = default(string), Tmsv2tokenstokenIdpaymentcredentialsOrderInformation OrderInformation = default(Tmsv2tokenstokenIdpaymentcredentialsOrderInformation), Tmsv2tokenstokenIdpaymentcredentialsMerchantInformation MerchantInformation = default(Tmsv2tokenstokenIdpaymentcredentialsMerchantInformation), Tmsv2tokenstokenIdpaymentcredentialsDeviceInformation DeviceInformation = default(Tmsv2tokenstokenIdpaymentcredentialsDeviceInformation), List<Tmsv2tokenstokenIdpaymentcredentialsAuthenticatedIdentities> AuthenticatedIdentities = default(List<Tmsv2tokenstokenIdpaymentcredentialsAuthenticatedIdentities>))
+        public PostPaymentCredentialsRequest(string PaymentCredentialType = default(string), string TransactionType = default(string), string ClientCorrelationId = default(string), Tmsv3tokenstokenIdpaymentcredentialsOrderInformation OrderInformation = default(Tmsv3tokenstokenIdpaymentcredentialsOrderInformation), Tmsv3tokenstokenIdpaymentcredentialsMerchantInformation MerchantInformation = default(Tmsv3tokenstokenIdpaymentcredentialsMerchantInformation), Tmsv3tokenstokenIdpaymentcredentialsDeviceInformation DeviceInformation = default(Tmsv3tokenstokenIdpaymentcredentialsDeviceInformation), List<Tmsv3tokenstokenIdpaymentcredentialsAuthenticatedIdentities> AuthenticatedIdentities = default(List<Tmsv3tokenstokenIdpaymentcredentialsAuthenticatedIdentities>))
         {
             this.PaymentCredentialType = PaymentCredentialType;
             this.TransactionType = TransactionType;
@@ -76,25 +76,25 @@ namespace CyberSource.Model
         /// Gets or Sets OrderInformation
         /// </summary>
         [DataMember(Name="orderInformation", EmitDefaultValue=false)]
-        public Tmsv2tokenstokenIdpaymentcredentialsOrderInformation OrderInformation { get; set; }
+        public Tmsv3tokenstokenIdpaymentcredentialsOrderInformation OrderInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets MerchantInformation
         /// </summary>
         [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
-        public Tmsv2tokenstokenIdpaymentcredentialsMerchantInformation MerchantInformation { get; set; }
+        public Tmsv3tokenstokenIdpaymentcredentialsMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceInformation
         /// </summary>
         [DataMember(Name="deviceInformation", EmitDefaultValue=false)]
-        public Tmsv2tokenstokenIdpaymentcredentialsDeviceInformation DeviceInformation { get; set; }
+        public Tmsv3tokenstokenIdpaymentcredentialsDeviceInformation DeviceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthenticatedIdentities
         /// </summary>
         [DataMember(Name="authenticatedIdentities", EmitDefaultValue=false)]
-        public List<Tmsv2tokenstokenIdpaymentcredentialsAuthenticatedIdentities> AuthenticatedIdentities { get; set; }
+        public List<Tmsv3tokenstokenIdpaymentcredentialsAuthenticatedIdentities> AuthenticatedIdentities { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

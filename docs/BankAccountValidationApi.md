@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="bankaccountvalidationrequest"></a>
 # **BankAccountValidationRequest**
-> InlineResponse20014 BankAccountValidationRequest (AccountValidationsRequest accountValidationsRequest)
+> InlineResponse20015 BankAccountValidationRequest (AccountValidationsRequest accountValidationsRequest)
 
 Visa Bank Account Validation Service
 
@@ -35,7 +35,7 @@ namespace Example
             try
             {
                 // Visa Bank Account Validation Service
-                InlineResponse20014 result = apiInstance.BankAccountValidationRequest(accountValidationsRequest);
+                InlineResponse20015 result = apiInstance.BankAccountValidationRequest(accountValidationsRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 

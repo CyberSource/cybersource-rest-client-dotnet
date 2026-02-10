@@ -184,6 +184,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CustomLabels'
         }
+        /// <summary>
+        /// Test the property 'CustomRedirectUrls'
+        /// </summary>
+        [Test]
+        public void CustomRedirectUrlsTest()
+        {
+            // TODO unit test for the property 'CustomRedirectUrls'
+        }
 
     }
 

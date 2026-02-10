@@ -3,9 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProductId** | **string** | Product ID. | [optional] 
-**ProductName** | **string** | Product Name. | [optional] 
-**EventTypes** | [**List&lt;Notificationsubscriptionsv2productsorganizationIdEventTypes&gt;**](Notificationsubscriptionsv2productsorganizationIdEventTypes.md) |  | [optional] 
+**RegistrationInformation** | [**Boardingv1registrationsRegistrationInformation**](Boardingv1registrationsRegistrationInformation.md) |  | [optional] 
+**IntegrationInformation** | [**InlineResponse2005IntegrationInformation**](InlineResponse2005IntegrationInformation.md) |  | [optional] 
+**OrganizationInformation** | [**Boardingv1registrationsOrganizationInformation**](Boardingv1registrationsOrganizationInformation.md) |  | [optional] 
+**ProductInformation** | [**Boardingv1registrationsProductInformation**](Boardingv1registrationsProductInformation.md) |  | [optional] 
+**ProductInformationSetups** | [**List&lt;InlineResponse2014ProductInformationSetups&gt;**](InlineResponse2014ProductInformationSetups.md) |  | [optional] 
+**DocumentInformation** | [**Boardingv1registrationsDocumentInformation**](Boardingv1registrationsDocumentInformation.md) |  | [optional] 
+**Details** | **Dictionary&lt;string, List&lt;Object&gt;&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

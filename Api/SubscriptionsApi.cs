@@ -105,8 +105,9 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
+        /// <param name="customerId">Filter by Customer Id (optional)</param>
         /// <returns>GetAllSubscriptionsResponse</returns>
-        GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null);
+        GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null);
 
         /// <summary>
         /// Get a List of Subscriptions
@@ -119,8 +120,9 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
+        /// <param name="customerId">Filter by Customer Id (optional)</param>
         /// <returns>ApiResponse of GetAllSubscriptionsResponse</returns>
-        ApiResponse<GetAllSubscriptionsResponse> GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null);
+        ApiResponse<GetAllSubscriptionsResponse> GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null);
         /// <summary>
         /// Get a Subscription
         /// </summary>
@@ -283,8 +285,9 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
+        /// <param name="customerId">Filter by Customer Id (optional)</param>
         /// <returns>Task of GetAllSubscriptionsResponse</returns>
-        System.Threading.Tasks.Task<GetAllSubscriptionsResponse> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null);
+        System.Threading.Tasks.Task<GetAllSubscriptionsResponse> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null);
 
         /// <summary>
         /// Get a List of Subscriptions
@@ -297,8 +300,9 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
+        /// <param name="customerId">Filter by Customer Id (optional)</param>
         /// <returns>Task of ApiResponse (GetAllSubscriptionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAllSubscriptionsResponse>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null);
+        System.Threading.Tasks.Task<ApiResponse<GetAllSubscriptionsResponse>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null);
         /// <summary>
         /// Get a Subscription
         /// </summary>
@@ -1255,12 +1259,13 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
+        /// <param name="customerId">Filter by Customer Id (optional)</param>
         /// <returns>GetAllSubscriptionsResponse</returns>
-        public GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null)
+        public GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null)
         {
             logger.Debug("CALLING API \"GetAllSubscriptions\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<GetAllSubscriptionsResponse> localVarResponse = GetAllSubscriptionsWithHttpInfo(offset, limit, code, status);
+            ApiResponse<GetAllSubscriptionsResponse> localVarResponse = GetAllSubscriptionsWithHttpInfo(offset, limit, code, status, customerId);
             logger.Debug("CALLING API \"GetAllSubscriptions\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1274,8 +1279,9 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
+        /// <param name="customerId">Filter by Customer Id (optional)</param>
         /// <returns>ApiResponse of GetAllSubscriptionsResponse</returns>
-        public ApiResponse< GetAllSubscriptionsResponse > GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null)
+        public ApiResponse< GetAllSubscriptionsResponse > GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1323,6 +1329,11 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
             }
+            if (customerId != null)
+            {
+                localVarQueryParams.Add("customerId", Configuration.ApiClient.ParameterToString(customerId)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
@@ -1391,12 +1402,13 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
+        /// <param name="customerId">Filter by Customer Id (optional)</param>
         /// <returns>Task of GetAllSubscriptionsResponse</returns>
-        public async System.Threading.Tasks.Task<GetAllSubscriptionsResponse> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null)
+        public async System.Threading.Tasks.Task<GetAllSubscriptionsResponse> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null)
         {
             logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<GetAllSubscriptionsResponse> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo(offset, limit, code, status);
+            ApiResponse<GetAllSubscriptionsResponse> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo(offset, limit, code, status, customerId);
             logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1411,8 +1423,9 @@ namespace CyberSource.Api
         /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
+        /// <param name="customerId">Filter by Customer Id (optional)</param>
         /// <returns>Task of ApiResponse (GetAllSubscriptionsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetAllSubscriptionsResponse>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetAllSubscriptionsResponse>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1460,6 +1473,11 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
             }
+            if (customerId != null)
+            {
+                localVarQueryParams.Add("customerId", Configuration.ApiClient.ParameterToString(customerId)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");

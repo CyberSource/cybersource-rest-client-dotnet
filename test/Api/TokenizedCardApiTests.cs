@@ -87,7 +87,7 @@ namespace CyberSource.Test
             //string tokenizedCardId = null;
             //string profileId = null;
             //var response = instance.GetTokenizedCard(tokenizedCardId, profileId);
-            //Assert.IsInstanceOf<TokenizedcardRequest> (response, "response is TokenizedcardRequest");
+            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
         }
         
         /// <summary>
@@ -111,10 +111,10 @@ namespace CyberSource.Test
         public void PostTokenizedCardTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //TokenizedcardRequest tokenizedcardRequest = null;
+            //PostTokenizedCardRequest postTokenizedCardRequest = null;
             //string profileId = null;
-            //var response = instance.PostTokenizedCard(tokenizedcardRequest, profileId);
-            //Assert.IsInstanceOf<TokenizedcardRequest> (response, "response is TokenizedcardRequest");
+            //var response = instance.PostTokenizedCard(postTokenizedCardRequest, profileId);
+            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
         }
         
     }

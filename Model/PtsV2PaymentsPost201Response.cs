@@ -55,9 +55,10 @@ namespace CyberSource.Model
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
+        /// <param name="ClearingInformation">ClearingInformation.</param>
         /// <param name="EmbeddedActions">EmbeddedActions.</param>
         /// <param name="WatchlistScreeningInformation">WatchlistScreeningInformation.</param>
-        public PtsV2PaymentsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string Message = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PaymentsPost201ResponseProcessingInformation), PtsV2PaymentsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsPost201ResponseProcessorInformation), PtsV2PaymentsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PaymentsPost201ResponseIssuerInformation), PtsV2PaymentsPost201ResponsePaymentAccountInformation PaymentAccountInformation = default(PtsV2PaymentsPost201ResponsePaymentAccountInformation), PtsV2PaymentsPost201ResponsePaymentInformation PaymentInformation = default(PtsV2PaymentsPost201ResponsePaymentInformation), PtsV2PaymentsPost201ResponsePaymentInsightsInformation PaymentInsightsInformation = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformation), PtsV2PaymentsPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsPost201ResponseOrderInformation), PtsV2PaymentsPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsPost201ResponsePointOfSaleInformation), PtsV2PaymentsPost201ResponseInstallmentInformation InstallmentInformation = default(PtsV2PaymentsPost201ResponseInstallmentInformation), PtsV2PaymentsPost201ResponseTokenInformation TokenInformation = default(PtsV2PaymentsPost201ResponseTokenInformation), PtsV2PaymentsPost201ResponseBuyerInformation BuyerInformation = default(PtsV2PaymentsPost201ResponseBuyerInformation), PtsV2PaymentsPost201ResponseRiskInformation RiskInformation = default(PtsV2PaymentsPost201ResponseRiskInformation), PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation), PtsV2PaymentsPost201ResponseMerchantInformation MerchantInformation = default(PtsV2PaymentsPost201ResponseMerchantInformation), PtsV2PaymentsPost201ResponseEmbeddedActions EmbeddedActions = default(PtsV2PaymentsPost201ResponseEmbeddedActions), PtsV2PaymentsPost201ResponseWatchlistScreeningInformation WatchlistScreeningInformation = default(PtsV2PaymentsPost201ResponseWatchlistScreeningInformation))
+        public PtsV2PaymentsPost201Response(PtsV2PaymentsPost201ResponseLinks Links = default(PtsV2PaymentsPost201ResponseLinks), string Id = default(string), string Message = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsPost201ResponseErrorInformation), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PaymentsPost201ResponseProcessingInformation), PtsV2PaymentsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsPost201ResponseProcessorInformation), PtsV2PaymentsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PaymentsPost201ResponseIssuerInformation), PtsV2PaymentsPost201ResponsePaymentAccountInformation PaymentAccountInformation = default(PtsV2PaymentsPost201ResponsePaymentAccountInformation), PtsV2PaymentsPost201ResponsePaymentInformation PaymentInformation = default(PtsV2PaymentsPost201ResponsePaymentInformation), PtsV2PaymentsPost201ResponsePaymentInsightsInformation PaymentInsightsInformation = default(PtsV2PaymentsPost201ResponsePaymentInsightsInformation), PtsV2PaymentsPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsPost201ResponseOrderInformation), PtsV2PaymentsPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsPost201ResponsePointOfSaleInformation), PtsV2PaymentsPost201ResponseInstallmentInformation InstallmentInformation = default(PtsV2PaymentsPost201ResponseInstallmentInformation), PtsV2PaymentsPost201ResponseTokenInformation TokenInformation = default(PtsV2PaymentsPost201ResponseTokenInformation), PtsV2PaymentsPost201ResponseBuyerInformation BuyerInformation = default(PtsV2PaymentsPost201ResponseBuyerInformation), PtsV2PaymentsPost201ResponseRiskInformation RiskInformation = default(PtsV2PaymentsPost201ResponseRiskInformation), PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation), PtsV2PaymentsPost201ResponseMerchantInformation MerchantInformation = default(PtsV2PaymentsPost201ResponseMerchantInformation), PtsV2PaymentsPost201ResponseClearingInformation ClearingInformation = default(PtsV2PaymentsPost201ResponseClearingInformation), PtsV2PaymentsPost201ResponseEmbeddedActions EmbeddedActions = default(PtsV2PaymentsPost201ResponseEmbeddedActions), PtsV2PaymentsPost201ResponseWatchlistScreeningInformation WatchlistScreeningInformation = default(PtsV2PaymentsPost201ResponseWatchlistScreeningInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -81,6 +82,7 @@ namespace CyberSource.Model
             this.RiskInformation = RiskInformation;
             this.ConsumerAuthenticationInformation = ConsumerAuthenticationInformation;
             this.MerchantInformation = MerchantInformation;
+            this.ClearingInformation = ClearingInformation;
             this.EmbeddedActions = EmbeddedActions;
             this.WatchlistScreeningInformation = WatchlistScreeningInformation;
         }
@@ -223,6 +225,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ClearingInformation
+        /// </summary>
+        [DataMember(Name="clearingInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseClearingInformation ClearingInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets EmbeddedActions
         /// </summary>
         [DataMember(Name="embeddedActions", EmitDefaultValue=false)]
@@ -264,6 +272,7 @@ namespace CyberSource.Model
             if (RiskInformation != null) sb.Append("  RiskInformation: ").Append(RiskInformation).Append("\n");
             if (ConsumerAuthenticationInformation != null) sb.Append("  ConsumerAuthenticationInformation: ").Append(ConsumerAuthenticationInformation).Append("\n");
             if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            if (ClearingInformation != null) sb.Append("  ClearingInformation: ").Append(ClearingInformation).Append("\n");
             if (EmbeddedActions != null) sb.Append("  EmbeddedActions: ").Append(EmbeddedActions).Append("\n");
             if (WatchlistScreeningInformation != null) sb.Append("  WatchlistScreeningInformation: ").Append(WatchlistScreeningInformation).Append("\n");
             sb.Append("}\n");
@@ -413,6 +422,11 @@ namespace CyberSource.Model
                     this.MerchantInformation.Equals(other.MerchantInformation)
                 ) && 
                 (
+                    this.ClearingInformation == other.ClearingInformation ||
+                    this.ClearingInformation != null &&
+                    this.ClearingInformation.Equals(other.ClearingInformation)
+                ) && 
+                (
                     this.EmbeddedActions == other.EmbeddedActions ||
                     this.EmbeddedActions != null &&
                     this.EmbeddedActions.Equals(other.EmbeddedActions)
@@ -479,6 +493,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ConsumerAuthenticationInformation.GetHashCode();
                 if (this.MerchantInformation != null)
                     hash = hash * 59 + this.MerchantInformation.GetHashCode();
+                if (this.ClearingInformation != null)
+                    hash = hash * 59 + this.ClearingInformation.GetHashCode();
                 if (this.EmbeddedActions != null)
                     hash = hash * 59 + this.EmbeddedActions.GetHashCode();
                 if (this.WatchlistScreeningInformation != null)

@@ -81,6 +81,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'BusinessApplicationId'
         }
         /// <summary>
+        /// Test the property 'DefaultBusinessApplicationId'
+        /// </summary>
+        [Test]
+        public void DefaultBusinessApplicationIdTest()
+        {
+            // TODO unit test for the property 'DefaultBusinessApplicationId'
+        }
+        /// <summary>
         /// Test the property 'Aggregator'
         /// </summary>
         [Test]

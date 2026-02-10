@@ -54,9 +54,10 @@ namespace CyberSource.Model
         /// <param name="SubMerchantBusinessName">Sub-merchant&#39;s business name. Applicable for American Express Direct (amexdirect) processor.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Min. Length&lt;/th&gt;&lt;th&gt;Max. Length&lt;/th&gt;&lt;th&gt;Regex&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;American Express Direct&lt;/td&gt;&lt;td&gt;cnp, cp, hybrid&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;37&lt;/td&gt;&lt;td&gt;^[0-9a-zA-Z&amp;#92;-&amp;#92;_&amp;#92;,\\s.]+$&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
         /// <param name="PreferCobadgedSecondaryBrand">It denotes merchant&#39;s preference on secondary brand for routing in case of co-branded cards. Applicable for EFTPOS processors..</param>
         /// <param name="MerchantDescriptorInformation">MerchantDescriptorInformation.</param>
+        /// <param name="AcquirerAgreement">AcquirerAgreement.</param>
         /// <param name="GovernmentControlled">Indicates whether the merchant is government controlled. Applicable for VPC processors..</param>
         /// <param name="DropBillingInfo">This field is used to indicate whether the merchant wants to drop the billing information from the request. If this field is set to true, then the billing information will be dropped from the request. If this field is set to false, then the billing information will be sent in the request..</param>
-        public CardProcessingConfigCommon(Dictionary<string, CardProcessingConfigCommonProcessors> Processors = default(Dictionary<string, CardProcessingConfigCommonProcessors>), string AmexVendorCode = default(string), string DefaultAuthTypeCode = default(string), string MasterCardAssignedId = default(string), bool? EnablePartialAuth = default(bool?), string MerchantCategoryCode = default(string), string SicCode = default(string), string FoodAndConsumerServiceId = default(string), bool? EnableSplitShipment = default(bool?), bool? EnableInterchangeOptimization = default(bool?), string VisaDelegatedAuthenticationId = default(string), string CreditCardRefundLimitPercent = default(string), string BusinessCenterCreditCardRefundLimitPercent = default(string), bool? AllowCapturesGreaterThanAuthorizations = default(bool?), bool? EnableDuplicateMerchantReferenceNumberBlocking = default(bool?), bool? DomesticMerchantId = default(bool?), string ProcessLevel3Data = default(string), string SubMerchantId = default(string), string SubMerchantBusinessName = default(string), bool? PreferCobadgedSecondaryBrand = default(bool?), CardProcessingConfigCommonMerchantDescriptorInformation MerchantDescriptorInformation = default(CardProcessingConfigCommonMerchantDescriptorInformation), bool? GovernmentControlled = default(bool?), bool? DropBillingInfo = default(bool?))
+        public CardProcessingConfigCommon(Dictionary<string, CardProcessingConfigCommonProcessors> Processors = default(Dictionary<string, CardProcessingConfigCommonProcessors>), string AmexVendorCode = default(string), string DefaultAuthTypeCode = default(string), string MasterCardAssignedId = default(string), bool? EnablePartialAuth = default(bool?), string MerchantCategoryCode = default(string), string SicCode = default(string), string FoodAndConsumerServiceId = default(string), bool? EnableSplitShipment = default(bool?), bool? EnableInterchangeOptimization = default(bool?), string VisaDelegatedAuthenticationId = default(string), string CreditCardRefundLimitPercent = default(string), string BusinessCenterCreditCardRefundLimitPercent = default(string), bool? AllowCapturesGreaterThanAuthorizations = default(bool?), bool? EnableDuplicateMerchantReferenceNumberBlocking = default(bool?), bool? DomesticMerchantId = default(bool?), string ProcessLevel3Data = default(string), string SubMerchantId = default(string), string SubMerchantBusinessName = default(string), bool? PreferCobadgedSecondaryBrand = default(bool?), CardProcessingConfigCommonMerchantDescriptorInformation MerchantDescriptorInformation = default(CardProcessingConfigCommonMerchantDescriptorInformation), CardProcessingConfigCommonAcquirerAgreement AcquirerAgreement = default(CardProcessingConfigCommonAcquirerAgreement), bool? GovernmentControlled = default(bool?), bool? DropBillingInfo = default(bool?))
         {
             this.Processors = Processors;
             this.AmexVendorCode = AmexVendorCode;
@@ -79,6 +80,7 @@ namespace CyberSource.Model
             this.SubMerchantBusinessName = SubMerchantBusinessName;
             this.PreferCobadgedSecondaryBrand = PreferCobadgedSecondaryBrand;
             this.MerchantDescriptorInformation = MerchantDescriptorInformation;
+            this.AcquirerAgreement = AcquirerAgreement;
             this.GovernmentControlled = GovernmentControlled;
             this.DropBillingInfo = DropBillingInfo;
         }
@@ -230,6 +232,12 @@ namespace CyberSource.Model
         public CardProcessingConfigCommonMerchantDescriptorInformation MerchantDescriptorInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets AcquirerAgreement
+        /// </summary>
+        [DataMember(Name="acquirerAgreement", EmitDefaultValue=false)]
+        public CardProcessingConfigCommonAcquirerAgreement AcquirerAgreement { get; set; }
+
+        /// <summary>
         /// Indicates whether the merchant is government controlled. Applicable for VPC processors.
         /// </summary>
         /// <value>Indicates whether the merchant is government controlled. Applicable for VPC processors.</value>
@@ -272,6 +280,7 @@ namespace CyberSource.Model
             if (SubMerchantBusinessName != null) sb.Append("  SubMerchantBusinessName: ").Append(SubMerchantBusinessName).Append("\n");
             if (PreferCobadgedSecondaryBrand != null) sb.Append("  PreferCobadgedSecondaryBrand: ").Append(PreferCobadgedSecondaryBrand).Append("\n");
             if (MerchantDescriptorInformation != null) sb.Append("  MerchantDescriptorInformation: ").Append(MerchantDescriptorInformation).Append("\n");
+            if (AcquirerAgreement != null) sb.Append("  AcquirerAgreement: ").Append(AcquirerAgreement).Append("\n");
             if (GovernmentControlled != null) sb.Append("  GovernmentControlled: ").Append(GovernmentControlled).Append("\n");
             if (DropBillingInfo != null) sb.Append("  DropBillingInfo: ").Append(DropBillingInfo).Append("\n");
             sb.Append("}\n");
@@ -416,6 +425,11 @@ namespace CyberSource.Model
                     this.MerchantDescriptorInformation.Equals(other.MerchantDescriptorInformation)
                 ) && 
                 (
+                    this.AcquirerAgreement == other.AcquirerAgreement ||
+                    this.AcquirerAgreement != null &&
+                    this.AcquirerAgreement.Equals(other.AcquirerAgreement)
+                ) && 
+                (
                     this.GovernmentControlled == other.GovernmentControlled ||
                     this.GovernmentControlled != null &&
                     this.GovernmentControlled.Equals(other.GovernmentControlled)
@@ -480,6 +494,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PreferCobadgedSecondaryBrand.GetHashCode();
                 if (this.MerchantDescriptorInformation != null)
                     hash = hash * 59 + this.MerchantDescriptorInformation.GetHashCode();
+                if (this.AcquirerAgreement != null)
+                    hash = hash * 59 + this.AcquirerAgreement.GetHashCode();
                 if (this.GovernmentControlled != null)
                     hash = hash * 59 + this.GovernmentControlled.GetHashCode();
                 if (this.DropBillingInfo != null)

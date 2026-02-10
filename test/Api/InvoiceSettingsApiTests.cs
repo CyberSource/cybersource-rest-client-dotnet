@@ -71,7 +71,8 @@ namespace CyberSource.Test
         public void GetInvoiceSettingsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetInvoiceSettings();
+            //string productType = null;
+            //var response = instance.GetInvoiceSettings(productType);
             //Assert.IsInstanceOf<InvoicingV2InvoiceSettingsGet200Response> (response, "response is InvoicingV2InvoiceSettingsGet200Response");
         }
         
@@ -83,7 +84,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //InvoiceSettingsRequest invoiceSettingsRequest = null;
-            //var response = instance.UpdateInvoiceSettings(invoiceSettingsRequest);
+            //string productType = null;
+            //var response = instance.UpdateInvoiceSettings(invoiceSettingsRequest, productType);
             //Assert.IsInstanceOf<InvoicingV2InvoiceSettingsGet200Response> (response, "response is InvoicingV2InvoiceSettingsGet200Response");
         }
         

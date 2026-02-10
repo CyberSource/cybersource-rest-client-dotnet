@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **RiskInformation** | [**PtsV2PaymentsPost201ResponseRiskInformation**](PtsV2PaymentsPost201ResponseRiskInformation.md) |  | [optional] 
 **ConsumerAuthenticationInformation** | [**PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation**](PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation.md) |  | [optional] 
 **MerchantInformation** | [**PtsV2PaymentsPost201ResponseMerchantInformation**](PtsV2PaymentsPost201ResponseMerchantInformation.md) |  | [optional] 
+**ClearingInformation** | [**PtsV2PaymentsPost201ResponseClearingInformation**](PtsV2PaymentsPost201ResponseClearingInformation.md) |  | [optional] 
 **EmbeddedActions** | [**PtsV2PaymentsPost201ResponseEmbeddedActions**](PtsV2PaymentsPost201ResponseEmbeddedActions.md) |  | [optional] 
 **WatchlistScreeningInformation** | [**PtsV2PaymentsPost201ResponseWatchlistScreeningInformation**](PtsV2PaymentsPost201ResponseWatchlistScreeningInformation.md) |  | [optional] 
 

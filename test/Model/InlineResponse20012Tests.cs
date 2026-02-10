@@ -73,76 +73,52 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Links'
         }
         /// <summary>
-        /// Test the property 'BatchId'
+        /// Test the property 'Object'
         /// </summary>
         [Test]
-        public void BatchIdTest()
+        public void ObjectTest()
         {
-            // TODO unit test for the property 'BatchId'
+            // TODO unit test for the property 'Object'
         }
         /// <summary>
-        /// Test the property 'BatchCreatedDate'
+        /// Test the property 'Offset'
         /// </summary>
         [Test]
-        public void BatchCreatedDateTest()
+        public void OffsetTest()
         {
-            // TODO unit test for the property 'BatchCreatedDate'
+            // TODO unit test for the property 'Offset'
         }
         /// <summary>
-        /// Test the property 'BatchSource'
+        /// Test the property 'Limit'
         /// </summary>
         [Test]
-        public void BatchSourceTest()
+        public void LimitTest()
         {
-            // TODO unit test for the property 'BatchSource'
+            // TODO unit test for the property 'Limit'
         }
         /// <summary>
-        /// Test the property 'MerchantReference'
+        /// Test the property 'Count'
         /// </summary>
         [Test]
-        public void MerchantReferenceTest()
+        public void CountTest()
         {
-            // TODO unit test for the property 'MerchantReference'
+            // TODO unit test for the property 'Count'
         }
         /// <summary>
-        /// Test the property 'BatchCaEndpoints'
+        /// Test the property 'Total'
         /// </summary>
         [Test]
-        public void BatchCaEndpointsTest()
+        public void TotalTest()
         {
-            // TODO unit test for the property 'BatchCaEndpoints'
+            // TODO unit test for the property 'Total'
         }
         /// <summary>
-        /// Test the property 'Status'
+        /// Test the property 'Embedded'
         /// </summary>
         [Test]
-        public void StatusTest()
+        public void EmbeddedTest()
         {
-            // TODO unit test for the property 'Status'
-        }
-        /// <summary>
-        /// Test the property 'Totals'
-        /// </summary>
-        [Test]
-        public void TotalsTest()
-        {
-            // TODO unit test for the property 'Totals'
-        }
-        /// <summary>
-        /// Test the property 'Billing'
-        /// </summary>
-        [Test]
-        public void BillingTest()
-        {
-            // TODO unit test for the property 'Billing'
-        }
-        /// <summary>
-        /// Test the property 'Description'
-        /// </summary>
-        [Test]
-        public void DescriptionTest()
-        {
-            // TODO unit test for the property 'Description'
+            // TODO unit test for the property 'Embedded'
         }
 
     }

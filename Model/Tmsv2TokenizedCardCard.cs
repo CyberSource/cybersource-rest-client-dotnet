@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Card object used to create a network token 
+    /// Tmsv2TokenizedCardCard
     /// </summary>
     [DataContract]
     public partial class Tmsv2TokenizedCardCard :  IEquatable<Tmsv2TokenizedCardCard>, IValidatableObject
@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2TokenizedCardCard" /> class.
         /// </summary>
-        /// <param name="Number">The customer&#39;s payment card number, also known as the Primary Account Number (PAN). .</param>
+        /// <param name="Number">The latest customer&#39;s payment card number associated to the network token. .</param>
         /// <param name="ExpirationMonth">Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. .</param>
         /// <param name="ExpirationYear">Four-digit year in which the credit card expires.  Format: &#x60;YYYY&#x60;. .</param>
         /// <param name="Type">The type of card (Card Network). Possible Values: - 001: visa .</param>
@@ -48,9 +48,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The customer&#39;s payment card number, also known as the Primary Account Number (PAN). 
+        /// The latest customer&#39;s payment card number associated to the network token. 
         /// </summary>
-        /// <value>The customer&#39;s payment card number, also known as the Primary Account Number (PAN). </value>
+        /// <value>The latest customer&#39;s payment card number associated to the network token. </value>
         [DataMember(Name="number", EmitDefaultValue=false)]
         public string Number { get; set; }
 

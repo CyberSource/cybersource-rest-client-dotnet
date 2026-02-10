@@ -65,20 +65,12 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Links'
+        /// Test the property 'TotalCount'
         /// </summary>
         [Test]
-        public void LinksTest()
+        public void TotalCountTest()
         {
-            // TODO unit test for the property 'Links'
-        }
-        /// <summary>
-        /// Test the property 'Object'
-        /// </summary>
-        [Test]
-        public void ObjectTest()
-        {
-            // TODO unit test for the property 'Object'
+            // TODO unit test for the property 'TotalCount'
         }
         /// <summary>
         /// Test the property 'Offset'
@@ -97,6 +89,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Limit'
         }
         /// <summary>
+        /// Test the property 'Sort'
+        /// </summary>
+        [Test]
+        public void SortTest()
+        {
+            // TODO unit test for the property 'Sort'
+        }
+        /// <summary>
         /// Test the property 'Count'
         /// </summary>
         [Test]
@@ -105,20 +105,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Count'
         }
         /// <summary>
-        /// Test the property 'Total'
+        /// Test the property 'Devices'
         /// </summary>
         [Test]
-        public void TotalTest()
+        public void DevicesTest()
         {
-            // TODO unit test for the property 'Total'
-        }
-        /// <summary>
-        /// Test the property 'Embedded'
-        /// </summary>
-        [Test]
-        public void EmbeddedTest()
-        {
-            // TODO unit test for the property 'Embedded'
+            // TODO unit test for the property 'Devices'
         }
 
     }

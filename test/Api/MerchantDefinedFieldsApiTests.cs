@@ -74,7 +74,7 @@ namespace CyberSource.Test
             //string referenceType = null;
             //MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest = null;
             //var response = instance.CreateMerchantDefinedFieldDefinition(referenceType, merchantDefinedFieldDefinitionRequest);
-            //Assert.IsInstanceOf<List<InlineResponse2003>> (response, "response is List<InlineResponse2003>");
+            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
         }
         
         /// <summary>
@@ -99,7 +99,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string referenceType = null;
             //var response = instance.GetMerchantDefinedFieldsDefinitions(referenceType);
-            //Assert.IsInstanceOf<List<InlineResponse2003>> (response, "response is List<InlineResponse2003>");
+            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace CyberSource.Test
             //long? id = null;
             //MerchantDefinedFieldCore merchantDefinedFieldCore = null;
             //var response = instance.PutMerchantDefinedFieldsDefinitions(referenceType, id, merchantDefinedFieldCore);
-            //Assert.IsInstanceOf<List<InlineResponse2003>> (response, "response is List<InlineResponse2003>");
+            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
         }
         
     }

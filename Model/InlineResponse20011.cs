@@ -33,65 +33,63 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20011" /> class.
         /// </summary>
-        /// <param name="Links">Links.</param>
-        /// <param name="Object">Object.</param>
-        /// <param name="Offset">Offset.</param>
-        /// <param name="Limit">Limit.</param>
-        /// <param name="Count">Count.</param>
-        /// <param name="Total">Total.</param>
-        /// <param name="Embedded">Embedded.</param>
-        public InlineResponse20011(List<InlineResponse20011Links> Links = default(List<InlineResponse20011Links>), string Object = default(string), int? Offset = default(int?), int? Limit = default(int?), int? Count = default(int?), int? Total = default(int?), InlineResponse20011Embedded Embedded = default(InlineResponse20011Embedded))
+        /// <param name="TotalCount">Total number of results..</param>
+        /// <param name="Offset">Controls the starting point within the collection of results, which defaults to 0. The first item in the collection is retrieved by setting a zero offset.  For example, if you have a collection of 15 items to be retrieved from a resource and you specify limit&#x3D;5, you can retrieve the entire set of results in 3 successive requests by varying the offset value like this:  &#x60;offset&#x3D;0&#x60; &#x60;offset&#x3D;5&#x60; &#x60;offset&#x3D;10&#x60;  **Note:** If an offset larger than the number of results is provided, this will result in no embedded object being returned. .</param>
+        /// <param name="Limit">Controls the maximum number of items that may be returned for a single request. The default is 20, the maximum is 2500. .</param>
+        /// <param name="Sort">A comma separated list of the following form:  &#x60;terminalCreationDate:desc or serialNumber or terminalUpdationDate&#x60; .</param>
+        /// <param name="Count">Results for this page, this could be below the limit..</param>
+        /// <param name="Devices">A collection of devices.</param>
+        public InlineResponse20011(int? TotalCount = default(int?), int? Offset = default(int?), int? Limit = default(int?), string Sort = default(string), int? Count = default(int?), List<InlineResponse20011Devices> Devices = default(List<InlineResponse20011Devices>))
         {
-            this.Links = Links;
-            this.Object = Object;
+            this.TotalCount = TotalCount;
             this.Offset = Offset;
             this.Limit = Limit;
+            this.Sort = Sort;
             this.Count = Count;
-            this.Total = Total;
-            this.Embedded = Embedded;
+            this.Devices = Devices;
         }
         
         /// <summary>
-        /// Gets or Sets Links
+        /// Total number of results.
         /// </summary>
-        [DataMember(Name="_links", EmitDefaultValue=false)]
-        public List<InlineResponse20011Links> Links { get; set; }
+        /// <value>Total number of results.</value>
+        [DataMember(Name="totalCount", EmitDefaultValue=false)]
+        public int? TotalCount { get; set; }
 
         /// <summary>
-        /// Gets or Sets Object
+        /// Controls the starting point within the collection of results, which defaults to 0. The first item in the collection is retrieved by setting a zero offset.  For example, if you have a collection of 15 items to be retrieved from a resource and you specify limit&#x3D;5, you can retrieve the entire set of results in 3 successive requests by varying the offset value like this:  &#x60;offset&#x3D;0&#x60; &#x60;offset&#x3D;5&#x60; &#x60;offset&#x3D;10&#x60;  **Note:** If an offset larger than the number of results is provided, this will result in no embedded object being returned. 
         /// </summary>
-        [DataMember(Name="object", EmitDefaultValue=false)]
-        public string Object { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Offset
-        /// </summary>
+        /// <value>Controls the starting point within the collection of results, which defaults to 0. The first item in the collection is retrieved by setting a zero offset.  For example, if you have a collection of 15 items to be retrieved from a resource and you specify limit&#x3D;5, you can retrieve the entire set of results in 3 successive requests by varying the offset value like this:  &#x60;offset&#x3D;0&#x60; &#x60;offset&#x3D;5&#x60; &#x60;offset&#x3D;10&#x60;  **Note:** If an offset larger than the number of results is provided, this will result in no embedded object being returned. </value>
         [DataMember(Name="offset", EmitDefaultValue=false)]
         public int? Offset { get; set; }
 
         /// <summary>
-        /// Gets or Sets Limit
+        /// Controls the maximum number of items that may be returned for a single request. The default is 20, the maximum is 2500. 
         /// </summary>
+        /// <value>Controls the maximum number of items that may be returned for a single request. The default is 20, the maximum is 2500. </value>
         [DataMember(Name="limit", EmitDefaultValue=false)]
         public int? Limit { get; set; }
 
         /// <summary>
-        /// Gets or Sets Count
+        /// A comma separated list of the following form:  &#x60;terminalCreationDate:desc or serialNumber or terminalUpdationDate&#x60; 
         /// </summary>
+        /// <value>A comma separated list of the following form:  &#x60;terminalCreationDate:desc or serialNumber or terminalUpdationDate&#x60; </value>
+        [DataMember(Name="sort", EmitDefaultValue=false)]
+        public string Sort { get; set; }
+
+        /// <summary>
+        /// Results for this page, this could be below the limit.
+        /// </summary>
+        /// <value>Results for this page, this could be below the limit.</value>
         [DataMember(Name="count", EmitDefaultValue=false)]
         public int? Count { get; set; }
 
         /// <summary>
-        /// Gets or Sets Total
+        /// A collection of devices
         /// </summary>
-        [DataMember(Name="total", EmitDefaultValue=false)]
-        public int? Total { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Embedded
-        /// </summary>
-        [DataMember(Name="_embedded", EmitDefaultValue=false)]
-        public InlineResponse20011Embedded Embedded { get; set; }
+        /// <value>A collection of devices</value>
+        [DataMember(Name="devices", EmitDefaultValue=false)]
+        public List<InlineResponse20011Devices> Devices { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,13 +99,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20011 {\n");
-            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
-            if (Object != null) sb.Append("  Object: ").Append(Object).Append("\n");
+            if (TotalCount != null) sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
             if (Offset != null) sb.Append("  Offset: ").Append(Offset).Append("\n");
             if (Limit != null) sb.Append("  Limit: ").Append(Limit).Append("\n");
+            if (Sort != null) sb.Append("  Sort: ").Append(Sort).Append("\n");
             if (Count != null) sb.Append("  Count: ").Append(Count).Append("\n");
-            if (Total != null) sb.Append("  Total: ").Append(Total).Append("\n");
-            if (Embedded != null) sb.Append("  Embedded: ").Append(Embedded).Append("\n");
+            if (Devices != null) sb.Append("  Devices: ").Append(Devices).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,14 +142,9 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Links == other.Links ||
-                    this.Links != null &&
-                    this.Links.SequenceEqual(other.Links)
-                ) && 
-                (
-                    this.Object == other.Object ||
-                    this.Object != null &&
-                    this.Object.Equals(other.Object)
+                    this.TotalCount == other.TotalCount ||
+                    this.TotalCount != null &&
+                    this.TotalCount.Equals(other.TotalCount)
                 ) && 
                 (
                     this.Offset == other.Offset ||
@@ -165,19 +157,19 @@ namespace CyberSource.Model
                     this.Limit.Equals(other.Limit)
                 ) && 
                 (
+                    this.Sort == other.Sort ||
+                    this.Sort != null &&
+                    this.Sort.Equals(other.Sort)
+                ) && 
+                (
                     this.Count == other.Count ||
                     this.Count != null &&
                     this.Count.Equals(other.Count)
                 ) && 
                 (
-                    this.Total == other.Total ||
-                    this.Total != null &&
-                    this.Total.Equals(other.Total)
-                ) && 
-                (
-                    this.Embedded == other.Embedded ||
-                    this.Embedded != null &&
-                    this.Embedded.Equals(other.Embedded)
+                    this.Devices == other.Devices ||
+                    this.Devices != null &&
+                    this.Devices.SequenceEqual(other.Devices)
                 );
         }
 
@@ -192,20 +184,18 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Links != null)
-                    hash = hash * 59 + this.Links.GetHashCode();
-                if (this.Object != null)
-                    hash = hash * 59 + this.Object.GetHashCode();
+                if (this.TotalCount != null)
+                    hash = hash * 59 + this.TotalCount.GetHashCode();
                 if (this.Offset != null)
                     hash = hash * 59 + this.Offset.GetHashCode();
                 if (this.Limit != null)
                     hash = hash * 59 + this.Limit.GetHashCode();
+                if (this.Sort != null)
+                    hash = hash * 59 + this.Sort.GetHashCode();
                 if (this.Count != null)
                     hash = hash * 59 + this.Count.GetHashCode();
-                if (this.Total != null)
-                    hash = hash * 59 + this.Total.GetHashCode();
-                if (this.Embedded != null)
-                    hash = hash * 59 + this.Embedded.GetHashCode();
+                if (this.Devices != null)
+                    hash = hash * 59 + this.Devices.GetHashCode();
                 return hash;
             }
         }

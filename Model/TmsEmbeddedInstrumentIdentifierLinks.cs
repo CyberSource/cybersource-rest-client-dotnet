@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Self">Self.</param>
         /// <param name="PaymentInstruments">PaymentInstruments.</param>
-        public TmsEmbeddedInstrumentIdentifierLinks(TmsEmbeddedInstrumentIdentifierLinksSelf Self = default(TmsEmbeddedInstrumentIdentifierLinksSelf), TmsEmbeddedInstrumentIdentifierLinksPaymentInstruments PaymentInstruments = default(TmsEmbeddedInstrumentIdentifierLinksPaymentInstruments))
+        /// <param name="TokenizedCards">TokenizedCards.</param>
+        public TmsEmbeddedInstrumentIdentifierLinks(TmsEmbeddedInstrumentIdentifierLinksSelf Self = default(TmsEmbeddedInstrumentIdentifierLinksSelf), TmsEmbeddedInstrumentIdentifierLinksPaymentInstruments PaymentInstruments = default(TmsEmbeddedInstrumentIdentifierLinksPaymentInstruments), TmsEmbeddedInstrumentIdentifierLinksTokenizedcards TokenizedCards = default(TmsEmbeddedInstrumentIdentifierLinksTokenizedcards))
         {
             this.Self = Self;
             this.PaymentInstruments = PaymentInstruments;
+            this.TokenizedCards = TokenizedCards;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         public TmsEmbeddedInstrumentIdentifierLinksPaymentInstruments PaymentInstruments { get; set; }
 
         /// <summary>
+        /// Gets or Sets TokenizedCards
+        /// </summary>
+        [DataMember(Name="tokenized-cards", EmitDefaultValue=false)]
+        public TmsEmbeddedInstrumentIdentifierLinksTokenizedcards TokenizedCards { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace CyberSource.Model
             sb.Append("class TmsEmbeddedInstrumentIdentifierLinks {\n");
             if (Self != null) sb.Append("  Self: ").Append(Self).Append("\n");
             if (PaymentInstruments != null) sb.Append("  PaymentInstruments: ").Append(PaymentInstruments).Append("\n");
+            if (TokenizedCards != null) sb.Append("  TokenizedCards: ").Append(TokenizedCards).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace CyberSource.Model
                     this.PaymentInstruments == other.PaymentInstruments ||
                     this.PaymentInstruments != null &&
                     this.PaymentInstruments.Equals(other.PaymentInstruments)
+                ) && 
+                (
+                    this.TokenizedCards == other.TokenizedCards ||
+                    this.TokenizedCards != null &&
+                    this.TokenizedCards.Equals(other.TokenizedCards)
                 );
         }
 
@@ -126,6 +140,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Self.GetHashCode();
                 if (this.PaymentInstruments != null)
                     hash = hash * 59 + this.PaymentInstruments.GetHashCode();
+                if (this.TokenizedCards != null)
+                    hash = hash * 59 + this.TokenizedCards.GetHashCode();
                 return hash;
             }
         }

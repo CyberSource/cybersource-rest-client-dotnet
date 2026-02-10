@@ -233,6 +233,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'MerchantDescriptorInformation'
         }
         /// <summary>
+        /// Test the property 'AcquirerAgreement'
+        /// </summary>
+        [Test]
+        public void AcquirerAgreementTest()
+        {
+            // TODO unit test for the property 'AcquirerAgreement'
+        }
+        /// <summary>
         /// Test the property 'GovernmentControlled'
         /// </summary>
         [Test]

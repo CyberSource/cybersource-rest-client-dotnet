@@ -39,8 +39,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>InlineResponse2002</returns>
+        InlineResponse2002 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType);
 
         /// <summary>
         /// Retrieve Card Art
@@ -52,33 +52,58 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetCardArtAssetWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        ApiResponse<InlineResponse2002> GetCardArtAssetWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType);
         /// <summary>
-        /// Generate Payment Credentials for a TMS Token
+        /// Generate Payment Credentials v2
         /// </summary>
         /// <remarks>
-        /// |  |  |  |     | - -- | - -- | - -- |     |**Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// **Note**: This resource will be replace by [payment credentials version 3](#/paths/~1tms~1v3~1tokens~1{tokenId}~1payment-credentials/post). The SDK will remain available for now; however, it will no longer be documented or maintain in the Developer Centre.&lt;br&gt; **Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.&lt;br&gt; **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>string</returns>
-        string PostTokenPaymentCredentials (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
+        string PostTokenPaymentCredentials (string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null);
 
         /// <summary>
-        /// Generate Payment Credentials for a TMS Token
+        /// Generate Payment Credentials v2
         /// </summary>
         /// <remarks>
-        /// |  |  |  |     | - -- | - -- | - -- |     |**Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// **Note**: This resource will be replace by [payment credentials version 3](#/paths/~1tms~1v3~1tokens~1{tokenId}~1payment-credentials/post). The SDK will remain available for now; however, it will no longer be documented or maintain in the Developer Centre.&lt;br&gt; **Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.&lt;br&gt; **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PostTokenPaymentCredentialsWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
+        ApiResponse<string> PostTokenPaymentCredentialsWithHttpInfo (string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null);
+        /// <summary>
+        /// Generate Payment Credentials Latest Version v3
+        /// </summary>
+        /// <remarks>
+        /// **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated TAVV cryptogram for Visa &amp; MasterCard, dynamic CVV for Amex, or DTVV cryptogram for VISA. This latest version (v3) returns the Primary Account Number details, if the network token is not present. The response is provided in JSON Web Encryption (JWE) format. &lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>InlineResponse2011</returns>
+        InlineResponse2011 PostTokenPaymentCredentialsV3 (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
+
+        /// <summary>
+        /// Generate Payment Credentials Latest Version v3
+        /// </summary>
+        /// <remarks>
+        /// **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated TAVV cryptogram for Visa &amp; MasterCard, dynamic CVV for Amex, or DTVV cryptogram for VISA. This latest version (v3) returns the Primary Account Number details, if the network token is not present. The response is provided in JSON Web Encryption (JWE) format. &lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2011</returns>
+        ApiResponse<InlineResponse2011> PostTokenPaymentCredentialsV3WithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -91,8 +116,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetCardArtAssetAsync (string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>Task of InlineResponse2002</returns>
+        System.Threading.Tasks.Task<InlineResponse2002> GetCardArtAssetAsync (string instrumentIdentifierId, string tokenProvider, string assetType);
 
         /// <summary>
         /// Retrieve Card Art
@@ -104,33 +129,58 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetCardArtAssetAsyncWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCardArtAssetAsyncWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType);
         /// <summary>
-        /// Generate Payment Credentials for a TMS Token
+        /// Generate Payment Credentials v2
         /// </summary>
         /// <remarks>
-        /// |  |  |  |     | - -- | - -- | - -- |     |**Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// **Note**: This resource will be replace by [payment credentials version 3](#/paths/~1tms~1v3~1tokens~1{tokenId}~1payment-credentials/post). The SDK will remain available for now; however, it will no longer be documented or maintain in the Developer Centre.&lt;br&gt; **Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.&lt;br&gt; **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PostTokenPaymentCredentialsAsync (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
+        System.Threading.Tasks.Task<string> PostTokenPaymentCredentialsAsync (string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null);
 
         /// <summary>
-        /// Generate Payment Credentials for a TMS Token
+        /// Generate Payment Credentials v2
         /// </summary>
         /// <remarks>
-        /// |  |  |  |     | - -- | - -- | - -- |     |**Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// **Note**: This resource will be replace by [payment credentials version 3](#/paths/~1tms~1v3~1tokens~1{tokenId}~1payment-credentials/post). The SDK will remain available for now; however, it will no longer be documented or maintain in the Developer Centre.&lt;br&gt; **Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.&lt;br&gt; **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
+        System.Threading.Tasks.Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo (string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null);
+        /// <summary>
+        /// Generate Payment Credentials Latest Version v3
+        /// </summary>
+        /// <remarks>
+        /// **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated TAVV cryptogram for Visa &amp; MasterCard, dynamic CVV for Amex, or DTVV cryptogram for VISA. This latest version (v3) returns the Primary Account Number details, if the network token is not present. The response is provided in JSON Web Encryption (JWE) format. &lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>Task of InlineResponse2011</returns>
+        System.Threading.Tasks.Task<InlineResponse2011> PostTokenPaymentCredentialsV3Async (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
+
+        /// <summary>
+        /// Generate Payment Credentials Latest Version v3
+        /// </summary>
+        /// <remarks>
+        /// **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated TAVV cryptogram for Visa &amp; MasterCard, dynamic CVV for Amex, or DTVV cryptogram for VISA. This latest version (v3) returns the Primary Account Number details, if the network token is not present. The response is provided in JSON Web Encryption (JWE) format. &lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> PostTokenPaymentCredentialsV3AsyncWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
         #endregion Asynchronous Operations
     }
 
@@ -278,12 +328,12 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>InlineResponse2002</returns>
+        public InlineResponse2002 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             logger.Debug("CALLING API \"GetCardArtAsset\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2001> localVarResponse = GetCardArtAssetWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
+            ApiResponse<InlineResponse2002> localVarResponse = GetCardArtAssetWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
             logger.Debug("CALLING API \"GetCardArtAsset\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -296,8 +346,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse< InlineResponse2001 > GetCardArtAssetWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        public ApiResponse< InlineResponse2002 > GetCardArtAssetWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -410,9 +460,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001), merchantConfig)); // Return statement
+                (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -422,12 +472,12 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetCardArtAssetAsync (string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>Task of InlineResponse2002</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2002> GetCardArtAssetAsync (string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             logger.Debug("CALLING API \"GetCardArtAssetAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2001> localVarResponse = await GetCardArtAssetAsyncWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
+            ApiResponse<InlineResponse2002> localVarResponse = await GetCardArtAssetAsyncWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
             logger.Debug("CALLING API \"GetCardArtAssetAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -441,8 +491,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetCardArtAssetAsyncWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCardArtAssetAsyncWithHttpInfo (string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -555,19 +605,19 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001), merchantConfig)); // Return statement
+                (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002), merchantConfig)); // Return statement
         }
         /// <summary>
-        /// Generate Payment Credentials for a TMS Token |  |  |  |     | - -- | - -- | - -- |     |**Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// Generate Payment Credentials v2 **Note**: This resource will be replace by [payment credentials version 3](#/paths/~1tms~1v3~1tokens~1{tokenId}~1payment-credentials/post). The SDK will remain available for now; however, it will no longer be documented or maintain in the Developer Centre.&lt;br&gt; **Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.&lt;br&gt; **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>string</returns>
-        public string PostTokenPaymentCredentials (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        public string PostTokenPaymentCredentials (string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostTokenPaymentCredentials\" STARTED");
             this.SetStatusCode(null);
@@ -578,14 +628,14 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Generate Payment Credentials for a TMS Token |  |  |  |     | - -- | - -- | - -- |     |**Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// Generate Payment Credentials v2 **Note**: This resource will be replace by [payment credentials version 3](#/paths/~1tms~1v3~1tokens~1{tokenId}~1payment-credentials/post). The SDK will remain available for now; however, it will no longer be documented or maintain in the Developer Centre.&lt;br&gt; **Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.&lt;br&gt; **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > PostTokenPaymentCredentialsWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        public ApiResponse< string > PostTokenPaymentCredentialsWithHttpInfo (string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -638,7 +688,7 @@ namespace CyberSource.Api
             if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest1)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
             }
             else
@@ -689,14 +739,14 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Generate Payment Credentials for a TMS Token |  |  |  |     | - -- | - -- | - -- |     |**Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// Generate Payment Credentials v2 **Note**: This resource will be replace by [payment credentials version 3](#/paths/~1tms~1v3~1tokens~1{tokenId}~1payment-credentials/post). The SDK will remain available for now; however, it will no longer be documented or maintain in the Developer Centre.&lt;br&gt; **Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.&lt;br&gt; **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PostTokenPaymentCredentialsAsync (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        public async System.Threading.Tasks.Task<string> PostTokenPaymentCredentialsAsync (string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
         {
             logger.Debug("CALLING API \"PostTokenPaymentCredentialsAsync\" STARTED");
             this.SetStatusCode(null);
@@ -708,14 +758,14 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Generate Payment Credentials for a TMS Token |  |  |  |     | - -- | - -- | - -- |     |**Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// Generate Payment Credentials v2 **Note**: This resource will be replace by [payment credentials version 3](#/paths/~1tms~1v3~1tokens~1{tokenId}~1payment-credentials/post). The SDK will remain available for now; however, it will no longer be documented or maintain in the Developer Centre.&lt;br&gt; **Token**&lt;br&gt;A Token can represent your tokenized Customer, Payment Instrument, Instrument Identifier or Tokenized Card information.&lt;br&gt; **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated cryptogram for Visa &amp; MasterCard or dynamic CVV for Amex in a JSON Web Encryption (JWE) response.&lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo (string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -768,7 +818,7 @@ namespace CyberSource.Api
             if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest1)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
                 localVarPostBody = Configuration.ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
             }
             else
@@ -816,6 +866,264 @@ namespace CyberSource.Api
             return new ApiResponse<string>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string), merchantConfig)); // Return statement
+        }
+        /// <summary>
+        /// Generate Payment Credentials Latest Version v3 **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated TAVV cryptogram for Visa &amp; MasterCard, dynamic CVV for Amex, or DTVV cryptogram for VISA. This latest version (v3) returns the Primary Account Number details, if the network token is not present. The response is provided in JSON Web Encryption (JWE) format. &lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>InlineResponse2011</returns>
+        public InlineResponse2011 PostTokenPaymentCredentialsV3 (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        {
+            logger.Debug("CALLING API \"PostTokenPaymentCredentialsV3\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse2011> localVarResponse = PostTokenPaymentCredentialsV3WithHttpInfo(tokenId, postPaymentCredentialsRequest, profileId);
+            logger.Debug("CALLING API \"PostTokenPaymentCredentialsV3\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate Payment Credentials Latest Version v3 **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated TAVV cryptogram for Visa &amp; MasterCard, dynamic CVV for Amex, or DTVV cryptogram for VISA. This latest version (v3) returns the Primary Account Number details, if the network token is not present. The response is provided in JSON Web Encryption (JWE) format. &lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2011</returns>
+        public ApiResponse< InlineResponse2011 > PostTokenPaymentCredentialsV3WithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'tokenId' is set
+            if (tokenId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'tokenId' when calling TokenApi->PostTokenPaymentCredentialsV3");
+                throw new ApiException(400, "Missing required parameter 'tokenId' when calling TokenApi->PostTokenPaymentCredentialsV3");
+            }
+            // verify the required parameter 'postPaymentCredentialsRequest' is set
+            if (postPaymentCredentialsRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling TokenApi->PostTokenPaymentCredentialsV3");
+                throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsRequest' when calling TokenApi->PostTokenPaymentCredentialsV3");
+            }
+
+            var localVarPath = $"/tms/v3/tokens/{tokenId}/payment-credentials";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/jose;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (tokenId != null)
+            {
+                localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (profileId != null)
+            {
+                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = postPaymentCredentialsRequest; // byte array
+            }
+            
+            String inboundMLEStatus = "optional";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostTokenPaymentCredentialsV3,PostTokenPaymentCredentialsV3Async,PostTokenPaymentCredentialsV3WithHttpInfo,PostTokenPaymentCredentialsV3AsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "PostTokenPaymentCredentialsV3,PostTokenPaymentCredentialsV3Async,PostTokenPaymentCredentialsV3WithHttpInfo,PostTokenPaymentCredentialsV3AsyncWithHttpInfo");
+
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostTokenPaymentCredentialsV3", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011), merchantConfig)); // Return statement
+        }
+
+        /// <summary>
+        /// Generate Payment Credentials Latest Version v3 **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated TAVV cryptogram for Visa &amp; MasterCard, dynamic CVV for Amex, or DTVV cryptogram for VISA. This latest version (v3) returns the Primary Account Number details, if the network token is not present. The response is provided in JSON Web Encryption (JWE) format. &lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>Task of InlineResponse2011</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2011> PostTokenPaymentCredentialsV3Async (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        {
+            logger.Debug("CALLING API \"PostTokenPaymentCredentialsV3Async\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse2011> localVarResponse = await PostTokenPaymentCredentialsV3AsyncWithHttpInfo(tokenId, postPaymentCredentialsRequest, profileId);
+            logger.Debug("CALLING API \"PostTokenPaymentCredentialsV3Async\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate Payment Credentials Latest Version v3 **Payment Credentials**&lt;br&gt;Contains payment information such as the network token, generated TAVV cryptogram for Visa &amp; MasterCard, dynamic CVV for Amex, or DTVV cryptogram for VISA. This latest version (v3) returns the Primary Account Number details, if the network token is not present. The response is provided in JSON Web Encryption (JWE) format. &lt;br&gt;Your system can use this API to retrieve the Payment Credentials for an existing Customer, Payment Instrument, Instrument Identifier or Tokenized Card.&lt;br&gt;Optionally, **authenticated identities** information from Passkey authentication can be provided to potentially achieve liability shift, which may result in the return of an e-commerce indicator of 5 if successful. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
+        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> PostTokenPaymentCredentialsV3AsyncWithHttpInfo (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'tokenId' is set
+            if (tokenId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'tokenId' when calling TokenApi->PostTokenPaymentCredentialsV3");
+                throw new ApiException(400, "Missing required parameter 'tokenId' when calling TokenApi->PostTokenPaymentCredentialsV3");
+            }
+            // verify the required parameter 'postPaymentCredentialsRequest' is set
+            if (postPaymentCredentialsRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling TokenApi->PostTokenPaymentCredentialsV3");
+                throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsRequest' when calling TokenApi->PostTokenPaymentCredentialsV3");
+            }
+
+            var localVarPath = $"/tms/v3/tokens/{tokenId}/payment-credentials";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/jose;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (tokenId != null)
+            {
+                localVarPathParams.Add("tokenId", Configuration.ApiClient.ParameterToString(tokenId)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (profileId != null)
+            {
+                localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
+            }
+            if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = postPaymentCredentialsRequest; // byte array
+            }
+
+            String inboundMLEStatus = "optional";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostTokenPaymentCredentialsV3,PostTokenPaymentCredentialsV3Async,PostTokenPaymentCredentialsV3WithHttpInfo,PostTokenPaymentCredentialsV3AsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "PostTokenPaymentCredentialsV3,PostTokenPaymentCredentialsV3Async,PostTokenPaymentCredentialsV3WithHttpInfo,PostTokenPaymentCredentialsV3AsyncWithHttpInfo");
+
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PostTokenPaymentCredentialsV3", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InlineResponse2011) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011), merchantConfig)); // Return statement
         }
     }
 }

@@ -33,36 +33,33 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2011" /> class.
         /// </summary>
-        /// <param name="Id">UUID uniquely generated for this comments. .</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="Status">Status of the comment creation. Possible values are: - &#x60;COMPLETED&#x60; .</param>
-        public InlineResponse2011(string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string))
+        /// <param name="Links">Links.</param>
+        /// <param name="Card">Card.</param>
+        /// <param name="TokenizedCard">TokenizedCard.</param>
+        public InlineResponse2011(InlineResponse2011Links Links = default(InlineResponse2011Links), InlineResponse2011Card Card = default(InlineResponse2011Card), InlineResponse2011TokenizedCard TokenizedCard = default(InlineResponse2011TokenizedCard))
         {
-            this.Id = Id;
-            this.SubmitTimeUtc = SubmitTimeUtc;
-            this.Status = Status;
+            this.Links = Links;
+            this.Card = Card;
+            this.TokenizedCard = TokenizedCard;
         }
         
         /// <summary>
-        /// UUID uniquely generated for this comments. 
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>UUID uniquely generated for this comments. </value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
+        [DataMember(Name="_links", EmitDefaultValue=false)]
+        public InlineResponse2011Links Links { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
+        /// Gets or Sets Card
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
+        [DataMember(Name="card", EmitDefaultValue=false)]
+        public InlineResponse2011Card Card { get; set; }
 
         /// <summary>
-        /// Status of the comment creation. Possible values are: - &#x60;COMPLETED&#x60; 
+        /// Gets or Sets TokenizedCard
         /// </summary>
-        /// <value>Status of the comment creation. Possible values are: - &#x60;COMPLETED&#x60; </value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
+        [DataMember(Name="tokenizedCard", EmitDefaultValue=false)]
+        public InlineResponse2011TokenizedCard TokenizedCard { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,9 +69,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2011 {\n");
-            if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(Links).Append("\n");
+            if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
+            if (TokenizedCard != null) sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,19 +109,19 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.Equals(other.Links)
                 ) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.Card == other.Card ||
+                    this.Card != null &&
+                    this.Card.Equals(other.Card)
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.TokenizedCard == other.TokenizedCard ||
+                    this.TokenizedCard != null &&
+                    this.TokenizedCard.Equals(other.TokenizedCard)
                 );
         }
 
@@ -139,12 +136,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
+                if (this.Card != null)
+                    hash = hash * 59 + this.Card.GetHashCode();
+                if (this.TokenizedCard != null)
+                    hash = hash * 59 + this.TokenizedCard.GetHashCode();
                 return hash;
             }
         }

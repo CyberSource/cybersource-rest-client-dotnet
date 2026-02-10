@@ -33,43 +33,94 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20014" /> class.
         /// </summary>
-        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        /// <param name="RequestId">Request Id sent as part of the request..</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC.  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) .</param>
-        /// <param name="BankAccountValidation">BankAccountValidation.</param>
-        public InlineResponse20014(Bavsv1accountvalidationsClientReferenceInformation ClientReferenceInformation = default(Bavsv1accountvalidationsClientReferenceInformation), string RequestId = default(string), string SubmitTimeUtc = default(string), TssV2TransactionsGet200ResponseBankAccountValidation BankAccountValidation = default(TssV2TransactionsGet200ResponseBankAccountValidation))
+        /// <param name="Version">Version.</param>
+        /// <param name="ReportCreatedDate">ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ.</param>
+        /// <param name="BatchId">Unique identification number assigned to the submitted request..</param>
+        /// <param name="BatchSource">Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE .</param>
+        /// <param name="BatchCaEndpoints">BatchCaEndpoints.</param>
+        /// <param name="BatchCreatedDate">ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ.</param>
+        /// <param name="MerchantReference">Reference used by merchant to identify batch..</param>
+        /// <param name="Totals">Totals.</param>
+        /// <param name="Billing">Billing.</param>
+        /// <param name="Records">Records.</param>
+        public InlineResponse20014(string Version = default(string), string ReportCreatedDate = default(string), string BatchId = default(string), string BatchSource = default(string), string BatchCaEndpoints = default(string), string BatchCreatedDate = default(string), string MerchantReference = default(string), InlineResponse20012EmbeddedTotals Totals = default(InlineResponse20012EmbeddedTotals), InlineResponse20013Billing Billing = default(InlineResponse20013Billing), List<InlineResponse20014Records> Records = default(List<InlineResponse20014Records>))
         {
-            this.ClientReferenceInformation = ClientReferenceInformation;
-            this.RequestId = RequestId;
-            this.SubmitTimeUtc = SubmitTimeUtc;
-            this.BankAccountValidation = BankAccountValidation;
+            this.Version = Version;
+            this.ReportCreatedDate = ReportCreatedDate;
+            this.BatchId = BatchId;
+            this.BatchSource = BatchSource;
+            this.BatchCaEndpoints = BatchCaEndpoints;
+            this.BatchCreatedDate = BatchCreatedDate;
+            this.MerchantReference = MerchantReference;
+            this.Totals = Totals;
+            this.Billing = Billing;
+            this.Records = Records;
         }
         
         /// <summary>
-        /// Gets or Sets ClientReferenceInformation
+        /// Gets or Sets Version
         /// </summary>
-        [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Bavsv1accountvalidationsClientReferenceInformation ClientReferenceInformation { get; set; }
+        [DataMember(Name="version", EmitDefaultValue=false)]
+        public string Version { get; set; }
 
         /// <summary>
-        /// Request Id sent as part of the request.
+        /// ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ
         /// </summary>
-        /// <value>Request Id sent as part of the request.</value>
-        [DataMember(Name="requestId", EmitDefaultValue=false)]
-        public string RequestId { get; set; }
+        /// <value>ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ</value>
+        [DataMember(Name="reportCreatedDate", EmitDefaultValue=false)]
+        public string ReportCreatedDate { get; set; }
 
         /// <summary>
-        /// Time of request in UTC.  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) 
+        /// Unique identification number assigned to the submitted request.
         /// </summary>
-        /// <value>Time of request in UTC.  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
+        /// <value>Unique identification number assigned to the submitted request.</value>
+        [DataMember(Name="batchId", EmitDefaultValue=false)]
+        public string BatchId { get; set; }
 
         /// <summary>
-        /// Gets or Sets BankAccountValidation
+        /// Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE 
         /// </summary>
-        [DataMember(Name="bankAccountValidation", EmitDefaultValue=false)]
-        public TssV2TransactionsGet200ResponseBankAccountValidation BankAccountValidation { get; set; }
+        /// <value>Valid Values:   * SCHEDULER   * TOKEN_API   * CREDIT_CARD_FILE_UPLOAD   * AMEX_REGSITRY   * AMEX_REGISTRY_API   * AMEX_MAINTENANCE </value>
+        [DataMember(Name="batchSource", EmitDefaultValue=false)]
+        public string BatchSource { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BatchCaEndpoints
+        /// </summary>
+        [DataMember(Name="batchCaEndpoints", EmitDefaultValue=false)]
+        public string BatchCaEndpoints { get; set; }
+
+        /// <summary>
+        /// ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ
+        /// </summary>
+        /// <value>ISO-8601 format: yyyy-MM-ddTHH:mm:ssZ</value>
+        [DataMember(Name="batchCreatedDate", EmitDefaultValue=false)]
+        public string BatchCreatedDate { get; set; }
+
+        /// <summary>
+        /// Reference used by merchant to identify batch.
+        /// </summary>
+        /// <value>Reference used by merchant to identify batch.</value>
+        [DataMember(Name="merchantReference", EmitDefaultValue=false)]
+        public string MerchantReference { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Totals
+        /// </summary>
+        [DataMember(Name="totals", EmitDefaultValue=false)]
+        public InlineResponse20012EmbeddedTotals Totals { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Billing
+        /// </summary>
+        [DataMember(Name="billing", EmitDefaultValue=false)]
+        public InlineResponse20013Billing Billing { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Records
+        /// </summary>
+        [DataMember(Name="records", EmitDefaultValue=false)]
+        public List<InlineResponse20014Records> Records { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,10 +130,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20014 {\n");
-            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
-            if (RequestId != null) sb.Append("  RequestId: ").Append(RequestId).Append("\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
-            if (BankAccountValidation != null) sb.Append("  BankAccountValidation: ").Append(BankAccountValidation).Append("\n");
+            if (Version != null) sb.Append("  Version: ").Append(Version).Append("\n");
+            if (ReportCreatedDate != null) sb.Append("  ReportCreatedDate: ").Append(ReportCreatedDate).Append("\n");
+            if (BatchId != null) sb.Append("  BatchId: ").Append(BatchId).Append("\n");
+            if (BatchSource != null) sb.Append("  BatchSource: ").Append(BatchSource).Append("\n");
+            if (BatchCaEndpoints != null) sb.Append("  BatchCaEndpoints: ").Append(BatchCaEndpoints).Append("\n");
+            if (BatchCreatedDate != null) sb.Append("  BatchCreatedDate: ").Append(BatchCreatedDate).Append("\n");
+            if (MerchantReference != null) sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
+            if (Totals != null) sb.Append("  Totals: ").Append(Totals).Append("\n");
+            if (Billing != null) sb.Append("  Billing: ").Append(Billing).Append("\n");
+            if (Records != null) sb.Append("  Records: ").Append(Records).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,24 +177,54 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
-                    this.ClientReferenceInformation != null &&
-                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
+                    this.Version == other.Version ||
+                    this.Version != null &&
+                    this.Version.Equals(other.Version)
                 ) && 
                 (
-                    this.RequestId == other.RequestId ||
-                    this.RequestId != null &&
-                    this.RequestId.Equals(other.RequestId)
+                    this.ReportCreatedDate == other.ReportCreatedDate ||
+                    this.ReportCreatedDate != null &&
+                    this.ReportCreatedDate.Equals(other.ReportCreatedDate)
                 ) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.BatchId == other.BatchId ||
+                    this.BatchId != null &&
+                    this.BatchId.Equals(other.BatchId)
                 ) && 
                 (
-                    this.BankAccountValidation == other.BankAccountValidation ||
-                    this.BankAccountValidation != null &&
-                    this.BankAccountValidation.Equals(other.BankAccountValidation)
+                    this.BatchSource == other.BatchSource ||
+                    this.BatchSource != null &&
+                    this.BatchSource.Equals(other.BatchSource)
+                ) && 
+                (
+                    this.BatchCaEndpoints == other.BatchCaEndpoints ||
+                    this.BatchCaEndpoints != null &&
+                    this.BatchCaEndpoints.Equals(other.BatchCaEndpoints)
+                ) && 
+                (
+                    this.BatchCreatedDate == other.BatchCreatedDate ||
+                    this.BatchCreatedDate != null &&
+                    this.BatchCreatedDate.Equals(other.BatchCreatedDate)
+                ) && 
+                (
+                    this.MerchantReference == other.MerchantReference ||
+                    this.MerchantReference != null &&
+                    this.MerchantReference.Equals(other.MerchantReference)
+                ) && 
+                (
+                    this.Totals == other.Totals ||
+                    this.Totals != null &&
+                    this.Totals.Equals(other.Totals)
+                ) && 
+                (
+                    this.Billing == other.Billing ||
+                    this.Billing != null &&
+                    this.Billing.Equals(other.Billing)
+                ) && 
+                (
+                    this.Records == other.Records ||
+                    this.Records != null &&
+                    this.Records.SequenceEqual(other.Records)
                 );
         }
 
@@ -152,14 +239,26 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.ClientReferenceInformation != null)
-                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
-                if (this.RequestId != null)
-                    hash = hash * 59 + this.RequestId.GetHashCode();
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.BankAccountValidation != null)
-                    hash = hash * 59 + this.BankAccountValidation.GetHashCode();
+                if (this.Version != null)
+                    hash = hash * 59 + this.Version.GetHashCode();
+                if (this.ReportCreatedDate != null)
+                    hash = hash * 59 + this.ReportCreatedDate.GetHashCode();
+                if (this.BatchId != null)
+                    hash = hash * 59 + this.BatchId.GetHashCode();
+                if (this.BatchSource != null)
+                    hash = hash * 59 + this.BatchSource.GetHashCode();
+                if (this.BatchCaEndpoints != null)
+                    hash = hash * 59 + this.BatchCaEndpoints.GetHashCode();
+                if (this.BatchCreatedDate != null)
+                    hash = hash * 59 + this.BatchCreatedDate.GetHashCode();
+                if (this.MerchantReference != null)
+                    hash = hash * 59 + this.MerchantReference.GetHashCode();
+                if (this.Totals != null)
+                    hash = hash * 59 + this.Totals.GetHashCode();
+                if (this.Billing != null)
+                    hash = hash * 59 + this.Billing.GetHashCode();
+                if (this.Records != null)
+                    hash = hash * 59 + this.Records.GetHashCode();
                 return hash;
             }
         }

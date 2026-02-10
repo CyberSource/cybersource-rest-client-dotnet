@@ -241,6 +241,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'MerchantInformation'
         }
         /// <summary>
+        /// Test the property 'ClearingInformation'
+        /// </summary>
+        [Test]
+        public void ClearingInformationTest()
+        {
+            // TODO unit test for the property 'ClearingInformation'
+        }
+        /// <summary>
         /// Test the property 'EmbeddedActions'
         /// </summary>
         [Test]

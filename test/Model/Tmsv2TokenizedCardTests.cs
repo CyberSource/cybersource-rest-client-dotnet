@@ -65,14 +65,6 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Links'
-        /// </summary>
-        [Test]
-        public void LinksTest()
-        {
-            // TODO unit test for the property 'Links'
-        }
-        /// <summary>
         /// Test the property 'Id'
         /// </summary>
         [Test]
@@ -87,30 +79,6 @@ namespace CyberSource.Test
         public void ObjectTest()
         {
             // TODO unit test for the property 'Object'
-        }
-        /// <summary>
-        /// Test the property 'AccountReferenceId'
-        /// </summary>
-        [Test]
-        public void AccountReferenceIdTest()
-        {
-            // TODO unit test for the property 'AccountReferenceId'
-        }
-        /// <summary>
-        /// Test the property 'ConsumerId'
-        /// </summary>
-        [Test]
-        public void ConsumerIdTest()
-        {
-            // TODO unit test for the property 'ConsumerId'
-        }
-        /// <summary>
-        /// Test the property 'CreateInstrumentIdentifier'
-        /// </summary>
-        [Test]
-        public void CreateInstrumentIdentifierTest()
-        {
-            // TODO unit test for the property 'CreateInstrumentIdentifier'
         }
         /// <summary>
         /// Test the property 'Source'
@@ -129,12 +97,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'State'
         }
         /// <summary>
-        /// Test the property 'Reason'
+        /// Test the property 'EnrollmentId'
         /// </summary>
         [Test]
-        public void ReasonTest()
+        public void EnrollmentIdTest()
         {
-            // TODO unit test for the property 'Reason'
+            // TODO unit test for the property 'EnrollmentId'
+        }
+        /// <summary>
+        /// Test the property 'TokenReferenceId'
+        /// </summary>
+        [Test]
+        public void TokenReferenceIdTest()
+        {
+            // TODO unit test for the property 'TokenReferenceId'
         }
         /// <summary>
         /// Test the property 'Number'
@@ -169,6 +145,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Type'
         }
         /// <summary>
+        /// Test the property 'Reason'
+        /// </summary>
+        [Test]
+        public void ReasonTest()
+        {
+            // TODO unit test for the property 'Reason'
+        }
+        /// <summary>
         /// Test the property 'Cryptogram'
         /// </summary>
         [Test]
@@ -201,22 +185,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'RequestorId'
         }
         /// <summary>
-        /// Test the property 'EnrollmentId'
-        /// </summary>
-        [Test]
-        public void EnrollmentIdTest()
-        {
-            // TODO unit test for the property 'EnrollmentId'
-        }
-        /// <summary>
-        /// Test the property 'TokenReferenceId'
-        /// </summary>
-        [Test]
-        public void TokenReferenceIdTest()
-        {
-            // TODO unit test for the property 'TokenReferenceId'
-        }
-        /// <summary>
         /// Test the property 'PaymentAccountReference'
         /// </summary>
         [Test]
@@ -231,14 +199,6 @@ namespace CyberSource.Test
         public void CardTest()
         {
             // TODO unit test for the property 'Card'
-        }
-        /// <summary>
-        /// Test the property 'Passcode'
-        /// </summary>
-        [Test]
-        public void PasscodeTest()
-        {
-            // TODO unit test for the property 'Passcode'
         }
         /// <summary>
         /// Test the property 'Metadata'

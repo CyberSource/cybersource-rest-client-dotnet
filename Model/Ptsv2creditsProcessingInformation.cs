@@ -33,6 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2creditsProcessingInformation" /> class.
         /// </summary>
+        /// <param name="ActionList">Array of actions (one or more) to be included in the payment to invoke bundled services along with Standalone Credit.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s). .</param>
         /// <param name="CommerceIndicator">Type of transaction. Some payment card companies use this information when determining discount rates.  #### Used by **Authorization** Required payer authentication transactions; otherwise, optional. **Credit** Required for standalone credits on Chase Paymentech solutions; otherwise, optional.  The list of valid values in this field depends on your processor.  #### Ingenico ePayments When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value   #### Card Present You must set this field to &#x60;retail&#x60;. This field is required for a card-present transaction. Note that this should ONLY be used when the cardholder and card are present at the time of the transaction. For all keyed transactions originated from a POS terminal where the cardholder and card are not present, commerceIndicator should be submitted as \&quot;moto\&quot; .</param>
         /// <param name="ProcessorId">Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**.  Contact CyberSource Customer Support to get the value for this field. .</param>
         /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the REST API.](https://developer.cybersource.com/content/dam/docs/cybs/en-us/apifields/reference/all/rest/api-fields.pdf)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct.   - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. .</param>
@@ -52,8 +53,9 @@ namespace CyberSource.Model
         /// <param name="LoanOptions">LoanOptions.</param>
         /// <param name="JapanPaymentOptions">JapanPaymentOptions.</param>
         /// <param name="RefundOptions">RefundOptions.</param>
-        public Ptsv2creditsProcessingInformation(string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string WalletType = default(string), string NationalNetDomesticData = default(string), string NetworkRoutingOrder = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2creditsProcessingInformationJapanPaymentOptions), Ptsv2creditsProcessingInformationRefundOptions RefundOptions = default(Ptsv2creditsProcessingInformationRefundOptions))
+        public Ptsv2creditsProcessingInformation(List<string> ActionList = default(List<string>), string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string WalletType = default(string), string NationalNetDomesticData = default(string), string NetworkRoutingOrder = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2creditsProcessingInformationJapanPaymentOptions), Ptsv2creditsProcessingInformationRefundOptions RefundOptions = default(Ptsv2creditsProcessingInformationRefundOptions))
         {
+            this.ActionList = ActionList;
             this.CommerceIndicator = CommerceIndicator;
             this.ProcessorId = ProcessorId;
             this.PaymentSolution = PaymentSolution;
@@ -75,6 +77,13 @@ namespace CyberSource.Model
             this.RefundOptions = RefundOptions;
         }
         
+        /// <summary>
+        /// Array of actions (one or more) to be included in the payment to invoke bundled services along with Standalone Credit.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s). 
+        /// </summary>
+        /// <value>Array of actions (one or more) to be included in the payment to invoke bundled services along with Standalone Credit.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s). </value>
+        [DataMember(Name="actionList", EmitDefaultValue=false)]
+        public List<string> ActionList { get; set; }
+
         /// <summary>
         /// Type of transaction. Some payment card companies use this information when determining discount rates.  #### Used by **Authorization** Required payer authentication transactions; otherwise, optional. **Credit** Required for standalone credits on Chase Paymentech solutions; otherwise, optional.  The list of valid values in this field depends on your processor.  #### Ingenico ePayments When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value   #### Card Present You must set this field to &#x60;retail&#x60;. This field is required for a card-present transaction. Note that this should ONLY be used when the cardholder and card are present at the time of the transaction. For all keyed transactions originated from a POS terminal where the cardholder and card are not present, commerceIndicator should be submitted as \&quot;moto\&quot; 
         /// </summary>
@@ -209,6 +218,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2creditsProcessingInformation {\n");
+            if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
             if (CommerceIndicator != null) sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
             if (ProcessorId != null) sb.Append("  ProcessorId: ").Append(ProcessorId).Append("\n");
             if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
@@ -264,6 +274,11 @@ namespace CyberSource.Model
                 return false;
 
             return 
+                (
+                    this.ActionList == other.ActionList ||
+                    this.ActionList != null &&
+                    this.ActionList.SequenceEqual(other.ActionList)
+                ) && 
                 (
                     this.CommerceIndicator == other.CommerceIndicator ||
                     this.CommerceIndicator != null &&
@@ -372,6 +387,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.ActionList != null)
+                    hash = hash * 59 + this.ActionList.GetHashCode();
                 if (this.CommerceIndicator != null)
                     hash = hash * 59 + this.CommerceIndicator.GetHashCode();
                 if (this.ProcessorId != null)

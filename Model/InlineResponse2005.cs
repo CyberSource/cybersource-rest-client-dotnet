@@ -33,35 +33,65 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2005" /> class.
         /// </summary>
-        /// <param name="ProductId">Product ID..</param>
-        /// <param name="ProductName">Product Name..</param>
-        /// <param name="EventTypes">EventTypes.</param>
-        public InlineResponse2005(string ProductId = default(string), string ProductName = default(string), List<Notificationsubscriptionsv2productsorganizationIdEventTypes> EventTypes = default(List<Notificationsubscriptionsv2productsorganizationIdEventTypes>))
+        /// <param name="RegistrationInformation">RegistrationInformation.</param>
+        /// <param name="IntegrationInformation">IntegrationInformation.</param>
+        /// <param name="OrganizationInformation">OrganizationInformation.</param>
+        /// <param name="ProductInformation">ProductInformation.</param>
+        /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
+        /// <param name="DocumentInformation">DocumentInformation.</param>
+        /// <param name="Details">Details.</param>
+        public InlineResponse2005(Boardingv1registrationsRegistrationInformation RegistrationInformation = default(Boardingv1registrationsRegistrationInformation), InlineResponse2005IntegrationInformation IntegrationInformation = default(InlineResponse2005IntegrationInformation), Boardingv1registrationsOrganizationInformation OrganizationInformation = default(Boardingv1registrationsOrganizationInformation), Boardingv1registrationsProductInformation ProductInformation = default(Boardingv1registrationsProductInformation), List<InlineResponse2014ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2014ProductInformationSetups>), Boardingv1registrationsDocumentInformation DocumentInformation = default(Boardingv1registrationsDocumentInformation), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
         {
-            this.ProductId = ProductId;
-            this.ProductName = ProductName;
-            this.EventTypes = EventTypes;
+            this.RegistrationInformation = RegistrationInformation;
+            this.IntegrationInformation = IntegrationInformation;
+            this.OrganizationInformation = OrganizationInformation;
+            this.ProductInformation = ProductInformation;
+            this.ProductInformationSetups = ProductInformationSetups;
+            this.DocumentInformation = DocumentInformation;
+            this.Details = Details;
         }
         
         /// <summary>
-        /// Product ID.
+        /// Gets or Sets RegistrationInformation
         /// </summary>
-        /// <value>Product ID.</value>
-        [DataMember(Name="productId", EmitDefaultValue=false)]
-        public string ProductId { get; set; }
+        [DataMember(Name="registrationInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsRegistrationInformation RegistrationInformation { get; set; }
 
         /// <summary>
-        /// Product Name.
+        /// Gets or Sets IntegrationInformation
         /// </summary>
-        /// <value>Product Name.</value>
-        [DataMember(Name="productName", EmitDefaultValue=false)]
-        public string ProductName { get; set; }
+        [DataMember(Name="integrationInformation", EmitDefaultValue=false)]
+        public InlineResponse2005IntegrationInformation IntegrationInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets EventTypes
+        /// Gets or Sets OrganizationInformation
         /// </summary>
-        [DataMember(Name="eventTypes", EmitDefaultValue=false)]
-        public List<Notificationsubscriptionsv2productsorganizationIdEventTypes> EventTypes { get; set; }
+        [DataMember(Name="organizationInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsOrganizationInformation OrganizationInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProductInformation
+        /// </summary>
+        [DataMember(Name="productInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsProductInformation ProductInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProductInformationSetups
+        /// </summary>
+        [DataMember(Name="productInformationSetups", EmitDefaultValue=false)]
+        public List<InlineResponse2014ProductInformationSetups> ProductInformationSetups { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DocumentInformation
+        /// </summary>
+        [DataMember(Name="documentInformation", EmitDefaultValue=false)]
+        public Boardingv1registrationsDocumentInformation DocumentInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Details
+        /// </summary>
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public Dictionary<string, List<Object>> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,9 +101,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2005 {\n");
-            if (ProductId != null) sb.Append("  ProductId: ").Append(ProductId).Append("\n");
-            if (ProductName != null) sb.Append("  ProductName: ").Append(ProductName).Append("\n");
-            if (EventTypes != null) sb.Append("  EventTypes: ").Append(EventTypes).Append("\n");
+            if (RegistrationInformation != null) sb.Append("  RegistrationInformation: ").Append(RegistrationInformation).Append("\n");
+            if (IntegrationInformation != null) sb.Append("  IntegrationInformation: ").Append(IntegrationInformation).Append("\n");
+            if (OrganizationInformation != null) sb.Append("  OrganizationInformation: ").Append(OrganizationInformation).Append("\n");
+            if (ProductInformation != null) sb.Append("  ProductInformation: ").Append(ProductInformation).Append("\n");
+            if (ProductInformationSetups != null) sb.Append("  ProductInformationSetups: ").Append(ProductInformationSetups).Append("\n");
+            if (DocumentInformation != null) sb.Append("  DocumentInformation: ").Append(DocumentInformation).Append("\n");
+            if (Details != null) sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,19 +145,39 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.ProductId == other.ProductId ||
-                    this.ProductId != null &&
-                    this.ProductId.Equals(other.ProductId)
+                    this.RegistrationInformation == other.RegistrationInformation ||
+                    this.RegistrationInformation != null &&
+                    this.RegistrationInformation.Equals(other.RegistrationInformation)
                 ) && 
                 (
-                    this.ProductName == other.ProductName ||
-                    this.ProductName != null &&
-                    this.ProductName.Equals(other.ProductName)
+                    this.IntegrationInformation == other.IntegrationInformation ||
+                    this.IntegrationInformation != null &&
+                    this.IntegrationInformation.Equals(other.IntegrationInformation)
                 ) && 
                 (
-                    this.EventTypes == other.EventTypes ||
-                    this.EventTypes != null &&
-                    this.EventTypes.SequenceEqual(other.EventTypes)
+                    this.OrganizationInformation == other.OrganizationInformation ||
+                    this.OrganizationInformation != null &&
+                    this.OrganizationInformation.Equals(other.OrganizationInformation)
+                ) && 
+                (
+                    this.ProductInformation == other.ProductInformation ||
+                    this.ProductInformation != null &&
+                    this.ProductInformation.Equals(other.ProductInformation)
+                ) && 
+                (
+                    this.ProductInformationSetups == other.ProductInformationSetups ||
+                    this.ProductInformationSetups != null &&
+                    this.ProductInformationSetups.SequenceEqual(other.ProductInformationSetups)
+                ) && 
+                (
+                    this.DocumentInformation == other.DocumentInformation ||
+                    this.DocumentInformation != null &&
+                    this.DocumentInformation.Equals(other.DocumentInformation)
+                ) && 
+                (
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -138,12 +192,20 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.ProductId != null)
-                    hash = hash * 59 + this.ProductId.GetHashCode();
-                if (this.ProductName != null)
-                    hash = hash * 59 + this.ProductName.GetHashCode();
-                if (this.EventTypes != null)
-                    hash = hash * 59 + this.EventTypes.GetHashCode();
+                if (this.RegistrationInformation != null)
+                    hash = hash * 59 + this.RegistrationInformation.GetHashCode();
+                if (this.IntegrationInformation != null)
+                    hash = hash * 59 + this.IntegrationInformation.GetHashCode();
+                if (this.OrganizationInformation != null)
+                    hash = hash * 59 + this.OrganizationInformation.GetHashCode();
+                if (this.ProductInformation != null)
+                    hash = hash * 59 + this.ProductInformation.GetHashCode();
+                if (this.ProductInformationSetups != null)
+                    hash = hash * 59 + this.ProductInformationSetups.GetHashCode();
+                if (this.DocumentInformation != null)
+                    hash = hash * 59 + this.DocumentInformation.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
                 return hash;
             }
         }
