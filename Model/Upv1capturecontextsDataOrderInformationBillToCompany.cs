@@ -36,15 +36,15 @@ namespace CyberSource.Model
         /// <param name="Name">Name of the customer&#39;s company..</param>
         /// <param name="Address1">Payment card billing street address as it appears on the credit card issuer&#39;s records. .</param>
         /// <param name="Address2">Used for additional address information. For example: _Attention: Accounts Payable_ Optional field. .</param>
-        /// <param name="Address3">Additional address information (third line of the billing address).</param>
-        /// <param name="Address4">Additional address information (fourth line of the billing address) .</param>
+        /// <param name="Address3">Additional address information (third line of the billing address) Optional field. .</param>
+        /// <param name="Address4">Additional address information (fourth line of the billing address) Optional field .</param>
         /// <param name="AdministrativeArea">State or province of the billing address. Use the [State, Province, and Territory Codes for the United States and Canada](https://developer.cybersource.com/library/documentation/sbc/quickref/states_and_provinces.pdf). .</param>
-        /// <param name="BuildingNumber">Building number in the street address. .</param>
         /// <param name="Country">Payment card billing country. Use the two-character [ISO Standard Country Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). .</param>
+        /// <param name="BuildingNumber">Building number in the street address. .</param>
         /// <param name="District">Customer&#39;s neighborhood, community, or region (a barrio in Brazil) within the city or municipality .</param>
         /// <param name="Locality">Payment card billing city. .</param>
         /// <param name="PostalCode">Postal code for the billing address. The postal code must consist of 5 to 9 digits. .</param>
-        public Upv1capturecontextsDataOrderInformationBillToCompany(string Name = default(string), string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string AdministrativeArea = default(string), string BuildingNumber = default(string), string Country = default(string), string District = default(string), string Locality = default(string), string PostalCode = default(string))
+        public Upv1capturecontextsDataOrderInformationBillToCompany(string Name = default(string), string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string AdministrativeArea = default(string), string Country = default(string), string BuildingNumber = default(string), string District = default(string), string Locality = default(string), string PostalCode = default(string))
         {
             this.Name = Name;
             this.Address1 = Address1;
@@ -52,8 +52,8 @@ namespace CyberSource.Model
             this.Address3 = Address3;
             this.Address4 = Address4;
             this.AdministrativeArea = AdministrativeArea;
-            this.BuildingNumber = BuildingNumber;
             this.Country = Country;
+            this.BuildingNumber = BuildingNumber;
             this.District = District;
             this.Locality = Locality;
             this.PostalCode = PostalCode;
@@ -81,16 +81,16 @@ namespace CyberSource.Model
         public string Address2 { get; set; }
 
         /// <summary>
-        /// Additional address information (third line of the billing address)
+        /// Additional address information (third line of the billing address) Optional field. 
         /// </summary>
-        /// <value>Additional address information (third line of the billing address)</value>
+        /// <value>Additional address information (third line of the billing address) Optional field. </value>
         [DataMember(Name="address3", EmitDefaultValue=false)]
         public string Address3 { get; set; }
 
         /// <summary>
-        /// Additional address information (fourth line of the billing address) 
+        /// Additional address information (fourth line of the billing address) Optional field 
         /// </summary>
-        /// <value>Additional address information (fourth line of the billing address) </value>
+        /// <value>Additional address information (fourth line of the billing address) Optional field </value>
         [DataMember(Name="address4", EmitDefaultValue=false)]
         public string Address4 { get; set; }
 
@@ -102,18 +102,18 @@ namespace CyberSource.Model
         public string AdministrativeArea { get; set; }
 
         /// <summary>
-        /// Building number in the street address. 
-        /// </summary>
-        /// <value>Building number in the street address. </value>
-        [DataMember(Name="buildingNumber", EmitDefaultValue=false)]
-        public string BuildingNumber { get; set; }
-
-        /// <summary>
         /// Payment card billing country. Use the two-character [ISO Standard Country Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). 
         /// </summary>
         /// <value>Payment card billing country. Use the two-character [ISO Standard Country Codes](http://apps.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf). </value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
+
+        /// <summary>
+        /// Building number in the street address. 
+        /// </summary>
+        /// <value>Building number in the street address. </value>
+        [DataMember(Name="buildingNumber", EmitDefaultValue=false)]
+        public string BuildingNumber { get; set; }
 
         /// <summary>
         /// Customer&#39;s neighborhood, community, or region (a barrio in Brazil) within the city or municipality 
@@ -150,8 +150,8 @@ namespace CyberSource.Model
             if (Address3 != null) sb.Append("  Address3: ").Append(Address3).Append("\n");
             if (Address4 != null) sb.Append("  Address4: ").Append(Address4).Append("\n");
             if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
-            if (BuildingNumber != null) sb.Append("  BuildingNumber: ").Append(BuildingNumber).Append("\n");
             if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (BuildingNumber != null) sb.Append("  BuildingNumber: ").Append(BuildingNumber).Append("\n");
             if (District != null) sb.Append("  District: ").Append(District).Append("\n");
             if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
@@ -222,14 +222,14 @@ namespace CyberSource.Model
                     this.AdministrativeArea.Equals(other.AdministrativeArea)
                 ) && 
                 (
-                    this.BuildingNumber == other.BuildingNumber ||
-                    this.BuildingNumber != null &&
-                    this.BuildingNumber.Equals(other.BuildingNumber)
-                ) && 
-                (
                     this.Country == other.Country ||
                     this.Country != null &&
                     this.Country.Equals(other.Country)
+                ) && 
+                (
+                    this.BuildingNumber == other.BuildingNumber ||
+                    this.BuildingNumber != null &&
+                    this.BuildingNumber.Equals(other.BuildingNumber)
                 ) && 
                 (
                     this.District == other.District ||
@@ -271,10 +271,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Address4.GetHashCode();
                 if (this.AdministrativeArea != null)
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
-                if (this.BuildingNumber != null)
-                    hash = hash * 59 + this.BuildingNumber.GetHashCode();
                 if (this.Country != null)
                     hash = hash * 59 + this.Country.GetHashCode();
+                if (this.BuildingNumber != null)
+                    hash = hash * 59 + this.BuildingNumber.GetHashCode();
                 if (this.District != null)
                     hash = hash * 59 + this.District.GetHashCode();
                 if (this.Locality != null)

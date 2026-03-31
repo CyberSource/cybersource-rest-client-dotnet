@@ -56,9 +56,12 @@ namespace CyberSource.Model
         /// <param name="ProductIdSubtype">This field contains the Visa-assigned product subtype identifier associated with the BIN. This field is only supported for Visa BINs. Example values:   - BB   - EX   - L2   - C2 .</param>
         /// <param name="ThreeDSSupport">This field indicates if the payment instrument supports 3D Secure authentication. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
         /// <param name="SiEligible">This field indicates if the payment instrument is eligible for Standing Instructions (recurring payments). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
-        /// <param name="EmiEligible">This field indicates if the card is eligible for Equated Monthly Installments (EMI). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="EmiEligible">This field indicates if the payment instrument is eligible for Equated Monthly Installments (EMI). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
         /// <param name="FleetCard">This field indicates if the BIN is designated for fuel/fleet usage. These specialized BINs support additional Level2/Level 3 transaction data. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
-        public TmsBinLookupPaymentAccountInformationFeatures(string AccountFundingSource = default(string), string AccountFundingSourceSubType = default(string), string CardProduct = default(string), string MessageType = default(string), string AcceptanceLevel = default(string), string CardPlatform = default(string), string ComboCard = default(string), bool? CorporatePurchase = default(bool?), bool? HealthCard = default(bool?), bool? SharedBIN = default(bool?), bool? PosDomesticOnly = default(bool?), bool? GamblingAllowed = default(bool?), bool? CommercialCardLevel2 = default(bool?), bool? CommercialCardLevel3 = default(bool?), bool? ExemptBIN = default(bool?), bool? AccountLevelManagement = default(bool?), bool? OnlineGamblingBlock = default(bool?), bool? AutoSubstantiation = default(bool?), bool? FlexCredential = default(bool?), string ProductId = default(string), string ProductIdSubtype = default(string), bool? ThreeDSSupport = default(bool?), bool? SiEligible = default(bool?), bool? EmiEligible = default(bool?), bool? FleetCard = default(bool?))
+        /// <param name="AtmEnabled">This field indicates if the payment instrument is enabled for ATM usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="PosEnabled">This field indicates if the payment instrument is enabled for POS usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        /// <param name="EcomEnabled">This field indicates if the payment instrument is enabled for ECOM usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; .</param>
+        public TmsBinLookupPaymentAccountInformationFeatures(string AccountFundingSource = default(string), string AccountFundingSourceSubType = default(string), string CardProduct = default(string), string MessageType = default(string), string AcceptanceLevel = default(string), string CardPlatform = default(string), string ComboCard = default(string), bool? CorporatePurchase = default(bool?), bool? HealthCard = default(bool?), bool? SharedBIN = default(bool?), bool? PosDomesticOnly = default(bool?), bool? GamblingAllowed = default(bool?), bool? CommercialCardLevel2 = default(bool?), bool? CommercialCardLevel3 = default(bool?), bool? ExemptBIN = default(bool?), bool? AccountLevelManagement = default(bool?), bool? OnlineGamblingBlock = default(bool?), bool? AutoSubstantiation = default(bool?), bool? FlexCredential = default(bool?), string ProductId = default(string), string ProductIdSubtype = default(string), bool? ThreeDSSupport = default(bool?), bool? SiEligible = default(bool?), bool? EmiEligible = default(bool?), bool? FleetCard = default(bool?), bool? AtmEnabled = default(bool?), bool? PosEnabled = default(bool?), bool? EcomEnabled = default(bool?))
         {
             this.AccountFundingSource = AccountFundingSource;
             this.AccountFundingSourceSubType = AccountFundingSourceSubType;
@@ -85,6 +88,9 @@ namespace CyberSource.Model
             this.SiEligible = SiEligible;
             this.EmiEligible = EmiEligible;
             this.FleetCard = FleetCard;
+            this.AtmEnabled = AtmEnabled;
+            this.PosEnabled = PosEnabled;
+            this.EcomEnabled = EcomEnabled;
         }
         
         /// <summary>
@@ -249,9 +255,9 @@ namespace CyberSource.Model
         public bool? SiEligible { get; set; }
 
         /// <summary>
-        /// This field indicates if the card is eligible for Equated Monthly Installments (EMI). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// This field indicates if the payment instrument is eligible for Equated Monthly Installments (EMI). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
         /// </summary>
-        /// <value>This field indicates if the card is eligible for Equated Monthly Installments (EMI). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        /// <value>This field indicates if the payment instrument is eligible for Equated Monthly Installments (EMI). Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
         [DataMember(Name="emiEligible", EmitDefaultValue=false)]
         public bool? EmiEligible { get; set; }
 
@@ -261,6 +267,27 @@ namespace CyberSource.Model
         /// <value>This field indicates if the BIN is designated for fuel/fleet usage. These specialized BINs support additional Level2/Level 3 transaction data. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
         [DataMember(Name="fleetCard", EmitDefaultValue=false)]
         public bool? FleetCard { get; set; }
+
+        /// <summary>
+        /// This field indicates if the payment instrument is enabled for ATM usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the payment instrument is enabled for ATM usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="atmEnabled", EmitDefaultValue=false)]
+        public bool? AtmEnabled { get; set; }
+
+        /// <summary>
+        /// This field indicates if the payment instrument is enabled for POS usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the payment instrument is enabled for POS usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="posEnabled", EmitDefaultValue=false)]
+        public bool? PosEnabled { get; set; }
+
+        /// <summary>
+        /// This field indicates if the payment instrument is enabled for ECOM usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; 
+        /// </summary>
+        /// <value>This field indicates if the payment instrument is enabled for ECOM usage. Possible values:     - &#x60;true&#x60;     - &#x60;false&#x60; </value>
+        [DataMember(Name="ecomEnabled", EmitDefaultValue=false)]
+        public bool? EcomEnabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -295,6 +322,9 @@ namespace CyberSource.Model
             if (SiEligible != null) sb.Append("  SiEligible: ").Append(SiEligible).Append("\n");
             if (EmiEligible != null) sb.Append("  EmiEligible: ").Append(EmiEligible).Append("\n");
             if (FleetCard != null) sb.Append("  FleetCard: ").Append(FleetCard).Append("\n");
+            if (AtmEnabled != null) sb.Append("  AtmEnabled: ").Append(AtmEnabled).Append("\n");
+            if (PosEnabled != null) sb.Append("  PosEnabled: ").Append(PosEnabled).Append("\n");
+            if (EcomEnabled != null) sb.Append("  EcomEnabled: ").Append(EcomEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -455,6 +485,21 @@ namespace CyberSource.Model
                     this.FleetCard == other.FleetCard ||
                     this.FleetCard != null &&
                     this.FleetCard.Equals(other.FleetCard)
+                ) && 
+                (
+                    this.AtmEnabled == other.AtmEnabled ||
+                    this.AtmEnabled != null &&
+                    this.AtmEnabled.Equals(other.AtmEnabled)
+                ) && 
+                (
+                    this.PosEnabled == other.PosEnabled ||
+                    this.PosEnabled != null &&
+                    this.PosEnabled.Equals(other.PosEnabled)
+                ) && 
+                (
+                    this.EcomEnabled == other.EcomEnabled ||
+                    this.EcomEnabled != null &&
+                    this.EcomEnabled.Equals(other.EcomEnabled)
                 );
         }
 
@@ -519,6 +564,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EmiEligible.GetHashCode();
                 if (this.FleetCard != null)
                     hash = hash * 59 + this.FleetCard.GetHashCode();
+                if (this.AtmEnabled != null)
+                    hash = hash * 59 + this.AtmEnabled.GetHashCode();
+                if (this.PosEnabled != null)
+                    hash = hash * 59 + this.PosEnabled.GetHashCode();
+                if (this.EcomEnabled != null)
+                    hash = hash * 59 + this.EcomEnabled.GetHashCode();
                 return hash;
             }
         }

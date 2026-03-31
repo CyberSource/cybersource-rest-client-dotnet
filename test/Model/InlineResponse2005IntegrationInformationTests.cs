@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TenantConfigurations'
         }
+        /// <summary>
+        /// Test the property 'Msd'
+        /// </summary>
+        [Test]
+        public void MsdTest()
+        {
+            // TODO unit test for the property 'Msd'
+        }
 
     }
 

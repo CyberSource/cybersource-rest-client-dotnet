@@ -160,6 +160,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TransactionTypeIndicator'
         }
+        /// <summary>
+        /// Test the property 'MerchantVerificationValue'
+        /// </summary>
+        [Test]
+        public void MerchantVerificationValueTest()
+        {
+            // TODO unit test for the property 'MerchantVerificationValue'
+        }
 
     }
 

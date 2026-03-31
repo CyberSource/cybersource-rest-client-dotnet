@@ -44,7 +44,8 @@ namespace CyberSource.Model
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public PtsV2PaymentsRefundPost201Response(PtsV2PaymentsRefundPost201ResponseLinks Links = default(PtsV2PaymentsRefundPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsRefundPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsRefundPost201ResponseClientReferenceInformation), PtsV2PaymentsRefundPost201ResponseRefundAmountDetails RefundAmountDetails = default(PtsV2PaymentsRefundPost201ResponseRefundAmountDetails), PtsV2PaymentsCapturesPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessingInformation), PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsRefundPost201ResponseProcessorInformation), PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsRefundPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation))
+        /// <param name="ErrorInformation">ErrorInformation.</param>
+        public PtsV2PaymentsRefundPost201Response(PtsV2PaymentsRefundPost201ResponseLinks Links = default(PtsV2PaymentsRefundPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsRefundPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsRefundPost201ResponseClientReferenceInformation), PtsV2PaymentsRefundPost201ResponseRefundAmountDetails RefundAmountDetails = default(PtsV2PaymentsRefundPost201ResponseRefundAmountDetails), PtsV2PaymentsCapturesPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2PaymentsCapturesPost201ResponseProcessingInformation), PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsRefundPost201ResponseProcessorInformation), PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsRefundPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation), PtsV2PaymentsRefundPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsRefundPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             this.ProcessorInformation = ProcessorInformation;
             this.OrderInformation = OrderInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
+            this.ErrorInformation = ErrorInformation;
         }
         
         /// <summary>
@@ -130,6 +132,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets ErrorInformation
+        /// </summary>
+        [DataMember(Name="errorInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsRefundPost201ResponseErrorInformation ErrorInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +156,7 @@ namespace CyberSource.Model
             if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             if (PointOfSaleInformation != null) sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
+            if (ErrorInformation != null) sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -238,6 +247,11 @@ namespace CyberSource.Model
                     this.PointOfSaleInformation == other.PointOfSaleInformation ||
                     this.PointOfSaleInformation != null &&
                     this.PointOfSaleInformation.Equals(other.PointOfSaleInformation)
+                ) && 
+                (
+                    this.ErrorInformation == other.ErrorInformation ||
+                    this.ErrorInformation != null &&
+                    this.ErrorInformation.Equals(other.ErrorInformation)
                 );
         }
 
@@ -274,6 +288,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.PointOfSaleInformation != null)
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
+                if (this.ErrorInformation != null)
+                    hash = hash * 59 + this.ErrorInformation.GetHashCode();
                 return hash;
             }
         }

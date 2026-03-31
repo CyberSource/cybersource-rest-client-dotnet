@@ -45,8 +45,9 @@ namespace CyberSource.Model
         /// <param name="RecipientInformation">RecipientInformation.</param>
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
+        /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="PointOfServiceInformation">PointOfServiceInformation.</param>
-        public PushFundsRequest(Ptsv2payoutsAggregatorInformation AggregatorInformation = default(Ptsv2payoutsAggregatorInformation), Ptsv1pushfundstransferClientReferenceInformation ClientReferenceInformation = default(Ptsv1pushfundstransferClientReferenceInformation), Ptsv1pushfundstransferOrderInformation OrderInformation = default(Ptsv1pushfundstransferOrderInformation), Ptsv1pushfundstransferProcessingInformation ProcessingInformation = default(Ptsv1pushfundstransferProcessingInformation), Ptsv1pushfundstransferRecipientInformation RecipientInformation = default(Ptsv1pushfundstransferRecipientInformation), Ptsv1pushfundstransferSenderInformation SenderInformation = default(Ptsv1pushfundstransferSenderInformation), Ptsv1pushfundstransferMerchantInformation MerchantInformation = default(Ptsv1pushfundstransferMerchantInformation), Ptsv1pushfundstransferPointOfServiceInformation PointOfServiceInformation = default(Ptsv1pushfundstransferPointOfServiceInformation))
+        public PushFundsRequest(Ptsv2payoutsAggregatorInformation AggregatorInformation = default(Ptsv2payoutsAggregatorInformation), Ptsv1pushfundstransferClientReferenceInformation ClientReferenceInformation = default(Ptsv1pushfundstransferClientReferenceInformation), Ptsv1pushfundstransferOrderInformation OrderInformation = default(Ptsv1pushfundstransferOrderInformation), Ptsv1pushfundstransferProcessingInformation ProcessingInformation = default(Ptsv1pushfundstransferProcessingInformation), Ptsv1pushfundstransferRecipientInformation RecipientInformation = default(Ptsv1pushfundstransferRecipientInformation), Ptsv1pushfundstransferSenderInformation SenderInformation = default(Ptsv1pushfundstransferSenderInformation), Ptsv1pushfundstransferMerchantInformation MerchantInformation = default(Ptsv1pushfundstransferMerchantInformation), Ptsv1pushfundstransferPaymentInformation PaymentInformation = default(Ptsv1pushfundstransferPaymentInformation), Ptsv1pushfundstransferPointOfServiceInformation PointOfServiceInformation = default(Ptsv1pushfundstransferPointOfServiceInformation))
         {
             this.AggregatorInformation = AggregatorInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.RecipientInformation = RecipientInformation;
             this.SenderInformation = SenderInformation;
             this.MerchantInformation = MerchantInformation;
+            this.PaymentInformation = PaymentInformation;
             this.PointOfServiceInformation = PointOfServiceInformation;
         }
         
@@ -101,6 +103,12 @@ namespace CyberSource.Model
         public Ptsv1pushfundstransferMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentInformation
+        /// </summary>
+        [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
+        public Ptsv1pushfundstransferPaymentInformation PaymentInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets PointOfServiceInformation
         /// </summary>
         [DataMember(Name="pointOfServiceInformation", EmitDefaultValue=false)]
@@ -121,6 +129,7 @@ namespace CyberSource.Model
             if (RecipientInformation != null) sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
             if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
             if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             if (PointOfServiceInformation != null) sb.Append("  PointOfServiceInformation: ").Append(PointOfServiceInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -194,6 +203,11 @@ namespace CyberSource.Model
                     this.MerchantInformation.Equals(other.MerchantInformation)
                 ) && 
                 (
+                    this.PaymentInformation == other.PaymentInformation ||
+                    this.PaymentInformation != null &&
+                    this.PaymentInformation.Equals(other.PaymentInformation)
+                ) && 
+                (
                     this.PointOfServiceInformation == other.PointOfServiceInformation ||
                     this.PointOfServiceInformation != null &&
                     this.PointOfServiceInformation.Equals(other.PointOfServiceInformation)
@@ -225,6 +239,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SenderInformation.GetHashCode();
                 if (this.MerchantInformation != null)
                     hash = hash * 59 + this.MerchantInformation.GetHashCode();
+                if (this.PaymentInformation != null)
+                    hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.PointOfServiceInformation != null)
                     hash = hash * 59 + this.PointOfServiceInformation.GetHashCode();
                 return hash;

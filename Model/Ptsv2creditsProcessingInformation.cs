@@ -53,7 +53,8 @@ namespace CyberSource.Model
         /// <param name="LoanOptions">LoanOptions.</param>
         /// <param name="JapanPaymentOptions">JapanPaymentOptions.</param>
         /// <param name="RefundOptions">RefundOptions.</param>
-        public Ptsv2creditsProcessingInformation(List<string> ActionList = default(List<string>), string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string WalletType = default(string), string NationalNetDomesticData = default(string), string NetworkRoutingOrder = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2creditsProcessingInformationJapanPaymentOptions), Ptsv2creditsProcessingInformationRefundOptions RefundOptions = default(Ptsv2creditsProcessingInformationRefundOptions))
+        /// <param name="MerchantVerificationValue">The override value of the Merchant Verification Value (MVV) received by various card brands. MVV refers to the value assigned by the card brand/network to identify participation in select merchant programs.  Sample value for Visa: &#x60;101010&#x60; .</param>
+        public Ptsv2creditsProcessingInformation(List<string> ActionList = default(List<string>), string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string WalletType = default(string), string NationalNetDomesticData = default(string), string NetworkRoutingOrder = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2creditsProcessingInformationJapanPaymentOptions), Ptsv2creditsProcessingInformationRefundOptions RefundOptions = default(Ptsv2creditsProcessingInformationRefundOptions), string MerchantVerificationValue = default(string))
         {
             this.ActionList = ActionList;
             this.CommerceIndicator = CommerceIndicator;
@@ -75,6 +76,7 @@ namespace CyberSource.Model
             this.LoanOptions = LoanOptions;
             this.JapanPaymentOptions = JapanPaymentOptions;
             this.RefundOptions = RefundOptions;
+            this.MerchantVerificationValue = MerchantVerificationValue;
         }
         
         /// <summary>
@@ -211,6 +213,13 @@ namespace CyberSource.Model
         public Ptsv2creditsProcessingInformationRefundOptions RefundOptions { get; set; }
 
         /// <summary>
+        /// The override value of the Merchant Verification Value (MVV) received by various card brands. MVV refers to the value assigned by the card brand/network to identify participation in select merchant programs.  Sample value for Visa: &#x60;101010&#x60; 
+        /// </summary>
+        /// <value>The override value of the Merchant Verification Value (MVV) received by various card brands. MVV refers to the value assigned by the card brand/network to identify participation in select merchant programs.  Sample value for Visa: &#x60;101010&#x60; </value>
+        [DataMember(Name="merchantVerificationValue", EmitDefaultValue=false)]
+        public string MerchantVerificationValue { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -238,6 +247,7 @@ namespace CyberSource.Model
             if (LoanOptions != null) sb.Append("  LoanOptions: ").Append(LoanOptions).Append("\n");
             if (JapanPaymentOptions != null) sb.Append("  JapanPaymentOptions: ").Append(JapanPaymentOptions).Append("\n");
             if (RefundOptions != null) sb.Append("  RefundOptions: ").Append(RefundOptions).Append("\n");
+            if (MerchantVerificationValue != null) sb.Append("  MerchantVerificationValue: ").Append(MerchantVerificationValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -373,6 +383,11 @@ namespace CyberSource.Model
                     this.RefundOptions == other.RefundOptions ||
                     this.RefundOptions != null &&
                     this.RefundOptions.Equals(other.RefundOptions)
+                ) && 
+                (
+                    this.MerchantVerificationValue == other.MerchantVerificationValue ||
+                    this.MerchantVerificationValue != null &&
+                    this.MerchantVerificationValue.Equals(other.MerchantVerificationValue)
                 );
         }
 
@@ -427,6 +442,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.JapanPaymentOptions.GetHashCode();
                 if (this.RefundOptions != null)
                     hash = hash * 59 + this.RefundOptions.GetHashCode();
+                if (this.MerchantVerificationValue != null)
+                    hash = hash * 59 + this.MerchantVerificationValue.GetHashCode();
                 return hash;
             }
         }

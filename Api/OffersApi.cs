@@ -30,6 +30,37 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Create an Offer
+        /// </summary>
+        /// <remarks>
+        /// Empower global transactions with transparency and choice. Our Dynamic Currency Conversion API lets merchants offer customers the option to pay in their home currency at checkout, delivering real-time exchange rates.  &lt;div style&#x3D;\&quot;display: flex; gap: 2rem;\&quot;&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Key Benefits:** - **Enhanced Customer Experience:** Provide clarity and convenience for international shoppers. - **Real-Time Rates:** Accurate currency conversion with all the data required for acquirers and their merchants to maintain compliance with card network rules. - **Seamless Integration:** Flexible API endpoints for rate lookup, authorization, and capture. - **Regulatory Compliance:** Provides the data required for acquirers and merchants to meet and maintain card scheme requirements for disclosure and consent.  &lt;br&gt;  Ideal for merchants and payment partners seeking to boost trust and conversion in cross-border commerce.  &lt;br&gt;  **Key Features:** - **Rate Lookup:** Retrieves the most up-to-date exchange rate for eligible cards before authorization. - **Currency Choice:** Enables the merchant to offer customers the option to select between the merchant&#39;s local currency and their card&#39;s billing currency. - **Compliance:** Ensures merchants have the data required to adhere to card network regulations; exchange rates, markups, etc.  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Scenarios:** - Dynamic Currency Conversion when cardholder&#39;s billing currency differs from merchant&#39;s pricing currency. - Merchant and acquirer must support the cardholder&#39;s billing currency. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Processors:** - VPC - FDI Global &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Compliance &amp; Disclosure:**  Merchants must: - Adhere to card network rules for Dynamic Currency Conversion (DCC) transactions. - Display the converted amount, exchange rate, and markup percentage and other required disclosures. - Obtain explicit cardholder consent before applying DCC. - Work with your acquirer to obtain full set of compliance requirements. &lt;/div&gt;  &lt;/div&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Core API Endpoints:**  **Currency Conversion API**  Returns eligibility and exchange rate details, including: - exchangeRate - marginRate - reconciliationId and Id (for subsequent payment requests)  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Payment Authorization with DCC***  POST /pts/v2/payments  Required fields include: - orderInformation.amountDetails.currency - orderInformation.amountDetails.originalCurrency - orderInformation.amountDetails.originalAmount - orderInformation.amountDetails.exchangeRate - currencyConversion.indicator (e.g., 1 &#x3D; Converted, 2 &#x3D; Nonconvertible, 3 &#x3D; Declined) &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Capture with DCC***  POST /pts/v2/payments/{id}/captures  Maps from original authorization and includes original and converted amounts. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Refund with DCC***  POST /pts/v2/captures/{id}/refunds  Maps from original authorization and includes original and converted amounts.  *Note: DCC is only supported on select processors. Contact your acquirer or account manager for more information.* &lt;/div&gt;  &lt;/div&gt; &lt;/div&gt;  &lt;br&gt;  For more information, see the [Currency Conversion Developer Guide](https://developer.cybersource.com/docs/cybs/en-us/currency-conversion/developer/all/rest/currency-conversion/cc-intro.html). 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contentType"></param>
+        /// <param name="xRequestid"></param>
+        /// <param name="vCMerchantId"></param>
+        /// <param name="vCCorrelationId"></param>
+        /// <param name="vCOrganizationId"></param>
+        /// <param name="offerRequest"></param>
+        /// <returns>InlineResponse2019</returns>
+        InlineResponse2019 CreateOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
+
+        /// <summary>
+        /// Create an Offer
+        /// </summary>
+        /// <remarks>
+        /// Empower global transactions with transparency and choice. Our Dynamic Currency Conversion API lets merchants offer customers the option to pay in their home currency at checkout, delivering real-time exchange rates.  &lt;div style&#x3D;\&quot;display: flex; gap: 2rem;\&quot;&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Key Benefits:** - **Enhanced Customer Experience:** Provide clarity and convenience for international shoppers. - **Real-Time Rates:** Accurate currency conversion with all the data required for acquirers and their merchants to maintain compliance with card network rules. - **Seamless Integration:** Flexible API endpoints for rate lookup, authorization, and capture. - **Regulatory Compliance:** Provides the data required for acquirers and merchants to meet and maintain card scheme requirements for disclosure and consent.  &lt;br&gt;  Ideal for merchants and payment partners seeking to boost trust and conversion in cross-border commerce.  &lt;br&gt;  **Key Features:** - **Rate Lookup:** Retrieves the most up-to-date exchange rate for eligible cards before authorization. - **Currency Choice:** Enables the merchant to offer customers the option to select between the merchant&#39;s local currency and their card&#39;s billing currency. - **Compliance:** Ensures merchants have the data required to adhere to card network regulations; exchange rates, markups, etc.  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Scenarios:** - Dynamic Currency Conversion when cardholder&#39;s billing currency differs from merchant&#39;s pricing currency. - Merchant and acquirer must support the cardholder&#39;s billing currency. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Processors:** - VPC - FDI Global &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Compliance &amp; Disclosure:**  Merchants must: - Adhere to card network rules for Dynamic Currency Conversion (DCC) transactions. - Display the converted amount, exchange rate, and markup percentage and other required disclosures. - Obtain explicit cardholder consent before applying DCC. - Work with your acquirer to obtain full set of compliance requirements. &lt;/div&gt;  &lt;/div&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Core API Endpoints:**  **Currency Conversion API**  Returns eligibility and exchange rate details, including: - exchangeRate - marginRate - reconciliationId and Id (for subsequent payment requests)  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Payment Authorization with DCC***  POST /pts/v2/payments  Required fields include: - orderInformation.amountDetails.currency - orderInformation.amountDetails.originalCurrency - orderInformation.amountDetails.originalAmount - orderInformation.amountDetails.exchangeRate - currencyConversion.indicator (e.g., 1 &#x3D; Converted, 2 &#x3D; Nonconvertible, 3 &#x3D; Declined) &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Capture with DCC***  POST /pts/v2/payments/{id}/captures  Maps from original authorization and includes original and converted amounts. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Refund with DCC***  POST /pts/v2/captures/{id}/refunds  Maps from original authorization and includes original and converted amounts.  *Note: DCC is only supported on select processors. Contact your acquirer or account manager for more information.* &lt;/div&gt;  &lt;/div&gt; &lt;/div&gt;  &lt;br&gt;  For more information, see the [Currency Conversion Developer Guide](https://developer.cybersource.com/docs/cybs/en-us/currency-conversion/developer/all/rest/currency-conversion/cc-intro.html). 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contentType"></param>
+        /// <param name="xRequestid"></param>
+        /// <param name="vCMerchantId"></param>
+        /// <param name="vCCorrelationId"></param>
+        /// <param name="vCOrganizationId"></param>
+        /// <param name="offerRequest"></param>
+        /// <returns>ApiResponse of InlineResponse2019</returns>
+        ApiResponse<InlineResponse2019> CreateOfferWithHttpInfo (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
+        /// <summary>
         /// Retrieve an Offer
         /// </summary>
         /// <remarks>
@@ -62,6 +93,37 @@ namespace CyberSource.Api
         ApiResponse<InlineResponse20016> GetOfferWithHttpInfo (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, string id);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Create an Offer
+        /// </summary>
+        /// <remarks>
+        /// Empower global transactions with transparency and choice. Our Dynamic Currency Conversion API lets merchants offer customers the option to pay in their home currency at checkout, delivering real-time exchange rates.  &lt;div style&#x3D;\&quot;display: flex; gap: 2rem;\&quot;&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Key Benefits:** - **Enhanced Customer Experience:** Provide clarity and convenience for international shoppers. - **Real-Time Rates:** Accurate currency conversion with all the data required for acquirers and their merchants to maintain compliance with card network rules. - **Seamless Integration:** Flexible API endpoints for rate lookup, authorization, and capture. - **Regulatory Compliance:** Provides the data required for acquirers and merchants to meet and maintain card scheme requirements for disclosure and consent.  &lt;br&gt;  Ideal for merchants and payment partners seeking to boost trust and conversion in cross-border commerce.  &lt;br&gt;  **Key Features:** - **Rate Lookup:** Retrieves the most up-to-date exchange rate for eligible cards before authorization. - **Currency Choice:** Enables the merchant to offer customers the option to select between the merchant&#39;s local currency and their card&#39;s billing currency. - **Compliance:** Ensures merchants have the data required to adhere to card network regulations; exchange rates, markups, etc.  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Scenarios:** - Dynamic Currency Conversion when cardholder&#39;s billing currency differs from merchant&#39;s pricing currency. - Merchant and acquirer must support the cardholder&#39;s billing currency. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Processors:** - VPC - FDI Global &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Compliance &amp; Disclosure:**  Merchants must: - Adhere to card network rules for Dynamic Currency Conversion (DCC) transactions. - Display the converted amount, exchange rate, and markup percentage and other required disclosures. - Obtain explicit cardholder consent before applying DCC. - Work with your acquirer to obtain full set of compliance requirements. &lt;/div&gt;  &lt;/div&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Core API Endpoints:**  **Currency Conversion API**  Returns eligibility and exchange rate details, including: - exchangeRate - marginRate - reconciliationId and Id (for subsequent payment requests)  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Payment Authorization with DCC***  POST /pts/v2/payments  Required fields include: - orderInformation.amountDetails.currency - orderInformation.amountDetails.originalCurrency - orderInformation.amountDetails.originalAmount - orderInformation.amountDetails.exchangeRate - currencyConversion.indicator (e.g., 1 &#x3D; Converted, 2 &#x3D; Nonconvertible, 3 &#x3D; Declined) &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Capture with DCC***  POST /pts/v2/payments/{id}/captures  Maps from original authorization and includes original and converted amounts. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Refund with DCC***  POST /pts/v2/captures/{id}/refunds  Maps from original authorization and includes original and converted amounts.  *Note: DCC is only supported on select processors. Contact your acquirer or account manager for more information.* &lt;/div&gt;  &lt;/div&gt; &lt;/div&gt;  &lt;br&gt;  For more information, see the [Currency Conversion Developer Guide](https://developer.cybersource.com/docs/cybs/en-us/currency-conversion/developer/all/rest/currency-conversion/cc-intro.html). 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contentType"></param>
+        /// <param name="xRequestid"></param>
+        /// <param name="vCMerchantId"></param>
+        /// <param name="vCCorrelationId"></param>
+        /// <param name="vCOrganizationId"></param>
+        /// <param name="offerRequest"></param>
+        /// <returns>Task of InlineResponse2019</returns>
+        System.Threading.Tasks.Task<InlineResponse2019> CreateOfferAsync (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
+
+        /// <summary>
+        /// Create an Offer
+        /// </summary>
+        /// <remarks>
+        /// Empower global transactions with transparency and choice. Our Dynamic Currency Conversion API lets merchants offer customers the option to pay in their home currency at checkout, delivering real-time exchange rates.  &lt;div style&#x3D;\&quot;display: flex; gap: 2rem;\&quot;&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Key Benefits:** - **Enhanced Customer Experience:** Provide clarity and convenience for international shoppers. - **Real-Time Rates:** Accurate currency conversion with all the data required for acquirers and their merchants to maintain compliance with card network rules. - **Seamless Integration:** Flexible API endpoints for rate lookup, authorization, and capture. - **Regulatory Compliance:** Provides the data required for acquirers and merchants to meet and maintain card scheme requirements for disclosure and consent.  &lt;br&gt;  Ideal for merchants and payment partners seeking to boost trust and conversion in cross-border commerce.  &lt;br&gt;  **Key Features:** - **Rate Lookup:** Retrieves the most up-to-date exchange rate for eligible cards before authorization. - **Currency Choice:** Enables the merchant to offer customers the option to select between the merchant&#39;s local currency and their card&#39;s billing currency. - **Compliance:** Ensures merchants have the data required to adhere to card network regulations; exchange rates, markups, etc.  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Scenarios:** - Dynamic Currency Conversion when cardholder&#39;s billing currency differs from merchant&#39;s pricing currency. - Merchant and acquirer must support the cardholder&#39;s billing currency. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Processors:** - VPC - FDI Global &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Compliance &amp; Disclosure:**  Merchants must: - Adhere to card network rules for Dynamic Currency Conversion (DCC) transactions. - Display the converted amount, exchange rate, and markup percentage and other required disclosures. - Obtain explicit cardholder consent before applying DCC. - Work with your acquirer to obtain full set of compliance requirements. &lt;/div&gt;  &lt;/div&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Core API Endpoints:**  **Currency Conversion API**  Returns eligibility and exchange rate details, including: - exchangeRate - marginRate - reconciliationId and Id (for subsequent payment requests)  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Payment Authorization with DCC***  POST /pts/v2/payments  Required fields include: - orderInformation.amountDetails.currency - orderInformation.amountDetails.originalCurrency - orderInformation.amountDetails.originalAmount - orderInformation.amountDetails.exchangeRate - currencyConversion.indicator (e.g., 1 &#x3D; Converted, 2 &#x3D; Nonconvertible, 3 &#x3D; Declined) &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Capture with DCC***  POST /pts/v2/payments/{id}/captures  Maps from original authorization and includes original and converted amounts. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Refund with DCC***  POST /pts/v2/captures/{id}/refunds  Maps from original authorization and includes original and converted amounts.  *Note: DCC is only supported on select processors. Contact your acquirer or account manager for more information.* &lt;/div&gt;  &lt;/div&gt; &lt;/div&gt;  &lt;br&gt;  For more information, see the [Currency Conversion Developer Guide](https://developer.cybersource.com/docs/cybs/en-us/currency-conversion/developer/all/rest/currency-conversion/cc-intro.html). 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contentType"></param>
+        /// <param name="xRequestid"></param>
+        /// <param name="vCMerchantId"></param>
+        /// <param name="vCCorrelationId"></param>
+        /// <param name="vCOrganizationId"></param>
+        /// <param name="offerRequest"></param>
+        /// <returns>Task of ApiResponse (InlineResponse2019)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2019>> CreateOfferAsyncWithHttpInfo (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
         /// <summary>
         /// Retrieve an Offer
         /// </summary>
@@ -233,6 +295,347 @@ namespace CyberSource.Api
             this._statusCode = statusCode;
         }
 
+        /// <summary>
+        /// Create an Offer Empower global transactions with transparency and choice. Our Dynamic Currency Conversion API lets merchants offer customers the option to pay in their home currency at checkout, delivering real-time exchange rates.  &lt;div style&#x3D;\&quot;display: flex; gap: 2rem;\&quot;&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Key Benefits:** - **Enhanced Customer Experience:** Provide clarity and convenience for international shoppers. - **Real-Time Rates:** Accurate currency conversion with all the data required for acquirers and their merchants to maintain compliance with card network rules. - **Seamless Integration:** Flexible API endpoints for rate lookup, authorization, and capture. - **Regulatory Compliance:** Provides the data required for acquirers and merchants to meet and maintain card scheme requirements for disclosure and consent.  &lt;br&gt;  Ideal for merchants and payment partners seeking to boost trust and conversion in cross-border commerce.  &lt;br&gt;  **Key Features:** - **Rate Lookup:** Retrieves the most up-to-date exchange rate for eligible cards before authorization. - **Currency Choice:** Enables the merchant to offer customers the option to select between the merchant&#39;s local currency and their card&#39;s billing currency. - **Compliance:** Ensures merchants have the data required to adhere to card network regulations; exchange rates, markups, etc.  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Scenarios:** - Dynamic Currency Conversion when cardholder&#39;s billing currency differs from merchant&#39;s pricing currency. - Merchant and acquirer must support the cardholder&#39;s billing currency. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Processors:** - VPC - FDI Global &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Compliance &amp; Disclosure:**  Merchants must: - Adhere to card network rules for Dynamic Currency Conversion (DCC) transactions. - Display the converted amount, exchange rate, and markup percentage and other required disclosures. - Obtain explicit cardholder consent before applying DCC. - Work with your acquirer to obtain full set of compliance requirements. &lt;/div&gt;  &lt;/div&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Core API Endpoints:**  **Currency Conversion API**  Returns eligibility and exchange rate details, including: - exchangeRate - marginRate - reconciliationId and Id (for subsequent payment requests)  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Payment Authorization with DCC***  POST /pts/v2/payments  Required fields include: - orderInformation.amountDetails.currency - orderInformation.amountDetails.originalCurrency - orderInformation.amountDetails.originalAmount - orderInformation.amountDetails.exchangeRate - currencyConversion.indicator (e.g., 1 &#x3D; Converted, 2 &#x3D; Nonconvertible, 3 &#x3D; Declined) &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Capture with DCC***  POST /pts/v2/payments/{id}/captures  Maps from original authorization and includes original and converted amounts. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Refund with DCC***  POST /pts/v2/captures/{id}/refunds  Maps from original authorization and includes original and converted amounts.  *Note: DCC is only supported on select processors. Contact your acquirer or account manager for more information.* &lt;/div&gt;  &lt;/div&gt; &lt;/div&gt;  &lt;br&gt;  For more information, see the [Currency Conversion Developer Guide](https://developer.cybersource.com/docs/cybs/en-us/currency-conversion/developer/all/rest/currency-conversion/cc-intro.html). 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contentType"></param>
+        /// <param name="xRequestid"></param>
+        /// <param name="vCMerchantId"></param>
+        /// <param name="vCCorrelationId"></param>
+        /// <param name="vCOrganizationId"></param>
+        /// <param name="offerRequest"></param>
+        /// <returns>InlineResponse2019</returns>
+        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
+        public InlineResponse2019 CreateOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
+        {
+            logger.Debug("CALLING API \"CreateOffer\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse2019> localVarResponse = CreateOfferWithHttpInfo(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
+            logger.Debug("CALLING API \"CreateOffer\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create an Offer Empower global transactions with transparency and choice. Our Dynamic Currency Conversion API lets merchants offer customers the option to pay in their home currency at checkout, delivering real-time exchange rates.  &lt;div style&#x3D;\&quot;display: flex; gap: 2rem;\&quot;&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Key Benefits:** - **Enhanced Customer Experience:** Provide clarity and convenience for international shoppers. - **Real-Time Rates:** Accurate currency conversion with all the data required for acquirers and their merchants to maintain compliance with card network rules. - **Seamless Integration:** Flexible API endpoints for rate lookup, authorization, and capture. - **Regulatory Compliance:** Provides the data required for acquirers and merchants to meet and maintain card scheme requirements for disclosure and consent.  &lt;br&gt;  Ideal for merchants and payment partners seeking to boost trust and conversion in cross-border commerce.  &lt;br&gt;  **Key Features:** - **Rate Lookup:** Retrieves the most up-to-date exchange rate for eligible cards before authorization. - **Currency Choice:** Enables the merchant to offer customers the option to select between the merchant&#39;s local currency and their card&#39;s billing currency. - **Compliance:** Ensures merchants have the data required to adhere to card network regulations; exchange rates, markups, etc.  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Scenarios:** - Dynamic Currency Conversion when cardholder&#39;s billing currency differs from merchant&#39;s pricing currency. - Merchant and acquirer must support the cardholder&#39;s billing currency. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Processors:** - VPC - FDI Global &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Compliance &amp; Disclosure:**  Merchants must: - Adhere to card network rules for Dynamic Currency Conversion (DCC) transactions. - Display the converted amount, exchange rate, and markup percentage and other required disclosures. - Obtain explicit cardholder consent before applying DCC. - Work with your acquirer to obtain full set of compliance requirements. &lt;/div&gt;  &lt;/div&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Core API Endpoints:**  **Currency Conversion API**  Returns eligibility and exchange rate details, including: - exchangeRate - marginRate - reconciliationId and Id (for subsequent payment requests)  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Payment Authorization with DCC***  POST /pts/v2/payments  Required fields include: - orderInformation.amountDetails.currency - orderInformation.amountDetails.originalCurrency - orderInformation.amountDetails.originalAmount - orderInformation.amountDetails.exchangeRate - currencyConversion.indicator (e.g., 1 &#x3D; Converted, 2 &#x3D; Nonconvertible, 3 &#x3D; Declined) &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Capture with DCC***  POST /pts/v2/payments/{id}/captures  Maps from original authorization and includes original and converted amounts. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Refund with DCC***  POST /pts/v2/captures/{id}/refunds  Maps from original authorization and includes original and converted amounts.  *Note: DCC is only supported on select processors. Contact your acquirer or account manager for more information.* &lt;/div&gt;  &lt;/div&gt; &lt;/div&gt;  &lt;br&gt;  For more information, see the [Currency Conversion Developer Guide](https://developer.cybersource.com/docs/cybs/en-us/currency-conversion/developer/all/rest/currency-conversion/cc-intro.html). 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contentType"></param>
+        /// <param name="xRequestid"></param>
+        /// <param name="vCMerchantId"></param>
+        /// <param name="vCCorrelationId"></param>
+        /// <param name="vCOrganizationId"></param>
+        /// <param name="offerRequest"></param>
+        /// <returns>ApiResponse of InlineResponse2019</returns>
+        public ApiResponse< InlineResponse2019 > CreateOfferWithHttpInfo (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'contentType' is set
+            if (contentType == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'contentType' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'contentType' when calling OffersApi->CreateOffer");
+            }
+            // verify the required parameter 'xRequestid' is set
+            if (xRequestid == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'xRequestid' when calling OffersApi->CreateOffer");
+            }
+            // verify the required parameter 'vCMerchantId' is set
+            if (vCMerchantId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling OffersApi->CreateOffer");
+            }
+            // verify the required parameter 'vCCorrelationId' is set
+            if (vCCorrelationId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling OffersApi->CreateOffer");
+            }
+            // verify the required parameter 'vCOrganizationId' is set
+            if (vCOrganizationId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling OffersApi->CreateOffer");
+            }
+            // verify the required parameter 'offerRequest' is set
+            if (offerRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'offerRequest' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'offerRequest' when calling OffersApi->CreateOffer");
+            }
+
+            var localVarPath = $"/vas/v1/currencyconversion";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (contentType != null)
+            {
+                localVarHeaderParams.Add("Content-Type", Configuration.ApiClient.ParameterToString(contentType)); // header parameter
+            }
+            if (xRequestid != null)
+            {
+                localVarHeaderParams.Add("x-requestid", Configuration.ApiClient.ParameterToString(xRequestid)); // header parameter
+            }
+            if (vCMerchantId != null)
+            {
+                localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
+            }
+            if (vCCorrelationId != null)
+            {
+                localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
+            }
+            if (vCOrganizationId != null)
+            {
+                localVarHeaderParams.Add("v-c-organization-id", Configuration.ApiClient.ParameterToString(vCOrganizationId)); // header parameter
+            }
+            if (offerRequest != null && offerRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                offerRequest = (OfferRequest)sdkTracker.InsertDeveloperIdTracker(offerRequest, offerRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(offerRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = offerRequest; // byte array
+            }
+            
+            String inboundMLEStatus = "false";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateOffer,CreateOfferAsync,CreateOfferWithHttpInfo,CreateOfferAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "CreateOffer,CreateOfferAsync,CreateOfferWithHttpInfo,CreateOfferAsyncWithHttpInfo");
+
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateOffer", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse2019>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InlineResponse2019) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2019), merchantConfig)); // Return statement
+        }
+
+        /// <summary>
+        /// Create an Offer Empower global transactions with transparency and choice. Our Dynamic Currency Conversion API lets merchants offer customers the option to pay in their home currency at checkout, delivering real-time exchange rates.  &lt;div style&#x3D;\&quot;display: flex; gap: 2rem;\&quot;&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Key Benefits:** - **Enhanced Customer Experience:** Provide clarity and convenience for international shoppers. - **Real-Time Rates:** Accurate currency conversion with all the data required for acquirers and their merchants to maintain compliance with card network rules. - **Seamless Integration:** Flexible API endpoints for rate lookup, authorization, and capture. - **Regulatory Compliance:** Provides the data required for acquirers and merchants to meet and maintain card scheme requirements for disclosure and consent.  &lt;br&gt;  Ideal for merchants and payment partners seeking to boost trust and conversion in cross-border commerce.  &lt;br&gt;  **Key Features:** - **Rate Lookup:** Retrieves the most up-to-date exchange rate for eligible cards before authorization. - **Currency Choice:** Enables the merchant to offer customers the option to select between the merchant&#39;s local currency and their card&#39;s billing currency. - **Compliance:** Ensures merchants have the data required to adhere to card network regulations; exchange rates, markups, etc.  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Scenarios:** - Dynamic Currency Conversion when cardholder&#39;s billing currency differs from merchant&#39;s pricing currency. - Merchant and acquirer must support the cardholder&#39;s billing currency. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Processors:** - VPC - FDI Global &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Compliance &amp; Disclosure:**  Merchants must: - Adhere to card network rules for Dynamic Currency Conversion (DCC) transactions. - Display the converted amount, exchange rate, and markup percentage and other required disclosures. - Obtain explicit cardholder consent before applying DCC. - Work with your acquirer to obtain full set of compliance requirements. &lt;/div&gt;  &lt;/div&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Core API Endpoints:**  **Currency Conversion API**  Returns eligibility and exchange rate details, including: - exchangeRate - marginRate - reconciliationId and Id (for subsequent payment requests)  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Payment Authorization with DCC***  POST /pts/v2/payments  Required fields include: - orderInformation.amountDetails.currency - orderInformation.amountDetails.originalCurrency - orderInformation.amountDetails.originalAmount - orderInformation.amountDetails.exchangeRate - currencyConversion.indicator (e.g., 1 &#x3D; Converted, 2 &#x3D; Nonconvertible, 3 &#x3D; Declined) &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Capture with DCC***  POST /pts/v2/payments/{id}/captures  Maps from original authorization and includes original and converted amounts. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Refund with DCC***  POST /pts/v2/captures/{id}/refunds  Maps from original authorization and includes original and converted amounts.  *Note: DCC is only supported on select processors. Contact your acquirer or account manager for more information.* &lt;/div&gt;  &lt;/div&gt; &lt;/div&gt;  &lt;br&gt;  For more information, see the [Currency Conversion Developer Guide](https://developer.cybersource.com/docs/cybs/en-us/currency-conversion/developer/all/rest/currency-conversion/cc-intro.html). 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contentType"></param>
+        /// <param name="xRequestid"></param>
+        /// <param name="vCMerchantId"></param>
+        /// <param name="vCCorrelationId"></param>
+        /// <param name="vCOrganizationId"></param>
+        /// <param name="offerRequest"></param>
+        /// <returns>Task of InlineResponse2019</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2019> CreateOfferAsync (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
+        {
+            logger.Debug("CALLING API \"CreateOfferAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse2019> localVarResponse = await CreateOfferAsyncWithHttpInfo(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
+            logger.Debug("CALLING API \"CreateOfferAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create an Offer Empower global transactions with transparency and choice. Our Dynamic Currency Conversion API lets merchants offer customers the option to pay in their home currency at checkout, delivering real-time exchange rates.  &lt;div style&#x3D;\&quot;display: flex; gap: 2rem;\&quot;&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Key Benefits:** - **Enhanced Customer Experience:** Provide clarity and convenience for international shoppers. - **Real-Time Rates:** Accurate currency conversion with all the data required for acquirers and their merchants to maintain compliance with card network rules. - **Seamless Integration:** Flexible API endpoints for rate lookup, authorization, and capture. - **Regulatory Compliance:** Provides the data required for acquirers and merchants to meet and maintain card scheme requirements for disclosure and consent.  &lt;br&gt;  Ideal for merchants and payment partners seeking to boost trust and conversion in cross-border commerce.  &lt;br&gt;  **Key Features:** - **Rate Lookup:** Retrieves the most up-to-date exchange rate for eligible cards before authorization. - **Currency Choice:** Enables the merchant to offer customers the option to select between the merchant&#39;s local currency and their card&#39;s billing currency. - **Compliance:** Ensures merchants have the data required to adhere to card network regulations; exchange rates, markups, etc.  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Scenarios:** - Dynamic Currency Conversion when cardholder&#39;s billing currency differs from merchant&#39;s pricing currency. - Merchant and acquirer must support the cardholder&#39;s billing currency. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Supported Processors:** - VPC - FDI Global &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Compliance &amp; Disclosure:**  Merchants must: - Adhere to card network rules for Dynamic Currency Conversion (DCC) transactions. - Display the converted amount, exchange rate, and markup percentage and other required disclosures. - Obtain explicit cardholder consent before applying DCC. - Work with your acquirer to obtain full set of compliance requirements. &lt;/div&gt;  &lt;/div&gt; &lt;div style&#x3D;\&quot;flex: 1;\&quot;&gt;  **Core API Endpoints:**  **Currency Conversion API**  Returns eligibility and exchange rate details, including: - exchangeRate - marginRate - reconciliationId and Id (for subsequent payment requests)  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Payment Authorization with DCC***  POST /pts/v2/payments  Required fields include: - orderInformation.amountDetails.currency - orderInformation.amountDetails.originalCurrency - orderInformation.amountDetails.originalAmount - orderInformation.amountDetails.exchangeRate - currencyConversion.indicator (e.g., 1 &#x3D; Converted, 2 &#x3D; Nonconvertible, 3 &#x3D; Declined) &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Capture with DCC***  POST /pts/v2/payments/{id}/captures  Maps from original authorization and includes original and converted amounts. &lt;/div&gt;  &lt;div style&#x3D;\&quot;margin-top: 1.5rem;\&quot;&gt;  **Refund with DCC***  POST /pts/v2/captures/{id}/refunds  Maps from original authorization and includes original and converted amounts.  *Note: DCC is only supported on select processors. Contact your acquirer or account manager for more information.* &lt;/div&gt;  &lt;/div&gt; &lt;/div&gt;  &lt;br&gt;  For more information, see the [Currency Conversion Developer Guide](https://developer.cybersource.com/docs/cybs/en-us/currency-conversion/developer/all/rest/currency-conversion/cc-intro.html). 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contentType"></param>
+        /// <param name="xRequestid"></param>
+        /// <param name="vCMerchantId"></param>
+        /// <param name="vCCorrelationId"></param>
+        /// <param name="vCOrganizationId"></param>
+        /// <param name="offerRequest"></param>
+        /// <returns>Task of ApiResponse (InlineResponse2019)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2019>> CreateOfferAsyncWithHttpInfo (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'contentType' is set
+            if (contentType == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'contentType' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'contentType' when calling OffersApi->CreateOffer");
+            }
+            // verify the required parameter 'xRequestid' is set
+            if (xRequestid == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'xRequestid' when calling OffersApi->CreateOffer");
+            }
+            // verify the required parameter 'vCMerchantId' is set
+            if (vCMerchantId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling OffersApi->CreateOffer");
+            }
+            // verify the required parameter 'vCCorrelationId' is set
+            if (vCCorrelationId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling OffersApi->CreateOffer");
+            }
+            // verify the required parameter 'vCOrganizationId' is set
+            if (vCOrganizationId == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling OffersApi->CreateOffer");
+            }
+            // verify the required parameter 'offerRequest' is set
+            if (offerRequest == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'offerRequest' when calling OffersApi->CreateOffer");
+                throw new ApiException(400, "Missing required parameter 'offerRequest' when calling OffersApi->CreateOffer");
+            }
+
+            var localVarPath = $"/vas/v1/currencyconversion";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/hal+json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (contentType != null)
+            {
+                localVarHeaderParams.Add("Content-Type", Configuration.ApiClient.ParameterToString(contentType)); // header parameter
+            }
+            if (xRequestid != null)
+            {
+                localVarHeaderParams.Add("x-requestid", Configuration.ApiClient.ParameterToString(xRequestid)); // header parameter
+            }
+            if (vCMerchantId != null)
+            {
+                localVarHeaderParams.Add("v-c-merchant-id", Configuration.ApiClient.ParameterToString(vCMerchantId)); // header parameter
+            }
+            if (vCCorrelationId != null)
+            {
+                localVarHeaderParams.Add("v-c-correlation-id", Configuration.ApiClient.ParameterToString(vCCorrelationId)); // header parameter
+            }
+            if (vCOrganizationId != null)
+            {
+                localVarHeaderParams.Add("v-c-organization-id", Configuration.ApiClient.ParameterToString(vCOrganizationId)); // header parameter
+            }
+            if (offerRequest != null && offerRequest.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                offerRequest = (OfferRequest)sdkTracker.InsertDeveloperIdTracker(offerRequest, offerRequest.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(offerRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = offerRequest; // byte array
+            }
+
+            String inboundMLEStatus = "false";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateOffer,CreateOfferAsync,CreateOfferWithHttpInfo,CreateOfferAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "CreateOffer,CreateOfferAsync,CreateOfferWithHttpInfo,CreateOfferAsyncWithHttpInfo");
+
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateOffer", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse2019>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InlineResponse2019) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2019), merchantConfig)); // Return statement
+        }
         /// <summary>
         /// Retrieve an Offer Retrieves an offer record from the system. 
         /// </summary>

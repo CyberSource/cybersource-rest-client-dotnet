@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="ShipTo">ShipTo.</param>
-        public Upv1capturecontextsOrderInformation(Upv1capturecontextsOrderInformationAmountDetails AmountDetails = default(Upv1capturecontextsOrderInformationAmountDetails), Upv1capturecontextsDataOrderInformationBillTo BillTo = default(Upv1capturecontextsDataOrderInformationBillTo), Upv1capturecontextsDataOrderInformationShipTo ShipTo = default(Upv1capturecontextsDataOrderInformationShipTo))
+        public Upv1capturecontextsOrderInformation(Upv1capturecontextsOrderInformationAmountDetails AmountDetails = default(Upv1capturecontextsOrderInformationAmountDetails), Upv1capturecontextsOrderInformationBillTo BillTo = default(Upv1capturecontextsOrderInformationBillTo), Upv1capturecontextsDataOrderInformationShipTo ShipTo = default(Upv1capturecontextsDataOrderInformationShipTo))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
@@ -53,7 +53,7 @@ namespace CyberSource.Model
         /// Gets or Sets BillTo
         /// </summary>
         [DataMember(Name="billTo", EmitDefaultValue=false)]
-        public Upv1capturecontextsDataOrderInformationBillTo BillTo { get; set; }
+        public Upv1capturecontextsOrderInformationBillTo BillTo { get; set; }
 
         /// <summary>
         /// Gets or Sets ShipTo

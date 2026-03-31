@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="BillTo">BillTo.</param>
-        public GetAllSubscriptionsResponseOrderInformation(GetAllPlansResponseOrderInformationAmountDetails AmountDetails = default(GetAllPlansResponseOrderInformationAmountDetails), GetAllSubscriptionsResponseOrderInformationBillTo BillTo = default(GetAllSubscriptionsResponseOrderInformationBillTo))
+        public GetAllSubscriptionsResponseOrderInformation(GetAllSubscriptionsResponseOrderInformationAmountDetails AmountDetails = default(GetAllSubscriptionsResponseOrderInformationAmountDetails), GetAllSubscriptionsResponseOrderInformationBillTo BillTo = default(GetAllSubscriptionsResponseOrderInformationBillTo))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// Gets or Sets AmountDetails
         /// </summary>
         [DataMember(Name="amountDetails", EmitDefaultValue=false)]
-        public GetAllPlansResponseOrderInformationAmountDetails AmountDetails { get; set; }
+        public GetAllSubscriptionsResponseOrderInformationAmountDetails AmountDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets BillTo

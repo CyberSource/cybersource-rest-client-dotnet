@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="BillingAmount">Billing amount for the billing period. .</param>
         /// <param name="SetupFee">Subscription setup fee .</param>
-        public Rbsv1subscriptionsidOrderInformationAmountDetails(string BillingAmount = default(string), string SetupFee = default(string))
+        /// <param name="Surcharge">Surcharge.</param>
+        public Rbsv1subscriptionsidOrderInformationAmountDetails(string BillingAmount = default(string), string SetupFee = default(string), GetAllSubscriptionsResponseOrderInformationAmountDetailsSurcharge Surcharge = default(GetAllSubscriptionsResponseOrderInformationAmountDetailsSurcharge))
         {
             this.BillingAmount = BillingAmount;
             this.SetupFee = SetupFee;
+            this.Surcharge = Surcharge;
         }
         
         /// <summary>
@@ -56,6 +58,12 @@ namespace CyberSource.Model
         public string SetupFee { get; set; }
 
         /// <summary>
+        /// Gets or Sets Surcharge
+        /// </summary>
+        [DataMember(Name="surcharge", EmitDefaultValue=false)]
+        public GetAllSubscriptionsResponseOrderInformationAmountDetailsSurcharge Surcharge { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +73,7 @@ namespace CyberSource.Model
             sb.Append("class Rbsv1subscriptionsidOrderInformationAmountDetails {\n");
             if (BillingAmount != null) sb.Append("  BillingAmount: ").Append(BillingAmount).Append("\n");
             if (SetupFee != null) sb.Append("  SetupFee: ").Append(SetupFee).Append("\n");
+            if (Surcharge != null) sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +119,11 @@ namespace CyberSource.Model
                     this.SetupFee == other.SetupFee ||
                     this.SetupFee != null &&
                     this.SetupFee.Equals(other.SetupFee)
+                ) && 
+                (
+                    this.Surcharge == other.Surcharge ||
+                    this.Surcharge != null &&
+                    this.Surcharge.Equals(other.Surcharge)
                 );
         }
 
@@ -128,6 +142,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BillingAmount.GetHashCode();
                 if (this.SetupFee != null)
                     hash = hash * 59 + this.SetupFee.GetHashCode();
+                if (this.Surcharge != null)
+                    hash = hash * 59 + this.Surcharge.GetHashCode();
                 return hash;
             }
         }

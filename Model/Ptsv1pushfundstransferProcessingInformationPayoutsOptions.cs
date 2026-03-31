@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="DestinationCurrency">Use a 3-character alpha currency code for destination currency of the funds transfer.  Yellow Pepper  Supported for cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf .</param>
         /// <param name="SourceAmount">Source Amount is required in certain markets to identify the transaction amount entered in the sender&#39;s currency code prior to FX conversion by the originating entity.  Format:  Minimum Value: 0  Maximum value: 999999999.99  Allowed fractional digits: 2 .</param>
         /// <param name="RetrievalReferenceNumber">Unique reference number returned by the processor that identifies the transaction at the network. .</param>
-        /// <param name="AccountFundingReferenceId">Visa-generated transaction identifier (TID) that is unique for each original authorization and financial request. .</param>
+        /// <param name="AccountFundingReferenceId">Visa (maxLength of 15) or MasterCard (maxLength of 40) generated transaction identifier (TID) that is unique for each original authorization and financial request. .</param>
         public Ptsv1pushfundstransferProcessingInformationPayoutsOptions(string SourceCurrency = default(string), string DestinationCurrency = default(string), string SourceAmount = default(string), string RetrievalReferenceNumber = default(string), string AccountFundingReferenceId = default(string))
         {
             this.SourceCurrency = SourceCurrency;
@@ -76,9 +76,9 @@ namespace CyberSource.Model
         public string RetrievalReferenceNumber { get; set; }
 
         /// <summary>
-        /// Visa-generated transaction identifier (TID) that is unique for each original authorization and financial request. 
+        /// Visa (maxLength of 15) or MasterCard (maxLength of 40) generated transaction identifier (TID) that is unique for each original authorization and financial request. 
         /// </summary>
-        /// <value>Visa-generated transaction identifier (TID) that is unique for each original authorization and financial request. </value>
+        /// <value>Visa (maxLength of 15) or MasterCard (maxLength of 40) generated transaction identifier (TID) that is unique for each original authorization and financial request. </value>
         [DataMember(Name="accountFundingReferenceId", EmitDefaultValue=false)]
         public string AccountFundingReferenceId { get; set; }
 

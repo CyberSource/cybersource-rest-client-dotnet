@@ -281,6 +281,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'NationalNetDomesticData'
         }
         /// <summary>
+        /// Test the property 'MerchantVerificationValue'
+        /// </summary>
+        [Test]
+        public void MerchantVerificationValueTest()
+        {
+            // TODO unit test for the property 'MerchantVerificationValue'
+        }
+        /// <summary>
         /// Test the property 'JapanPaymentOptions'
         /// </summary>
         [Test]

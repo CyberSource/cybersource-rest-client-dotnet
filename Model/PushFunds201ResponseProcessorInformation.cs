@@ -43,7 +43,8 @@ namespace CyberSource.Model
         /// <param name="Name">Name of the processor. .</param>
         /// <param name="Routing">Routing.</param>
         /// <param name="Settlement">Settlement.</param>
-        public PushFunds201ResponseProcessorInformation(int? TransactionId = default(int?), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string RetrievalReferenceNumber = default(string), string ActionCode = default(string), string ApprovalCode = default(string), string FeeProgramIndicator = default(string), string Name = default(string), PushFunds201ResponseProcessorInformationRouting Routing = default(PushFunds201ResponseProcessorInformationRouting), PushFunds201ResponseProcessorInformationSettlement Settlement = default(PushFunds201ResponseProcessorInformationSettlement))
+        /// <param name="MerchantAdvice">MerchantAdvice.</param>
+        public PushFunds201ResponseProcessorInformation(int? TransactionId = default(int?), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string RetrievalReferenceNumber = default(string), string ActionCode = default(string), string ApprovalCode = default(string), string FeeProgramIndicator = default(string), string Name = default(string), PushFunds201ResponseProcessorInformationRouting Routing = default(PushFunds201ResponseProcessorInformationRouting), PushFunds201ResponseProcessorInformationSettlement Settlement = default(PushFunds201ResponseProcessorInformationSettlement), PushFunds201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PushFunds201ResponseProcessorInformationMerchantAdvice))
         {
             this.TransactionId = TransactionId;
             this.ResponseCode = ResponseCode;
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             this.Name = Name;
             this.Routing = Routing;
             this.Settlement = Settlement;
+            this.MerchantAdvice = MerchantAdvice;
         }
         
         /// <summary>
@@ -126,6 +128,12 @@ namespace CyberSource.Model
         public PushFunds201ResponseProcessorInformationSettlement Settlement { get; set; }
 
         /// <summary>
+        /// Gets or Sets MerchantAdvice
+        /// </summary>
+        [DataMember(Name="merchantAdvice", EmitDefaultValue=false)]
+        public PushFunds201ResponseProcessorInformationMerchantAdvice MerchantAdvice { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -143,6 +151,7 @@ namespace CyberSource.Model
             if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
             if (Routing != null) sb.Append("  Routing: ").Append(Routing).Append("\n");
             if (Settlement != null) sb.Append("  Settlement: ").Append(Settlement).Append("\n");
+            if (MerchantAdvice != null) sb.Append("  MerchantAdvice: ").Append(MerchantAdvice).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -228,6 +237,11 @@ namespace CyberSource.Model
                     this.Settlement == other.Settlement ||
                     this.Settlement != null &&
                     this.Settlement.Equals(other.Settlement)
+                ) && 
+                (
+                    this.MerchantAdvice == other.MerchantAdvice ||
+                    this.MerchantAdvice != null &&
+                    this.MerchantAdvice.Equals(other.MerchantAdvice)
                 );
         }
 
@@ -262,6 +276,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Routing.GetHashCode();
                 if (this.Settlement != null)
                     hash = hash * 59 + this.Settlement.GetHashCode();
+                if (this.MerchantAdvice != null)
+                    hash = hash * 59 + this.MerchantAdvice.GetHashCode();
                 return hash;
             }
         }

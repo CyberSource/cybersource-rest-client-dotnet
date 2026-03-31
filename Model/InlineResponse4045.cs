@@ -33,38 +33,24 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4045" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted request.  Possible values: - NOT_FOUND.</param>
-        /// <param name="Reason">The reason of the status.  Possible values: - NOT_FOUND.</param>
+        /// <param name="Status">The status of the submitted request.   Possible values: - NOT_FOUND.</param>
         /// <param name="Message">The detail message related to the status and reason listed above..</param>
-        public InlineResponse4045(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string))
+        /// <param name="Code">An optional short string which identifies the exact error..</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        public InlineResponse4045(string Status = default(string), string Message = default(string), string Code = default(string), string SubmitTimeUtc = default(string))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
-            this.Reason = Reason;
             this.Message = Message;
+            this.Code = Code;
+            this.SubmitTimeUtc = SubmitTimeUtc;
         }
         
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// The status of the submitted request.   Possible values: - NOT_FOUND
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
-
-        /// <summary>
-        /// The status of the submitted request.  Possible values: - NOT_FOUND
-        /// </summary>
-        /// <value>The status of the submitted request.  Possible values: - NOT_FOUND</value>
+        /// <value>The status of the submitted request.   Possible values: - NOT_FOUND</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
-
-        /// <summary>
-        /// The reason of the status.  Possible values: - NOT_FOUND
-        /// </summary>
-        /// <value>The reason of the status.  Possible values: - NOT_FOUND</value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public string Reason { get; set; }
 
         /// <summary>
         /// The detail message related to the status and reason listed above.
@@ -74,6 +60,20 @@ namespace CyberSource.Model
         public string Message { get; set; }
 
         /// <summary>
+        /// An optional short string which identifies the exact error.
+        /// </summary>
+        /// <value>An optional short string which identifies the exact error.</value>
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public string Code { get; set; }
+
+        /// <summary>
+        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// </summary>
+        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
+        public string SubmitTimeUtc { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,10 +81,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4045 {\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
-            if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(Code).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,24 +122,24 @@ namespace CyberSource.Model
 
             return 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
-                ) && 
-                (
                     this.Status == other.Status ||
                     this.Status != null &&
                     this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
-                ) && 
-                (
                     this.Message == other.Message ||
                     this.Message != null &&
                     this.Message.Equals(other.Message)
+                ) && 
+                (
+                    this.Code == other.Code ||
+                    this.Code != null &&
+                    this.Code.Equals(other.Code)
+                ) && 
+                (
+                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
+                    this.SubmitTimeUtc != null &&
+                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
                 );
         }
 
@@ -154,14 +154,14 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
+                if (this.SubmitTimeUtc != null)
+                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 return hash;
             }
         }

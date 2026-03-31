@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ProcessingInformation** | [**Rbsv1subscriptionsProcessingInformation**](Rbsv1subscriptionsProcessingInformation.md) |  | [optional] 
 **PlanInformation** | [**Rbsv1subscriptionsPlanInformation**](Rbsv1subscriptionsPlanInformation.md) |  | [optional] 
 **SubscriptionInformation** | [**Rbsv1subscriptionsSubscriptionInformation**](Rbsv1subscriptionsSubscriptionInformation.md) |  | [optional] 
-**OrderInformation** | [**GetAllPlansResponseOrderInformation**](GetAllPlansResponseOrderInformation.md) |  | [optional] 
+**OrderInformation** | [**Rbsv1subscriptionsOrderInformation**](Rbsv1subscriptionsOrderInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
