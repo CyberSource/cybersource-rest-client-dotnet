@@ -38,14 +38,16 @@ namespace CyberSource.Model
         /// <param name="Address1">Street address of the sender of the funds. For Gaming Payment of Winnings transactions these are the merchant details. * Required for Mastercard Payment of Winnings (POW) transactions. * Must not be all numeric. * Must contain only ASCII characters in range 32-122. * Must not be greater than 50 characters including spaces. * Required for POW on Barclays. .</param>
         /// <param name="Locality">City of the sender of the funds. For Gaming Payment of Winnings transactions these are the merchant details. * Required for Mastercard Payment of Winnings (POW) transactions. * Must not be all numeric. * Must contain only ASCII characters in range 32-122. * Must not be greater than 25 characters including spaces. * Required for POW on Barclays. .</param>
         /// <param name="CountryCode">Country of the sender of the funds. For Gaming Payment of Winnings transactions these are the merchant details. * Required for Mastercard Payment of Winnings (POW) transactions. * Must be a valid three character ISO country code as defined by ISO 3166. * Must not be greater than 3 characters. * Required for POW on Barclays. .</param>
+        /// <param name="AdministrativeArea">The state or province of the sender. This field is applicable for AFT transactions when the sender country is US or CA. Else it is optional.  Must be a two character value .</param>
         /// <param name="Account">Account.</param>
-        public Ptsv2creditsSenderInformation(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string CountryCode = default(string), Ptsv2creditsSenderInformationAccount Account = default(Ptsv2creditsSenderInformationAccount))
+        public Ptsv2creditsSenderInformation(string FirstName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string CountryCode = default(string), string AdministrativeArea = default(string), Ptsv2creditsSenderInformationAccount Account = default(Ptsv2creditsSenderInformationAccount))
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
             this.Address1 = Address1;
             this.Locality = Locality;
             this.CountryCode = CountryCode;
+            this.AdministrativeArea = AdministrativeArea;
             this.Account = Account;
         }
         
@@ -85,6 +87,13 @@ namespace CyberSource.Model
         public string CountryCode { get; set; }
 
         /// <summary>
+        /// The state or province of the sender. This field is applicable for AFT transactions when the sender country is US or CA. Else it is optional.  Must be a two character value 
+        /// </summary>
+        /// <value>The state or province of the sender. This field is applicable for AFT transactions when the sender country is US or CA. Else it is optional.  Must be a two character value </value>
+        [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
+        public string AdministrativeArea { get; set; }
+
+        /// <summary>
         /// Gets or Sets Account
         /// </summary>
         [DataMember(Name="account", EmitDefaultValue=false)]
@@ -103,6 +112,7 @@ namespace CyberSource.Model
             if (Address1 != null) sb.Append("  Address1: ").Append(Address1).Append("\n");
             if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
             if (CountryCode != null) sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
+            if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             if (Account != null) sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -166,6 +176,11 @@ namespace CyberSource.Model
                     this.CountryCode.Equals(other.CountryCode)
                 ) && 
                 (
+                    this.AdministrativeArea == other.AdministrativeArea ||
+                    this.AdministrativeArea != null &&
+                    this.AdministrativeArea.Equals(other.AdministrativeArea)
+                ) && 
+                (
                     this.Account == other.Account ||
                     this.Account != null &&
                     this.Account.Equals(other.Account)
@@ -193,6 +208,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Locality.GetHashCode();
                 if (this.CountryCode != null)
                     hash = hash * 59 + this.CountryCode.GetHashCode();
+                if (this.AdministrativeArea != null)
+                    hash = hash * 59 + this.AdministrativeArea.GetHashCode();
                 if (this.Account != null)
                     hash = hash * 59 + this.Account.GetHashCode();
                 return hash;

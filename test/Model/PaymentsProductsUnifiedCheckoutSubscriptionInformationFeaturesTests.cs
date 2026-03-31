@@ -72,6 +72,166 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PazeForUnifiedCheckout'
         }
+        /// <summary>
+        /// Test the property 'TokenManagement'
+        /// </summary>
+        [Test]
+        public void TokenManagementTest()
+        {
+            // TODO unit test for the property 'TokenManagement'
+        }
+        /// <summary>
+        /// Test the property 'PayPal'
+        /// </summary>
+        [Test]
+        public void PayPalTest()
+        {
+            // TODO unit test for the property 'PayPal'
+        }
+        /// <summary>
+        /// Test the property 'Venmo'
+        /// </summary>
+        [Test]
+        public void VenmoTest()
+        {
+            // TODO unit test for the property 'Venmo'
+        }
+        /// <summary>
+        /// Test the property 'ApplePay'
+        /// </summary>
+        [Test]
+        public void ApplePayTest()
+        {
+            // TODO unit test for the property 'ApplePay'
+        }
+        /// <summary>
+        /// Test the property 'GooglePay'
+        /// </summary>
+        [Test]
+        public void GooglePayTest()
+        {
+            // TODO unit test for the property 'GooglePay'
+        }
+        /// <summary>
+        /// Test the property 'TinkPayByBank'
+        /// </summary>
+        [Test]
+        public void TinkPayByBankTest()
+        {
+            // TODO unit test for the property 'TinkPayByBank'
+        }
+        /// <summary>
+        /// Test the property 'ECheck'
+        /// </summary>
+        [Test]
+        public void ECheckTest()
+        {
+            // TODO unit test for the property 'ECheck'
+        }
+        /// <summary>
+        /// Test the property 'P24'
+        /// </summary>
+        [Test]
+        public void P24Test()
+        {
+            // TODO unit test for the property 'P24'
+        }
+        /// <summary>
+        /// Test the property 'MyBank'
+        /// </summary>
+        [Test]
+        public void MyBankTest()
+        {
+            // TODO unit test for the property 'MyBank'
+        }
+        /// <summary>
+        /// Test the property 'Konbini'
+        /// </summary>
+        [Test]
+        public void KonbiniTest()
+        {
+            // TODO unit test for the property 'Konbini'
+        }
+        /// <summary>
+        /// Test the property 'DragonPay'
+        /// </summary>
+        [Test]
+        public void DragonPayTest()
+        {
+            // TODO unit test for the property 'DragonPay'
+        }
+        /// <summary>
+        /// Test the property 'DecisionManager'
+        /// </summary>
+        [Test]
+        public void DecisionManagerTest()
+        {
+            // TODO unit test for the property 'DecisionManager'
+        }
+        /// <summary>
+        /// Test the property 'PayerAuthentication'
+        /// </summary>
+        [Test]
+        public void PayerAuthenticationTest()
+        {
+            // TODO unit test for the property 'PayerAuthentication'
+        }
+        /// <summary>
+        /// Test the property 'AfterPay'
+        /// </summary>
+        [Test]
+        public void AfterPayTest()
+        {
+            // TODO unit test for the property 'AfterPay'
+        }
+        /// <summary>
+        /// Test the property 'Ideal'
+        /// </summary>
+        [Test]
+        public void IdealTest()
+        {
+            // TODO unit test for the property 'Ideal'
+        }
+        /// <summary>
+        /// Test the property 'Multibanco'
+        /// </summary>
+        [Test]
+        public void MultibancoTest()
+        {
+            // TODO unit test for the property 'Multibanco'
+        }
+        /// <summary>
+        /// Test the property 'Bancontact'
+        /// </summary>
+        [Test]
+        public void BancontactTest()
+        {
+            // TODO unit test for the property 'Bancontact'
+        }
+        /// <summary>
+        /// Test the property 'ClickToPay'
+        /// </summary>
+        [Test]
+        public void ClickToPayTest()
+        {
+            // TODO unit test for the property 'ClickToPay'
+        }
+        /// <summary>
+        /// Test the property 'UnifiedClickToPaySDK'
+        /// </summary>
+        [Test]
+        public void UnifiedClickToPaySDKTest()
+        {
+            // TODO unit test for the property 'UnifiedClickToPaySDK'
+        }
+        /// <summary>
+        /// Test the property 'PortfolioAccessofSensitiveData'
+        /// </summary>
+        [Test]
+        public void PortfolioAccessofSensitiveDataTest()
+        {
+            // TODO unit test for the property 'PortfolioAccessofSensitiveData'
+        }
 
     }
 

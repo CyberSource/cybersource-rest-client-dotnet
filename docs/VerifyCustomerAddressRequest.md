@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientReferenceInformation** | [**Riskv1liststypeentriesClientReferenceInformation**](Riskv1liststypeentriesClientReferenceInformation.md) |  | [optional] 
+**ClientReferenceInformation** | [**RiskV1DecisionsPost201ResponseClientReferenceInformation**](RiskV1DecisionsPost201ResponseClientReferenceInformation.md) |  | [optional] 
 **OrderInformation** | [**Riskv1addressverificationsOrderInformation**](Riskv1addressverificationsOrderInformation.md) |  | [optional] 
 **BuyerInformation** | [**Riskv1addressverificationsBuyerInformation**](Riskv1addressverificationsBuyerInformation.md) |  | [optional] 
 

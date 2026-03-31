@@ -45,7 +45,8 @@ namespace CyberSource.Model
         /// <param name="PaymentType">Identifier for the payment type.</param>
         /// <param name="RefundOptions">RefundOptions.</param>
         /// <param name="TransactionTypeIndicator">This field is used identify the type of payment transaction taking place. This field is applicable for MasterCard transactions only. Possible values: - 201- Mastercard Rebate - 202- rePower Load Value - 203- Gaming Re-pay - 204- General Person-to-Person - 205- General Transfer to Own Account - 206- Agent Cash Out - 207- Payment of Own Credit Card Bill - 208- Business Disbursement - 209- Government/Non-Profit Disbursement - 210- Rapid Merchant Settlement - 211- Cash in at ATM (Usage limited to specific countries) - 212- Cash in at Point of Sale (Usage limited to specific countries) - 213- General Business to Business Transfer - 214- Mastercard Merchant Presented QR - 215- Mastercard Merchant Presented QR Refund Payment - 216- Utility Payments (for Brazil domestic use only) - 217- Government Services (for Brazil domestic use only) - 218- Mobile phone top-ups (for Brazil domestic use only) - 219- Coupon booklet payments (for Brazil domestic use only) - 220- General Person-to-Person Transfer - 221- Person-to-Person Transfer to Card Account - 222- General Transfer to Own Account - 223- Agent Cash Out - 224- Payment of Own Credit Card Bill - 225- Business Disbursement - 226- Transfer to Own Staged Digital Wallet Account - 227- Transfer to Own Debit or Prepaid Account - 228- General Business-to-Business Transfer - 229- Installment-based repayment - 230- Mastercard ATM Cash Pick-Up Transaction - 231- Cryptocurrency - 232- High-risk Securities .</param>
-        public Ptsv2paymentsidrefundsProcessingInformation(List<string> ActionList = default(List<string>), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), string IndustryDataType = default(string), string PaymentType = default(string), Ptsv2paymentsidrefundsProcessingInformationRefundOptions RefundOptions = default(Ptsv2paymentsidrefundsProcessingInformationRefundOptions), string TransactionTypeIndicator = default(string))
+        /// <param name="MerchantVerificationValue">The override value of the Merchant Verification Value (MVV) received by various card brands. MVV refers to the value assigned by the card brand/network to identify participation in select merchant programs.  Sample value for Visa: &#x60;101010&#x60; .</param>
+        public Ptsv2paymentsidrefundsProcessingInformation(List<string> ActionList = default(List<string>), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), string IndustryDataType = default(string), string PaymentType = default(string), Ptsv2paymentsidrefundsProcessingInformationRefundOptions RefundOptions = default(Ptsv2paymentsidrefundsProcessingInformationRefundOptions), string TransactionTypeIndicator = default(string), string MerchantVerificationValue = default(string))
         {
             this.ActionList = ActionList;
             this.PaymentSolution = PaymentSolution;
@@ -59,6 +60,7 @@ namespace CyberSource.Model
             this.PaymentType = PaymentType;
             this.RefundOptions = RefundOptions;
             this.TransactionTypeIndicator = TransactionTypeIndicator;
+            this.MerchantVerificationValue = MerchantVerificationValue;
         }
         
         /// <summary>
@@ -144,6 +146,13 @@ namespace CyberSource.Model
         public string TransactionTypeIndicator { get; set; }
 
         /// <summary>
+        /// The override value of the Merchant Verification Value (MVV) received by various card brands. MVV refers to the value assigned by the card brand/network to identify participation in select merchant programs.  Sample value for Visa: &#x60;101010&#x60; 
+        /// </summary>
+        /// <value>The override value of the Merchant Verification Value (MVV) received by various card brands. MVV refers to the value assigned by the card brand/network to identify participation in select merchant programs.  Sample value for Visa: &#x60;101010&#x60; </value>
+        [DataMember(Name="merchantVerificationValue", EmitDefaultValue=false)]
+        public string MerchantVerificationValue { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -163,6 +172,7 @@ namespace CyberSource.Model
             if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             if (RefundOptions != null) sb.Append("  RefundOptions: ").Append(RefundOptions).Append("\n");
             if (TransactionTypeIndicator != null) sb.Append("  TransactionTypeIndicator: ").Append(TransactionTypeIndicator).Append("\n");
+            if (MerchantVerificationValue != null) sb.Append("  MerchantVerificationValue: ").Append(MerchantVerificationValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -258,6 +268,11 @@ namespace CyberSource.Model
                     this.TransactionTypeIndicator == other.TransactionTypeIndicator ||
                     this.TransactionTypeIndicator != null &&
                     this.TransactionTypeIndicator.Equals(other.TransactionTypeIndicator)
+                ) && 
+                (
+                    this.MerchantVerificationValue == other.MerchantVerificationValue ||
+                    this.MerchantVerificationValue != null &&
+                    this.MerchantVerificationValue.Equals(other.MerchantVerificationValue)
                 );
         }
 
@@ -296,6 +311,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RefundOptions.GetHashCode();
                 if (this.TransactionTypeIndicator != null)
                     hash = hash * 59 + this.TransactionTypeIndicator.GetHashCode();
+                if (this.MerchantVerificationValue != null)
+                    hash = hash * 59 + this.MerchantVerificationValue.GetHashCode();
                 return hash;
             }
         }

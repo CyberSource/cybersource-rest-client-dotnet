@@ -113,20 +113,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AdministrativeArea'
         }
         /// <summary>
-        /// Test the property 'BuildingNumber'
-        /// </summary>
-        [Test]
-        public void BuildingNumberTest()
-        {
-            // TODO unit test for the property 'BuildingNumber'
-        }
-        /// <summary>
         /// Test the property 'Country'
         /// </summary>
         [Test]
         public void CountryTest()
         {
             // TODO unit test for the property 'Country'
+        }
+        /// <summary>
+        /// Test the property 'BuildingNumber'
+        /// </summary>
+        [Test]
+        public void BuildingNumberTest()
+        {
+            // TODO unit test for the property 'BuildingNumber'
         }
         /// <summary>
         /// Test the property 'District'

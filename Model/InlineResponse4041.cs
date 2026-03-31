@@ -33,54 +33,27 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4041" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">The time the response was submitted.</param>
-        /// <param name="Status">The status code of the response.</param>
-        /// <param name="Reason">The reason for the response.</param>
-        /// <param name="Message">The message of the response.</param>
-        /// <param name="Details">The details of the validation error.</param>
-        public InlineResponse4041(string SubmitTimeUtc = default(string), int? Status = default(int?), string Reason = default(string), string Message = default(string), List<InlineResponse4041Details> Details = default(List<InlineResponse4041Details>))
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - NOT_FOUND .</param>
+        public InlineResponse4041(string SubmitTimeUtc = default(string), string Status = default(string))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
-            this.Reason = Reason;
-            this.Message = Message;
-            this.Details = Details;
         }
         
         /// <summary>
-        /// The time the response was submitted
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
         /// </summary>
-        /// <value>The time the response was submitted</value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The status code of the response
+        /// The status of the submitted transaction.  Possible values:  - NOT_FOUND 
         /// </summary>
-        /// <value>The status code of the response</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - NOT_FOUND </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
-        public int? Status { get; set; }
-
-        /// <summary>
-        /// The reason for the response
-        /// </summary>
-        /// <value>The reason for the response</value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public string Reason { get; set; }
-
-        /// <summary>
-        /// The message of the response
-        /// </summary>
-        /// <value>The message of the response</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// The details of the validation error
-        /// </summary>
-        /// <value>The details of the validation error</value>
-        [DataMember(Name="details", EmitDefaultValue=false)]
-        public List<InlineResponse4041Details> Details { get; set; }
+        public string Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,9 +65,6 @@ namespace CyberSource.Model
             sb.Append("class InlineResponse4041 {\n");
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
-            if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
-            if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
-            if (Details != null) sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,21 +110,6 @@ namespace CyberSource.Model
                     this.Status == other.Status ||
                     this.Status != null &&
                     this.Status.Equals(other.Status)
-                ) && 
-                (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
-                ) && 
-                (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
-                ) && 
-                (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -173,12 +128,6 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
                 return hash;
             }
         }

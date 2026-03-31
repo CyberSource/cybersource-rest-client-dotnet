@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ClientRequestAction">Client request action. .</param>
         /// <param name="KeyInformation">KeyInformation.</param>
-        public SaveAsymEgressKey(Kmsegressv2keysasymClientReferenceInformation ClientReferenceInformation = default(Kmsegressv2keysasymClientReferenceInformation), string ClientRequestAction = default(string), Kmsegressv2keysasymKeyInformation KeyInformation = default(Kmsegressv2keysasymKeyInformation))
+        public SaveAsymEgressKey(Kmsegressv2keyssymClientReferenceInformation ClientReferenceInformation = default(Kmsegressv2keyssymClientReferenceInformation), string ClientRequestAction = default(string), Kmsegressv2keysasymKeyInformation KeyInformation = default(Kmsegressv2keysasymKeyInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ClientRequestAction = ClientRequestAction;
@@ -47,7 +47,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Kmsegressv2keysasymClientReferenceInformation ClientReferenceInformation { get; set; }
+        public Kmsegressv2keyssymClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Client request action. 

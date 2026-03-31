@@ -105,6 +105,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CountryCode'
         }
         /// <summary>
+        /// Test the property 'AdministrativeArea'
+        /// </summary>
+        [Test]
+        public void AdministrativeAreaTest()
+        {
+            // TODO unit test for the property 'AdministrativeArea'
+        }
+        /// <summary>
         /// Test the property 'Account'
         /// </summary>
         [Test]

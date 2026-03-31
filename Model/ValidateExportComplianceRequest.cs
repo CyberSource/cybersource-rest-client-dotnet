@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="ExportComplianceInformation">ExportComplianceInformation.</param>
-        public ValidateExportComplianceRequest(Riskv1liststypeentriesClientReferenceInformation ClientReferenceInformation = default(Riskv1liststypeentriesClientReferenceInformation), Riskv1exportcomplianceinquiriesOrderInformation OrderInformation = default(Riskv1exportcomplianceinquiriesOrderInformation), Riskv1addressverificationsBuyerInformation BuyerInformation = default(Riskv1addressverificationsBuyerInformation), Riskv1exportcomplianceinquiriesDeviceInformation DeviceInformation = default(Riskv1exportcomplianceinquiriesDeviceInformation), Riskv1exportcomplianceinquiriesExportComplianceInformation ExportComplianceInformation = default(Riskv1exportcomplianceinquiriesExportComplianceInformation))
+        public ValidateExportComplianceRequest(RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(RiskV1DecisionsPost201ResponseClientReferenceInformation), Riskv1exportcomplianceinquiriesOrderInformation OrderInformation = default(Riskv1exportcomplianceinquiriesOrderInformation), Riskv1addressverificationsBuyerInformation BuyerInformation = default(Riskv1addressverificationsBuyerInformation), Riskv1exportcomplianceinquiriesDeviceInformation DeviceInformation = default(Riskv1exportcomplianceinquiriesDeviceInformation), Riskv1exportcomplianceinquiriesExportComplianceInformation ExportComplianceInformation = default(Riskv1exportcomplianceinquiriesExportComplianceInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [DataMember(Name="clientReferenceInformation", EmitDefaultValue=false)]
-        public Riskv1liststypeentriesClientReferenceInformation ClientReferenceInformation { get; set; }
+        public RiskV1DecisionsPost201ResponseClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation

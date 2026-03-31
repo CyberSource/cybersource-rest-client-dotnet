@@ -152,6 +152,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PointOfSaleInformation'
         }
+        /// <summary>
+        /// Test the property 'ErrorInformation'
+        /// </summary>
+        [Test]
+        public void ErrorInformationTest()
+        {
+            // TODO unit test for the property 'ErrorInformation'
+        }
 
     }
 

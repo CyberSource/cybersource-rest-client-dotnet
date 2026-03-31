@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferRecipientInformationPaymentInformationCard" /> class.
         /// </summary>
         /// <param name="Type">- &#x60;001&#x60;: Visa - &#x60;002&#x60;: Mastercard, Eurocard, which is a European regional brand of Mastercard. - &#x60;033&#x60;: Visa Electron - &#x60;024&#x60;: Maestro - &#x60;042&#x60;: Maestro International .</param>
-        /// <param name="SecurityCode">3-digit value that indicates the cardCvv2Value. Values can be 0-9. .</param>
+        /// <param name="SecurityCode">4-digit value that indicates the cardCvv2Value. Values can be 0-9. .</param>
         /// <param name="Number">The customer&#39;s payment card number, also known as the Primary Account Number (PAN).  Conditional: this field is required if not using tokens. .</param>
         /// <param name="ExpirationMonth">Two-digit month in which the payment card expires.  Format: MM.  Valid values: 01 through 12. Leading 0 is required. .</param>
         /// <param name="ExpirationYear">Four-digit year in which the payment card expires.  Format: YYYY. .</param>
@@ -61,9 +61,9 @@ namespace CyberSource.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// 3-digit value that indicates the cardCvv2Value. Values can be 0-9. 
+        /// 4-digit value that indicates the cardCvv2Value. Values can be 0-9. 
         /// </summary>
-        /// <value>3-digit value that indicates the cardCvv2Value. Values can be 0-9. </value>
+        /// <value>4-digit value that indicates the cardCvv2Value. Values can be 0-9. </value>
         [DataMember(Name="securityCode", EmitDefaultValue=false)]
         public string SecurityCode { get; set; }
 

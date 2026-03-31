@@ -78,7 +78,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (addNegativeListRequest.ClientReferenceInformation == null)
                     {
-                        addNegativeListRequest.ClientReferenceInformation = new Riskv1liststypeentriesClientReferenceInformation();
+                        addNegativeListRequest.ClientReferenceInformation = new RiskV1DecisionsPost201ResponseClientReferenceInformation();
                     }
 
                     if (addNegativeListRequest.ClientReferenceInformation.Partner == null)
@@ -116,7 +116,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (fraudMarkingActionRequest.ClientReferenceInformation == null)
                     {
-                        fraudMarkingActionRequest.ClientReferenceInformation = new Riskv1liststypeentriesClientReferenceInformation();
+                        fraudMarkingActionRequest.ClientReferenceInformation = new RiskV1DecisionsPost201ResponseClientReferenceInformation();
                     }
 
                     if (fraudMarkingActionRequest.ClientReferenceInformation.Partner == null)
@@ -135,7 +135,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (checkPayerAuthEnrollmentRequest.ClientReferenceInformation == null)
                     {
-                        checkPayerAuthEnrollmentRequest.ClientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation();
+                        checkPayerAuthEnrollmentRequest.ClientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
                     }
 
                     if (checkPayerAuthEnrollmentRequest.ClientReferenceInformation.Partner == null)
@@ -154,7 +154,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (payerAuthSetupRequest.ClientReferenceInformation == null)
                     {
-                        payerAuthSetupRequest.ClientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation();
+                        payerAuthSetupRequest.ClientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
                     }
 
                     if (payerAuthSetupRequest.ClientReferenceInformation.Partner == null)
@@ -173,7 +173,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (validateRequest.ClientReferenceInformation == null)
                     {
-                        validateRequest.ClientReferenceInformation = new Riskv1authenticationsetupsClientReferenceInformation();
+                        validateRequest.ClientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
                     }
 
                     if (validateRequest.ClientReferenceInformation.Partner == null)
@@ -401,7 +401,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (validateExportComplianceRequest.ClientReferenceInformation == null)
                     {
-                        validateExportComplianceRequest.ClientReferenceInformation = new Riskv1liststypeentriesClientReferenceInformation();
+                        validateExportComplianceRequest.ClientReferenceInformation = new RiskV1DecisionsPost201ResponseClientReferenceInformation();
                     }
 
                     if (validateExportComplianceRequest.ClientReferenceInformation.Partner == null)
@@ -420,7 +420,7 @@ namespace CyberSource.Utilities.Tracking
 
                     if (verifyCustomerAddressRequest.ClientReferenceInformation == null)
                     {
-                        verifyCustomerAddressRequest.ClientReferenceInformation = new Riskv1liststypeentriesClientReferenceInformation();
+                        verifyCustomerAddressRequest.ClientReferenceInformation = new RiskV1DecisionsPost201ResponseClientReferenceInformation();
                     }
 
                     if (verifyCustomerAddressRequest.ClientReferenceInformation.Partner == null)

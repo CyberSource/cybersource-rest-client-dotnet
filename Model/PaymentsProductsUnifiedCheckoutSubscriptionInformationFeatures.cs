@@ -34,9 +34,49 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PaymentsProductsUnifiedCheckoutSubscriptionInformationFeatures" /> class.
         /// </summary>
         /// <param name="PazeForUnifiedCheckout">PazeForUnifiedCheckout.</param>
-        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeatures(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPazeForUnifiedCheckout PazeForUnifiedCheckout = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPazeForUnifiedCheckout))
+        /// <param name="TokenManagement">TokenManagement.</param>
+        /// <param name="PayPal">PayPal.</param>
+        /// <param name="Venmo">Venmo.</param>
+        /// <param name="ApplePay">ApplePay.</param>
+        /// <param name="GooglePay">GooglePay.</param>
+        /// <param name="TinkPayByBank">TinkPayByBank.</param>
+        /// <param name="ECheck">ECheck.</param>
+        /// <param name="P24">P24.</param>
+        /// <param name="MyBank">MyBank.</param>
+        /// <param name="Konbini">Konbini.</param>
+        /// <param name="DragonPay">DragonPay.</param>
+        /// <param name="DecisionManager">DecisionManager.</param>
+        /// <param name="PayerAuthentication">PayerAuthentication.</param>
+        /// <param name="AfterPay">AfterPay.</param>
+        /// <param name="Ideal">Ideal.</param>
+        /// <param name="Multibanco">Multibanco.</param>
+        /// <param name="Bancontact">Bancontact.</param>
+        /// <param name="ClickToPay">ClickToPay.</param>
+        /// <param name="UnifiedClickToPaySDK">UnifiedClickToPaySDK.</param>
+        /// <param name="PortfolioAccessofSensitiveData">PortfolioAccessofSensitiveData.</param>
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeatures(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPazeForUnifiedCheckout PazeForUnifiedCheckout = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPazeForUnifiedCheckout), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesTokenManagement TokenManagement = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesTokenManagement), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPayPal PayPal = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPayPal), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesVenmo Venmo = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesVenmo), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesApplePay ApplePay = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesApplePay), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesGooglePay GooglePay = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesGooglePay), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesTinkPayByBank TinkPayByBank = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesTinkPayByBank), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesECheck ECheck = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesECheck), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesP24 P24 = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesP24), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesMyBank MyBank = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesMyBank), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesKonbini Konbini = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesKonbini), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesDragonPay DragonPay = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesDragonPay), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesDecisionManager DecisionManager = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesDecisionManager), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPayerAuthentication PayerAuthentication = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPayerAuthentication), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesAfterPay AfterPay = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesAfterPay), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesIdeal Ideal = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesIdeal), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesMultibanco Multibanco = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesMultibanco), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesBancontact Bancontact = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesBancontact), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesClickToPay ClickToPay = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesClickToPay), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesUnifiedClickToPaySDK UnifiedClickToPaySDK = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesUnifiedClickToPaySDK), PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPortfolioAccessofSensitiveData PortfolioAccessofSensitiveData = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPortfolioAccessofSensitiveData))
         {
             this.PazeForUnifiedCheckout = PazeForUnifiedCheckout;
+            this.TokenManagement = TokenManagement;
+            this.PayPal = PayPal;
+            this.Venmo = Venmo;
+            this.ApplePay = ApplePay;
+            this.GooglePay = GooglePay;
+            this.TinkPayByBank = TinkPayByBank;
+            this.ECheck = ECheck;
+            this.P24 = P24;
+            this.MyBank = MyBank;
+            this.Konbini = Konbini;
+            this.DragonPay = DragonPay;
+            this.DecisionManager = DecisionManager;
+            this.PayerAuthentication = PayerAuthentication;
+            this.AfterPay = AfterPay;
+            this.Ideal = Ideal;
+            this.Multibanco = Multibanco;
+            this.Bancontact = Bancontact;
+            this.ClickToPay = ClickToPay;
+            this.UnifiedClickToPaySDK = UnifiedClickToPaySDK;
+            this.PortfolioAccessofSensitiveData = PortfolioAccessofSensitiveData;
         }
         
         /// <summary>
@@ -44,6 +84,126 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="pazeForUnifiedCheckout", EmitDefaultValue=false)]
         public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPazeForUnifiedCheckout PazeForUnifiedCheckout { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenManagement
+        /// </summary>
+        [DataMember(Name="tokenManagement", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesTokenManagement TokenManagement { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PayPal
+        /// </summary>
+        [DataMember(Name="payPal", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPayPal PayPal { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Venmo
+        /// </summary>
+        [DataMember(Name="venmo", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesVenmo Venmo { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ApplePay
+        /// </summary>
+        [DataMember(Name="applePay", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesApplePay ApplePay { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GooglePay
+        /// </summary>
+        [DataMember(Name="googlePay", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesGooglePay GooglePay { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TinkPayByBank
+        /// </summary>
+        [DataMember(Name="tinkPayByBank", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesTinkPayByBank TinkPayByBank { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ECheck
+        /// </summary>
+        [DataMember(Name="eCheck", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesECheck ECheck { get; set; }
+
+        /// <summary>
+        /// Gets or Sets P24
+        /// </summary>
+        [DataMember(Name="p24", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesP24 P24 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MyBank
+        /// </summary>
+        [DataMember(Name="myBank", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesMyBank MyBank { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Konbini
+        /// </summary>
+        [DataMember(Name="konbini", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesKonbini Konbini { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DragonPay
+        /// </summary>
+        [DataMember(Name="dragonPay", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesDragonPay DragonPay { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DecisionManager
+        /// </summary>
+        [DataMember(Name="decisionManager", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesDecisionManager DecisionManager { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PayerAuthentication
+        /// </summary>
+        [DataMember(Name="payerAuthentication", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPayerAuthentication PayerAuthentication { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AfterPay
+        /// </summary>
+        [DataMember(Name="afterPay", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesAfterPay AfterPay { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Ideal
+        /// </summary>
+        [DataMember(Name="ideal", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesIdeal Ideal { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Multibanco
+        /// </summary>
+        [DataMember(Name="multibanco", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesMultibanco Multibanco { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Bancontact
+        /// </summary>
+        [DataMember(Name="bancontact", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesBancontact Bancontact { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ClickToPay
+        /// </summary>
+        [DataMember(Name="clickToPay", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesClickToPay ClickToPay { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UnifiedClickToPaySDK
+        /// </summary>
+        [DataMember(Name="unifiedClickToPaySDK", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesUnifiedClickToPaySDK UnifiedClickToPaySDK { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PortfolioAccessofSensitiveData
+        /// </summary>
+        [DataMember(Name="portfolioAccessofSensitiveData", EmitDefaultValue=false)]
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeaturesPortfolioAccessofSensitiveData PortfolioAccessofSensitiveData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +214,26 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsUnifiedCheckoutSubscriptionInformationFeatures {\n");
             if (PazeForUnifiedCheckout != null) sb.Append("  PazeForUnifiedCheckout: ").Append(PazeForUnifiedCheckout).Append("\n");
+            if (TokenManagement != null) sb.Append("  TokenManagement: ").Append(TokenManagement).Append("\n");
+            if (PayPal != null) sb.Append("  PayPal: ").Append(PayPal).Append("\n");
+            if (Venmo != null) sb.Append("  Venmo: ").Append(Venmo).Append("\n");
+            if (ApplePay != null) sb.Append("  ApplePay: ").Append(ApplePay).Append("\n");
+            if (GooglePay != null) sb.Append("  GooglePay: ").Append(GooglePay).Append("\n");
+            if (TinkPayByBank != null) sb.Append("  TinkPayByBank: ").Append(TinkPayByBank).Append("\n");
+            if (ECheck != null) sb.Append("  ECheck: ").Append(ECheck).Append("\n");
+            if (P24 != null) sb.Append("  P24: ").Append(P24).Append("\n");
+            if (MyBank != null) sb.Append("  MyBank: ").Append(MyBank).Append("\n");
+            if (Konbini != null) sb.Append("  Konbini: ").Append(Konbini).Append("\n");
+            if (DragonPay != null) sb.Append("  DragonPay: ").Append(DragonPay).Append("\n");
+            if (DecisionManager != null) sb.Append("  DecisionManager: ").Append(DecisionManager).Append("\n");
+            if (PayerAuthentication != null) sb.Append("  PayerAuthentication: ").Append(PayerAuthentication).Append("\n");
+            if (AfterPay != null) sb.Append("  AfterPay: ").Append(AfterPay).Append("\n");
+            if (Ideal != null) sb.Append("  Ideal: ").Append(Ideal).Append("\n");
+            if (Multibanco != null) sb.Append("  Multibanco: ").Append(Multibanco).Append("\n");
+            if (Bancontact != null) sb.Append("  Bancontact: ").Append(Bancontact).Append("\n");
+            if (ClickToPay != null) sb.Append("  ClickToPay: ").Append(ClickToPay).Append("\n");
+            if (UnifiedClickToPaySDK != null) sb.Append("  UnifiedClickToPaySDK: ").Append(UnifiedClickToPaySDK).Append("\n");
+            if (PortfolioAccessofSensitiveData != null) sb.Append("  PortfolioAccessofSensitiveData: ").Append(PortfolioAccessofSensitiveData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +274,106 @@ namespace CyberSource.Model
                     this.PazeForUnifiedCheckout == other.PazeForUnifiedCheckout ||
                     this.PazeForUnifiedCheckout != null &&
                     this.PazeForUnifiedCheckout.Equals(other.PazeForUnifiedCheckout)
+                ) && 
+                (
+                    this.TokenManagement == other.TokenManagement ||
+                    this.TokenManagement != null &&
+                    this.TokenManagement.Equals(other.TokenManagement)
+                ) && 
+                (
+                    this.PayPal == other.PayPal ||
+                    this.PayPal != null &&
+                    this.PayPal.Equals(other.PayPal)
+                ) && 
+                (
+                    this.Venmo == other.Venmo ||
+                    this.Venmo != null &&
+                    this.Venmo.Equals(other.Venmo)
+                ) && 
+                (
+                    this.ApplePay == other.ApplePay ||
+                    this.ApplePay != null &&
+                    this.ApplePay.Equals(other.ApplePay)
+                ) && 
+                (
+                    this.GooglePay == other.GooglePay ||
+                    this.GooglePay != null &&
+                    this.GooglePay.Equals(other.GooglePay)
+                ) && 
+                (
+                    this.TinkPayByBank == other.TinkPayByBank ||
+                    this.TinkPayByBank != null &&
+                    this.TinkPayByBank.Equals(other.TinkPayByBank)
+                ) && 
+                (
+                    this.ECheck == other.ECheck ||
+                    this.ECheck != null &&
+                    this.ECheck.Equals(other.ECheck)
+                ) && 
+                (
+                    this.P24 == other.P24 ||
+                    this.P24 != null &&
+                    this.P24.Equals(other.P24)
+                ) && 
+                (
+                    this.MyBank == other.MyBank ||
+                    this.MyBank != null &&
+                    this.MyBank.Equals(other.MyBank)
+                ) && 
+                (
+                    this.Konbini == other.Konbini ||
+                    this.Konbini != null &&
+                    this.Konbini.Equals(other.Konbini)
+                ) && 
+                (
+                    this.DragonPay == other.DragonPay ||
+                    this.DragonPay != null &&
+                    this.DragonPay.Equals(other.DragonPay)
+                ) && 
+                (
+                    this.DecisionManager == other.DecisionManager ||
+                    this.DecisionManager != null &&
+                    this.DecisionManager.Equals(other.DecisionManager)
+                ) && 
+                (
+                    this.PayerAuthentication == other.PayerAuthentication ||
+                    this.PayerAuthentication != null &&
+                    this.PayerAuthentication.Equals(other.PayerAuthentication)
+                ) && 
+                (
+                    this.AfterPay == other.AfterPay ||
+                    this.AfterPay != null &&
+                    this.AfterPay.Equals(other.AfterPay)
+                ) && 
+                (
+                    this.Ideal == other.Ideal ||
+                    this.Ideal != null &&
+                    this.Ideal.Equals(other.Ideal)
+                ) && 
+                (
+                    this.Multibanco == other.Multibanco ||
+                    this.Multibanco != null &&
+                    this.Multibanco.Equals(other.Multibanco)
+                ) && 
+                (
+                    this.Bancontact == other.Bancontact ||
+                    this.Bancontact != null &&
+                    this.Bancontact.Equals(other.Bancontact)
+                ) && 
+                (
+                    this.ClickToPay == other.ClickToPay ||
+                    this.ClickToPay != null &&
+                    this.ClickToPay.Equals(other.ClickToPay)
+                ) && 
+                (
+                    this.UnifiedClickToPaySDK == other.UnifiedClickToPaySDK ||
+                    this.UnifiedClickToPaySDK != null &&
+                    this.UnifiedClickToPaySDK.Equals(other.UnifiedClickToPaySDK)
+                ) && 
+                (
+                    this.PortfolioAccessofSensitiveData == other.PortfolioAccessofSensitiveData ||
+                    this.PortfolioAccessofSensitiveData != null &&
+                    this.PortfolioAccessofSensitiveData.Equals(other.PortfolioAccessofSensitiveData)
                 );
         }
 
@@ -110,6 +390,46 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.PazeForUnifiedCheckout != null)
                     hash = hash * 59 + this.PazeForUnifiedCheckout.GetHashCode();
+                if (this.TokenManagement != null)
+                    hash = hash * 59 + this.TokenManagement.GetHashCode();
+                if (this.PayPal != null)
+                    hash = hash * 59 + this.PayPal.GetHashCode();
+                if (this.Venmo != null)
+                    hash = hash * 59 + this.Venmo.GetHashCode();
+                if (this.ApplePay != null)
+                    hash = hash * 59 + this.ApplePay.GetHashCode();
+                if (this.GooglePay != null)
+                    hash = hash * 59 + this.GooglePay.GetHashCode();
+                if (this.TinkPayByBank != null)
+                    hash = hash * 59 + this.TinkPayByBank.GetHashCode();
+                if (this.ECheck != null)
+                    hash = hash * 59 + this.ECheck.GetHashCode();
+                if (this.P24 != null)
+                    hash = hash * 59 + this.P24.GetHashCode();
+                if (this.MyBank != null)
+                    hash = hash * 59 + this.MyBank.GetHashCode();
+                if (this.Konbini != null)
+                    hash = hash * 59 + this.Konbini.GetHashCode();
+                if (this.DragonPay != null)
+                    hash = hash * 59 + this.DragonPay.GetHashCode();
+                if (this.DecisionManager != null)
+                    hash = hash * 59 + this.DecisionManager.GetHashCode();
+                if (this.PayerAuthentication != null)
+                    hash = hash * 59 + this.PayerAuthentication.GetHashCode();
+                if (this.AfterPay != null)
+                    hash = hash * 59 + this.AfterPay.GetHashCode();
+                if (this.Ideal != null)
+                    hash = hash * 59 + this.Ideal.GetHashCode();
+                if (this.Multibanco != null)
+                    hash = hash * 59 + this.Multibanco.GetHashCode();
+                if (this.Bancontact != null)
+                    hash = hash * 59 + this.Bancontact.GetHashCode();
+                if (this.ClickToPay != null)
+                    hash = hash * 59 + this.ClickToPay.GetHashCode();
+                if (this.UnifiedClickToPaySDK != null)
+                    hash = hash * 59 + this.UnifiedClickToPaySDK.GetHashCode();
+                if (this.PortfolioAccessofSensitiveData != null)
+                    hash = hash * 59 + this.PortfolioAccessofSensitiveData.GetHashCode();
                 return hash;
             }
         }

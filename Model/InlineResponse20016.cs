@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="Status">Message describing the status of the currency conversion request.  Values: - &#x60;PENDING&#x60; - &#x60;DECLINED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; - &#x60;OFFER_DECLINED&#x60; - &#x60;AUTHORIZED&#x60; - &#x60;AUTHORIZATION_DECLINED&#x60; - &#x60;AUTHORIZATION_FAILURE&#x60; - &#x60;REVERSED&#x60; - &#x60;CAPTURED&#x60; - &#x60;REFUNDED&#x60; - &#x60;CANCELLED&#x60;  (required).</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public InlineResponse20016(InlineResponse20016ClientReferenceInformation ClientReferenceInformation = default(InlineResponse20016ClientReferenceInformation), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), InlineResponse20016ErrorInformation ErrorInformation = default(InlineResponse20016ErrorInformation), InlineResponse20016OrderInformation OrderInformation = default(InlineResponse20016OrderInformation))
+        public InlineResponse20016(InlineResponse20016ClientReferenceInformation ClientReferenceInformation = default(InlineResponse20016ClientReferenceInformation), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), InlineResponse2019ErrorInformation ErrorInformation = default(InlineResponse2019ErrorInformation), InlineResponse2019OrderInformation OrderInformation = default(InlineResponse2019OrderInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.Id = Id;
@@ -85,13 +85,13 @@ namespace CyberSource.Model
         /// Gets or Sets ErrorInformation
         /// </summary>
         [DataMember(Name="errorInformation", EmitDefaultValue=false)]
-        public InlineResponse20016ErrorInformation ErrorInformation { get; set; }
+        public InlineResponse2019ErrorInformation ErrorInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation
         /// </summary>
         [DataMember(Name="orderInformation", EmitDefaultValue=false)]
-        public InlineResponse20016OrderInformation OrderInformation { get; set; }
+        public InlineResponse2019OrderInformation OrderInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

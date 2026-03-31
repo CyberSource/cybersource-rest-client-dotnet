@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferMerchantInformation" /> class.
         /// </summary>
         /// <param name="CategoryCode">The value for this field is a four-digit number that the payment card industry uses to  classify merchants into market segments. A payment card company assigned one or more of  these values to your business when you started accepting the payment card company&#39;s cards.  When you do not include this field in your request, CyberSource uses the value in your CyberSource account. .</param>
-        public Ptsv1pushfundstransferMerchantInformation(string CategoryCode = default(string))
+        /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
+        public Ptsv1pushfundstransferMerchantInformation(int? CategoryCode = default(int?), Ptsv1pushfundstransferMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv1pushfundstransferMerchantInformationMerchantDescriptor))
         {
             this.CategoryCode = CategoryCode;
+            this.MerchantDescriptor = MerchantDescriptor;
         }
         
         /// <summary>
@@ -44,7 +46,13 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The value for this field is a four-digit number that the payment card industry uses to  classify merchants into market segments. A payment card company assigned one or more of  these values to your business when you started accepting the payment card company&#39;s cards.  When you do not include this field in your request, CyberSource uses the value in your CyberSource account. </value>
         [DataMember(Name="categoryCode", EmitDefaultValue=false)]
-        public string CategoryCode { get; set; }
+        public int? CategoryCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantDescriptor
+        /// </summary>
+        [DataMember(Name="merchantDescriptor", EmitDefaultValue=false)]
+        public Ptsv1pushfundstransferMerchantInformationMerchantDescriptor MerchantDescriptor { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,6 +63,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv1pushfundstransferMerchantInformation {\n");
             if (CategoryCode != null) sb.Append("  CategoryCode: ").Append(CategoryCode).Append("\n");
+            if (MerchantDescriptor != null) sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +104,11 @@ namespace CyberSource.Model
                     this.CategoryCode == other.CategoryCode ||
                     this.CategoryCode != null &&
                     this.CategoryCode.Equals(other.CategoryCode)
+                ) && 
+                (
+                    this.MerchantDescriptor == other.MerchantDescriptor ||
+                    this.MerchantDescriptor != null &&
+                    this.MerchantDescriptor.Equals(other.MerchantDescriptor)
                 );
         }
 
@@ -111,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.CategoryCode != null)
                     hash = hash * 59 + this.CategoryCode.GetHashCode();
+                if (this.MerchantDescriptor != null)
+                    hash = hash * 59 + this.MerchantDescriptor.GetHashCode();
                 return hash;
             }
         }

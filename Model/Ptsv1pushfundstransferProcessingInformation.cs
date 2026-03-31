@@ -40,7 +40,8 @@ namespace CyberSource.Model
         /// <param name="ProcessingCode">This field contains coding that identifies (1) the customer transaction type and (2) the customer account types affected by the transaction.  Default: 5402 (Original Credit Transaction)  Contains codes that combined with some other fields such as the BAI (Business Application Id) identify some unique use cases. For Sales Tax rebates this field should be populated with the value 5120 (Value-added tax/Sales Tax) along with the businessApplicationId field set to the value &#39;FD&#39; which indicates this push funds transfer is being conducted in order to facilitate a sales tax refund. .</param>
         /// <param name="SharingGroupCode">This U.S.-only field is optionally used by PIN Debit Gateway Service participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for a network specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on issuer preference. If an preference exists for multiple specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on acquirer routing priorities.  Valid Values:  ACCEL_EXCHANGE_E  CU24_C  INTERLINK_G  MAESTRO_8  NYCE_Y  NYCE_F  PULSE_S  PULSE_L  PULSE_H  STAR_N  STAR_W  STAR_Z  STAR_Q  STAR_M  VISA_V .</param>
         /// <param name="PurposeOfPayment">This will send purpose of funds code for original credit transactions (OCTs). .</param>
-        public Ptsv1pushfundstransferProcessingInformation(string BusinessApplicationId = default(string), Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pushfundstransferProcessingInformationPayoutsOptions), string FeeProgramId = default(string), string NetworkPartnerId = default(string), string ProcessingCode = default(string), string SharingGroupCode = default(string), string PurposeOfPayment = default(string))
+        /// <param name="ReconciliationId">Transaction&#39;s reference number..</param>
+        public Ptsv1pushfundstransferProcessingInformation(string BusinessApplicationId = default(string), Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pushfundstransferProcessingInformationPayoutsOptions), string FeeProgramId = default(string), string NetworkPartnerId = default(string), string ProcessingCode = default(string), string SharingGroupCode = default(string), string PurposeOfPayment = default(string), string ReconciliationId = default(string))
         {
             this.BusinessApplicationId = BusinessApplicationId;
             this.PayoutsOptions = PayoutsOptions;
@@ -49,6 +50,7 @@ namespace CyberSource.Model
             this.ProcessingCode = ProcessingCode;
             this.SharingGroupCode = SharingGroupCode;
             this.PurposeOfPayment = PurposeOfPayment;
+            this.ReconciliationId = ReconciliationId;
         }
         
         /// <summary>
@@ -100,6 +102,13 @@ namespace CyberSource.Model
         public string PurposeOfPayment { get; set; }
 
         /// <summary>
+        /// Transaction&#39;s reference number.
+        /// </summary>
+        /// <value>Transaction&#39;s reference number.</value>
+        [DataMember(Name="reconciliationId", EmitDefaultValue=false)]
+        public string ReconciliationId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +123,7 @@ namespace CyberSource.Model
             if (ProcessingCode != null) sb.Append("  ProcessingCode: ").Append(ProcessingCode).Append("\n");
             if (SharingGroupCode != null) sb.Append("  SharingGroupCode: ").Append(SharingGroupCode).Append("\n");
             if (PurposeOfPayment != null) sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -184,6 +194,11 @@ namespace CyberSource.Model
                     this.PurposeOfPayment == other.PurposeOfPayment ||
                     this.PurposeOfPayment != null &&
                     this.PurposeOfPayment.Equals(other.PurposeOfPayment)
+                ) && 
+                (
+                    this.ReconciliationId == other.ReconciliationId ||
+                    this.ReconciliationId != null &&
+                    this.ReconciliationId.Equals(other.ReconciliationId)
                 );
         }
 
@@ -212,6 +227,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SharingGroupCode.GetHashCode();
                 if (this.PurposeOfPayment != null)
                     hash = hash * 59 + this.PurposeOfPayment.GetHashCode();
+                if (this.ReconciliationId != null)
+                    hash = hash * 59 + this.ReconciliationId.GetHashCode();
                 return hash;
             }
         }

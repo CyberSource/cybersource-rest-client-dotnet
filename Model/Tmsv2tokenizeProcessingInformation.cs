@@ -33,7 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2tokenizeProcessingInformation" /> class.
         /// </summary>
-        /// <param name="ActionList">Array of actions (one or more) to be included in the tokenize request.  Possible Values:   - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your tokenize request. .</param>
+        /// <param name="ActionList">Array of actions (one or more) to be included in the tokenize request.  Possible Values:  - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your tokenize request. .</param>
         /// <param name="ActionTokenTypes">TMS tokens types you want to perform the action on.  Possible Values: - customer - paymentInstrument - instrumentIdentifier - shippingAddress - tokenizedCard .</param>
         public Tmsv2tokenizeProcessingInformation(List<string> ActionList = default(List<string>), List<string> ActionTokenTypes = default(List<string>))
         {
@@ -42,9 +42,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Array of actions (one or more) to be included in the tokenize request.  Possible Values:   - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your tokenize request. 
+        /// Array of actions (one or more) to be included in the tokenize request.  Possible Values:  - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your tokenize request. 
         /// </summary>
-        /// <value>Array of actions (one or more) to be included in the tokenize request.  Possible Values:   - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your tokenize request. </value>
+        /// <value>Array of actions (one or more) to be included in the tokenize request.  Possible Values:  - &#x60;TOKEN_CREATE&#x60;: Use this when you want to create a token from the card/bank data in your tokenize request. </value>
         [DataMember(Name="actionList", EmitDefaultValue=false)]
         public List<string> ActionList { get; set; }
 

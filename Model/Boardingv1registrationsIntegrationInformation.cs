@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Oauth2">Oauth2.</param>
         /// <param name="TenantConfigurations">tenantConfigurations is an array of objects that includes the tenant information this merchant is associated with..</param>
-        public Boardingv1registrationsIntegrationInformation(List<Boardingv1registrationsIntegrationInformationOauth2> Oauth2 = default(List<Boardingv1registrationsIntegrationInformationOauth2>), List<Boardingv1registrationsIntegrationInformationTenantConfigurations> TenantConfigurations = default(List<Boardingv1registrationsIntegrationInformationTenantConfigurations>))
+        /// <param name="Msd">Msd.</param>
+        public Boardingv1registrationsIntegrationInformation(List<Boardingv1registrationsIntegrationInformationOauth2> Oauth2 = default(List<Boardingv1registrationsIntegrationInformationOauth2>), List<Boardingv1registrationsIntegrationInformationTenantConfigurations> TenantConfigurations = default(List<Boardingv1registrationsIntegrationInformationTenantConfigurations>), Boardingv1registrationsIntegrationInformationMsd Msd = default(Boardingv1registrationsIntegrationInformationMsd))
         {
             this.Oauth2 = Oauth2;
             this.TenantConfigurations = TenantConfigurations;
+            this.Msd = Msd;
         }
         
         /// <summary>
@@ -55,6 +57,12 @@ namespace CyberSource.Model
         public List<Boardingv1registrationsIntegrationInformationTenantConfigurations> TenantConfigurations { get; set; }
 
         /// <summary>
+        /// Gets or Sets Msd
+        /// </summary>
+        [DataMember(Name="msd", EmitDefaultValue=false)]
+        public Boardingv1registrationsIntegrationInformationMsd Msd { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +72,7 @@ namespace CyberSource.Model
             sb.Append("class Boardingv1registrationsIntegrationInformation {\n");
             if (Oauth2 != null) sb.Append("  Oauth2: ").Append(Oauth2).Append("\n");
             if (TenantConfigurations != null) sb.Append("  TenantConfigurations: ").Append(TenantConfigurations).Append("\n");
+            if (Msd != null) sb.Append("  Msd: ").Append(Msd).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +118,11 @@ namespace CyberSource.Model
                     this.TenantConfigurations == other.TenantConfigurations ||
                     this.TenantConfigurations != null &&
                     this.TenantConfigurations.SequenceEqual(other.TenantConfigurations)
+                ) && 
+                (
+                    this.Msd == other.Msd ||
+                    this.Msd != null &&
+                    this.Msd.Equals(other.Msd)
                 );
         }
 
@@ -127,6 +141,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Oauth2.GetHashCode();
                 if (this.TenantConfigurations != null)
                     hash = hash * 59 + this.TenantConfigurations.GetHashCode();
+                if (this.Msd != null)
+                    hash = hash * 59 + this.Msd.GetHashCode();
                 return hash;
             }
         }

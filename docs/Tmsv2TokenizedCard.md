@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Id** | **string** | The Id of the Tokenized Card.  | [optional] 
 **Object** | **string** | The type. Possible Values: - tokenizedCard  | [optional] 
 **Source** | **string** | Source of the card details. Possible Values: - ONFILE - TOKEN - ISSUER  | [optional] 
-**State** | **string** | State of the network token or network token provision. Possible Values:   ACTIVE : Network token is active.   SUSPENDED : Network token is suspended. This state can change back to ACTIVE.   DELETED : This is a final state for a network token instance.   UNPROVISIONED : A previous network token.  | [optional] 
+**State** | **string** | State of the network token or network token provision. Possible Values:   - ACTIVE : Network token is active.   - SUSPENDED : Network token is suspended. This state can change back to ACTIVE.   - DELETED : This is a final state for a network token instance.   - UNPROVISIONED : A previous network token.  | [optional] 
 **EnrollmentId** | **string** | Unique id to identify this PAN/ enrollment.  | [optional] 
 **TokenReferenceId** | **string** | Unique ID for netwrok token.  | [optional] 
 **Number** | **string** | The token requestor&#39;s network token for the provided PAN and consumer Id, if available.  | [optional] 
