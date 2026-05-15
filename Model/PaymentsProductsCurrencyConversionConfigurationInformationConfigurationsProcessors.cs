@@ -33,24 +33,34 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentsProductsCurrencyConversionConfigurationInformationConfigurationsProcessors" /> class.
         /// </summary>
-        /// <param name="MerchantId">The merchant identifier for the Currency Conversion service. Check with your Currency Conversion Provider for details..</param>
-        /// <param name="AcquirerId">AcquirerId.</param>
-        public PaymentsProductsCurrencyConversionConfigurationInformationConfigurationsProcessors(string MerchantId = default(string), string AcquirerId = default(string))
+        /// <param name="Provider">The name of the provider..</param>
+        /// <param name="MerchantId">A unique identifier value assigned to each merchant. Assigned by the provider..</param>
+        /// <param name="AcquirerId">This code identifies the financial institution acting as the acquirer..</param>
+        public PaymentsProductsCurrencyConversionConfigurationInformationConfigurationsProcessors(string Provider = default(string), string MerchantId = default(string), string AcquirerId = default(string))
         {
+            this.Provider = Provider;
             this.MerchantId = MerchantId;
             this.AcquirerId = AcquirerId;
         }
         
         /// <summary>
-        /// The merchant identifier for the Currency Conversion service. Check with your Currency Conversion Provider for details.
+        /// The name of the provider.
         /// </summary>
-        /// <value>The merchant identifier for the Currency Conversion service. Check with your Currency Conversion Provider for details.</value>
+        /// <value>The name of the provider.</value>
+        [DataMember(Name="provider", EmitDefaultValue=false)]
+        public string Provider { get; set; }
+
+        /// <summary>
+        /// A unique identifier value assigned to each merchant. Assigned by the provider.
+        /// </summary>
+        /// <value>A unique identifier value assigned to each merchant. Assigned by the provider.</value>
         [DataMember(Name="merchantId", EmitDefaultValue=false)]
         public string MerchantId { get; set; }
 
         /// <summary>
-        /// Gets or Sets AcquirerId
+        /// This code identifies the financial institution acting as the acquirer.
         /// </summary>
+        /// <value>This code identifies the financial institution acting as the acquirer.</value>
         [DataMember(Name="acquirerId", EmitDefaultValue=false)]
         public string AcquirerId { get; set; }
 
@@ -62,6 +72,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentsProductsCurrencyConversionConfigurationInformationConfigurationsProcessors {\n");
+            if (Provider != null) sb.Append("  Provider: ").Append(Provider).Append("\n");
             if (MerchantId != null) sb.Append("  MerchantId: ").Append(MerchantId).Append("\n");
             if (AcquirerId != null) sb.Append("  AcquirerId: ").Append(AcquirerId).Append("\n");
             sb.Append("}\n");
@@ -101,6 +112,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.Provider == other.Provider ||
+                    this.Provider != null &&
+                    this.Provider.Equals(other.Provider)
+                ) && 
+                (
                     this.MerchantId == other.MerchantId ||
                     this.MerchantId != null &&
                     this.MerchantId.Equals(other.MerchantId)
@@ -123,6 +139,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Provider != null)
+                    hash = hash * 59 + this.Provider.GetHashCode();
                 if (this.MerchantId != null)
                     hash = hash * 59 + this.MerchantId.GetHashCode();
                 if (this.AcquirerId != null)

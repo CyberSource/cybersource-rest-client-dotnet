@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidreversalsPaymentInformation" /> class.
         /// </summary>
         /// <param name="PaymentType">PaymentType.</param>
-        public Ptsv2paymentsidreversalsPaymentInformation(Ptsv2paymentsidreversalsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsidreversalsPaymentInformationPaymentType))
+        /// <param name="MerchantLimitedAcceptanceIndicator">Mastercard One Credential merchant limited acceptance indicator. Mastercard One Credential connects multiple Mastercard payment methods and allows cardhollers to access various options and set payment preferences.  This field indicates which Mastercard One Credential funding PAN acceptance brands should NOT be assigned for this transaction.  This field flows in ISO field 34, DSID 02 tag DB, mapped to Mastercard Data Element (DE) 48, Sub element 02, Subfield 01.  Possible values: - &#x60;C&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Mastercard Credit Acceptance Brand for this transaction - &#x60;D&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Debit Mastercard Acceptance Brand for this transaction - &#x60;M&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Maestro Acceptance Brand for this transaction  This field is supported for Authorization reversal request.  #### Used by **Authorization Reversal Request** Optional field. .</param>
+        public Ptsv2paymentsidreversalsPaymentInformation(Ptsv2paymentsidreversalsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsidreversalsPaymentInformationPaymentType), string MerchantLimitedAcceptanceIndicator = default(string))
         {
             this.PaymentType = PaymentType;
+            this.MerchantLimitedAcceptanceIndicator = MerchantLimitedAcceptanceIndicator;
         }
         
         /// <summary>
@@ -44,6 +46,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="paymentType", EmitDefaultValue=false)]
         public Ptsv2paymentsidreversalsPaymentInformationPaymentType PaymentType { get; set; }
+
+        /// <summary>
+        /// Mastercard One Credential merchant limited acceptance indicator. Mastercard One Credential connects multiple Mastercard payment methods and allows cardhollers to access various options and set payment preferences.  This field indicates which Mastercard One Credential funding PAN acceptance brands should NOT be assigned for this transaction.  This field flows in ISO field 34, DSID 02 tag DB, mapped to Mastercard Data Element (DE) 48, Sub element 02, Subfield 01.  Possible values: - &#x60;C&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Mastercard Credit Acceptance Brand for this transaction - &#x60;D&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Debit Mastercard Acceptance Brand for this transaction - &#x60;M&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Maestro Acceptance Brand for this transaction  This field is supported for Authorization reversal request.  #### Used by **Authorization Reversal Request** Optional field. 
+        /// </summary>
+        /// <value>Mastercard One Credential merchant limited acceptance indicator. Mastercard One Credential connects multiple Mastercard payment methods and allows cardhollers to access various options and set payment preferences.  This field indicates which Mastercard One Credential funding PAN acceptance brands should NOT be assigned for this transaction.  This field flows in ISO field 34, DSID 02 tag DB, mapped to Mastercard Data Element (DE) 48, Sub element 02, Subfield 01.  Possible values: - &#x60;C&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Mastercard Credit Acceptance Brand for this transaction - &#x60;D&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Debit Mastercard Acceptance Brand for this transaction - &#x60;M&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Maestro Acceptance Brand for this transaction  This field is supported for Authorization reversal request.  #### Used by **Authorization Reversal Request** Optional field. </value>
+        [DataMember(Name="merchantLimitedAcceptanceIndicator", EmitDefaultValue=false)]
+        public string MerchantLimitedAcceptanceIndicator { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +63,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidreversalsPaymentInformation {\n");
             if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
+            if (MerchantLimitedAcceptanceIndicator != null) sb.Append("  MerchantLimitedAcceptanceIndicator: ").Append(MerchantLimitedAcceptanceIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +104,11 @@ namespace CyberSource.Model
                     this.PaymentType == other.PaymentType ||
                     this.PaymentType != null &&
                     this.PaymentType.Equals(other.PaymentType)
+                ) && 
+                (
+                    this.MerchantLimitedAcceptanceIndicator == other.MerchantLimitedAcceptanceIndicator ||
+                    this.MerchantLimitedAcceptanceIndicator != null &&
+                    this.MerchantLimitedAcceptanceIndicator.Equals(other.MerchantLimitedAcceptanceIndicator)
                 );
         }
 
@@ -110,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.PaymentType != null)
                     hash = hash * 59 + this.PaymentType.GetHashCode();
+                if (this.MerchantLimitedAcceptanceIndicator != null)
+                    hash = hash * 59 + this.MerchantLimitedAcceptanceIndicator.GetHashCode();
                 return hash;
             }
         }

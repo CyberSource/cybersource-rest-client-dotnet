@@ -836,7 +836,7 @@ namespace CyberSource.Api
                 localVarPostBody = createPlanRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreatePlan,CreatePlanAsync,CreatePlanWithHttpInfo,CreatePlanAsyncWithHttpInfo"))
             {
@@ -950,7 +950,7 @@ namespace CyberSource.Api
                 localVarPostBody = createPlanRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreatePlan,CreatePlanAsync,CreatePlanWithHttpInfo,CreatePlanAsyncWithHttpInfo"))
             {

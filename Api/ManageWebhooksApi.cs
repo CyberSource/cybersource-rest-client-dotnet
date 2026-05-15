@@ -170,12 +170,12 @@ namespace CyberSource.Api
         /// Store and manage certificates that will be used to preform Message Level Encryption (MLE). Each new webhook will need its own unique asymmetric certificate. You can either use a digital certificate issued/signed by a CA or self-sign your own using the documentation available on the Developer Guide. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <returns>InlineResponse2018</returns>
-        InlineResponse2018 SaveAsymEgressKey (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
+        InlineResponse2018 SaveAsymEgressKey (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
 
         /// <summary>
         /// Message Level Encryption
@@ -184,12 +184,12 @@ namespace CyberSource.Api
         /// Store and manage certificates that will be used to preform Message Level Encryption (MLE). Each new webhook will need its own unique asymmetric certificate. You can either use a digital certificate issued/signed by a CA or self-sign your own using the documentation available on the Developer Guide. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <returns>ApiResponse of InlineResponse2018</returns>
-        ApiResponse<InlineResponse2018> SaveAsymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
+        ApiResponse<InlineResponse2018> SaveAsymEgressKeyWithHttpInfo (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -333,12 +333,12 @@ namespace CyberSource.Api
         /// Store and manage certificates that will be used to preform Message Level Encryption (MLE). Each new webhook will need its own unique asymmetric certificate. You can either use a digital certificate issued/signed by a CA or self-sign your own using the documentation available on the Developer Guide. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <returns>Task of InlineResponse2018</returns>
-        System.Threading.Tasks.Task<InlineResponse2018> SaveAsymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
+        System.Threading.Tasks.Task<InlineResponse2018> SaveAsymEgressKeyAsync (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
 
         /// <summary>
         /// Message Level Encryption
@@ -347,12 +347,12 @@ namespace CyberSource.Api
         /// Store and manage certificates that will be used to preform Message Level Encryption (MLE). Each new webhook will need its own unique asymmetric certificate. You can either use a digital certificate issued/signed by a CA or self-sign your own using the documentation available on the Developer Guide. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2018>> SaveAsymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2018>> SaveAsymEgressKeyAsyncWithHttpInfo (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
         #endregion Asynchronous Operations
     }
 
@@ -539,7 +539,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -656,7 +656,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -774,7 +774,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -893,7 +893,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1014,7 +1014,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1147,7 +1147,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1274,7 +1274,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1393,7 +1393,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1512,7 +1512,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1630,7 +1630,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1743,7 +1743,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1859,7 +1859,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -1929,16 +1929,16 @@ namespace CyberSource.Api
         /// Message Level Encryption Store and manage certificates that will be used to preform Message Level Encryption (MLE). Each new webhook will need its own unique asymmetric certificate. You can either use a digital certificate issued/signed by a CA or self-sign your own using the documentation available on the Developer Guide. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <returns>InlineResponse2018</returns>
-        public InlineResponse2018 SaveAsymEgressKey (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
+        public InlineResponse2018 SaveAsymEgressKey (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
             logger.Debug("CALLING API \"SaveAsymEgressKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2018> localVarResponse = SaveAsymEgressKeyWithHttpInfo(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
+            ApiResponse<InlineResponse2018> localVarResponse = SaveAsymEgressKeyWithHttpInfo(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
             logger.Debug("CALLING API \"SaveAsymEgressKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1948,27 +1948,15 @@ namespace CyberSource.Api
         /// Message Level Encryption Store and manage certificates that will be used to preform Message Level Encryption (MLE). Each new webhook will need its own unique asymmetric certificate. You can either use a digital certificate issued/signed by a CA or self-sign your own using the documentation available on the Developer Guide. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <returns>ApiResponse of InlineResponse2018</returns>
-        public ApiResponse< InlineResponse2018 > SaveAsymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
+        public ApiResponse< InlineResponse2018 > SaveAsymEgressKeyWithHttpInfo (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'vCSenderOrganizationId' is set
-            if (vCSenderOrganizationId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'vCSenderOrganizationId' when calling ManageWebhooksApi->SaveAsymEgressKey");
-                throw new ApiException(400, "Missing required parameter 'vCSenderOrganizationId' when calling ManageWebhooksApi->SaveAsymEgressKey");
-            }
-            // verify the required parameter 'vCPermissions' is set
-            if (vCPermissions == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling ManageWebhooksApi->SaveAsymEgressKey");
-                throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling ManageWebhooksApi->SaveAsymEgressKey");
-            }
             // verify the required parameter 'saveAsymEgressKey' is set
             if (saveAsymEgressKey == null)
             {
@@ -1992,7 +1980,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -2069,16 +2057,16 @@ namespace CyberSource.Api
         /// Message Level Encryption Store and manage certificates that will be used to preform Message Level Encryption (MLE). Each new webhook will need its own unique asymmetric certificate. You can either use a digital certificate issued/signed by a CA or self-sign your own using the documentation available on the Developer Guide. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <returns>Task of InlineResponse2018</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2018> SaveAsymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
+        public async System.Threading.Tasks.Task<InlineResponse2018> SaveAsymEgressKeyAsync (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
             logger.Debug("CALLING API \"SaveAsymEgressKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2018> localVarResponse = await SaveAsymEgressKeyAsyncWithHttpInfo(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
+            ApiResponse<InlineResponse2018> localVarResponse = await SaveAsymEgressKeyAsyncWithHttpInfo(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
             logger.Debug("CALLING API \"SaveAsymEgressKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2089,27 +2077,15 @@ namespace CyberSource.Api
         /// Message Level Encryption Store and manage certificates that will be used to preform Message Level Encryption (MLE). Each new webhook will need its own unique asymmetric certificate. You can either use a digital certificate issued/signed by a CA or self-sign your own using the documentation available on the Developer Guide. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="saveAsymEgressKey">Provide egress Asymmetric key information to save (create or store)</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2018>> SaveAsymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2018>> SaveAsymEgressKeyAsyncWithHttpInfo (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'vCSenderOrganizationId' is set
-            if (vCSenderOrganizationId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'vCSenderOrganizationId' when calling ManageWebhooksApi->SaveAsymEgressKey");
-                throw new ApiException(400, "Missing required parameter 'vCSenderOrganizationId' when calling ManageWebhooksApi->SaveAsymEgressKey");
-            }
-            // verify the required parameter 'vCPermissions' is set
-            if (vCPermissions == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling ManageWebhooksApi->SaveAsymEgressKey");
-                throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling ManageWebhooksApi->SaveAsymEgressKey");
-            }
             // verify the required parameter 'saveAsymEgressKey' is set
             if (saveAsymEgressKey == null)
             {
@@ -2133,7 +2109,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)

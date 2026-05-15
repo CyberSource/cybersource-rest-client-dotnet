@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="LineItems">LineItems.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
         /// <param name="ShippingDetails">ShippingDetails.</param>
-        public Ptsv2paymentsidrefundsOrderInformation(Ptsv2paymentsidcapturesOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsidcapturesOrderInformationAmountDetails), Ptsv2paymentsidcapturesOrderInformationBillTo BillTo = default(Ptsv2paymentsidcapturesOrderInformationBillTo), Ptsv2paymentsidcapturesOrderInformationShipTo ShipTo = default(Ptsv2paymentsidcapturesOrderInformationShipTo), List<Ptsv2paymentsidrefundsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsidrefundsOrderInformationLineItems>), Ptsv2paymentsidcapturesOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsidcapturesOrderInformationInvoiceDetails), Ptsv2paymentsidcapturesOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsidcapturesOrderInformationShippingDetails))
+        /// <param name="DigitalCurrency">DigitalCurrency.</param>
+        public Ptsv2paymentsidrefundsOrderInformation(Ptsv2paymentsidcapturesOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsidcapturesOrderInformationAmountDetails), Ptsv2paymentsidcapturesOrderInformationBillTo BillTo = default(Ptsv2paymentsidcapturesOrderInformationBillTo), Ptsv2paymentsidcapturesOrderInformationShipTo ShipTo = default(Ptsv2paymentsidcapturesOrderInformationShipTo), List<Ptsv2paymentsidrefundsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsidrefundsOrderInformationLineItems>), Ptsv2paymentsidcapturesOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsidcapturesOrderInformationInvoiceDetails), Ptsv2paymentsidrefundsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsidrefundsOrderInformationShippingDetails), Ptsv2paymentsOrderInformationDigitalCurrency DigitalCurrency = default(Ptsv2paymentsOrderInformationDigitalCurrency))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.LineItems = LineItems;
             this.InvoiceDetails = InvoiceDetails;
             this.ShippingDetails = ShippingDetails;
+            this.DigitalCurrency = DigitalCurrency;
         }
         
         /// <summary>
@@ -83,7 +85,13 @@ namespace CyberSource.Model
         /// Gets or Sets ShippingDetails
         /// </summary>
         [DataMember(Name="shippingDetails", EmitDefaultValue=false)]
-        public Ptsv2paymentsidcapturesOrderInformationShippingDetails ShippingDetails { get; set; }
+        public Ptsv2paymentsidrefundsOrderInformationShippingDetails ShippingDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DigitalCurrency
+        /// </summary>
+        [DataMember(Name="digitalCurrency", EmitDefaultValue=false)]
+        public Ptsv2paymentsOrderInformationDigitalCurrency DigitalCurrency { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,6 +107,7 @@ namespace CyberSource.Model
             if (LineItems != null) sb.Append("  LineItems: ").Append(LineItems).Append("\n");
             if (InvoiceDetails != null) sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             if (ShippingDetails != null) sb.Append("  ShippingDetails: ").Append(ShippingDetails).Append("\n");
+            if (DigitalCurrency != null) sb.Append("  DigitalCurrency: ").Append(DigitalCurrency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,6 +173,11 @@ namespace CyberSource.Model
                     this.ShippingDetails == other.ShippingDetails ||
                     this.ShippingDetails != null &&
                     this.ShippingDetails.Equals(other.ShippingDetails)
+                ) && 
+                (
+                    this.DigitalCurrency == other.DigitalCurrency ||
+                    this.DigitalCurrency != null &&
+                    this.DigitalCurrency.Equals(other.DigitalCurrency)
                 );
         }
 
@@ -190,6 +204,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InvoiceDetails.GetHashCode();
                 if (this.ShippingDetails != null)
                     hash = hash * 59 + this.ShippingDetails.GetHashCode();
+                if (this.DigitalCurrency != null)
+                    hash = hash * 59 + this.DigitalCurrency.GetHashCode();
                 return hash;
             }
         }

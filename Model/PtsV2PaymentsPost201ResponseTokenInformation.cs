@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="PaymentInstrument">PaymentInstrument.</param>
         /// <param name="ShippingAddress">ShippingAddress.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
-        public PtsV2PaymentsPost201ResponseTokenInformation(bool? InstrumentidentifierNew = default(bool?), PtsV2PaymentsPost201ResponseTokenInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseTokenInformationCustomer), PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument PaymentInstrument = default(PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument), PtsV2PaymentsPost201ResponseTokenInformationShippingAddress ShippingAddress = default(PtsV2PaymentsPost201ResponseTokenInformationShippingAddress), PtsV2PaymentsPost201ResponseTokenInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponseTokenInformationInstrumentIdentifier))
+        /// <param name="ThirdPartyToken">ThirdPartyToken.</param>
+        public PtsV2PaymentsPost201ResponseTokenInformation(bool? InstrumentidentifierNew = default(bool?), PtsV2PaymentsPost201ResponseTokenInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseTokenInformationCustomer), PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument PaymentInstrument = default(PtsV2PaymentsPost201ResponseTokenInformationPaymentInstrument), PtsV2PaymentsPost201ResponseTokenInformationShippingAddress ShippingAddress = default(PtsV2PaymentsPost201ResponseTokenInformationShippingAddress), PtsV2PaymentsPost201ResponseTokenInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponseTokenInformationInstrumentIdentifier), PtsV2PaymentsPost201ResponseTokenInformationThirdPartyToken ThirdPartyToken = default(PtsV2PaymentsPost201ResponseTokenInformationThirdPartyToken))
         {
             this.InstrumentidentifierNew = InstrumentidentifierNew;
             this.Customer = Customer;
             this.PaymentInstrument = PaymentInstrument;
             this.ShippingAddress = ShippingAddress;
             this.InstrumentIdentifier = InstrumentIdentifier;
+            this.ThirdPartyToken = ThirdPartyToken;
         }
         
         /// <summary>
@@ -79,6 +81,12 @@ namespace CyberSource.Model
         public PtsV2PaymentsPost201ResponseTokenInformationInstrumentIdentifier InstrumentIdentifier { get; set; }
 
         /// <summary>
+        /// Gets or Sets ThirdPartyToken
+        /// </summary>
+        [DataMember(Name="thirdPartyToken", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseTokenInformationThirdPartyToken ThirdPartyToken { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +99,7 @@ namespace CyberSource.Model
             if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
             if (ShippingAddress != null) sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
+            if (ThirdPartyToken != null) sb.Append("  ThirdPartyToken: ").Append(ThirdPartyToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +160,11 @@ namespace CyberSource.Model
                     this.InstrumentIdentifier == other.InstrumentIdentifier ||
                     this.InstrumentIdentifier != null &&
                     this.InstrumentIdentifier.Equals(other.InstrumentIdentifier)
+                ) && 
+                (
+                    this.ThirdPartyToken == other.ThirdPartyToken ||
+                    this.ThirdPartyToken != null &&
+                    this.ThirdPartyToken.Equals(other.ThirdPartyToken)
                 );
         }
 
@@ -175,6 +189,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ShippingAddress.GetHashCode();
                 if (this.InstrumentIdentifier != null)
                     hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
+                if (this.ThirdPartyToken != null)
+                    hash = hash * 59 + this.ThirdPartyToken.GetHashCode();
                 return hash;
             }
         }

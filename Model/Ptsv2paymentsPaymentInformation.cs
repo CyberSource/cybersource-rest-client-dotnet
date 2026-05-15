@@ -50,7 +50,9 @@ namespace CyberSource.Model
         /// <param name="Sepa">Sepa.</param>
         /// <param name="EWallet">EWallet.</param>
         /// <param name="PaymentAccountReference">PaymentAccountReference.</param>
-        public Ptsv2paymentsPaymentInformation(Ptsv2paymentsPaymentInformationCard Card = default(Ptsv2paymentsPaymentInformationCard), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationTokenizedPaymentMethod TokenizedPaymentMethod = default(Ptsv2paymentsPaymentInformationTokenizedPaymentMethod), Ptsv2paymentsPaymentInformationDirectDebit DirectDebit = default(Ptsv2paymentsPaymentInformationDirectDebit), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationOptions Options = default(Ptsv2paymentsPaymentInformationOptions), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType), string InitiationChannel = default(string), Ptsv2paymentsPaymentInformationSepa Sepa = default(Ptsv2paymentsPaymentInformationSepa), Ptsv2paymentsPaymentInformationEWallet EWallet = default(Ptsv2paymentsPaymentInformationEWallet), Ptsv2paymentsPaymentInformationPaymentAccountReference PaymentAccountReference = default(Ptsv2paymentsPaymentInformationPaymentAccountReference))
+        /// <param name="ThirdPartyToken">ThirdPartyToken.</param>
+        /// <param name="MerchantLimitedAcceptanceIndicator">Mastercard One Credential merchant limited acceptance indicator. Mastercard One Credential connects multiple Mastercard payment methods and allows cardhollers to access various options and set payment preferences.  This field indicates which Mastercard One Credential funding PAN acceptance brands should NOT be assigned for this transaction.  This field flows in ISO field 34, DSID 02 tag DB, mapped to Mastercard Data Element (DE) 48, Sub element 02, Subfield 01.  Possible values: - &#x60;C&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Mastercard Credit Acceptance Brand for this transaction - &#x60;D&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Debit Mastercard Acceptance Brand for this transaction - &#x60;M&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Maestro Acceptance Brand for this transaction  This field is supported for all flavors of Authorization request only. Will not be received in response.  #### Used by **Authorization Request** Optional field. .</param>
+        public Ptsv2paymentsPaymentInformation(Ptsv2paymentsPaymentInformationCard Card = default(Ptsv2paymentsPaymentInformationCard), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationTokenizedPaymentMethod TokenizedPaymentMethod = default(Ptsv2paymentsPaymentInformationTokenizedPaymentMethod), Ptsv2paymentsPaymentInformationDirectDebit DirectDebit = default(Ptsv2paymentsPaymentInformationDirectDebit), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), Ptsv2paymentsPaymentInformationOptions Options = default(Ptsv2paymentsPaymentInformationOptions), Ptsv2paymentsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsPaymentInformationPaymentType), string InitiationChannel = default(string), Ptsv2paymentsPaymentInformationSepa Sepa = default(Ptsv2paymentsPaymentInformationSepa), Ptsv2paymentsPaymentInformationEWallet EWallet = default(Ptsv2paymentsPaymentInformationEWallet), Ptsv2paymentsPaymentInformationPaymentAccountReference PaymentAccountReference = default(Ptsv2paymentsPaymentInformationPaymentAccountReference), Ptsv2paymentsPaymentInformationThirdPartyToken ThirdPartyToken = default(Ptsv2paymentsPaymentInformationThirdPartyToken), string MerchantLimitedAcceptanceIndicator = default(string))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
@@ -69,6 +71,8 @@ namespace CyberSource.Model
             this.Sepa = Sepa;
             this.EWallet = EWallet;
             this.PaymentAccountReference = PaymentAccountReference;
+            this.ThirdPartyToken = ThirdPartyToken;
+            this.MerchantLimitedAcceptanceIndicator = MerchantLimitedAcceptanceIndicator;
         }
         
         /// <summary>
@@ -175,6 +179,19 @@ namespace CyberSource.Model
         public Ptsv2paymentsPaymentInformationPaymentAccountReference PaymentAccountReference { get; set; }
 
         /// <summary>
+        /// Gets or Sets ThirdPartyToken
+        /// </summary>
+        [DataMember(Name="thirdPartyToken", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationThirdPartyToken ThirdPartyToken { get; set; }
+
+        /// <summary>
+        /// Mastercard One Credential merchant limited acceptance indicator. Mastercard One Credential connects multiple Mastercard payment methods and allows cardhollers to access various options and set payment preferences.  This field indicates which Mastercard One Credential funding PAN acceptance brands should NOT be assigned for this transaction.  This field flows in ISO field 34, DSID 02 tag DB, mapped to Mastercard Data Element (DE) 48, Sub element 02, Subfield 01.  Possible values: - &#x60;C&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Mastercard Credit Acceptance Brand for this transaction - &#x60;D&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Debit Mastercard Acceptance Brand for this transaction - &#x60;M&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Maestro Acceptance Brand for this transaction  This field is supported for all flavors of Authorization request only. Will not be received in response.  #### Used by **Authorization Request** Optional field. 
+        /// </summary>
+        /// <value>Mastercard One Credential merchant limited acceptance indicator. Mastercard One Credential connects multiple Mastercard payment methods and allows cardhollers to access various options and set payment preferences.  This field indicates which Mastercard One Credential funding PAN acceptance brands should NOT be assigned for this transaction.  This field flows in ISO field 34, DSID 02 tag DB, mapped to Mastercard Data Element (DE) 48, Sub element 02, Subfield 01.  Possible values: - &#x60;C&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Mastercard Credit Acceptance Brand for this transaction - &#x60;D&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Debit Mastercard Acceptance Brand for this transaction - &#x60;M&#x60;: Do not assign a Mastercard One Credential funding PAN containing the Maestro Acceptance Brand for this transaction  This field is supported for all flavors of Authorization request only. Will not be received in response.  #### Used by **Authorization Request** Optional field. </value>
+        [DataMember(Name="merchantLimitedAcceptanceIndicator", EmitDefaultValue=false)]
+        public string MerchantLimitedAcceptanceIndicator { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -199,6 +216,8 @@ namespace CyberSource.Model
             if (Sepa != null) sb.Append("  Sepa: ").Append(Sepa).Append("\n");
             if (EWallet != null) sb.Append("  EWallet: ").Append(EWallet).Append("\n");
             if (PaymentAccountReference != null) sb.Append("  PaymentAccountReference: ").Append(PaymentAccountReference).Append("\n");
+            if (ThirdPartyToken != null) sb.Append("  ThirdPartyToken: ").Append(ThirdPartyToken).Append("\n");
+            if (MerchantLimitedAcceptanceIndicator != null) sb.Append("  MerchantLimitedAcceptanceIndicator: ").Append(MerchantLimitedAcceptanceIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -319,6 +338,16 @@ namespace CyberSource.Model
                     this.PaymentAccountReference == other.PaymentAccountReference ||
                     this.PaymentAccountReference != null &&
                     this.PaymentAccountReference.Equals(other.PaymentAccountReference)
+                ) && 
+                (
+                    this.ThirdPartyToken == other.ThirdPartyToken ||
+                    this.ThirdPartyToken != null &&
+                    this.ThirdPartyToken.Equals(other.ThirdPartyToken)
+                ) && 
+                (
+                    this.MerchantLimitedAcceptanceIndicator == other.MerchantLimitedAcceptanceIndicator ||
+                    this.MerchantLimitedAcceptanceIndicator != null &&
+                    this.MerchantLimitedAcceptanceIndicator.Equals(other.MerchantLimitedAcceptanceIndicator)
                 );
         }
 
@@ -367,6 +396,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EWallet.GetHashCode();
                 if (this.PaymentAccountReference != null)
                     hash = hash * 59 + this.PaymentAccountReference.GetHashCode();
+                if (this.ThirdPartyToken != null)
+                    hash = hash * 59 + this.ThirdPartyToken.GetHashCode();
+                if (this.MerchantLimitedAcceptanceIndicator != null)
+                    hash = hash * 59 + this.MerchantLimitedAcceptanceIndicator.GetHashCode();
                 return hash;
             }
         }

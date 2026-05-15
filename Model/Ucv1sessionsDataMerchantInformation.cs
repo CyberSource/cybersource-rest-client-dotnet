@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ucv1sessionsDataMerchantInformation" /> class.
         /// </summary>
         /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
-        public Ucv1sessionsDataMerchantInformation(Ucv1sessionsDataMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ucv1sessionsDataMerchantInformationMerchantDescriptor))
+        /// <param name="VatRegistrationNumber">Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.  #### CyberSource through VisaNet For CtV processors, the maximum length is 20. .</param>
+        public Ucv1sessionsDataMerchantInformation(Ucv1sessionsDataMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ucv1sessionsDataMerchantInformationMerchantDescriptor), string VatRegistrationNumber = default(string))
         {
             this.MerchantDescriptor = MerchantDescriptor;
+            this.VatRegistrationNumber = VatRegistrationNumber;
         }
         
         /// <summary>
@@ -44,6 +46,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="merchantDescriptor", EmitDefaultValue=false)]
         public Ucv1sessionsDataMerchantInformationMerchantDescriptor MerchantDescriptor { get; set; }
+
+        /// <summary>
+        /// Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.  #### CyberSource through VisaNet For CtV processors, the maximum length is 20. 
+        /// </summary>
+        /// <value>Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.  #### CyberSource through VisaNet For CtV processors, the maximum length is 20. </value>
+        [DataMember(Name="vatRegistrationNumber", EmitDefaultValue=false)]
+        public string VatRegistrationNumber { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +63,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ucv1sessionsDataMerchantInformation {\n");
             if (MerchantDescriptor != null) sb.Append("  MerchantDescriptor: ").Append(MerchantDescriptor).Append("\n");
+            if (VatRegistrationNumber != null) sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +104,11 @@ namespace CyberSource.Model
                     this.MerchantDescriptor == other.MerchantDescriptor ||
                     this.MerchantDescriptor != null &&
                     this.MerchantDescriptor.Equals(other.MerchantDescriptor)
+                ) && 
+                (
+                    this.VatRegistrationNumber == other.VatRegistrationNumber ||
+                    this.VatRegistrationNumber != null &&
+                    this.VatRegistrationNumber.Equals(other.VatRegistrationNumber)
                 );
         }
 
@@ -110,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.MerchantDescriptor != null)
                     hash = hash * 59 + this.MerchantDescriptor.GetHashCode();
+                if (this.VatRegistrationNumber != null)
+                    hash = hash * 59 + this.VatRegistrationNumber.GetHashCode();
                 return hash;
             }
         }

@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="FraudManagementEssentials">FraudManagementEssentials.</param>
         /// <param name="DecisionManager">DecisionManager.</param>
-        public InlineResponse2014SetupsRisk(InlineResponse2014SetupsPaymentsCardProcessing FraudManagementEssentials = default(InlineResponse2014SetupsPaymentsCardProcessing), InlineResponse2014SetupsPaymentsCardProcessing DecisionManager = default(InlineResponse2014SetupsPaymentsCardProcessing))
+        /// <param name="EnhancedAuthentication">EnhancedAuthentication.</param>
+        public InlineResponse2014SetupsRisk(InlineResponse2014SetupsPaymentsCardProcessing FraudManagementEssentials = default(InlineResponse2014SetupsPaymentsCardProcessing), InlineResponse2014SetupsPaymentsCardProcessing DecisionManager = default(InlineResponse2014SetupsPaymentsCardProcessing), InlineResponse2014SetupsPaymentsCardProcessing EnhancedAuthentication = default(InlineResponse2014SetupsPaymentsCardProcessing))
         {
             this.FraudManagementEssentials = FraudManagementEssentials;
             this.DecisionManager = DecisionManager;
+            this.EnhancedAuthentication = EnhancedAuthentication;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         public InlineResponse2014SetupsPaymentsCardProcessing DecisionManager { get; set; }
 
         /// <summary>
+        /// Gets or Sets EnhancedAuthentication
+        /// </summary>
+        [DataMember(Name="enhancedAuthentication", EmitDefaultValue=false)]
+        public InlineResponse2014SetupsPaymentsCardProcessing EnhancedAuthentication { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace CyberSource.Model
             sb.Append("class InlineResponse2014SetupsRisk {\n");
             if (FraudManagementEssentials != null) sb.Append("  FraudManagementEssentials: ").Append(FraudManagementEssentials).Append("\n");
             if (DecisionManager != null) sb.Append("  DecisionManager: ").Append(DecisionManager).Append("\n");
+            if (EnhancedAuthentication != null) sb.Append("  EnhancedAuthentication: ").Append(EnhancedAuthentication).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +117,11 @@ namespace CyberSource.Model
                     this.DecisionManager == other.DecisionManager ||
                     this.DecisionManager != null &&
                     this.DecisionManager.Equals(other.DecisionManager)
+                ) && 
+                (
+                    this.EnhancedAuthentication == other.EnhancedAuthentication ||
+                    this.EnhancedAuthentication != null &&
+                    this.EnhancedAuthentication.Equals(other.EnhancedAuthentication)
                 );
         }
 
@@ -126,6 +140,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FraudManagementEssentials.GetHashCode();
                 if (this.DecisionManager != null)
                     hash = hash * 59 + this.DecisionManager.GetHashCode();
+                if (this.EnhancedAuthentication != null)
+                    hash = hash * 59 + this.EnhancedAuthentication.GetHashCode();
                 return hash;
             }
         }

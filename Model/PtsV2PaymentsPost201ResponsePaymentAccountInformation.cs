@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponsePaymentAccountInformation" /> class.
         /// </summary>
         /// <param name="Card">Card.</param>
-        public PtsV2PaymentsPost201ResponsePaymentAccountInformation(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard Card = default(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard))
+        /// <param name="TokenizedCard">TokenizedCard.</param>
+        public PtsV2PaymentsPost201ResponsePaymentAccountInformation(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard Card = default(PtsV2PaymentsPost201ResponsePaymentAccountInformationCard), PtsV2PaymentsPost201ResponsePaymentAccountInformationTokenizedCard TokenizedCard = default(PtsV2PaymentsPost201ResponsePaymentAccountInformationTokenizedCard))
         {
             this.Card = Card;
+            this.TokenizedCard = TokenizedCard;
         }
         
         /// <summary>
@@ -44,6 +46,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
         public PtsV2PaymentsPost201ResponsePaymentAccountInformationCard Card { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenizedCard
+        /// </summary>
+        [DataMember(Name="tokenizedCard", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponsePaymentAccountInformationTokenizedCard TokenizedCard { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +62,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponsePaymentAccountInformation {\n");
             if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
+            if (TokenizedCard != null) sb.Append("  TokenizedCard: ").Append(TokenizedCard).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +103,11 @@ namespace CyberSource.Model
                     this.Card == other.Card ||
                     this.Card != null &&
                     this.Card.Equals(other.Card)
+                ) && 
+                (
+                    this.TokenizedCard == other.TokenizedCard ||
+                    this.TokenizedCard != null &&
+                    this.TokenizedCard.Equals(other.TokenizedCard)
                 );
         }
 
@@ -110,6 +124,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
+                if (this.TokenizedCard != null)
+                    hash = hash * 59 + this.TokenizedCard.GetHashCode();
                 return hash;
             }
         }

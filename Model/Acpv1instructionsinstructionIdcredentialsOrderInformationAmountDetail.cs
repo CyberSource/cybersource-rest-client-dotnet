@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Amount Detail data.
+    /// Amount Detail data. Breaks down the total transaction amount into components.
     /// </summary>
     [DataContract]
     public partial class Acpv1instructionsinstructionIdcredentialsOrderInformationAmountDetail :  IEquatable<Acpv1instructionsinstructionIdcredentialsOrderInformationAmountDetail>, IValidatableObject

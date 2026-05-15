@@ -89,8 +89,8 @@ namespace CyberSource.Api
         /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>PaymentInstrumentList1</returns>
-        PaymentInstrumentList1 GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
+        /// <returns>PaymentInstrumentList</returns>
+        PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
 
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
@@ -104,8 +104,8 @@ namespace CyberSource.Api
         /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>ApiResponse of PaymentInstrumentList1</returns>
-        ApiResponse<PaymentInstrumentList1> GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
+        /// <returns>ApiResponse of PaymentInstrumentList</returns>
+        ApiResponse<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
         /// <summary>
         /// Update an Instrument Identifier
         /// </summary>
@@ -247,8 +247,8 @@ namespace CyberSource.Api
         /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of PaymentInstrumentList1</returns>
-        System.Threading.Tasks.Task<PaymentInstrumentList1> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
+        /// <returns>Task of PaymentInstrumentList</returns>
+        System.Threading.Tasks.Task<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
 
         /// <summary>
         /// List Payment Instruments for an Instrument Identifier
@@ -262,8 +262,8 @@ namespace CyberSource.Api
         /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of ApiResponse (PaymentInstrumentList1)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList1>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
+        /// <returns>Task of ApiResponse (PaymentInstrumentList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null);
         /// <summary>
         /// Update an Instrument Identifier
         /// </summary>
@@ -998,12 +998,12 @@ namespace CyberSource.Api
         /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>PaymentInstrumentList1</returns>
-        public PaymentInstrumentList1 GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
+        /// <returns>PaymentInstrumentList</returns>
+        public PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PaymentInstrumentList1> localVarResponse = GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
+            ApiResponse<PaymentInstrumentList> localVarResponse = GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1018,8 +1018,8 @@ namespace CyberSource.Api
         /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>ApiResponse of PaymentInstrumentList1</returns>
-        public ApiResponse< PaymentInstrumentList1 > GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
+        /// <returns>ApiResponse of PaymentInstrumentList</returns>
+        public ApiResponse< PaymentInstrumentList > GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1129,9 +1129,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PaymentInstrumentList1>(localVarStatusCode,
+            return new ApiResponse<PaymentInstrumentList>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PaymentInstrumentList1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList1), merchantConfig)); // Return statement
+                (PaymentInstrumentList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList), merchantConfig)); // Return statement
         }
 
         /// <summary>
@@ -1143,12 +1143,12 @@ namespace CyberSource.Api
         /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of PaymentInstrumentList1</returns>
-        public async System.Threading.Tasks.Task<PaymentInstrumentList1> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
+        /// <returns>Task of PaymentInstrumentList</returns>
+        public async System.Threading.Tasks.Task<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListAsync (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
         {
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PaymentInstrumentList1> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
+            ApiResponse<PaymentInstrumentList> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
             logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1164,8 +1164,8 @@ namespace CyberSource.Api
         /// <param name="retrieveBinDetails">Retrieve the Bin Details of PAN or network token (optional)</param>
         /// <param name="offset">Starting record in zero-based dataset that should be returned as the first object in the array. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The maximum number that can be returned in the array starting from the offset record in zero-based dataset. Default is 20, maximum is 100. (optional, default to 20)</param>
-        /// <returns>Task of ApiResponse (PaymentInstrumentList1)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList1>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
+        /// <returns>Task of ApiResponse (PaymentInstrumentList)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PaymentInstrumentList>> GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1275,9 +1275,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PaymentInstrumentList1>(localVarStatusCode,
+            return new ApiResponse<PaymentInstrumentList>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (PaymentInstrumentList1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList1), merchantConfig)); // Return statement
+                (PaymentInstrumentList) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PaymentInstrumentList), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Update an Instrument Identifier |  |  |  | | - -- | - -- | - -- | |**Instrument Identifiers**&lt;br&gt;An Instrument Identifier represents either a card number, or in the case of an ACH bank account, the routing and account number.&lt;br&gt;The same token Id is returned for a specific card number or bank account &amp; routing number allowing the Instrument Identifier Id to be used for cross-channel payment tracking.&lt;br&gt;An Instrument Identifier can exist independently but also be associated with a [Customer Payment Instrument](#token-management_customer-payment-instrument_create-a-customer-payment-instrument) or [Standalone Payment Instrument](#token-management_payment-instrument_create-a-payment-instrument).|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|**Updating an Instrument Identifier**&lt;br&gt;When an Instrument Identifier is used in a payment the **_previousTransactionId_** and **_originalAuthorizedAmount_** values are automatically recorded.&lt;br&gt;These values will be added for you to future Merchant Initiated Transaction payments.&lt;br&gt;Your system can use this API to update these values. 

@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 **Reporting** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 **TransactionSearch** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 **BankAccountValidation** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
+**Flexapi** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
+**Webhooks** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

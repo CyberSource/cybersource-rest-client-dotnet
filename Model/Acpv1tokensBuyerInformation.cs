@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Buyer Information data.
+    /// Buyer Information data. Contains consumer identification and preference details.
     /// </summary>
     [DataContract]
     public partial class Acpv1tokensBuyerInformation :  IEquatable<Acpv1tokensBuyerInformation>, IValidatableObject

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RoutingNumber** | **string** | Bank routing number. This is also called the transit number.  Non-Negative Integer  | 
+**RoutingNumber** | **string** | Bank routing number. This is also called the transit number.  Non-Negative String, containing only digits.  | 
 **Account** | [**Bavsv1accountvalidationsPaymentInformationBankAccount**](Bavsv1accountvalidationsPaymentInformationBankAccount.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

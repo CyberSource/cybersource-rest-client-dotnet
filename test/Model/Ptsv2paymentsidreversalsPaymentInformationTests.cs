@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PaymentType'
         }
+        /// <summary>
+        /// Test the property 'MerchantLimitedAcceptanceIndicator'
+        /// </summary>
+        [Test]
+        public void MerchantLimitedAcceptanceIndicatorTest()
+        {
+            // TODO unit test for the property 'MerchantLimitedAcceptanceIndicator'
+        }
 
     }
 

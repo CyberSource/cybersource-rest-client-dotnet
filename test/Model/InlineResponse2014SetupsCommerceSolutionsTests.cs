@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BinLookup'
         }
+        /// <summary>
+        /// Test the property 'AgenticCommerce'
+        /// </summary>
+        [Test]
+        public void AgenticCommerceTest()
+        {
+            // TODO unit test for the property 'AgenticCommerce'
+        }
 
     }
 

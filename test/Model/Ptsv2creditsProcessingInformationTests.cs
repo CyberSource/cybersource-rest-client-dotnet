@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ActionList'
         }
         /// <summary>
+        /// Test the property 'ActionTokenTypes'
+        /// </summary>
+        [Test]
+        public void ActionTokenTypesTest()
+        {
+            // TODO unit test for the property 'ActionTokenTypes'
+        }
+        /// <summary>
         /// Test the property 'CommerceIndicator'
         /// </summary>
         [Test]
@@ -231,6 +239,14 @@ namespace CyberSource.Test
         public void MerchantVerificationValueTest()
         {
             // TODO unit test for the property 'MerchantVerificationValue'
+        }
+        /// <summary>
+        /// Test the property 'TransactionTypeIndicator'
+        /// </summary>
+        [Test]
+        public void TransactionTypeIndicatorTest()
+        {
+            // TODO unit test for the property 'TransactionTypeIndicator'
         }
 
     }

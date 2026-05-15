@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Mandate data.
+    /// Mandate data. Defines the consumer&#39;s spending authorization for a purchase intent, including merchant preferences, amount limits, and product details.
     /// </summary>
     [DataContract]
     public partial class Acpv1instructionsMandates :  IEquatable<Acpv1instructionsMandates>, IValidatableObject

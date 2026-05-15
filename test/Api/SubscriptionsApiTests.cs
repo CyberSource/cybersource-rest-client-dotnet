@@ -113,7 +113,8 @@ namespace CyberSource.Test
             //string code = null;
             //string status = null;
             //string customerId = null;
-            //var response = instance.GetAllSubscriptions(offset, limit, code, status, customerId);
+            //string clientReferenceInformationCode = null;
+            //var response = instance.GetAllSubscriptions(offset, limit, code, status, customerId, clientReferenceInformationCode);
             //Assert.IsInstanceOf<GetAllSubscriptionsResponse> (response, "response is GetAllSubscriptionsResponse");
         }
         
@@ -138,6 +139,34 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetSubscriptionCode();
             //Assert.IsInstanceOf<GetSubscriptionCodeResponse> (response, "response is GetSubscriptionCodeResponse");
+        }
+        
+        /// <summary>
+        /// Test SubscriptionsIdPaymentsGet
+        /// </summary>
+        [Test]
+        public void SubscriptionsIdPaymentsGetTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string id = null;
+            //int? offset = null;
+            //int? limit = null;
+            //int? scheduledPaymentsCount = null;
+            //var response = instance.SubscriptionsIdPaymentsGet(id, offset, limit, scheduledPaymentsCount);
+            //Assert.IsInstanceOf<GetSubscriptionsPaymentsResponse> (response, "response is GetSubscriptionsPaymentsResponse");
+        }
+        
+        /// <summary>
+        /// Test SubscriptionsIdPaymentsPut
+        /// </summary>
+        [Test]
+        public void SubscriptionsIdPaymentsPutTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string id = null;
+            //UpdatePayments updatePayments = null;
+            //var response = instance.SubscriptionsIdPaymentsPut(id, updatePayments);
+            //Assert.IsInstanceOf<GetSubscriptionsPaymentsResponse1> (response, "response is GetSubscriptionsPaymentsResponse1");
         }
         
         /// <summary>

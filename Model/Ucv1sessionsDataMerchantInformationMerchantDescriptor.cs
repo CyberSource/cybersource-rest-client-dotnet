@@ -35,16 +35,18 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Name">The name of the merchant&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="AlternateName">The alternate name of the merchant&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
+        /// <param name="Contact">Contact information for the merchant.  **Note** These are the maximum data lengths for the following payment processors: - FDCCompass (13) - Paymentech (13) .</param>
         /// <param name="Locality">The locality of the merchant&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="Phone">The phone number of the merchant&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="Country">The country code of the merchant&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="PostalCode">The postal code of the merchant&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="AdministrativeArea">The administrative area of the merchant&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="Address1">The first line of the merchant&#39;s address&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        public Ucv1sessionsDataMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Locality = default(string), string Phone = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Address1 = default(string))
+        public Ucv1sessionsDataMerchantInformationMerchantDescriptor(string Name = default(string), string AlternateName = default(string), string Contact = default(string), string Locality = default(string), string Phone = default(string), string Country = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Address1 = default(string))
         {
             this.Name = Name;
             this.AlternateName = AlternateName;
+            this.Contact = Contact;
             this.Locality = Locality;
             this.Phone = Phone;
             this.Country = Country;
@@ -66,6 +68,13 @@ namespace CyberSource.Model
         /// <value>The alternate name of the merchant&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. </value>
         [DataMember(Name="alternateName", EmitDefaultValue=false)]
         public string AlternateName { get; set; }
+
+        /// <summary>
+        /// Contact information for the merchant.  **Note** These are the maximum data lengths for the following payment processors: - FDCCompass (13) - Paymentech (13) 
+        /// </summary>
+        /// <value>Contact information for the merchant.  **Note** These are the maximum data lengths for the following payment processors: - FDCCompass (13) - Paymentech (13) </value>
+        [DataMember(Name="contact", EmitDefaultValue=false)]
+        public string Contact { get; set; }
 
         /// <summary>
         /// The locality of the merchant&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. 
@@ -119,6 +128,7 @@ namespace CyberSource.Model
             sb.Append("class Ucv1sessionsDataMerchantInformationMerchantDescriptor {\n");
             if (Name != null) sb.Append("  Name: ").Append(Name).Append("\n");
             if (AlternateName != null) sb.Append("  AlternateName: ").Append(AlternateName).Append("\n");
+            if (Contact != null) sb.Append("  Contact: ").Append(Contact).Append("\n");
             if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
             if (Phone != null) sb.Append("  Phone: ").Append(Phone).Append("\n");
             if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
@@ -172,6 +182,11 @@ namespace CyberSource.Model
                     this.AlternateName.Equals(other.AlternateName)
                 ) && 
                 (
+                    this.Contact == other.Contact ||
+                    this.Contact != null &&
+                    this.Contact.Equals(other.Contact)
+                ) && 
+                (
                     this.Locality == other.Locality ||
                     this.Locality != null &&
                     this.Locality.Equals(other.Locality)
@@ -218,6 +233,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Name.GetHashCode();
                 if (this.AlternateName != null)
                     hash = hash * 59 + this.AlternateName.GetHashCode();
+                if (this.Contact != null)
+                    hash = hash * 59 + this.Contact.GetHashCode();
                 if (this.Locality != null)
                     hash = hash * 59 + this.Locality.GetHashCode();
                 if (this.Phone != null)

@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="GetAllSubscriptionsResponseOrderInformationAmountDetailsSurcharge" /> class.
         /// </summary>
         /// <param name="Amount">Surcharge amount that you are charging the customer for this subscription. The surcharge amount will be added to the billing amount.  The issuer can provide information about the surcharge amount to the customer.  **NOTE**: This field is supported only for CyberSource through VisaNet (CtV) for Payouts. For CtV, the maximum string length is 8. .</param>
-        public GetAllSubscriptionsResponseOrderInformationAmountDetailsSurcharge(string Amount = default(string))
+        /// <param name="Description">Description of the surcharge. .</param>
+        public GetAllSubscriptionsResponseOrderInformationAmountDetailsSurcharge(string Amount = default(string), string Description = default(string))
         {
             this.Amount = Amount;
+            this.Description = Description;
         }
         
         /// <summary>
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         public string Amount { get; set; }
 
         /// <summary>
+        /// Description of the surcharge. 
+        /// </summary>
+        /// <value>Description of the surcharge. </value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class GetAllSubscriptionsResponseOrderInformationAmountDetailsSurcharge {\n");
             if (Amount != null) sb.Append("  Amount: ").Append(Amount).Append("\n");
+            if (Description != null) sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.Amount == other.Amount ||
                     this.Amount != null &&
                     this.Amount.Equals(other.Amount)
+                ) && 
+                (
+                    this.Description == other.Description ||
+                    this.Description != null &&
+                    this.Description.Equals(other.Description)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Amount != null)
                     hash = hash * 59 + this.Amount.GetHashCode();
+                if (this.Description != null)
+                    hash = hash * 59 + this.Description.GetHashCode();
                 return hash;
             }
         }

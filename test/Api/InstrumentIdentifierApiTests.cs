@@ -104,7 +104,7 @@ namespace CyberSource.Test
             //long? offset = null;
             //long? limit = null;
             //var response = instance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
-            //Assert.IsInstanceOf<PaymentInstrumentList1> (response, "response is PaymentInstrumentList1");
+            //Assert.IsInstanceOf<PaymentInstrumentList> (response, "response is PaymentInstrumentList");
         }
         
         /// <summary>

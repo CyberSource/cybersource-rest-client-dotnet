@@ -33,9 +33,10 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tmsv2TokenizedCardMetadataIssuer" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public Tmsv2TokenizedCardMetadataIssuer()
+        /// <param name="Capabilities">Capabilities.</param>
+        public Tmsv2TokenizedCardMetadataIssuer(Tmsv2TokenizedCardMetadataIssuerCapabilities Capabilities = default(Tmsv2TokenizedCardMetadataIssuerCapabilities))
         {
+            this.Capabilities = Capabilities;
         }
         
         /// <summary>
@@ -60,25 +61,44 @@ namespace CyberSource.Model
         public string LongDescription { get; private set; }
 
         /// <summary>
-        /// Issuer customer service email address.
+        /// Issuer customer service email address. 
         /// </summary>
-        /// <value>Issuer customer service email address.</value>
+        /// <value>Issuer customer service email address. </value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; private set; }
 
         /// <summary>
-        /// Issuer customer service phone number.
+        /// Issuer customer service phone number. 
         /// </summary>
-        /// <value>Issuer customer service phone number.</value>
+        /// <value>Issuer customer service phone number. </value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; private set; }
 
         /// <summary>
-        /// Issuer customer service url.
+        /// Issuer customer service url. 
         /// </summary>
-        /// <value>Issuer customer service url.</value>
+        /// <value>Issuer customer service url. </value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; private set; }
+
+        /// <summary>
+        /// Issuer privacy policy url. 
+        /// </summary>
+        /// <value>Issuer privacy policy url. </value>
+        [DataMember(Name="privacyPolicyUrl", EmitDefaultValue=false)]
+        public string PrivacyPolicyUrl { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Capabilities
+        /// </summary>
+        [DataMember(Name="capabilities", EmitDefaultValue=false)]
+        public Tmsv2TokenizedCardMetadataIssuerCapabilities Capabilities { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BankApplications
+        /// </summary>
+        [DataMember(Name="bankApplications", EmitDefaultValue=false)]
+        public List<Tmsv2TokenizedCardMetadataIssuerBankApplications> BankApplications { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -94,6 +114,9 @@ namespace CyberSource.Model
             if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
             if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             if (Url != null) sb.Append("  Url: ").Append(Url).Append("\n");
+            if (PrivacyPolicyUrl != null) sb.Append("  PrivacyPolicyUrl: ").Append(PrivacyPolicyUrl).Append("\n");
+            if (Capabilities != null) sb.Append("  Capabilities: ").Append(Capabilities).Append("\n");
+            if (BankApplications != null) sb.Append("  BankApplications: ").Append(BankApplications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -159,6 +182,21 @@ namespace CyberSource.Model
                     this.Url == other.Url ||
                     this.Url != null &&
                     this.Url.Equals(other.Url)
+                ) && 
+                (
+                    this.PrivacyPolicyUrl == other.PrivacyPolicyUrl ||
+                    this.PrivacyPolicyUrl != null &&
+                    this.PrivacyPolicyUrl.Equals(other.PrivacyPolicyUrl)
+                ) && 
+                (
+                    this.Capabilities == other.Capabilities ||
+                    this.Capabilities != null &&
+                    this.Capabilities.Equals(other.Capabilities)
+                ) && 
+                (
+                    this.BankApplications == other.BankApplications ||
+                    this.BankApplications != null &&
+                    this.BankApplications.SequenceEqual(other.BankApplications)
                 );
         }
 
@@ -185,6 +223,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.Url != null)
                     hash = hash * 59 + this.Url.GetHashCode();
+                if (this.PrivacyPolicyUrl != null)
+                    hash = hash * 59 + this.PrivacyPolicyUrl.GetHashCode();
+                if (this.Capabilities != null)
+                    hash = hash * 59 + this.Capabilities.GetHashCode();
+                if (this.BankApplications != null)
+                    hash = hash * 59 + this.BankApplications.GetHashCode();
                 return hash;
             }
         }

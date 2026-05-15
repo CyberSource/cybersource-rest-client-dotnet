@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="TokenManagement">TokenManagement.</param>
         /// <param name="AccountUpdater">AccountUpdater.</param>
         /// <param name="BinLookup">BinLookup.</param>
-        public CommerceSolutionsProducts(CommerceSolutionsProductsTokenManagement TokenManagement = default(CommerceSolutionsProductsTokenManagement), CommerceSolutionsProductsAccountUpdater AccountUpdater = default(CommerceSolutionsProductsAccountUpdater), CommerceSolutionsProductsBinLookup BinLookup = default(CommerceSolutionsProductsBinLookup))
+        /// <param name="AgenticCommerce">AgenticCommerce.</param>
+        public CommerceSolutionsProducts(CommerceSolutionsProductsTokenManagement TokenManagement = default(CommerceSolutionsProductsTokenManagement), CommerceSolutionsProductsAccountUpdater AccountUpdater = default(CommerceSolutionsProductsAccountUpdater), CommerceSolutionsProductsBinLookup BinLookup = default(CommerceSolutionsProductsBinLookup), PaymentsProductsTax AgenticCommerce = default(PaymentsProductsTax))
         {
             this.TokenManagement = TokenManagement;
             this.AccountUpdater = AccountUpdater;
             this.BinLookup = BinLookup;
+            this.AgenticCommerce = AgenticCommerce;
         }
         
         /// <summary>
@@ -62,6 +64,12 @@ namespace CyberSource.Model
         public CommerceSolutionsProductsBinLookup BinLookup { get; set; }
 
         /// <summary>
+        /// Gets or Sets AgenticCommerce
+        /// </summary>
+        [DataMember(Name="agenticCommerce", EmitDefaultValue=false)]
+        public PaymentsProductsTax AgenticCommerce { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +80,7 @@ namespace CyberSource.Model
             if (TokenManagement != null) sb.Append("  TokenManagement: ").Append(TokenManagement).Append("\n");
             if (AccountUpdater != null) sb.Append("  AccountUpdater: ").Append(AccountUpdater).Append("\n");
             if (BinLookup != null) sb.Append("  BinLookup: ").Append(BinLookup).Append("\n");
+            if (AgenticCommerce != null) sb.Append("  AgenticCommerce: ").Append(AgenticCommerce).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,11 @@ namespace CyberSource.Model
                     this.BinLookup == other.BinLookup ||
                     this.BinLookup != null &&
                     this.BinLookup.Equals(other.BinLookup)
+                ) && 
+                (
+                    this.AgenticCommerce == other.AgenticCommerce ||
+                    this.AgenticCommerce != null &&
+                    this.AgenticCommerce.Equals(other.AgenticCommerce)
                 );
         }
 
@@ -142,6 +156,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AccountUpdater.GetHashCode();
                 if (this.BinLookup != null)
                     hash = hash * 59 + this.BinLookup.GetHashCode();
+                if (this.AgenticCommerce != null)
+                    hash = hash * 59 + this.AgenticCommerce.GetHashCode();
                 return hash;
             }
         }

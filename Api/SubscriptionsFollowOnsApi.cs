@@ -591,7 +591,7 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetFollowOnSubscription,GetFollowOnSubscriptionAsync,GetFollowOnSubscriptionWithHttpInfo,GetFollowOnSubscriptionAsyncWithHttpInfo"))
             {
@@ -713,7 +713,7 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetFollowOnSubscription,GetFollowOnSubscriptionAsync,GetFollowOnSubscriptionWithHttpInfo,GetFollowOnSubscriptionAsyncWithHttpInfo"))
             {

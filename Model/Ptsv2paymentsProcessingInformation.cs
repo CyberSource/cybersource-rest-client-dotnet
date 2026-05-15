@@ -68,7 +68,7 @@ namespace CyberSource.Model
         /// <param name="PayByPointsIndicator">Flag that indicates if the transaction is pay by points transaction true: Transaction uses loyalty points false: Transaction does not use loyalty points Default: false .</param>
         /// <param name="Timeout">Minutes until a pending MyBank transaction will be timed out. Value must be between 5 and 30. Default is 5. .</param>
         /// <param name="IsReturnAuthRecordEnabled">Flag that indicates the functionality we are having for merchants for which auth is done through Cybersource but settlement is done by themselves. true: functionality is supported. Processor should send raw processor auth response to Merchant. false: functionality is not supported. Default: false .</param>
-        /// <param name="NetworkPartnerId">Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction.  This field is supported for Visa Platform Connect. .</param>
+        /// <param name="NetworkPartnerId">Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction. This field is supported for Visa Platform Connect, Chase Paymentech Salem. .</param>
         /// <param name="PaymentType">Identifier for the payment type. .</param>
         /// <param name="EnablerId">Enablers are payment processing entities that are not acquiring members and are often the primary relationship owner with merchants and originators. Enablers own technical solutions through which the merchant or originator will access acceptance. The Enabler ID is a five-character hexadecimal identifier that will be used by Visa to identify enablers. Enabler ID assignment will be determined by Visa. Visa will communicate Enablers assignments to enablers. .</param>
         /// <param name="ProcessingInstruction">The instruction to process an order. - default value: &#39;NO_INSTRUCTION&#39; - &#39;ORDER_SAVED_EXPLICITLY&#39; .</param>
@@ -76,7 +76,12 @@ namespace CyberSource.Model
         /// <param name="PurposeOfPayment">This field is applicable for AFT and OCT transactions. For list of supported values, please refer to Developer Guide. .</param>
         /// <param name="LanguageCode">Contains the ISO 639-2 defined language Code .</param>
         /// <param name="OriginalPaymentId">This value is used for linking Authorization extension transaction to the original Authorization transaction  and for linking MIT (Merchant initiated transaction) with the respective CIT (Customer initiated transaction). .</param>
-        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), string MerchantVerificationValue = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), int? Timeout = default(int?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string), string EnablerId = default(string), string ProcessingInstruction = default(string), string TransactionTypeIndicator = default(string), string PurposeOfPayment = default(string), string LanguageCode = default(string), string OriginalPaymentId = default(string))
+        /// <param name="AmexIndirectModelType">Effective with the April 2025 release, American Express is introducing the following new Indirect Acceptor models : - Digital Wallet Operator   - Staged back to back transaction   - Peer to peer (P2P) transaction   - Stored value transaction - Marketplace  Each model must have a separate American Express Merchant Account number and will be assigned a unique Indirect Model Type value.  Valid/Sample Values : - &#x60;1&#x60;: Bill payment provider - &#x60;2&#x60;: Installment payment transaction - &#x60;3&#x60;: Marketplace - &#x60;4&#x60;: Peer to peer transaction - &#x60;5&#x60;: Staged back to back transaction - &#x60;6&#x60;: Stored value transaction .</param>
+        /// <param name="WalletTransactionIntent">Identifies the type of operation being performed by the staged digital wallet operator. The value distinguishes between a Cash-in transaction (coded as \&quot;02\&quot;), where funds are loaded into the digital wallet from a registered payment card, and a Purchase transaction (coded as \&quot;01\&quot;), where the wallet is used to make a payment to a merchant or transfer funds between wallets. This distinction is essential for transaction processing, reporting, and ensuring compliance with the specific rules and requirements associated with each card brand and transaction type. .</param>
+        /// <param name="DestinationType">Identifies the destination/purpose of the cash-in:  • 04: M2M (Same ownership, same portfolio/arrangement) • 05: P2P (For another holder, same wallet/arrangement) • 06: Transfer to another arrangement (same ownership) • 07: Transfer to another arrangement (other ownership) • 08: Transfer to stored value digital wallet. .</param>
+        /// <param name="ProgramIndicators">ProgramIndicators.</param>
+        /// <param name="InquiryType">Type of inquiry for Zero dollar transactions. Mastercard is introducing Mastercard One Credential, a single, digitally connected credential that offers cardholders the ability to access multiple payment methods.   This field is used for Product Status Inquiry (PSI), Account Status Inquiry with Product Status Inquiry (ASI with PSI), and Account Status Inquiry with Product Status Inquiry and Probability Indicator.  This field is supported for Zero dollar transactions only.  Possible values: - &#x60;01&#x60;: Product status inquiry - &#x60;02&#x60;: Account status inquiry with product status inquiry - &#x60;03&#x60;: Account status Inquiry with Product Status Inquiry and Probability Indicator  #### Used by **Authorization (Zero dollar transactions)** Optional field. .</param>
+        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), Ptsv2paymentsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessingInformationAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), string MerchantVerificationValue = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), int? Timeout = default(int?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string), string EnablerId = default(string), string ProcessingInstruction = default(string), string TransactionTypeIndicator = default(string), string PurposeOfPayment = default(string), string LanguageCode = default(string), string OriginalPaymentId = default(string), string AmexIndirectModelType = default(string), decimal? WalletTransactionIntent = default(decimal?), decimal? DestinationType = default(decimal?), Ptsv2paymentsProcessingInformationProgramIndicators ProgramIndicators = default(Ptsv2paymentsProcessingInformationProgramIndicators), string InquiryType = default(string))
         {
             this.ActionList = ActionList;
             this.EnableEscrowOption = EnableEscrowOption;
@@ -129,6 +134,11 @@ namespace CyberSource.Model
             this.PurposeOfPayment = PurposeOfPayment;
             this.LanguageCode = LanguageCode;
             this.OriginalPaymentId = OriginalPaymentId;
+            this.AmexIndirectModelType = AmexIndirectModelType;
+            this.WalletTransactionIntent = WalletTransactionIntent;
+            this.DestinationType = DestinationType;
+            this.ProgramIndicators = ProgramIndicators;
+            this.InquiryType = InquiryType;
         }
         
         /// <summary>
@@ -369,9 +379,9 @@ namespace CyberSource.Model
         public bool? IsReturnAuthRecordEnabled { get; set; }
 
         /// <summary>
-        /// Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction.  This field is supported for Visa Platform Connect. 
+        /// Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction. This field is supported for Visa Platform Connect, Chase Paymentech Salem. 
         /// </summary>
-        /// <value>Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction.  This field is supported for Visa Platform Connect. </value>
+        /// <value>Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction. This field is supported for Visa Platform Connect, Chase Paymentech Salem. </value>
         [DataMember(Name="networkPartnerId", EmitDefaultValue=false)]
         public string NetworkPartnerId { get; set; }
 
@@ -425,6 +435,40 @@ namespace CyberSource.Model
         public string OriginalPaymentId { get; set; }
 
         /// <summary>
+        /// Effective with the April 2025 release, American Express is introducing the following new Indirect Acceptor models : - Digital Wallet Operator   - Staged back to back transaction   - Peer to peer (P2P) transaction   - Stored value transaction - Marketplace  Each model must have a separate American Express Merchant Account number and will be assigned a unique Indirect Model Type value.  Valid/Sample Values : - &#x60;1&#x60;: Bill payment provider - &#x60;2&#x60;: Installment payment transaction - &#x60;3&#x60;: Marketplace - &#x60;4&#x60;: Peer to peer transaction - &#x60;5&#x60;: Staged back to back transaction - &#x60;6&#x60;: Stored value transaction 
+        /// </summary>
+        /// <value>Effective with the April 2025 release, American Express is introducing the following new Indirect Acceptor models : - Digital Wallet Operator   - Staged back to back transaction   - Peer to peer (P2P) transaction   - Stored value transaction - Marketplace  Each model must have a separate American Express Merchant Account number and will be assigned a unique Indirect Model Type value.  Valid/Sample Values : - &#x60;1&#x60;: Bill payment provider - &#x60;2&#x60;: Installment payment transaction - &#x60;3&#x60;: Marketplace - &#x60;4&#x60;: Peer to peer transaction - &#x60;5&#x60;: Staged back to back transaction - &#x60;6&#x60;: Stored value transaction </value>
+        [DataMember(Name="amexIndirectModelType", EmitDefaultValue=false)]
+        public string AmexIndirectModelType { get; set; }
+
+        /// <summary>
+        /// Identifies the type of operation being performed by the staged digital wallet operator. The value distinguishes between a Cash-in transaction (coded as \&quot;02\&quot;), where funds are loaded into the digital wallet from a registered payment card, and a Purchase transaction (coded as \&quot;01\&quot;), where the wallet is used to make a payment to a merchant or transfer funds between wallets. This distinction is essential for transaction processing, reporting, and ensuring compliance with the specific rules and requirements associated with each card brand and transaction type. 
+        /// </summary>
+        /// <value>Identifies the type of operation being performed by the staged digital wallet operator. The value distinguishes between a Cash-in transaction (coded as \&quot;02\&quot;), where funds are loaded into the digital wallet from a registered payment card, and a Purchase transaction (coded as \&quot;01\&quot;), where the wallet is used to make a payment to a merchant or transfer funds between wallets. This distinction is essential for transaction processing, reporting, and ensuring compliance with the specific rules and requirements associated with each card brand and transaction type. </value>
+        [DataMember(Name="walletTransactionIntent", EmitDefaultValue=false)]
+        public decimal? WalletTransactionIntent { get; set; }
+
+        /// <summary>
+        /// Identifies the destination/purpose of the cash-in:  • 04: M2M (Same ownership, same portfolio/arrangement) • 05: P2P (For another holder, same wallet/arrangement) • 06: Transfer to another arrangement (same ownership) • 07: Transfer to another arrangement (other ownership) • 08: Transfer to stored value digital wallet. 
+        /// </summary>
+        /// <value>Identifies the destination/purpose of the cash-in:  • 04: M2M (Same ownership, same portfolio/arrangement) • 05: P2P (For another holder, same wallet/arrangement) • 06: Transfer to another arrangement (same ownership) • 07: Transfer to another arrangement (other ownership) • 08: Transfer to stored value digital wallet. </value>
+        [DataMember(Name="destinationType", EmitDefaultValue=false)]
+        public decimal? DestinationType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProgramIndicators
+        /// </summary>
+        [DataMember(Name="programIndicators", EmitDefaultValue=false)]
+        public Ptsv2paymentsProcessingInformationProgramIndicators ProgramIndicators { get; set; }
+
+        /// <summary>
+        /// Type of inquiry for Zero dollar transactions. Mastercard is introducing Mastercard One Credential, a single, digitally connected credential that offers cardholders the ability to access multiple payment methods.   This field is used for Product Status Inquiry (PSI), Account Status Inquiry with Product Status Inquiry (ASI with PSI), and Account Status Inquiry with Product Status Inquiry and Probability Indicator.  This field is supported for Zero dollar transactions only.  Possible values: - &#x60;01&#x60;: Product status inquiry - &#x60;02&#x60;: Account status inquiry with product status inquiry - &#x60;03&#x60;: Account status Inquiry with Product Status Inquiry and Probability Indicator  #### Used by **Authorization (Zero dollar transactions)** Optional field. 
+        /// </summary>
+        /// <value>Type of inquiry for Zero dollar transactions. Mastercard is introducing Mastercard One Credential, a single, digitally connected credential that offers cardholders the ability to access multiple payment methods.   This field is used for Product Status Inquiry (PSI), Account Status Inquiry with Product Status Inquiry (ASI with PSI), and Account Status Inquiry with Product Status Inquiry and Probability Indicator.  This field is supported for Zero dollar transactions only.  Possible values: - &#x60;01&#x60;: Product status inquiry - &#x60;02&#x60;: Account status inquiry with product status inquiry - &#x60;03&#x60;: Account status Inquiry with Product Status Inquiry and Probability Indicator  #### Used by **Authorization (Zero dollar transactions)** Optional field. </value>
+        [DataMember(Name="inquiryType", EmitDefaultValue=false)]
+        public string InquiryType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -475,6 +519,11 @@ namespace CyberSource.Model
             if (PurposeOfPayment != null) sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
             if (LanguageCode != null) sb.Append("  LanguageCode: ").Append(LanguageCode).Append("\n");
             if (OriginalPaymentId != null) sb.Append("  OriginalPaymentId: ").Append(OriginalPaymentId).Append("\n");
+            if (AmexIndirectModelType != null) sb.Append("  AmexIndirectModelType: ").Append(AmexIndirectModelType).Append("\n");
+            if (WalletTransactionIntent != null) sb.Append("  WalletTransactionIntent: ").Append(WalletTransactionIntent).Append("\n");
+            if (DestinationType != null) sb.Append("  DestinationType: ").Append(DestinationType).Append("\n");
+            if (ProgramIndicators != null) sb.Append("  ProgramIndicators: ").Append(ProgramIndicators).Append("\n");
+            if (InquiryType != null) sb.Append("  InquiryType: ").Append(InquiryType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -725,6 +774,31 @@ namespace CyberSource.Model
                     this.OriginalPaymentId == other.OriginalPaymentId ||
                     this.OriginalPaymentId != null &&
                     this.OriginalPaymentId.Equals(other.OriginalPaymentId)
+                ) && 
+                (
+                    this.AmexIndirectModelType == other.AmexIndirectModelType ||
+                    this.AmexIndirectModelType != null &&
+                    this.AmexIndirectModelType.Equals(other.AmexIndirectModelType)
+                ) && 
+                (
+                    this.WalletTransactionIntent == other.WalletTransactionIntent ||
+                    this.WalletTransactionIntent != null &&
+                    this.WalletTransactionIntent.Equals(other.WalletTransactionIntent)
+                ) && 
+                (
+                    this.DestinationType == other.DestinationType ||
+                    this.DestinationType != null &&
+                    this.DestinationType.Equals(other.DestinationType)
+                ) && 
+                (
+                    this.ProgramIndicators == other.ProgramIndicators ||
+                    this.ProgramIndicators != null &&
+                    this.ProgramIndicators.Equals(other.ProgramIndicators)
+                ) && 
+                (
+                    this.InquiryType == other.InquiryType ||
+                    this.InquiryType != null &&
+                    this.InquiryType.Equals(other.InquiryType)
                 );
         }
 
@@ -825,6 +899,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.LanguageCode.GetHashCode();
                 if (this.OriginalPaymentId != null)
                     hash = hash * 59 + this.OriginalPaymentId.GetHashCode();
+                if (this.AmexIndirectModelType != null)
+                    hash = hash * 59 + this.AmexIndirectModelType.GetHashCode();
+                if (this.WalletTransactionIntent != null)
+                    hash = hash * 59 + this.WalletTransactionIntent.GetHashCode();
+                if (this.DestinationType != null)
+                    hash = hash * 59 + this.DestinationType.GetHashCode();
+                if (this.ProgramIndicators != null)
+                    hash = hash * 59 + this.ProgramIndicators.GetHashCode();
+                if (this.InquiryType != null)
+                    hash = hash * 59 + this.InquiryType.GetHashCode();
                 return hash;
             }
         }

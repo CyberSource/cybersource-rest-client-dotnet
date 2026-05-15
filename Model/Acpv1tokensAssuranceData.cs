@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Assurance data.
+    /// Assurance data. Contains identity verification details that prove the consumer or device has been authenticated before the payment operation.
     /// </summary>
     [DataContract]
     public partial class Acpv1tokensAssuranceData :  IEquatable<Acpv1tokensAssuranceData>, IValidatableObject
@@ -38,12 +38,12 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Acpv1tokensAssuranceData" /> class.
         /// </summary>
-        /// <param name="VerificationType">Type of the verification data.   Possible values:   - &#x60;CARDHOLDER&#x60; (Default)   - &#x60;DEVICE&#x60; .</param>
-        /// <param name="VerificationEntity">Entity performing the verification.   Possible value:     - &#x60;10&#x60; - VISA (Default) .</param>
-        /// <param name="VerificationEvents">Event where the verification occurred.   Possible values:     - &#x60;01&#x60; - Payment transaction   - &#x60;02&#x60; - Add card/Card enrollment   - &#x60;03&#x60; - Profile access   - &#x60;04&#x60; - Account verification .</param>
-        /// <param name="VerificationMethod">Method of the verification.   Possible values:     - &#x60;02&#x60; - App-based authentication   - &#x60;04&#x60; - One-time passcode   - &#x60;21&#x60; - Visa Token Service step-up: Device binding   - &#x60;22&#x60; - Visa Token Service step-up: Cardholder verification   - &#x60;23&#x60; - FIDO2  (required).</param>
-        /// <param name="VerificationResults">Result of the verification.   Possible values:     - &#x60;01&#x60; - Verified   - &#x60;02&#x60; - Not Verified   - &#x60;03&#x60; - Not performed   - &#x60;04&#x60; - Not required   - &#x60;21&#x60; - Not allowed  (required).</param>
-        /// <param name="VerificationTimestamp">Date and time the verification occurred. UTC time in Unix epoch format. (required).</param>
+        /// <param name="VerificationType">Optional. Type of the verification data.   Possible values:   - &#x60;CARDHOLDER&#x60; (Default)   - &#x60;DEVICE&#x60; .</param>
+        /// <param name="VerificationEntity">Optional. Entity performing the verification.   Possible value:     - &#x60;10&#x60; - VISA (Default) .</param>
+        /// <param name="VerificationEvents">Optional. Event where the verification occurred.   Possible values:     - &#x60;01&#x60; - Payment transaction   - &#x60;02&#x60; - Add card/Card enrollment   - &#x60;03&#x60; - Profile access   - &#x60;04&#x60; - Account verification .</param>
+        /// <param name="VerificationMethod">Required. Method of the verification.   Possible values:     - &#x60;02&#x60; - App-based authentication   - &#x60;04&#x60; - One-time passcode   - &#x60;21&#x60; - Visa Token Service step-up: Device binding   - &#x60;22&#x60; - Visa Token Service step-up: Cardholder verification   - &#x60;23&#x60; - FIDO2  (required).</param>
+        /// <param name="VerificationResults">Required. Result of the verification.   Possible values:     - &#x60;01&#x60; - Verified   - &#x60;02&#x60; - Not Verified   - &#x60;03&#x60; - Not performed   - &#x60;04&#x60; - Not required   - &#x60;21&#x60; - Not allowed  (required).</param>
+        /// <param name="VerificationTimestamp">Required. Date and time the verification occurred. UTC time in Unix epoch format. (required).</param>
         /// <param name="AuthenticationContext">AuthenticationContext.</param>
         /// <param name="AuthenticatedIdentities">AuthenticatedIdentities.</param>
         /// <param name="AdditionalData">Additional data related to assurance..</param>
@@ -61,44 +61,44 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Type of the verification data.   Possible values:   - &#x60;CARDHOLDER&#x60; (Default)   - &#x60;DEVICE&#x60; 
+        /// Optional. Type of the verification data.   Possible values:   - &#x60;CARDHOLDER&#x60; (Default)   - &#x60;DEVICE&#x60; 
         /// </summary>
-        /// <value>Type of the verification data.   Possible values:   - &#x60;CARDHOLDER&#x60; (Default)   - &#x60;DEVICE&#x60; </value>
+        /// <value>Optional. Type of the verification data.   Possible values:   - &#x60;CARDHOLDER&#x60; (Default)   - &#x60;DEVICE&#x60; </value>
         [DataMember(Name="verificationType", EmitDefaultValue=false)]
         public string VerificationType { get; set; }
 
         /// <summary>
-        /// Entity performing the verification.   Possible value:     - &#x60;10&#x60; - VISA (Default) 
+        /// Optional. Entity performing the verification.   Possible value:     - &#x60;10&#x60; - VISA (Default) 
         /// </summary>
-        /// <value>Entity performing the verification.   Possible value:     - &#x60;10&#x60; - VISA (Default) </value>
+        /// <value>Optional. Entity performing the verification.   Possible value:     - &#x60;10&#x60; - VISA (Default) </value>
         [DataMember(Name="verificationEntity", EmitDefaultValue=false)]
         public string VerificationEntity { get; set; }
 
         /// <summary>
-        /// Event where the verification occurred.   Possible values:     - &#x60;01&#x60; - Payment transaction   - &#x60;02&#x60; - Add card/Card enrollment   - &#x60;03&#x60; - Profile access   - &#x60;04&#x60; - Account verification 
+        /// Optional. Event where the verification occurred.   Possible values:     - &#x60;01&#x60; - Payment transaction   - &#x60;02&#x60; - Add card/Card enrollment   - &#x60;03&#x60; - Profile access   - &#x60;04&#x60; - Account verification 
         /// </summary>
-        /// <value>Event where the verification occurred.   Possible values:     - &#x60;01&#x60; - Payment transaction   - &#x60;02&#x60; - Add card/Card enrollment   - &#x60;03&#x60; - Profile access   - &#x60;04&#x60; - Account verification </value>
+        /// <value>Optional. Event where the verification occurred.   Possible values:     - &#x60;01&#x60; - Payment transaction   - &#x60;02&#x60; - Add card/Card enrollment   - &#x60;03&#x60; - Profile access   - &#x60;04&#x60; - Account verification </value>
         [DataMember(Name="verificationEvents", EmitDefaultValue=false)]
         public List<string> VerificationEvents { get; set; }
 
         /// <summary>
-        /// Method of the verification.   Possible values:     - &#x60;02&#x60; - App-based authentication   - &#x60;04&#x60; - One-time passcode   - &#x60;21&#x60; - Visa Token Service step-up: Device binding   - &#x60;22&#x60; - Visa Token Service step-up: Cardholder verification   - &#x60;23&#x60; - FIDO2 
+        /// Required. Method of the verification.   Possible values:     - &#x60;02&#x60; - App-based authentication   - &#x60;04&#x60; - One-time passcode   - &#x60;21&#x60; - Visa Token Service step-up: Device binding   - &#x60;22&#x60; - Visa Token Service step-up: Cardholder verification   - &#x60;23&#x60; - FIDO2 
         /// </summary>
-        /// <value>Method of the verification.   Possible values:     - &#x60;02&#x60; - App-based authentication   - &#x60;04&#x60; - One-time passcode   - &#x60;21&#x60; - Visa Token Service step-up: Device binding   - &#x60;22&#x60; - Visa Token Service step-up: Cardholder verification   - &#x60;23&#x60; - FIDO2 </value>
+        /// <value>Required. Method of the verification.   Possible values:     - &#x60;02&#x60; - App-based authentication   - &#x60;04&#x60; - One-time passcode   - &#x60;21&#x60; - Visa Token Service step-up: Device binding   - &#x60;22&#x60; - Visa Token Service step-up: Cardholder verification   - &#x60;23&#x60; - FIDO2 </value>
         [DataMember(Name="verificationMethod", EmitDefaultValue=false)]
         public string VerificationMethod { get; set; }
 
         /// <summary>
-        /// Result of the verification.   Possible values:     - &#x60;01&#x60; - Verified   - &#x60;02&#x60; - Not Verified   - &#x60;03&#x60; - Not performed   - &#x60;04&#x60; - Not required   - &#x60;21&#x60; - Not allowed 
+        /// Required. Result of the verification.   Possible values:     - &#x60;01&#x60; - Verified   - &#x60;02&#x60; - Not Verified   - &#x60;03&#x60; - Not performed   - &#x60;04&#x60; - Not required   - &#x60;21&#x60; - Not allowed 
         /// </summary>
-        /// <value>Result of the verification.   Possible values:     - &#x60;01&#x60; - Verified   - &#x60;02&#x60; - Not Verified   - &#x60;03&#x60; - Not performed   - &#x60;04&#x60; - Not required   - &#x60;21&#x60; - Not allowed </value>
+        /// <value>Required. Result of the verification.   Possible values:     - &#x60;01&#x60; - Verified   - &#x60;02&#x60; - Not Verified   - &#x60;03&#x60; - Not performed   - &#x60;04&#x60; - Not required   - &#x60;21&#x60; - Not allowed </value>
         [DataMember(Name="verificationResults", EmitDefaultValue=false)]
         public string VerificationResults { get; set; }
 
         /// <summary>
-        /// Date and time the verification occurred. UTC time in Unix epoch format.
+        /// Required. Date and time the verification occurred. UTC time in Unix epoch format.
         /// </summary>
-        /// <value>Date and time the verification occurred. UTC time in Unix epoch format.</value>
+        /// <value>Required. Date and time the verification occurred. UTC time in Unix epoch format.</value>
         [DataMember(Name="verificationTimestamp", EmitDefaultValue=false)]
         public string VerificationTimestamp { get; set; }
 

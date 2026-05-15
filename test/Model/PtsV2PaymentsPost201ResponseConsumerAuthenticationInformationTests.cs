@@ -408,6 +408,62 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'WhiteListStatus'
         }
+        /// <summary>
+        /// Test the property 'Token'
+        /// </summary>
+        [Test]
+        public void TokenTest()
+        {
+            // TODO unit test for the property 'Token'
+        }
+        /// <summary>
+        /// Test the property 'AcsReferenceNumber'
+        /// </summary>
+        [Test]
+        public void AcsReferenceNumberTest()
+        {
+            // TODO unit test for the property 'AcsReferenceNumber'
+        }
+        /// <summary>
+        /// Test the property 'AcsOperatorID'
+        /// </summary>
+        [Test]
+        public void AcsOperatorIDTest()
+        {
+            // TODO unit test for the property 'AcsOperatorID'
+        }
+        /// <summary>
+        /// Test the property 'IdciScore'
+        /// </summary>
+        [Test]
+        public void IdciScoreTest()
+        {
+            // TODO unit test for the property 'IdciScore'
+        }
+        /// <summary>
+        /// Test the property 'IdciDecision'
+        /// </summary>
+        [Test]
+        public void IdciDecisionTest()
+        {
+            // TODO unit test for the property 'IdciDecision'
+        }
+        /// <summary>
+        /// Test the property 'IdciReasonCode1'
+        /// </summary>
+        [Test]
+        public void IdciReasonCode1Test()
+        {
+            // TODO unit test for the property 'IdciReasonCode1'
+        }
+        /// <summary>
+        /// Test the property 'IdciReasonCode2'
+        /// </summary>
+        [Test]
+        public void IdciReasonCode2Test()
+        {
+            // TODO unit test for the property 'IdciReasonCode2'
+        }
 
     }
 

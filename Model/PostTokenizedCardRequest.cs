@@ -44,7 +44,8 @@ namespace CyberSource.Model
         /// <param name="Source">Source of the card details. Possible Values: - ONFILE - TOKEN - ISSUER  (required).</param>
         /// <param name="Card">Card.</param>
         /// <param name="Passcode">Passcode.</param>
-        public PostTokenizedCardRequest(string AccountReferenceId = default(string), string ConsumerId = default(string), bool? CreatePanInstrumentIdentifier = default(bool?), string Source = default(string), Tmsv2tokenizedcardsCard Card = default(Tmsv2tokenizedcardsCard), Tmsv2tokenizedcardsPasscode Passcode = default(Tmsv2tokenizedcardsPasscode))
+        /// <param name="BillTo">BillTo.</param>
+        public PostTokenizedCardRequest(string AccountReferenceId = default(string), string ConsumerId = default(string), bool? CreatePanInstrumentIdentifier = default(bool?), string Source = default(string), Tmsv2tokenizedcardsCard Card = default(Tmsv2tokenizedcardsCard), Tmsv2tokenizedcardsPasscode Passcode = default(Tmsv2tokenizedcardsPasscode), Tmsv2tokenizedcardsBillTo BillTo = default(Tmsv2tokenizedcardsBillTo))
         {
             this.AccountReferenceId = AccountReferenceId;
             this.ConsumerId = ConsumerId;
@@ -52,6 +53,7 @@ namespace CyberSource.Model
             this.Source = Source;
             this.Card = Card;
             this.Passcode = Passcode;
+            this.BillTo = BillTo;
         }
         
         /// <summary>
@@ -95,6 +97,12 @@ namespace CyberSource.Model
         public Tmsv2tokenizedcardsPasscode Passcode { get; set; }
 
         /// <summary>
+        /// Gets or Sets BillTo
+        /// </summary>
+        [DataMember(Name="billTo", EmitDefaultValue=false)]
+        public Tmsv2tokenizedcardsBillTo BillTo { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,6 +116,7 @@ namespace CyberSource.Model
             if (Source != null) sb.Append("  Source: ").Append(Source).Append("\n");
             if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
             if (Passcode != null) sb.Append("  Passcode: ").Append(Passcode).Append("\n");
+            if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,6 +182,11 @@ namespace CyberSource.Model
                     this.Passcode == other.Passcode ||
                     this.Passcode != null &&
                     this.Passcode.Equals(other.Passcode)
+                ) && 
+                (
+                    this.BillTo == other.BillTo ||
+                    this.BillTo != null &&
+                    this.BillTo.Equals(other.BillTo)
                 );
         }
 
@@ -199,6 +213,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.Passcode != null)
                     hash = hash * 59 + this.Passcode.GetHashCode();
+                if (this.BillTo != null)
+                    hash = hash * 59 + this.BillTo.GetHashCode();
                 return hash;
             }
         }

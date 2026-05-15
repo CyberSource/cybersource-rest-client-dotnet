@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AcsWindowSize'
         }
+        /// <summary>
+        /// Test the property 'ProductCode'
+        /// </summary>
+        [Test]
+        public void ProductCodeTest()
+        {
+            // TODO unit test for the property 'ProductCode'
+        }
 
     }
 

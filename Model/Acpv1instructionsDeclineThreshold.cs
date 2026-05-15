@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Decline Threshold data.
+    /// Decline Threshold data. Defines the maximum transaction amount the consumer is willing to authorize under this mandate.
     /// </summary>
     [DataContract]
     public partial class Acpv1instructionsDeclineThreshold :  IEquatable<Acpv1instructionsDeclineThreshold>, IValidatableObject

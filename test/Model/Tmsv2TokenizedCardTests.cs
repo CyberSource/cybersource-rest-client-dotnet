@@ -193,12 +193,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PaymentAccountReference'
         }
         /// <summary>
+        /// Test the property 'ApplicationTransactionCounter'
+        /// </summary>
+        [Test]
+        public void ApplicationTransactionCounterTest()
+        {
+            // TODO unit test for the property 'ApplicationTransactionCounter'
+        }
+        /// <summary>
         /// Test the property 'Card'
         /// </summary>
         [Test]
         public void CardTest()
         {
             // TODO unit test for the property 'Card'
+        }
+        /// <summary>
+        /// Test the property 'VerificationResults'
+        /// </summary>
+        [Test]
+        public void VerificationResultsTest()
+        {
+            // TODO unit test for the property 'VerificationResults'
         }
         /// <summary>
         /// Test the property 'Metadata'

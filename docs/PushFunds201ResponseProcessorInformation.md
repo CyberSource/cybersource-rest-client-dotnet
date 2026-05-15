@@ -14,6 +14,10 @@ Name | Type | Description | Notes
 **Routing** | [**PushFunds201ResponseProcessorInformationRouting**](PushFunds201ResponseProcessorInformationRouting.md) |  | [optional] 
 **Settlement** | [**PushFunds201ResponseProcessorInformationSettlement**](PushFunds201ResponseProcessorInformationSettlement.md) |  | [optional] 
 **MerchantAdvice** | [**PushFunds201ResponseProcessorInformationMerchantAdvice**](PushFunds201ResponseProcessorInformationMerchantAdvice.md) |  | [optional] 
+**Avs** | [**PtsV2PayoutsPost201ResponseProcessorInformationAvs**](PtsV2PayoutsPost201ResponseProcessorInformationAvs.md) |  | [optional] 
+**Customer** | [**PtsV2PayoutsPost201ResponseProcessorInformationCustomer**](PtsV2PayoutsPost201ResponseProcessorInformationCustomer.md) |  | [optional] 
+**ElectronicVerificationResults** | [**PtsV2PayoutsPost201ResponseProcessorInformationElectronicVerificationResults**](PtsV2PayoutsPost201ResponseProcessorInformationElectronicVerificationResults.md) |  | [optional] 
+**CardVerification** | [**PtsV2PaymentsPost201ResponseProcessorInformationCardVerification**](PtsV2PaymentsPost201ResponseProcessorInformationCardVerification.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

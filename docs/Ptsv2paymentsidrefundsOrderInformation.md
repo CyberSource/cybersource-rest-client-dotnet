@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **ShipTo** | [**Ptsv2paymentsidcapturesOrderInformationShipTo**](Ptsv2paymentsidcapturesOrderInformationShipTo.md) |  | [optional] 
 **LineItems** | [**List&lt;Ptsv2paymentsidrefundsOrderInformationLineItems&gt;**](Ptsv2paymentsidrefundsOrderInformationLineItems.md) |  | [optional] 
 **InvoiceDetails** | [**Ptsv2paymentsidcapturesOrderInformationInvoiceDetails**](Ptsv2paymentsidcapturesOrderInformationInvoiceDetails.md) |  | [optional] 
-**ShippingDetails** | [**Ptsv2paymentsidcapturesOrderInformationShippingDetails**](Ptsv2paymentsidcapturesOrderInformationShippingDetails.md) |  | [optional] 
+**ShippingDetails** | [**Ptsv2paymentsidrefundsOrderInformationShippingDetails**](Ptsv2paymentsidrefundsOrderInformationShippingDetails.md) |  | [optional] 
+**DigitalCurrency** | [**Ptsv2paymentsOrderInformationDigitalCurrency**](Ptsv2paymentsOrderInformationDigitalCurrency.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

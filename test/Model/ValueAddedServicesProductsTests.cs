@@ -88,6 +88,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BankAccountValidation'
         }
+        /// <summary>
+        /// Test the property 'Flexapi'
+        /// </summary>
+        [Test]
+        public void FlexapiTest()
+        {
+            // TODO unit test for the property 'Flexapi'
+        }
+        /// <summary>
+        /// Test the property 'Webhooks'
+        /// </summary>
+        [Test]
+        public void WebhooksTest()
+        {
+            // TODO unit test for the property 'Webhooks'
+        }
 
     }
 

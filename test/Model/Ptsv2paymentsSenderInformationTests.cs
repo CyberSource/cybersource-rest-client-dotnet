@@ -152,6 +152,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PostalCode'
         }
+        /// <summary>
+        /// Test the property 'TaxIdNumber'
+        /// </summary>
+        [Test]
+        public void TaxIdNumberTest()
+        {
+            // TODO unit test for the property 'TaxIdNumber'
+        }
 
     }
 

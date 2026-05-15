@@ -34,10 +34,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2billingagreementsOrderInformation" /> class.
         /// </summary>
         /// <param name="AmountDetails">AmountDetails.</param>
+        /// <param name="InvoiceDetails">InvoiceDetails.</param>
         /// <param name="BillTo">BillTo.</param>
-        public Ptsv2billingagreementsOrderInformation(Ptsv2paymentsidreversalsReversalInformationAmountDetails AmountDetails = default(Ptsv2paymentsidreversalsReversalInformationAmountDetails), Ptsv2billingagreementsOrderInformationBillTo BillTo = default(Ptsv2billingagreementsOrderInformationBillTo))
+        public Ptsv2billingagreementsOrderInformation(Ptsv2billingagreementsOrderInformationAmountDetails AmountDetails = default(Ptsv2billingagreementsOrderInformationAmountDetails), Ptsv2billingagreementsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2billingagreementsOrderInformationInvoiceDetails), Ptsv2billingagreementsOrderInformationBillTo BillTo = default(Ptsv2billingagreementsOrderInformationBillTo))
         {
             this.AmountDetails = AmountDetails;
+            this.InvoiceDetails = InvoiceDetails;
             this.BillTo = BillTo;
         }
         
@@ -45,7 +47,13 @@ namespace CyberSource.Model
         /// Gets or Sets AmountDetails
         /// </summary>
         [DataMember(Name="amountDetails", EmitDefaultValue=false)]
-        public Ptsv2paymentsidreversalsReversalInformationAmountDetails AmountDetails { get; set; }
+        public Ptsv2billingagreementsOrderInformationAmountDetails AmountDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InvoiceDetails
+        /// </summary>
+        [DataMember(Name="invoiceDetails", EmitDefaultValue=false)]
+        public Ptsv2billingagreementsOrderInformationInvoiceDetails InvoiceDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets BillTo
@@ -62,6 +70,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2billingagreementsOrderInformation {\n");
             if (AmountDetails != null) sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
+            if (InvoiceDetails != null) sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -105,6 +114,11 @@ namespace CyberSource.Model
                     this.AmountDetails.Equals(other.AmountDetails)
                 ) && 
                 (
+                    this.InvoiceDetails == other.InvoiceDetails ||
+                    this.InvoiceDetails != null &&
+                    this.InvoiceDetails.Equals(other.InvoiceDetails)
+                ) && 
+                (
                     this.BillTo == other.BillTo ||
                     this.BillTo != null &&
                     this.BillTo.Equals(other.BillTo)
@@ -124,6 +138,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AmountDetails != null)
                     hash = hash * 59 + this.AmountDetails.GetHashCode();
+                if (this.InvoiceDetails != null)
+                    hash = hash * 59 + this.InvoiceDetails.GetHashCode();
                 if (this.BillTo != null)
                     hash = hash * 59 + this.BillTo.GetHashCode();
                 return hash;

@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**GetAllSubscriptions**](SubscriptionsApi.md#getallsubscriptions) | **GET** /rbs/v1/subscriptions | Get a List of Subscriptions
 [**GetSubscription**](SubscriptionsApi.md#getsubscription) | **GET** /rbs/v1/subscriptions/{id} | Get a Subscription
 [**GetSubscriptionCode**](SubscriptionsApi.md#getsubscriptioncode) | **GET** /rbs/v1/subscriptions/code | Get a Subscription Code
+[**SubscriptionsIdPaymentsGet**](SubscriptionsApi.md#subscriptionsidpaymentsget) | **GET** /rbs/v1/subscriptions/{id}/payments | Get Payments for a Subscription
+[**SubscriptionsIdPaymentsPut**](SubscriptionsApi.md#subscriptionsidpaymentsput) | **PUT** /rbs/v1/subscriptions/{id}/payments | Update Payments for a subscription
 [**SuspendSubscription**](SubscriptionsApi.md#suspendsubscription) | **POST** /rbs/v1/subscriptions/{id}/suspend | Suspend a Subscription
 [**UpdateSubscription**](SubscriptionsApi.md#updatesubscription) | **PATCH** /rbs/v1/subscriptions/{id} | Update a Subscription
 
@@ -201,7 +203,7 @@ No authorization required
 
 <a name="getallsubscriptions"></a>
 # **GetAllSubscriptions**
-> GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null)
+> GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null, string clientReferenceInformationCode = null)
 
 Get a List of Subscriptions
 
@@ -227,11 +229,12 @@ namespace Example
             var code = code_example;  // string | Filter by Subscription Code (optional) 
             var status = status_example;  // string | Filter by Subscription Status (optional) 
             var customerId = customerId_example;  // string | Filter by Customer Id (optional) 
+            var clientReferenceInformationCode = clientReferenceInformationCode_example;  // string | Filter by Client Reference Information Code / Merchant Reference Number (optional) 
 
             try
             {
                 // Get a List of Subscriptions
-                GetAllSubscriptionsResponse result = apiInstance.GetAllSubscriptions(offset, limit, code, status, customerId);
+                GetAllSubscriptionsResponse result = apiInstance.GetAllSubscriptions(offset, limit, code, status, customerId, clientReferenceInformationCode);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -252,6 +255,7 @@ Name | Type | Description  | Notes
  **code** | **string**| Filter by Subscription Code | [optional] 
  **status** | **string**| Filter by Subscription Status | [optional] 
  **customerId** | **string**| Filter by Customer Id | [optional] 
+ **clientReferenceInformationCode** | **string**| Filter by Client Reference Information Code / Merchant Reference Number | [optional] 
 
 ### Return type
 
@@ -383,6 +387,136 @@ No authorization required
 
  - **Content-Type**: application/json;charset=utf-8
  - **Accept**: application/json, application/hal+json, application/json;charset=utf-8, application/hal+json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="subscriptionsidpaymentsget"></a>
+# **SubscriptionsIdPaymentsGet**
+> GetSubscriptionsPaymentsResponse SubscriptionsIdPaymentsGet (string id, int? offset = null, int? limit = null, int? scheduledPaymentsCount = null)
+
+Get Payments for a Subscription
+
+Retrieve a list of payments for a specific subscription by its ID. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class SubscriptionsIdPaymentsGetExample
+    {
+        public void main()
+        {
+            var apiInstance = new SubscriptionsApi();
+            var id = id_example;  // string | Subscription Id
+            var offset = 56;  // int? | Page offset number. (optional) 
+            var limit = 56;  // int? | Number of items to be returned. Default - `20`, Max - `100`  (optional) 
+            var scheduledPaymentsCount = 56;  // int? | Number of existing scheduled payments to be returned. Default - `5`, Max - `9999`  (optional) 
+
+            try
+            {
+                // Get Payments for a Subscription
+                GetSubscriptionsPaymentsResponse result = apiInstance.SubscriptionsIdPaymentsGet(id, offset, limit, scheduledPaymentsCount);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SubscriptionsApi.SubscriptionsIdPaymentsGet: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Subscription Id | 
+ **offset** | **int?**| Page offset number. | [optional] 
+ **limit** | **int?**| Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  | [optional] 
+ **scheduledPaymentsCount** | **int?**| Number of existing scheduled payments to be returned. Default - &#x60;5&#x60;, Max - &#x60;9999&#x60;  | [optional] 
+
+### Return type
+
+[**GetSubscriptionsPaymentsResponse**](GetSubscriptionsPaymentsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="subscriptionsidpaymentsput"></a>
+# **SubscriptionsIdPaymentsPut**
+> GetSubscriptionsPaymentsResponse1 SubscriptionsIdPaymentsPut (string id, UpdatePayments updatePayments)
+
+Update Payments for a subscription
+
+Modifies the state of a subscription's payments. Currently, the only possible modifications are \"skipping\" and \"restoring\" payments.  Marking a payment as \"skipped\" means it will not be processed when its scheduled time arrives. \"Restoring\" a payment removes it from the list of payments to be skipped. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class SubscriptionsIdPaymentsPutExample
+    {
+        public void main()
+        {
+            var apiInstance = new SubscriptionsApi();
+            var id = id_example;  // string | Subscription Id
+            var updatePayments = new UpdatePayments(); // UpdatePayments | Modify payments of a subscription
+
+            try
+            {
+                // Update Payments for a subscription
+                GetSubscriptionsPaymentsResponse1 result = apiInstance.SubscriptionsIdPaymentsPut(id, updatePayments);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling SubscriptionsApi.SubscriptionsIdPaymentsPut: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Subscription Id | 
+ **updatePayments** | [**UpdatePayments**](UpdatePayments.md)| Modify payments of a subscription | 
+
+### Return type
+
+[**GetSubscriptionsPaymentsResponse1**](GetSubscriptionsPaymentsResponse1.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

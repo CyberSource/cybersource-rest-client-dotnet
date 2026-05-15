@@ -34,19 +34,27 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ucv1sessionsDataOrderInformationAmountDetails" /> class.
         /// </summary>
         /// <param name="TotalAmount">This field defines the total order amount. .</param>
+        /// <param name="FreightAmount">Total freight or shipping and handling charges for the order.  When you include this field in your request, you must also include the **totalAmount** field. .</param>
+        /// <param name="DutyAmount">Total charges for any import or export duties included in the order. .</param>
+        /// <param name="DiscountAmount">Total discount amount applied to the order. .</param>
+        /// <param name="TaxAppliedAfterDiscount">Flag that indicates how the merchant manages discounts.  Possible values:   - **0**: no invoice level discount included  - **1**: tax calculated on the postdiscount invoice total  - **2**: tax calculated on the prediscount invoice total .</param>
+        /// <param name="TaxAppliedLevel">Flag that indicates how you calculate tax.  Possible values:   - **0**: net prices with tax calculated at line item level  - **1**: net prices with tax calculated at invoice level  - **2**: gross prices with tax provided at line item level  - **3**: gross prices with tax provided at invoice level  - **4**: no tax applies on the invoice for the transaction .</param>
         /// <param name="Currency">This field defines the currency applicable to the order. .</param>
         /// <param name="Surcharge">Surcharge.</param>
-        /// <param name="DiscountAmount">This field defines the discount amount applicable to the order. .</param>
         /// <param name="SubTotalAmount">This field defines the sub total amount applicable to the order. .</param>
         /// <param name="ServiceFeeAmount">This field defines the service fee amount applicable to the order. .</param>
         /// <param name="TaxAmount">This field defines the tax amount applicable to the order. .</param>
         /// <param name="TaxDetails">TaxDetails.</param>
-        public Ucv1sessionsDataOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), Upv1capturecontextsDataOrderInformationAmountDetailsSurcharge Surcharge = default(Upv1capturecontextsDataOrderInformationAmountDetailsSurcharge), string DiscountAmount = default(string), string SubTotalAmount = default(string), string ServiceFeeAmount = default(string), string TaxAmount = default(string), List<Ucv1sessionsDataOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ucv1sessionsDataOrderInformationAmountDetailsTaxDetails>))
+        public Ucv1sessionsDataOrderInformationAmountDetails(string TotalAmount = default(string), string FreightAmount = default(string), string DutyAmount = default(string), string DiscountAmount = default(string), string TaxAppliedAfterDiscount = default(string), string TaxAppliedLevel = default(string), string Currency = default(string), Upv1capturecontextsDataOrderInformationAmountDetailsSurcharge Surcharge = default(Upv1capturecontextsDataOrderInformationAmountDetailsSurcharge), string SubTotalAmount = default(string), string ServiceFeeAmount = default(string), string TaxAmount = default(string), List<Ucv1sessionsDataOrderInformationAmountDetailsTaxDetails> TaxDetails = default(List<Ucv1sessionsDataOrderInformationAmountDetailsTaxDetails>))
         {
             this.TotalAmount = TotalAmount;
+            this.FreightAmount = FreightAmount;
+            this.DutyAmount = DutyAmount;
+            this.DiscountAmount = DiscountAmount;
+            this.TaxAppliedAfterDiscount = TaxAppliedAfterDiscount;
+            this.TaxAppliedLevel = TaxAppliedLevel;
             this.Currency = Currency;
             this.Surcharge = Surcharge;
-            this.DiscountAmount = DiscountAmount;
             this.SubTotalAmount = SubTotalAmount;
             this.ServiceFeeAmount = ServiceFeeAmount;
             this.TaxAmount = TaxAmount;
@@ -61,6 +69,41 @@ namespace CyberSource.Model
         public string TotalAmount { get; set; }
 
         /// <summary>
+        /// Total freight or shipping and handling charges for the order.  When you include this field in your request, you must also include the **totalAmount** field. 
+        /// </summary>
+        /// <value>Total freight or shipping and handling charges for the order.  When you include this field in your request, you must also include the **totalAmount** field. </value>
+        [DataMember(Name="freightAmount", EmitDefaultValue=false)]
+        public string FreightAmount { get; set; }
+
+        /// <summary>
+        /// Total charges for any import or export duties included in the order. 
+        /// </summary>
+        /// <value>Total charges for any import or export duties included in the order. </value>
+        [DataMember(Name="dutyAmount", EmitDefaultValue=false)]
+        public string DutyAmount { get; set; }
+
+        /// <summary>
+        /// Total discount amount applied to the order. 
+        /// </summary>
+        /// <value>Total discount amount applied to the order. </value>
+        [DataMember(Name="discountAmount", EmitDefaultValue=false)]
+        public string DiscountAmount { get; set; }
+
+        /// <summary>
+        /// Flag that indicates how the merchant manages discounts.  Possible values:   - **0**: no invoice level discount included  - **1**: tax calculated on the postdiscount invoice total  - **2**: tax calculated on the prediscount invoice total 
+        /// </summary>
+        /// <value>Flag that indicates how the merchant manages discounts.  Possible values:   - **0**: no invoice level discount included  - **1**: tax calculated on the postdiscount invoice total  - **2**: tax calculated on the prediscount invoice total </value>
+        [DataMember(Name="taxAppliedAfterDiscount", EmitDefaultValue=false)]
+        public string TaxAppliedAfterDiscount { get; set; }
+
+        /// <summary>
+        /// Flag that indicates how you calculate tax.  Possible values:   - **0**: net prices with tax calculated at line item level  - **1**: net prices with tax calculated at invoice level  - **2**: gross prices with tax provided at line item level  - **3**: gross prices with tax provided at invoice level  - **4**: no tax applies on the invoice for the transaction 
+        /// </summary>
+        /// <value>Flag that indicates how you calculate tax.  Possible values:   - **0**: net prices with tax calculated at line item level  - **1**: net prices with tax calculated at invoice level  - **2**: gross prices with tax provided at line item level  - **3**: gross prices with tax provided at invoice level  - **4**: no tax applies on the invoice for the transaction </value>
+        [DataMember(Name="taxAppliedLevel", EmitDefaultValue=false)]
+        public string TaxAppliedLevel { get; set; }
+
+        /// <summary>
         /// This field defines the currency applicable to the order. 
         /// </summary>
         /// <value>This field defines the currency applicable to the order. </value>
@@ -72,13 +115,6 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="surcharge", EmitDefaultValue=false)]
         public Upv1capturecontextsDataOrderInformationAmountDetailsSurcharge Surcharge { get; set; }
-
-        /// <summary>
-        /// This field defines the discount amount applicable to the order. 
-        /// </summary>
-        /// <value>This field defines the discount amount applicable to the order. </value>
-        [DataMember(Name="discountAmount", EmitDefaultValue=false)]
-        public string DiscountAmount { get; set; }
 
         /// <summary>
         /// This field defines the sub total amount applicable to the order. 
@@ -116,9 +152,13 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ucv1sessionsDataOrderInformationAmountDetails {\n");
             if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
+            if (FreightAmount != null) sb.Append("  FreightAmount: ").Append(FreightAmount).Append("\n");
+            if (DutyAmount != null) sb.Append("  DutyAmount: ").Append(DutyAmount).Append("\n");
+            if (DiscountAmount != null) sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
+            if (TaxAppliedAfterDiscount != null) sb.Append("  TaxAppliedAfterDiscount: ").Append(TaxAppliedAfterDiscount).Append("\n");
+            if (TaxAppliedLevel != null) sb.Append("  TaxAppliedLevel: ").Append(TaxAppliedLevel).Append("\n");
             if (Currency != null) sb.Append("  Currency: ").Append(Currency).Append("\n");
             if (Surcharge != null) sb.Append("  Surcharge: ").Append(Surcharge).Append("\n");
-            if (DiscountAmount != null) sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
             if (SubTotalAmount != null) sb.Append("  SubTotalAmount: ").Append(SubTotalAmount).Append("\n");
             if (ServiceFeeAmount != null) sb.Append("  ServiceFeeAmount: ").Append(ServiceFeeAmount).Append("\n");
             if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
@@ -165,6 +205,31 @@ namespace CyberSource.Model
                     this.TotalAmount.Equals(other.TotalAmount)
                 ) && 
                 (
+                    this.FreightAmount == other.FreightAmount ||
+                    this.FreightAmount != null &&
+                    this.FreightAmount.Equals(other.FreightAmount)
+                ) && 
+                (
+                    this.DutyAmount == other.DutyAmount ||
+                    this.DutyAmount != null &&
+                    this.DutyAmount.Equals(other.DutyAmount)
+                ) && 
+                (
+                    this.DiscountAmount == other.DiscountAmount ||
+                    this.DiscountAmount != null &&
+                    this.DiscountAmount.Equals(other.DiscountAmount)
+                ) && 
+                (
+                    this.TaxAppliedAfterDiscount == other.TaxAppliedAfterDiscount ||
+                    this.TaxAppliedAfterDiscount != null &&
+                    this.TaxAppliedAfterDiscount.Equals(other.TaxAppliedAfterDiscount)
+                ) && 
+                (
+                    this.TaxAppliedLevel == other.TaxAppliedLevel ||
+                    this.TaxAppliedLevel != null &&
+                    this.TaxAppliedLevel.Equals(other.TaxAppliedLevel)
+                ) && 
+                (
                     this.Currency == other.Currency ||
                     this.Currency != null &&
                     this.Currency.Equals(other.Currency)
@@ -173,11 +238,6 @@ namespace CyberSource.Model
                     this.Surcharge == other.Surcharge ||
                     this.Surcharge != null &&
                     this.Surcharge.Equals(other.Surcharge)
-                ) && 
-                (
-                    this.DiscountAmount == other.DiscountAmount ||
-                    this.DiscountAmount != null &&
-                    this.DiscountAmount.Equals(other.DiscountAmount)
                 ) && 
                 (
                     this.SubTotalAmount == other.SubTotalAmount ||
@@ -214,12 +274,20 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.TotalAmount != null)
                     hash = hash * 59 + this.TotalAmount.GetHashCode();
+                if (this.FreightAmount != null)
+                    hash = hash * 59 + this.FreightAmount.GetHashCode();
+                if (this.DutyAmount != null)
+                    hash = hash * 59 + this.DutyAmount.GetHashCode();
+                if (this.DiscountAmount != null)
+                    hash = hash * 59 + this.DiscountAmount.GetHashCode();
+                if (this.TaxAppliedAfterDiscount != null)
+                    hash = hash * 59 + this.TaxAppliedAfterDiscount.GetHashCode();
+                if (this.TaxAppliedLevel != null)
+                    hash = hash * 59 + this.TaxAppliedLevel.GetHashCode();
                 if (this.Currency != null)
                     hash = hash * 59 + this.Currency.GetHashCode();
                 if (this.Surcharge != null)
                     hash = hash * 59 + this.Surcharge.GetHashCode();
-                if (this.DiscountAmount != null)
-                    hash = hash * 59 + this.DiscountAmount.GetHashCode();
                 if (this.SubTotalAmount != null)
                     hash = hash * 59 + this.SubTotalAmount.GetHashCode();
                 if (this.ServiceFeeAmount != null)

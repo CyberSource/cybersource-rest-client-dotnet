@@ -33,8 +33,8 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4009Details" /> class.
         /// </summary>
-        /// <param name="Field">This is the flattened JSON object field name/path that is either missing or invalid. .</param>
-        /// <param name="Reason">Possible reasons for the error.  Possible values:   - &#x60;MISSING_FIELD&#x60;   - &#x60;INVALID_DATA&#x60; .</param>
+        /// <param name="Field">This is the flattened JSON object field name/path that is either missing or invalid..</param>
+        /// <param name="Reason">Possible reasons for the error..</param>
         public InlineResponse4009Details(string Field = default(string), string Reason = default(string))
         {
             this.Field = Field;
@@ -42,16 +42,16 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// This is the flattened JSON object field name/path that is either missing or invalid. 
+        /// This is the flattened JSON object field name/path that is either missing or invalid.
         /// </summary>
-        /// <value>This is the flattened JSON object field name/path that is either missing or invalid. </value>
+        /// <value>This is the flattened JSON object field name/path that is either missing or invalid.</value>
         [DataMember(Name="field", EmitDefaultValue=false)]
         public string Field { get; set; }
 
         /// <summary>
-        /// Possible reasons for the error.  Possible values:   - &#x60;MISSING_FIELD&#x60;   - &#x60;INVALID_DATA&#x60; 
+        /// Possible reasons for the error.
         /// </summary>
-        /// <value>Possible reasons for the error.  Possible values:   - &#x60;MISSING_FIELD&#x60;   - &#x60;INVALID_DATA&#x60; </value>
+        /// <value>Possible reasons for the error.</value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 

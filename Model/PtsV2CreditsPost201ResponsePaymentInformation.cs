@@ -38,13 +38,15 @@ namespace CyberSource.Model
         /// <param name="PaymentInstrument">PaymentInstrument.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
         /// <param name="ShippingAddress">ShippingAddress.</param>
-        public PtsV2CreditsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress))
+        /// <param name="AccountFeatures">AccountFeatures.</param>
+        public PtsV2CreditsPost201ResponsePaymentInformation(PtsV2PaymentsPost201ResponsePaymentInformationBank Bank = default(PtsV2PaymentsPost201ResponsePaymentInformationBank), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier InstrumentIdentifier = default(PtsV2PaymentsPost201ResponsePaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), PtsV2CreditsPost201ResponsePaymentInformationAccountFeatures AccountFeatures = default(PtsV2CreditsPost201ResponsePaymentInformationAccountFeatures))
         {
             this.Bank = Bank;
             this.Customer = Customer;
             this.PaymentInstrument = PaymentInstrument;
             this.InstrumentIdentifier = InstrumentIdentifier;
             this.ShippingAddress = ShippingAddress;
+            this.AccountFeatures = AccountFeatures;
         }
         
         /// <summary>
@@ -78,6 +80,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress { get; set; }
 
         /// <summary>
+        /// Gets or Sets AccountFeatures
+        /// </summary>
+        [DataMember(Name="accountFeatures", EmitDefaultValue=false)]
+        public PtsV2CreditsPost201ResponsePaymentInformationAccountFeatures AccountFeatures { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +98,7 @@ namespace CyberSource.Model
             if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
             if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
             if (ShippingAddress != null) sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
+            if (AccountFeatures != null) sb.Append("  AccountFeatures: ").Append(AccountFeatures).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +159,11 @@ namespace CyberSource.Model
                     this.ShippingAddress == other.ShippingAddress ||
                     this.ShippingAddress != null &&
                     this.ShippingAddress.Equals(other.ShippingAddress)
+                ) && 
+                (
+                    this.AccountFeatures == other.AccountFeatures ||
+                    this.AccountFeatures != null &&
+                    this.AccountFeatures.Equals(other.AccountFeatures)
                 );
         }
 
@@ -174,6 +188,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
                 if (this.ShippingAddress != null)
                     hash = hash * 59 + this.ShippingAddress.GetHashCode();
+                if (this.AccountFeatures != null)
+                    hash = hash * 59 + this.AccountFeatures.GetHashCode();
                 return hash;
             }
         }

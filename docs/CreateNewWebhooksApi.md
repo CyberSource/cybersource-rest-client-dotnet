@@ -127,13 +127,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="savesymegresskey"></a>
 # **SaveSymEgressKey**
-> InlineResponse2015 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+> InlineResponse2015 SaveSymEgressKey (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
 
 Create Webhook Security Keys
 
@@ -154,15 +154,15 @@ namespace Example
         public void main()
         {
             var apiInstance = new CreateNewWebhooksApi();
-            var vCSenderOrganizationId = vCSenderOrganizationId_example;  // string | Sender organization id
-            var vCPermissions = vCPermissions_example;  // string | Encoded user permissions returned by the CGK, for the entity user who initiated the boarding
             var vCCorrelationId = vCCorrelationId_example;  // string | A globally unique id associated with your request (optional) 
+            var vCSenderOrganizationId = vCSenderOrganizationId_example;  // string | Sender organization id (optional) 
+            var vCPermissions = vCPermissions_example;  // string | Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional) 
             var saveSymEgressKey = new SaveSymEgressKey(); // SaveSymEgressKey | Provide egress Symmetric key information to save (create or store or refresh) (optional) 
 
             try
             {
                 // Create Webhook Security Keys
-                InlineResponse2015 result = apiInstance.SaveSymEgressKey(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
+                InlineResponse2015 result = apiInstance.SaveSymEgressKey(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -178,9 +178,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vCSenderOrganizationId** | **string**| Sender organization id | 
- **vCPermissions** | **string**| Encoded user permissions returned by the CGK, for the entity user who initiated the boarding | 
  **vCCorrelationId** | **string**| A globally unique id associated with your request | [optional] 
+ **vCSenderOrganizationId** | **string**| Sender organization id | [optional] 
+ **vCPermissions** | **string**| Encoded user permissions returned by the CGK, for the entity user who initiated the boarding | [optional] 
  **saveSymEgressKey** | [**SaveSymEgressKey**](SaveSymEgressKey.md)| Provide egress Symmetric key information to save (create or store or refresh) | [optional] 
 
 ### Return type

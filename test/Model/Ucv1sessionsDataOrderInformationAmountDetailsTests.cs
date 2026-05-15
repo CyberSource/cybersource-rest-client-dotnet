@@ -73,6 +73,46 @@ namespace CyberSource.Test
             // TODO unit test for the property 'TotalAmount'
         }
         /// <summary>
+        /// Test the property 'FreightAmount'
+        /// </summary>
+        [Test]
+        public void FreightAmountTest()
+        {
+            // TODO unit test for the property 'FreightAmount'
+        }
+        /// <summary>
+        /// Test the property 'DutyAmount'
+        /// </summary>
+        [Test]
+        public void DutyAmountTest()
+        {
+            // TODO unit test for the property 'DutyAmount'
+        }
+        /// <summary>
+        /// Test the property 'DiscountAmount'
+        /// </summary>
+        [Test]
+        public void DiscountAmountTest()
+        {
+            // TODO unit test for the property 'DiscountAmount'
+        }
+        /// <summary>
+        /// Test the property 'TaxAppliedAfterDiscount'
+        /// </summary>
+        [Test]
+        public void TaxAppliedAfterDiscountTest()
+        {
+            // TODO unit test for the property 'TaxAppliedAfterDiscount'
+        }
+        /// <summary>
+        /// Test the property 'TaxAppliedLevel'
+        /// </summary>
+        [Test]
+        public void TaxAppliedLevelTest()
+        {
+            // TODO unit test for the property 'TaxAppliedLevel'
+        }
+        /// <summary>
         /// Test the property 'Currency'
         /// </summary>
         [Test]
@@ -87,14 +127,6 @@ namespace CyberSource.Test
         public void SurchargeTest()
         {
             // TODO unit test for the property 'Surcharge'
-        }
-        /// <summary>
-        /// Test the property 'DiscountAmount'
-        /// </summary>
-        [Test]
-        public void DiscountAmountTest()
-        {
-            // TODO unit test for the property 'DiscountAmount'
         }
         /// <summary>
         /// Test the property 'SubTotalAmount'

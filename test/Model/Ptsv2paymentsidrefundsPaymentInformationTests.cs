@@ -160,6 +160,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PaymentAccountReference'
         }
+        /// <summary>
+        /// Test the property 'ThirdPartyToken'
+        /// </summary>
+        [Test]
+        public void ThirdPartyTokenTest()
+        {
+            // TODO unit test for the property 'ThirdPartyToken'
+        }
+        /// <summary>
+        /// Test the property 'InitiationChannel'
+        /// </summary>
+        [Test]
+        public void InitiationChannelTest()
+        {
+            // TODO unit test for the property 'InitiationChannel'
+        }
 
     }
 

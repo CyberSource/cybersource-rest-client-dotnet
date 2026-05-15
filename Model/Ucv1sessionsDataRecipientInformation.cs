@@ -33,87 +33,117 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ucv1sessionsDataRecipientInformation" /> class.
         /// </summary>
-        /// <param name="FirstName">FirstName.</param>
-        /// <param name="MiddleName">MiddleName.</param>
-        /// <param name="LastName">LastName.</param>
-        /// <param name="Country">The country code of the recipient&#39;s country&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        /// <param name="AccountId">The account ID of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        /// <param name="AdministrativeArea">The administrative area of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        /// <param name="AccountType">The account type of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        /// <param name="DateOfBirth">The date of birth of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        /// <param name="PostalCode">The postal code of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        public Ucv1sessionsDataRecipientInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Country = default(string), string AccountId = default(string), string AdministrativeArea = default(string), string AccountType = default(string), string DateOfBirth = default(string), string PostalCode = default(string))
+        /// <param name="AccountId">Identifier for the recipient&#39;s account. This field is applicable for AFT transactions. .</param>
+        /// <param name="AccountType">Identifies the recipient&#39;s account type. This field is applicable for AFT transactions.  Valid values are:   - &#x60;00&#x60; for Other   - &#x60;01&#x60; for Routing Transit Number (RTN) + Bank Account Number (BAN)   - &#x60;02&#x60; for International Bank Account Number (IBAN)   - &#x60;03&#x60; for Card Account   - &#x60;06&#x60; for Bank Account Number (BAN) + Bank Identification Code (BIC), also known as a SWIFT code .</param>
+        /// <param name="FirstName">First name of the recipient. This field is applicable for AFT transactions.    Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="MiddleName">Middle name of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="LastName">Last name of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="Address1">The street address of the recipient This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. .</param>
+        /// <param name="AdministrativeArea">The state or province of the recipient. This field is applicable for AFT transactions when the recipient country is US or CA. Else it is optional.  Must be a two character value .</param>
+        /// <param name="PostalCode">Partial postal code for the recipient&#39;s address. For example, if the postal code is **NN5 7SG**, the value for this field should be the first part of the postal code: **NN5**. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
+        /// <param name="Country">The country associated with the address of the recipient. This field is applicable for AFT and OCT transactions.  Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) .</param>
+        /// <param name="PhoneNumber">Account Owner phone number.</param>
+        /// <param name="DateOfBirth">Recipient&#39;s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
+        /// <param name="Locality">The city of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. .</param>
+        public Ucv1sessionsDataRecipientInformation(string AccountId = default(string), string AccountType = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string PhoneNumber = default(string), string DateOfBirth = default(string), string Locality = default(string))
         {
+            this.AccountId = AccountId;
+            this.AccountType = AccountType;
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
             this.LastName = LastName;
-            this.Country = Country;
-            this.AccountId = AccountId;
+            this.Address1 = Address1;
             this.AdministrativeArea = AdministrativeArea;
-            this.AccountType = AccountType;
-            this.DateOfBirth = DateOfBirth;
             this.PostalCode = PostalCode;
+            this.Country = Country;
+            this.PhoneNumber = PhoneNumber;
+            this.DateOfBirth = DateOfBirth;
+            this.Locality = Locality;
         }
         
         /// <summary>
-        /// Gets or Sets FirstName
+        /// Identifier for the recipient&#39;s account. This field is applicable for AFT transactions. 
         /// </summary>
-        [DataMember(Name="firstName", EmitDefaultValue=false)]
-        public string FirstName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MiddleName
-        /// </summary>
-        [DataMember(Name="middleName", EmitDefaultValue=false)]
-        public string MiddleName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LastName
-        /// </summary>
-        [DataMember(Name="lastName", EmitDefaultValue=false)]
-        public string LastName { get; set; }
-
-        /// <summary>
-        /// The country code of the recipient&#39;s country&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. 
-        /// </summary>
-        /// <value>The country code of the recipient&#39;s country&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. </value>
-        [DataMember(Name="country", EmitDefaultValue=false)]
-        public string Country { get; set; }
-
-        /// <summary>
-        /// The account ID of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. 
-        /// </summary>
-        /// <value>The account ID of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. </value>
+        /// <value>Identifier for the recipient&#39;s account. This field is applicable for AFT transactions. </value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
         public string AccountId { get; set; }
 
         /// <summary>
-        /// The administrative area of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. 
+        /// Identifies the recipient&#39;s account type. This field is applicable for AFT transactions.  Valid values are:   - &#x60;00&#x60; for Other   - &#x60;01&#x60; for Routing Transit Number (RTN) + Bank Account Number (BAN)   - &#x60;02&#x60; for International Bank Account Number (IBAN)   - &#x60;03&#x60; for Card Account   - &#x60;06&#x60; for Bank Account Number (BAN) + Bank Identification Code (BIC), also known as a SWIFT code 
         /// </summary>
-        /// <value>The administrative area of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. </value>
-        [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
-        public string AdministrativeArea { get; set; }
-
-        /// <summary>
-        /// The account type of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. 
-        /// </summary>
-        /// <value>The account type of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. </value>
+        /// <value>Identifies the recipient&#39;s account type. This field is applicable for AFT transactions.  Valid values are:   - &#x60;00&#x60; for Other   - &#x60;01&#x60; for Routing Transit Number (RTN) + Bank Account Number (BAN)   - &#x60;02&#x60; for International Bank Account Number (IBAN)   - &#x60;03&#x60; for Card Account   - &#x60;06&#x60; for Bank Account Number (BAN) + Bank Identification Code (BIC), also known as a SWIFT code </value>
         [DataMember(Name="accountType", EmitDefaultValue=false)]
         public string AccountType { get; set; }
 
         /// <summary>
-        /// The date of birth of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. 
+        /// First name of the recipient. This field is applicable for AFT transactions.    Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. 
         /// </summary>
-        /// <value>The date of birth of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. </value>
+        /// <value>First name of the recipient. This field is applicable for AFT transactions.    Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. </value>
+        [DataMember(Name="firstName", EmitDefaultValue=false)]
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Middle name of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. 
+        /// </summary>
+        /// <value>Middle name of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. </value>
+        [DataMember(Name="middleName", EmitDefaultValue=false)]
+        public string MiddleName { get; set; }
+
+        /// <summary>
+        /// Last name of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. 
+        /// </summary>
+        /// <value>Last name of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set, are not supported and will be stripped before being sent to sent to the processor. </value>
+        [DataMember(Name="lastName", EmitDefaultValue=false)]
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// The street address of the recipient This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. 
+        /// </summary>
+        /// <value>The street address of the recipient This field is applicable for AFT and OCT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. </value>
+        [DataMember(Name="address1", EmitDefaultValue=false)]
+        public string Address1 { get; set; }
+
+        /// <summary>
+        /// The state or province of the recipient. This field is applicable for AFT transactions when the recipient country is US or CA. Else it is optional.  Must be a two character value 
+        /// </summary>
+        /// <value>The state or province of the recipient. This field is applicable for AFT transactions when the recipient country is US or CA. Else it is optional.  Must be a two character value </value>
+        [DataMember(Name="administrativeArea", EmitDefaultValue=false)]
+        public string AdministrativeArea { get; set; }
+
+        /// <summary>
+        /// Partial postal code for the recipient&#39;s address. For example, if the postal code is **NN5 7SG**, the value for this field should be the first part of the postal code: **NN5**. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. 
+        /// </summary>
+        /// <value>Partial postal code for the recipient&#39;s address. For example, if the postal code is **NN5 7SG**, the value for this field should be the first part of the postal code: **NN5**. This field is a _pass-through_, which means that CyberSource does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. </value>
+        [DataMember(Name="postalCode", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
+        /// The country associated with the address of the recipient. This field is applicable for AFT and OCT transactions.  Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) 
+        /// </summary>
+        /// <value>The country associated with the address of the recipient. This field is applicable for AFT and OCT transactions.  Must be a two character ISO country code.  For example, see [ISO Country Code](https://developer.cybersource.com/docs/cybs/en-us/country-codes/reference/all/na/country-codes/country-codes.html) </value>
+        [DataMember(Name="country", EmitDefaultValue=false)]
+        public string Country { get; set; }
+
+        /// <summary>
+        /// Account Owner phone number
+        /// </summary>
+        /// <value>Account Owner phone number</value>
+        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
+        public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Recipient&#39;s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. 
+        /// </summary>
+        /// <value>Recipient&#39;s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. </value>
         [DataMember(Name="dateOfBirth", EmitDefaultValue=false)]
         public string DateOfBirth { get; set; }
 
         /// <summary>
-        /// The postal code of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. 
+        /// The city of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. 
         /// </summary>
-        /// <value>The postal code of the recipient&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. </value>
-        [DataMember(Name="postalCode", EmitDefaultValue=false)]
-        public string PostalCode { get; set; }
+        /// <value>The city of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. </value>
+        [DataMember(Name="locality", EmitDefaultValue=false)]
+        public string Locality { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -123,15 +153,18 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ucv1sessionsDataRecipientInformation {\n");
+            if (AccountId != null) sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
             if (FirstName != null) sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             if (MiddleName != null) sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             if (LastName != null) sb.Append("  LastName: ").Append(LastName).Append("\n");
-            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
-            if (AccountId != null) sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            if (Address1 != null) sb.Append("  Address1: ").Append(Address1).Append("\n");
             if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
-            if (AccountType != null) sb.Append("  AccountType: ").Append(AccountType).Append("\n");
-            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(DateOfBirth).Append("\n");
+            if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +202,16 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.AccountId == other.AccountId ||
+                    this.AccountId != null &&
+                    this.AccountId.Equals(other.AccountId)
+                ) && 
+                (
+                    this.AccountType == other.AccountType ||
+                    this.AccountType != null &&
+                    this.AccountType.Equals(other.AccountType)
+                ) && 
+                (
                     this.FirstName == other.FirstName ||
                     this.FirstName != null &&
                     this.FirstName.Equals(other.FirstName)
@@ -184,14 +227,9 @@ namespace CyberSource.Model
                     this.LastName.Equals(other.LastName)
                 ) && 
                 (
-                    this.Country == other.Country ||
-                    this.Country != null &&
-                    this.Country.Equals(other.Country)
-                ) && 
-                (
-                    this.AccountId == other.AccountId ||
-                    this.AccountId != null &&
-                    this.AccountId.Equals(other.AccountId)
+                    this.Address1 == other.Address1 ||
+                    this.Address1 != null &&
+                    this.Address1.Equals(other.Address1)
                 ) && 
                 (
                     this.AdministrativeArea == other.AdministrativeArea ||
@@ -199,9 +237,19 @@ namespace CyberSource.Model
                     this.AdministrativeArea.Equals(other.AdministrativeArea)
                 ) && 
                 (
-                    this.AccountType == other.AccountType ||
-                    this.AccountType != null &&
-                    this.AccountType.Equals(other.AccountType)
+                    this.PostalCode == other.PostalCode ||
+                    this.PostalCode != null &&
+                    this.PostalCode.Equals(other.PostalCode)
+                ) && 
+                (
+                    this.Country == other.Country ||
+                    this.Country != null &&
+                    this.Country.Equals(other.Country)
+                ) && 
+                (
+                    this.PhoneNumber == other.PhoneNumber ||
+                    this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(other.PhoneNumber)
                 ) && 
                 (
                     this.DateOfBirth == other.DateOfBirth ||
@@ -209,9 +257,9 @@ namespace CyberSource.Model
                     this.DateOfBirth.Equals(other.DateOfBirth)
                 ) && 
                 (
-                    this.PostalCode == other.PostalCode ||
-                    this.PostalCode != null &&
-                    this.PostalCode.Equals(other.PostalCode)
+                    this.Locality == other.Locality ||
+                    this.Locality != null &&
+                    this.Locality.Equals(other.Locality)
                 );
         }
 
@@ -226,24 +274,30 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.AccountId != null)
+                    hash = hash * 59 + this.AccountId.GetHashCode();
+                if (this.AccountType != null)
+                    hash = hash * 59 + this.AccountType.GetHashCode();
                 if (this.FirstName != null)
                     hash = hash * 59 + this.FirstName.GetHashCode();
                 if (this.MiddleName != null)
                     hash = hash * 59 + this.MiddleName.GetHashCode();
                 if (this.LastName != null)
                     hash = hash * 59 + this.LastName.GetHashCode();
-                if (this.Country != null)
-                    hash = hash * 59 + this.Country.GetHashCode();
-                if (this.AccountId != null)
-                    hash = hash * 59 + this.AccountId.GetHashCode();
+                if (this.Address1 != null)
+                    hash = hash * 59 + this.Address1.GetHashCode();
                 if (this.AdministrativeArea != null)
                     hash = hash * 59 + this.AdministrativeArea.GetHashCode();
-                if (this.AccountType != null)
-                    hash = hash * 59 + this.AccountType.GetHashCode();
-                if (this.DateOfBirth != null)
-                    hash = hash * 59 + this.DateOfBirth.GetHashCode();
                 if (this.PostalCode != null)
                     hash = hash * 59 + this.PostalCode.GetHashCode();
+                if (this.Country != null)
+                    hash = hash * 59 + this.Country.GetHashCode();
+                if (this.PhoneNumber != null)
+                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                if (this.DateOfBirth != null)
+                    hash = hash * 59 + this.DateOfBirth.GetHashCode();
+                if (this.Locality != null)
+                    hash = hash * 59 + this.Locality.GetHashCode();
                 return hash;
             }
         }

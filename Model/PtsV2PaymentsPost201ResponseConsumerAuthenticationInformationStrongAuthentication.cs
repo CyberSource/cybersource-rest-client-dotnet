@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication" /> class.
         /// </summary>
         /// <param name="IssuerInformation">IssuerInformation.</param>
-        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication(PaymentsStrongAuthIssuerInformation IssuerInformation = default(PaymentsStrongAuthIssuerInformation))
+        /// <param name="OutageExemptionIndicator">This field will contain the outage exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (Outage Authentication exemption does not apply to the transaction) - &#x60;1&#x60; (Outage exempt from SCA as authentication could not be done due to outage) .</param>
+        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication(PaymentsStrongAuthIssuerInformation IssuerInformation = default(PaymentsStrongAuthIssuerInformation), string OutageExemptionIndicator = default(string))
         {
             this.IssuerInformation = IssuerInformation;
+            this.OutageExemptionIndicator = OutageExemptionIndicator;
         }
         
         /// <summary>
@@ -44,6 +46,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="issuerInformation", EmitDefaultValue=false)]
         public PaymentsStrongAuthIssuerInformation IssuerInformation { get; set; }
+
+        /// <summary>
+        /// This field will contain the outage exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (Outage Authentication exemption does not apply to the transaction) - &#x60;1&#x60; (Outage exempt from SCA as authentication could not be done due to outage) 
+        /// </summary>
+        /// <value>This field will contain the outage exemption indicator with one of the following values: Possible values: - &#x60;0&#x60;  (Outage Authentication exemption does not apply to the transaction) - &#x60;1&#x60; (Outage exempt from SCA as authentication could not be done due to outage) </value>
+        [DataMember(Name="outageExemptionIndicator", EmitDefaultValue=false)]
+        public string OutageExemptionIndicator { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +63,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication {\n");
             if (IssuerInformation != null) sb.Append("  IssuerInformation: ").Append(IssuerInformation).Append("\n");
+            if (OutageExemptionIndicator != null) sb.Append("  OutageExemptionIndicator: ").Append(OutageExemptionIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +104,11 @@ namespace CyberSource.Model
                     this.IssuerInformation == other.IssuerInformation ||
                     this.IssuerInformation != null &&
                     this.IssuerInformation.Equals(other.IssuerInformation)
+                ) && 
+                (
+                    this.OutageExemptionIndicator == other.OutageExemptionIndicator ||
+                    this.OutageExemptionIndicator != null &&
+                    this.OutageExemptionIndicator.Equals(other.OutageExemptionIndicator)
                 );
         }
 
@@ -110,6 +125,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.IssuerInformation != null)
                     hash = hash * 59 + this.IssuerInformation.GetHashCode();
+                if (this.OutageExemptionIndicator != null)
+                    hash = hash * 59 + this.OutageExemptionIndicator.GetHashCode();
                 return hash;
             }
         }

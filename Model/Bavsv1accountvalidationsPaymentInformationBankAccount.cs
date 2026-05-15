@@ -38,16 +38,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Bavsv1accountvalidationsPaymentInformationBankAccount" /> class.
         /// </summary>
-        /// <param name="Number">Account Number.  Non-Negative Integer. example: 12345678901234577  (required).</param>
+        /// <param name="Number">Account Number.  Non-Negative String, containing only digits.  (required).</param>
         public Bavsv1accountvalidationsPaymentInformationBankAccount(string Number = default(string))
         {
             this.Number = Number;
         }
         
         /// <summary>
-        /// Account Number.  Non-Negative Integer. example: 12345678901234577 
+        /// Account Number.  Non-Negative String, containing only digits. 
         /// </summary>
-        /// <value>Account Number.  Non-Negative Integer. example: 12345678901234577 </value>
+        /// <value>Account Number.  Non-Negative String, containing only digits. </value>
         [DataMember(Name="number", EmitDefaultValue=false)]
         public string Number { get; set; }
 

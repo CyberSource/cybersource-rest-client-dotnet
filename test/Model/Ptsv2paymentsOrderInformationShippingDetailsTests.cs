@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ShipFromPostalCode'
         }
+        /// <summary>
+        /// Test the property 'ShippingCarrier'
+        /// </summary>
+        [Test]
+        public void ShippingCarrierTest()
+        {
+            // TODO unit test for the property 'ShippingCarrier'
+        }
 
     }
 

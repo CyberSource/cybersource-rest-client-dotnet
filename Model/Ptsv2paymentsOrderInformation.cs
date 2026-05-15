@@ -33,12 +33,14 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsOrderInformation" /> class.
         /// </summary>
+        /// <param name="ExtensionDays">Request field for merchant to increase the AUTH expiry days for Klarna Advantage Plus. Applicable for Re-Authorization (AP_REAUTH) service. .</param>
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="ShipTo">ShipTo.</param>
         /// <param name="LineItems">LineItems.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
         /// <param name="ShippingDetails">ShippingDetails.</param>
+        /// <param name="DigitalCurrency">DigitalCurrency.</param>
         /// <param name="ReturnsAccepted">This is only needed when you are requesting both payment and DM service at same time.  Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. .</param>
         /// <param name="IsCryptocurrencyPurchase">#### Visa Platform Connect : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. Additional values to add : This API will contain the Flag that specifies whether the payment is for the purchase of cryptocurrency. valid values are - Y/y, true - N/n, false .</param>
         /// <param name="CutoffDateTime">Starting date and time for an event or a journey that is independent of which transportation mechanism, in UTC. The cutoffDateTime will supersede travelInformation.transit.airline.legs[].departureDate and travelInformation.transit.airline.legs[].departureTime if these fields are supplied in the request. Format: YYYY-MM-DDThh:mm:ssZ. Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
@@ -46,14 +48,16 @@ namespace CyberSource.Model
         /// <param name="PreOrderDate">Expected date that a pre-ordered purchase will be available. Format: YYYYMMDD .</param>
         /// <param name="Reordered">Indicates whether the cardholder is reordering previously purchased merchandise. This field can contain one of these values: - false: First time ordered - true: Reordered .</param>
         /// <param name="TotalOffersCount">Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 .</param>
-        public Ptsv2paymentsOrderInformation(Ptsv2paymentsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsOrderInformationAmountDetails), Ptsv2paymentsOrderInformationBillTo BillTo = default(Ptsv2paymentsOrderInformationBillTo), Ptsv2paymentsOrderInformationShipTo ShipTo = default(Ptsv2paymentsOrderInformationShipTo), List<Ptsv2paymentsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsOrderInformationLineItems>), Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsOrderInformationInvoiceDetails), Ptsv2paymentsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsOrderInformationShippingDetails), bool? ReturnsAccepted = default(bool?), string IsCryptocurrencyPurchase = default(string), string CutoffDateTime = default(string), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), string TotalOffersCount = default(string))
+        public Ptsv2paymentsOrderInformation(string ExtensionDays = default(string), Ptsv2paymentsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsOrderInformationAmountDetails), Ptsv2paymentsOrderInformationBillTo BillTo = default(Ptsv2paymentsOrderInformationBillTo), Ptsv2paymentsOrderInformationShipTo ShipTo = default(Ptsv2paymentsOrderInformationShipTo), List<Ptsv2paymentsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsOrderInformationLineItems>), Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsOrderInformationInvoiceDetails), Ptsv2paymentsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsOrderInformationShippingDetails), Ptsv2paymentsOrderInformationDigitalCurrency DigitalCurrency = default(Ptsv2paymentsOrderInformationDigitalCurrency), bool? ReturnsAccepted = default(bool?), string IsCryptocurrencyPurchase = default(string), string CutoffDateTime = default(string), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), string TotalOffersCount = default(string))
         {
+            this.ExtensionDays = ExtensionDays;
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
             this.ShipTo = ShipTo;
             this.LineItems = LineItems;
             this.InvoiceDetails = InvoiceDetails;
             this.ShippingDetails = ShippingDetails;
+            this.DigitalCurrency = DigitalCurrency;
             this.ReturnsAccepted = ReturnsAccepted;
             this.IsCryptocurrencyPurchase = IsCryptocurrencyPurchase;
             this.CutoffDateTime = CutoffDateTime;
@@ -63,6 +67,13 @@ namespace CyberSource.Model
             this.TotalOffersCount = TotalOffersCount;
         }
         
+        /// <summary>
+        /// Request field for merchant to increase the AUTH expiry days for Klarna Advantage Plus. Applicable for Re-Authorization (AP_REAUTH) service. 
+        /// </summary>
+        /// <value>Request field for merchant to increase the AUTH expiry days for Klarna Advantage Plus. Applicable for Re-Authorization (AP_REAUTH) service. </value>
+        [DataMember(Name="extensionDays", EmitDefaultValue=false)]
+        public string ExtensionDays { get; set; }
+
         /// <summary>
         /// Gets or Sets AmountDetails
         /// </summary>
@@ -98,6 +109,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="shippingDetails", EmitDefaultValue=false)]
         public Ptsv2paymentsOrderInformationShippingDetails ShippingDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DigitalCurrency
+        /// </summary>
+        [DataMember(Name="digitalCurrency", EmitDefaultValue=false)]
+        public Ptsv2paymentsOrderInformationDigitalCurrency DigitalCurrency { get; set; }
 
         /// <summary>
         /// This is only needed when you are requesting both payment and DM service at same time.  Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. 
@@ -156,12 +173,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsOrderInformation {\n");
+            if (ExtensionDays != null) sb.Append("  ExtensionDays: ").Append(ExtensionDays).Append("\n");
             if (AmountDetails != null) sb.Append("  AmountDetails: ").Append(AmountDetails).Append("\n");
             if (BillTo != null) sb.Append("  BillTo: ").Append(BillTo).Append("\n");
             if (ShipTo != null) sb.Append("  ShipTo: ").Append(ShipTo).Append("\n");
             if (LineItems != null) sb.Append("  LineItems: ").Append(LineItems).Append("\n");
             if (InvoiceDetails != null) sb.Append("  InvoiceDetails: ").Append(InvoiceDetails).Append("\n");
             if (ShippingDetails != null) sb.Append("  ShippingDetails: ").Append(ShippingDetails).Append("\n");
+            if (DigitalCurrency != null) sb.Append("  DigitalCurrency: ").Append(DigitalCurrency).Append("\n");
             if (ReturnsAccepted != null) sb.Append("  ReturnsAccepted: ").Append(ReturnsAccepted).Append("\n");
             if (IsCryptocurrencyPurchase != null) sb.Append("  IsCryptocurrencyPurchase: ").Append(IsCryptocurrencyPurchase).Append("\n");
             if (CutoffDateTime != null) sb.Append("  CutoffDateTime: ").Append(CutoffDateTime).Append("\n");
@@ -206,6 +225,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.ExtensionDays == other.ExtensionDays ||
+                    this.ExtensionDays != null &&
+                    this.ExtensionDays.Equals(other.ExtensionDays)
+                ) && 
+                (
                     this.AmountDetails == other.AmountDetails ||
                     this.AmountDetails != null &&
                     this.AmountDetails.Equals(other.AmountDetails)
@@ -234,6 +258,11 @@ namespace CyberSource.Model
                     this.ShippingDetails == other.ShippingDetails ||
                     this.ShippingDetails != null &&
                     this.ShippingDetails.Equals(other.ShippingDetails)
+                ) && 
+                (
+                    this.DigitalCurrency == other.DigitalCurrency ||
+                    this.DigitalCurrency != null &&
+                    this.DigitalCurrency.Equals(other.DigitalCurrency)
                 ) && 
                 (
                     this.ReturnsAccepted == other.ReturnsAccepted ||
@@ -283,6 +312,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.ExtensionDays != null)
+                    hash = hash * 59 + this.ExtensionDays.GetHashCode();
                 if (this.AmountDetails != null)
                     hash = hash * 59 + this.AmountDetails.GetHashCode();
                 if (this.BillTo != null)
@@ -295,6 +326,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InvoiceDetails.GetHashCode();
                 if (this.ShippingDetails != null)
                     hash = hash * 59 + this.ShippingDetails.GetHashCode();
+                if (this.DigitalCurrency != null)
+                    hash = hash * 59 + this.DigitalCurrency.GetHashCode();
                 if (this.ReturnsAccepted != null)
                     hash = hash * 59 + this.ReturnsAccepted.GetHashCode();
                 if (this.IsCryptocurrencyPurchase != null)

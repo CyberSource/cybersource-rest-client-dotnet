@@ -200,6 +200,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ProcessorInformation'
         }
+        /// <summary>
+        /// Test the property 'TokenInformation'
+        /// </summary>
+        [Test]
+        public void TokenInformationTest()
+        {
+            // TODO unit test for the property 'TokenInformation'
+        }
 
     }
 

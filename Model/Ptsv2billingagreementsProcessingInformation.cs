@@ -34,10 +34,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2billingagreementsProcessingInformation" /> class.
         /// </summary>
         /// <param name="CommerceIndicator">Type of transaction. Used to determine fees based on channel.  Possible values:    - aesk: American Express SafeKey authentication was successful.   - aesk_attempted: American Express SafeKey authentication was attempted but did not succeed. • install: Installment payment.   - install_internet: Non-U.S. e-commerce (Internet) installment payment. This value is supported only on Visa Platform Connect.   - internet (default for authorizations): E-commerce order placed using a web site.   - js: JCB J/Secure authentication was successful.   - js_attempted: JCB J/Secure authentication was attempted but did not succeed.   - moto: Mail order or telephone order.   - moto_cc: Mail order or telephone order from a call center. This value is supported only on the Asia, Middle East, and Africa Gateway.   - pb: ProtectBuy authentication was successful.   - pb_attempted: ProtectBuy authentication was attempted but did not succeed.   - recurring: Recurring payment that is a U.S. transaction or non-U.S. mail order / telephone order (MOTO) transaction.   - recurring_internet: Recurring payment that is a non-U.S. e-commerce (Internet) transaction.   - retail: Card-present transaction.   - spa: For Mastercard Identity Check: Authentication was successful or was attempted but did not succeed. The e-commerce indicator for all Mastercard Identity Check transactions, including authentication attempts, must be set to spa.   - spa_attempted: Authentication for a co-badged Mastercard and Cartes Bancaires card was attempted but did not succeed.   - spa_failure: – For Mastercard Identity Check: Authentication failed. This value is supported only on Elavon, HSBC, and Streamline.   - vbv: – For Visa Secure: Authentication was successful.   - vbv_attempted: – For Visa Secure: Authentication was attempted but did not succeed.   - vbv_failure: – For Visa Secure: Authentication failed. This value is supported only on HSBC and Streamline. .</param>
+        /// <param name="PaymentCompletionTimeout">Period after which an authorization request to the consumer expires due to inactivity. Value in seconds (e.g., 86400 for one day). .</param>
         /// <param name="ActionList">- Use &#x60;CONSUMER_AUTHENTICATION&#x60; to use Payer Authentication along with Decision Manager. For any other value, only Decision Manager will run. - Use &#x60;WATCHLIST_SCREENING&#x60;  when you want to call Watchlist Screening service. - Use &#x60;UPDATE_AGREEMENT&#x60; - Use &#x60;BILLING_AGREEMENT_CREATE&#x60; when Alternative Payment create mandate service is requested - Use &#x60;CANCEL_AGREEMENT&#x60; - Use &#x60;AP_IMPORT_AGREEMENT&#x60; when Alternative Payment import mandate service is requested. .</param>
-        public Ptsv2billingagreementsProcessingInformation(string CommerceIndicator = default(string), List<string> ActionList = default(List<string>))
+        public Ptsv2billingagreementsProcessingInformation(string CommerceIndicator = default(string), string PaymentCompletionTimeout = default(string), List<string> ActionList = default(List<string>))
         {
             this.CommerceIndicator = CommerceIndicator;
+            this.PaymentCompletionTimeout = PaymentCompletionTimeout;
             this.ActionList = ActionList;
         }
         
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         /// <value>Type of transaction. Used to determine fees based on channel.  Possible values:    - aesk: American Express SafeKey authentication was successful.   - aesk_attempted: American Express SafeKey authentication was attempted but did not succeed. • install: Installment payment.   - install_internet: Non-U.S. e-commerce (Internet) installment payment. This value is supported only on Visa Platform Connect.   - internet (default for authorizations): E-commerce order placed using a web site.   - js: JCB J/Secure authentication was successful.   - js_attempted: JCB J/Secure authentication was attempted but did not succeed.   - moto: Mail order or telephone order.   - moto_cc: Mail order or telephone order from a call center. This value is supported only on the Asia, Middle East, and Africa Gateway.   - pb: ProtectBuy authentication was successful.   - pb_attempted: ProtectBuy authentication was attempted but did not succeed.   - recurring: Recurring payment that is a U.S. transaction or non-U.S. mail order / telephone order (MOTO) transaction.   - recurring_internet: Recurring payment that is a non-U.S. e-commerce (Internet) transaction.   - retail: Card-present transaction.   - spa: For Mastercard Identity Check: Authentication was successful or was attempted but did not succeed. The e-commerce indicator for all Mastercard Identity Check transactions, including authentication attempts, must be set to spa.   - spa_attempted: Authentication for a co-badged Mastercard and Cartes Bancaires card was attempted but did not succeed.   - spa_failure: – For Mastercard Identity Check: Authentication failed. This value is supported only on Elavon, HSBC, and Streamline.   - vbv: – For Visa Secure: Authentication was successful.   - vbv_attempted: – For Visa Secure: Authentication was attempted but did not succeed.   - vbv_failure: – For Visa Secure: Authentication failed. This value is supported only on HSBC and Streamline. </value>
         [DataMember(Name="commerceIndicator", EmitDefaultValue=false)]
         public string CommerceIndicator { get; set; }
+
+        /// <summary>
+        /// Period after which an authorization request to the consumer expires due to inactivity. Value in seconds (e.g., 86400 for one day). 
+        /// </summary>
+        /// <value>Period after which an authorization request to the consumer expires due to inactivity. Value in seconds (e.g., 86400 for one day). </value>
+        [DataMember(Name="paymentCompletionTimeout", EmitDefaultValue=false)]
+        public string PaymentCompletionTimeout { get; set; }
 
         /// <summary>
         /// - Use &#x60;CONSUMER_AUTHENTICATION&#x60; to use Payer Authentication along with Decision Manager. For any other value, only Decision Manager will run. - Use &#x60;WATCHLIST_SCREENING&#x60;  when you want to call Watchlist Screening service. - Use &#x60;UPDATE_AGREEMENT&#x60; - Use &#x60;BILLING_AGREEMENT_CREATE&#x60; when Alternative Payment create mandate service is requested - Use &#x60;CANCEL_AGREEMENT&#x60; - Use &#x60;AP_IMPORT_AGREEMENT&#x60; when Alternative Payment import mandate service is requested. 
@@ -64,6 +73,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2billingagreementsProcessingInformation {\n");
             if (CommerceIndicator != null) sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
+            if (PaymentCompletionTimeout != null) sb.Append("  PaymentCompletionTimeout: ").Append(PaymentCompletionTimeout).Append("\n");
             if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -107,6 +117,11 @@ namespace CyberSource.Model
                     this.CommerceIndicator.Equals(other.CommerceIndicator)
                 ) && 
                 (
+                    this.PaymentCompletionTimeout == other.PaymentCompletionTimeout ||
+                    this.PaymentCompletionTimeout != null &&
+                    this.PaymentCompletionTimeout.Equals(other.PaymentCompletionTimeout)
+                ) && 
+                (
                     this.ActionList == other.ActionList ||
                     this.ActionList != null &&
                     this.ActionList.SequenceEqual(other.ActionList)
@@ -126,6 +141,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.CommerceIndicator != null)
                     hash = hash * 59 + this.CommerceIndicator.GetHashCode();
+                if (this.PaymentCompletionTimeout != null)
+                    hash = hash * 59 + this.PaymentCompletionTimeout.GetHashCode();
                 if (this.ActionList != null)
                     hash = hash * 59 + this.ActionList.GetHashCode();
                 return hash;

@@ -40,6 +40,7 @@ namespace CyberSource.Model
         /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. .</param>
         /// <param name="PurchaseLevel">Set this field to 3 to indicate that the request includes Level III data..</param>
         /// <param name="IndustryDataType">Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. .</param>
+        /// <param name="DigitalServiceIndicator">Mastercard Digital Enablement Service (MDES) digital service indicators for force capture scenarios.   This field is used when the client is doing authorization with a different gateway and capture with CyberSource.   This field is in ANS, EBCDIC format and flows in Field 34, DSID 04 Tag DF1F, mapped to Mastercard Data Element DE119, Sub-element 004.  #### Used by **Capture Request** Request field for force capture support when auth is done with a different gateway. .</param>
         /// <param name="Issuer">Issuer.</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="CaptureOptions">CaptureOptions.</param>
@@ -47,7 +48,7 @@ namespace CyberSource.Model
         /// <param name="PayByPointsIndicator">Flag that indicates if the transaction is pay by points transaction true: Transaction uses loyalty points false: Transaction does not use loyalty points Default: false .</param>
         /// <param name="ActionList">Array of actions (one or more) to be included in the capture to invoke bundled services along with capture.  Possible values :   - &#x60;AP_CAPTURE&#x60;: Use this when Alternative Payment Capture service is requested. .</param>
         /// <param name="JapanPaymentOptions">JapanPaymentOptions.</param>
-        public Ptsv2paymentsidcapturesProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions), Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsidcapturesProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), bool? PayByPointsIndicator = default(bool?), List<string> ActionList = default(List<string>), Ptsv2paymentsidcapturesProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsidcapturesProcessingInformationJapanPaymentOptions))
+        public Ptsv2paymentsidcapturesProcessingInformation(string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string DigitalServiceIndicator = default(string), Ptsv2paymentsIssuerInformation Issuer = default(Ptsv2paymentsIssuerInformation), Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsidcapturesProcessingInformationAuthorizationOptions), Ptsv2paymentsidcapturesProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsidcapturesProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), bool? PayByPointsIndicator = default(bool?), List<string> ActionList = default(List<string>), Ptsv2paymentsidcapturesProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsidcapturesProcessingInformationJapanPaymentOptions))
         {
             this.PaymentSolution = PaymentSolution;
             this.ReconciliationId = ReconciliationId;
@@ -56,6 +57,7 @@ namespace CyberSource.Model
             this.VisaCheckoutId = VisaCheckoutId;
             this.PurchaseLevel = PurchaseLevel;
             this.IndustryDataType = IndustryDataType;
+            this.DigitalServiceIndicator = DigitalServiceIndicator;
             this.Issuer = Issuer;
             this.AuthorizationOptions = AuthorizationOptions;
             this.CaptureOptions = CaptureOptions;
@@ -113,6 +115,13 @@ namespace CyberSource.Model
         /// <value>Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. </value>
         [DataMember(Name="industryDataType", EmitDefaultValue=false)]
         public string IndustryDataType { get; set; }
+
+        /// <summary>
+        /// Mastercard Digital Enablement Service (MDES) digital service indicators for force capture scenarios.   This field is used when the client is doing authorization with a different gateway and capture with CyberSource.   This field is in ANS, EBCDIC format and flows in Field 34, DSID 04 Tag DF1F, mapped to Mastercard Data Element DE119, Sub-element 004.  #### Used by **Capture Request** Request field for force capture support when auth is done with a different gateway. 
+        /// </summary>
+        /// <value>Mastercard Digital Enablement Service (MDES) digital service indicators for force capture scenarios.   This field is used when the client is doing authorization with a different gateway and capture with CyberSource.   This field is in ANS, EBCDIC format and flows in Field 34, DSID 04 Tag DF1F, mapped to Mastercard Data Element DE119, Sub-element 004.  #### Used by **Capture Request** Request field for force capture support when auth is done with a different gateway. </value>
+        [DataMember(Name="digitalServiceIndicator", EmitDefaultValue=false)]
+        public string DigitalServiceIndicator { get; set; }
 
         /// <summary>
         /// Gets or Sets Issuer
@@ -173,6 +182,7 @@ namespace CyberSource.Model
             if (VisaCheckoutId != null) sb.Append("  VisaCheckoutId: ").Append(VisaCheckoutId).Append("\n");
             if (PurchaseLevel != null) sb.Append("  PurchaseLevel: ").Append(PurchaseLevel).Append("\n");
             if (IndustryDataType != null) sb.Append("  IndustryDataType: ").Append(IndustryDataType).Append("\n");
+            if (DigitalServiceIndicator != null) sb.Append("  DigitalServiceIndicator: ").Append(DigitalServiceIndicator).Append("\n");
             if (Issuer != null) sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             if (CaptureOptions != null) sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
@@ -252,6 +262,11 @@ namespace CyberSource.Model
                     this.IndustryDataType.Equals(other.IndustryDataType)
                 ) && 
                 (
+                    this.DigitalServiceIndicator == other.DigitalServiceIndicator ||
+                    this.DigitalServiceIndicator != null &&
+                    this.DigitalServiceIndicator.Equals(other.DigitalServiceIndicator)
+                ) && 
+                (
                     this.Issuer == other.Issuer ||
                     this.Issuer != null &&
                     this.Issuer.Equals(other.Issuer)
@@ -313,6 +328,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PurchaseLevel.GetHashCode();
                 if (this.IndustryDataType != null)
                     hash = hash * 59 + this.IndustryDataType.GetHashCode();
+                if (this.DigitalServiceIndicator != null)
+                    hash = hash * 59 + this.DigitalServiceIndicator.GetHashCode();
                 if (this.Issuer != null)
                     hash = hash * 59 + this.Issuer.GetHashCode();
                 if (this.AuthorizationOptions != null)

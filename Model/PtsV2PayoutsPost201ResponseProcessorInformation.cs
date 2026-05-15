@@ -39,7 +39,11 @@ namespace CyberSource.Model
         /// <param name="SystemTraceAuditNumber">This field is returned only for **American Express Direct** and **CyberSource through VisaNet**. Returned by authorization and incremental authorization services.  #### American Express Direct  System trace audit number (STAN). This value identifies the transaction and is useful when investigating a chargeback dispute.  #### CyberSource through VisaNet  System trace number that must be printed on the customer&#39;s receipt. .</param>
         /// <param name="ResponseCodeSource">Used by Visa only and contains the response source/reason code that identifies the source of the response decision. .</param>
         /// <param name="MerchantAdvice">MerchantAdvice.</param>
-        public PtsV2PayoutsPost201ResponseProcessorInformation(string ApprovalCode = default(string), string ResponseCode = default(string), string TransactionId = default(string), string SystemTraceAuditNumber = default(string), string ResponseCodeSource = default(string), PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice))
+        /// <param name="Avs">Avs.</param>
+        /// <param name="Customer">Customer.</param>
+        /// <param name="ElectronicVerificationResults">ElectronicVerificationResults.</param>
+        /// <param name="CardVerification">CardVerification.</param>
+        public PtsV2PayoutsPost201ResponseProcessorInformation(string ApprovalCode = default(string), string ResponseCode = default(string), string TransactionId = default(string), string SystemTraceAuditNumber = default(string), string ResponseCodeSource = default(string), PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice), PtsV2PayoutsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PayoutsPost201ResponseProcessorInformationAvs), PtsV2PayoutsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PayoutsPost201ResponseProcessorInformationCustomer), PtsV2PayoutsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PayoutsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification))
         {
             this.ApprovalCode = ApprovalCode;
             this.ResponseCode = ResponseCode;
@@ -47,6 +51,10 @@ namespace CyberSource.Model
             this.SystemTraceAuditNumber = SystemTraceAuditNumber;
             this.ResponseCodeSource = ResponseCodeSource;
             this.MerchantAdvice = MerchantAdvice;
+            this.Avs = Avs;
+            this.Customer = Customer;
+            this.ElectronicVerificationResults = ElectronicVerificationResults;
+            this.CardVerification = CardVerification;
         }
         
         /// <summary>
@@ -91,6 +99,30 @@ namespace CyberSource.Model
         public PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice { get; set; }
 
         /// <summary>
+        /// Gets or Sets Avs
+        /// </summary>
+        [DataMember(Name="avs", EmitDefaultValue=false)]
+        public PtsV2PayoutsPost201ResponseProcessorInformationAvs Avs { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Customer
+        /// </summary>
+        [DataMember(Name="customer", EmitDefaultValue=false)]
+        public PtsV2PayoutsPost201ResponseProcessorInformationCustomer Customer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ElectronicVerificationResults
+        /// </summary>
+        [DataMember(Name="electronicVerificationResults", EmitDefaultValue=false)]
+        public PtsV2PayoutsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CardVerification
+        /// </summary>
+        [DataMember(Name="cardVerification", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +136,10 @@ namespace CyberSource.Model
             if (SystemTraceAuditNumber != null) sb.Append("  SystemTraceAuditNumber: ").Append(SystemTraceAuditNumber).Append("\n");
             if (ResponseCodeSource != null) sb.Append("  ResponseCodeSource: ").Append(ResponseCodeSource).Append("\n");
             if (MerchantAdvice != null) sb.Append("  MerchantAdvice: ").Append(MerchantAdvice).Append("\n");
+            if (Avs != null) sb.Append("  Avs: ").Append(Avs).Append("\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (ElectronicVerificationResults != null) sb.Append("  ElectronicVerificationResults: ").Append(ElectronicVerificationResults).Append("\n");
+            if (CardVerification != null) sb.Append("  CardVerification: ").Append(CardVerification).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +205,26 @@ namespace CyberSource.Model
                     this.MerchantAdvice == other.MerchantAdvice ||
                     this.MerchantAdvice != null &&
                     this.MerchantAdvice.Equals(other.MerchantAdvice)
+                ) && 
+                (
+                    this.Avs == other.Avs ||
+                    this.Avs != null &&
+                    this.Avs.Equals(other.Avs)
+                ) && 
+                (
+                    this.Customer == other.Customer ||
+                    this.Customer != null &&
+                    this.Customer.Equals(other.Customer)
+                ) && 
+                (
+                    this.ElectronicVerificationResults == other.ElectronicVerificationResults ||
+                    this.ElectronicVerificationResults != null &&
+                    this.ElectronicVerificationResults.Equals(other.ElectronicVerificationResults)
+                ) && 
+                (
+                    this.CardVerification == other.CardVerification ||
+                    this.CardVerification != null &&
+                    this.CardVerification.Equals(other.CardVerification)
                 );
         }
 
@@ -195,6 +251,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ResponseCodeSource.GetHashCode();
                 if (this.MerchantAdvice != null)
                     hash = hash * 59 + this.MerchantAdvice.GetHashCode();
+                if (this.Avs != null)
+                    hash = hash * 59 + this.Avs.GetHashCode();
+                if (this.Customer != null)
+                    hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.ElectronicVerificationResults != null)
+                    hash = hash * 59 + this.ElectronicVerificationResults.GetHashCode();
+                if (this.CardVerification != null)
+                    hash = hash * 59 + this.CardVerification.GetHashCode();
                 return hash;
             }
         }

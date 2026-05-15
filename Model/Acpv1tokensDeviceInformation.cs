@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Device and Application instance data.
+    /// Device and Application instance data. Identifies the device and application from which the consumer is making the payment request.
     /// </summary>
     [DataContract]
     public partial class Acpv1tokensDeviceInformation :  IEquatable<Acpv1tokensDeviceInformation>, IValidatableObject

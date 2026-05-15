@@ -11,6 +11,17 @@ MLE supports both **Request Encryption** (encrypting outgoing request payloads) 
 - **Request MLE**: Only supported with `JWT (JSON Web Token)` authentication type
 - **Response MLE**: Only supported with `JWT (JSON Web Token)` authentication type
 
+### MLE with JWT Key Types
+
+MLE works with both JWT key types:
+
+| JWT Key Type | MLE Support | Request MLE Certificate Source |
+|---|---|---|
+| `P12` (default) | Supported | Auto-extracted from the P12 file (using `requestMleKeyAlias`), or from a separate file via `mleForRequestPublicCertPath` |
+| `SHARED_SECRET` | Supported | **Must** be provided via `mleForRequestPublicCertPath` (since there is no P12 file to extract from) |
+
+> **Important:** When using `jwtKeyType=SHARED_SECRET` with MLE, the `mleForRequestPublicCertPath` property is **required** for request MLE. The SDK cannot auto-extract the MLE certificate from a P12 file because shared secret authentication does not use one. The request MLE public certificate can be downloaded from the CyberSource Business Center ([Test](https://businesscentertest.cybersource.com/ebc2) | [Production](https://businesscenter.cybersource.com/ebc2)).
+
 <br/>
 
 ## Configuration
@@ -219,7 +230,7 @@ public Dictionary<string, string> GetConfiguration()
 {
     _configurationDictionary.Add("authenticationType", "JWT");
     _configurationDictionary.Add("enableRequestMLEForOptionalApisGlobally", "true");
-    _configurationDictionary.Add("mleForRequestPublicCertPath", "C:\path\to\public\cert.pem");
+    _configurationDictionary.Add("mleForRequestPublicCertPath", "/path/to/public/cert.pem");
     _configurationDictionary.Add("requestMleKeyAlias", "Custom_Key_Alias");
     
     return _configurationDictionary;
@@ -245,7 +256,7 @@ public Dictionary<string, string> GetConfiguration()
 {
     _configurationDictionary.Add("authenticationType", "JWT");
     _configurationDictionary.Add("enableResponseMleGlobally", "true");
-    _configurationDictionary.Add("responseMlePrivateKeyFilePath", "C:\path\to\private\key.p12");
+    _configurationDictionary.Add("responseMlePrivateKeyFilePath", "/path/to/private/key.p12");
     _configurationDictionary.Add("responseMlePrivateKeyFilePassword", "password");
     // responseMleKID is optional for CyberSource-generated P12 files - SDK will auto-fetch if not provided
     // _configurationDictionary.Add("responseMleKID", "your-key-id"); // Optional - overrides auto-fetched value
@@ -270,7 +281,7 @@ public Dictionary<string, string> GetConfiguration()
 {
     _configurationDictionary.Add("authenticationType", "JWT");
     _configurationDictionary.Add("enableResponseMleGlobally", "true");
-    _configurationDictionary.Add("responseMlePrivateKeyFilePath", "C:\path\to\private\key.pem");
+    _configurationDictionary.Add("responseMlePrivateKeyFilePath", "/path/to/private/key.pem");
     _configurationDictionary.Add("responseMleKID", "your-key-id"); // Required for PEM files
     
     return _configurationDictionary;
@@ -330,7 +341,7 @@ public Dictionary<string, string> GetConfiguration()
     
     // Response MLE settings (with CyberSource-generated P12 file)
     _configurationDictionary.Add("enableResponseMleGlobally", "true");
-    _configurationDictionary.Add("responseMlePrivateKeyFilePath", @"C:\path\to\private\key.p12");
+    _configurationDictionary.Add("responseMlePrivateKeyFilePath", "/path/to/private/key.p12");
     _configurationDictionary.Add("responseMlePrivateKeyFilePassword", "password");
     // responseMleKID is optional for CyberSource-generated P12 files
     // _configurationDictionary.Add("responseMleKID", "your-key-id"); // Optional - overrides auto-fetched value
@@ -372,6 +383,68 @@ public Dictionary<string, string> GetConfiguration()
     return _configurationDictionary;
 }
 ```
+
+### (ix) Request MLE with Shared Secret (JWT Symmetric Key) Authentication
+
+```csharp
+// MLE with JWT SHARED_SECRET authentication — requires mleForRequestPublicCertPath
+private Dictionary<string, string> _configurationDictionary = new Dictionary<string, string>();
+
+public Dictionary<string, string> GetConfiguration()
+{
+    // JWT authentication with SHARED_SECRET key type
+    _configurationDictionary.Add("authenticationType", "jwt");
+    _configurationDictionary.Add("merchantID", "your_merchant_id");
+    _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+    _configurationDictionary.Add("jwtKeyType", "SHARED_SECRET");
+    _configurationDictionary.Add("merchantKeyId", "your_key_id");
+    _configurationDictionary.Add("merchantsecretKey", "your_base64_encoded_shared_secret");
+
+    // Request MLE settings
+    _configurationDictionary.Add("enableRequestMLEForOptionalApisGlobally", "true");
+    // mleForRequestPublicCertPath is REQUIRED for SHARED_SECRET since there is no P12 file
+    _configurationDictionary.Add("mleForRequestPublicCertPath", "/path/to/mle/public/cert.pem");
+    _configurationDictionary.Add("requestMleKeyAlias", "CyberSource_SJC_US"); // Optional, defaults to CyberSource_SJC_US
+
+    return _configurationDictionary;
+}
+```
+
+> **Note:** When using `jwtKeyType=SHARED_SECRET`, the MLE certificate cannot be auto-extracted from a P12 file. You **must** provide the certificate via `mleForRequestPublicCertPath`. The request MLE public certificate can be downloaded from the CyberSource Business Center ([Test](https://businesscentertest.cybersource.com/ebc2) | [Production](https://businesscenter.cybersource.com/ebc2)).
+
+### (x) Response MLE with MetaKey
+
+When using MetaKey (`useMetaKey=true`) with Response MLE, the response MLE private key and KID must belong to the **portfolio (parent account)**, not the transacting merchant.
+
+```csharp
+// MetaKey + Response MLE — portfolio's response MLE key is required
+private Dictionary<string, string> _configurationDictionary = new Dictionary<string, string>();
+
+public Dictionary<string, string> GetConfiguration()
+{
+    // JWT authentication with MetaKey
+    _configurationDictionary.Add("authenticationType", "jwt");
+    _configurationDictionary.Add("jwtKeyType", "SHARED_SECRET");
+    _configurationDictionary.Add("merchantID", "your_transacting_merchant_id");
+    _configurationDictionary.Add("merchantKeyId", "your_metakey_portfolio_KeyId");
+    _configurationDictionary.Add("merchantsecretKey", "your_metakey_portfolio_shared_secret_key");
+    _configurationDictionary.Add("portfolioID", "your_portfolio_id");
+    _configurationDictionary.Add("useMetaKey", "true");
+    _configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+
+    // Response MLE — use the portfolio's response MLE key, not the transacting merchant's
+    _configurationDictionary.Add("enableResponseMleGlobally", "true");
+    _configurationDictionary.Add("responseMlePrivateKeyFilePath", "/path/to/portfolio/response/mle/private/key.p12");
+    _configurationDictionary.Add("responseMlePrivateKeyFilePassword", "portfolio_private_key_password");
+    // responseMleKID is optional when using a CyberSource-generated P12 file (auto-fetched from P12)
+    // Required when using PEM files or responseMlePrivateKey object
+    // _configurationDictionary.Add("responseMleKID", "your_portfolio_response_mle_kid");
+
+    return _configurationDictionary;
+}
+```
+
+> **Important:** In MetaKey mode, the portfolio is the transaction submitter. The response is encrypted using the portfolio's MLE certificate, so the decryption key must also be the portfolio's.
 
 <br/>
 
@@ -416,7 +489,7 @@ public Dictionary<string, string> GetConfiguration()
   <MerchantConfig>
     <add key="authenticationType" value="JWT" />
     <add key="enableRequestMLEForOptionalApisGlobally" value="true" />
-    <add key="mleForRequestPublicCertPath" value="C:\path\to\public\cert.pem" />
+    <add key="mleForRequestPublicCertPath" value="/path/to/public/cert.pem" />
     <add key="requestMleKeyAlias" value="Custom_Key_Alias" />
   </MerchantConfig>
 </configuration>
@@ -432,7 +505,7 @@ public Dictionary<string, string> GetConfiguration()
   <MerchantConfig>
     <add key="authenticationType" value="JWT" />
     <add key="enableResponseMleGlobally" value="true" />
-    <add key="responseMlePrivateKeyFilePath" value="C:\path\to\private\key.p12" />
+    <add key="responseMlePrivateKeyFilePath" value="/path/to/private/key.p12" />
     <add key="responseMlePrivateKeyFilePassword" value="password" />
     <!-- responseMleKID is optional for CyberSource-generated P12 files - SDK will auto-fetch if not provided -->
     <!-- <add key="responseMleKID" value="your-key-id" /> -->
@@ -450,7 +523,7 @@ public Dictionary<string, string> GetConfiguration()
   <MerchantConfig>
     <add key="authenticationType" value="JWT" />
     <add key="enableResponseMleGlobally" value="true" />
-    <add key="responseMlePrivateKeyFilePath" value="C:\path\to\private\key.pem" />
+    <add key="responseMlePrivateKeyFilePath" value="/path/to/private/key.pem" />
     <!-- responseMleKID is required for PEM files -->
     <add key="responseMleKID" value="your-key-id" />
   </MerchantConfig>
@@ -468,10 +541,59 @@ public Dictionary<string, string> GetConfiguration()
     <add key="authenticationType" value="JWT" />
     <add key="enableRequestMLEForOptionalApisGlobally" value="true" />
     <add key="enableResponseMleGlobally" value="true" />
-    <add key="responseMlePrivateKeyFilePath" value="C:\path\to\private\key.p12" />
+    <add key="responseMlePrivateKeyFilePath" value="/path/to/private/key.p12" />
     <add key="responseMlePrivateKeyFilePassword" value="password" />
     <!-- responseMleKID is optional for CyberSource-generated P12 files - SDK will auto-fetch if not provided -->
     <!-- <add key="responseMleKID" value="your-key-id" /> -->
+  </MerchantConfig>
+</configuration>
+```
+
+### (vi) Request MLE with Shared Secret (JWT Symmetric Key) Authentication
+
+```xml
+<configuration>
+  <configSections>
+    <section name="MerchantConfig" type="System.Configuration.NameValueSectionHandler" />
+  </configSections>
+  <MerchantConfig>
+    <add key="authenticationType" value="jwt" />
+    <add key="jwtKeyType" value="SHARED_SECRET" />
+    <add key="merchantID" value="your_merchant_id" />
+    <add key="runEnvironment" value="apitest.cybersource.com" />
+    <add key="merchantKeyId" value="your_key_id" />
+    <add key="merchantsecretKey" value="your_base64_encoded_shared_secret" />
+    <add key="enableRequestMLEForOptionalApisGlobally" value="true" />
+    <!-- mleForRequestPublicCertPath is REQUIRED for SHARED_SECRET since there is no P12 file -->
+    <add key="mleForRequestPublicCertPath" value="/path/to/mle/public/cert.pem" />
+    <add key="requestMleKeyAlias" value="CyberSource_SJC_US" />
+  </MerchantConfig>
+</configuration>
+```
+
+### (vii) Response MLE with MetaKey
+
+```xml
+<configuration>
+  <configSections>
+    <section name="MerchantConfig" type="System.Configuration.NameValueSectionHandler" />
+  </configSections>
+  <MerchantConfig>
+    <add key="authenticationType" value="jwt" />
+    <add key="jwtKeyType" value="SHARED_SECRET" />
+    <add key="merchantID" value="your_transacting_merchant_id" />
+    <add key="merchantKeyId" value="your_metakey_portfolio_KeyId" />
+    <add key="merchantsecretKey" value="your_metakey_portfolio_shared_secret_key" />
+    <add key="portfolioID" value="your_portfolio_id" />
+    <add key="useMetaKey" value="true" />
+    <add key="runEnvironment" value="apitest.cybersource.com" />
+    <add key="enableResponseMleGlobally" value="true" />
+    <!-- Use the portfolio's response MLE key, not the transacting merchant's -->
+    <add key="responseMlePrivateKeyFilePath" value="/path/to/portfolio/response/mle/private/key.p12" />
+    <add key="responseMlePrivateKeyFilePassword" value="portfolio_private_key_password" />
+    <!-- responseMleKID is optional for CyberSource-generated P12 files (auto-fetched from P12) -->
+    <!-- Required when using PEM files or responseMlePrivateKey object -->
+    <!-- <add key="responseMleKID" value="your_portfolio_response_mle_kid" /> -->
   </MerchantConfig>
 </configuration>
 ```
@@ -497,7 +619,8 @@ For Response MLE private key files, the following formats are supported:
 - If `enableRequestMLEForOptionalApisGlobally` is set to `true`, it enables request MLE for all APIs that have optional MLE support
 - APIs with mandatory MLE requirements are enabled by default unless `disableRequestMLEForMandatoryApisGlobally` is set to `true`
 - If `mapToControlMLEonAPI` doesn't contain a specific API, the global setting applies
-- For HTTP Signature authentication, request MLE will fall back to non-encrypted requests with a warning
+- When using `jwtKeyType=SHARED_SECRET`, the `mleForRequestPublicCertPath` parameter is **required** because the SDK cannot auto-extract the MLE certificate from a P12 file. See [Example (ix)](#ix-request-mle-with-shared-secret-jwt-symmetric-key-authentication) for a complete configuration.
+- For HTTP Signature authentication, request MLE will fall back to non-encrypted requests with a warning. **Note:** HTTP Signature is being deprecated — migrate to JWT with Shared Secret (`jwtKeyType=SHARED_SECRET`) to enable full MLE support using the same credentials. See [Example (ix)](#ix-request-mle-with-shared-secret-jwt-symmetric-key-authentication) for details.
 
 ### (ii) Response MLE
 - Response MLE requires either `responseMlePrivateKey` object OR `responseMlePrivateKeyFilePath` (not both)
@@ -506,6 +629,7 @@ For Response MLE private key files, the following formats are supported:
   - **Required** when using PEM format files (`.pem`, `.key`, `.p8`)
   - **Required** when using `responseMlePrivateKey` object directly
   - When both auto-fetched and user-provided values exist, the user-provided value takes precedence
+- **MetaKey (`useMetaKey=true`):** When Response MLE is used with MetaKey, the `responseMlePrivateKeyFilePath` (or `responseMlePrivateKey` object) and `responseMleKID` must belong to the **portfolio (parent account)** — not the transacting merchant. This is because in MetaKey mode the portfolio is the transaction submitter, and the response is encrypted using the portfolio's MLE certificate.
 - If an API expects a mandatory MLE response but the map specifies non-MLE response, the API might return an error
 - Both the private key object and file path approaches are mutually exclusive
 - `responseMlePrivateKeyFilePassword` uses `SecureString` type for enhanced security
@@ -550,6 +674,9 @@ The SDK provides specific error messages for common MLE issues:
 For comprehensive examples and sample implementations, please refer to:
 [Cybersource .NET Sample Code Repository (on GitHub)](https://github.com/CyberSource/cybersource-rest-samples-csharp)
 
+For MLE with JWT Shared Secret (HS256) authentication specifically, see the
+[Cybersource C# Sample Code Repository](https://github.com/CyberSource/cybersource-rest-samples-csharp) for configuration examples with `getMerchantDetailsWithMLE()` equivalent setups.
+
 <br/>
 
 ## 10. Additional Information
@@ -561,9 +688,13 @@ For comprehensive examples and sample implementations, please refer to:
 ### (ii) Using the SDK
 To use the MLE feature in the SDK, configure the `merchantConfig` object as shown above and pass it to the SDK initialization. The SDK will automatically handle encryption and decryption based on your configuration.
 
+### (iii) Configuration Constructors
+The SDK provides multiple constructor overloads to accommodate different MLE configuration approaches:
+- `Configuration(merchConfigDictObj)` — Standard configuration
+- `Configuration(merchConfigDictObj, responseMlePrivateKey)` — With private key object
+- `Configuration(merchConfigDictObj, responseMlePrivateKey, mapToControlMLEonAPI)` — Full configuration with API-level MLE control
 
-
-### (iii) Migration from Deprecated Parameters
+### (iv) Migration from Deprecated Parameters
 
 If you're currently using deprecated parameters, here's how to migrate:
 

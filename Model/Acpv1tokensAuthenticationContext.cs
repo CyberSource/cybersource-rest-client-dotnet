@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Authentication Context data.
+    /// Authentication Context data. Describes the authentication action performed.
     /// </summary>
     [DataContract]
     public partial class Acpv1tokensAuthenticationContext :  IEquatable<Acpv1tokensAuthenticationContext>, IValidatableObject

@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'ExtensionDays'
+        /// </summary>
+        [Test]
+        public void ExtensionDaysTest()
+        {
+            // TODO unit test for the property 'ExtensionDays'
+        }
+        /// <summary>
         /// Test the property 'AmountDetails'
         /// </summary>
         [Test]
@@ -111,6 +119,14 @@ namespace CyberSource.Test
         public void ShippingDetailsTest()
         {
             // TODO unit test for the property 'ShippingDetails'
+        }
+        /// <summary>
+        /// Test the property 'DigitalCurrency'
+        /// </summary>
+        [Test]
+        public void DigitalCurrencyTest()
+        {
+            // TODO unit test for the property 'DigitalCurrency'
         }
         /// <summary>
         /// Test the property 'ReturnsAccepted'

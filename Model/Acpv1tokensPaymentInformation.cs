@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Payment Information data.
+    /// Payment Information data. References the tokenized payment card to use for this transaction. At least one of customer, paymentInstrument, or instrumentIdentifier must be provided. The instrumentIdentifier is the most commonly used reference. If you have a TMS instrument identifier, provide it in instrumentIdentifier.id.
     /// </summary>
     [DataContract]
     public partial class Acpv1tokensPaymentInformation :  IEquatable<Acpv1tokensPaymentInformation>, IValidatableObject

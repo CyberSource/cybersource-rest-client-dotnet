@@ -440,6 +440,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Network'
         }
+        /// <summary>
+        /// Test the property 'CedpVerifiedIndicator'
+        /// </summary>
+        [Test]
+        public void CedpVerifiedIndicatorTest()
+        {
+            // TODO unit test for the property 'CedpVerifiedIndicator'
+        }
 
     }
 

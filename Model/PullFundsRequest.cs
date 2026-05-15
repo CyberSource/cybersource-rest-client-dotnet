@@ -38,15 +38,17 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="RecipientInformation">RecipientInformation.</param>
         /// <param name="SenderInformation">SenderInformation.</param>
+        /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
-        public PullFundsRequest(Ptsv1pullfundstransferClientReferenceInformation ClientReferenceInformation = default(Ptsv1pullfundstransferClientReferenceInformation), Ptsv1pullfundstransferOrderInformation OrderInformation = default(Ptsv1pullfundstransferOrderInformation), Ptsv1pullfundstransferProcessingInformation ProcessingInformation = default(Ptsv1pullfundstransferProcessingInformation), Ptsv1pullfundstransferRecipientInformation RecipientInformation = default(Ptsv1pullfundstransferRecipientInformation), Ptsv1pullfundstransferSenderInformation SenderInformation = default(Ptsv1pullfundstransferSenderInformation), Ptsv1pullfundstransferAggregatorInformation AggregatorInformation = default(Ptsv1pullfundstransferAggregatorInformation), Ptsv1pullfundstransferMerchantInformation MerchantInformation = default(Ptsv1pullfundstransferMerchantInformation))
+        public PullFundsRequest(Ptsv1pullfundstransferClientReferenceInformation ClientReferenceInformation = default(Ptsv1pullfundstransferClientReferenceInformation), Ptsv1pullfundstransferOrderInformation OrderInformation = default(Ptsv1pullfundstransferOrderInformation), Ptsv1pullfundstransferProcessingInformation ProcessingInformation = default(Ptsv1pullfundstransferProcessingInformation), Ptsv1pullfundstransferRecipientInformation RecipientInformation = default(Ptsv1pullfundstransferRecipientInformation), Ptsv1pullfundstransferSenderInformation SenderInformation = default(Ptsv1pullfundstransferSenderInformation), Ptsv1pullfundstransferBuyerInformation BuyerInformation = default(Ptsv1pullfundstransferBuyerInformation), Ptsv1pullfundstransferAggregatorInformation AggregatorInformation = default(Ptsv1pullfundstransferAggregatorInformation), Ptsv1pullfundstransferMerchantInformation MerchantInformation = default(Ptsv1pullfundstransferMerchantInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.OrderInformation = OrderInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.RecipientInformation = RecipientInformation;
             this.SenderInformation = SenderInformation;
+            this.BuyerInformation = BuyerInformation;
             this.AggregatorInformation = AggregatorInformation;
             this.MerchantInformation = MerchantInformation;
         }
@@ -82,6 +84,12 @@ namespace CyberSource.Model
         public Ptsv1pullfundstransferSenderInformation SenderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets BuyerInformation
+        /// </summary>
+        [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
+        public Ptsv1pullfundstransferBuyerInformation BuyerInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets AggregatorInformation
         /// </summary>
         [DataMember(Name="aggregatorInformation", EmitDefaultValue=false)]
@@ -106,6 +114,7 @@ namespace CyberSource.Model
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (RecipientInformation != null) sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
             if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
+            if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
             if (AggregatorInformation != null) sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
             if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
             sb.Append("}\n");
@@ -170,6 +179,11 @@ namespace CyberSource.Model
                     this.SenderInformation.Equals(other.SenderInformation)
                 ) && 
                 (
+                    this.BuyerInformation == other.BuyerInformation ||
+                    this.BuyerInformation != null &&
+                    this.BuyerInformation.Equals(other.BuyerInformation)
+                ) && 
+                (
                     this.AggregatorInformation == other.AggregatorInformation ||
                     this.AggregatorInformation != null &&
                     this.AggregatorInformation.Equals(other.AggregatorInformation)
@@ -202,6 +216,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RecipientInformation.GetHashCode();
                 if (this.SenderInformation != null)
                     hash = hash * 59 + this.SenderInformation.GetHashCode();
+                if (this.BuyerInformation != null)
+                    hash = hash * 59 + this.BuyerInformation.GetHashCode();
                 if (this.AggregatorInformation != null)
                     hash = hash * 59 + this.AggregatorInformation.GetHashCode();
                 if (this.MerchantInformation != null)

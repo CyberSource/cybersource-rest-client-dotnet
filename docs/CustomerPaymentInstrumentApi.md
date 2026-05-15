@@ -142,7 +142,7 @@ No authorization required
 
 <a name="getcustomerpaymentinstrumentslist"></a>
 # **GetCustomerPaymentInstrumentsList**
-> PaymentInstrumentList GetCustomerPaymentInstrumentsList (string customerId, string profileId = null, long? offset = null, long? limit = null)
+> PaymentInstrumentList1 GetCustomerPaymentInstrumentsList (string customerId, string profileId = null, long? offset = null, long? limit = null)
 
 List Payment Instruments for a Customer
 
@@ -171,7 +171,7 @@ namespace Example
             try
             {
                 // List Payment Instruments for a Customer
-                PaymentInstrumentList result = apiInstance.GetCustomerPaymentInstrumentsList(customerId, profileId, offset, limit);
+                PaymentInstrumentList1 result = apiInstance.GetCustomerPaymentInstrumentsList(customerId, profileId, offset, limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaymentInstrumentList**](PaymentInstrumentList.md)
+[**PaymentInstrumentList1**](PaymentInstrumentList1.md)
 
 ### Authorization
 

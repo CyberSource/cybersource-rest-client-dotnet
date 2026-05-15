@@ -39,7 +39,9 @@ namespace CyberSource.Model
         /// <param name="ShippingAddress">ShippingAddress.</param>
         /// <param name="NetworkTokenOption">Indicates whether a payment network token associated with a TMS token should be used for authorization. This field can contain one of following values:  - &#x60;ignore&#x60;: Use a tokenized card number for an authorization, even if the TMS token has an associated payment network token. - &#x60;prefer&#x60;: (Default) Use an associated payment network token for an authorization if the TMS token has one; otherwise, use the tokenized card number. .</param>
         /// <param name="TokenProvisioningInformation">TokenProvisioningInformation.</param>
-        public Ptsv2paymentsTokenInformation(string Jti = default(string), string TransientTokenJwt = default(string), Ptsv2paymentsTokenInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsTokenInformationPaymentInstrument), Ptsv2paymentsTokenInformationShippingAddress ShippingAddress = default(Ptsv2paymentsTokenInformationShippingAddress), string NetworkTokenOption = default(string), Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation = default(Ptsv2paymentsTokenInformationTokenProvisioningInformation))
+        /// <param name="ClientCorrelationId">Client-generated unique identifier for correlating token operations across API calls. This value helps track and associate token-related transactions. .</param>
+        /// <param name="TokenAuthenticationInformation">TokenAuthenticationInformation.</param>
+        public Ptsv2paymentsTokenInformation(string Jti = default(string), string TransientTokenJwt = default(string), Ptsv2paymentsTokenInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsTokenInformationPaymentInstrument), Ptsv2paymentsTokenInformationShippingAddress ShippingAddress = default(Ptsv2paymentsTokenInformationShippingAddress), string NetworkTokenOption = default(string), Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation = default(Ptsv2paymentsTokenInformationTokenProvisioningInformation), string ClientCorrelationId = default(string), Ptsv2paymentsTokenInformationTokenAuthenticationInformation TokenAuthenticationInformation = default(Ptsv2paymentsTokenInformationTokenAuthenticationInformation))
         {
             this.Jti = Jti;
             this.TransientTokenJwt = TransientTokenJwt;
@@ -47,6 +49,8 @@ namespace CyberSource.Model
             this.ShippingAddress = ShippingAddress;
             this.NetworkTokenOption = NetworkTokenOption;
             this.TokenProvisioningInformation = TokenProvisioningInformation;
+            this.ClientCorrelationId = ClientCorrelationId;
+            this.TokenAuthenticationInformation = TokenAuthenticationInformation;
         }
         
         /// <summary>
@@ -89,6 +93,19 @@ namespace CyberSource.Model
         public Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation { get; set; }
 
         /// <summary>
+        /// Client-generated unique identifier for correlating token operations across API calls. This value helps track and associate token-related transactions. 
+        /// </summary>
+        /// <value>Client-generated unique identifier for correlating token operations across API calls. This value helps track and associate token-related transactions. </value>
+        [DataMember(Name="clientCorrelationId", EmitDefaultValue=false)]
+        public string ClientCorrelationId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenAuthenticationInformation
+        /// </summary>
+        [DataMember(Name="tokenAuthenticationInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsTokenInformationTokenAuthenticationInformation TokenAuthenticationInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -102,6 +119,8 @@ namespace CyberSource.Model
             if (ShippingAddress != null) sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             if (NetworkTokenOption != null) sb.Append("  NetworkTokenOption: ").Append(NetworkTokenOption).Append("\n");
             if (TokenProvisioningInformation != null) sb.Append("  TokenProvisioningInformation: ").Append(TokenProvisioningInformation).Append("\n");
+            if (ClientCorrelationId != null) sb.Append("  ClientCorrelationId: ").Append(ClientCorrelationId).Append("\n");
+            if (TokenAuthenticationInformation != null) sb.Append("  TokenAuthenticationInformation: ").Append(TokenAuthenticationInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +186,16 @@ namespace CyberSource.Model
                     this.TokenProvisioningInformation == other.TokenProvisioningInformation ||
                     this.TokenProvisioningInformation != null &&
                     this.TokenProvisioningInformation.Equals(other.TokenProvisioningInformation)
+                ) && 
+                (
+                    this.ClientCorrelationId == other.ClientCorrelationId ||
+                    this.ClientCorrelationId != null &&
+                    this.ClientCorrelationId.Equals(other.ClientCorrelationId)
+                ) && 
+                (
+                    this.TokenAuthenticationInformation == other.TokenAuthenticationInformation ||
+                    this.TokenAuthenticationInformation != null &&
+                    this.TokenAuthenticationInformation.Equals(other.TokenAuthenticationInformation)
                 );
         }
 
@@ -193,6 +222,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.NetworkTokenOption.GetHashCode();
                 if (this.TokenProvisioningInformation != null)
                     hash = hash * 59 + this.TokenProvisioningInformation.GetHashCode();
+                if (this.ClientCorrelationId != null)
+                    hash = hash * 59 + this.ClientCorrelationId.GetHashCode();
+                if (this.TokenAuthenticationInformation != null)
+                    hash = hash * 59 + this.TokenAuthenticationInformation.GetHashCode();
                 return hash;
             }
         }

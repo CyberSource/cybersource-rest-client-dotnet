@@ -33,47 +33,45 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4009" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time verification was requested  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) .</param>
-        /// <param name="Status">Possible values:   - &#x60;INVALID_REQUEST&#x60; .</param>
-        /// <param name="Message">The detail message related to the status and reason.</param>
-        /// <param name="Reason">The reason of the status.  Possible values:   - &#x60;INVALID_REQUEST&#x60; .</param>
+        /// <param name="Status">The http status description of the submitted request..</param>
+        /// <param name="Reason">Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39;   - &#39;SYSTEM_ERROR&#39;   - &#39;RESOURCE_NOT_FOUND&#39; .</param>
+        /// <param name="Message">Descriptive message for the error..</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse4009(string SubmitTimeUtc = default(string), string Status = default(string), string Message = default(string), string Reason = default(string), List<InlineResponse4009Details> Details = default(List<InlineResponse4009Details>))
+        public InlineResponse4009(string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse4009Details> Details = default(List<InlineResponse4009Details>))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
-            this.Message = Message;
             this.Reason = Reason;
+            this.Message = Message;
             this.Details = Details;
         }
         
         /// <summary>
-        /// Time verification was requested  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) 
+        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
         /// </summary>
-        /// <value>Time verification was requested  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) </value>
+        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public string SubmitTimeUtc { get; set; }
+        public DateTime? SubmitTimeUtc { get; private set; }
 
         /// <summary>
-        /// Possible values:   - &#x60;INVALID_REQUEST&#x60; 
+        /// The http status description of the submitted request.
         /// </summary>
-        /// <value>Possible values:   - &#x60;INVALID_REQUEST&#x60; </value>
+        /// <value>The http status description of the submitted request.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
         /// <summary>
-        /// The detail message related to the status and reason
+        /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39;   - &#39;SYSTEM_ERROR&#39;   - &#39;RESOURCE_NOT_FOUND&#39; 
         /// </summary>
-        /// <value>The detail message related to the status and reason</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// The reason of the status.  Possible values:   - &#x60;INVALID_REQUEST&#x60; 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:   - &#x60;INVALID_REQUEST&#x60; </value>
+        /// <value>Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39;   - &#39;SYSTEM_ERROR&#39;   - &#39;RESOURCE_NOT_FOUND&#39; </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
+
+        /// <summary>
+        /// Descriptive message for the error.
+        /// </summary>
+        /// <value>Descriptive message for the error.</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
 
         /// <summary>
         /// Gets or Sets Details
@@ -91,8 +89,8 @@ namespace CyberSource.Model
             sb.Append("class InlineResponse4009 {\n");
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(SubmitTimeUtc).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(Status).Append("\n");
-            if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
             if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
+            if (Message != null) sb.Append("  Message: ").Append(Message).Append("\n");
             if (Details != null) sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -141,14 +139,14 @@ namespace CyberSource.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
-                ) && 
-                (
                     this.Reason == other.Reason ||
                     this.Reason != null &&
                     this.Reason.Equals(other.Reason)
+                ) && 
+                (
+                    this.Message == other.Message ||
+                    this.Message != null &&
+                    this.Message.Equals(other.Message)
                 ) && 
                 (
                     this.Details == other.Details ||
@@ -172,10 +170,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
                 if (this.Reason != null)
                     hash = hash * 59 + this.Reason.GetHashCode();
+                if (this.Message != null)
+                    hash = hash * 59 + this.Message.GetHashCode();
                 if (this.Details != null)
                     hash = hash * 59 + this.Details.GetHashCode();
                 return hash;

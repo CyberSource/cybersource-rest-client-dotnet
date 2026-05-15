@@ -104,6 +104,38 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ProductDescription'
         }
+        /// <summary>
+        /// Test the property 'DiscountAmount'
+        /// </summary>
+        [Test]
+        public void DiscountAmountTest()
+        {
+            // TODO unit test for the property 'DiscountAmount'
+        }
+        /// <summary>
+        /// Test the property 'DiscountPercent'
+        /// </summary>
+        [Test]
+        public void DiscountPercentTest()
+        {
+            // TODO unit test for the property 'DiscountPercent'
+        }
+        /// <summary>
+        /// Test the property 'TaxAmount'
+        /// </summary>
+        [Test]
+        public void TaxAmountTest()
+        {
+            // TODO unit test for the property 'TaxAmount'
+        }
+        /// <summary>
+        /// Test the property 'TaxRate'
+        /// </summary>
+        [Test]
+        public void TaxRateTest()
+        {
+            // TODO unit test for the property 'TaxRate'
+        }
 
     }
 

@@ -39,7 +39,8 @@ namespace CyberSource.Model
         /// <param name="AdministrativeArea">State or province of the billing address. Use the State, Province, and Territory Codes for the United States and Canada. .</param>
         /// <param name="PostalCode">Postal code for the billing address. The postal code must consist of 5 to 9 digits.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  **Example** &#x60;12345-6789&#x60;  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  **Example** &#x60;A1B 2C3&#x60; .</param>
         /// <param name="Country">Payment card billing country. Use the two-character ISO Standard Country Codes. .</param>
-        public TmsEmbeddedInstrumentIdentifierBillTo(string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string))
+        /// <param name="Email">Customer&#39;s email address, including the full domain name. .</param>
+        public TmsEmbeddedInstrumentIdentifierBillTo(string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string Email = default(string))
         {
             this.Address1 = Address1;
             this.Address2 = Address2;
@@ -47,6 +48,7 @@ namespace CyberSource.Model
             this.AdministrativeArea = AdministrativeArea;
             this.PostalCode = PostalCode;
             this.Country = Country;
+            this.Email = Email;
         }
         
         /// <summary>
@@ -92,6 +94,13 @@ namespace CyberSource.Model
         public string Country { get; set; }
 
         /// <summary>
+        /// Customer&#39;s email address, including the full domain name. 
+        /// </summary>
+        /// <value>Customer&#39;s email address, including the full domain name. </value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +114,7 @@ namespace CyberSource.Model
             if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(AdministrativeArea).Append("\n");
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +180,11 @@ namespace CyberSource.Model
                     this.Country == other.Country ||
                     this.Country != null &&
                     this.Country.Equals(other.Country)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
                 );
         }
 
@@ -196,6 +211,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.Country != null)
                     hash = hash * 59 + this.Country.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
                 return hash;
             }
         }
