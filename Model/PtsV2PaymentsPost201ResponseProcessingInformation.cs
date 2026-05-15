@@ -36,14 +36,16 @@ namespace CyberSource.Model
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
         /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the REST API.](https://developer.cybersource.com/content/dam/docs/cybs/en-us/apifields/reference/all/rest/api-fields.pdf)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct.   - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. .</param>
         /// <param name="EnhancedDataEnabled">The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. .</param>
+        /// <param name="DigitalServiceIndicator">Mastercard Digital Enablement Service (MDES) digital service indicators received in the authorization response message for MDES transactions.   This data is provided in the 0110 response in the Field 34—Acceptance Environment Data (TLV Format), Dataset ID 04—Additional Service Result Data, Tag DF1F—Mastercard Digital Enablement Service Indicator for Acquirer to acquirers.  This field is in ANS, EBCDIC format and flows in Field 34, DSID 04 Tag DF1F, mapped to Mastercard Data Element DE119, Sub-element 004.  This field is supported for all flavors of Authorization response only.  #### Used by **Authorization Response** Response field only. .</param>
         /// <param name="CaptureOptions">CaptureOptions.</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
         /// <param name="PurchaseOptions">PurchaseOptions.</param>
-        public PtsV2PaymentsPost201ResponseProcessingInformation(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions), string PaymentSolution = default(string), bool? EnhancedDataEnabled = default(bool?), PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions CaptureOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions), PtsV2PaymentsPost201ResponseProcessingInformationAuthorizationOptions AuthorizationOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationAuthorizationOptions), PtsV2PaymentsPost201ResponseProcessingInformationPurchaseOptions PurchaseOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationPurchaseOptions))
+        public PtsV2PaymentsPost201ResponseProcessingInformation(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions BankTransferOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationBankTransferOptions), string PaymentSolution = default(string), bool? EnhancedDataEnabled = default(bool?), string DigitalServiceIndicator = default(string), PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions CaptureOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationCaptureOptions), PtsV2PaymentsPost201ResponseProcessingInformationAuthorizationOptions AuthorizationOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationAuthorizationOptions), PtsV2PaymentsPost201ResponseProcessingInformationPurchaseOptions PurchaseOptions = default(PtsV2PaymentsPost201ResponseProcessingInformationPurchaseOptions))
         {
             this.BankTransferOptions = BankTransferOptions;
             this.PaymentSolution = PaymentSolution;
             this.EnhancedDataEnabled = EnhancedDataEnabled;
+            this.DigitalServiceIndicator = DigitalServiceIndicator;
             this.CaptureOptions = CaptureOptions;
             this.AuthorizationOptions = AuthorizationOptions;
             this.PurchaseOptions = PurchaseOptions;
@@ -68,6 +70,13 @@ namespace CyberSource.Model
         /// <value>The possible values for the reply field are: - &#x60;true&#x60; : the airline data was included in the request to the processor. - &#x60;false&#x60; : the airline data was not included in the request to the processor.  Returned by authorization, capture, or credit services. </value>
         [DataMember(Name="enhancedDataEnabled", EmitDefaultValue=false)]
         public bool? EnhancedDataEnabled { get; set; }
+
+        /// <summary>
+        /// Mastercard Digital Enablement Service (MDES) digital service indicators received in the authorization response message for MDES transactions.   This data is provided in the 0110 response in the Field 34—Acceptance Environment Data (TLV Format), Dataset ID 04—Additional Service Result Data, Tag DF1F—Mastercard Digital Enablement Service Indicator for Acquirer to acquirers.  This field is in ANS, EBCDIC format and flows in Field 34, DSID 04 Tag DF1F, mapped to Mastercard Data Element DE119, Sub-element 004.  This field is supported for all flavors of Authorization response only.  #### Used by **Authorization Response** Response field only. 
+        /// </summary>
+        /// <value>Mastercard Digital Enablement Service (MDES) digital service indicators received in the authorization response message for MDES transactions.   This data is provided in the 0110 response in the Field 34—Acceptance Environment Data (TLV Format), Dataset ID 04—Additional Service Result Data, Tag DF1F—Mastercard Digital Enablement Service Indicator for Acquirer to acquirers.  This field is in ANS, EBCDIC format and flows in Field 34, DSID 04 Tag DF1F, mapped to Mastercard Data Element DE119, Sub-element 004.  This field is supported for all flavors of Authorization response only.  #### Used by **Authorization Response** Response field only. </value>
+        [DataMember(Name="digitalServiceIndicator", EmitDefaultValue=false)]
+        public string DigitalServiceIndicator { get; set; }
 
         /// <summary>
         /// Gets or Sets CaptureOptions
@@ -98,6 +107,7 @@ namespace CyberSource.Model
             if (BankTransferOptions != null) sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
             if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
             if (EnhancedDataEnabled != null) sb.Append("  EnhancedDataEnabled: ").Append(EnhancedDataEnabled).Append("\n");
+            if (DigitalServiceIndicator != null) sb.Append("  DigitalServiceIndicator: ").Append(DigitalServiceIndicator).Append("\n");
             if (CaptureOptions != null) sb.Append("  CaptureOptions: ").Append(CaptureOptions).Append("\n");
             if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
             if (PurchaseOptions != null) sb.Append("  PurchaseOptions: ").Append(PurchaseOptions).Append("\n");
@@ -153,6 +163,11 @@ namespace CyberSource.Model
                     this.EnhancedDataEnabled.Equals(other.EnhancedDataEnabled)
                 ) && 
                 (
+                    this.DigitalServiceIndicator == other.DigitalServiceIndicator ||
+                    this.DigitalServiceIndicator != null &&
+                    this.DigitalServiceIndicator.Equals(other.DigitalServiceIndicator)
+                ) && 
+                (
                     this.CaptureOptions == other.CaptureOptions ||
                     this.CaptureOptions != null &&
                     this.CaptureOptions.Equals(other.CaptureOptions)
@@ -186,6 +201,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentSolution.GetHashCode();
                 if (this.EnhancedDataEnabled != null)
                     hash = hash * 59 + this.EnhancedDataEnabled.GetHashCode();
+                if (this.DigitalServiceIndicator != null)
+                    hash = hash * 59 + this.DigitalServiceIndicator.GetHashCode();
                 if (this.CaptureOptions != null)
                     hash = hash * 59 + this.CaptureOptions.GetHashCode();
                 if (this.AuthorizationOptions != null)

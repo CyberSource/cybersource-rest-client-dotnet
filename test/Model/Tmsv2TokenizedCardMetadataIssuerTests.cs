@@ -112,6 +112,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Url'
         }
+        /// <summary>
+        /// Test the property 'PrivacyPolicyUrl'
+        /// </summary>
+        [Test]
+        public void PrivacyPolicyUrlTest()
+        {
+            // TODO unit test for the property 'PrivacyPolicyUrl'
+        }
+        /// <summary>
+        /// Test the property 'Capabilities'
+        /// </summary>
+        [Test]
+        public void CapabilitiesTest()
+        {
+            // TODO unit test for the property 'Capabilities'
+        }
+        /// <summary>
+        /// Test the property 'BankApplications'
+        /// </summary>
+        [Test]
+        public void BankApplicationsTest()
+        {
+            // TODO unit test for the property 'BankApplications'
+        }
 
     }
 

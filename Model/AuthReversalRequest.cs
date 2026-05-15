@@ -39,8 +39,9 @@ namespace CyberSource.Model
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
+        /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
-        public AuthReversalRequest(Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidreversalsClientReferenceInformation), Ptsv2paymentsidreversalsReversalInformation ReversalInformation = default(Ptsv2paymentsidreversalsReversalInformation), Ptsv2paymentsidreversalsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidreversalsProcessingInformation), Ptsv2paymentsidreversalsOrderInformation OrderInformation = default(Ptsv2paymentsidreversalsOrderInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation), Ptsv2paymentsidreversalsPaymentInformation PaymentInformation = default(Ptsv2paymentsidreversalsPaymentInformation), Ptsv2paymentsProcessorInformationReversal ProcessorInformation = default(Ptsv2paymentsProcessorInformationReversal))
+        public AuthReversalRequest(Ptsv2paymentsidreversalsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsidreversalsClientReferenceInformation), Ptsv2paymentsidreversalsReversalInformation ReversalInformation = default(Ptsv2paymentsidreversalsReversalInformation), Ptsv2paymentsidreversalsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidreversalsProcessingInformation), Ptsv2paymentsidreversalsOrderInformation OrderInformation = default(Ptsv2paymentsidreversalsOrderInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation), Ptsv2paymentsidreversalsPaymentInformation PaymentInformation = default(Ptsv2paymentsidreversalsPaymentInformation), Ptsv2paymentsidreversalsDeviceInformation DeviceInformation = default(Ptsv2paymentsidreversalsDeviceInformation), Ptsv2paymentsProcessorInformationReversal ProcessorInformation = default(Ptsv2paymentsProcessorInformationReversal))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ReversalInformation = ReversalInformation;
@@ -48,6 +49,7 @@ namespace CyberSource.Model
             this.OrderInformation = OrderInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
             this.PaymentInformation = PaymentInformation;
+            this.DeviceInformation = DeviceInformation;
             this.ProcessorInformation = ProcessorInformation;
         }
         
@@ -88,6 +90,12 @@ namespace CyberSource.Model
         public Ptsv2paymentsidreversalsPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets DeviceInformation
+        /// </summary>
+        [DataMember(Name="deviceInformation", EmitDefaultValue=false)]
+        public Ptsv2paymentsidreversalsDeviceInformation DeviceInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets ProcessorInformation
         /// </summary>
         [DataMember(Name="processorInformation", EmitDefaultValue=false)]
@@ -107,6 +115,7 @@ namespace CyberSource.Model
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             if (PointOfSaleInformation != null) sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            if (DeviceInformation != null) sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
             if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -175,6 +184,11 @@ namespace CyberSource.Model
                     this.PaymentInformation.Equals(other.PaymentInformation)
                 ) && 
                 (
+                    this.DeviceInformation == other.DeviceInformation ||
+                    this.DeviceInformation != null &&
+                    this.DeviceInformation.Equals(other.DeviceInformation)
+                ) && 
+                (
                     this.ProcessorInformation == other.ProcessorInformation ||
                     this.ProcessorInformation != null &&
                     this.ProcessorInformation.Equals(other.ProcessorInformation)
@@ -204,6 +218,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 if (this.PaymentInformation != null)
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
+                if (this.DeviceInformation != null)
+                    hash = hash * 59 + this.DeviceInformation.GetHashCode();
                 if (this.ProcessorInformation != null)
                     hash = hash * 59 + this.ProcessorInformation.GetHashCode();
                 return hash;

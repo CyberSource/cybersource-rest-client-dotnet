@@ -141,7 +141,7 @@ No authorization required
 
 <a name="getinstrumentidentifierpaymentinstrumentslist"></a>
 # **GetInstrumentIdentifierPaymentInstrumentsList**
-> PaymentInstrumentList1 GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
+> PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList (string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
 
 List Payment Instruments for an Instrument Identifier
 
@@ -171,7 +171,7 @@ namespace Example
             try
             {
                 // List Payment Instruments for an Instrument Identifier
-                PaymentInstrumentList1 result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
+                PaymentInstrumentList result = apiInstance.GetInstrumentIdentifierPaymentInstrumentsList(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaymentInstrumentList1**](PaymentInstrumentList1.md)
+[**PaymentInstrumentList**](PaymentInstrumentList.md)
 
 ### Authorization
 

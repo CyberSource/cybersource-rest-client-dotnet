@@ -425,6 +425,38 @@ namespace CyberSource.Test
             // TODO unit test for the property 'EnableMultiCurrencyProcessing'
         }
         /// <summary>
+        /// Test the property 'TransactionTypeIdentifier'
+        /// </summary>
+        [Test]
+        public void TransactionTypeIdentifierTest()
+        {
+            // TODO unit test for the property 'TransactionTypeIdentifier'
+        }
+        /// <summary>
+        /// Test the property 'SubMerchantId'
+        /// </summary>
+        [Test]
+        public void SubMerchantIdTest()
+        {
+            // TODO unit test for the property 'SubMerchantId'
+        }
+        /// <summary>
+        /// Test the property 'SubMerchantEmail'
+        /// </summary>
+        [Test]
+        public void SubMerchantEmailTest()
+        {
+            // TODO unit test for the property 'SubMerchantEmail'
+        }
+        /// <summary>
+        /// Test the property 'SubMerchantPhoneNumber'
+        /// </summary>
+        [Test]
+        public void SubMerchantPhoneNumberTest()
+        {
+            // TODO unit test for the property 'SubMerchantPhoneNumber'
+        }
+        /// <summary>
         /// Test the property 'EnablePosNetworkSwitching'
         /// </summary>
         [Test]

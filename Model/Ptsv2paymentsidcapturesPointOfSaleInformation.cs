@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Emv">Emv.</param>
         /// <param name="AmexCapnData">Point-of-sale details for the transaction. This value is returned only for **American Express Direct**. CyberSource generates this value, which consists of a series of codes that identify terminal capability, security data, and specific conditions present at the time the transaction occurred. To comply with the CAPN requirements, this value must be included in all subsequent follow-on requests, such as captures and follow-on credits.  When you perform authorizations, captures, and credits through CyberSource, CyberSource passes this value from the authorization service to the subsequent services for you. However, when you perform authorizations through CyberSource and perform subsequent services through other financial institutions, you must ensure that your requests for captures and credits include this value. .</param>
-        public Ptsv2paymentsidcapturesPointOfSaleInformation(Ptsv2paymentsidcapturesPointOfSaleInformationEmv Emv = default(Ptsv2paymentsidcapturesPointOfSaleInformationEmv), string AmexCapnData = default(string))
+        /// <param name="EncryptedKeyId">Identifies the Zone PIN Key (ZPK) used for Online PIN processing by providing the 10‑digit Key Set Identifier (KSI). This value indicates that the PIN block is encrypted under a ZPK and enables the Payment Security Service (PSS) to perform  the correct ZPK→ZPK PIN translation during card‑present EMV PIN transactions. .</param>
+        public Ptsv2paymentsidcapturesPointOfSaleInformation(Ptsv2paymentsidcapturesPointOfSaleInformationEmv Emv = default(Ptsv2paymentsidcapturesPointOfSaleInformationEmv), string AmexCapnData = default(string), string EncryptedKeyId = default(string))
         {
             this.Emv = Emv;
             this.AmexCapnData = AmexCapnData;
+            this.EncryptedKeyId = EncryptedKeyId;
         }
         
         /// <summary>
@@ -55,6 +57,13 @@ namespace CyberSource.Model
         public string AmexCapnData { get; set; }
 
         /// <summary>
+        /// Identifies the Zone PIN Key (ZPK) used for Online PIN processing by providing the 10‑digit Key Set Identifier (KSI). This value indicates that the PIN block is encrypted under a ZPK and enables the Payment Security Service (PSS) to perform  the correct ZPK→ZPK PIN translation during card‑present EMV PIN transactions. 
+        /// </summary>
+        /// <value>Identifies the Zone PIN Key (ZPK) used for Online PIN processing by providing the 10‑digit Key Set Identifier (KSI). This value indicates that the PIN block is encrypted under a ZPK and enables the Payment Security Service (PSS) to perform  the correct ZPK→ZPK PIN translation during card‑present EMV PIN transactions. </value>
+        [DataMember(Name="encryptedKeyId", EmitDefaultValue=false)]
+        public string EncryptedKeyId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +73,7 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsidcapturesPointOfSaleInformation {\n");
             if (Emv != null) sb.Append("  Emv: ").Append(Emv).Append("\n");
             if (AmexCapnData != null) sb.Append("  AmexCapnData: ").Append(AmexCapnData).Append("\n");
+            if (EncryptedKeyId != null) sb.Append("  EncryptedKeyId: ").Append(EncryptedKeyId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +119,11 @@ namespace CyberSource.Model
                     this.AmexCapnData == other.AmexCapnData ||
                     this.AmexCapnData != null &&
                     this.AmexCapnData.Equals(other.AmexCapnData)
+                ) && 
+                (
+                    this.EncryptedKeyId == other.EncryptedKeyId ||
+                    this.EncryptedKeyId != null &&
+                    this.EncryptedKeyId.Equals(other.EncryptedKeyId)
                 );
         }
 
@@ -127,6 +142,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Emv.GetHashCode();
                 if (this.AmexCapnData != null)
                     hash = hash * 59 + this.AmexCapnData.GetHashCode();
+                if (this.EncryptedKeyId != null)
+                    hash = hash * 59 + this.EncryptedKeyId.GetHashCode();
                 return hash;
             }
         }

@@ -44,7 +44,8 @@ namespace CyberSource.Model
         /// <param name="ReferenceNumber">This field is applicable for AFT transactions.   Contains a transaction reference number provided by the Merchant. Only alpha numeric values are supported. .</param>
         /// <param name="Account">Account.</param>
         /// <param name="PostalCode">Postal code of sender. .</param>
-        public Ptsv2paymentsSenderInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string AliasName = default(string), string ReferenceNumber = default(string), Ptsv2paymentsSenderInformationAccount Account = default(Ptsv2paymentsSenderInformationAccount), string PostalCode = default(string))
+        /// <param name="TaxIdNumber">CPF or CNPJ of the cash-in recipient. \&quot;Cadastro de Pessoas Físicas\&quot;, which translates to the \&quot;Natural Persons Register.\&quot; It is the individual taxpayer registry identification number in Brazil, similar to a Social Security Number (SSN) in the United States or a National Insurance Number in the UK. .</param>
+        public Ptsv2paymentsSenderInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string AliasName = default(string), string ReferenceNumber = default(string), Ptsv2paymentsSenderInformationAccount Account = default(Ptsv2paymentsSenderInformationAccount), string PostalCode = default(string), decimal? TaxIdNumber = default(decimal?))
         {
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             this.ReferenceNumber = ReferenceNumber;
             this.Account = Account;
             this.PostalCode = PostalCode;
+            this.TaxIdNumber = TaxIdNumber;
         }
         
         /// <summary>
@@ -136,6 +138,13 @@ namespace CyberSource.Model
         public string PostalCode { get; set; }
 
         /// <summary>
+        /// CPF or CNPJ of the cash-in recipient. \&quot;Cadastro de Pessoas Físicas\&quot;, which translates to the \&quot;Natural Persons Register.\&quot; It is the individual taxpayer registry identification number in Brazil, similar to a Social Security Number (SSN) in the United States or a National Insurance Number in the UK. 
+        /// </summary>
+        /// <value>CPF or CNPJ of the cash-in recipient. \&quot;Cadastro de Pessoas Físicas\&quot;, which translates to the \&quot;Natural Persons Register.\&quot; It is the individual taxpayer registry identification number in Brazil, similar to a Social Security Number (SSN) in the United States or a National Insurance Number in the UK. </value>
+        [DataMember(Name="taxIdNumber", EmitDefaultValue=false)]
+        public decimal? TaxIdNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -154,6 +163,7 @@ namespace CyberSource.Model
             if (ReferenceNumber != null) sb.Append("  ReferenceNumber: ").Append(ReferenceNumber).Append("\n");
             if (Account != null) sb.Append("  Account: ").Append(Account).Append("\n");
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            if (TaxIdNumber != null) sb.Append("  TaxIdNumber: ").Append(TaxIdNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -244,6 +254,11 @@ namespace CyberSource.Model
                     this.PostalCode == other.PostalCode ||
                     this.PostalCode != null &&
                     this.PostalCode.Equals(other.PostalCode)
+                ) && 
+                (
+                    this.TaxIdNumber == other.TaxIdNumber ||
+                    this.TaxIdNumber != null &&
+                    this.TaxIdNumber.Equals(other.TaxIdNumber)
                 );
         }
 
@@ -280,6 +295,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Account.GetHashCode();
                 if (this.PostalCode != null)
                     hash = hash * 59 + this.PostalCode.GetHashCode();
+                if (this.TaxIdNumber != null)
+                    hash = hash * 59 + this.TaxIdNumber.GetHashCode();
                 return hash;
             }
         }

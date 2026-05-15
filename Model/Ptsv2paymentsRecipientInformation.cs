@@ -52,7 +52,8 @@ namespace CyberSource.Model
         /// <param name="Occupation">Account Owner Occupation.</param>
         /// <param name="Email">Account Owner email address.</param>
         /// <param name="Locality">The city of the recipient. This field is applicable for AFT transactions.  Only alpha numeric values are supported. Special characters not in the standard ASCII character set are not supported and will be stripped before being sent to sent to the processor. .</param>
-        public Ptsv2paymentsRecipientInformation(string AccountId = default(string), string AccountType = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string DateOfBirth = default(string), string BeneficiaryId = default(string), string BeneficiaryName = default(string), string BeneficiaryAddress = default(string), string AliasName = default(string), string Nationality = default(string), string CountryOfBirth = default(string), string Occupation = default(string), string Email = default(string), string Locality = default(string))
+        /// <param name="TaxIdNumber">CPF or CNPJ of the cash-in recipient. \&quot;Cadastro de Pessoas Físicas\&quot;, which translates to the \&quot;Natural Persons Register.\&quot; It is the individual taxpayer registry identification number in Brazil, similar to a Social Security Number (SSN) in the United States or a National Insurance Number in the UK. .</param>
+        public Ptsv2paymentsRecipientInformation(string AccountId = default(string), string AccountType = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string DateOfBirth = default(string), string BeneficiaryId = default(string), string BeneficiaryName = default(string), string BeneficiaryAddress = default(string), string AliasName = default(string), string Nationality = default(string), string CountryOfBirth = default(string), string Occupation = default(string), string Email = default(string), string Locality = default(string), decimal? TaxIdNumber = default(decimal?))
         {
             this.AccountId = AccountId;
             this.AccountType = AccountType;
@@ -73,6 +74,7 @@ namespace CyberSource.Model
             this.Occupation = Occupation;
             this.Email = Email;
             this.Locality = Locality;
+            this.TaxIdNumber = TaxIdNumber;
         }
         
         /// <summary>
@@ -209,6 +211,13 @@ namespace CyberSource.Model
         public string Locality { get; set; }
 
         /// <summary>
+        /// CPF or CNPJ of the cash-in recipient. \&quot;Cadastro de Pessoas Físicas\&quot;, which translates to the \&quot;Natural Persons Register.\&quot; It is the individual taxpayer registry identification number in Brazil, similar to a Social Security Number (SSN) in the United States or a National Insurance Number in the UK. 
+        /// </summary>
+        /// <value>CPF or CNPJ of the cash-in recipient. \&quot;Cadastro de Pessoas Físicas\&quot;, which translates to the \&quot;Natural Persons Register.\&quot; It is the individual taxpayer registry identification number in Brazil, similar to a Social Security Number (SSN) in the United States or a National Insurance Number in the UK. </value>
+        [DataMember(Name="taxIdNumber", EmitDefaultValue=false)]
+        public decimal? TaxIdNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -235,6 +244,7 @@ namespace CyberSource.Model
             if (Occupation != null) sb.Append("  Occupation: ").Append(Occupation).Append("\n");
             if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
             if (Locality != null) sb.Append("  Locality: ").Append(Locality).Append("\n");
+            if (TaxIdNumber != null) sb.Append("  TaxIdNumber: ").Append(TaxIdNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -365,6 +375,11 @@ namespace CyberSource.Model
                     this.Locality == other.Locality ||
                     this.Locality != null &&
                     this.Locality.Equals(other.Locality)
+                ) && 
+                (
+                    this.TaxIdNumber == other.TaxIdNumber ||
+                    this.TaxIdNumber != null &&
+                    this.TaxIdNumber.Equals(other.TaxIdNumber)
                 );
         }
 
@@ -417,6 +432,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Email.GetHashCode();
                 if (this.Locality != null)
                     hash = hash * 59 + this.Locality.GetHashCode();
+                if (this.TaxIdNumber != null)
+                    hash = hash * 59 + this.TaxIdNumber.GetHashCode();
                 return hash;
             }
         }

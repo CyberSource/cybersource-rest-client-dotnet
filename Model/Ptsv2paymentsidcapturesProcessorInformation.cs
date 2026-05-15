@@ -35,10 +35,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Network">Network.</param>
         /// <param name="ResponseSourceCode">Field contains the response source code that identifies the source. .</param>
-        public Ptsv2paymentsidcapturesProcessorInformation(Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), string ResponseSourceCode = default(string))
+        /// <param name="SupplementaryTransactionData">Supplementary transaction data for Klarna Advantage Plus. Fields to capture Interoperability Data from Merchant and transfer to Klarna for Authorization/Sale/Re-Auth/Capture APIs. .</param>
+        /// <param name="CedpVerifiedIndicator">Merchant Commercial Enhanced Data Program (CEDP) verified indicator for capture/bill requests.  This field is used when the client is doing authorization with a different gateway and capture/settlement with CyberSource.  This field flows in ISO field 34, DSID 02 tag DA, in AN, EBCDIC format.  Possible values: - &#x60;Y&#x60;: Merchant CEDP verified  #### Used by **Capture Request** Request field for force capture/bill support when auth is done with a different gateway. .</param>
+        public Ptsv2paymentsidcapturesProcessorInformation(Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), string ResponseSourceCode = default(string), string SupplementaryTransactionData = default(string), string CedpVerifiedIndicator = default(string))
         {
             this.Network = Network;
             this.ResponseSourceCode = ResponseSourceCode;
+            this.SupplementaryTransactionData = SupplementaryTransactionData;
+            this.CedpVerifiedIndicator = CedpVerifiedIndicator;
         }
         
         /// <summary>
@@ -55,6 +59,20 @@ namespace CyberSource.Model
         public string ResponseSourceCode { get; set; }
 
         /// <summary>
+        /// Supplementary transaction data for Klarna Advantage Plus. Fields to capture Interoperability Data from Merchant and transfer to Klarna for Authorization/Sale/Re-Auth/Capture APIs. 
+        /// </summary>
+        /// <value>Supplementary transaction data for Klarna Advantage Plus. Fields to capture Interoperability Data from Merchant and transfer to Klarna for Authorization/Sale/Re-Auth/Capture APIs. </value>
+        [DataMember(Name="supplementaryTransactionData", EmitDefaultValue=false)]
+        public string SupplementaryTransactionData { get; set; }
+
+        /// <summary>
+        /// Merchant Commercial Enhanced Data Program (CEDP) verified indicator for capture/bill requests.  This field is used when the client is doing authorization with a different gateway and capture/settlement with CyberSource.  This field flows in ISO field 34, DSID 02 tag DA, in AN, EBCDIC format.  Possible values: - &#x60;Y&#x60;: Merchant CEDP verified  #### Used by **Capture Request** Request field for force capture/bill support when auth is done with a different gateway. 
+        /// </summary>
+        /// <value>Merchant Commercial Enhanced Data Program (CEDP) verified indicator for capture/bill requests.  This field is used when the client is doing authorization with a different gateway and capture/settlement with CyberSource.  This field flows in ISO field 34, DSID 02 tag DA, in AN, EBCDIC format.  Possible values: - &#x60;Y&#x60;: Merchant CEDP verified  #### Used by **Capture Request** Request field for force capture/bill support when auth is done with a different gateway. </value>
+        [DataMember(Name="cedpVerifiedIndicator", EmitDefaultValue=false)]
+        public string CedpVerifiedIndicator { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +82,8 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2paymentsidcapturesProcessorInformation {\n");
             if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
             if (ResponseSourceCode != null) sb.Append("  ResponseSourceCode: ").Append(ResponseSourceCode).Append("\n");
+            if (SupplementaryTransactionData != null) sb.Append("  SupplementaryTransactionData: ").Append(SupplementaryTransactionData).Append("\n");
+            if (CedpVerifiedIndicator != null) sb.Append("  CedpVerifiedIndicator: ").Append(CedpVerifiedIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +129,16 @@ namespace CyberSource.Model
                     this.ResponseSourceCode == other.ResponseSourceCode ||
                     this.ResponseSourceCode != null &&
                     this.ResponseSourceCode.Equals(other.ResponseSourceCode)
+                ) && 
+                (
+                    this.SupplementaryTransactionData == other.SupplementaryTransactionData ||
+                    this.SupplementaryTransactionData != null &&
+                    this.SupplementaryTransactionData.Equals(other.SupplementaryTransactionData)
+                ) && 
+                (
+                    this.CedpVerifiedIndicator == other.CedpVerifiedIndicator ||
+                    this.CedpVerifiedIndicator != null &&
+                    this.CedpVerifiedIndicator.Equals(other.CedpVerifiedIndicator)
                 );
         }
 
@@ -127,6 +157,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Network.GetHashCode();
                 if (this.ResponseSourceCode != null)
                     hash = hash * 59 + this.ResponseSourceCode.GetHashCode();
+                if (this.SupplementaryTransactionData != null)
+                    hash = hash * 59 + this.SupplementaryTransactionData.GetHashCode();
+                if (this.CedpVerifiedIndicator != null)
+                    hash = hash * 59 + this.CedpVerifiedIndicator.GetHashCode();
                 return hash;
             }
         }

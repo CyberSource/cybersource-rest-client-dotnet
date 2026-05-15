@@ -76,7 +76,14 @@ namespace CyberSource.Model
         /// <param name="Indicator">Indicator used to differentiate Internet transactions from other types. The authentication failed if this field is not returned. For Visa, if your payment processor is Streamline, Barclays, AIBMS, or FDC Germany, you receive the value vbv_failure instead of internet when eci is 07. The value of this field is passed automatically to the authorization service if you request the services together. This field contains one of these values: - &#x60;aesk&#x60;: American Express SafeKey authentication verified successfully. - &#x60;aesk_attempted&#x60;: Card not enrolled in American Express SafeKey, but the attempt to authenticate was recorded. - &#x60;dipb&#x60;: Discover ProtectBuy authentication verified successfully. - &#x60;dipb_attempted&#x60;: Card not enrolled in Discover ProtectBuy, but the attempt to authenticate was recorded. - &#x60;internet&#x60;: Authentication was not verified successfully. - &#x60;js&#x60;: J/Secure authentication verified successfully. - &#x60;js_attempted&#x60;: Card not enrolled in J/Secure, but the attempt to authenticate was recorded. - &#x60;moto&#x60;: Mail or telephone order. - &#x60;pb_attempted&#x60;: Card not enrolled in Diners Club ProtectBuy, but the attempt to authenticate was recorded. - &#x60;recurring&#x60;: Recurring transaction. - &#x60;spa&#x60;: Mastercard Identity Check authentication verified successfully. - &#x60;spa_failure&#x60;: Mastercard Identity Check failed authentication. - &#x60;vbv&#x60;: Visa Secure authentication verified successfully. - &#x60;vbv_attempted&#x60;: Card not enrolled in Visa Secure, but the attempt to authenticate was recorded. - &#x60;vbv_failure&#x60;: Visa Secure authentication unavailable. .</param>
         /// <param name="InteractionCounter">Indicates the number of authentication cycles attempted by the cardholder and is tracked by the Issuing Banks ACS.Example: if customer gets the challenge window and enter in their one time password and hit submit then that interaction counter should just be 1. When customer gets the challenge window and the bank asks if they want to have the one time password  sent to their phone or their email and they have to choose before going to the next screen to enter in their one time password then this interaction count would be 2. One for the selection of how they want the one time password delivered and another with them actually entering in the one time password and hitting the submit button. .</param>
         /// <param name="WhiteListStatus">Enables the communication of trusted beneficiary/whitelist status between the ACS, the DS and the 3DS Requestor.  Possible Values:  Y - 3DS Requestor is whitelisted by cardholder  N - 3DS Requestor is not whitelisted by cardholder .</param>
-        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation(string AccessToken = default(string), string AcsRenderingType = default(string), string AcsTransactionId = default(string), string AcsUrl = default(string), string AuthenticationPath = default(string), string AuthorizationPayload = default(string), string AuthenticationTransactionId = default(string), string CardholderMessage = default(string), string Cavv = default(string), string CavvAlgorithm = default(string), string ChallengeCancelCode = default(string), string ChallengeRequired = default(string), string DecoupledAuthenticationIndicator = default(string), string DirectoryServerErrorCode = default(string), string DirectoryServerErrorDescription = default(string), string EcommerceIndicator = default(string), string Eci = default(string), string EciRaw = default(string), string EffectiveAuthenticationType = default(string), PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationIvr Ivr = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationIvr), PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication), string NetworkScore = default(string), string Pareq = default(string), string ParesStatus = default(string), string ProofXml = default(string), string ProxyPan = default(string), string SdkTransactionId = default(string), string SignedParesStatusReason = default(string), string SpecificationVersion = default(string), string StepUpUrl = default(string), string ThreeDSServerTransactionId = default(string), string UcafAuthenticationData = default(string), string UcafCollectionIndicator = default(string), string VeresEnrolled = default(string), string WhiteListStatusSource = default(string), string Xid = default(string), string DirectoryServerTransactionId = default(string), string DataQualityIndicator = default(string), string AuthenticationResult = default(string), string AuthenticationStatusMsg = default(string), string Indicator = default(string), string InteractionCounter = default(string), string WhiteListStatus = default(string))
+        /// <param name="Token">Token.</param>
+        /// <param name="AcsReferenceNumber">Unique identifier assigned by the EMVCo Secretariat upon Testing and Approval..</param>
+        /// <param name="AcsOperatorID">Directory Server assigned ACS identifier..</param>
+        /// <param name="IdciScore">Risk Assessment from Mastercard.</param>
+        /// <param name="IdciDecision">Decision on the Risk Assessment from Mastercard..</param>
+        /// <param name="IdciReasonCode1">ReasonCode from Mastercard.</param>
+        /// <param name="IdciReasonCode2">ReasonCode from Mastercard.</param>
+        public PtsV2PaymentsPost201ResponseConsumerAuthenticationInformation(string AccessToken = default(string), string AcsRenderingType = default(string), string AcsTransactionId = default(string), string AcsUrl = default(string), string AuthenticationPath = default(string), string AuthorizationPayload = default(string), string AuthenticationTransactionId = default(string), string CardholderMessage = default(string), string Cavv = default(string), string CavvAlgorithm = default(string), string ChallengeCancelCode = default(string), string ChallengeRequired = default(string), string DecoupledAuthenticationIndicator = default(string), string DirectoryServerErrorCode = default(string), string DirectoryServerErrorDescription = default(string), string EcommerceIndicator = default(string), string Eci = default(string), string EciRaw = default(string), string EffectiveAuthenticationType = default(string), PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationIvr Ivr = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationIvr), PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(PtsV2PaymentsPost201ResponseConsumerAuthenticationInformationStrongAuthentication), string NetworkScore = default(string), string Pareq = default(string), string ParesStatus = default(string), string ProofXml = default(string), string ProxyPan = default(string), string SdkTransactionId = default(string), string SignedParesStatusReason = default(string), string SpecificationVersion = default(string), string StepUpUrl = default(string), string ThreeDSServerTransactionId = default(string), string UcafAuthenticationData = default(string), string UcafCollectionIndicator = default(string), string VeresEnrolled = default(string), string WhiteListStatusSource = default(string), string Xid = default(string), string DirectoryServerTransactionId = default(string), string DataQualityIndicator = default(string), string AuthenticationResult = default(string), string AuthenticationStatusMsg = default(string), string Indicator = default(string), string InteractionCounter = default(string), string WhiteListStatus = default(string), string Token = default(string), string AcsReferenceNumber = default(string), string AcsOperatorID = default(string), int? IdciScore = default(int?), string IdciDecision = default(string), string IdciReasonCode1 = default(string), string IdciReasonCode2 = default(string))
         {
             this.AccessToken = AccessToken;
             this.AcsRenderingType = AcsRenderingType;
@@ -121,6 +128,13 @@ namespace CyberSource.Model
             this.Indicator = Indicator;
             this.InteractionCounter = InteractionCounter;
             this.WhiteListStatus = WhiteListStatus;
+            this.Token = Token;
+            this.AcsReferenceNumber = AcsReferenceNumber;
+            this.AcsOperatorID = AcsOperatorID;
+            this.IdciScore = IdciScore;
+            this.IdciDecision = IdciDecision;
+            this.IdciReasonCode1 = IdciReasonCode1;
+            this.IdciReasonCode2 = IdciReasonCode2;
         }
         
         /// <summary>
@@ -423,6 +437,54 @@ namespace CyberSource.Model
         public string WhiteListStatus { get; set; }
 
         /// <summary>
+        /// Gets or Sets Token
+        /// </summary>
+        [DataMember(Name="token", EmitDefaultValue=false)]
+        public string Token { get; set; }
+
+        /// <summary>
+        /// Unique identifier assigned by the EMVCo Secretariat upon Testing and Approval.
+        /// </summary>
+        /// <value>Unique identifier assigned by the EMVCo Secretariat upon Testing and Approval.</value>
+        [DataMember(Name="acsReferenceNumber", EmitDefaultValue=false)]
+        public string AcsReferenceNumber { get; set; }
+
+        /// <summary>
+        /// Directory Server assigned ACS identifier.
+        /// </summary>
+        /// <value>Directory Server assigned ACS identifier.</value>
+        [DataMember(Name="acsOperatorID", EmitDefaultValue=false)]
+        public string AcsOperatorID { get; set; }
+
+        /// <summary>
+        /// Risk Assessment from Mastercard
+        /// </summary>
+        /// <value>Risk Assessment from Mastercard</value>
+        [DataMember(Name="idciScore", EmitDefaultValue=false)]
+        public int? IdciScore { get; set; }
+
+        /// <summary>
+        /// Decision on the Risk Assessment from Mastercard.
+        /// </summary>
+        /// <value>Decision on the Risk Assessment from Mastercard.</value>
+        [DataMember(Name="idciDecision", EmitDefaultValue=false)]
+        public string IdciDecision { get; set; }
+
+        /// <summary>
+        /// ReasonCode from Mastercard
+        /// </summary>
+        /// <value>ReasonCode from Mastercard</value>
+        [DataMember(Name="idciReasonCode1", EmitDefaultValue=false)]
+        public string IdciReasonCode1 { get; set; }
+
+        /// <summary>
+        /// ReasonCode from Mastercard
+        /// </summary>
+        /// <value>ReasonCode from Mastercard</value>
+        [DataMember(Name="idciReasonCode2", EmitDefaultValue=false)]
+        public string IdciReasonCode2 { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -473,6 +535,13 @@ namespace CyberSource.Model
             if (Indicator != null) sb.Append("  Indicator: ").Append(Indicator).Append("\n");
             if (InteractionCounter != null) sb.Append("  InteractionCounter: ").Append(InteractionCounter).Append("\n");
             if (WhiteListStatus != null) sb.Append("  WhiteListStatus: ").Append(WhiteListStatus).Append("\n");
+            if (Token != null) sb.Append("  Token: ").Append(Token).Append("\n");
+            if (AcsReferenceNumber != null) sb.Append("  AcsReferenceNumber: ").Append(AcsReferenceNumber).Append("\n");
+            if (AcsOperatorID != null) sb.Append("  AcsOperatorID: ").Append(AcsOperatorID).Append("\n");
+            if (IdciScore != null) sb.Append("  IdciScore: ").Append(IdciScore).Append("\n");
+            if (IdciDecision != null) sb.Append("  IdciDecision: ").Append(IdciDecision).Append("\n");
+            if (IdciReasonCode1 != null) sb.Append("  IdciReasonCode1: ").Append(IdciReasonCode1).Append("\n");
+            if (IdciReasonCode2 != null) sb.Append("  IdciReasonCode2: ").Append(IdciReasonCode2).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -723,6 +792,41 @@ namespace CyberSource.Model
                     this.WhiteListStatus == other.WhiteListStatus ||
                     this.WhiteListStatus != null &&
                     this.WhiteListStatus.Equals(other.WhiteListStatus)
+                ) && 
+                (
+                    this.Token == other.Token ||
+                    this.Token != null &&
+                    this.Token.Equals(other.Token)
+                ) && 
+                (
+                    this.AcsReferenceNumber == other.AcsReferenceNumber ||
+                    this.AcsReferenceNumber != null &&
+                    this.AcsReferenceNumber.Equals(other.AcsReferenceNumber)
+                ) && 
+                (
+                    this.AcsOperatorID == other.AcsOperatorID ||
+                    this.AcsOperatorID != null &&
+                    this.AcsOperatorID.Equals(other.AcsOperatorID)
+                ) && 
+                (
+                    this.IdciScore == other.IdciScore ||
+                    this.IdciScore != null &&
+                    this.IdciScore.Equals(other.IdciScore)
+                ) && 
+                (
+                    this.IdciDecision == other.IdciDecision ||
+                    this.IdciDecision != null &&
+                    this.IdciDecision.Equals(other.IdciDecision)
+                ) && 
+                (
+                    this.IdciReasonCode1 == other.IdciReasonCode1 ||
+                    this.IdciReasonCode1 != null &&
+                    this.IdciReasonCode1.Equals(other.IdciReasonCode1)
+                ) && 
+                (
+                    this.IdciReasonCode2 == other.IdciReasonCode2 ||
+                    this.IdciReasonCode2 != null &&
+                    this.IdciReasonCode2.Equals(other.IdciReasonCode2)
                 );
         }
 
@@ -823,6 +927,20 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InteractionCounter.GetHashCode();
                 if (this.WhiteListStatus != null)
                     hash = hash * 59 + this.WhiteListStatus.GetHashCode();
+                if (this.Token != null)
+                    hash = hash * 59 + this.Token.GetHashCode();
+                if (this.AcsReferenceNumber != null)
+                    hash = hash * 59 + this.AcsReferenceNumber.GetHashCode();
+                if (this.AcsOperatorID != null)
+                    hash = hash * 59 + this.AcsOperatorID.GetHashCode();
+                if (this.IdciScore != null)
+                    hash = hash * 59 + this.IdciScore.GetHashCode();
+                if (this.IdciDecision != null)
+                    hash = hash * 59 + this.IdciDecision.GetHashCode();
+                if (this.IdciReasonCode1 != null)
+                    hash = hash * 59 + this.IdciReasonCode1.GetHashCode();
+                if (this.IdciReasonCode2 != null)
+                    hash = hash * 59 + this.IdciReasonCode2.GetHashCode();
                 return hash;
             }
         }

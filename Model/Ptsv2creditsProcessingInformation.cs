@@ -34,6 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2creditsProcessingInformation" /> class.
         /// </summary>
         /// <param name="ActionList">Array of actions (one or more) to be included in the payment to invoke bundled services along with Standalone Credit.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s). .</param>
+        /// <param name="ActionTokenTypes">CyberSource tokens types you are performing a create on. If not supplied the default token type for the merchants token vault will be used.  Valid values: - customer - paymentInstrument - instrumentIdentifier - shippingAddress .</param>
         /// <param name="CommerceIndicator">Type of transaction. Some payment card companies use this information when determining discount rates.  #### Used by **Authorization** Required payer authentication transactions; otherwise, optional. **Credit** Required for standalone credits on Chase Paymentech solutions; otherwise, optional.  The list of valid values in this field depends on your processor.  #### Ingenico ePayments When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value   #### Card Present You must set this field to &#x60;retail&#x60;. This field is required for a card-present transaction. Note that this should ONLY be used when the cardholder and card are present at the time of the transaction. For all keyed transactions originated from a POS terminal where the cardholder and card are not present, commerceIndicator should be submitted as \&quot;moto\&quot; .</param>
         /// <param name="ProcessorId">Value that identifies the processor/acquirer to use for the transaction. This value is supported only for **CyberSource through VisaNet**.  Contact CyberSource Customer Support to get the value for this field. .</param>
         /// <param name="PaymentSolution">Type of digital payment solution for the transaction. Possible Values:   - &#x60;visacheckout&#x60;: Visa Checkout. This value is required for Visa Checkout transactions. For details, see &#x60;payment_solution&#x60; field description in [Visa Checkout Using the REST API.](https://developer.cybersource.com/content/dam/docs/cybs/en-us/apifields/reference/all/rest/api-fields.pdf)  - &#x60;001&#x60;: Apple Pay.  - &#x60;004&#x60;: Cybersource In-App Solution.  - &#x60;005&#x60;: Masterpass. This value is required for Masterpass transactions on OmniPay Direct.   - &#x60;006&#x60;: Android Pay.  - &#x60;007&#x60;: Chase Pay.  - &#x60;008&#x60;: Samsung Pay.  - &#x60;012&#x60;: Google Pay.  - &#x60;013&#x60;: Cybersource P2PE Decryption  - &#x60;014&#x60;: Mastercard credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;015&#x60;: Visa credential on file (COF) payment network token. Returned in authorizations that use a payment network token associated with a TMS token.  - &#x60;027&#x60;: Click to Pay. .</param>
@@ -54,9 +55,11 @@ namespace CyberSource.Model
         /// <param name="JapanPaymentOptions">JapanPaymentOptions.</param>
         /// <param name="RefundOptions">RefundOptions.</param>
         /// <param name="MerchantVerificationValue">The override value of the Merchant Verification Value (MVV) received by various card brands. MVV refers to the value assigned by the card brand/network to identify participation in select merchant programs.  Sample value for Visa: &#x60;101010&#x60; .</param>
-        public Ptsv2creditsProcessingInformation(List<string> ActionList = default(List<string>), string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string WalletType = default(string), string NationalNetDomesticData = default(string), string NetworkRoutingOrder = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2creditsProcessingInformationJapanPaymentOptions), Ptsv2creditsProcessingInformationRefundOptions RefundOptions = default(Ptsv2creditsProcessingInformationRefundOptions), string MerchantVerificationValue = default(string))
+        /// <param name="TransactionTypeIndicator">This field is used identify the type of payment transaction taking place. This field is applicable for MasterCard transactions only. Possible values: - 201- Mastercard Rebate - 202- rePower Load Value - 203- Gaming Re-pay - 204- General Person-to-Person - 205- General Transfer to Own Account - 206- Agent Cash Out - 207- Payment of Own Credit Card Bill - 208- Business Disbursement - 209- Government/Non-Profit Disbursement - 210- Rapid Merchant Settlement - 211- Cash in at ATM (Usage limited to specific countries) - 212- Cash in at Point of Sale (Usage limited to specific countries) - 213- General Business to Business Transfer - 214- Mastercard Merchant Presented QR - 215- Mastercard Merchant Presented QR Refund Payment - 216- Utility Payments (for Brazil domestic use only) - 217- Government Services (for Brazil domestic use only) - 218- Mobile phone top-ups (for Brazil domestic use only) - 219- Coupon booklet payments (for Brazil domestic use only) - 220- General Person-to-Person Transfer - 221- Person-to-Person Transfer to Card Account - 222- General Transfer to Own Account - 223- Agent Cash Out - 224- Payment of Own Credit Card Bill - 225- Business Disbursement - 226- Transfer to Own Staged Digital Wallet Account - 227- Transfer to Own Debit or Prepaid Account - 228- General Business-to-Business Transfer - 229- Installment-based repayment - 230- Mastercard ATM Cash Pick-Up Transaction - 231- Cryptocurrency - 232- High-risk Securities .</param>
+        public Ptsv2creditsProcessingInformation(List<string> ActionList = default(List<string>), List<string> ActionTokenTypes = default(List<string>), string CommerceIndicator = default(string), string ProcessorId = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string PurchaseLevel = default(string), string IndustryDataType = default(string), string WalletType = default(string), string NationalNetDomesticData = default(string), string NetworkRoutingOrder = default(string), Ptsv2paymentsidrefundsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsidrefundsProcessingInformationRecurringOptions), Ptsv2creditsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2creditsProcessingInformationBankTransferOptions), Ptsv2creditsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2creditsProcessingInformationPurchaseOptions), Ptsv2creditsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2creditsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), Ptsv2creditsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2creditsProcessingInformationJapanPaymentOptions), Ptsv2creditsProcessingInformationRefundOptions RefundOptions = default(Ptsv2creditsProcessingInformationRefundOptions), string MerchantVerificationValue = default(string), string TransactionTypeIndicator = default(string))
         {
             this.ActionList = ActionList;
+            this.ActionTokenTypes = ActionTokenTypes;
             this.CommerceIndicator = CommerceIndicator;
             this.ProcessorId = ProcessorId;
             this.PaymentSolution = PaymentSolution;
@@ -77,6 +80,7 @@ namespace CyberSource.Model
             this.JapanPaymentOptions = JapanPaymentOptions;
             this.RefundOptions = RefundOptions;
             this.MerchantVerificationValue = MerchantVerificationValue;
+            this.TransactionTypeIndicator = TransactionTypeIndicator;
         }
         
         /// <summary>
@@ -85,6 +89,13 @@ namespace CyberSource.Model
         /// <value>Array of actions (one or more) to be included in the payment to invoke bundled services along with Standalone Credit.  Possible values are one or more of follows:   - &#x60;DECISION_SKIP&#x60;: Use this when you want to skip Decision Manager service(s). </value>
         [DataMember(Name="actionList", EmitDefaultValue=false)]
         public List<string> ActionList { get; set; }
+
+        /// <summary>
+        /// CyberSource tokens types you are performing a create on. If not supplied the default token type for the merchants token vault will be used.  Valid values: - customer - paymentInstrument - instrumentIdentifier - shippingAddress 
+        /// </summary>
+        /// <value>CyberSource tokens types you are performing a create on. If not supplied the default token type for the merchants token vault will be used.  Valid values: - customer - paymentInstrument - instrumentIdentifier - shippingAddress </value>
+        [DataMember(Name="actionTokenTypes", EmitDefaultValue=false)]
+        public List<string> ActionTokenTypes { get; set; }
 
         /// <summary>
         /// Type of transaction. Some payment card companies use this information when determining discount rates.  #### Used by **Authorization** Required payer authentication transactions; otherwise, optional. **Credit** Required for standalone credits on Chase Paymentech solutions; otherwise, optional.  The list of valid values in this field depends on your processor.  #### Ingenico ePayments When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value   #### Card Present You must set this field to &#x60;retail&#x60;. This field is required for a card-present transaction. Note that this should ONLY be used when the cardholder and card are present at the time of the transaction. For all keyed transactions originated from a POS terminal where the cardholder and card are not present, commerceIndicator should be submitted as \&quot;moto\&quot; 
@@ -220,6 +231,13 @@ namespace CyberSource.Model
         public string MerchantVerificationValue { get; set; }
 
         /// <summary>
+        /// This field is used identify the type of payment transaction taking place. This field is applicable for MasterCard transactions only. Possible values: - 201- Mastercard Rebate - 202- rePower Load Value - 203- Gaming Re-pay - 204- General Person-to-Person - 205- General Transfer to Own Account - 206- Agent Cash Out - 207- Payment of Own Credit Card Bill - 208- Business Disbursement - 209- Government/Non-Profit Disbursement - 210- Rapid Merchant Settlement - 211- Cash in at ATM (Usage limited to specific countries) - 212- Cash in at Point of Sale (Usage limited to specific countries) - 213- General Business to Business Transfer - 214- Mastercard Merchant Presented QR - 215- Mastercard Merchant Presented QR Refund Payment - 216- Utility Payments (for Brazil domestic use only) - 217- Government Services (for Brazil domestic use only) - 218- Mobile phone top-ups (for Brazil domestic use only) - 219- Coupon booklet payments (for Brazil domestic use only) - 220- General Person-to-Person Transfer - 221- Person-to-Person Transfer to Card Account - 222- General Transfer to Own Account - 223- Agent Cash Out - 224- Payment of Own Credit Card Bill - 225- Business Disbursement - 226- Transfer to Own Staged Digital Wallet Account - 227- Transfer to Own Debit or Prepaid Account - 228- General Business-to-Business Transfer - 229- Installment-based repayment - 230- Mastercard ATM Cash Pick-Up Transaction - 231- Cryptocurrency - 232- High-risk Securities 
+        /// </summary>
+        /// <value>This field is used identify the type of payment transaction taking place. This field is applicable for MasterCard transactions only. Possible values: - 201- Mastercard Rebate - 202- rePower Load Value - 203- Gaming Re-pay - 204- General Person-to-Person - 205- General Transfer to Own Account - 206- Agent Cash Out - 207- Payment of Own Credit Card Bill - 208- Business Disbursement - 209- Government/Non-Profit Disbursement - 210- Rapid Merchant Settlement - 211- Cash in at ATM (Usage limited to specific countries) - 212- Cash in at Point of Sale (Usage limited to specific countries) - 213- General Business to Business Transfer - 214- Mastercard Merchant Presented QR - 215- Mastercard Merchant Presented QR Refund Payment - 216- Utility Payments (for Brazil domestic use only) - 217- Government Services (for Brazil domestic use only) - 218- Mobile phone top-ups (for Brazil domestic use only) - 219- Coupon booklet payments (for Brazil domestic use only) - 220- General Person-to-Person Transfer - 221- Person-to-Person Transfer to Card Account - 222- General Transfer to Own Account - 223- Agent Cash Out - 224- Payment of Own Credit Card Bill - 225- Business Disbursement - 226- Transfer to Own Staged Digital Wallet Account - 227- Transfer to Own Debit or Prepaid Account - 228- General Business-to-Business Transfer - 229- Installment-based repayment - 230- Mastercard ATM Cash Pick-Up Transaction - 231- Cryptocurrency - 232- High-risk Securities </value>
+        [DataMember(Name="transactionTypeIndicator", EmitDefaultValue=false)]
+        public string TransactionTypeIndicator { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -228,6 +246,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2creditsProcessingInformation {\n");
             if (ActionList != null) sb.Append("  ActionList: ").Append(ActionList).Append("\n");
+            if (ActionTokenTypes != null) sb.Append("  ActionTokenTypes: ").Append(ActionTokenTypes).Append("\n");
             if (CommerceIndicator != null) sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
             if (ProcessorId != null) sb.Append("  ProcessorId: ").Append(ProcessorId).Append("\n");
             if (PaymentSolution != null) sb.Append("  PaymentSolution: ").Append(PaymentSolution).Append("\n");
@@ -248,6 +267,7 @@ namespace CyberSource.Model
             if (JapanPaymentOptions != null) sb.Append("  JapanPaymentOptions: ").Append(JapanPaymentOptions).Append("\n");
             if (RefundOptions != null) sb.Append("  RefundOptions: ").Append(RefundOptions).Append("\n");
             if (MerchantVerificationValue != null) sb.Append("  MerchantVerificationValue: ").Append(MerchantVerificationValue).Append("\n");
+            if (TransactionTypeIndicator != null) sb.Append("  TransactionTypeIndicator: ").Append(TransactionTypeIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -288,6 +308,11 @@ namespace CyberSource.Model
                     this.ActionList == other.ActionList ||
                     this.ActionList != null &&
                     this.ActionList.SequenceEqual(other.ActionList)
+                ) && 
+                (
+                    this.ActionTokenTypes == other.ActionTokenTypes ||
+                    this.ActionTokenTypes != null &&
+                    this.ActionTokenTypes.SequenceEqual(other.ActionTokenTypes)
                 ) && 
                 (
                     this.CommerceIndicator == other.CommerceIndicator ||
@@ -388,6 +413,11 @@ namespace CyberSource.Model
                     this.MerchantVerificationValue == other.MerchantVerificationValue ||
                     this.MerchantVerificationValue != null &&
                     this.MerchantVerificationValue.Equals(other.MerchantVerificationValue)
+                ) && 
+                (
+                    this.TransactionTypeIndicator == other.TransactionTypeIndicator ||
+                    this.TransactionTypeIndicator != null &&
+                    this.TransactionTypeIndicator.Equals(other.TransactionTypeIndicator)
                 );
         }
 
@@ -404,6 +434,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ActionList != null)
                     hash = hash * 59 + this.ActionList.GetHashCode();
+                if (this.ActionTokenTypes != null)
+                    hash = hash * 59 + this.ActionTokenTypes.GetHashCode();
                 if (this.CommerceIndicator != null)
                     hash = hash * 59 + this.CommerceIndicator.GetHashCode();
                 if (this.ProcessorId != null)
@@ -444,6 +476,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RefundOptions.GetHashCode();
                 if (this.MerchantVerificationValue != null)
                     hash = hash * 59 + this.MerchantVerificationValue.GetHashCode();
+                if (this.TransactionTypeIndicator != null)
+                    hash = hash * 59 + this.TransactionTypeIndicator.GetHashCode();
                 return hash;
             }
         }

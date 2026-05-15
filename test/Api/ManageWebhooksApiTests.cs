@@ -147,11 +147,11 @@ namespace CyberSource.Test
         public void SaveAsymEgressKeyTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string vCSenderOrganizationId = null;
-            //string vCPermissions = null;
             //SaveAsymEgressKey saveAsymEgressKey = null;
             //string vCCorrelationId = null;
-            //var response = instance.SaveAsymEgressKey(vCSenderOrganizationId, vCPermissions, saveAsymEgressKey, vCCorrelationId);
+            //string vCSenderOrganizationId = null;
+            //string vCPermissions = null;
+            //var response = instance.SaveAsymEgressKey(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
             //Assert.IsInstanceOf<InlineResponse2018> (response, "response is InlineResponse2018");
         }
         

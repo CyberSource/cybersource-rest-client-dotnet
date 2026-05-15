@@ -34,14 +34,20 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ucv1sessionsDataProcessingInformation" /> class.
         /// </summary>
         /// <param name="ReconciliationId">The reconciliation ID.</param>
+        /// <param name="PurposeOfPayment">This field is applicable for AFT and OCT transactions.  For list of supported values, please refer to Developer Guide. .</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
+        /// <param name="RecurringOptions">RecurringOptions.</param>
+        /// <param name="BankTransferOptions">BankTransferOptions.</param>
         /// <param name="BusinessApplicationId">The business application Id&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="CommerceIndicator">The commerce indicator&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="ProcessingInstruction">The processing instruction&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        public Ucv1sessionsDataProcessingInformation(string ReconciliationId = default(string), Ucv1sessionsDataProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ucv1sessionsDataProcessingInformationAuthorizationOptions), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string ProcessingInstruction = default(string))
+        public Ucv1sessionsDataProcessingInformation(string ReconciliationId = default(string), string PurposeOfPayment = default(string), Ucv1sessionsDataProcessingInformationAuthorizationOptions AuthorizationOptions = default(Ucv1sessionsDataProcessingInformationAuthorizationOptions), Ucv1sessionsDataProcessingInformationRecurringOptions RecurringOptions = default(Ucv1sessionsDataProcessingInformationRecurringOptions), Ucv1sessionsDataProcessingInformationBankTransferOptions BankTransferOptions = default(Ucv1sessionsDataProcessingInformationBankTransferOptions), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string ProcessingInstruction = default(string))
         {
             this.ReconciliationId = ReconciliationId;
+            this.PurposeOfPayment = PurposeOfPayment;
             this.AuthorizationOptions = AuthorizationOptions;
+            this.RecurringOptions = RecurringOptions;
+            this.BankTransferOptions = BankTransferOptions;
             this.BusinessApplicationId = BusinessApplicationId;
             this.CommerceIndicator = CommerceIndicator;
             this.ProcessingInstruction = ProcessingInstruction;
@@ -55,10 +61,29 @@ namespace CyberSource.Model
         public string ReconciliationId { get; set; }
 
         /// <summary>
+        /// This field is applicable for AFT and OCT transactions.  For list of supported values, please refer to Developer Guide. 
+        /// </summary>
+        /// <value>This field is applicable for AFT and OCT transactions.  For list of supported values, please refer to Developer Guide. </value>
+        [DataMember(Name="purposeOfPayment", EmitDefaultValue=false)]
+        public string PurposeOfPayment { get; set; }
+
+        /// <summary>
         /// Gets or Sets AuthorizationOptions
         /// </summary>
         [DataMember(Name="authorizationOptions", EmitDefaultValue=false)]
         public Ucv1sessionsDataProcessingInformationAuthorizationOptions AuthorizationOptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecurringOptions
+        /// </summary>
+        [DataMember(Name="recurringOptions", EmitDefaultValue=false)]
+        public Ucv1sessionsDataProcessingInformationRecurringOptions RecurringOptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BankTransferOptions
+        /// </summary>
+        [DataMember(Name="bankTransferOptions", EmitDefaultValue=false)]
+        public Ucv1sessionsDataProcessingInformationBankTransferOptions BankTransferOptions { get; set; }
 
         /// <summary>
         /// The business application Id&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. 
@@ -90,7 +115,10 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ucv1sessionsDataProcessingInformation {\n");
             if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(ReconciliationId).Append("\n");
+            if (PurposeOfPayment != null) sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
             if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(AuthorizationOptions).Append("\n");
+            if (RecurringOptions != null) sb.Append("  RecurringOptions: ").Append(RecurringOptions).Append("\n");
+            if (BankTransferOptions != null) sb.Append("  BankTransferOptions: ").Append(BankTransferOptions).Append("\n");
             if (BusinessApplicationId != null) sb.Append("  BusinessApplicationId: ").Append(BusinessApplicationId).Append("\n");
             if (CommerceIndicator != null) sb.Append("  CommerceIndicator: ").Append(CommerceIndicator).Append("\n");
             if (ProcessingInstruction != null) sb.Append("  ProcessingInstruction: ").Append(ProcessingInstruction).Append("\n");
@@ -136,9 +164,24 @@ namespace CyberSource.Model
                     this.ReconciliationId.Equals(other.ReconciliationId)
                 ) && 
                 (
+                    this.PurposeOfPayment == other.PurposeOfPayment ||
+                    this.PurposeOfPayment != null &&
+                    this.PurposeOfPayment.Equals(other.PurposeOfPayment)
+                ) && 
+                (
                     this.AuthorizationOptions == other.AuthorizationOptions ||
                     this.AuthorizationOptions != null &&
                     this.AuthorizationOptions.Equals(other.AuthorizationOptions)
+                ) && 
+                (
+                    this.RecurringOptions == other.RecurringOptions ||
+                    this.RecurringOptions != null &&
+                    this.RecurringOptions.Equals(other.RecurringOptions)
+                ) && 
+                (
+                    this.BankTransferOptions == other.BankTransferOptions ||
+                    this.BankTransferOptions != null &&
+                    this.BankTransferOptions.Equals(other.BankTransferOptions)
                 ) && 
                 (
                     this.BusinessApplicationId == other.BusinessApplicationId ||
@@ -170,8 +213,14 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ReconciliationId != null)
                     hash = hash * 59 + this.ReconciliationId.GetHashCode();
+                if (this.PurposeOfPayment != null)
+                    hash = hash * 59 + this.PurposeOfPayment.GetHashCode();
                 if (this.AuthorizationOptions != null)
                     hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
+                if (this.RecurringOptions != null)
+                    hash = hash * 59 + this.RecurringOptions.GetHashCode();
+                if (this.BankTransferOptions != null)
+                    hash = hash * 59 + this.BankTransferOptions.GetHashCode();
                 if (this.BusinessApplicationId != null)
                     hash = hash * 59 + this.BusinessApplicationId.GetHashCode();
                 if (this.CommerceIndicator != null)

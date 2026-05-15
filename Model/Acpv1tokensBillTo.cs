@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Consumer billing information.
+    /// Consumer billing information.  Required during card enrollment to identify the cardholder.
     /// </summary>
     [DataContract]
     public partial class Acpv1tokensBillTo :  IEquatable<Acpv1tokensBillTo>, IValidatableObject

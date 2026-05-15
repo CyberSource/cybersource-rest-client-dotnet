@@ -128,6 +128,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ResponseDetails'
         }
+        /// <summary>
+        /// Test the property 'Customer'
+        /// </summary>
+        [Test]
+        public void CustomerTest()
+        {
+            // TODO unit test for the property 'Customer'
+        }
+        /// <summary>
+        /// Test the property 'ElectronicVerificationResults'
+        /// </summary>
+        [Test]
+        public void ElectronicVerificationResultsTest()
+        {
+            // TODO unit test for the property 'ElectronicVerificationResults'
+        }
+        /// <summary>
+        /// Test the property 'CardVerification'
+        /// </summary>
+        [Test]
+        public void CardVerificationTest()
+        {
+            // TODO unit test for the property 'CardVerification'
+        }
 
     }
 

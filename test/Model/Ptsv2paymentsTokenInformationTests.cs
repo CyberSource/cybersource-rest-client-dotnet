@@ -112,6 +112,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TokenProvisioningInformation'
         }
+        /// <summary>
+        /// Test the property 'ClientCorrelationId'
+        /// </summary>
+        [Test]
+        public void ClientCorrelationIdTest()
+        {
+            // TODO unit test for the property 'ClientCorrelationId'
+        }
+        /// <summary>
+        /// Test the property 'TokenAuthenticationInformation'
+        /// </summary>
+        [Test]
+        public void TokenAuthenticationInformationTest()
+        {
+            // TODO unit test for the property 'TokenAuthenticationInformation'
+        }
 
     }
 

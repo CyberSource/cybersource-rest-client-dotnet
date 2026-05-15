@@ -45,7 +45,9 @@ namespace CyberSource.Model
         /// <param name="PaymentType">PaymentType.</param>
         /// <param name="EWallet">EWallet.</param>
         /// <param name="PaymentAccountReference">PaymentAccountReference.</param>
-        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsidrefundsPaymentInformationBank Bank = default(Ptsv2paymentsidrefundsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsidrefundsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsidrefundsPaymentInformationPaymentType), Ptsv2paymentsidrefundsPaymentInformationEWallet EWallet = default(Ptsv2paymentsidrefundsPaymentInformationEWallet), Ptsv2paymentsPaymentInformationPaymentAccountReference PaymentAccountReference = default(Ptsv2paymentsPaymentInformationPaymentAccountReference))
+        /// <param name="ThirdPartyToken">ThirdPartyToken.</param>
+        /// <param name="InitiationChannel">Mastercard-defined code that indicates how the account information was obtained for credit authorization transactions.  Possible values: - &#x60;00&#x60;: Card (default) - &#x60;01&#x60;: Mobile network operator (MNO) controlled removable secure element (SIM or UICC) personalized for use with a mobile phone or smartphone - &#x60;02&#x60;: Key fob - &#x60;03&#x60;: Watch - &#x60;04&#x60;: Mobile tag - &#x60;05&#x60;: Wristband - &#x60;06&#x60;: Mobile phone case or sleeve - &#x60;07&#x60;: Mobile phone or smartphone with fixed (nonremovable) secure element controlled by the MNO (for example, code division multiple access (CDMA)) - &#x60;08&#x60;: Removable secure element not controlled by the MNO (for example, memory card personalized for use with a mobile phone or smartphone) - &#x60;09&#x60;: Mobile phone or smartphone with a fixed (nonremovable) secure element not controlled by the MNO - &#x60;10&#x60;: MNO-controlled removable secure element (SIM or UICC) personalized for use with a tablet or e-book - &#x60;11&#x60;: Tablet or e-book with a fixed (nonremovable) secure element controlled by the MNO - &#x60;12&#x60;: Removable secure element not controlled by the MNO (for example, memory card personalized for use with a tablet or e-book) - &#x60;13&#x60;: Tablet or e-book with fixed (nonremovable) secure element not controlled by the MNO - &#x60;14&#x60; - &#x60;99&#x60;: Reserved for future use  This field flows in ISO Field 104 DSID 65 Tag 04.  This field is supported for Mastercard credit authorization transactions.  #### Used by **Credit Authorization (Standalone)** Optional field. .</param>
+        public Ptsv2paymentsidrefundsPaymentInformation(Ptsv2paymentsidrefundsPaymentInformationCard Card = default(Ptsv2paymentsidrefundsPaymentInformationCard), Ptsv2paymentsidrefundsPaymentInformationBank Bank = default(Ptsv2paymentsidrefundsPaymentInformationBank), Ptsv2paymentsPaymentInformationTokenizedCard TokenizedCard = default(Ptsv2paymentsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationFluidData FluidData = default(Ptsv2paymentsPaymentInformationFluidData), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationPaymentInstrument PaymentInstrument = default(Ptsv2paymentsPaymentInformationPaymentInstrument), Ptsv2paymentsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Ptsv2paymentsPaymentInformationInstrumentIdentifier), Ptsv2paymentsPaymentInformationShippingAddress ShippingAddress = default(Ptsv2paymentsPaymentInformationShippingAddress), Ptsv2paymentsPaymentInformationLegacyToken LegacyToken = default(Ptsv2paymentsPaymentInformationLegacyToken), Ptsv2paymentsidrefundsPaymentInformationPaymentType PaymentType = default(Ptsv2paymentsidrefundsPaymentInformationPaymentType), Ptsv2paymentsidrefundsPaymentInformationEWallet EWallet = default(Ptsv2paymentsidrefundsPaymentInformationEWallet), Ptsv2paymentsPaymentInformationPaymentAccountReference PaymentAccountReference = default(Ptsv2paymentsPaymentInformationPaymentAccountReference), Ptsv2paymentsPaymentInformationThirdPartyToken ThirdPartyToken = default(Ptsv2paymentsPaymentInformationThirdPartyToken), string InitiationChannel = default(string))
         {
             this.Card = Card;
             this.Bank = Bank;
@@ -59,6 +61,8 @@ namespace CyberSource.Model
             this.PaymentType = PaymentType;
             this.EWallet = EWallet;
             this.PaymentAccountReference = PaymentAccountReference;
+            this.ThirdPartyToken = ThirdPartyToken;
+            this.InitiationChannel = InitiationChannel;
         }
         
         /// <summary>
@@ -134,6 +138,19 @@ namespace CyberSource.Model
         public Ptsv2paymentsPaymentInformationPaymentAccountReference PaymentAccountReference { get; set; }
 
         /// <summary>
+        /// Gets or Sets ThirdPartyToken
+        /// </summary>
+        [DataMember(Name="thirdPartyToken", EmitDefaultValue=false)]
+        public Ptsv2paymentsPaymentInformationThirdPartyToken ThirdPartyToken { get; set; }
+
+        /// <summary>
+        /// Mastercard-defined code that indicates how the account information was obtained for credit authorization transactions.  Possible values: - &#x60;00&#x60;: Card (default) - &#x60;01&#x60;: Mobile network operator (MNO) controlled removable secure element (SIM or UICC) personalized for use with a mobile phone or smartphone - &#x60;02&#x60;: Key fob - &#x60;03&#x60;: Watch - &#x60;04&#x60;: Mobile tag - &#x60;05&#x60;: Wristband - &#x60;06&#x60;: Mobile phone case or sleeve - &#x60;07&#x60;: Mobile phone or smartphone with fixed (nonremovable) secure element controlled by the MNO (for example, code division multiple access (CDMA)) - &#x60;08&#x60;: Removable secure element not controlled by the MNO (for example, memory card personalized for use with a mobile phone or smartphone) - &#x60;09&#x60;: Mobile phone or smartphone with a fixed (nonremovable) secure element not controlled by the MNO - &#x60;10&#x60;: MNO-controlled removable secure element (SIM or UICC) personalized for use with a tablet or e-book - &#x60;11&#x60;: Tablet or e-book with a fixed (nonremovable) secure element controlled by the MNO - &#x60;12&#x60;: Removable secure element not controlled by the MNO (for example, memory card personalized for use with a tablet or e-book) - &#x60;13&#x60;: Tablet or e-book with fixed (nonremovable) secure element not controlled by the MNO - &#x60;14&#x60; - &#x60;99&#x60;: Reserved for future use  This field flows in ISO Field 104 DSID 65 Tag 04.  This field is supported for Mastercard credit authorization transactions.  #### Used by **Credit Authorization (Standalone)** Optional field. 
+        /// </summary>
+        /// <value>Mastercard-defined code that indicates how the account information was obtained for credit authorization transactions.  Possible values: - &#x60;00&#x60;: Card (default) - &#x60;01&#x60;: Mobile network operator (MNO) controlled removable secure element (SIM or UICC) personalized for use with a mobile phone or smartphone - &#x60;02&#x60;: Key fob - &#x60;03&#x60;: Watch - &#x60;04&#x60;: Mobile tag - &#x60;05&#x60;: Wristband - &#x60;06&#x60;: Mobile phone case or sleeve - &#x60;07&#x60;: Mobile phone or smartphone with fixed (nonremovable) secure element controlled by the MNO (for example, code division multiple access (CDMA)) - &#x60;08&#x60;: Removable secure element not controlled by the MNO (for example, memory card personalized for use with a mobile phone or smartphone) - &#x60;09&#x60;: Mobile phone or smartphone with a fixed (nonremovable) secure element not controlled by the MNO - &#x60;10&#x60;: MNO-controlled removable secure element (SIM or UICC) personalized for use with a tablet or e-book - &#x60;11&#x60;: Tablet or e-book with a fixed (nonremovable) secure element controlled by the MNO - &#x60;12&#x60;: Removable secure element not controlled by the MNO (for example, memory card personalized for use with a tablet or e-book) - &#x60;13&#x60;: Tablet or e-book with fixed (nonremovable) secure element not controlled by the MNO - &#x60;14&#x60; - &#x60;99&#x60;: Reserved for future use  This field flows in ISO Field 104 DSID 65 Tag 04.  This field is supported for Mastercard credit authorization transactions.  #### Used by **Credit Authorization (Standalone)** Optional field. </value>
+        [DataMember(Name="initiationChannel", EmitDefaultValue=false)]
+        public string InitiationChannel { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -153,6 +170,8 @@ namespace CyberSource.Model
             if (PaymentType != null) sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             if (EWallet != null) sb.Append("  EWallet: ").Append(EWallet).Append("\n");
             if (PaymentAccountReference != null) sb.Append("  PaymentAccountReference: ").Append(PaymentAccountReference).Append("\n");
+            if (ThirdPartyToken != null) sb.Append("  ThirdPartyToken: ").Append(ThirdPartyToken).Append("\n");
+            if (InitiationChannel != null) sb.Append("  InitiationChannel: ").Append(InitiationChannel).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -248,6 +267,16 @@ namespace CyberSource.Model
                     this.PaymentAccountReference == other.PaymentAccountReference ||
                     this.PaymentAccountReference != null &&
                     this.PaymentAccountReference.Equals(other.PaymentAccountReference)
+                ) && 
+                (
+                    this.ThirdPartyToken == other.ThirdPartyToken ||
+                    this.ThirdPartyToken != null &&
+                    this.ThirdPartyToken.Equals(other.ThirdPartyToken)
+                ) && 
+                (
+                    this.InitiationChannel == other.InitiationChannel ||
+                    this.InitiationChannel != null &&
+                    this.InitiationChannel.Equals(other.InitiationChannel)
                 );
         }
 
@@ -286,6 +315,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EWallet.GetHashCode();
                 if (this.PaymentAccountReference != null)
                     hash = hash * 59 + this.PaymentAccountReference.GetHashCode();
+                if (this.ThirdPartyToken != null)
+                    hash = hash * 59 + this.ThirdPartyToken.GetHashCode();
+                if (this.InitiationChannel != null)
+                    hash = hash * 59 + this.InitiationChannel.GetHashCode();
                 return hash;
             }
         }

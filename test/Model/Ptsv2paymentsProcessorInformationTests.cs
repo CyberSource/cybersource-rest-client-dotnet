@@ -97,12 +97,36 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Network'
         }
         /// <summary>
+        /// Test the property 'AuthApprovalToken'
+        /// </summary>
+        [Test]
+        public void AuthApprovalTokenTest()
+        {
+            // TODO unit test for the property 'AuthApprovalToken'
+        }
+        /// <summary>
+        /// Test the property 'SupplementaryTransactionData'
+        /// </summary>
+        [Test]
+        public void SupplementaryTransactionDataTest()
+        {
+            // TODO unit test for the property 'SupplementaryTransactionData'
+        }
+        /// <summary>
         /// Test the property 'ResponseSourceCode'
         /// </summary>
         [Test]
         public void ResponseSourceCodeTest()
         {
             // TODO unit test for the property 'ResponseSourceCode'
+        }
+        /// <summary>
+        /// Test the property 'CedpVerifiedIndicator'
+        /// </summary>
+        [Test]
+        public void CedpVerifiedIndicatorTest()
+        {
+            // TODO unit test for the property 'CedpVerifiedIndicator'
         }
 
     }

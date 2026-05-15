@@ -73,6 +73,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ForegroundColor'
         }
         /// <summary>
+        /// Test the property 'BackgroundColor'
+        /// </summary>
+        [Test]
+        public void BackgroundColorTest()
+        {
+            // TODO unit test for the property 'BackgroundColor'
+        }
+        /// <summary>
+        /// Test the property 'LabelColor'
+        /// </summary>
+        [Test]
+        public void LabelColorTest()
+        {
+            // TODO unit test for the property 'LabelColor'
+        }
+        /// <summary>
         /// Test the property 'CombinedAsset'
         /// </summary>
         [Test]

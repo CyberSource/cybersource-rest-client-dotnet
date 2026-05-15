@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="ChallengeCode">The challenge code&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="MessageCategory">The message category&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="AcsWindowSize">The acs window size&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        public Ucv1sessionsDataConsumerAuthenticationInformation(string ChallengeCode = default(string), string MessageCategory = default(string), string AcsWindowSize = default(string))
+        /// <param name="ProductCode">Specifies the product code, which designates the type of transaction.&lt;br&gt;&lt;br&gt;  Specify one of the following values for this field:  - AIR: Airline purchase  Important Required for American Express SafeKey (U.S.).  - ACC: Accommodation Rental  - ACF: Account funding  - CHA: Check acceptance  - DIG: Digital Goods  - DSP: Cash Dispensing  - GAS: Fuel  - GEN: General Retail  - LUX: Luxury Retail  - PAL: Prepaid activation and load  - PHY: Goods or services purchase  - QCT: Quasi-cash transaction  - REN: Car Rental  - RES: Restaurant  - SVC: Services  - TBD: Other  - TRA: Travel&lt;br&gt;  **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
+        public Ucv1sessionsDataConsumerAuthenticationInformation(string ChallengeCode = default(string), string MessageCategory = default(string), string AcsWindowSize = default(string), string ProductCode = default(string))
         {
             this.ChallengeCode = ChallengeCode;
             this.MessageCategory = MessageCategory;
             this.AcsWindowSize = AcsWindowSize;
+            this.ProductCode = ProductCode;
         }
         
         /// <summary>
@@ -65,6 +67,13 @@ namespace CyberSource.Model
         public string AcsWindowSize { get; set; }
 
         /// <summary>
+        /// Specifies the product code, which designates the type of transaction.&lt;br&gt;&lt;br&gt;  Specify one of the following values for this field:  - AIR: Airline purchase  Important Required for American Express SafeKey (U.S.).  - ACC: Accommodation Rental  - ACF: Account funding  - CHA: Check acceptance  - DIG: Digital Goods  - DSP: Cash Dispensing  - GAS: Fuel  - GEN: General Retail  - LUX: Luxury Retail  - PAL: Prepaid activation and load  - PHY: Goods or services purchase  - QCT: Quasi-cash transaction  - REN: Car Rental  - RES: Restaurant  - SVC: Services  - TBD: Other  - TRA: Travel&lt;br&gt;  **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. 
+        /// </summary>
+        /// <value>Specifies the product code, which designates the type of transaction.&lt;br&gt;&lt;br&gt;  Specify one of the following values for this field:  - AIR: Airline purchase  Important Required for American Express SafeKey (U.S.).  - ACC: Accommodation Rental  - ACF: Account funding  - CHA: Check acceptance  - DIG: Digital Goods  - DSP: Cash Dispensing  - GAS: Fuel  - GEN: General Retail  - LUX: Luxury Retail  - PAL: Prepaid activation and load  - PHY: Goods or services purchase  - QCT: Quasi-cash transaction  - REN: Car Rental  - RES: Restaurant  - SVC: Services  - TBD: Other  - TRA: Travel&lt;br&gt;  **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. </value>
+        [DataMember(Name="productCode", EmitDefaultValue=false)]
+        public string ProductCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +84,7 @@ namespace CyberSource.Model
             if (ChallengeCode != null) sb.Append("  ChallengeCode: ").Append(ChallengeCode).Append("\n");
             if (MessageCategory != null) sb.Append("  MessageCategory: ").Append(MessageCategory).Append("\n");
             if (AcsWindowSize != null) sb.Append("  AcsWindowSize: ").Append(AcsWindowSize).Append("\n");
+            if (ProductCode != null) sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +135,11 @@ namespace CyberSource.Model
                     this.AcsWindowSize == other.AcsWindowSize ||
                     this.AcsWindowSize != null &&
                     this.AcsWindowSize.Equals(other.AcsWindowSize)
+                ) && 
+                (
+                    this.ProductCode == other.ProductCode ||
+                    this.ProductCode != null &&
+                    this.ProductCode.Equals(other.ProductCode)
                 );
         }
 
@@ -145,6 +160,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MessageCategory.GetHashCode();
                 if (this.AcsWindowSize != null)
                     hash = hash * 59 + this.AcsWindowSize.GetHashCode();
+                if (this.ProductCode != null)
+                    hash = hash * 59 + this.ProductCode.GetHashCode();
                 return hash;
             }
         }

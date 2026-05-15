@@ -33,12 +33,14 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4007" /> class.
         /// </summary>
-        /// <param name="Status">The http status description of the submitted request..</param>
-        /// <param name="Reason">Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39;   - &#39;SYSTEM_ERROR&#39;   - &#39;RESOURCE_NOT_FOUND&#39; .</param>
-        /// <param name="Message">Descriptive message for the error..</param>
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - INVALID_MERCHANT_CONFIGURATION .</param>
+        /// <param name="Message">The detail message related to the status and reason listed above..</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse4007(string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse4007Details> Details = default(List<InlineResponse4007Details>))
+        public InlineResponse4007(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
+            this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
             this.Reason = Reason;
             this.Message = Message;
@@ -46,30 +48,30 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
         [DataMember(Name="submitTimeUtc", EmitDefaultValue=false)]
-        public DateTime? SubmitTimeUtc { get; private set; }
+        public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The http status description of the submitted request.
+        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
         /// </summary>
-        /// <value>The http status description of the submitted request.</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
         /// <summary>
-        /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39;   - &#39;SYSTEM_ERROR&#39;   - &#39;RESOURCE_NOT_FOUND&#39; 
+        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - INVALID_MERCHANT_CONFIGURATION 
         /// </summary>
-        /// <value>Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39;   - &#39;SYSTEM_ERROR&#39;   - &#39;RESOURCE_NOT_FOUND&#39; </value>
+        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - INVALID_MERCHANT_CONFIGURATION </value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 
         /// <summary>
-        /// Descriptive message for the error.
+        /// The detail message related to the status and reason listed above.
         /// </summary>
-        /// <value>Descriptive message for the error.</value>
+        /// <value>The detail message related to the status and reason listed above.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 
@@ -77,7 +79,7 @@ namespace CyberSource.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name="details", EmitDefaultValue=false)]
-        public List<InlineResponse4007Details> Details { get; set; }
+        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

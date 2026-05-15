@@ -93,7 +93,8 @@ namespace CyberSource.Model
         /// <param name="SignedPares">Payer authentication result (PARes) message returned by the card-issuing bank. If you need to show proof of enrollment checking, you may need to decrypt and parse the string for the information required by the payment card company. For more information, see \&quot;Storing Payer Authentication Data,\&quot; page 160. Important The value is in base64. You must remove all carriage returns and line feeds before adding the PARes to the request. .</param>
         /// <param name="AcsReferenceNumber">Unique identifier assigned by the EMVCo Secretariat upon Testing and Approval..</param>
         /// <param name="DsReferenceNumber">EMVCo-assigned unique identifier. This field is required in Cardholder Initiated 3DS fully authenticated mada transactions. When you request the payer authentication and authorization services separately, get the value for this field from the payerAuthEnrollReply_dsReferenceNumber or payerAuthValidateReply_dsReferenceNumber response field. .</param>
-        public Ptsv2paymentsConsumerAuthenticationInformation(string Cavv = default(string), string TransactionFlowIndicator = default(string), string CavvAlgorithm = default(string), string EciRaw = default(string), string ParesStatus = default(string), string VeresEnrolled = default(string), string Xid = default(string), string UcafCollectionIndicator = default(string), string UcafAuthenticationData = default(string), Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication), string DirectoryServerTransactionId = default(string), string PaSpecificationVersion = default(string), string AuthenticationType = default(string), string ResponseAccessToken = default(string), string AcsTransactionId = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NetworkScore = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string ReturnUrl = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string), string AuthenticationBrand = default(string), string EffectiveAuthenticationType = default(string), string SignedParesStatusReason = default(string), string SignedPares = default(string), string AcsReferenceNumber = default(string), string DsReferenceNumber = default(string))
+        /// <param name="ScoreRequest">Risk Assessment from Mastercard. This is to be sent by merchant if they would like to request a score.</param>
+        public Ptsv2paymentsConsumerAuthenticationInformation(string Cavv = default(string), string TransactionFlowIndicator = default(string), string CavvAlgorithm = default(string), string EciRaw = default(string), string ParesStatus = default(string), string VeresEnrolled = default(string), string Xid = default(string), string UcafCollectionIndicator = default(string), string UcafAuthenticationData = default(string), Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication StrongAuthentication = default(Ptsv2paymentsConsumerAuthenticationInformationStrongAuthentication), string DirectoryServerTransactionId = default(string), string PaSpecificationVersion = default(string), string AuthenticationType = default(string), string ResponseAccessToken = default(string), string AcsTransactionId = default(string), string AcsWindowSize = default(string), string AlternateAuthenticationData = default(string), string AlternateAuthenticationDate = default(string), string AlternateAuthenticationMethod = default(string), string AuthenticationDate = default(string), string AuthenticationTransactionId = default(string), string ChallengeCancelCode = default(string), string ChallengeCode = default(string), string ChallengeStatus = default(string), string CustomerCardAlias = default(string), string DecoupledAuthenticationIndicator = default(string), string DecoupledAuthenticationMaxTime = default(string), bool? DefaultCard = default(bool?), string DeviceChannel = default(string), int? InstallmentTotalCount = default(int?), string MerchantFraudRate = default(string), bool? MarketingOptIn = default(bool?), string MarketingSource = default(string), string Mcc = default(string), int? MerchantScore = default(int?), string MessageCategory = default(string), string NetworkScore = default(string), string NpaCode = default(string), string OverridePaymentMethod = default(string), string OverrideCountryCode = default(string), string PriorAuthenticationData = default(string), string PriorAuthenticationMethod = default(string), string PriorAuthenticationReferenceId = default(string), string PriorAuthenticationTime = default(string), string ProductCode = default(string), string ReturnUrl = default(string), string RequestorId = default(string), string RequestorInitiatedAuthenticationIndicator = default(string), string RequestorName = default(string), string ReferenceId = default(string), string SdkMaxTimeout = default(string), string SecureCorporatePaymentIndicator = default(string), string TransactionMode = default(string), string WhiteListStatus = default(string), string AuthenticationBrand = default(string), string EffectiveAuthenticationType = default(string), string SignedParesStatusReason = default(string), string SignedPares = default(string), string AcsReferenceNumber = default(string), string DsReferenceNumber = default(string), int? ScoreRequest = default(int?))
         {
             this.Cavv = Cavv;
             this.TransactionFlowIndicator = TransactionFlowIndicator;
@@ -155,6 +156,7 @@ namespace CyberSource.Model
             this.SignedPares = SignedPares;
             this.AcsReferenceNumber = AcsReferenceNumber;
             this.DsReferenceNumber = DsReferenceNumber;
+            this.ScoreRequest = ScoreRequest;
         }
         
         /// <summary>
@@ -577,6 +579,13 @@ namespace CyberSource.Model
         public string DsReferenceNumber { get; set; }
 
         /// <summary>
+        /// Risk Assessment from Mastercard. This is to be sent by merchant if they would like to request a score
+        /// </summary>
+        /// <value>Risk Assessment from Mastercard. This is to be sent by merchant if they would like to request a score</value>
+        [DataMember(Name="scoreRequest", EmitDefaultValue=false)]
+        public int? ScoreRequest { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -644,6 +653,7 @@ namespace CyberSource.Model
             if (SignedPares != null) sb.Append("  SignedPares: ").Append(SignedPares).Append("\n");
             if (AcsReferenceNumber != null) sb.Append("  AcsReferenceNumber: ").Append(AcsReferenceNumber).Append("\n");
             if (DsReferenceNumber != null) sb.Append("  DsReferenceNumber: ").Append(DsReferenceNumber).Append("\n");
+            if (ScoreRequest != null) sb.Append("  ScoreRequest: ").Append(ScoreRequest).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -979,6 +989,11 @@ namespace CyberSource.Model
                     this.DsReferenceNumber == other.DsReferenceNumber ||
                     this.DsReferenceNumber != null &&
                     this.DsReferenceNumber.Equals(other.DsReferenceNumber)
+                ) && 
+                (
+                    this.ScoreRequest == other.ScoreRequest ||
+                    this.ScoreRequest != null &&
+                    this.ScoreRequest.Equals(other.ScoreRequest)
                 );
         }
 
@@ -1113,6 +1128,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AcsReferenceNumber.GetHashCode();
                 if (this.DsReferenceNumber != null)
                     hash = hash * 59 + this.DsReferenceNumber.GetHashCode();
+                if (this.ScoreRequest != null)
+                    hash = hash * 59 + this.ScoreRequest.GetHashCode();
                 return hash;
             }
         }

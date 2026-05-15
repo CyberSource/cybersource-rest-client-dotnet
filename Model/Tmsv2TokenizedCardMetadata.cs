@@ -54,6 +54,13 @@ namespace CyberSource.Model
         public Tmsv2TokenizedCardMetadataIssuer Issuer { get; set; }
 
         /// <summary>
+        /// The creator of the Tokenized Card.
+        /// </summary>
+        /// <value>The creator of the Tokenized Card.</value>
+        [DataMember(Name="creator", EmitDefaultValue=false)]
+        public string Creator { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +70,7 @@ namespace CyberSource.Model
             sb.Append("class Tmsv2TokenizedCardMetadata {\n");
             if (CardArt != null) sb.Append("  CardArt: ").Append(CardArt).Append("\n");
             if (Issuer != null) sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            if (Creator != null) sb.Append("  Creator: ").Append(Creator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +116,11 @@ namespace CyberSource.Model
                     this.Issuer == other.Issuer ||
                     this.Issuer != null &&
                     this.Issuer.Equals(other.Issuer)
+                ) && 
+                (
+                    this.Creator == other.Creator ||
+                    this.Creator != null &&
+                    this.Creator.Equals(other.Creator)
                 );
         }
 
@@ -126,6 +139,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CardArt.GetHashCode();
                 if (this.Issuer != null)
                     hash = hash * 59 + this.Issuer.GetHashCode();
+                if (this.Creator != null)
+                    hash = hash * 59 + this.Creator.GetHashCode();
                 return hash;
             }
         }

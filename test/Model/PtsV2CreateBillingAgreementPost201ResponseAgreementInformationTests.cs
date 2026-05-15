@@ -89,6 +89,46 @@ namespace CyberSource.Test
             // TODO unit test for the property 'DateCreated'
         }
         /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'Frequency'
+        /// </summary>
+        [Test]
+        public void FrequencyTest()
+        {
+            // TODO unit test for the property 'Frequency'
+        }
+        /// <summary>
+        /// Test the property 'OccurrencesPerPeriod'
+        /// </summary>
+        [Test]
+        public void OccurrencesPerPeriodTest()
+        {
+            // TODO unit test for the property 'OccurrencesPerPeriod'
+        }
+        /// <summary>
+        /// Test the property 'StartDate'
+        /// </summary>
+        [Test]
+        public void StartDateTest()
+        {
+            // TODO unit test for the property 'StartDate'
+        }
+        /// <summary>
+        /// Test the property 'EndDate'
+        /// </summary>
+        [Test]
+        public void EndDateTest()
+        {
+            // TODO unit test for the property 'EndDate'
+        }
+        /// <summary>
         /// Test the property 'EncodedHtml'
         /// </summary>
         [Test]

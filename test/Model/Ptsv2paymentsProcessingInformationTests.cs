@@ -408,6 +408,46 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'OriginalPaymentId'
         }
+        /// <summary>
+        /// Test the property 'AmexIndirectModelType'
+        /// </summary>
+        [Test]
+        public void AmexIndirectModelTypeTest()
+        {
+            // TODO unit test for the property 'AmexIndirectModelType'
+        }
+        /// <summary>
+        /// Test the property 'WalletTransactionIntent'
+        /// </summary>
+        [Test]
+        public void WalletTransactionIntentTest()
+        {
+            // TODO unit test for the property 'WalletTransactionIntent'
+        }
+        /// <summary>
+        /// Test the property 'DestinationType'
+        /// </summary>
+        [Test]
+        public void DestinationTypeTest()
+        {
+            // TODO unit test for the property 'DestinationType'
+        }
+        /// <summary>
+        /// Test the property 'ProgramIndicators'
+        /// </summary>
+        [Test]
+        public void ProgramIndicatorsTest()
+        {
+            // TODO unit test for the property 'ProgramIndicators'
+        }
+        /// <summary>
+        /// Test the property 'InquiryType'
+        /// </summary>
+        [Test]
+        public void InquiryTypeTest()
+        {
+            // TODO unit test for the property 'InquiryType'
+        }
 
     }
 

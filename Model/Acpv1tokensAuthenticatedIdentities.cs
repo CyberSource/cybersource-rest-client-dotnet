@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Authenticated Identities data.
+    /// Authenticated Identities data. Contains the identity assertion from the authentication provider.
     /// </summary>
     [DataContract]
     public partial class Acpv1tokensAuthenticatedIdentities :  IEquatable<Acpv1tokensAuthenticatedIdentities>, IValidatableObject

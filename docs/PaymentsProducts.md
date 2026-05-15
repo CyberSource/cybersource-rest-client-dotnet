@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **ReceivablesManager** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 **ServiceFee** | [**PaymentsProductsServiceFee**](PaymentsProductsServiceFee.md) |  | [optional] 
 **BatchUpload** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
+**TransactGuard** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
+**Microform** | [**PaymentsProductsMicroform**](PaymentsProductsMicroform.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

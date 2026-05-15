@@ -53,6 +53,20 @@ namespace CyberSource.Model
         public string ForegroundColor { get; private set; }
 
         /// <summary>
+        /// Card background color. 
+        /// </summary>
+        /// <value>Card background color. </value>
+        [DataMember(Name="backgroundColor", EmitDefaultValue=false)]
+        public string BackgroundColor { get; private set; }
+
+        /// <summary>
+        /// Card label color. 
+        /// </summary>
+        /// <value>Card label color. </value>
+        [DataMember(Name="labelColor", EmitDefaultValue=false)]
+        public string LabelColor { get; private set; }
+
+        /// <summary>
         /// Gets or Sets CombinedAsset
         /// </summary>
         [DataMember(Name="combinedAsset", EmitDefaultValue=false)]
@@ -85,6 +99,8 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class TmsCardArt {\n");
             if (ForegroundColor != null) sb.Append("  ForegroundColor: ").Append(ForegroundColor).Append("\n");
+            if (BackgroundColor != null) sb.Append("  BackgroundColor: ").Append(BackgroundColor).Append("\n");
+            if (LabelColor != null) sb.Append("  LabelColor: ").Append(LabelColor).Append("\n");
             if (CombinedAsset != null) sb.Append("  CombinedAsset: ").Append(CombinedAsset).Append("\n");
             if (BrandLogoAsset != null) sb.Append("  BrandLogoAsset: ").Append(BrandLogoAsset).Append("\n");
             if (IssuerLogoAsset != null) sb.Append("  IssuerLogoAsset: ").Append(IssuerLogoAsset).Append("\n");
@@ -131,6 +147,16 @@ namespace CyberSource.Model
                     this.ForegroundColor.Equals(other.ForegroundColor)
                 ) && 
                 (
+                    this.BackgroundColor == other.BackgroundColor ||
+                    this.BackgroundColor != null &&
+                    this.BackgroundColor.Equals(other.BackgroundColor)
+                ) && 
+                (
+                    this.LabelColor == other.LabelColor ||
+                    this.LabelColor != null &&
+                    this.LabelColor.Equals(other.LabelColor)
+                ) && 
+                (
                     this.CombinedAsset == other.CombinedAsset ||
                     this.CombinedAsset != null &&
                     this.CombinedAsset.Equals(other.CombinedAsset)
@@ -165,6 +191,10 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ForegroundColor != null)
                     hash = hash * 59 + this.ForegroundColor.GetHashCode();
+                if (this.BackgroundColor != null)
+                    hash = hash * 59 + this.BackgroundColor.GetHashCode();
+                if (this.LabelColor != null)
+                    hash = hash * 59 + this.LabelColor.GetHashCode();
                 if (this.CombinedAsset != null)
                     hash = hash * 59 + this.CombinedAsset.GetHashCode();
                 if (this.BrandLogoAsset != null)

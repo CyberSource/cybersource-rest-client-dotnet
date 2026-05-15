@@ -35,10 +35,16 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Id">Identifier for the mandate. #### SEPA/BACS Required for mandates services .</param>
         /// <param name="ESignIndicator">ESignIndicator.</param>
-        public Ptsv2billingagreementsidAgreementInformation(string Id = default(string), string ESignIndicator = default(string))
+        /// <param name="Type">Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage.</param>
+        /// <param name="Frequency">Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly.</param>
+        /// <param name="DateRevoked">Date the agreement was revoked (YYYYMMDD) .</param>
+        public Ptsv2billingagreementsidAgreementInformation(string Id = default(string), string ESignIndicator = default(string), string Type = default(string), string Frequency = default(string), string DateRevoked = default(string))
         {
             this.Id = Id;
             this.ESignIndicator = ESignIndicator;
+            this.Type = Type;
+            this.Frequency = Frequency;
+            this.DateRevoked = DateRevoked;
         }
         
         /// <summary>
@@ -55,6 +61,27 @@ namespace CyberSource.Model
         public string ESignIndicator { get; set; }
 
         /// <summary>
+        /// Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage
+        /// </summary>
+        /// <value>Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly
+        /// </summary>
+        /// <value>Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly</value>
+        [DataMember(Name="frequency", EmitDefaultValue=false)]
+        public string Frequency { get; set; }
+
+        /// <summary>
+        /// Date the agreement was revoked (YYYYMMDD) 
+        /// </summary>
+        /// <value>Date the agreement was revoked (YYYYMMDD) </value>
+        [DataMember(Name="dateRevoked", EmitDefaultValue=false)]
+        public string DateRevoked { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +91,9 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2billingagreementsidAgreementInformation {\n");
             if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
             if (ESignIndicator != null) sb.Append("  ESignIndicator: ").Append(ESignIndicator).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Frequency != null) sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            if (DateRevoked != null) sb.Append("  DateRevoked: ").Append(DateRevoked).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +139,21 @@ namespace CyberSource.Model
                     this.ESignIndicator == other.ESignIndicator ||
                     this.ESignIndicator != null &&
                     this.ESignIndicator.Equals(other.ESignIndicator)
+                ) && 
+                (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Frequency == other.Frequency ||
+                    this.Frequency != null &&
+                    this.Frequency.Equals(other.Frequency)
+                ) && 
+                (
+                    this.DateRevoked == other.DateRevoked ||
+                    this.DateRevoked != null &&
+                    this.DateRevoked.Equals(other.DateRevoked)
                 );
         }
 
@@ -127,6 +172,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Id.GetHashCode();
                 if (this.ESignIndicator != null)
                     hash = hash * 59 + this.ESignIndicator.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Frequency != null)
+                    hash = hash * 59 + this.Frequency.GetHashCode();
+                if (this.DateRevoked != null)
+                    hash = hash * 59 + this.DateRevoked.GetHashCode();
                 return hash;
             }
         }

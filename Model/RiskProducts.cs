@@ -36,11 +36,13 @@ namespace CyberSource.Model
         /// <param name="FraudManagementEssentials">FraudManagementEssentials.</param>
         /// <param name="DecisionManager">DecisionManager.</param>
         /// <param name="PortfolioRiskControls">PortfolioRiskControls.</param>
-        public RiskProducts(RiskProductsFraudManagementEssentials FraudManagementEssentials = default(RiskProductsFraudManagementEssentials), RiskProductsDecisionManager DecisionManager = default(RiskProductsDecisionManager), RiskProductsPortfolioRiskControls PortfolioRiskControls = default(RiskProductsPortfolioRiskControls))
+        /// <param name="EnhancedAuthentication">EnhancedAuthentication.</param>
+        public RiskProducts(RiskProductsFraudManagementEssentials FraudManagementEssentials = default(RiskProductsFraudManagementEssentials), RiskProductsDecisionManager DecisionManager = default(RiskProductsDecisionManager), RiskProductsPortfolioRiskControls PortfolioRiskControls = default(RiskProductsPortfolioRiskControls), PaymentsProductsPayerAuthentication EnhancedAuthentication = default(PaymentsProductsPayerAuthentication))
         {
             this.FraudManagementEssentials = FraudManagementEssentials;
             this.DecisionManager = DecisionManager;
             this.PortfolioRiskControls = PortfolioRiskControls;
+            this.EnhancedAuthentication = EnhancedAuthentication;
         }
         
         /// <summary>
@@ -62,6 +64,12 @@ namespace CyberSource.Model
         public RiskProductsPortfolioRiskControls PortfolioRiskControls { get; set; }
 
         /// <summary>
+        /// Gets or Sets EnhancedAuthentication
+        /// </summary>
+        [DataMember(Name="enhancedAuthentication", EmitDefaultValue=false)]
+        public PaymentsProductsPayerAuthentication EnhancedAuthentication { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +80,7 @@ namespace CyberSource.Model
             if (FraudManagementEssentials != null) sb.Append("  FraudManagementEssentials: ").Append(FraudManagementEssentials).Append("\n");
             if (DecisionManager != null) sb.Append("  DecisionManager: ").Append(DecisionManager).Append("\n");
             if (PortfolioRiskControls != null) sb.Append("  PortfolioRiskControls: ").Append(PortfolioRiskControls).Append("\n");
+            if (EnhancedAuthentication != null) sb.Append("  EnhancedAuthentication: ").Append(EnhancedAuthentication).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,11 @@ namespace CyberSource.Model
                     this.PortfolioRiskControls == other.PortfolioRiskControls ||
                     this.PortfolioRiskControls != null &&
                     this.PortfolioRiskControls.Equals(other.PortfolioRiskControls)
+                ) && 
+                (
+                    this.EnhancedAuthentication == other.EnhancedAuthentication ||
+                    this.EnhancedAuthentication != null &&
+                    this.EnhancedAuthentication.Equals(other.EnhancedAuthentication)
                 );
         }
 
@@ -142,6 +156,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DecisionManager.GetHashCode();
                 if (this.PortfolioRiskControls != null)
                     hash = hash * 59 + this.PortfolioRiskControls.GetHashCode();
+                if (this.EnhancedAuthentication != null)
+                    hash = hash * 59 + this.EnhancedAuthentication.GetHashCode();
                 return hash;
             }
         }

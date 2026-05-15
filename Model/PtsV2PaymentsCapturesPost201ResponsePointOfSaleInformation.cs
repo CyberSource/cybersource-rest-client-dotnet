@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation" /> class.
         /// </summary>
         /// <param name="TerminalId">Identifier for the terminal at your retail location. You can define this value yourself, but consult the processor for requirements.  #### CyberSource through VisaNet A list of all possible values is stored in your CyberSource account. If terminal ID validation is enabled for your CyberSource account, the value you send for this field is validated against the list each time you include the field in a request. To enable or disable terminal ID validation, contact CyberSource Customer Support.  When you do not include this field in a request, CyberSource uses the default value that is defined in your CyberSource account.  #### FDC Nashville Global To have your account configured to support this field, contact CyberSource Customer Support. This value must be a value that FDC Nashville Global issued to you.  #### For Payouts This field is applicable for CyberSource through VisaNet.  #### GPX Identifier for the terminal at your retail location. A list of all possible values is stored in your account. If terminal ID validation is enabled for your account, the value you send for this field is validated against the list each time you include the field in a request. To enable or disable terminal ID validation, contact customer support.  When you do not include this field in a request, the default value that is defined in your account is used.  Optional for authorizations.  #### Used by **Authorization** Optional for the following processors. When you do not include this field in a request, the default value that is defined in your account is used.   - American Express Direct   - Credit Mutuel-CIC   - FDC Nashville Global   - SIX - Chase Paymentech Solutions: Optional field. If you include this field in your request, you must also include &#x60;pointOfSaleInformation.catLevel&#x60;. - FDMS Nashville: The default value that is defined in your account is used. - GPX - OmniPay Direct: Optional field.  For the following processors, this field is not used. - GPN - JCN Gateway - RBS WorldPay Atlanta - TSYS Acquiring Solutions - Worldpay VAP  #### Card Present reply Terminal identifier assigned by the acquirer. This value must be printed on the receipt. .</param>
-        public PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation(string TerminalId = default(string))
+        /// <param name="EncryptedKeyId">Identifies the Zone PIN Key (ZPK) used for Online PIN processing by providing the 10‑digit Key Set Identifier (KSI). This value indicates that the PIN block is encrypted under a ZPK and enables the Payment Security Service (PSS) to perform  the correct ZPK→ZPK PIN translation during card‑present EMV PIN transactions. .</param>
+        public PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation(string TerminalId = default(string), string EncryptedKeyId = default(string))
         {
             this.TerminalId = TerminalId;
+            this.EncryptedKeyId = EncryptedKeyId;
         }
         
         /// <summary>
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         public string TerminalId { get; set; }
 
         /// <summary>
+        /// Identifies the Zone PIN Key (ZPK) used for Online PIN processing by providing the 10‑digit Key Set Identifier (KSI). This value indicates that the PIN block is encrypted under a ZPK and enables the Payment Security Service (PSS) to perform  the correct ZPK→ZPK PIN translation during card‑present EMV PIN transactions. 
+        /// </summary>
+        /// <value>Identifies the Zone PIN Key (ZPK) used for Online PIN processing by providing the 10‑digit Key Set Identifier (KSI). This value indicates that the PIN block is encrypted under a ZPK and enables the Payment Security Service (PSS) to perform  the correct ZPK→ZPK PIN translation during card‑present EMV PIN transactions. </value>
+        [DataMember(Name="encryptedKeyId", EmitDefaultValue=false)]
+        public string EncryptedKeyId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation {\n");
             if (TerminalId != null) sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
+            if (EncryptedKeyId != null) sb.Append("  EncryptedKeyId: ").Append(EncryptedKeyId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.TerminalId == other.TerminalId ||
                     this.TerminalId != null &&
                     this.TerminalId.Equals(other.TerminalId)
+                ) && 
+                (
+                    this.EncryptedKeyId == other.EncryptedKeyId ||
+                    this.EncryptedKeyId != null &&
+                    this.EncryptedKeyId.Equals(other.EncryptedKeyId)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.TerminalId != null)
                     hash = hash * 59 + this.TerminalId.GetHashCode();
+                if (this.EncryptedKeyId != null)
+                    hash = hash * 59 + this.EncryptedKeyId.GetHashCode();
                 return hash;
             }
         }

@@ -105,6 +105,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'SenderInformation'
         }
         /// <summary>
+        /// Test the property 'BuyerInformation'
+        /// </summary>
+        [Test]
+        public void BuyerInformationTest()
+        {
+            // TODO unit test for the property 'BuyerInformation'
+        }
+        /// <summary>
         /// Test the property 'AggregatorInformation'
         /// </summary>
         [Test]

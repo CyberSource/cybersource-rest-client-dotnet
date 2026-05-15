@@ -88,6 +88,95 @@ This feature provides an implementation of Message Level Encryption (MLE) for AP
 
 More information about this new MLE feature can be found in this file : [MLE.md](MLE.md)
 
+### JWT Authentication with Symmetric Key (Shared Secret / HS256 HMAC-SHA256) Support
+
+[![Generic badge](https://img.shields.io/badge/JWT_SHARED_SECRET-NEW-GREEN.svg)](https://shields.io/)
+
+> **⚠️ HTTP Signature Deprecation Notice:** HTTP Signature authentication (`http_Signature`) is being deprecated. JWT with Shared Secret (HS256 / HMAC-SHA256) is the **recommended migration path** — it uses the **same** `merchantKeyId` and `merchantsecretKey` credentials, requires only two property changes, and enables MLE (Message Level Encryption) support that HTTP Signature does not provide.
+
+JWT authentication now supports two key types, configurable via the `jwtKeyType` property:
+
+| `jwtKeyType` | Algorithm | Credentials Required |
+|---|---|---|
+| `P12` (default) | RS256 (asymmetric, RSA-SHA256) | `keysDirectory`, `keyFileName`, `keyAlias`, `keyPass` |
+| `SHARED_SECRET` | HS256 (symmetric, HMAC-SHA256) | `merchantKeyId`, `merchantsecretKey` |
+
+The default value is `P12`, which preserves full backward compatibility with existing configurations.
+
+#### Configuration for JWT with P12 (default — no changes needed)
+
+```csharp
+_configurationDictionary.Add("authenticationType", "jwt");
+_configurationDictionary.Add("merchantID", "your_merchant_id");
+_configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+// jwtKeyType defaults to P12 if omitted
+_configurationDictionary.Add("keyAlias", "your_merchant_id");
+_configurationDictionary.Add("keyPass", "your_merchant_id");
+_configurationDictionary.Add("keyFileName", "your_merchant_id");
+_configurationDictionary.Add("keysDirectory", "path/to/p12/directory");
+```
+
+#### Configuration for JWT with Shared Secret
+
+```csharp
+_configurationDictionary.Add("authenticationType", "jwt");
+_configurationDictionary.Add("merchantID", "your_merchant_id");
+_configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+_configurationDictionary.Add("jwtKeyType", "SHARED_SECRET");
+_configurationDictionary.Add("merchantKeyId", "your_key_id");
+_configurationDictionary.Add("merchantsecretKey", "your_base64_encoded_shared_secret");
+```
+
+> **Note:** When `jwtKeyType` is set to `SHARED_SECRET`, the P12-related properties (`keysDirectory`, `keyFileName`, `keyAlias`, `keyPass`) are not required and will be ignored. Conversely, when using `P12`, the `merchantKeyId` and `merchantsecretKey` properties are not required for JWT authentication.
+
+#### Migrating from HTTP Signature to JWT with Shared Secret (HS256 / HMAC-SHA256)
+
+If you are currently using HTTP Signature authentication, migrating to JWT with Shared Secret (symmetric key, HS256 / HMAC-SHA256) requires only **two property changes** — your credentials remain the same:
+
+```csharp
+// BEFORE (HTTP Signature — deprecated)
+_configurationDictionary.Add("authenticationType", "http_Signature");
+_configurationDictionary.Add("merchantKeyId", "your_key_id");
+_configurationDictionary.Add("merchantsecretKey", "your_shared_secret");
+
+// AFTER (JWT with Shared Secret / HS256 HMAC-SHA256 — recommended)
+_configurationDictionary.Add("authenticationType", "jwt");            // changed
+_configurationDictionary.Add("jwtKeyType", "SHARED_SECRET");           // added — uses HS256 (HMAC-SHA256)
+_configurationDictionary.Add("merchantKeyId", "your_key_id");          // same
+_configurationDictionary.Add("merchantsecretKey", "your_shared_secret"); // same
+```
+
+For a complete migration guide with sample code, see the [Cybersource C# Sample Code Repository](https://github.com/CyberSource/cybersource-rest-samples-csharp).
+
+#### Using MLE with Shared Secret Credentials
+
+MLE (Message Level Encryption) is fully supported with the `SHARED_SECRET` key type. This allows merchants who use shared secret credentials (instead of a P12 certificate) to still leverage MLE for secure communication.
+
+When using `jwtKeyType=SHARED_SECRET` with MLE, you must provide the MLE public certificate separately via the `mleForRequestPublicCertPath` property, since there is no P12 file to auto-extract the MLE certificate from. The request MLE public certificate can be downloaded from the CyberSource Business Center:
+
+- **Test**: <https://businesscentertest.cybersource.com/ebc2>
+- **Production**: <https://businesscenter.cybersource.com/ebc2>
+
+```csharp
+_configurationDictionary.Add("authenticationType", "jwt");
+_configurationDictionary.Add("merchantID", "your_merchant_id");
+_configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+_configurationDictionary.Add("jwtKeyType", "SHARED_SECRET");
+_configurationDictionary.Add("merchantKeyId", "your_key_id");
+_configurationDictionary.Add("merchantsecretKey", "your_base64_encoded_shared_secret");
+
+// Request MLE configuration
+_configurationDictionary.Add("enableRequestMLEForOptionalApisGlobally", "true");
+_configurationDictionary.Add("mleForRequestPublicCertPath", "/path/to/mle/public/cert.pem");
+
+// Response MLE is also supported — see MLE.md for full configuration
+// _configurationDictionary.Add("enableResponseMleGlobally", "true");
+// _configurationDictionary.Add("responseMlePrivateKeyFilePath", "/path/to/private/key.p12");
+// _configurationDictionary.Add("responseMlePrivateKeyFilePassword", "password");
+```
+
+For more details on MLE configuration options (including Response MLE), see [MLE.md](MLE.md).
+
 ### MetaKey Support
 
 A Meta Key is a single key that can be used by one, some, or all merchants (or accounts, if created by a Portfolio user) in the portfolio.
@@ -95,6 +184,76 @@ A Meta Key is a single key that can be used by one, some, or all merchants (or a
 The Portfolio or Parent Account owns the key and is considered the transaction submitter when a Meta Key is used, while the merchant owns the transaction.
 
 MIDs continue to be able to create keys for themselves, even if a Meta Key is generated.
+
+MetaKey works with all three authentication types: HTTP Signature, JWT (P12), and JWT with Shared Secret.
+
+#### MetaKey with HTTP Signature (⚠️ Deprecated)
+
+```csharp
+_configurationDictionary.Add("authenticationType", "http_Signature");
+_configurationDictionary.Add("merchantID", "your_transacting_merchant_id");
+_configurationDictionary.Add("merchantKeyId", "your_metakey_portfolio_KeyId");
+_configurationDictionary.Add("merchantsecretKey", "your_metakey_portfolio_shared_secret_key");
+_configurationDictionary.Add("portfolioID", "your_portfolio_id");
+_configurationDictionary.Add("useMetaKey", "true");
+```
+
+#### MetaKey with JWT (P12)
+
+```csharp
+_configurationDictionary.Add("authenticationType", "jwt");
+_configurationDictionary.Add("merchantID", "your_transacting_merchant_id");
+_configurationDictionary.Add("keyAlias", "your_portfolio_id");
+_configurationDictionary.Add("keyPass", "your_metakey_portfolio_p12File_password");
+_configurationDictionary.Add("keyFileName", "your_metakey_portfolio_p12FileName");
+_configurationDictionary.Add("keysDirectory", "path/to/p12/directory");
+_configurationDictionary.Add("portfolioID", "your_portfolio_id");
+_configurationDictionary.Add("useMetaKey", "true");
+```
+
+#### MetaKey with JWT Shared Secret (Recommended)
+
+```csharp
+_configurationDictionary.Add("authenticationType", "jwt");
+_configurationDictionary.Add("jwtKeyType", "SHARED_SECRET");
+_configurationDictionary.Add("merchantID", "your_transacting_merchant_id");
+_configurationDictionary.Add("merchantKeyId", "your_metakey_portfolio_KeyId");
+_configurationDictionary.Add("merchantsecretKey", "your_metakey_portfolio_shared_secret_key");
+_configurationDictionary.Add("portfolioID", "your_portfolio_id");
+_configurationDictionary.Add("useMetaKey", "true");
+```
+
+> **Note:** MetaKey with JWT Shared Secret uses the same MetaKey credentials as HTTP Signature but authenticates via JWT, enabling MLE support.
+
+#### Response MLE with MetaKey
+
+When Response MLE is enabled (`enableResponseMleGlobally=true`) and MetaKey is in use (`useMetaKey=true`), the Response MLE configuration must use the **portfolio's** response MLE key — not the transacting merchant's. Specifically:
+
+- `responseMlePrivateKeyFilePath` (or the `responseMlePrivateKey` object) must point to the **portfolio's** response MLE private key.
+- `responseMleKID` — the KID value associated with the **portfolio's** response MLE certificate.
+  - **Optional** when `responseMlePrivateKeyFilePath` points to a CyberSource-generated P12 file — the SDK will automatically fetch the KID from the P12 file.
+  - **Required** when using PEM format files (`.pem`, `.key`, `.p8`) or when providing `responseMlePrivateKey` object directly.
+
+```csharp
+_configurationDictionary.Add("authenticationType", "jwt");
+_configurationDictionary.Add("jwtKeyType", "SHARED_SECRET");
+_configurationDictionary.Add("merchantID", "your_transacting_merchant_id");
+_configurationDictionary.Add("merchantKeyId", "your_metakey_portfolio_KeyId");
+_configurationDictionary.Add("merchantsecretKey", "your_metakey_portfolio_shared_secret_key");
+_configurationDictionary.Add("portfolioID", "your_portfolio_id");
+_configurationDictionary.Add("useMetaKey", "true");
+_configurationDictionary.Add("runEnvironment", "apitest.cybersource.com");
+
+// Response MLE — use the portfolio's response MLE key, not the transacting merchant's
+_configurationDictionary.Add("enableResponseMleGlobally", "true");
+_configurationDictionary.Add("responseMlePrivateKeyFilePath", "/path/to/portfolio/response/mle/private/key.p12");
+_configurationDictionary.Add("responseMlePrivateKeyFilePassword", "portfolio_private_key_password");
+// responseMleKID is optional when using a CyberSource-generated P12 file (auto-fetched from P12)
+// Required when using PEM files or responseMlePrivateKey object
+// _configurationDictionary.Add("responseMleKID", "your_portfolio_response_mle_kid");
+```
+
+> **Important:** In MetaKey mode, the portfolio is the transaction submitter. The response is encrypted using the portfolio's MLE certificate, so the decryption key must also be the portfolio's. See [MLE.md](MLE.md) for full details on when `responseMleKID` is required vs optional.
 
 Further information on MetaKey can be found in [New Business Center User Guide](https://developer.cybersource.com/library/documentation/dev_guides/Business_Center/New_Business_Center_User_Guide.pdf).
 

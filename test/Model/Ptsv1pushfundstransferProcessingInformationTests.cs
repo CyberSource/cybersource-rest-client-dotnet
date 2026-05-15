@@ -128,6 +128,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ReconciliationId'
         }
+        /// <summary>
+        /// Test the property 'AccountVerificationCode'
+        /// </summary>
+        [Test]
+        public void AccountVerificationCodeTest()
+        {
+            // TODO unit test for the property 'AccountVerificationCode'
+        }
 
     }
 

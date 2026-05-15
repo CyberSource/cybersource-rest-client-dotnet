@@ -14,7 +14,11 @@ Name | Type | Description | Notes
 **ProcessorInformation** | [**PtsV2PaymentsRefundPost201ResponseProcessorInformation**](PtsV2PaymentsRefundPost201ResponseProcessorInformation.md) |  | [optional] 
 **PaymentInformation** | [**PtsV2CreditsPost201ResponsePaymentInformation**](PtsV2CreditsPost201ResponsePaymentInformation.md) |  | [optional] 
 **OrderInformation** | [**PtsV2PaymentsRefundPost201ResponseOrderInformation**](PtsV2PaymentsRefundPost201ResponseOrderInformation.md) |  | [optional] 
+**MerchantInformation** | [**PtsV2CreditsPost201ResponseMerchantInformation**](PtsV2CreditsPost201ResponseMerchantInformation.md) |  | [optional] 
+**ClearingInformation** | [**PtsV2PaymentsPost201ResponseClearingInformation**](PtsV2PaymentsPost201ResponseClearingInformation.md) |  | [optional] 
 **PointOfSaleInformation** | [**PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation**](PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation.md) |  | [optional] 
+**TokenInformation** | [**PtsV2CreditsPost201ResponseTokenInformation**](PtsV2CreditsPost201ResponseTokenInformation.md) |  | [optional] 
+**PaymentAccountInformation** | [**PtsV2CreditsPost201ResponsePaymentAccountInformation**](PtsV2CreditsPost201ResponsePaymentAccountInformation.md) |  | [optional] 
 **ErrorInformation** | [**PtsV2PaymentsRefundPost201ResponseErrorInformation**](PtsV2PaymentsRefundPost201ResponseErrorInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

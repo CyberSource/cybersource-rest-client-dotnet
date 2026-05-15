@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PortfolioRiskControls'
         }
+        /// <summary>
+        /// Test the property 'EnhancedAuthentication'
+        /// </summary>
+        [Test]
+        public void EnhancedAuthenticationTest()
+        {
+            // TODO unit test for the property 'EnhancedAuthentication'
+        }
 
     }
 

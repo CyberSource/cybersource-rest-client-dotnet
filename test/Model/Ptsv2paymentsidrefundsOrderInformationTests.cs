@@ -112,6 +112,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ShippingDetails'
         }
+        /// <summary>
+        /// Test the property 'DigitalCurrency'
+        /// </summary>
+        [Test]
+        public void DigitalCurrencyTest()
+        {
+            // TODO unit test for the property 'DigitalCurrency'
+        }
 
     }
 

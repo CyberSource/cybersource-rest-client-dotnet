@@ -36,12 +36,14 @@ namespace CyberSource.Model
         /// <param name="Source">Source of the card details. Possible Values: - ONFILE - TOKEN - ISSUER .</param>
         /// <param name="Type">The type of card (Card Network). Possible Values: - visa - mastercard - americanexpress .</param>
         /// <param name="Card">Card.</param>
+        /// <param name="VerificationResults">VerificationResults.</param>
         /// <param name="Metadata">Metadata.</param>
-        public Tmsv2TokenizedCard(string Source = default(string), string Type = default(string), Tmsv2TokenizedCardCard Card = default(Tmsv2TokenizedCardCard), Tmsv2TokenizedCardMetadata Metadata = default(Tmsv2TokenizedCardMetadata))
+        public Tmsv2TokenizedCard(string Source = default(string), string Type = default(string), Tmsv2TokenizedCardCard Card = default(Tmsv2TokenizedCardCard), Tmsv2TokenizedCardVerificationResults VerificationResults = default(Tmsv2TokenizedCardVerificationResults), Tmsv2TokenizedCardMetadata Metadata = default(Tmsv2TokenizedCardMetadata))
         {
             this.Source = Source;
             this.Type = Type;
             this.Card = Card;
+            this.VerificationResults = VerificationResults;
             this.Metadata = Metadata;
         }
         
@@ -158,10 +160,23 @@ namespace CyberSource.Model
         public string PaymentAccountReference { get; private set; }
 
         /// <summary>
+        /// A sequence counter used as part of the input to the TAVV cryptogram and it is incremented for each cryptogram generation. This field is only returned for Visa network tokens. 
+        /// </summary>
+        /// <value>A sequence counter used as part of the input to the TAVV cryptogram and it is incremented for each cryptogram generation. This field is only returned for Visa network tokens. </value>
+        [DataMember(Name="applicationTransactionCounter", EmitDefaultValue=false)]
+        public string ApplicationTransactionCounter { get; private set; }
+
+        /// <summary>
         /// Gets or Sets Card
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
         public Tmsv2TokenizedCardCard Card { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VerificationResults
+        /// </summary>
+        [DataMember(Name="verificationResults", EmitDefaultValue=false)]
+        public Tmsv2TokenizedCardVerificationResults VerificationResults { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
@@ -193,7 +208,9 @@ namespace CyberSource.Model
             if (Eci != null) sb.Append("  Eci: ").Append(Eci).Append("\n");
             if (RequestorId != null) sb.Append("  RequestorId: ").Append(RequestorId).Append("\n");
             if (PaymentAccountReference != null) sb.Append("  PaymentAccountReference: ").Append(PaymentAccountReference).Append("\n");
+            if (ApplicationTransactionCounter != null) sb.Append("  ApplicationTransactionCounter: ").Append(ApplicationTransactionCounter).Append("\n");
             if (Card != null) sb.Append("  Card: ").Append(Card).Append("\n");
+            if (VerificationResults != null) sb.Append("  VerificationResults: ").Append(VerificationResults).Append("\n");
             if (Metadata != null) sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -312,9 +329,19 @@ namespace CyberSource.Model
                     this.PaymentAccountReference.Equals(other.PaymentAccountReference)
                 ) && 
                 (
+                    this.ApplicationTransactionCounter == other.ApplicationTransactionCounter ||
+                    this.ApplicationTransactionCounter != null &&
+                    this.ApplicationTransactionCounter.Equals(other.ApplicationTransactionCounter)
+                ) && 
+                (
                     this.Card == other.Card ||
                     this.Card != null &&
                     this.Card.Equals(other.Card)
+                ) && 
+                (
+                    this.VerificationResults == other.VerificationResults ||
+                    this.VerificationResults != null &&
+                    this.VerificationResults.Equals(other.VerificationResults)
                 ) && 
                 (
                     this.Metadata == other.Metadata ||
@@ -366,8 +393,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RequestorId.GetHashCode();
                 if (this.PaymentAccountReference != null)
                     hash = hash * 59 + this.PaymentAccountReference.GetHashCode();
+                if (this.ApplicationTransactionCounter != null)
+                    hash = hash * 59 + this.ApplicationTransactionCounter.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
+                if (this.VerificationResults != null)
+                    hash = hash * 59 + this.VerificationResults.GetHashCode();
                 if (this.Metadata != null)
                     hash = hash * 59 + this.Metadata.GetHashCode();
                 return hash;

@@ -80,6 +80,30 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ESignIndicator'
         }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'Frequency'
+        /// </summary>
+        [Test]
+        public void FrequencyTest()
+        {
+            // TODO unit test for the property 'Frequency'
+        }
+        /// <summary>
+        /// Test the property 'DateRevoked'
+        /// </summary>
+        [Test]
+        public void DateRevokedTest()
+        {
+            // TODO unit test for the property 'DateRevoked'
+        }
 
     }
 

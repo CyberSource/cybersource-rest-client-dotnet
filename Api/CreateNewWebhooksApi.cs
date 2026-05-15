@@ -78,12 +78,12 @@ namespace CyberSource.Api
         /// Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remember to save the key in the API response, so that you can use it to validate messages later. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
         /// <returns>InlineResponse2015</returns>
-        InlineResponse2015 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
+        InlineResponse2015 SaveSymEgressKey (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
 
         /// <summary>
         /// Create Webhook Security Keys
@@ -92,12 +92,12 @@ namespace CyberSource.Api
         /// Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remember to save the key in the API response, so that you can use it to validate messages later. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
         /// <returns>ApiResponse of InlineResponse2015</returns>
-        ApiResponse<InlineResponse2015> SaveSymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
+        ApiResponse<InlineResponse2015> SaveSymEgressKeyWithHttpInfo (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -149,12 +149,12 @@ namespace CyberSource.Api
         /// Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remember to save the key in the API response, so that you can use it to validate messages later. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
         /// <returns>Task of InlineResponse2015</returns>
-        System.Threading.Tasks.Task<InlineResponse2015> SaveSymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
+        System.Threading.Tasks.Task<InlineResponse2015> SaveSymEgressKeyAsync (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
 
         /// <summary>
         /// Create Webhook Security Keys
@@ -163,12 +163,12 @@ namespace CyberSource.Api
         /// Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remember to save the key in the API response, so that you can use it to validate messages later. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> SaveSymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> SaveSymEgressKeyAsyncWithHttpInfo (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
         #endregion Asynchronous Operations
     }
 
@@ -588,7 +588,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -693,7 +693,7 @@ namespace CyberSource.Api
 
             // to determine the Accept header
             string[] localVarHttpHeaderAccepts = new string[] {
-                "application/hal+json;charset=utf-8"
+                "application/json;charset=utf-8"
             };
             string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -757,16 +757,16 @@ namespace CyberSource.Api
         /// Create Webhook Security Keys Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remember to save the key in the API response, so that you can use it to validate messages later. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
         /// <returns>InlineResponse2015</returns>
-        public InlineResponse2015 SaveSymEgressKey (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+        public InlineResponse2015 SaveSymEgressKey (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             logger.Debug("CALLING API \"SaveSymEgressKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2015> localVarResponse = SaveSymEgressKeyWithHttpInfo(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
+            ApiResponse<InlineResponse2015> localVarResponse = SaveSymEgressKeyWithHttpInfo(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
             logger.Debug("CALLING API \"SaveSymEgressKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -776,27 +776,15 @@ namespace CyberSource.Api
         /// Create Webhook Security Keys Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remember to save the key in the API response, so that you can use it to validate messages later. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
         /// <returns>ApiResponse of InlineResponse2015</returns>
-        public ApiResponse< InlineResponse2015 > SaveSymEgressKeyWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+        public ApiResponse< InlineResponse2015 > SaveSymEgressKeyWithHttpInfo (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'vCSenderOrganizationId' is set
-            if (vCSenderOrganizationId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'vCSenderOrganizationId' when calling CreateNewWebhooksApi->SaveSymEgressKey");
-                throw new ApiException(400, "Missing required parameter 'vCSenderOrganizationId' when calling CreateNewWebhooksApi->SaveSymEgressKey");
-            }
-            // verify the required parameter 'vCPermissions' is set
-            if (vCPermissions == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling CreateNewWebhooksApi->SaveSymEgressKey");
-                throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling CreateNewWebhooksApi->SaveSymEgressKey");
-            }
 
             var localVarPath = $"/kms/egress/v2/keys-sym";
             var localVarPathParams = new Dictionary<string, string>();
@@ -891,16 +879,16 @@ namespace CyberSource.Api
         /// Create Webhook Security Keys Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remember to save the key in the API response, so that you can use it to validate messages later. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
         /// <returns>Task of InlineResponse2015</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2015> SaveSymEgressKeyAsync (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+        public async System.Threading.Tasks.Task<InlineResponse2015> SaveSymEgressKeyAsync (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             logger.Debug("CALLING API \"SaveSymEgressKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2015> localVarResponse = await SaveSymEgressKeyAsyncWithHttpInfo(vCSenderOrganizationId, vCPermissions, vCCorrelationId, saveSymEgressKey);
+            ApiResponse<InlineResponse2015> localVarResponse = await SaveSymEgressKeyAsyncWithHttpInfo(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
             logger.Debug("CALLING API \"SaveSymEgressKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -911,27 +899,15 @@ namespace CyberSource.Api
         /// Create Webhook Security Keys Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remember to save the key in the API response, so that you can use it to validate messages later. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vCSenderOrganizationId">Sender organization id</param>
-        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding</param>
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
+        /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
+        /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> SaveSymEgressKeyAsyncWithHttpInfo (string vCSenderOrganizationId, string vCPermissions, string vCCorrelationId = null, SaveSymEgressKey saveSymEgressKey = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> SaveSymEgressKeyAsyncWithHttpInfo (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'vCSenderOrganizationId' is set
-            if (vCSenderOrganizationId == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'vCSenderOrganizationId' when calling CreateNewWebhooksApi->SaveSymEgressKey");
-                throw new ApiException(400, "Missing required parameter 'vCSenderOrganizationId' when calling CreateNewWebhooksApi->SaveSymEgressKey");
-            }
-            // verify the required parameter 'vCPermissions' is set
-            if (vCPermissions == null)
-            {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling CreateNewWebhooksApi->SaveSymEgressKey");
-                throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling CreateNewWebhooksApi->SaveSymEgressKey");
-            }
 
             var localVarPath = $"/kms/egress/v2/keys-sym";
             var localVarPathParams = new Dictionary<string, string>();

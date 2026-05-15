@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Enrollment Reference Data.
+    /// Enrollment Reference Data. Links the enrollment to an existing token reference.
     /// </summary>
     [DataContract]
     public partial class Acpv1tokensEnrollmentReferenceData :  IEquatable<Acpv1tokensEnrollmentReferenceData>, IValidatableObject

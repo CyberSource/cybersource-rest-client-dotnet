@@ -43,13 +43,21 @@ namespace CyberSource.Model
         /// <param name="Quantity">Number of units for this order. Must be a non-negative integer.  The default is &#x60;1&#x60;. For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when &#x60;orderInformation.lineItems[].productCode&#x60; is not &#x60;default&#x60; or one of the other values related to shipping and/or handling.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. .</param>
         /// <param name="UnitPrice">Per-item price of the product. This value for this field cannot be negative.  You must include either this field or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request.  You can include a decimal point (.), but you cannot include any other special characters. The value is truncated to the correct number of decimal places.  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either the 1st line item in the order and this field, or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request.  #### Tax Calculation Required field for U.S., Canadian, international and value added taxes.  #### Zero Amount Authorizations If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen.  #### Maximum Field Lengths For GPN and JCN Gateway: Decimal (10) All other processors: Decimal (15) .</param>
         /// <param name="ProductDescription">Brief description of item..</param>
-        public Iplv2paymentlinksOrderInformationLineItems(string ProductSku = default(string), string ProductName = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string ProductDescription = default(string))
+        /// <param name="DiscountAmount">Discount amount applied to the item. Maximum of 2 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent. Otherwise, a validation error will be returned. .</param>
+        /// <param name="DiscountPercent">Discount rate applied to the item. Maximum of 3 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent; otherwise, a validation error will be returned. Example: 5.25 (&#x3D;5.25%) .</param>
+        /// <param name="TaxAmount">Tax amount applied to the item. This value cannot be negative. Maximum of 2 decimal places. The tax amount and the offer amount must be in the same currency. The tax amount field is additive. If taxAmount is provided but taxRate is not, the taxRate will be calculated. .</param>
+        /// <param name="TaxRate">Tax rate applied to the item. Valid range: 1.001% to 99.999%. Maximum of 3 decimal places. If a taxRate is provided but taxAmount is missing or incorrect, the taxAmount based on the given taxRate will be overwritten. Example: 21.00 (&#x3D;21.00%) .</param>
+        public Iplv2paymentlinksOrderInformationLineItems(string ProductSku = default(string), string ProductName = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string ProductDescription = default(string), string DiscountAmount = default(string), string DiscountPercent = default(string), string TaxAmount = default(string), string TaxRate = default(string))
         {
             this.ProductSku = ProductSku;
             this.ProductName = ProductName;
             this.Quantity = Quantity;
             this.UnitPrice = UnitPrice;
             this.ProductDescription = ProductDescription;
+            this.DiscountAmount = DiscountAmount;
+            this.DiscountPercent = DiscountPercent;
+            this.TaxAmount = TaxAmount;
+            this.TaxRate = TaxRate;
         }
         
         /// <summary>
@@ -88,6 +96,34 @@ namespace CyberSource.Model
         public string ProductDescription { get; set; }
 
         /// <summary>
+        /// Discount amount applied to the item. Maximum of 2 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent. Otherwise, a validation error will be returned. 
+        /// </summary>
+        /// <value>Discount amount applied to the item. Maximum of 2 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent. Otherwise, a validation error will be returned. </value>
+        [DataMember(Name="discountAmount", EmitDefaultValue=false)]
+        public string DiscountAmount { get; set; }
+
+        /// <summary>
+        /// Discount rate applied to the item. Maximum of 3 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent; otherwise, a validation error will be returned. Example: 5.25 (&#x3D;5.25%) 
+        /// </summary>
+        /// <value>Discount rate applied to the item. Maximum of 3 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent; otherwise, a validation error will be returned. Example: 5.25 (&#x3D;5.25%) </value>
+        [DataMember(Name="discountPercent", EmitDefaultValue=false)]
+        public string DiscountPercent { get; set; }
+
+        /// <summary>
+        /// Tax amount applied to the item. This value cannot be negative. Maximum of 2 decimal places. The tax amount and the offer amount must be in the same currency. The tax amount field is additive. If taxAmount is provided but taxRate is not, the taxRate will be calculated. 
+        /// </summary>
+        /// <value>Tax amount applied to the item. This value cannot be negative. Maximum of 2 decimal places. The tax amount and the offer amount must be in the same currency. The tax amount field is additive. If taxAmount is provided but taxRate is not, the taxRate will be calculated. </value>
+        [DataMember(Name="taxAmount", EmitDefaultValue=false)]
+        public string TaxAmount { get; set; }
+
+        /// <summary>
+        /// Tax rate applied to the item. Valid range: 1.001% to 99.999%. Maximum of 3 decimal places. If a taxRate is provided but taxAmount is missing or incorrect, the taxAmount based on the given taxRate will be overwritten. Example: 21.00 (&#x3D;21.00%) 
+        /// </summary>
+        /// <value>Tax rate applied to the item. Valid range: 1.001% to 99.999%. Maximum of 3 decimal places. If a taxRate is provided but taxAmount is missing or incorrect, the taxAmount based on the given taxRate will be overwritten. Example: 21.00 (&#x3D;21.00%) </value>
+        [DataMember(Name="taxRate", EmitDefaultValue=false)]
+        public string TaxRate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -100,6 +136,10 @@ namespace CyberSource.Model
             if (Quantity != null) sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             if (UnitPrice != null) sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
             if (ProductDescription != null) sb.Append("  ProductDescription: ").Append(ProductDescription).Append("\n");
+            if (DiscountAmount != null) sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
+            if (DiscountPercent != null) sb.Append("  DiscountPercent: ").Append(DiscountPercent).Append("\n");
+            if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
+            if (TaxRate != null) sb.Append("  TaxRate: ").Append(TaxRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,6 +200,26 @@ namespace CyberSource.Model
                     this.ProductDescription == other.ProductDescription ||
                     this.ProductDescription != null &&
                     this.ProductDescription.Equals(other.ProductDescription)
+                ) && 
+                (
+                    this.DiscountAmount == other.DiscountAmount ||
+                    this.DiscountAmount != null &&
+                    this.DiscountAmount.Equals(other.DiscountAmount)
+                ) && 
+                (
+                    this.DiscountPercent == other.DiscountPercent ||
+                    this.DiscountPercent != null &&
+                    this.DiscountPercent.Equals(other.DiscountPercent)
+                ) && 
+                (
+                    this.TaxAmount == other.TaxAmount ||
+                    this.TaxAmount != null &&
+                    this.TaxAmount.Equals(other.TaxAmount)
+                ) && 
+                (
+                    this.TaxRate == other.TaxRate ||
+                    this.TaxRate != null &&
+                    this.TaxRate.Equals(other.TaxRate)
                 );
         }
 
@@ -184,6 +244,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.UnitPrice.GetHashCode();
                 if (this.ProductDescription != null)
                     hash = hash * 59 + this.ProductDescription.GetHashCode();
+                if (this.DiscountAmount != null)
+                    hash = hash * 59 + this.DiscountAmount.GetHashCode();
+                if (this.DiscountPercent != null)
+                    hash = hash * 59 + this.DiscountPercent.GetHashCode();
+                if (this.TaxAmount != null)
+                    hash = hash * 59 + this.TaxAmount.GetHashCode();
+                if (this.TaxRate != null)
+                    hash = hash * 59 + this.TaxRate.GetHashCode();
                 return hash;
             }
         }

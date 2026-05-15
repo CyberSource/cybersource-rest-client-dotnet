@@ -41,11 +41,13 @@ namespace CyberSource.Model
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation (required).</param>
         /// <param name="PaymentInformation">PaymentInformation (required).</param>
-        public AccountValidationsRequest(Bavsv1accountvalidationsClientReferenceInformation ClientReferenceInformation = default(Bavsv1accountvalidationsClientReferenceInformation), Bavsv1accountvalidationsProcessingInformation ProcessingInformation = default(Bavsv1accountvalidationsProcessingInformation), Bavsv1accountvalidationsPaymentInformation PaymentInformation = default(Bavsv1accountvalidationsPaymentInformation))
+        /// <param name="TokenInformation">TokenInformation.</param>
+        public AccountValidationsRequest(Bavsv1accountvalidationsClientReferenceInformation ClientReferenceInformation = default(Bavsv1accountvalidationsClientReferenceInformation), Bavsv1accountvalidationsProcessingInformation ProcessingInformation = default(Bavsv1accountvalidationsProcessingInformation), Bavsv1accountvalidationsPaymentInformation PaymentInformation = default(Bavsv1accountvalidationsPaymentInformation), Bavsv1accountvalidationsTokenInformation TokenInformation = default(Bavsv1accountvalidationsTokenInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.PaymentInformation = PaymentInformation;
+            this.TokenInformation = TokenInformation;
         }
         
         /// <summary>
@@ -67,6 +69,12 @@ namespace CyberSource.Model
         public Bavsv1accountvalidationsPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets TokenInformation
+        /// </summary>
+        [DataMember(Name="tokenInformation", EmitDefaultValue=false)]
+        public Bavsv1accountvalidationsTokenInformation TokenInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +85,7 @@ namespace CyberSource.Model
             if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            if (TokenInformation != null) sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,6 +136,11 @@ namespace CyberSource.Model
                     this.PaymentInformation == other.PaymentInformation ||
                     this.PaymentInformation != null &&
                     this.PaymentInformation.Equals(other.PaymentInformation)
+                ) && 
+                (
+                    this.TokenInformation == other.TokenInformation ||
+                    this.TokenInformation != null &&
+                    this.TokenInformation.Equals(other.TokenInformation)
                 );
         }
 
@@ -147,6 +161,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.PaymentInformation != null)
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
+                if (this.TokenInformation != null)
+                    hash = hash * 59 + this.TokenInformation.GetHashCode();
                 return hash;
             }
         }

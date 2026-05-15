@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv1pullfundstransferOrderInformationAmountDetails" /> class.
         /// </summary>
-        /// <param name="TotalAmount">The total amount of the funds transfer including all fees.  This value cannot be negative.   Field must also be greater than zero: minimum value is the smallest amount in any given currency.   You can include a decimal point (.), but no other special characters.  (required).</param>
+        /// <param name="TotalAmount">The total amount of the funds transfer including all fees.  This value cannot be negative.   You can include a decimal point (.), but no other special characters.  (required).</param>
         /// <param name="Currency">Use a 3-character alpha currency code for currency of the sender.  ISO standard currencies: [http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)    Currency must be supported by the processor.  (required).</param>
         /// <param name="ServiceFee">When present, this field contains the sender&#39;s surcharge as assessed by the originator. Values in this field must be in the same currency and format as defined in the amount field. .</param>
         /// <param name="ForeignExchangeFee">When present, this field contains the sender&#39;s foreign exchange markup fee (markup above the wholesale or VisaNet exchange rate as assessed by the originator). Values in this field must be in the same currency and format as defined in the amount field. .</param>
@@ -53,9 +53,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The total amount of the funds transfer including all fees.  This value cannot be negative.   Field must also be greater than zero: minimum value is the smallest amount in any given currency.   You can include a decimal point (.), but no other special characters. 
+        /// The total amount of the funds transfer including all fees.  This value cannot be negative.   You can include a decimal point (.), but no other special characters. 
         /// </summary>
-        /// <value>The total amount of the funds transfer including all fees.  This value cannot be negative.   Field must also be greater than zero: minimum value is the smallest amount in any given currency.   You can include a decimal point (.), but no other special characters. </value>
+        /// <value>The total amount of the funds transfer including all fees.  This value cannot be negative.   You can include a decimal point (.), but no other special characters. </value>
         [DataMember(Name="totalAmount", EmitDefaultValue=false)]
         public string TotalAmount { get; set; }
 

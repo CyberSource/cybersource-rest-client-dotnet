@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Details of the PAN associated with the enrolled card
+    /// Details of the PAN associated with the enrolled card. Contains processor verification results.
     /// </summary>
     [DataContract]
     public partial class Acpv1instructionsinstructionIdconfirmationsProcessorInformationPaymentInstrument :  IEquatable<Acpv1instructionsinstructionIdconfirmationsProcessorInformationPaymentInstrument>, IValidatableObject

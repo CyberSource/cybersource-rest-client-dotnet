@@ -104,6 +104,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'InstrumentIdentifier'
         }
+        /// <summary>
+        /// Test the property 'ThirdPartyToken'
+        /// </summary>
+        [Test]
+        public void ThirdPartyTokenTest()
+        {
+            // TODO unit test for the property 'ThirdPartyToken'
+        }
 
     }
 

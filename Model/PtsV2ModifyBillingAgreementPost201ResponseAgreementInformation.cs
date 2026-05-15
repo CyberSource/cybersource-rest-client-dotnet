@@ -37,16 +37,20 @@ namespace CyberSource.Model
         /// <param name="DateSigned">Date the mandate has been signed.  Format YYYYMMdd.</param>
         /// <param name="DateCreated">Date the mandate has been created.  Format YYYYMMdd.</param>
         /// <param name="DateRevoked">Date the mandate has been revoked.  Format YYYYMMdd.</param>
+        /// <param name="Type">Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage.</param>
+        /// <param name="Frequency">Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly.</param>
         /// <param name="EncodedHtml">Base64 encoded html string.</param>
         /// <param name="EncodedHtmlPopup">Base64 encoded popup html string.</param>
         /// <param name="Url">URL for redirecting the customer for creating the mandate. .</param>
         /// <param name="TransactionId">The Billing Agreement ID returned by processor (PayPal). .</param>
-        public PtsV2ModifyBillingAgreementPost201ResponseAgreementInformation(string Id = default(string), string DateSigned = default(string), string DateCreated = default(string), string DateRevoked = default(string), string EncodedHtml = default(string), string EncodedHtmlPopup = default(string), string Url = default(string), string TransactionId = default(string))
+        public PtsV2ModifyBillingAgreementPost201ResponseAgreementInformation(string Id = default(string), string DateSigned = default(string), string DateCreated = default(string), string DateRevoked = default(string), string Type = default(string), string Frequency = default(string), string EncodedHtml = default(string), string EncodedHtmlPopup = default(string), string Url = default(string), string TransactionId = default(string))
         {
             this.Id = Id;
             this.DateSigned = DateSigned;
             this.DateCreated = DateCreated;
             this.DateRevoked = DateRevoked;
+            this.Type = Type;
+            this.Frequency = Frequency;
             this.EncodedHtml = EncodedHtml;
             this.EncodedHtmlPopup = EncodedHtmlPopup;
             this.Url = Url;
@@ -80,6 +84,20 @@ namespace CyberSource.Model
         /// <value>Date the mandate has been revoked.  Format YYYYMMdd</value>
         [DataMember(Name="dateRevoked", EmitDefaultValue=false)]
         public string DateRevoked { get; set; }
+
+        /// <summary>
+        /// Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage
+        /// </summary>
+        /// <value>Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly
+        /// </summary>
+        /// <value>Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly</value>
+        [DataMember(Name="frequency", EmitDefaultValue=false)]
+        public string Frequency { get; set; }
 
         /// <summary>
         /// Base64 encoded html string
@@ -121,6 +139,8 @@ namespace CyberSource.Model
             if (DateSigned != null) sb.Append("  DateSigned: ").Append(DateSigned).Append("\n");
             if (DateCreated != null) sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
             if (DateRevoked != null) sb.Append("  DateRevoked: ").Append(DateRevoked).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Frequency != null) sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             if (EncodedHtml != null) sb.Append("  EncodedHtml: ").Append(EncodedHtml).Append("\n");
             if (EncodedHtmlPopup != null) sb.Append("  EncodedHtmlPopup: ").Append(EncodedHtmlPopup).Append("\n");
             if (Url != null) sb.Append("  Url: ").Append(Url).Append("\n");
@@ -182,6 +202,16 @@ namespace CyberSource.Model
                     this.DateRevoked.Equals(other.DateRevoked)
                 ) && 
                 (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Frequency == other.Frequency ||
+                    this.Frequency != null &&
+                    this.Frequency.Equals(other.Frequency)
+                ) && 
+                (
                     this.EncodedHtml == other.EncodedHtml ||
                     this.EncodedHtml != null &&
                     this.EncodedHtml.Equals(other.EncodedHtml)
@@ -222,6 +252,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DateCreated.GetHashCode();
                 if (this.DateRevoked != null)
                     hash = hash * 59 + this.DateRevoked.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Frequency != null)
+                    hash = hash * 59 + this.Frequency.GetHashCode();
                 if (this.EncodedHtml != null)
                     hash = hash * 59 + this.EncodedHtml.GetHashCode();
                 if (this.EncodedHtmlPopup != null)

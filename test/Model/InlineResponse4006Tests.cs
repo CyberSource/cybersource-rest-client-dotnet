@@ -65,12 +65,28 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Code'
+        /// Test the property 'SubmitTimeUtc'
         /// </summary>
         [Test]
-        public void CodeTest()
+        public void SubmitTimeUtcTest()
         {
-            // TODO unit test for the property 'Code'
+            // TODO unit test for the property 'SubmitTimeUtc'
+        }
+        /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Test]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
+        /// Test the property 'Reason'
+        /// </summary>
+        [Test]
+        public void ReasonTest()
+        {
+            // TODO unit test for the property 'Reason'
         }
         /// <summary>
         /// Test the property 'Message'
@@ -81,36 +97,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Message'
         }
         /// <summary>
-        /// Test the property 'LocalizationKey'
+        /// Test the property 'Details'
         /// </summary>
         [Test]
-        public void LocalizationKeyTest()
+        public void DetailsTest()
         {
-            // TODO unit test for the property 'LocalizationKey'
-        }
-        /// <summary>
-        /// Test the property 'CorrelationId'
-        /// </summary>
-        [Test]
-        public void CorrelationIdTest()
-        {
-            // TODO unit test for the property 'CorrelationId'
-        }
-        /// <summary>
-        /// Test the property 'Detail'
-        /// </summary>
-        [Test]
-        public void DetailTest()
-        {
-            // TODO unit test for the property 'Detail'
-        }
-        /// <summary>
-        /// Test the property 'Fields'
-        /// </summary>
-        [Test]
-        public void FieldsTest()
-        {
-            // TODO unit test for the property 'Fields'
+            // TODO unit test for the property 'Details'
         }
 
     }

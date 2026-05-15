@@ -80,6 +80,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ResponseSourceCode'
         }
+        /// <summary>
+        /// Test the property 'SupplementaryTransactionData'
+        /// </summary>
+        [Test]
+        public void SupplementaryTransactionDataTest()
+        {
+            // TODO unit test for the property 'SupplementaryTransactionData'
+        }
+        /// <summary>
+        /// Test the property 'CedpVerifiedIndicator'
+        /// </summary>
+        [Test]
+        public void CedpVerifiedIndicatorTest()
+        {
+            // TODO unit test for the property 'CedpVerifiedIndicator'
+        }
 
     }
 

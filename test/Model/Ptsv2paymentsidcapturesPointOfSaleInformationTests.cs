@@ -80,6 +80,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AmexCapnData'
         }
+        /// <summary>
+        /// Test the property 'EncryptedKeyId'
+        /// </summary>
+        [Test]
+        public void EncryptedKeyIdTest()
+        {
+            // TODO unit test for the property 'EncryptedKeyId'
+        }
 
     }
 

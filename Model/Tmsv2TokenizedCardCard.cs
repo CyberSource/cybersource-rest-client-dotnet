@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="Number">The latest customer&#39;s payment card number associated to the network token. .</param>
         /// <param name="ExpirationMonth">Two-digit month in which the payment card expires.  Format: &#x60;MM&#x60;.  Possible Values: &#x60;01&#x60; through &#x60;12&#x60;. .</param>
         /// <param name="ExpirationYear">Four-digit year in which the credit card expires.  Format: &#x60;YYYY&#x60;. .</param>
-        /// <param name="Type">The type of card (Card Network). Possible Values: - 001: visa .</param>
+        /// <param name="Type">The type of card (Card Network). Possible Values: - 001: visa - 002: mastercard - 003: american express - 007: jcb .</param>
         /// <param name="TermsAndConditions">TermsAndConditions.</param>
         public Tmsv2TokenizedCardCard(string Number = default(string), string ExpirationMonth = default(string), string ExpirationYear = default(string), string Type = default(string), Tmsv2TokenizedCardCardTermsAndConditions TermsAndConditions = default(Tmsv2TokenizedCardCardTermsAndConditions))
         {
@@ -69,9 +69,9 @@ namespace CyberSource.Model
         public string ExpirationYear { get; set; }
 
         /// <summary>
-        /// The type of card (Card Network). Possible Values: - 001: visa 
+        /// The type of card (Card Network). Possible Values: - 001: visa - 002: mastercard - 003: american express - 007: jcb 
         /// </summary>
-        /// <value>The type of card (Card Network). Possible Values: - 001: visa </value>
+        /// <value>The type of card (Card Network). Possible Values: - 001: visa - 002: mastercard - 003: american express - 007: jcb </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

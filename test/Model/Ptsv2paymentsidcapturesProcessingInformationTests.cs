@@ -121,6 +121,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'IndustryDataType'
         }
         /// <summary>
+        /// Test the property 'DigitalServiceIndicator'
+        /// </summary>
+        [Test]
+        public void DigitalServiceIndicatorTest()
+        {
+            // TODO unit test for the property 'DigitalServiceIndicator'
+        }
+        /// <summary>
         /// Test the property 'Issuer'
         /// </summary>
         [Test]

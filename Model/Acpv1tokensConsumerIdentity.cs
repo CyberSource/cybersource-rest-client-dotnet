@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Consumer Identity data.
+    /// Consumer Identity data. Identifies the consumer using an email address or phone number.
     /// </summary>
     [DataContract]
     public partial class Acpv1tokensConsumerIdentity :  IEquatable<Acpv1tokensConsumerIdentity>, IValidatableObject

@@ -106,8 +106,9 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
         /// <param name="customerId">Filter by Customer Id (optional)</param>
+        /// <param name="clientReferenceInformationCode">Filter by Client Reference Information Code / Merchant Reference Number (optional)</param>
         /// <returns>GetAllSubscriptionsResponse</returns>
-        GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null);
+        GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null, string clientReferenceInformationCode = null);
 
         /// <summary>
         /// Get a List of Subscriptions
@@ -121,8 +122,9 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
         /// <param name="customerId">Filter by Customer Id (optional)</param>
+        /// <param name="clientReferenceInformationCode">Filter by Client Reference Information Code / Merchant Reference Number (optional)</param>
         /// <returns>ApiResponse of GetAllSubscriptionsResponse</returns>
-        ApiResponse<GetAllSubscriptionsResponse> GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null);
+        ApiResponse<GetAllSubscriptionsResponse> GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null, string clientReferenceInformationCode = null);
         /// <summary>
         /// Get a Subscription
         /// </summary>
@@ -163,6 +165,56 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GetSubscriptionCodeResponse</returns>
         ApiResponse<GetSubscriptionCodeResponse> GetSubscriptionCodeWithHttpInfo ();
+        /// <summary>
+        /// Get Payments for a Subscription
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of payments for a specific subscription by its ID. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="offset">Page offset number. (optional)</param>
+        /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
+        /// <param name="scheduledPaymentsCount">Number of existing scheduled payments to be returned. Default - &#x60;5&#x60;, Max - &#x60;9999&#x60;  (optional)</param>
+        /// <returns>GetSubscriptionsPaymentsResponse</returns>
+        GetSubscriptionsPaymentsResponse SubscriptionsIdPaymentsGet (string id, int? offset = null, int? limit = null, int? scheduledPaymentsCount = null);
+
+        /// <summary>
+        /// Get Payments for a Subscription
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of payments for a specific subscription by its ID. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="offset">Page offset number. (optional)</param>
+        /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
+        /// <param name="scheduledPaymentsCount">Number of existing scheduled payments to be returned. Default - &#x60;5&#x60;, Max - &#x60;9999&#x60;  (optional)</param>
+        /// <returns>ApiResponse of GetSubscriptionsPaymentsResponse</returns>
+        ApiResponse<GetSubscriptionsPaymentsResponse> SubscriptionsIdPaymentsGetWithHttpInfo (string id, int? offset = null, int? limit = null, int? scheduledPaymentsCount = null);
+        /// <summary>
+        /// Update Payments for a subscription
+        /// </summary>
+        /// <remarks>
+        /// Modifies the state of a subscription&#39;s payments. Currently, the only possible modifications are \&quot;skipping\&quot; and \&quot;restoring\&quot; payments.  Marking a payment as \&quot;skipped\&quot; means it will not be processed when its scheduled time arrives. \&quot;Restoring\&quot; a payment removes it from the list of payments to be skipped. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="updatePayments">Modify payments of a subscription</param>
+        /// <returns>GetSubscriptionsPaymentsResponse1</returns>
+        GetSubscriptionsPaymentsResponse1 SubscriptionsIdPaymentsPut (string id, UpdatePayments updatePayments);
+
+        /// <summary>
+        /// Update Payments for a subscription
+        /// </summary>
+        /// <remarks>
+        /// Modifies the state of a subscription&#39;s payments. Currently, the only possible modifications are \&quot;skipping\&quot; and \&quot;restoring\&quot; payments.  Marking a payment as \&quot;skipped\&quot; means it will not be processed when its scheduled time arrives. \&quot;Restoring\&quot; a payment removes it from the list of payments to be skipped. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="updatePayments">Modify payments of a subscription</param>
+        /// <returns>ApiResponse of GetSubscriptionsPaymentsResponse1</returns>
+        ApiResponse<GetSubscriptionsPaymentsResponse1> SubscriptionsIdPaymentsPutWithHttpInfo (string id, UpdatePayments updatePayments);
         /// <summary>
         /// Suspend a Subscription
         /// </summary>
@@ -286,8 +338,9 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
         /// <param name="customerId">Filter by Customer Id (optional)</param>
+        /// <param name="clientReferenceInformationCode">Filter by Client Reference Information Code / Merchant Reference Number (optional)</param>
         /// <returns>Task of GetAllSubscriptionsResponse</returns>
-        System.Threading.Tasks.Task<GetAllSubscriptionsResponse> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null);
+        System.Threading.Tasks.Task<GetAllSubscriptionsResponse> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null, string clientReferenceInformationCode = null);
 
         /// <summary>
         /// Get a List of Subscriptions
@@ -301,8 +354,9 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
         /// <param name="customerId">Filter by Customer Id (optional)</param>
+        /// <param name="clientReferenceInformationCode">Filter by Client Reference Information Code / Merchant Reference Number (optional)</param>
         /// <returns>Task of ApiResponse (GetAllSubscriptionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAllSubscriptionsResponse>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null);
+        System.Threading.Tasks.Task<ApiResponse<GetAllSubscriptionsResponse>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null, string clientReferenceInformationCode = null);
         /// <summary>
         /// Get a Subscription
         /// </summary>
@@ -343,6 +397,56 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (GetSubscriptionCodeResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetSubscriptionCodeResponse>> GetSubscriptionCodeAsyncWithHttpInfo ();
+        /// <summary>
+        /// Get Payments for a Subscription
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of payments for a specific subscription by its ID. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="offset">Page offset number. (optional)</param>
+        /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
+        /// <param name="scheduledPaymentsCount">Number of existing scheduled payments to be returned. Default - &#x60;5&#x60;, Max - &#x60;9999&#x60;  (optional)</param>
+        /// <returns>Task of GetSubscriptionsPaymentsResponse</returns>
+        System.Threading.Tasks.Task<GetSubscriptionsPaymentsResponse> SubscriptionsIdPaymentsGetAsync (string id, int? offset = null, int? limit = null, int? scheduledPaymentsCount = null);
+
+        /// <summary>
+        /// Get Payments for a Subscription
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of payments for a specific subscription by its ID. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="offset">Page offset number. (optional)</param>
+        /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
+        /// <param name="scheduledPaymentsCount">Number of existing scheduled payments to be returned. Default - &#x60;5&#x60;, Max - &#x60;9999&#x60;  (optional)</param>
+        /// <returns>Task of ApiResponse (GetSubscriptionsPaymentsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetSubscriptionsPaymentsResponse>> SubscriptionsIdPaymentsGetAsyncWithHttpInfo (string id, int? offset = null, int? limit = null, int? scheduledPaymentsCount = null);
+        /// <summary>
+        /// Update Payments for a subscription
+        /// </summary>
+        /// <remarks>
+        /// Modifies the state of a subscription&#39;s payments. Currently, the only possible modifications are \&quot;skipping\&quot; and \&quot;restoring\&quot; payments.  Marking a payment as \&quot;skipped\&quot; means it will not be processed when its scheduled time arrives. \&quot;Restoring\&quot; a payment removes it from the list of payments to be skipped. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="updatePayments">Modify payments of a subscription</param>
+        /// <returns>Task of GetSubscriptionsPaymentsResponse1</returns>
+        System.Threading.Tasks.Task<GetSubscriptionsPaymentsResponse1> SubscriptionsIdPaymentsPutAsync (string id, UpdatePayments updatePayments);
+
+        /// <summary>
+        /// Update Payments for a subscription
+        /// </summary>
+        /// <remarks>
+        /// Modifies the state of a subscription&#39;s payments. Currently, the only possible modifications are \&quot;skipping\&quot; and \&quot;restoring\&quot; payments.  Marking a payment as \&quot;skipped\&quot; means it will not be processed when its scheduled time arrives. \&quot;Restoring\&quot; a payment removes it from the list of payments to be skipped. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="updatePayments">Modify payments of a subscription</param>
+        /// <returns>Task of ApiResponse (GetSubscriptionsPaymentsResponse1)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetSubscriptionsPaymentsResponse1>> SubscriptionsIdPaymentsPutAsyncWithHttpInfo (string id, UpdatePayments updatePayments);
         /// <summary>
         /// Suspend a Subscription
         /// </summary>
@@ -1096,7 +1200,7 @@ namespace CyberSource.Api
                 localVarPostBody = createSubscriptionRequest; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateSubscription,CreateSubscriptionAsync,CreateSubscriptionWithHttpInfo,CreateSubscriptionAsyncWithHttpInfo"))
             {
@@ -1210,7 +1314,7 @@ namespace CyberSource.Api
                 localVarPostBody = createSubscriptionRequest; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "optional";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "CreateSubscription,CreateSubscriptionAsync,CreateSubscriptionWithHttpInfo,CreateSubscriptionAsyncWithHttpInfo"))
             {
@@ -1260,12 +1364,13 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
         /// <param name="customerId">Filter by Customer Id (optional)</param>
+        /// <param name="clientReferenceInformationCode">Filter by Client Reference Information Code / Merchant Reference Number (optional)</param>
         /// <returns>GetAllSubscriptionsResponse</returns>
-        public GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null)
+        public GetAllSubscriptionsResponse GetAllSubscriptions (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null, string clientReferenceInformationCode = null)
         {
             logger.Debug("CALLING API \"GetAllSubscriptions\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<GetAllSubscriptionsResponse> localVarResponse = GetAllSubscriptionsWithHttpInfo(offset, limit, code, status, customerId);
+            ApiResponse<GetAllSubscriptionsResponse> localVarResponse = GetAllSubscriptionsWithHttpInfo(offset, limit, code, status, customerId, clientReferenceInformationCode);
             logger.Debug("CALLING API \"GetAllSubscriptions\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1280,8 +1385,9 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
         /// <param name="customerId">Filter by Customer Id (optional)</param>
+        /// <param name="clientReferenceInformationCode">Filter by Client Reference Information Code / Merchant Reference Number (optional)</param>
         /// <returns>ApiResponse of GetAllSubscriptionsResponse</returns>
-        public ApiResponse< GetAllSubscriptionsResponse > GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null)
+        public ApiResponse< GetAllSubscriptionsResponse > GetAllSubscriptionsWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null, string clientReferenceInformationCode = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1333,6 +1439,11 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("customerId", Configuration.ApiClient.ParameterToString(customerId)); // query parameter
             }
+            if (clientReferenceInformationCode != null)
+            {
+                localVarQueryParams.Add("clientReferenceInformationCode", Configuration.ApiClient.ParameterToString(clientReferenceInformationCode)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
@@ -1403,12 +1514,13 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
         /// <param name="customerId">Filter by Customer Id (optional)</param>
+        /// <param name="clientReferenceInformationCode">Filter by Client Reference Information Code / Merchant Reference Number (optional)</param>
         /// <returns>Task of GetAllSubscriptionsResponse</returns>
-        public async System.Threading.Tasks.Task<GetAllSubscriptionsResponse> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null)
+        public async System.Threading.Tasks.Task<GetAllSubscriptionsResponse> GetAllSubscriptionsAsync (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null, string clientReferenceInformationCode = null)
         {
             logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<GetAllSubscriptionsResponse> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo(offset, limit, code, status, customerId);
+            ApiResponse<GetAllSubscriptionsResponse> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo(offset, limit, code, status, customerId, clientReferenceInformationCode);
             logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1424,8 +1536,9 @@ namespace CyberSource.Api
         /// <param name="code">Filter by Subscription Code (optional)</param>
         /// <param name="status">Filter by Subscription Status (optional)</param>
         /// <param name="customerId">Filter by Customer Id (optional)</param>
+        /// <param name="clientReferenceInformationCode">Filter by Client Reference Information Code / Merchant Reference Number (optional)</param>
         /// <returns>Task of ApiResponse (GetAllSubscriptionsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<GetAllSubscriptionsResponse>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<GetAllSubscriptionsResponse>> GetAllSubscriptionsAsyncWithHttpInfo (int? offset = null, int? limit = null, string code = null, string status = null, string customerId = null, string clientReferenceInformationCode = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1477,6 +1590,11 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("customerId", Configuration.ApiClient.ParameterToString(customerId)); // query parameter
             }
+            if (clientReferenceInformationCode != null)
+            {
+                localVarQueryParams.Add("clientReferenceInformationCode", Configuration.ApiClient.ParameterToString(clientReferenceInformationCode)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
             logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
@@ -1994,6 +2112,530 @@ namespace CyberSource.Api
             return new ApiResponse<GetSubscriptionCodeResponse>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
                 (GetSubscriptionCodeResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionCodeResponse), merchantConfig)); // Return statement
+        }
+        /// <summary>
+        /// Get Payments for a Subscription Retrieve a list of payments for a specific subscription by its ID. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="offset">Page offset number. (optional)</param>
+        /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
+        /// <param name="scheduledPaymentsCount">Number of existing scheduled payments to be returned. Default - &#x60;5&#x60;, Max - &#x60;9999&#x60;  (optional)</param>
+        /// <returns>GetSubscriptionsPaymentsResponse</returns>
+        public GetSubscriptionsPaymentsResponse SubscriptionsIdPaymentsGet (string id, int? offset = null, int? limit = null, int? scheduledPaymentsCount = null)
+        {
+            logger.Debug("CALLING API \"SubscriptionsIdPaymentsGet\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<GetSubscriptionsPaymentsResponse> localVarResponse = SubscriptionsIdPaymentsGetWithHttpInfo(id, offset, limit, scheduledPaymentsCount);
+            logger.Debug("CALLING API \"SubscriptionsIdPaymentsGet\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Payments for a Subscription Retrieve a list of payments for a specific subscription by its ID. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="offset">Page offset number. (optional)</param>
+        /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
+        /// <param name="scheduledPaymentsCount">Number of existing scheduled payments to be returned. Default - &#x60;5&#x60;, Max - &#x60;9999&#x60;  (optional)</param>
+        /// <returns>ApiResponse of GetSubscriptionsPaymentsResponse</returns>
+        public ApiResponse< GetSubscriptionsPaymentsResponse > SubscriptionsIdPaymentsGetWithHttpInfo (string id, int? offset = null, int? limit = null, int? scheduledPaymentsCount = null)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling SubscriptionsApi->SubscriptionsIdPaymentsGet");
+                throw new ApiException(400, "Missing required parameter 'id' when calling SubscriptionsApi->SubscriptionsIdPaymentsGet");
+            }
+
+            var localVarPath = $"/rbs/v1/subscriptions/{id}/payments";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (offset != null)
+            {
+                localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            }
+            if (limit != null)
+            {
+                localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            }
+            if (scheduledPaymentsCount != null)
+            {
+                localVarQueryParams.Add("scheduledPaymentsCount", Configuration.ApiClient.ParameterToString(scheduledPaymentsCount)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.Get == Method.Post)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
+            }
+            
+            String inboundMLEStatus = "false";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "SubscriptionsIdPaymentsGet,SubscriptionsIdPaymentsGetAsync,SubscriptionsIdPaymentsGetWithHttpInfo,SubscriptionsIdPaymentsGetAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "SubscriptionsIdPaymentsGet,SubscriptionsIdPaymentsGetAsync,SubscriptionsIdPaymentsGetWithHttpInfo,SubscriptionsIdPaymentsGetAsyncWithHttpInfo");
+
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SubscriptionsIdPaymentsGet", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<GetSubscriptionsPaymentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (GetSubscriptionsPaymentsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionsPaymentsResponse), merchantConfig)); // Return statement
+        }
+
+        /// <summary>
+        /// Get Payments for a Subscription Retrieve a list of payments for a specific subscription by its ID. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="offset">Page offset number. (optional)</param>
+        /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
+        /// <param name="scheduledPaymentsCount">Number of existing scheduled payments to be returned. Default - &#x60;5&#x60;, Max - &#x60;9999&#x60;  (optional)</param>
+        /// <returns>Task of GetSubscriptionsPaymentsResponse</returns>
+        public async System.Threading.Tasks.Task<GetSubscriptionsPaymentsResponse> SubscriptionsIdPaymentsGetAsync (string id, int? offset = null, int? limit = null, int? scheduledPaymentsCount = null)
+        {
+            logger.Debug("CALLING API \"SubscriptionsIdPaymentsGetAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<GetSubscriptionsPaymentsResponse> localVarResponse = await SubscriptionsIdPaymentsGetAsyncWithHttpInfo(id, offset, limit, scheduledPaymentsCount);
+            logger.Debug("CALLING API \"SubscriptionsIdPaymentsGetAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Payments for a Subscription Retrieve a list of payments for a specific subscription by its ID. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="offset">Page offset number. (optional)</param>
+        /// <param name="limit">Number of items to be returned. Default - &#x60;20&#x60;, Max - &#x60;100&#x60;  (optional)</param>
+        /// <param name="scheduledPaymentsCount">Number of existing scheduled payments to be returned. Default - &#x60;5&#x60;, Max - &#x60;9999&#x60;  (optional)</param>
+        /// <returns>Task of ApiResponse (GetSubscriptionsPaymentsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetSubscriptionsPaymentsResponse>> SubscriptionsIdPaymentsGetAsyncWithHttpInfo (string id, int? offset = null, int? limit = null, int? scheduledPaymentsCount = null)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling SubscriptionsApi->SubscriptionsIdPaymentsGet");
+                throw new ApiException(400, "Missing required parameter 'id' when calling SubscriptionsApi->SubscriptionsIdPaymentsGet");
+            }
+
+            var localVarPath = $"/rbs/v1/subscriptions/{id}/payments";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (offset != null)
+            {
+                localVarQueryParams.Add("offset", Configuration.ApiClient.ParameterToString(offset)); // query parameter
+            }
+            if (limit != null)
+            {
+                localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            }
+            if (scheduledPaymentsCount != null)
+            {
+                localVarQueryParams.Add("scheduledPaymentsCount", Configuration.ApiClient.ParameterToString(scheduledPaymentsCount)); // query parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarQueryParams)}");
+            if (Method.Get == Method.Post)
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+            String[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if(null!= filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
+            }
+
+            String inboundMLEStatus = "false";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "SubscriptionsIdPaymentsGet,SubscriptionsIdPaymentsGetAsync,SubscriptionsIdPaymentsGetWithHttpInfo,SubscriptionsIdPaymentsGetAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "SubscriptionsIdPaymentsGet,SubscriptionsIdPaymentsGetAsync,SubscriptionsIdPaymentsGetWithHttpInfo,SubscriptionsIdPaymentsGetAsyncWithHttpInfo");
+
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SubscriptionsIdPaymentsGet", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<GetSubscriptionsPaymentsResponse>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (GetSubscriptionsPaymentsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionsPaymentsResponse), merchantConfig)); // Return statement
+        }
+        /// <summary>
+        /// Update Payments for a subscription Modifies the state of a subscription&#39;s payments. Currently, the only possible modifications are \&quot;skipping\&quot; and \&quot;restoring\&quot; payments.  Marking a payment as \&quot;skipped\&quot; means it will not be processed when its scheduled time arrives. \&quot;Restoring\&quot; a payment removes it from the list of payments to be skipped. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="updatePayments">Modify payments of a subscription</param>
+        /// <returns>GetSubscriptionsPaymentsResponse1</returns>
+        public GetSubscriptionsPaymentsResponse1 SubscriptionsIdPaymentsPut (string id, UpdatePayments updatePayments)
+        {
+            logger.Debug("CALLING API \"SubscriptionsIdPaymentsPut\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<GetSubscriptionsPaymentsResponse1> localVarResponse = SubscriptionsIdPaymentsPutWithHttpInfo(id, updatePayments);
+            logger.Debug("CALLING API \"SubscriptionsIdPaymentsPut\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Payments for a subscription Modifies the state of a subscription&#39;s payments. Currently, the only possible modifications are \&quot;skipping\&quot; and \&quot;restoring\&quot; payments.  Marking a payment as \&quot;skipped\&quot; means it will not be processed when its scheduled time arrives. \&quot;Restoring\&quot; a payment removes it from the list of payments to be skipped. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="updatePayments">Modify payments of a subscription</param>
+        /// <returns>ApiResponse of GetSubscriptionsPaymentsResponse1</returns>
+        public ApiResponse< GetSubscriptionsPaymentsResponse1 > SubscriptionsIdPaymentsPutWithHttpInfo (string id, UpdatePayments updatePayments)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling SubscriptionsApi->SubscriptionsIdPaymentsPut");
+                throw new ApiException(400, "Missing required parameter 'id' when calling SubscriptionsApi->SubscriptionsIdPaymentsPut");
+            }
+            // verify the required parameter 'updatePayments' is set
+            if (updatePayments == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'updatePayments' when calling SubscriptionsApi->SubscriptionsIdPaymentsPut");
+                throw new ApiException(400, "Missing required parameter 'updatePayments' when calling SubscriptionsApi->SubscriptionsIdPaymentsPut");
+            }
+
+            var localVarPath = $"/rbs/v1/subscriptions/{id}/payments";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (updatePayments != null && updatePayments.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                updatePayments = (UpdatePayments)sdkTracker.InsertDeveloperIdTracker(updatePayments, updatePayments.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(updatePayments); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updatePayments; // byte array
+            }
+            
+            String inboundMLEStatus = "false";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "SubscriptionsIdPaymentsPut,SubscriptionsIdPaymentsPutAsync,SubscriptionsIdPaymentsPutWithHttpInfo,SubscriptionsIdPaymentsPutAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "SubscriptionsIdPaymentsPut,SubscriptionsIdPaymentsPutAsync,SubscriptionsIdPaymentsPutWithHttpInfo,SubscriptionsIdPaymentsPutAsyncWithHttpInfo");
+
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SubscriptionsIdPaymentsPut", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<GetSubscriptionsPaymentsResponse1>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (GetSubscriptionsPaymentsResponse1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionsPaymentsResponse1), merchantConfig)); // Return statement
+        }
+
+        /// <summary>
+        /// Update Payments for a subscription Modifies the state of a subscription&#39;s payments. Currently, the only possible modifications are \&quot;skipping\&quot; and \&quot;restoring\&quot; payments.  Marking a payment as \&quot;skipped\&quot; means it will not be processed when its scheduled time arrives. \&quot;Restoring\&quot; a payment removes it from the list of payments to be skipped. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="updatePayments">Modify payments of a subscription</param>
+        /// <returns>Task of GetSubscriptionsPaymentsResponse1</returns>
+        public async System.Threading.Tasks.Task<GetSubscriptionsPaymentsResponse1> SubscriptionsIdPaymentsPutAsync (string id, UpdatePayments updatePayments)
+        {
+            logger.Debug("CALLING API \"SubscriptionsIdPaymentsPutAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<GetSubscriptionsPaymentsResponse1> localVarResponse = await SubscriptionsIdPaymentsPutAsyncWithHttpInfo(id, updatePayments);
+            logger.Debug("CALLING API \"SubscriptionsIdPaymentsPutAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update Payments for a subscription Modifies the state of a subscription&#39;s payments. Currently, the only possible modifications are \&quot;skipping\&quot; and \&quot;restoring\&quot; payments.  Marking a payment as \&quot;skipped\&quot; means it will not be processed when its scheduled time arrives. \&quot;Restoring\&quot; a payment removes it from the list of payments to be skipped. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Subscription Id</param>
+        /// <param name="updatePayments">Modify payments of a subscription</param>
+        /// <returns>Task of ApiResponse (GetSubscriptionsPaymentsResponse1)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetSubscriptionsPaymentsResponse1>> SubscriptionsIdPaymentsPutAsyncWithHttpInfo (string id, UpdatePayments updatePayments)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'id' when calling SubscriptionsApi->SubscriptionsIdPaymentsPut");
+                throw new ApiException(400, "Missing required parameter 'id' when calling SubscriptionsApi->SubscriptionsIdPaymentsPut");
+            }
+            // verify the required parameter 'updatePayments' is set
+            if (updatePayments == null)
+            {
+                logger.Error("ApiException : Missing required parameter 'updatePayments' when calling SubscriptionsApi->SubscriptionsIdPaymentsPut");
+                throw new ApiException(400, "Missing required parameter 'updatePayments' when calling SubscriptionsApi->SubscriptionsIdPaymentsPut");
+            }
+
+            var localVarPath = $"/rbs/v1/subscriptions/{id}/payments";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json"
+            };
+            string localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json"
+            };
+            string localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (id != null)
+            {
+                localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            }
+            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            if (updatePayments != null && updatePayments.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                updatePayments = (UpdatePayments)sdkTracker.InsertDeveloperIdTracker(updatePayments, updatePayments.GetType().Name, Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["runEnvironment"], Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj.ContainsKey("defaultDeveloperId")? Configuration.ApiClient.Configuration.MerchantConfigDictionaryObj["defaultDeveloperId"]:"");
+                localVarPostBody = Configuration.ApiClient.Serialize(updatePayments); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updatePayments; // byte array
+            }
+
+            String inboundMLEStatus = "false";
+            MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
+            if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "SubscriptionsIdPaymentsPut,SubscriptionsIdPaymentsPutAsync,SubscriptionsIdPaymentsPutWithHttpInfo,SubscriptionsIdPaymentsPutAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(merchantConfig, localVarPostBody);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    throw new ApiException(400,"Failed to encrypt request body : " + e.Message);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(merchantConfig, "SubscriptionsIdPaymentsPut,SubscriptionsIdPaymentsPutAsync,SubscriptionsIdPaymentsPutWithHttpInfo,SubscriptionsIdPaymentsPutAsyncWithHttpInfo");
+
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SubscriptionsIdPaymentsPut", localVarResponse);
+                if (exception != null)
+                {
+                    logger.Error($"Exception : {exception.Message}");
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<GetSubscriptionsPaymentsResponse1>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (GetSubscriptionsPaymentsResponse1) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionsPaymentsResponse1), merchantConfig)); // Return statement
         }
         /// <summary>
         /// Suspend a Subscription Suspend a Subscription 

@@ -45,7 +45,8 @@ namespace CyberSource.Model
         /// <param name="PurposeOfPayment">Visa Direct   Purpose of payment is required in certain markets to clearly identify the purpose of the payment based on the standard values defined for respective market. .</param>
         /// <param name="PayoutsOptions">PayoutsOptions.</param>
         /// <param name="LanguageCode">Contains the ISO 639-2 defined language Code .</param>
-        public Ptsv1pullfundstransferProcessingInformation(string CommerceIndicator = default(string), Ptsv1pullfundstransferProcessingInformationFundingOptions FundingOptions = default(Ptsv1pullfundstransferProcessingInformationFundingOptions), Ptsv1pullfundstransferProcessingInformationRecurringOptions RecurringOptions = default(Ptsv1pullfundstransferProcessingInformationRecurringOptions), string BusinessApplicationId = default(string), string PurposeOfPayment = default(string), Ptsv1pullfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pullfundstransferProcessingInformationPayoutsOptions), string LanguageCode = default(string))
+        /// <param name="AccountVerificationCode">Account verification code will inform what Payment Account Verification should be performed. With this array of codes, a merchant can choose à la carte what verifications to run. This field is optional, and the default is 1 if it is not passed in. This means that a full validation of the fields will be performed. Valid verification codes: - &#x60;1&#x60; &#x3D; Full Account Verification (Card Account, CVN, CAVV, TAVV, Address, Name, eMail, Phone, Identity) - &#x60;2&#x60; &#x3D; Card Account Verification - &#x60;3&#x60; &#x3D; Address Verification - &#x60;4&#x60; &#x3D; Card Authentication Method (CAM) (Cryptogram) - &#x60;5&#x60; &#x3D; Cardholder Authentication Verification (CAVV) - &#x60;6&#x60; &#x3D; Cardholder Identity Verification - &#x60;7&#x60; &#x3D; CVV2 Verification - &#x60;8&#x60; &#x3D; eMail Verification - &#x60;9&#x60; &#x3D; Name Verification - &#x60;10&#x60; &#x3D; Phone Verification .</param>
+        public Ptsv1pullfundstransferProcessingInformation(string CommerceIndicator = default(string), Ptsv1pullfundstransferProcessingInformationFundingOptions FundingOptions = default(Ptsv1pullfundstransferProcessingInformationFundingOptions), Ptsv1pullfundstransferProcessingInformationRecurringOptions RecurringOptions = default(Ptsv1pullfundstransferProcessingInformationRecurringOptions), string BusinessApplicationId = default(string), string PurposeOfPayment = default(string), Ptsv1pullfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pullfundstransferProcessingInformationPayoutsOptions), string LanguageCode = default(string), List<string> AccountVerificationCode = default(List<string>))
         {
             this.CommerceIndicator = CommerceIndicator;
             this.FundingOptions = FundingOptions;
@@ -54,6 +55,7 @@ namespace CyberSource.Model
             this.PurposeOfPayment = PurposeOfPayment;
             this.PayoutsOptions = PayoutsOptions;
             this.LanguageCode = LanguageCode;
+            this.AccountVerificationCode = AccountVerificationCode;
         }
         
         /// <summary>
@@ -103,6 +105,13 @@ namespace CyberSource.Model
         public string LanguageCode { get; set; }
 
         /// <summary>
+        /// Account verification code will inform what Payment Account Verification should be performed. With this array of codes, a merchant can choose à la carte what verifications to run. This field is optional, and the default is 1 if it is not passed in. This means that a full validation of the fields will be performed. Valid verification codes: - &#x60;1&#x60; &#x3D; Full Account Verification (Card Account, CVN, CAVV, TAVV, Address, Name, eMail, Phone, Identity) - &#x60;2&#x60; &#x3D; Card Account Verification - &#x60;3&#x60; &#x3D; Address Verification - &#x60;4&#x60; &#x3D; Card Authentication Method (CAM) (Cryptogram) - &#x60;5&#x60; &#x3D; Cardholder Authentication Verification (CAVV) - &#x60;6&#x60; &#x3D; Cardholder Identity Verification - &#x60;7&#x60; &#x3D; CVV2 Verification - &#x60;8&#x60; &#x3D; eMail Verification - &#x60;9&#x60; &#x3D; Name Verification - &#x60;10&#x60; &#x3D; Phone Verification 
+        /// </summary>
+        /// <value>Account verification code will inform what Payment Account Verification should be performed. With this array of codes, a merchant can choose à la carte what verifications to run. This field is optional, and the default is 1 if it is not passed in. This means that a full validation of the fields will be performed. Valid verification codes: - &#x60;1&#x60; &#x3D; Full Account Verification (Card Account, CVN, CAVV, TAVV, Address, Name, eMail, Phone, Identity) - &#x60;2&#x60; &#x3D; Card Account Verification - &#x60;3&#x60; &#x3D; Address Verification - &#x60;4&#x60; &#x3D; Card Authentication Method (CAM) (Cryptogram) - &#x60;5&#x60; &#x3D; Cardholder Authentication Verification (CAVV) - &#x60;6&#x60; &#x3D; Cardholder Identity Verification - &#x60;7&#x60; &#x3D; CVV2 Verification - &#x60;8&#x60; &#x3D; eMail Verification - &#x60;9&#x60; &#x3D; Name Verification - &#x60;10&#x60; &#x3D; Phone Verification </value>
+        [DataMember(Name="accountVerificationCode", EmitDefaultValue=false)]
+        public List<string> AccountVerificationCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,6 +126,7 @@ namespace CyberSource.Model
             if (PurposeOfPayment != null) sb.Append("  PurposeOfPayment: ").Append(PurposeOfPayment).Append("\n");
             if (PayoutsOptions != null) sb.Append("  PayoutsOptions: ").Append(PayoutsOptions).Append("\n");
             if (LanguageCode != null) sb.Append("  LanguageCode: ").Append(LanguageCode).Append("\n");
+            if (AccountVerificationCode != null) sb.Append("  AccountVerificationCode: ").Append(AccountVerificationCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -187,6 +197,11 @@ namespace CyberSource.Model
                     this.LanguageCode == other.LanguageCode ||
                     this.LanguageCode != null &&
                     this.LanguageCode.Equals(other.LanguageCode)
+                ) && 
+                (
+                    this.AccountVerificationCode == other.AccountVerificationCode ||
+                    this.AccountVerificationCode != null &&
+                    this.AccountVerificationCode.SequenceEqual(other.AccountVerificationCode)
                 );
         }
 
@@ -215,6 +230,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PayoutsOptions.GetHashCode();
                 if (this.LanguageCode != null)
                     hash = hash * 59 + this.LanguageCode.GetHashCode();
+                if (this.AccountVerificationCode != null)
+                    hash = hash * 59 + this.AccountVerificationCode.GetHashCode();
                 return hash;
             }
         }

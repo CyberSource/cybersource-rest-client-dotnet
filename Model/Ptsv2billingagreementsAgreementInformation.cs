@@ -35,10 +35,20 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Id">Identifier for the mandate. #### SEPA/BACS Required for mandates services .</param>
         /// <param name="DateSigned">Date the mandate has been signed.  Format YYYYMMdd #### SEPA/BACS Required for Import Mandate .</param>
-        public Ptsv2billingagreementsAgreementInformation(string Id = default(string), string DateSigned = default(string))
+        /// <param name="Type">Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage.</param>
+        /// <param name="Frequency">Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly.</param>
+        /// <param name="OccurrencesPerPeriod">Number of occurrences during the specified period..</param>
+        /// <param name="StartDate">Start date of the schedule.  Format YYYYMMdd.</param>
+        /// <param name="EndDate">End date of the schedule.  Format YYYYMMdd.</param>
+        public Ptsv2billingagreementsAgreementInformation(string Id = default(string), string DateSigned = default(string), string Type = default(string), string Frequency = default(string), int? OccurrencesPerPeriod = default(int?), string StartDate = default(string), string EndDate = default(string))
         {
             this.Id = Id;
             this.DateSigned = DateSigned;
+            this.Type = Type;
+            this.Frequency = Frequency;
+            this.OccurrencesPerPeriod = OccurrencesPerPeriod;
+            this.StartDate = StartDate;
+            this.EndDate = EndDate;
         }
         
         /// <summary>
@@ -56,6 +66,41 @@ namespace CyberSource.Model
         public string DateSigned { get; set; }
 
         /// <summary>
+        /// Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage
+        /// </summary>
+        /// <value>Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly
+        /// </summary>
+        /// <value>Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly</value>
+        [DataMember(Name="frequency", EmitDefaultValue=false)]
+        public string Frequency { get; set; }
+
+        /// <summary>
+        /// Number of occurrences during the specified period.
+        /// </summary>
+        /// <value>Number of occurrences during the specified period.</value>
+        [DataMember(Name="occurrencesPerPeriod", EmitDefaultValue=false)]
+        public int? OccurrencesPerPeriod { get; set; }
+
+        /// <summary>
+        /// Start date of the schedule.  Format YYYYMMdd
+        /// </summary>
+        /// <value>Start date of the schedule.  Format YYYYMMdd</value>
+        [DataMember(Name="startDate", EmitDefaultValue=false)]
+        public string StartDate { get; set; }
+
+        /// <summary>
+        /// End date of the schedule.  Format YYYYMMdd
+        /// </summary>
+        /// <value>End date of the schedule.  Format YYYYMMdd</value>
+        [DataMember(Name="endDate", EmitDefaultValue=false)]
+        public string EndDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +110,11 @@ namespace CyberSource.Model
             sb.Append("class Ptsv2billingagreementsAgreementInformation {\n");
             if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
             if (DateSigned != null) sb.Append("  DateSigned: ").Append(DateSigned).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Frequency != null) sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            if (OccurrencesPerPeriod != null) sb.Append("  OccurrencesPerPeriod: ").Append(OccurrencesPerPeriod).Append("\n");
+            if (StartDate != null) sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            if (EndDate != null) sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +160,31 @@ namespace CyberSource.Model
                     this.DateSigned == other.DateSigned ||
                     this.DateSigned != null &&
                     this.DateSigned.Equals(other.DateSigned)
+                ) && 
+                (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Frequency == other.Frequency ||
+                    this.Frequency != null &&
+                    this.Frequency.Equals(other.Frequency)
+                ) && 
+                (
+                    this.OccurrencesPerPeriod == other.OccurrencesPerPeriod ||
+                    this.OccurrencesPerPeriod != null &&
+                    this.OccurrencesPerPeriod.Equals(other.OccurrencesPerPeriod)
+                ) && 
+                (
+                    this.StartDate == other.StartDate ||
+                    this.StartDate != null &&
+                    this.StartDate.Equals(other.StartDate)
+                ) && 
+                (
+                    this.EndDate == other.EndDate ||
+                    this.EndDate != null &&
+                    this.EndDate.Equals(other.EndDate)
                 );
         }
 
@@ -128,6 +203,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Id.GetHashCode();
                 if (this.DateSigned != null)
                     hash = hash * 59 + this.DateSigned.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Frequency != null)
+                    hash = hash * 59 + this.Frequency.GetHashCode();
+                if (this.OccurrencesPerPeriod != null)
+                    hash = hash * 59 + this.OccurrencesPerPeriod.GetHashCode();
+                if (this.StartDate != null)
+                    hash = hash * 59 + this.StartDate.GetHashCode();
+                if (this.EndDate != null)
+                    hash = hash * 59 + this.EndDate.GetHashCode();
                 return hash;
             }
         }

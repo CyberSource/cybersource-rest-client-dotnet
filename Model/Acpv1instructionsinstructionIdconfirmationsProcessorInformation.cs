@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Payment/Transaction Confirmation Data provided by the payment processor/acquirer
+    /// Payment/Transaction Confirmation Data provided by the payment processor/acquirer.
     /// </summary>
     [DataContract]
     public partial class Acpv1instructionsinstructionIdconfirmationsProcessorInformation :  IEquatable<Acpv1instructionsinstructionIdconfirmationsProcessorInformation>, IValidatableObject

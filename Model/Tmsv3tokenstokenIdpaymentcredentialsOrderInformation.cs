@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="AmountDetails">AmountDetails.</param>
         /// <param name="BillTo">BillTo.</param>
-        public Tmsv3tokenstokenIdpaymentcredentialsOrderInformation(Tmsv3tokenstokenIdpaymentcredentialsOrderInformationAmountDetails AmountDetails = default(Tmsv3tokenstokenIdpaymentcredentialsOrderInformationAmountDetails), Tmsv3tokenstokenIdpaymentcredentialsOrderInformationBillTo BillTo = default(Tmsv3tokenstokenIdpaymentcredentialsOrderInformationBillTo))
+        public Tmsv3tokenstokenIdpaymentcredentialsOrderInformation(Tmsv3tokenstokenIdpaymentcredentialsOrderInformationAmountDetails AmountDetails = default(Tmsv3tokenstokenIdpaymentcredentialsOrderInformationAmountDetails), Tmsv2tokenizedcardsBillTo BillTo = default(Tmsv2tokenizedcardsBillTo))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets BillTo
         /// </summary>
         [DataMember(Name="billTo", EmitDefaultValue=false)]
-        public Tmsv3tokenstokenIdpaymentcredentialsOrderInformationBillTo BillTo { get; set; }
+        public Tmsv2tokenizedcardsBillTo BillTo { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

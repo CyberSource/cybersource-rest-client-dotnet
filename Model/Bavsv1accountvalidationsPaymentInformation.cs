@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Bavsv1accountvalidationsPaymentInformation
+    /// Payment information for account validation. Either tokenized payment data or bank account details must be provided, but not both. When token information is provided, the bank object becomes optional. Only one token type may be included per request. 
     /// </summary>
     [DataContract]
     public partial class Bavsv1accountvalidationsPaymentInformation :  IEquatable<Bavsv1accountvalidationsPaymentInformation>, IValidatableObject
@@ -33,17 +33,36 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Bavsv1accountvalidationsPaymentInformation" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Bavsv1accountvalidationsPaymentInformation() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Bavsv1accountvalidationsPaymentInformation" /> class.
-        /// </summary>
-        /// <param name="Bank">Bank (required).</param>
-        public Bavsv1accountvalidationsPaymentInformation(Bavsv1accountvalidationsPaymentInformationBank Bank = default(Bavsv1accountvalidationsPaymentInformationBank))
+        /// <param name="Customer">Customer.</param>
+        /// <param name="PaymentInstrument">PaymentInstrument.</param>
+        /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
+        /// <param name="Bank">Bank.</param>
+        public Bavsv1accountvalidationsPaymentInformation(Bavsv1accountvalidationsPaymentInformationCustomer Customer = default(Bavsv1accountvalidationsPaymentInformationCustomer), Bavsv1accountvalidationsPaymentInformationPaymentInstrument PaymentInstrument = default(Bavsv1accountvalidationsPaymentInformationPaymentInstrument), Bavsv1accountvalidationsPaymentInformationInstrumentIdentifier InstrumentIdentifier = default(Bavsv1accountvalidationsPaymentInformationInstrumentIdentifier), Bavsv1accountvalidationsPaymentInformationBank Bank = default(Bavsv1accountvalidationsPaymentInformationBank))
         {
+            this.Customer = Customer;
+            this.PaymentInstrument = PaymentInstrument;
+            this.InstrumentIdentifier = InstrumentIdentifier;
             this.Bank = Bank;
         }
         
+        /// <summary>
+        /// Gets or Sets Customer
+        /// </summary>
+        [DataMember(Name="customer", EmitDefaultValue=false)]
+        public Bavsv1accountvalidationsPaymentInformationCustomer Customer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentInstrument
+        /// </summary>
+        [DataMember(Name="paymentInstrument", EmitDefaultValue=false)]
+        public Bavsv1accountvalidationsPaymentInformationPaymentInstrument PaymentInstrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InstrumentIdentifier
+        /// </summary>
+        [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
+        public Bavsv1accountvalidationsPaymentInformationInstrumentIdentifier InstrumentIdentifier { get; set; }
+
         /// <summary>
         /// Gets or Sets Bank
         /// </summary>
@@ -58,6 +77,9 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Bavsv1accountvalidationsPaymentInformation {\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(PaymentInstrument).Append("\n");
+            if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(InstrumentIdentifier).Append("\n");
             if (Bank != null) sb.Append("  Bank: ").Append(Bank).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -96,6 +118,21 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.Customer == other.Customer ||
+                    this.Customer != null &&
+                    this.Customer.Equals(other.Customer)
+                ) && 
+                (
+                    this.PaymentInstrument == other.PaymentInstrument ||
+                    this.PaymentInstrument != null &&
+                    this.PaymentInstrument.Equals(other.PaymentInstrument)
+                ) && 
+                (
+                    this.InstrumentIdentifier == other.InstrumentIdentifier ||
+                    this.InstrumentIdentifier != null &&
+                    this.InstrumentIdentifier.Equals(other.InstrumentIdentifier)
+                ) && 
+                (
                     this.Bank == other.Bank ||
                     this.Bank != null &&
                     this.Bank.Equals(other.Bank)
@@ -113,6 +150,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Customer != null)
+                    hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.PaymentInstrument != null)
+                    hash = hash * 59 + this.PaymentInstrument.GetHashCode();
+                if (this.InstrumentIdentifier != null)
+                    hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
                 if (this.Bank != null)
                     hash = hash * 59 + this.Bank.GetHashCode();
                 return hash;

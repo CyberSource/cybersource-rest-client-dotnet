@@ -37,12 +37,14 @@ namespace CyberSource.Model
         /// <param name="Iban">International Bank Account Number (IBAN). #### SEPA Required for mandates services .</param>
         /// <param name="SwiftCode">Bank&#39;s SWIFT code. You can use this field only when scoring a direct debit transaction. #### BACS Required for mandates services .</param>
         /// <param name="Scheme">The scheme that sets the rules for the direct debit process. Possible values:   - SEPA   - BACS #### SEPA/BACS Required for mandates services .</param>
-        public Ptsv2billingagreementsPaymentInformationBank(Ptsv2billingagreementsPaymentInformationBankAccount Account = default(Ptsv2billingagreementsPaymentInformationBankAccount), string Iban = default(string), string SwiftCode = default(string), string Scheme = default(string))
+        /// <param name="AccountAlias">AccountAlias.</param>
+        public Ptsv2billingagreementsPaymentInformationBank(Ptsv2billingagreementsPaymentInformationBankAccount Account = default(Ptsv2billingagreementsPaymentInformationBankAccount), string Iban = default(string), string SwiftCode = default(string), string Scheme = default(string), Ptsv2billingagreementsPaymentInformationBankAccountAlias AccountAlias = default(Ptsv2billingagreementsPaymentInformationBankAccountAlias))
         {
             this.Account = Account;
             this.Iban = Iban;
             this.SwiftCode = SwiftCode;
             this.Scheme = Scheme;
+            this.AccountAlias = AccountAlias;
         }
         
         /// <summary>
@@ -73,6 +75,12 @@ namespace CyberSource.Model
         public string Scheme { get; set; }
 
         /// <summary>
+        /// Gets or Sets AccountAlias
+        /// </summary>
+        [DataMember(Name="accountAlias", EmitDefaultValue=false)]
+        public Ptsv2billingagreementsPaymentInformationBankAccountAlias AccountAlias { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +92,7 @@ namespace CyberSource.Model
             if (Iban != null) sb.Append("  Iban: ").Append(Iban).Append("\n");
             if (SwiftCode != null) sb.Append("  SwiftCode: ").Append(SwiftCode).Append("\n");
             if (Scheme != null) sb.Append("  Scheme: ").Append(Scheme).Append("\n");
+            if (AccountAlias != null) sb.Append("  AccountAlias: ").Append(AccountAlias).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +148,11 @@ namespace CyberSource.Model
                     this.Scheme == other.Scheme ||
                     this.Scheme != null &&
                     this.Scheme.Equals(other.Scheme)
+                ) && 
+                (
+                    this.AccountAlias == other.AccountAlias ||
+                    this.AccountAlias != null &&
+                    this.AccountAlias.Equals(other.AccountAlias)
                 );
         }
 
@@ -161,6 +175,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SwiftCode.GetHashCode();
                 if (this.Scheme != null)
                     hash = hash * 59 + this.Scheme.GetHashCode();
+                if (this.AccountAlias != null)
+                    hash = hash * 59 + this.AccountAlias.GetHashCode();
                 return hash;
             }
         }

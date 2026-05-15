@@ -23,6 +23,8 @@ Name | Type | Description | Notes
 **ReceivablesManager** | [**InlineResponse2014SetupsPaymentsDigitalPayments**](InlineResponse2014SetupsPaymentsDigitalPayments.md) |  | [optional] 
 **ServiceFee** | [**InlineResponse2014SetupsPaymentsCardProcessing**](InlineResponse2014SetupsPaymentsCardProcessing.md) |  | [optional] 
 **BatchUpload** | [**InlineResponse2014SetupsPaymentsDigitalPayments**](InlineResponse2014SetupsPaymentsDigitalPayments.md) |  | [optional] 
+**TransactGuard** | [**InlineResponse2014SetupsPaymentsDigitalPayments**](InlineResponse2014SetupsPaymentsDigitalPayments.md) |  | [optional] 
+**Microform** | [**InlineResponse2014SetupsPaymentsCardProcessing**](InlineResponse2014SetupsPaymentsCardProcessing.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

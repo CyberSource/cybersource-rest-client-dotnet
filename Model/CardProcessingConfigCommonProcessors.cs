@@ -83,10 +83,14 @@ namespace CyberSource.Model
         /// <param name="EnableLeastCostRouting">Indicates whether Least Cost Routing is enabled. Applicable for EFTPOS and CUP processors..</param>
         /// <param name="EnableCVVResponseIndicator">This field denotes EFTPOS Merchant&#39;s choice of receiving CVV Processing Response in return. Applicable for EFTPOS processors..</param>
         /// <param name="EnableMultiCurrencyProcessing">Applicable for Barclays (barclays2) processor.  Validation details (for selected processors)...  &lt;table&gt; &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Processor&lt;/th&gt;&lt;th&gt;Acceptance Type&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;&lt;th&gt;Default Value&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt; &lt;tr&gt;&lt;td&gt;Barclays&lt;/td&gt;&lt;td&gt;cnp, cp, hybrid&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; .</param>
+        /// <param name="TransactionTypeIdentifier">Transaction Type Identifier (TTI) field for Mastercard AFT transactions. Maps to ISO field F104.65.32. Used to ensure compliance with Mastercard&#39;s requirements for money send transactions when wallet classifications differ between Visa and Mastercard schemes. Takes priority over BAI values for Mastercard AFT transactions when present..</param>
+        /// <param name="SubMerchantId">The Sub merchant ID, sometimes referred to as the &#39;Seller ID&#39; is generally used and *required for Aggregators and OptBlue participants. The &#39;Sub Merchant&#39; is the Merchant whose transactions are submitted by a payment aggregator..</param>
+        /// <param name="SubMerchantEmail">Sub Merchant Email of the Payment Facilitator&#39;s, OptBlue Participant.</param>
+        /// <param name="SubMerchantPhoneNumber">Sub Merchant Phone Number of the Payment Facilitator&#39;s, OptBlue Participant&#39;s.</param>
         /// <param name="EnablePosNetworkSwitching">&#39;POS Network Switching&#39; or &#39;Alternate Routing&#39; means merchant can process PIN Debit transactions without a PIN. Set the value to &#39;Yes&#39; if it is supported. Applicable for FDI Global (fdiglobal) processor..</param>
         /// <param name="EnableDynamicCurrencyConversion">Enable dynamic currency conversion for a merchant..</param>
         /// <param name="MerchantTier">Merchant Tier defines the type of merchant, the numeric Merchant Tier value is allocated by EFTPOS. Applicable for EFTPOS processors..</param>
-        public CardProcessingConfigCommonProcessors(string BatchGroup = default(string), string BusinessApplicationId = default(string), string MerchantVerificationValue = default(string), string AbaNumber = default(string), CardProcessingConfigCommonAcquirer Acquirer = default(CardProcessingConfigCommonAcquirer), Dictionary<string, CardProcessingConfigCommonAcquirers> Acquirers = default(Dictionary<string, CardProcessingConfigCommonAcquirers>), string MerchantId = default(string), string TerminalId = default(string), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CardProcessingConfigCommonCurrencies1> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies1>), string VisaAggregatorId = default(string), string AmexAggregatorId = default(string), string MasterCardAggregatorId = default(string), string SicCode = default(string), bool? AllowMultipleBills = default(bool?), bool? AllowMerchantDescriptorOverride = default(bool?), string EnhancedData = default(string), bool? FireSafetyIndicator = default(bool?), bool? QuasiCash = default(bool?), string AcquirerMerchantId = default(string), string AvsFormat = default(string), bool? EnableLongTransRefNo = default(bool?), bool? EnableLevel2 = default(bool?), bool? EnableMultipleTransactionAdviceAddendum = default(bool?), string AmexTransactionAdviceAddendum1 = default(string), bool? EnableMultiLineItems = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), bool? EnableAutoAuthReversalAfterVoid = default(bool?), bool? EnableExpresspayPanTranslation = default(bool?), bool? EnableCreditAuth = default(bool?), string IndustryCode = default(string), bool? SendAmexLevel2Data = default(bool?), string SoftDescriptorType = default(string), string VitalNumber = default(string), string BankNumber = default(string), string ChainNumber = default(string), string MerchantBinNumber = default(string), string MerchantLocationNumber = default(string), string StoreID = default(string), string TravelAgencyCode = default(string), string TravelAgencyName = default(string), string SettlementCurrency = default(string), bool? EnableLeastCostRouting = default(bool?), bool? EnableCVVResponseIndicator = default(bool?), string EnableMultiCurrencyProcessing = default(string), bool? EnablePosNetworkSwitching = default(bool?), bool? EnableDynamicCurrencyConversion = default(bool?), string MerchantTier = default(string))
+        public CardProcessingConfigCommonProcessors(string BatchGroup = default(string), string BusinessApplicationId = default(string), string MerchantVerificationValue = default(string), string AbaNumber = default(string), CardProcessingConfigCommonAcquirer Acquirer = default(CardProcessingConfigCommonAcquirer), Dictionary<string, CardProcessingConfigCommonAcquirers> Acquirers = default(Dictionary<string, CardProcessingConfigCommonAcquirers>), string MerchantId = default(string), string TerminalId = default(string), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CardProcessingConfigCommonCurrencies1> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies1>), string VisaAggregatorId = default(string), string AmexAggregatorId = default(string), string MasterCardAggregatorId = default(string), string SicCode = default(string), bool? AllowMultipleBills = default(bool?), bool? AllowMerchantDescriptorOverride = default(bool?), string EnhancedData = default(string), bool? FireSafetyIndicator = default(bool?), bool? QuasiCash = default(bool?), string AcquirerMerchantId = default(string), string AvsFormat = default(string), bool? EnableLongTransRefNo = default(bool?), bool? EnableLevel2 = default(bool?), bool? EnableMultipleTransactionAdviceAddendum = default(bool?), string AmexTransactionAdviceAddendum1 = default(string), bool? EnableMultiLineItems = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), bool? EnableAutoAuthReversalAfterVoid = default(bool?), bool? EnableExpresspayPanTranslation = default(bool?), bool? EnableCreditAuth = default(bool?), string IndustryCode = default(string), bool? SendAmexLevel2Data = default(bool?), string SoftDescriptorType = default(string), string VitalNumber = default(string), string BankNumber = default(string), string ChainNumber = default(string), string MerchantBinNumber = default(string), string MerchantLocationNumber = default(string), string StoreID = default(string), string TravelAgencyCode = default(string), string TravelAgencyName = default(string), string SettlementCurrency = default(string), bool? EnableLeastCostRouting = default(bool?), bool? EnableCVVResponseIndicator = default(bool?), string EnableMultiCurrencyProcessing = default(string), string TransactionTypeIdentifier = default(string), string SubMerchantId = default(string), string SubMerchantEmail = default(string), string SubMerchantPhoneNumber = default(string), bool? EnablePosNetworkSwitching = default(bool?), bool? EnableDynamicCurrencyConversion = default(bool?), string MerchantTier = default(string))
         {
             this.BatchGroup = BatchGroup;
             this.BusinessApplicationId = BusinessApplicationId;
@@ -133,6 +137,10 @@ namespace CyberSource.Model
             this.EnableLeastCostRouting = EnableLeastCostRouting;
             this.EnableCVVResponseIndicator = EnableCVVResponseIndicator;
             this.EnableMultiCurrencyProcessing = EnableMultiCurrencyProcessing;
+            this.TransactionTypeIdentifier = TransactionTypeIdentifier;
+            this.SubMerchantId = SubMerchantId;
+            this.SubMerchantEmail = SubMerchantEmail;
+            this.SubMerchantPhoneNumber = SubMerchantPhoneNumber;
             this.EnablePosNetworkSwitching = EnablePosNetworkSwitching;
             this.EnableDynamicCurrencyConversion = EnableDynamicCurrencyConversion;
             this.MerchantTier = MerchantTier;
@@ -453,6 +461,34 @@ namespace CyberSource.Model
         public string EnableMultiCurrencyProcessing { get; set; }
 
         /// <summary>
+        /// Transaction Type Identifier (TTI) field for Mastercard AFT transactions. Maps to ISO field F104.65.32. Used to ensure compliance with Mastercard&#39;s requirements for money send transactions when wallet classifications differ between Visa and Mastercard schemes. Takes priority over BAI values for Mastercard AFT transactions when present.
+        /// </summary>
+        /// <value>Transaction Type Identifier (TTI) field for Mastercard AFT transactions. Maps to ISO field F104.65.32. Used to ensure compliance with Mastercard&#39;s requirements for money send transactions when wallet classifications differ between Visa and Mastercard schemes. Takes priority over BAI values for Mastercard AFT transactions when present.</value>
+        [DataMember(Name="transactionTypeIdentifier", EmitDefaultValue=false)]
+        public string TransactionTypeIdentifier { get; set; }
+
+        /// <summary>
+        /// The Sub merchant ID, sometimes referred to as the &#39;Seller ID&#39; is generally used and *required for Aggregators and OptBlue participants. The &#39;Sub Merchant&#39; is the Merchant whose transactions are submitted by a payment aggregator.
+        /// </summary>
+        /// <value>The Sub merchant ID, sometimes referred to as the &#39;Seller ID&#39; is generally used and *required for Aggregators and OptBlue participants. The &#39;Sub Merchant&#39; is the Merchant whose transactions are submitted by a payment aggregator.</value>
+        [DataMember(Name="subMerchantId", EmitDefaultValue=false)]
+        public string SubMerchantId { get; set; }
+
+        /// <summary>
+        /// Sub Merchant Email of the Payment Facilitator&#39;s, OptBlue Participant
+        /// </summary>
+        /// <value>Sub Merchant Email of the Payment Facilitator&#39;s, OptBlue Participant</value>
+        [DataMember(Name="subMerchantEmail", EmitDefaultValue=false)]
+        public string SubMerchantEmail { get; set; }
+
+        /// <summary>
+        /// Sub Merchant Phone Number of the Payment Facilitator&#39;s, OptBlue Participant&#39;s
+        /// </summary>
+        /// <value>Sub Merchant Phone Number of the Payment Facilitator&#39;s, OptBlue Participant&#39;s</value>
+        [DataMember(Name="subMerchantPhoneNumber", EmitDefaultValue=false)]
+        public string SubMerchantPhoneNumber { get; set; }
+
+        /// <summary>
         /// &#39;POS Network Switching&#39; or &#39;Alternate Routing&#39; means merchant can process PIN Debit transactions without a PIN. Set the value to &#39;Yes&#39; if it is supported. Applicable for FDI Global (fdiglobal) processor.
         /// </summary>
         /// <value>&#39;POS Network Switching&#39; or &#39;Alternate Routing&#39; means merchant can process PIN Debit transactions without a PIN. Set the value to &#39;Yes&#39; if it is supported. Applicable for FDI Global (fdiglobal) processor.</value>
@@ -526,6 +562,10 @@ namespace CyberSource.Model
             if (EnableLeastCostRouting != null) sb.Append("  EnableLeastCostRouting: ").Append(EnableLeastCostRouting).Append("\n");
             if (EnableCVVResponseIndicator != null) sb.Append("  EnableCVVResponseIndicator: ").Append(EnableCVVResponseIndicator).Append("\n");
             if (EnableMultiCurrencyProcessing != null) sb.Append("  EnableMultiCurrencyProcessing: ").Append(EnableMultiCurrencyProcessing).Append("\n");
+            if (TransactionTypeIdentifier != null) sb.Append("  TransactionTypeIdentifier: ").Append(TransactionTypeIdentifier).Append("\n");
+            if (SubMerchantId != null) sb.Append("  SubMerchantId: ").Append(SubMerchantId).Append("\n");
+            if (SubMerchantEmail != null) sb.Append("  SubMerchantEmail: ").Append(SubMerchantEmail).Append("\n");
+            if (SubMerchantPhoneNumber != null) sb.Append("  SubMerchantPhoneNumber: ").Append(SubMerchantPhoneNumber).Append("\n");
             if (EnablePosNetworkSwitching != null) sb.Append("  EnablePosNetworkSwitching: ").Append(EnablePosNetworkSwitching).Append("\n");
             if (EnableDynamicCurrencyConversion != null) sb.Append("  EnableDynamicCurrencyConversion: ").Append(EnableDynamicCurrencyConversion).Append("\n");
             if (MerchantTier != null) sb.Append("  MerchantTier: ").Append(MerchantTier).Append("\n");
@@ -791,6 +831,26 @@ namespace CyberSource.Model
                     this.EnableMultiCurrencyProcessing.Equals(other.EnableMultiCurrencyProcessing)
                 ) && 
                 (
+                    this.TransactionTypeIdentifier == other.TransactionTypeIdentifier ||
+                    this.TransactionTypeIdentifier != null &&
+                    this.TransactionTypeIdentifier.Equals(other.TransactionTypeIdentifier)
+                ) && 
+                (
+                    this.SubMerchantId == other.SubMerchantId ||
+                    this.SubMerchantId != null &&
+                    this.SubMerchantId.Equals(other.SubMerchantId)
+                ) && 
+                (
+                    this.SubMerchantEmail == other.SubMerchantEmail ||
+                    this.SubMerchantEmail != null &&
+                    this.SubMerchantEmail.Equals(other.SubMerchantEmail)
+                ) && 
+                (
+                    this.SubMerchantPhoneNumber == other.SubMerchantPhoneNumber ||
+                    this.SubMerchantPhoneNumber != null &&
+                    this.SubMerchantPhoneNumber.Equals(other.SubMerchantPhoneNumber)
+                ) && 
+                (
                     this.EnablePosNetworkSwitching == other.EnablePosNetworkSwitching ||
                     this.EnablePosNetworkSwitching != null &&
                     this.EnablePosNetworkSwitching.Equals(other.EnablePosNetworkSwitching)
@@ -908,6 +968,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EnableCVVResponseIndicator.GetHashCode();
                 if (this.EnableMultiCurrencyProcessing != null)
                     hash = hash * 59 + this.EnableMultiCurrencyProcessing.GetHashCode();
+                if (this.TransactionTypeIdentifier != null)
+                    hash = hash * 59 + this.TransactionTypeIdentifier.GetHashCode();
+                if (this.SubMerchantId != null)
+                    hash = hash * 59 + this.SubMerchantId.GetHashCode();
+                if (this.SubMerchantEmail != null)
+                    hash = hash * 59 + this.SubMerchantEmail.GetHashCode();
+                if (this.SubMerchantPhoneNumber != null)
+                    hash = hash * 59 + this.SubMerchantPhoneNumber.GetHashCode();
                 if (this.EnablePosNetworkSwitching != null)
                     hash = hash * 59 + this.EnablePosNetworkSwitching.GetHashCode();
                 if (this.EnableDynamicCurrencyConversion != null)

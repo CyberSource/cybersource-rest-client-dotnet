@@ -44,7 +44,11 @@ namespace CyberSource.Model
         /// <param name="Routing">Routing.</param>
         /// <param name="Settlement">Settlement.</param>
         /// <param name="MerchantAdvice">MerchantAdvice.</param>
-        public PushFunds201ResponseProcessorInformation(int? TransactionId = default(int?), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string RetrievalReferenceNumber = default(string), string ActionCode = default(string), string ApprovalCode = default(string), string FeeProgramIndicator = default(string), string Name = default(string), PushFunds201ResponseProcessorInformationRouting Routing = default(PushFunds201ResponseProcessorInformationRouting), PushFunds201ResponseProcessorInformationSettlement Settlement = default(PushFunds201ResponseProcessorInformationSettlement), PushFunds201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PushFunds201ResponseProcessorInformationMerchantAdvice))
+        /// <param name="Avs">Avs.</param>
+        /// <param name="Customer">Customer.</param>
+        /// <param name="ElectronicVerificationResults">ElectronicVerificationResults.</param>
+        /// <param name="CardVerification">CardVerification.</param>
+        public PushFunds201ResponseProcessorInformation(int? TransactionId = default(int?), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string RetrievalReferenceNumber = default(string), string ActionCode = default(string), string ApprovalCode = default(string), string FeeProgramIndicator = default(string), string Name = default(string), PushFunds201ResponseProcessorInformationRouting Routing = default(PushFunds201ResponseProcessorInformationRouting), PushFunds201ResponseProcessorInformationSettlement Settlement = default(PushFunds201ResponseProcessorInformationSettlement), PushFunds201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PushFunds201ResponseProcessorInformationMerchantAdvice), PtsV2PayoutsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PayoutsPost201ResponseProcessorInformationAvs), PtsV2PayoutsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PayoutsPost201ResponseProcessorInformationCustomer), PtsV2PayoutsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PayoutsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification))
         {
             this.TransactionId = TransactionId;
             this.ResponseCode = ResponseCode;
@@ -57,6 +61,10 @@ namespace CyberSource.Model
             this.Routing = Routing;
             this.Settlement = Settlement;
             this.MerchantAdvice = MerchantAdvice;
+            this.Avs = Avs;
+            this.Customer = Customer;
+            this.ElectronicVerificationResults = ElectronicVerificationResults;
+            this.CardVerification = CardVerification;
         }
         
         /// <summary>
@@ -134,6 +142,30 @@ namespace CyberSource.Model
         public PushFunds201ResponseProcessorInformationMerchantAdvice MerchantAdvice { get; set; }
 
         /// <summary>
+        /// Gets or Sets Avs
+        /// </summary>
+        [DataMember(Name="avs", EmitDefaultValue=false)]
+        public PtsV2PayoutsPost201ResponseProcessorInformationAvs Avs { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Customer
+        /// </summary>
+        [DataMember(Name="customer", EmitDefaultValue=false)]
+        public PtsV2PayoutsPost201ResponseProcessorInformationCustomer Customer { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ElectronicVerificationResults
+        /// </summary>
+        [DataMember(Name="electronicVerificationResults", EmitDefaultValue=false)]
+        public PtsV2PayoutsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CardVerification
+        /// </summary>
+        [DataMember(Name="cardVerification", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -152,6 +184,10 @@ namespace CyberSource.Model
             if (Routing != null) sb.Append("  Routing: ").Append(Routing).Append("\n");
             if (Settlement != null) sb.Append("  Settlement: ").Append(Settlement).Append("\n");
             if (MerchantAdvice != null) sb.Append("  MerchantAdvice: ").Append(MerchantAdvice).Append("\n");
+            if (Avs != null) sb.Append("  Avs: ").Append(Avs).Append("\n");
+            if (Customer != null) sb.Append("  Customer: ").Append(Customer).Append("\n");
+            if (ElectronicVerificationResults != null) sb.Append("  ElectronicVerificationResults: ").Append(ElectronicVerificationResults).Append("\n");
+            if (CardVerification != null) sb.Append("  CardVerification: ").Append(CardVerification).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -242,6 +278,26 @@ namespace CyberSource.Model
                     this.MerchantAdvice == other.MerchantAdvice ||
                     this.MerchantAdvice != null &&
                     this.MerchantAdvice.Equals(other.MerchantAdvice)
+                ) && 
+                (
+                    this.Avs == other.Avs ||
+                    this.Avs != null &&
+                    this.Avs.Equals(other.Avs)
+                ) && 
+                (
+                    this.Customer == other.Customer ||
+                    this.Customer != null &&
+                    this.Customer.Equals(other.Customer)
+                ) && 
+                (
+                    this.ElectronicVerificationResults == other.ElectronicVerificationResults ||
+                    this.ElectronicVerificationResults != null &&
+                    this.ElectronicVerificationResults.Equals(other.ElectronicVerificationResults)
+                ) && 
+                (
+                    this.CardVerification == other.CardVerification ||
+                    this.CardVerification != null &&
+                    this.CardVerification.Equals(other.CardVerification)
                 );
         }
 
@@ -278,6 +334,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Settlement.GetHashCode();
                 if (this.MerchantAdvice != null)
                     hash = hash * 59 + this.MerchantAdvice.GetHashCode();
+                if (this.Avs != null)
+                    hash = hash * 59 + this.Avs.GetHashCode();
+                if (this.Customer != null)
+                    hash = hash * 59 + this.Customer.GetHashCode();
+                if (this.ElectronicVerificationResults != null)
+                    hash = hash * 59 + this.ElectronicVerificationResults.GetHashCode();
+                if (this.CardVerification != null)
+                    hash = hash * 59 + this.CardVerification.GetHashCode();
                 return hash;
             }
         }

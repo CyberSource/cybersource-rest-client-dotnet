@@ -1,0 +1,10 @@
+# CyberSource.Model.PaymentsProductsMicroformConfigurationInformation
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**TemplateId** | **string** |  | [optional] 
+**Configurations** | [**PaymentsProductsMicroformConfigurationInformationConfigurations**](PaymentsProductsMicroformConfigurationInformationConfigurations.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **SenderInformation** | [**Ptsv2creditsSenderInformation**](Ptsv2creditsSenderInformation.md) |  | [optional] 
 **PromotionInformation** | [**Ptsv2paymentsPromotionInformation**](Ptsv2paymentsPromotionInformation.md) |  | [optional] 
 **ProcessorInformation** | [**Ptsv2reversalsProcessorInformation**](Ptsv2reversalsProcessorInformation.md) |  | [optional] 
+**TokenInformation** | [**Ptsv2creditsTokenInformation**](Ptsv2creditsTokenInformation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

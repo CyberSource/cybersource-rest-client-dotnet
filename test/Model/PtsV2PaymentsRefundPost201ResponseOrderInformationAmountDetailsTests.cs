@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'CashbackAmount'
+        /// </summary>
+        [Test]
+        public void CashbackAmountTest()
+        {
+            // TODO unit test for the property 'CashbackAmount'
+        }
+        /// <summary>
         /// Test the property 'SettlementAmount'
         /// </summary>
         [Test]

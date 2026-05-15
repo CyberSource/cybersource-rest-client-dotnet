@@ -36,11 +36,15 @@ namespace CyberSource.Model
         /// <param name="Reporting">Reporting.</param>
         /// <param name="TransactionSearch">TransactionSearch.</param>
         /// <param name="BankAccountValidation">BankAccountValidation.</param>
-        public InlineResponse2014SetupsValueAddedServices(InlineResponse2014SetupsPaymentsDigitalPayments Reporting = default(InlineResponse2014SetupsPaymentsDigitalPayments), InlineResponse2014SetupsPaymentsDigitalPayments TransactionSearch = default(InlineResponse2014SetupsPaymentsDigitalPayments), InlineResponse2014SetupsPaymentsDigitalPayments BankAccountValidation = default(InlineResponse2014SetupsPaymentsDigitalPayments))
+        /// <param name="Flexapi">Flexapi.</param>
+        /// <param name="Webhooks">Webhooks.</param>
+        public InlineResponse2014SetupsValueAddedServices(InlineResponse2014SetupsPaymentsDigitalPayments Reporting = default(InlineResponse2014SetupsPaymentsDigitalPayments), InlineResponse2014SetupsPaymentsDigitalPayments TransactionSearch = default(InlineResponse2014SetupsPaymentsDigitalPayments), InlineResponse2014SetupsPaymentsDigitalPayments BankAccountValidation = default(InlineResponse2014SetupsPaymentsDigitalPayments), InlineResponse2014SetupsPaymentsDigitalPayments Flexapi = default(InlineResponse2014SetupsPaymentsDigitalPayments), InlineResponse2014SetupsPaymentsDigitalPayments Webhooks = default(InlineResponse2014SetupsPaymentsDigitalPayments))
         {
             this.Reporting = Reporting;
             this.TransactionSearch = TransactionSearch;
             this.BankAccountValidation = BankAccountValidation;
+            this.Flexapi = Flexapi;
+            this.Webhooks = Webhooks;
         }
         
         /// <summary>
@@ -62,6 +66,18 @@ namespace CyberSource.Model
         public InlineResponse2014SetupsPaymentsDigitalPayments BankAccountValidation { get; set; }
 
         /// <summary>
+        /// Gets or Sets Flexapi
+        /// </summary>
+        [DataMember(Name="flexapi", EmitDefaultValue=false)]
+        public InlineResponse2014SetupsPaymentsDigitalPayments Flexapi { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Webhooks
+        /// </summary>
+        [DataMember(Name="webhooks", EmitDefaultValue=false)]
+        public InlineResponse2014SetupsPaymentsDigitalPayments Webhooks { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +88,8 @@ namespace CyberSource.Model
             if (Reporting != null) sb.Append("  Reporting: ").Append(Reporting).Append("\n");
             if (TransactionSearch != null) sb.Append("  TransactionSearch: ").Append(TransactionSearch).Append("\n");
             if (BankAccountValidation != null) sb.Append("  BankAccountValidation: ").Append(BankAccountValidation).Append("\n");
+            if (Flexapi != null) sb.Append("  Flexapi: ").Append(Flexapi).Append("\n");
+            if (Webhooks != null) sb.Append("  Webhooks: ").Append(Webhooks).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +140,16 @@ namespace CyberSource.Model
                     this.BankAccountValidation == other.BankAccountValidation ||
                     this.BankAccountValidation != null &&
                     this.BankAccountValidation.Equals(other.BankAccountValidation)
+                ) && 
+                (
+                    this.Flexapi == other.Flexapi ||
+                    this.Flexapi != null &&
+                    this.Flexapi.Equals(other.Flexapi)
+                ) && 
+                (
+                    this.Webhooks == other.Webhooks ||
+                    this.Webhooks != null &&
+                    this.Webhooks.Equals(other.Webhooks)
                 );
         }
 
@@ -142,6 +170,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionSearch.GetHashCode();
                 if (this.BankAccountValidation != null)
                     hash = hash * 59 + this.BankAccountValidation.GetHashCode();
+                if (this.Flexapi != null)
+                    hash = hash * 59 + this.Flexapi.GetHashCode();
+                if (this.Webhooks != null)
+                    hash = hash * 59 + this.Webhooks.GetHashCode();
                 return hash;
             }
         }

@@ -36,14 +36,24 @@ namespace CyberSource.Model
         /// <param name="Id">Identifier for the mandate. .</param>
         /// <param name="DateSigned">Date the mandate has been signed.  Format YYYYMMdd.</param>
         /// <param name="DateCreated">Date the mandate has been created.  Format YYYYMMdd.</param>
+        /// <param name="Type">Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage.</param>
+        /// <param name="Frequency">Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly.</param>
+        /// <param name="OccurrencesPerPeriod">Number of occurrences during the specified period..</param>
+        /// <param name="StartDate">Start date of the schedule.  Format YYYYMMdd.</param>
+        /// <param name="EndDate">End date of the schedule.  Format YYYYMMdd.</param>
         /// <param name="EncodedHtml">Base64 encoded html string.</param>
         /// <param name="EncodedHtmlPopup">Base64 encoded popup html string.</param>
         /// <param name="Url">URL for redirecting the customer for creating the mandate. .</param>
-        public PtsV2CreateBillingAgreementPost201ResponseAgreementInformation(string Id = default(string), string DateSigned = default(string), string DateCreated = default(string), string EncodedHtml = default(string), string EncodedHtmlPopup = default(string), string Url = default(string))
+        public PtsV2CreateBillingAgreementPost201ResponseAgreementInformation(string Id = default(string), string DateSigned = default(string), string DateCreated = default(string), string Type = default(string), string Frequency = default(string), int? OccurrencesPerPeriod = default(int?), string StartDate = default(string), string EndDate = default(string), string EncodedHtml = default(string), string EncodedHtmlPopup = default(string), string Url = default(string))
         {
             this.Id = Id;
             this.DateSigned = DateSigned;
             this.DateCreated = DateCreated;
+            this.Type = Type;
+            this.Frequency = Frequency;
+            this.OccurrencesPerPeriod = OccurrencesPerPeriod;
+            this.StartDate = StartDate;
+            this.EndDate = EndDate;
             this.EncodedHtml = EncodedHtml;
             this.EncodedHtmlPopup = EncodedHtmlPopup;
             this.Url = Url;
@@ -69,6 +79,41 @@ namespace CyberSource.Model
         /// <value>Date the mandate has been created.  Format YYYYMMdd</value>
         [DataMember(Name="dateCreated", EmitDefaultValue=false)]
         public string DateCreated { get; set; }
+
+        /// <summary>
+        /// Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage
+        /// </summary>
+        /// <value>Identifies the type of schedule as either recurring, one-off, split or usage.  Possible values: - recurring - oneoff - split - usage</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly
+        /// </summary>
+        /// <value>Regularity with which the event occurs.  Possible values: - annual - monthly - quarterly - semiannual - weekly - daily - adhoc - intraday - fortnightly</value>
+        [DataMember(Name="frequency", EmitDefaultValue=false)]
+        public string Frequency { get; set; }
+
+        /// <summary>
+        /// Number of occurrences during the specified period.
+        /// </summary>
+        /// <value>Number of occurrences during the specified period.</value>
+        [DataMember(Name="occurrencesPerPeriod", EmitDefaultValue=false)]
+        public int? OccurrencesPerPeriod { get; set; }
+
+        /// <summary>
+        /// Start date of the schedule.  Format YYYYMMdd
+        /// </summary>
+        /// <value>Start date of the schedule.  Format YYYYMMdd</value>
+        [DataMember(Name="startDate", EmitDefaultValue=false)]
+        public string StartDate { get; set; }
+
+        /// <summary>
+        /// End date of the schedule.  Format YYYYMMdd
+        /// </summary>
+        /// <value>End date of the schedule.  Format YYYYMMdd</value>
+        [DataMember(Name="endDate", EmitDefaultValue=false)]
+        public string EndDate { get; set; }
 
         /// <summary>
         /// Base64 encoded html string
@@ -102,6 +147,11 @@ namespace CyberSource.Model
             if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
             if (DateSigned != null) sb.Append("  DateSigned: ").Append(DateSigned).Append("\n");
             if (DateCreated != null) sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(Type).Append("\n");
+            if (Frequency != null) sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            if (OccurrencesPerPeriod != null) sb.Append("  OccurrencesPerPeriod: ").Append(OccurrencesPerPeriod).Append("\n");
+            if (StartDate != null) sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            if (EndDate != null) sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             if (EncodedHtml != null) sb.Append("  EncodedHtml: ").Append(EncodedHtml).Append("\n");
             if (EncodedHtmlPopup != null) sb.Append("  EncodedHtmlPopup: ").Append(EncodedHtmlPopup).Append("\n");
             if (Url != null) sb.Append("  Url: ").Append(Url).Append("\n");
@@ -157,6 +207,31 @@ namespace CyberSource.Model
                     this.DateCreated.Equals(other.DateCreated)
                 ) && 
                 (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Frequency == other.Frequency ||
+                    this.Frequency != null &&
+                    this.Frequency.Equals(other.Frequency)
+                ) && 
+                (
+                    this.OccurrencesPerPeriod == other.OccurrencesPerPeriod ||
+                    this.OccurrencesPerPeriod != null &&
+                    this.OccurrencesPerPeriod.Equals(other.OccurrencesPerPeriod)
+                ) && 
+                (
+                    this.StartDate == other.StartDate ||
+                    this.StartDate != null &&
+                    this.StartDate.Equals(other.StartDate)
+                ) && 
+                (
+                    this.EndDate == other.EndDate ||
+                    this.EndDate != null &&
+                    this.EndDate.Equals(other.EndDate)
+                ) && 
+                (
                     this.EncodedHtml == other.EncodedHtml ||
                     this.EncodedHtml != null &&
                     this.EncodedHtml.Equals(other.EncodedHtml)
@@ -190,6 +265,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DateSigned.GetHashCode();
                 if (this.DateCreated != null)
                     hash = hash * 59 + this.DateCreated.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Frequency != null)
+                    hash = hash * 59 + this.Frequency.GetHashCode();
+                if (this.OccurrencesPerPeriod != null)
+                    hash = hash * 59 + this.OccurrencesPerPeriod.GetHashCode();
+                if (this.StartDate != null)
+                    hash = hash * 59 + this.StartDate.GetHashCode();
+                if (this.EndDate != null)
+                    hash = hash * 59 + this.EndDate.GetHashCode();
                 if (this.EncodedHtml != null)
                     hash = hash * 59 + this.EncodedHtml.GetHashCode();
                 if (this.EncodedHtmlPopup != null)

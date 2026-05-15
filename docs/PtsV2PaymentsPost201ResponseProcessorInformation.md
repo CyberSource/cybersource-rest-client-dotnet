@@ -47,9 +47,10 @@ Name | Type | Description | Notes
 **UpdateTimeUtc** | **string** | The date and time when the transaction was last updated, in Internet date and time format.  | [optional] 
 **ExpirationTimeUtc** | **string** | The date and time when the authorized payment expires, in Internet date and time format.  | [optional] 
 **OrderId** | **string** | The id of the order  | [optional] 
-**OrderStatus** | **string** | The order status.  Possible values: - &#x60;CREATED&#x60; - &#x60;VOIDED&#x60; - &#x60;COMPLETED&#x60; - &#x60;PAYER_ACTION_REQUIRED&#x60;  | [optional] 
+**OrderStatus** | **string** | The order status.  Possible values: - &#x60;CREATED&#x60; - &#x60;VOIDED&#x60; - &#x60;COMPLETED&#x60; - &#x60;PAYER_ACTION_REQUIRED&#x60; - &#x60;STEP_UP_REQUIRED&#x60;  | [optional] 
 **MerchantRiskPrediction** | **string** | Mastercard is introducing the Merchant Risk Predict Service in the middle East/Africa Region. A newly launched service comprised of seven independent artificial intelligence (AI)-powered scores intended to augment existing merchant risk management practices.  | [optional] 
 **Network** | [**Ptsv2paymentsProcessorInformationReversalNetwork**](Ptsv2paymentsProcessorInformationReversalNetwork.md) |  | [optional] 
+**CedpVerifiedIndicator** | **string** | Merchant Commercial Enhanced Data Program (CEDP) verified indicator received in authorization response messages for U.S. domestic transactions containing a credential for the commercial credit products.  This field flows in ISO field 34, DSID 02 tag DA, in AN, EBCDIC format.  Possible values: - &#x60;Y&#x60;: Merchant CEDP verified  This field is for internal processing only (TC33A usage) and is not sent back to the merchant.  #### Used by **Authorization Response** Response field only.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

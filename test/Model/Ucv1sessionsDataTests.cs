@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'AggregatorInformation'
+        /// </summary>
+        [Test]
+        public void AggregatorInformationTest()
+        {
+            // TODO unit test for the property 'AggregatorInformation'
+        }
+        /// <summary>
         /// Test the property 'OrderInformation'
         /// </summary>
         [Test]
@@ -121,12 +129,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'RecipientInformation'
         }
         /// <summary>
-        /// Test the property 'MerchantDefinedInformation'
+        /// Test the property 'SenderInformation'
         /// </summary>
         [Test]
-        public void MerchantDefinedInformationTest()
+        public void SenderInformationTest()
         {
-            // TODO unit test for the property 'MerchantDefinedInformation'
+            // TODO unit test for the property 'SenderInformation'
         }
         /// <summary>
         /// Test the property 'DeviceInformation'
@@ -143,6 +151,22 @@ namespace CyberSource.Test
         public void PaymentInformationTest()
         {
             // TODO unit test for the property 'PaymentInformation'
+        }
+        /// <summary>
+        /// Test the property 'InstallmentInformation'
+        /// </summary>
+        [Test]
+        public void InstallmentInformationTest()
+        {
+            // TODO unit test for the property 'InstallmentInformation'
+        }
+        /// <summary>
+        /// Test the property 'MerchantDefinedInformation'
+        /// </summary>
+        [Test]
+        public void MerchantDefinedInformationTest()
+        {
+            // TODO unit test for the property 'MerchantDefinedInformation'
         }
 
     }

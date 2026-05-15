@@ -44,7 +44,8 @@ namespace CyberSource.Model
         /// <param name="Country">Sub-merchant&#39;s country. Use the [ISO Standard Country Codes](https://developer.cybersource.com/library/documentation/sbc/quickref/countries_alpha_list.pdf).  #### CyberSource through VisaNet The value for this field does not map to the TC 33 capture file.  #### FDC Compass This value must consist of uppercase characters. .</param>
         /// <param name="Email">Sub-merchant&#39;s email address.  **Maximum length for processors**   - American Express Direct: 40  - CyberSource through VisaNet: 40  - FDC Compass: 40  - FDC Nashville Global: 19  #### CyberSource through VisaNet With American Express, the value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCRB - Position: 25-64 - Field: American Express Seller E-mail Address  **Note** The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant&#39;s acquirer, who uses this information to facilitate end-of-day clearing processing with payment card companies. .</param>
         /// <param name="PhoneNumber">Sub-merchant&#39;s telephone number.  **Maximum length for procesors**   - American Express Direct: 20  - CyberSource through VisaNet: 20  - FDC Compass: 13  - FDC Nashville Global: 10  #### CyberSource through VisaNet With American Express, the value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCRB - Position: 5-24 - Field: American Express Seller Telephone Number  **FDC Compass**\\ This value must consist of uppercase characters. Use one of these recommended formats:\\ &#x60;NNN-NNN-NNNN&#x60;\\ &#x60;NNN-AAAAAAA&#x60; .</param>
-        public Ptsv2paymentsAggregatorInformationSubMerchant(string CardAcceptorId = default(string), string Id = default(string), string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string Region = default(string), string PostalCode = default(string), string Country = default(string), string Email = default(string), string PhoneNumber = default(string))
+        /// <param name="MerchantCategoryCode">MerchantCategoryCode.</param>
+        public Ptsv2paymentsAggregatorInformationSubMerchant(string CardAcceptorId = default(string), string Id = default(string), string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string Region = default(string), string PostalCode = default(string), string Country = default(string), string Email = default(string), string PhoneNumber = default(string), decimal? MerchantCategoryCode = default(decimal?))
         {
             this.CardAcceptorId = CardAcceptorId;
             this.Id = Id;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             this.Country = Country;
             this.Email = Email;
             this.PhoneNumber = PhoneNumber;
+            this.MerchantCategoryCode = MerchantCategoryCode;
         }
         
         /// <summary>
@@ -137,6 +139,12 @@ namespace CyberSource.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
+        /// Gets or Sets MerchantCategoryCode
+        /// </summary>
+        [DataMember(Name="merchantCategoryCode", EmitDefaultValue=false)]
+        public decimal? MerchantCategoryCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -155,6 +163,7 @@ namespace CyberSource.Model
             if (Country != null) sb.Append("  Country: ").Append(Country).Append("\n");
             if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
             if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            if (MerchantCategoryCode != null) sb.Append("  MerchantCategoryCode: ").Append(MerchantCategoryCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -245,6 +254,11 @@ namespace CyberSource.Model
                     this.PhoneNumber == other.PhoneNumber ||
                     this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(other.PhoneNumber)
+                ) && 
+                (
+                    this.MerchantCategoryCode == other.MerchantCategoryCode ||
+                    this.MerchantCategoryCode != null &&
+                    this.MerchantCategoryCode.Equals(other.MerchantCategoryCode)
                 );
         }
 
@@ -281,6 +295,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Email.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                if (this.MerchantCategoryCode != null)
+                    hash = hash * 59 + this.MerchantCategoryCode.GetHashCode();
                 return hash;
             }
         }

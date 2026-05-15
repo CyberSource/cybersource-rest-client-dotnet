@@ -42,7 +42,8 @@ namespace CyberSource.Model
         /// <param name="Email">Sub-merchant&#39;s email address.  **Maximum length for processors**   - American Express Direct: 40  - CyberSource through VisaNet: 40  - FDC Compass: 40  - FDC Nashville Global: 19  #### CyberSource through VisaNet With American Express, the value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCRB - Position: 25-64 - Field: American Express Seller E-mail Address  **Note** The TC 33 Capture file contains information about the purchases and refunds that a merchant submits to CyberSource. CyberSource through VisaNet creates the TC 33 Capture file at the end of the day and sends it to the merchant&#39;s acquirer, who uses this information to facilitate end-of-day clearing processing with payment card companies. .</param>
         /// <param name="PhoneNumber">Sub-merchant&#39;s telephone number.  **Maximum length for procesors**   - American Express Direct: 20  - CyberSource through VisaNet: 20  - FDC Compass: 13  - FDC Nashville Global: 10  #### CyberSource through VisaNet With American Express, the value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCRB - Position: 5-24 - Field: American Express Seller Telephone Number  **FDC Compass**\\ This value must consist of uppercase characters. Use one of these recommended formats:\\ &#x60;NNN-NNN-NNNN&#x60;\\ &#x60;NNN-AAAAAAA&#x60; .</param>
         /// <param name="Id">The ID you assigned to your sub-merchant. CyberSource through VisaNet: For American Express transaction, the value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCRB - Position: 65-84 - Field: American Express Seller ID For  Mastercard transactions, the value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR6 - Position: 117-131 - Field: Sub-Merchant ID FDC Compass: This value must consist of uppercase characters.  American Express Direct: String (20) CyberSource through VisaNet with American Express: String (20) CyberSource through VisaNet with Visa,Mastercard and Discover: String (15) FDC Compass: String (20) FDC Nashville Global: String (14) .</param>
-        public Ptsv2paymentsidcapturesAggregatorInformationSubMerchant(string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string Email = default(string), string PhoneNumber = default(string), string Id = default(string))
+        /// <param name="MerchantCategoryCode">MerchantCategoryCode.</param>
+        public Ptsv2paymentsidcapturesAggregatorInformationSubMerchant(string Name = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string Email = default(string), string PhoneNumber = default(string), string Id = default(string), decimal? MerchantCategoryCode = default(decimal?))
         {
             this.Name = Name;
             this.Address1 = Address1;
@@ -53,6 +54,7 @@ namespace CyberSource.Model
             this.Email = Email;
             this.PhoneNumber = PhoneNumber;
             this.Id = Id;
+            this.MerchantCategoryCode = MerchantCategoryCode;
         }
         
         /// <summary>
@@ -119,6 +121,12 @@ namespace CyberSource.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// Gets or Sets MerchantCategoryCode
+        /// </summary>
+        [DataMember(Name="merchantCategoryCode", EmitDefaultValue=false)]
+        public decimal? MerchantCategoryCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +143,7 @@ namespace CyberSource.Model
             if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
             if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             if (Id != null) sb.Append("  Id: ").Append(Id).Append("\n");
+            if (MerchantCategoryCode != null) sb.Append("  MerchantCategoryCode: ").Append(MerchantCategoryCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +224,11 @@ namespace CyberSource.Model
                     this.Id == other.Id ||
                     this.Id != null &&
                     this.Id.Equals(other.Id)
+                ) && 
+                (
+                    this.MerchantCategoryCode == other.MerchantCategoryCode ||
+                    this.MerchantCategoryCode != null &&
+                    this.MerchantCategoryCode.Equals(other.MerchantCategoryCode)
                 );
         }
 
@@ -247,6 +261,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
+                if (this.MerchantCategoryCode != null)
+                    hash = hash * 59 + this.MerchantCategoryCode.GetHashCode();
                 return hash;
             }
         }

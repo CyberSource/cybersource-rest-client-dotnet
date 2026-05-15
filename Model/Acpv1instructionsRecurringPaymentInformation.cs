@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Frequency of the transaction.   Specifies how often the transaction occurs. If the mandate contains a recurring instruction, a recurring frequency must be provided and the request.isRecurring flag should be set to true. 
+    /// Frequency of the transaction. Specifies how often the transaction occurs. If the mandate contains a recurring instruction, a recurring frequency must be provided and the request.isRecurring flag should be set to true. 
     /// </summary>
     [DataContract]
     public partial class Acpv1instructionsRecurringPaymentInformation :  IEquatable<Acpv1instructionsRecurringPaymentInformation>, IValidatableObject

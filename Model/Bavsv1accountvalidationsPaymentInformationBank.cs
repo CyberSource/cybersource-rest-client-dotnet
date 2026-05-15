@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Bavsv1accountvalidationsPaymentInformationBank" /> class.
         /// </summary>
-        /// <param name="RoutingNumber">Bank routing number. This is also called the transit number.  Non-Negative Integer  (required).</param>
+        /// <param name="RoutingNumber">Bank routing number. This is also called the transit number.  Non-Negative String, containing only digits.  (required).</param>
         /// <param name="Account">Account (required).</param>
         public Bavsv1accountvalidationsPaymentInformationBank(string RoutingNumber = default(string), Bavsv1accountvalidationsPaymentInformationBankAccount Account = default(Bavsv1accountvalidationsPaymentInformationBankAccount))
         {
@@ -47,9 +47,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Bank routing number. This is also called the transit number.  Non-Negative Integer 
+        /// Bank routing number. This is also called the transit number.  Non-Negative String, containing only digits. 
         /// </summary>
-        /// <value>Bank routing number. This is also called the transit number.  Non-Negative Integer </value>
+        /// <value>Bank routing number. This is also called the transit number.  Non-Negative String, containing only digits. </value>
         [DataMember(Name="routingNumber", EmitDefaultValue=false)]
         public string RoutingNumber { get; set; }
 

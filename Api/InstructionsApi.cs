@@ -33,7 +33,7 @@ namespace CyberSource.Api
         /// Cancel a purchase intent
         /// </summary>
         /// <remarks>
-        /// Cancels an existing purchase intent identified by the transaction ID.
+        /// Cancel an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer decides to abandon the purchase before payment credentials have been used. Requires device information and assurance data for identity verification. Returns status CANCELLED (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required before cancellation can proceed.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId"></param>
@@ -45,7 +45,7 @@ namespace CyberSource.Api
         /// Cancel a purchase intent
         /// </summary>
         /// <remarks>
-        /// Cancels an existing purchase intent identified by the transaction ID.
+        /// Cancel an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer decides to abandon the purchase before payment credentials have been used. Requires device information and assurance data for identity verification. Returns status CANCELLED (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required before cancellation can proceed.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId"></param>
@@ -56,7 +56,7 @@ namespace CyberSource.Api
         /// Confirm transaction events
         /// </summary>
         /// <remarks>
-        /// Agents send the confirm transaction events to notify the payment processing is done
+        /// Confirm transaction events for a completed purchase. The agent calls this endpoint after the payment has been submitted to notify the Intelligent Commerce Connect of the transaction outcome. The request includes processor information (transaction type, status, approval codes), order details (shipping, tracking, product information), and merchant information. Returns HTTP 202 acknowledging receipt of the confirmation.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -68,7 +68,7 @@ namespace CyberSource.Api
         /// Confirm transaction events
         /// </summary>
         /// <remarks>
-        /// Agents send the confirm transaction events to notify the payment processing is done
+        /// Confirm transaction events for a completed purchase. The agent calls this endpoint after the payment has been submitted to notify the Intelligent Commerce Connect of the transaction outcome. The request includes processor information (transaction type, status, approval codes), order details (shipping, tracking, product information), and merchant information. Returns HTTP 202 acknowledging receipt of the confirmation.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -79,7 +79,7 @@ namespace CyberSource.Api
         /// Initiate a purchase intent
         /// </summary>
         /// <remarks>
-        /// Creates a new purchase intent with the provided details.
+        /// Create a new purchase intent (instruction) for an agentic transaction. The agent calls this endpoint after a card has been enrolled to define what the consumer wants to buy. The request includes payment instrument references, device and assurance data, mandates (spending limits, merchant preferences, and product descriptions), and optional buyer information. Return an instructionId (HTTP 200) if the intent is created immediately, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required. The instructionId returned is used in all subsequent operations - update, cancel, retrieve credentials, and confirm transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agenticCreatePurchaseIntentRequest"></param>
@@ -90,7 +90,7 @@ namespace CyberSource.Api
         /// Initiate a purchase intent
         /// </summary>
         /// <remarks>
-        /// Creates a new purchase intent with the provided details.
+        /// Create a new purchase intent (instruction) for an agentic transaction. The agent calls this endpoint after a card has been enrolled to define what the consumer wants to buy. The request includes payment instrument references, device and assurance data, mandates (spending limits, merchant preferences, and product descriptions), and optional buyer information. Return an instructionId (HTTP 200) if the intent is created immediately, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required. The instructionId returned is used in all subsequent operations - update, cancel, retrieve credentials, and confirm transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agenticCreatePurchaseIntentRequest"></param>
@@ -100,7 +100,7 @@ namespace CyberSource.Api
         /// Retrieve payment credentials
         /// </summary>
         /// <remarks>
-        /// Retrieve a customer&#39;s tokenized payment credentials to complete the transaction.
+        /// Retrieve tokenized payment credentials for a purchase intent to complete the transaction at a merchant. The agent calls this endpoint after a purchase intent has been created and approved, providing transaction-level details including order information, merchant details, payment options, and production information. Returns COMPLETED (HTTP 200) with a signed payload containing encrypted payment credentials (authorization token and JWS-signed payload), or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required. The signed payload is used by the merchant&#39;s payment processor to complete the transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -112,7 +112,7 @@ namespace CyberSource.Api
         /// Retrieve payment credentials
         /// </summary>
         /// <remarks>
-        /// Retrieve a customer&#39;s tokenized payment credentials to complete the transaction.
+        /// Retrieve tokenized payment credentials for a purchase intent to complete the transaction at a merchant. The agent calls this endpoint after a purchase intent has been created and approved, providing transaction-level details including order information, merchant details, payment options, and production information. Returns COMPLETED (HTTP 200) with a signed payload containing encrypted payment credentials (authorization token and JWS-signed payload), or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required. The signed payload is used by the merchant&#39;s payment processor to complete the transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -123,7 +123,7 @@ namespace CyberSource.Api
         /// Update a purchase intent
         /// </summary>
         /// <remarks>
-        /// Updates an existing purchase intent identified by the transaction ID.
+        /// Update an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer modifies their order — for example, changing the quantity, updating mandates, switching payment instruments, or changing shipping details. The request body has the same structure as the initiate request. Returns the same instructionId (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required for the updated intent.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -135,7 +135,7 @@ namespace CyberSource.Api
         /// Update a purchase intent
         /// </summary>
         /// <remarks>
-        /// Updates an existing purchase intent identified by the transaction ID.
+        /// Update an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer modifies their order — for example, changing the quantity, updating mandates, switching payment instruments, or changing shipping details. The request body has the same structure as the initiate request. Returns the same instructionId (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required for the updated intent.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -148,7 +148,7 @@ namespace CyberSource.Api
         /// Cancel a purchase intent
         /// </summary>
         /// <remarks>
-        /// Cancels an existing purchase intent identified by the transaction ID.
+        /// Cancel an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer decides to abandon the purchase before payment credentials have been used. Requires device information and assurance data for identity verification. Returns status CANCELLED (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required before cancellation can proceed.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId"></param>
@@ -160,7 +160,7 @@ namespace CyberSource.Api
         /// Cancel a purchase intent
         /// </summary>
         /// <remarks>
-        /// Cancels an existing purchase intent identified by the transaction ID.
+        /// Cancel an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer decides to abandon the purchase before payment credentials have been used. Requires device information and assurance data for identity verification. Returns status CANCELLED (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required before cancellation can proceed.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId"></param>
@@ -171,7 +171,7 @@ namespace CyberSource.Api
         /// Confirm transaction events
         /// </summary>
         /// <remarks>
-        /// Agents send the confirm transaction events to notify the payment processing is done
+        /// Confirm transaction events for a completed purchase. The agent calls this endpoint after the payment has been submitted to notify the Intelligent Commerce Connect of the transaction outcome. The request includes processor information (transaction type, status, approval codes), order details (shipping, tracking, product information), and merchant information. Returns HTTP 202 acknowledging receipt of the confirmation.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -183,7 +183,7 @@ namespace CyberSource.Api
         /// Confirm transaction events
         /// </summary>
         /// <remarks>
-        /// Agents send the confirm transaction events to notify the payment processing is done
+        /// Confirm transaction events for a completed purchase. The agent calls this endpoint after the payment has been submitted to notify the Intelligent Commerce Connect of the transaction outcome. The request includes processor information (transaction type, status, approval codes), order details (shipping, tracking, product information), and merchant information. Returns HTTP 202 acknowledging receipt of the confirmation.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -194,7 +194,7 @@ namespace CyberSource.Api
         /// Initiate a purchase intent
         /// </summary>
         /// <remarks>
-        /// Creates a new purchase intent with the provided details.
+        /// Create a new purchase intent (instruction) for an agentic transaction. The agent calls this endpoint after a card has been enrolled to define what the consumer wants to buy. The request includes payment instrument references, device and assurance data, mandates (spending limits, merchant preferences, and product descriptions), and optional buyer information. Return an instructionId (HTTP 200) if the intent is created immediately, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required. The instructionId returned is used in all subsequent operations - update, cancel, retrieve credentials, and confirm transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agenticCreatePurchaseIntentRequest"></param>
@@ -205,7 +205,7 @@ namespace CyberSource.Api
         /// Initiate a purchase intent
         /// </summary>
         /// <remarks>
-        /// Creates a new purchase intent with the provided details.
+        /// Create a new purchase intent (instruction) for an agentic transaction. The agent calls this endpoint after a card has been enrolled to define what the consumer wants to buy. The request includes payment instrument references, device and assurance data, mandates (spending limits, merchant preferences, and product descriptions), and optional buyer information. Return an instructionId (HTTP 200) if the intent is created immediately, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required. The instructionId returned is used in all subsequent operations - update, cancel, retrieve credentials, and confirm transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agenticCreatePurchaseIntentRequest"></param>
@@ -215,7 +215,7 @@ namespace CyberSource.Api
         /// Retrieve payment credentials
         /// </summary>
         /// <remarks>
-        /// Retrieve a customer&#39;s tokenized payment credentials to complete the transaction.
+        /// Retrieve tokenized payment credentials for a purchase intent to complete the transaction at a merchant. The agent calls this endpoint after a purchase intent has been created and approved, providing transaction-level details including order information, merchant details, payment options, and production information. Returns COMPLETED (HTTP 200) with a signed payload containing encrypted payment credentials (authorization token and JWS-signed payload), or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required. The signed payload is used by the merchant&#39;s payment processor to complete the transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -227,7 +227,7 @@ namespace CyberSource.Api
         /// Retrieve payment credentials
         /// </summary>
         /// <remarks>
-        /// Retrieve a customer&#39;s tokenized payment credentials to complete the transaction.
+        /// Retrieve tokenized payment credentials for a purchase intent to complete the transaction at a merchant. The agent calls this endpoint after a purchase intent has been created and approved, providing transaction-level details including order information, merchant details, payment options, and production information. Returns COMPLETED (HTTP 200) with a signed payload containing encrypted payment credentials (authorization token and JWS-signed payload), or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required. The signed payload is used by the merchant&#39;s payment processor to complete the transaction.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -238,7 +238,7 @@ namespace CyberSource.Api
         /// Update a purchase intent
         /// </summary>
         /// <remarks>
-        /// Updates an existing purchase intent identified by the transaction ID.
+        /// Update an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer modifies their order — for example, changing the quantity, updating mandates, switching payment instruments, or changing shipping details. The request body has the same structure as the initiate request. Returns the same instructionId (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required for the updated intent.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -250,7 +250,7 @@ namespace CyberSource.Api
         /// Update a purchase intent
         /// </summary>
         /// <remarks>
-        /// Updates an existing purchase intent identified by the transaction ID.
+        /// Update an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer modifies their order — for example, changing the quantity, updating mandates, switching payment instruments, or changing shipping details. The request body has the same structure as the initiate request. Returns the same instructionId (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required for the updated intent.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -398,7 +398,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Cancel a purchase intent Cancels an existing purchase intent identified by the transaction ID.
+        /// Cancel a purchase intent Cancel an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer decides to abandon the purchase before payment credentials have been used. Requires device information and assurance data for identity verification. Returns status CANCELLED (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required before cancellation can proceed.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId"></param>
@@ -415,7 +415,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Cancel a purchase intent Cancels an existing purchase intent identified by the transaction ID.
+        /// Cancel a purchase intent Cancel an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer decides to abandon the purchase before payment credentials have been used. Requires device information and assurance data for identity verification. Returns status CANCELLED (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required before cancellation can proceed.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId"></param>
@@ -521,7 +521,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Cancel a purchase intent Cancels an existing purchase intent identified by the transaction ID.
+        /// Cancel a purchase intent Cancel an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer decides to abandon the purchase before payment credentials have been used. Requires device information and assurance data for identity verification. Returns status CANCELLED (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required before cancellation can proceed.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId"></param>
@@ -539,7 +539,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Cancel a purchase intent Cancels an existing purchase intent identified by the transaction ID.
+        /// Cancel a purchase intent Cancel an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer decides to abandon the purchase before payment credentials have been used. Requires device information and assurance data for identity verification. Returns status CANCELLED (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required before cancellation can proceed.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId"></param>
@@ -644,7 +644,7 @@ namespace CyberSource.Api
                 (AgenticCreatePurchaseIntentResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgenticCreatePurchaseIntentResponse200), merchantConfig)); // Return statement
         }
         /// <summary>
-        /// Confirm transaction events Agents send the confirm transaction events to notify the payment processing is done
+        /// Confirm transaction events Confirm transaction events for a completed purchase. The agent calls this endpoint after the payment has been submitted to notify the Intelligent Commerce Connect of the transaction outcome. The request includes processor information (transaction type, status, approval codes), order details (shipping, tracking, product information), and merchant information. Returns HTTP 202 acknowledging receipt of the confirmation.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -661,7 +661,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Confirm transaction events Agents send the confirm transaction events to notify the payment processing is done
+        /// Confirm transaction events Confirm transaction events for a completed purchase. The agent calls this endpoint after the payment has been submitted to notify the Intelligent Commerce Connect of the transaction outcome. The request includes processor information (transaction type, status, approval codes), order details (shipping, tracking, product information), and merchant information. Returns HTTP 202 acknowledging receipt of the confirmation.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -767,7 +767,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Confirm transaction events Agents send the confirm transaction events to notify the payment processing is done
+        /// Confirm transaction events Confirm transaction events for a completed purchase. The agent calls this endpoint after the payment has been submitted to notify the Intelligent Commerce Connect of the transaction outcome. The request includes processor information (transaction type, status, approval codes), order details (shipping, tracking, product information), and merchant information. Returns HTTP 202 acknowledging receipt of the confirmation.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -785,7 +785,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Confirm transaction events Agents send the confirm transaction events to notify the payment processing is done
+        /// Confirm transaction events Confirm transaction events for a completed purchase. The agent calls this endpoint after the payment has been submitted to notify the Intelligent Commerce Connect of the transaction outcome. The request includes processor information (transaction type, status, approval codes), order details (shipping, tracking, product information), and merchant information. Returns HTTP 202 acknowledging receipt of the confirmation.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -890,7 +890,7 @@ namespace CyberSource.Api
                 (AgenticConfirmTransactionEventsResponse202) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgenticConfirmTransactionEventsResponse202), merchantConfig)); // Return statement
         }
         /// <summary>
-        /// Initiate a purchase intent Creates a new purchase intent with the provided details.
+        /// Initiate a purchase intent Create a new purchase intent (instruction) for an agentic transaction. The agent calls this endpoint after a card has been enrolled to define what the consumer wants to buy. The request includes payment instrument references, device and assurance data, mandates (spending limits, merchant preferences, and product descriptions), and optional buyer information. Return an instructionId (HTTP 200) if the intent is created immediately, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required. The instructionId returned is used in all subsequent operations - update, cancel, retrieve credentials, and confirm transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agenticCreatePurchaseIntentRequest"></param>
@@ -906,7 +906,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Initiate a purchase intent Creates a new purchase intent with the provided details.
+        /// Initiate a purchase intent Create a new purchase intent (instruction) for an agentic transaction. The agent calls this endpoint after a card has been enrolled to define what the consumer wants to buy. The request includes payment instrument references, device and assurance data, mandates (spending limits, merchant preferences, and product descriptions), and optional buyer information. Return an instructionId (HTTP 200) if the intent is created immediately, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required. The instructionId returned is used in all subsequent operations - update, cancel, retrieve credentials, and confirm transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agenticCreatePurchaseIntentRequest"></param>
@@ -1000,7 +1000,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Initiate a purchase intent Creates a new purchase intent with the provided details.
+        /// Initiate a purchase intent Create a new purchase intent (instruction) for an agentic transaction. The agent calls this endpoint after a card has been enrolled to define what the consumer wants to buy. The request includes payment instrument references, device and assurance data, mandates (spending limits, merchant preferences, and product descriptions), and optional buyer information. Return an instructionId (HTTP 200) if the intent is created immediately, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required. The instructionId returned is used in all subsequent operations - update, cancel, retrieve credentials, and confirm transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agenticCreatePurchaseIntentRequest"></param>
@@ -1017,7 +1017,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Initiate a purchase intent Creates a new purchase intent with the provided details.
+        /// Initiate a purchase intent Create a new purchase intent (instruction) for an agentic transaction. The agent calls this endpoint after a card has been enrolled to define what the consumer wants to buy. The request includes payment instrument references, device and assurance data, mandates (spending limits, merchant preferences, and product descriptions), and optional buyer information. Return an instructionId (HTTP 200) if the intent is created immediately, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required. The instructionId returned is used in all subsequent operations - update, cancel, retrieve credentials, and confirm transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agenticCreatePurchaseIntentRequest"></param>
@@ -1110,7 +1110,7 @@ namespace CyberSource.Api
                 (AgenticCreatePurchaseIntentResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgenticCreatePurchaseIntentResponse200), merchantConfig)); // Return statement
         }
         /// <summary>
-        /// Retrieve payment credentials Retrieve a customer&#39;s tokenized payment credentials to complete the transaction.
+        /// Retrieve payment credentials Retrieve tokenized payment credentials for a purchase intent to complete the transaction at a merchant. The agent calls this endpoint after a purchase intent has been created and approved, providing transaction-level details including order information, merchant details, payment options, and production information. Returns COMPLETED (HTTP 200) with a signed payload containing encrypted payment credentials (authorization token and JWS-signed payload), or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required. The signed payload is used by the merchant&#39;s payment processor to complete the transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -1127,7 +1127,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve payment credentials Retrieve a customer&#39;s tokenized payment credentials to complete the transaction.
+        /// Retrieve payment credentials Retrieve tokenized payment credentials for a purchase intent to complete the transaction at a merchant. The agent calls this endpoint after a purchase intent has been created and approved, providing transaction-level details including order information, merchant details, payment options, and production information. Returns COMPLETED (HTTP 200) with a signed payload containing encrypted payment credentials (authorization token and JWS-signed payload), or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required. The signed payload is used by the merchant&#39;s payment processor to complete the transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -1233,7 +1233,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve payment credentials Retrieve a customer&#39;s tokenized payment credentials to complete the transaction.
+        /// Retrieve payment credentials Retrieve tokenized payment credentials for a purchase intent to complete the transaction at a merchant. The agent calls this endpoint after a purchase intent has been created and approved, providing transaction-level details including order information, merchant details, payment options, and production information. Returns COMPLETED (HTTP 200) with a signed payload containing encrypted payment credentials (authorization token and JWS-signed payload), or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required. The signed payload is used by the merchant&#39;s payment processor to complete the transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -1251,7 +1251,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Retrieve payment credentials Retrieve a customer&#39;s tokenized payment credentials to complete the transaction.
+        /// Retrieve payment credentials Retrieve tokenized payment credentials for a purchase intent to complete the transaction at a merchant. The agent calls this endpoint after a purchase intent has been created and approved, providing transaction-level details including order information, merchant details, payment options, and production information. Returns COMPLETED (HTTP 200) with a signed payload containing encrypted payment credentials (authorization token and JWS-signed payload), or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required. The signed payload is used by the merchant&#39;s payment processor to complete the transaction.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -1356,7 +1356,7 @@ namespace CyberSource.Api
                 (AgenticRetrievePaymentCredentialsResponse200) Configuration.ApiClient.Deserialize(localVarResponse, typeof(AgenticRetrievePaymentCredentialsResponse200), merchantConfig)); // Return statement
         }
         /// <summary>
-        /// Update a purchase intent Updates an existing purchase intent identified by the transaction ID.
+        /// Update a purchase intent Update an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer modifies their order — for example, changing the quantity, updating mandates, switching payment instruments, or changing shipping details. The request body has the same structure as the initiate request. Returns the same instructionId (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required for the updated intent.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -1373,7 +1373,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update a purchase intent Updates an existing purchase intent identified by the transaction ID.
+        /// Update a purchase intent Update an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer modifies their order — for example, changing the quantity, updating mandates, switching payment instruments, or changing shipping details. The request body has the same structure as the initiate request. Returns the same instructionId (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required for the updated intent.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -1479,7 +1479,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update a purchase intent Updates an existing purchase intent identified by the transaction ID.
+        /// Update a purchase intent Update an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer modifies their order — for example, changing the quantity, updating mandates, switching payment instruments, or changing shipping details. The request body has the same structure as the initiate request. Returns the same instructionId (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required for the updated intent.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>
@@ -1497,7 +1497,7 @@ namespace CyberSource.Api
         }
 
         /// <summary>
-        /// Update a purchase intent Updates an existing purchase intent identified by the transaction ID.
+        /// Update a purchase intent Update an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer modifies their order — for example, changing the quantity, updating mandates, switching payment instruments, or changing shipping details. The request body has the same structure as the initiate request. Returns the same instructionId (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required for the updated intent.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instructionId">Unique identifier for the purchase intent instruction.</param>

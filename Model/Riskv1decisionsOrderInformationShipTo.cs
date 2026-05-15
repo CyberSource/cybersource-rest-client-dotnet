@@ -47,7 +47,9 @@ namespace CyberSource.Model
         /// <param name="PostalCode">Postal code for the shipping address. The postal code must consist of 5 to 9 digits.  Required field for authorization if any shipping address information is included in the request and shipping to the U.S. or Canada; otherwise, optional.  When the billing country is the U.S., the 9-digit postal code must follow this format: [5 digits][dash][4 digits]  Example 12345-6789  When the billing country is Canada, the 6-digit postal code must follow this format: [alpha][numeric][alpha][space][numeric][alpha][numeric]  Example A1B 2C3  #### American Express Direct Before sending the postal code to the processor, all nonalphanumeric characters are removed and, if the remaining value is longer than nine characters, the value is truncated starting from the right side. #### Tax Calculation Optional field for U.S. and Canadian taxes. Not applicable to international and value added taxes. Billing address objects will be used to determine the cardholder&#39;s location when shipTo objects are not present. .</param>
         /// <param name="DestinationCode">Indicates destination chosen for the transaction. Possible values: - 01- Ship to cardholder billing address - 02- Ship to another verified address on file with merchant - 03- Ship to address that is different than billing address - 04- Ship to store (store address should be populated on request) - 05- Digital goods - 06- Travel and event tickets, not shipped - 07- Other .</param>
         /// <param name="Method">Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). .</param>
-        public Riskv1decisionsOrderInformationShipTo(string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string AdministrativeArea = default(string), string Country = default(string), string DestinationTypes = default(string), string Locality = default(string), string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string PhoneNumber = default(string), string PostalCode = default(string), int? DestinationCode = default(int?), string Method = default(string))
+        /// <param name="Email">Email of the recipient. .</param>
+        /// <param name="Company">Name of the customer&#39;s company. .</param>
+        public Riskv1decisionsOrderInformationShipTo(string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string AdministrativeArea = default(string), string Country = default(string), string DestinationTypes = default(string), string Locality = default(string), string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string PhoneNumber = default(string), string PostalCode = default(string), int? DestinationCode = default(int?), string Method = default(string), string Email = default(string), string Company = default(string))
         {
             this.Address1 = Address1;
             this.Address2 = Address2;
@@ -63,6 +65,8 @@ namespace CyberSource.Model
             this.PostalCode = PostalCode;
             this.DestinationCode = DestinationCode;
             this.Method = Method;
+            this.Email = Email;
+            this.Company = Company;
         }
         
         /// <summary>
@@ -164,6 +168,20 @@ namespace CyberSource.Model
         public string Method { get; set; }
 
         /// <summary>
+        /// Email of the recipient. 
+        /// </summary>
+        /// <value>Email of the recipient. </value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Name of the customer&#39;s company. 
+        /// </summary>
+        /// <value>Name of the customer&#39;s company. </value>
+        [DataMember(Name="company", EmitDefaultValue=false)]
+        public string Company { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -185,6 +203,8 @@ namespace CyberSource.Model
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             if (DestinationCode != null) sb.Append("  DestinationCode: ").Append(DestinationCode).Append("\n");
             if (Method != null) sb.Append("  Method: ").Append(Method).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(Email).Append("\n");
+            if (Company != null) sb.Append("  Company: ").Append(Company).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -290,6 +310,16 @@ namespace CyberSource.Model
                     this.Method == other.Method ||
                     this.Method != null &&
                     this.Method.Equals(other.Method)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
+                ) && 
+                (
+                    this.Company == other.Company ||
+                    this.Company != null &&
+                    this.Company.Equals(other.Company)
                 );
         }
 
@@ -332,6 +362,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DestinationCode.GetHashCode();
                 if (this.Method != null)
                     hash = hash * 59 + this.Method.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
+                if (this.Company != null)
+                    hash = hash * 59 + this.Company.GetHashCode();
                 return hash;
             }
         }

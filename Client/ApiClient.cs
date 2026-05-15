@@ -521,6 +521,8 @@ namespace CyberSource.Client
 			// check if Response MLE is enabled, then decrypt the response content and then deserialize
             ResponseMleHandler.DecryptMleResponseIfNeeded(response,merchantConfig);
 
+            Configuration.DefaultHeader.Clear();
+            
             // Logging Response Headers
             var httpResponseStatusCode = (int)response.StatusCode;
             var httpResponseHeaders = response.Headers;
@@ -890,6 +892,17 @@ namespace CyberSource.Client
             if (!string.IsNullOrEmpty(Configuration.ClientId))
             {
                 authenticationHeaders.Add("v-c-client-id", Configuration.ClientId);
+            }
+
+            // SDK Telemetry Headers
+            if (!string.IsNullOrEmpty(merchantConfig.MerchantId))
+            {
+                authenticationHeaders.Add("v-c-sdk-telemetry-merchant-id", merchantConfig.MerchantId);
+            }
+
+            if (merchantConfig.IsSDK)
+            {
+                authenticationHeaders.Add("v-c-sdk-telemetry-mcp", "true");
             }
 
             // if (!string.IsNullOrEmpty(Configuration.SolutionId))

@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TerminalId'
         }
+        /// <summary>
+        /// Test the property 'EncryptedKeyId'
+        /// </summary>
+        [Test]
+        public void EncryptedKeyIdTest()
+        {
+            // TODO unit test for the property 'EncryptedKeyId'
+        }
 
     }
 

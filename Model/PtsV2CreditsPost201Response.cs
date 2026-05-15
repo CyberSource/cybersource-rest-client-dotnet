@@ -44,9 +44,13 @@ namespace CyberSource.Model
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
+        /// <param name="MerchantInformation">MerchantInformation.</param>
+        /// <param name="ClearingInformation">ClearingInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
+        /// <param name="TokenInformation">TokenInformation.</param>
+        /// <param name="PaymentAccountInformation">PaymentAccountInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        public PtsV2CreditsPost201Response(PtsV2PaymentsRefundPost201ResponseLinks Links = default(PtsV2PaymentsRefundPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2CreditsPost201ResponseCreditAmountDetails CreditAmountDetails = default(PtsV2CreditsPost201ResponseCreditAmountDetails), PtsV2CreditsPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2CreditsPost201ResponseProcessingInformation), PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsRefundPost201ResponseProcessorInformation), PtsV2CreditsPost201ResponsePaymentInformation PaymentInformation = default(PtsV2CreditsPost201ResponsePaymentInformation), PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsRefundPost201ResponseOrderInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation), PtsV2PaymentsRefundPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsRefundPost201ResponseErrorInformation))
+        public PtsV2CreditsPost201Response(PtsV2PaymentsRefundPost201ResponseLinks Links = default(PtsV2PaymentsRefundPost201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2CreditsPost201ResponseCreditAmountDetails CreditAmountDetails = default(PtsV2CreditsPost201ResponseCreditAmountDetails), PtsV2CreditsPost201ResponseProcessingInformation ProcessingInformation = default(PtsV2CreditsPost201ResponseProcessingInformation), PtsV2PaymentsRefundPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsRefundPost201ResponseProcessorInformation), PtsV2CreditsPost201ResponsePaymentInformation PaymentInformation = default(PtsV2CreditsPost201ResponsePaymentInformation), PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation = default(PtsV2PaymentsRefundPost201ResponseOrderInformation), PtsV2CreditsPost201ResponseMerchantInformation MerchantInformation = default(PtsV2CreditsPost201ResponseMerchantInformation), PtsV2PaymentsPost201ResponseClearingInformation ClearingInformation = default(PtsV2PaymentsPost201ResponseClearingInformation), PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation), PtsV2CreditsPost201ResponseTokenInformation TokenInformation = default(PtsV2CreditsPost201ResponseTokenInformation), PtsV2CreditsPost201ResponsePaymentAccountInformation PaymentAccountInformation = default(PtsV2CreditsPost201ResponsePaymentAccountInformation), PtsV2PaymentsRefundPost201ResponseErrorInformation ErrorInformation = default(PtsV2PaymentsRefundPost201ResponseErrorInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -59,7 +63,11 @@ namespace CyberSource.Model
             this.ProcessorInformation = ProcessorInformation;
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
+            this.MerchantInformation = MerchantInformation;
+            this.ClearingInformation = ClearingInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
+            this.TokenInformation = TokenInformation;
+            this.PaymentAccountInformation = PaymentAccountInformation;
             this.ErrorInformation = ErrorInformation;
         }
         
@@ -134,10 +142,34 @@ namespace CyberSource.Model
         public PtsV2PaymentsRefundPost201ResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets MerchantInformation
+        /// </summary>
+        [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
+        public PtsV2CreditsPost201ResponseMerchantInformation MerchantInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ClearingInformation
+        /// </summary>
+        [DataMember(Name="clearingInformation", EmitDefaultValue=false)]
+        public PtsV2PaymentsPost201ResponseClearingInformation ClearingInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets PointOfSaleInformation
         /// </summary>
         [DataMember(Name="pointOfSaleInformation", EmitDefaultValue=false)]
         public PtsV2PaymentsCapturesPost201ResponsePointOfSaleInformation PointOfSaleInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TokenInformation
+        /// </summary>
+        [DataMember(Name="tokenInformation", EmitDefaultValue=false)]
+        public PtsV2CreditsPost201ResponseTokenInformation TokenInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentAccountInformation
+        /// </summary>
+        [DataMember(Name="paymentAccountInformation", EmitDefaultValue=false)]
+        public PtsV2CreditsPost201ResponsePaymentAccountInformation PaymentAccountInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorInformation
@@ -164,7 +196,11 @@ namespace CyberSource.Model
             if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(ProcessorInformation).Append("\n");
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
+            if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
+            if (ClearingInformation != null) sb.Append("  ClearingInformation: ").Append(ClearingInformation).Append("\n");
             if (PointOfSaleInformation != null) sb.Append("  PointOfSaleInformation: ").Append(PointOfSaleInformation).Append("\n");
+            if (TokenInformation != null) sb.Append("  TokenInformation: ").Append(TokenInformation).Append("\n");
+            if (PaymentAccountInformation != null) sb.Append("  PaymentAccountInformation: ").Append(PaymentAccountInformation).Append("\n");
             if (ErrorInformation != null) sb.Append("  ErrorInformation: ").Append(ErrorInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -258,9 +294,29 @@ namespace CyberSource.Model
                     this.OrderInformation.Equals(other.OrderInformation)
                 ) && 
                 (
+                    this.MerchantInformation == other.MerchantInformation ||
+                    this.MerchantInformation != null &&
+                    this.MerchantInformation.Equals(other.MerchantInformation)
+                ) && 
+                (
+                    this.ClearingInformation == other.ClearingInformation ||
+                    this.ClearingInformation != null &&
+                    this.ClearingInformation.Equals(other.ClearingInformation)
+                ) && 
+                (
                     this.PointOfSaleInformation == other.PointOfSaleInformation ||
                     this.PointOfSaleInformation != null &&
                     this.PointOfSaleInformation.Equals(other.PointOfSaleInformation)
+                ) && 
+                (
+                    this.TokenInformation == other.TokenInformation ||
+                    this.TokenInformation != null &&
+                    this.TokenInformation.Equals(other.TokenInformation)
+                ) && 
+                (
+                    this.PaymentAccountInformation == other.PaymentAccountInformation ||
+                    this.PaymentAccountInformation != null &&
+                    this.PaymentAccountInformation.Equals(other.PaymentAccountInformation)
                 ) && 
                 (
                     this.ErrorInformation == other.ErrorInformation ||
@@ -302,8 +358,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.MerchantInformation != null)
+                    hash = hash * 59 + this.MerchantInformation.GetHashCode();
+                if (this.ClearingInformation != null)
+                    hash = hash * 59 + this.ClearingInformation.GetHashCode();
                 if (this.PointOfSaleInformation != null)
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
+                if (this.TokenInformation != null)
+                    hash = hash * 59 + this.TokenInformation.GetHashCode();
+                if (this.PaymentAccountInformation != null)
+                    hash = hash * 59 + this.PaymentAccountInformation.GetHashCode();
                 if (this.ErrorInformation != null)
                     hash = hash * 59 + this.ErrorInformation.GetHashCode();
                 return hash;

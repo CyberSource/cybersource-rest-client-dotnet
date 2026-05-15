@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="ShipTo">ShipTo.</param>
         /// <param name="LineItems">LineItems.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
-        public Ptsv2intentsOrderInformation(Ptsv2intentsOrderInformationAmountDetails AmountDetails = default(Ptsv2intentsOrderInformationAmountDetails), Ptsv2intentsOrderInformationBillTo BillTo = default(Ptsv2intentsOrderInformationBillTo), Ptsv2intentsOrderInformationShipTo ShipTo = default(Ptsv2intentsOrderInformationShipTo), List<Ptsv2intentsOrderInformationLineItems> LineItems = default(List<Ptsv2intentsOrderInformationLineItems>), Ptsv2intentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2intentsOrderInformationInvoiceDetails))
+        public Ptsv2intentsOrderInformation(Ptsv2intentsOrderInformationAmountDetails AmountDetails = default(Ptsv2intentsOrderInformationAmountDetails), Ptsv2intentsOrderInformationBillTo BillTo = default(Ptsv2intentsOrderInformationBillTo), Ptsv2intentsOrderInformationShipTo ShipTo = default(Ptsv2intentsOrderInformationShipTo), List<Ptsv2intentsOrderInformationLineItems> LineItems = default(List<Ptsv2intentsOrderInformationLineItems>), Ptsv2billingagreementsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2billingagreementsOrderInformationInvoiceDetails))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
@@ -75,7 +75,7 @@ namespace CyberSource.Model
         /// Gets or Sets InvoiceDetails
         /// </summary>
         [DataMember(Name="invoiceDetails", EmitDefaultValue=false)]
-        public Ptsv2intentsOrderInformationInvoiceDetails InvoiceDetails { get; set; }
+        public Ptsv2billingagreementsOrderInformationInvoiceDetails InvoiceDetails { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CommerceIndicator'
         }
         /// <summary>
+        /// Test the property 'PaymentCompletionTimeout'
+        /// </summary>
+        [Test]
+        public void PaymentCompletionTimeoutTest()
+        {
+            // TODO unit test for the property 'PaymentCompletionTimeout'
+        }
+        /// <summary>
         /// Test the property 'ActionList'
         /// </summary>
         [Test]

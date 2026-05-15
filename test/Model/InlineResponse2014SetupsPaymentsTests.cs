@@ -224,6 +224,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'BatchUpload'
         }
+        /// <summary>
+        /// Test the property 'TransactGuard'
+        /// </summary>
+        [Test]
+        public void TransactGuardTest()
+        {
+            // TODO unit test for the property 'TransactGuard'
+        }
+        /// <summary>
+        /// Test the property 'Microform'
+        /// </summary>
+        [Test]
+        public void MicroformTest()
+        {
+            // TODO unit test for the property 'Microform'
+        }
 
     }
 

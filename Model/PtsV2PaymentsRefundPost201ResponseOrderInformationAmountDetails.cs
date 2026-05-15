@@ -33,13 +33,15 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsRefundPost201ResponseOrderInformationAmountDetails" /> class.
         /// </summary>
+        /// <param name="CashbackAmount">This field contains the purchase cashback amount expressed in the acquirer transaction currency.  Use this field only for clearing with your acquirer. .</param>
         /// <param name="SettlementAmount">This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
         /// <param name="SettlementCurrency">This is a multicurrency-only field. It contains a 3-digit numeric code that identifies the currency used by the issuer to bill the cardholder&#39;s account. This field is returned for OCT transactions. .</param>
         /// <param name="ExchangeRate">Exchange rate returned by the DCC service. Includes a decimal point and a maximum of 4 decimal places. .</param>
         /// <param name="ForeignAmount">Set this field to the converted amount that was returned by the DCC provider. .</param>
         /// <param name="ForeignCurrency">Set this field to the converted amount that was returned by the DCC provider. .</param>
-        public PtsV2PaymentsRefundPost201ResponseOrderInformationAmountDetails(string SettlementAmount = default(string), string SettlementCurrency = default(string), string ExchangeRate = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string))
+        public PtsV2PaymentsRefundPost201ResponseOrderInformationAmountDetails(string CashbackAmount = default(string), string SettlementAmount = default(string), string SettlementCurrency = default(string), string ExchangeRate = default(string), string ForeignAmount = default(string), string ForeignCurrency = default(string))
         {
+            this.CashbackAmount = CashbackAmount;
             this.SettlementAmount = SettlementAmount;
             this.SettlementCurrency = SettlementCurrency;
             this.ExchangeRate = ExchangeRate;
@@ -47,6 +49,13 @@ namespace CyberSource.Model
             this.ForeignCurrency = ForeignCurrency;
         }
         
+        /// <summary>
+        /// This field contains the purchase cashback amount expressed in the acquirer transaction currency.  Use this field only for clearing with your acquirer. 
+        /// </summary>
+        /// <value>This field contains the purchase cashback amount expressed in the acquirer transaction currency.  Use this field only for clearing with your acquirer. </value>
+        [DataMember(Name="cashbackAmount", EmitDefaultValue=false)]
+        public string CashbackAmount { get; set; }
+
         /// <summary>
         /// This is a multicurrency field. It contains the transaction amount (field 4), converted to the Currency used to bill the cardholder&#39;s account. This field is returned for OCT transactions. 
         /// </summary>
@@ -90,6 +99,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsRefundPost201ResponseOrderInformationAmountDetails {\n");
+            if (CashbackAmount != null) sb.Append("  CashbackAmount: ").Append(CashbackAmount).Append("\n");
             if (SettlementAmount != null) sb.Append("  SettlementAmount: ").Append(SettlementAmount).Append("\n");
             if (SettlementCurrency != null) sb.Append("  SettlementCurrency: ").Append(SettlementCurrency).Append("\n");
             if (ExchangeRate != null) sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
@@ -132,6 +142,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.CashbackAmount == other.CashbackAmount ||
+                    this.CashbackAmount != null &&
+                    this.CashbackAmount.Equals(other.CashbackAmount)
+                ) && 
+                (
                     this.SettlementAmount == other.SettlementAmount ||
                     this.SettlementAmount != null &&
                     this.SettlementAmount.Equals(other.SettlementAmount)
@@ -169,6 +184,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.CashbackAmount != null)
+                    hash = hash * 59 + this.CashbackAmount.GetHashCode();
                 if (this.SettlementAmount != null)
                     hash = hash * 59 + this.SettlementAmount.GetHashCode();
                 if (this.SettlementCurrency != null)

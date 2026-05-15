@@ -77,10 +77,11 @@ namespace CyberSource.Model
         /// <param name="UpdateTimeUtc">The date and time when the transaction was last updated, in Internet date and time format. .</param>
         /// <param name="ExpirationTimeUtc">The date and time when the authorized payment expires, in Internet date and time format. .</param>
         /// <param name="OrderId">The id of the order .</param>
-        /// <param name="OrderStatus">The order status.  Possible values: - &#x60;CREATED&#x60; - &#x60;VOIDED&#x60; - &#x60;COMPLETED&#x60; - &#x60;PAYER_ACTION_REQUIRED&#x60; .</param>
+        /// <param name="OrderStatus">The order status.  Possible values: - &#x60;CREATED&#x60; - &#x60;VOIDED&#x60; - &#x60;COMPLETED&#x60; - &#x60;PAYER_ACTION_REQUIRED&#x60; - &#x60;STEP_UP_REQUIRED&#x60; .</param>
         /// <param name="MerchantRiskPrediction">Mastercard is introducing the Merchant Risk Predict Service in the middle East/Africa Region. A newly launched service comprised of seven independent artificial intelligence (AI)-powered scores intended to augment existing merchant risk management practices. .</param>
         /// <param name="Network">Network.</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ResponseSourceCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), string SequenceNumber = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), string TransactionExpiryDate = default(string), string CustomUrl = default(string), string SchemeAssignedId = default(string), string DeviceUrl = default(string), string DisbursementMode = default(string), string UpdateTimeUtc = default(string), string ExpirationTimeUtc = default(string), string OrderId = default(string), string OrderStatus = default(string), string MerchantRiskPrediction = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
+        /// <param name="CedpVerifiedIndicator">Merchant Commercial Enhanced Data Program (CEDP) verified indicator received in authorization response messages for U.S. domestic transactions containing a credential for the commercial credit products.  This field flows in ISO field 34, DSID 02 tag DA, in AN, EBCDIC format.  Possible values: - &#x60;Y&#x60;: Merchant CEDP verified  This field is for internal processing only (TC33A usage) and is not sent back to the merchant.  #### Used by **Authorization Response** Response field only. .</param>
+        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ResponseSourceCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), string SequenceNumber = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), string TransactionExpiryDate = default(string), string CustomUrl = default(string), string SchemeAssignedId = default(string), string DeviceUrl = default(string), string DisbursementMode = default(string), string UpdateTimeUtc = default(string), string ExpirationTimeUtc = default(string), string OrderId = default(string), string OrderStatus = default(string), string MerchantRiskPrediction = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), string CedpVerifiedIndicator = default(string))
         {
             this.AuthIndicator = AuthIndicator;
             this.ApprovalCode = ApprovalCode;
@@ -129,6 +130,7 @@ namespace CyberSource.Model
             this.OrderStatus = OrderStatus;
             this.MerchantRiskPrediction = MerchantRiskPrediction;
             this.Network = Network;
+            this.CedpVerifiedIndicator = CedpVerifiedIndicator;
         }
         
         /// <summary>
@@ -429,9 +431,9 @@ namespace CyberSource.Model
         public string OrderId { get; set; }
 
         /// <summary>
-        /// The order status.  Possible values: - &#x60;CREATED&#x60; - &#x60;VOIDED&#x60; - &#x60;COMPLETED&#x60; - &#x60;PAYER_ACTION_REQUIRED&#x60; 
+        /// The order status.  Possible values: - &#x60;CREATED&#x60; - &#x60;VOIDED&#x60; - &#x60;COMPLETED&#x60; - &#x60;PAYER_ACTION_REQUIRED&#x60; - &#x60;STEP_UP_REQUIRED&#x60; 
         /// </summary>
-        /// <value>The order status.  Possible values: - &#x60;CREATED&#x60; - &#x60;VOIDED&#x60; - &#x60;COMPLETED&#x60; - &#x60;PAYER_ACTION_REQUIRED&#x60; </value>
+        /// <value>The order status.  Possible values: - &#x60;CREATED&#x60; - &#x60;VOIDED&#x60; - &#x60;COMPLETED&#x60; - &#x60;PAYER_ACTION_REQUIRED&#x60; - &#x60;STEP_UP_REQUIRED&#x60; </value>
         [DataMember(Name="orderStatus", EmitDefaultValue=false)]
         public string OrderStatus { get; set; }
 
@@ -447,6 +449,13 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="network", EmitDefaultValue=false)]
         public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
+
+        /// <summary>
+        /// Merchant Commercial Enhanced Data Program (CEDP) verified indicator received in authorization response messages for U.S. domestic transactions containing a credential for the commercial credit products.  This field flows in ISO field 34, DSID 02 tag DA, in AN, EBCDIC format.  Possible values: - &#x60;Y&#x60;: Merchant CEDP verified  This field is for internal processing only (TC33A usage) and is not sent back to the merchant.  #### Used by **Authorization Response** Response field only. 
+        /// </summary>
+        /// <value>Merchant Commercial Enhanced Data Program (CEDP) verified indicator received in authorization response messages for U.S. domestic transactions containing a credential for the commercial credit products.  This field flows in ISO field 34, DSID 02 tag DA, in AN, EBCDIC format.  Possible values: - &#x60;Y&#x60;: Merchant CEDP verified  This field is for internal processing only (TC33A usage) and is not sent back to the merchant.  #### Used by **Authorization Response** Response field only. </value>
+        [DataMember(Name="cedpVerifiedIndicator", EmitDefaultValue=false)]
+        public string CedpVerifiedIndicator { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -503,6 +512,7 @@ namespace CyberSource.Model
             if (OrderStatus != null) sb.Append("  OrderStatus: ").Append(OrderStatus).Append("\n");
             if (MerchantRiskPrediction != null) sb.Append("  MerchantRiskPrediction: ").Append(MerchantRiskPrediction).Append("\n");
             if (Network != null) sb.Append("  Network: ").Append(Network).Append("\n");
+            if (CedpVerifiedIndicator != null) sb.Append("  CedpVerifiedIndicator: ").Append(CedpVerifiedIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -773,6 +783,11 @@ namespace CyberSource.Model
                     this.Network == other.Network ||
                     this.Network != null &&
                     this.Network.Equals(other.Network)
+                ) && 
+                (
+                    this.CedpVerifiedIndicator == other.CedpVerifiedIndicator ||
+                    this.CedpVerifiedIndicator != null &&
+                    this.CedpVerifiedIndicator.Equals(other.CedpVerifiedIndicator)
                 );
         }
 
@@ -881,6 +896,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantRiskPrediction.GetHashCode();
                 if (this.Network != null)
                     hash = hash * 59 + this.Network.GetHashCode();
+                if (this.CedpVerifiedIndicator != null)
+                    hash = hash * 59 + this.CedpVerifiedIndicator.GetHashCode();
                 return hash;
             }
         }

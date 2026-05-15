@@ -72,6 +72,46 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ShipFromPostalCode'
         }
+        /// <summary>
+        /// Test the property 'TrackingNumber'
+        /// </summary>
+        [Test]
+        public void TrackingNumberTest()
+        {
+            // TODO unit test for the property 'TrackingNumber'
+        }
+        /// <summary>
+        /// Test the property 'TrackingUrl'
+        /// </summary>
+        [Test]
+        public void TrackingUrlTest()
+        {
+            // TODO unit test for the property 'TrackingUrl'
+        }
+        /// <summary>
+        /// Test the property 'ShippingCarrier'
+        /// </summary>
+        [Test]
+        public void ShippingCarrierTest()
+        {
+            // TODO unit test for the property 'ShippingCarrier'
+        }
+        /// <summary>
+        /// Test the property 'EstimatedDeliveryDate'
+        /// </summary>
+        [Test]
+        public void EstimatedDeliveryDateTest()
+        {
+            // TODO unit test for the property 'EstimatedDeliveryDate'
+        }
+        /// <summary>
+        /// Test the property 'ShippingMethod'
+        /// </summary>
+        [Test]
+        public void ShippingMethodTest()
+        {
+            // TODO unit test for the property 'ShippingMethod'
+        }
 
     }
 

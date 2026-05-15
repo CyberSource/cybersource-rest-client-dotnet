@@ -216,6 +216,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Locality'
         }
+        /// <summary>
+        /// Test the property 'TaxIdNumber'
+        /// </summary>
+        [Test]
+        public void TaxIdNumberTest()
+        {
+            // TODO unit test for the property 'TaxIdNumber'
+        }
 
     }
 

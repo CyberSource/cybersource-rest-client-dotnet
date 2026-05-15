@@ -33,6 +33,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ucv1sessionsData" /> class.
         /// </summary>
+        /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
@@ -40,11 +41,14 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="RecipientInformation">RecipientInformation.</param>
-        /// <param name="MerchantDefinedInformation">MerchantDefinedInformation.</param>
+        /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
-        public Ucv1sessionsData(Ucv1sessionsDataOrderInformation OrderInformation = default(Ucv1sessionsDataOrderInformation), Ucv1sessionsDataBuyerInformation BuyerInformation = default(Ucv1sessionsDataBuyerInformation), Upv1capturecontextsDataClientReferenceInformation ClientReferenceInformation = default(Upv1capturecontextsDataClientReferenceInformation), Ucv1sessionsDataConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ucv1sessionsDataConsumerAuthenticationInformation), Ucv1sessionsDataMerchantInformation MerchantInformation = default(Ucv1sessionsDataMerchantInformation), Ucv1sessionsDataProcessingInformation ProcessingInformation = default(Ucv1sessionsDataProcessingInformation), Ucv1sessionsDataRecipientInformation RecipientInformation = default(Ucv1sessionsDataRecipientInformation), List<Ucv1sessionsDataMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ucv1sessionsDataMerchantDefinedInformation>), Ucv1sessionsDataDeviceInformation DeviceInformation = default(Ucv1sessionsDataDeviceInformation), Ucv1sessionsDataPaymentInformation PaymentInformation = default(Ucv1sessionsDataPaymentInformation))
+        /// <param name="InstallmentInformation">InstallmentInformation.</param>
+        /// <param name="MerchantDefinedInformation">MerchantDefinedInformation.</param>
+        public Ucv1sessionsData(Ucv1sessionsDataAggregatorInformation AggregatorInformation = default(Ucv1sessionsDataAggregatorInformation), Ucv1sessionsDataOrderInformation OrderInformation = default(Ucv1sessionsDataOrderInformation), Ucv1sessionsDataBuyerInformation BuyerInformation = default(Ucv1sessionsDataBuyerInformation), Upv1capturecontextsDataClientReferenceInformation ClientReferenceInformation = default(Upv1capturecontextsDataClientReferenceInformation), Ucv1sessionsDataConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ucv1sessionsDataConsumerAuthenticationInformation), Ucv1sessionsDataMerchantInformation MerchantInformation = default(Ucv1sessionsDataMerchantInformation), Ucv1sessionsDataProcessingInformation ProcessingInformation = default(Ucv1sessionsDataProcessingInformation), Ucv1sessionsDataRecipientInformation RecipientInformation = default(Ucv1sessionsDataRecipientInformation), Ucv1sessionsDataSenderInformation SenderInformation = default(Ucv1sessionsDataSenderInformation), Ucv1sessionsDataDeviceInformation DeviceInformation = default(Ucv1sessionsDataDeviceInformation), Ucv1sessionsDataPaymentInformation PaymentInformation = default(Ucv1sessionsDataPaymentInformation), Ucv1sessionsDataInstallmentInformation InstallmentInformation = default(Ucv1sessionsDataInstallmentInformation), List<Ucv1sessionsDataMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ucv1sessionsDataMerchantDefinedInformation>))
         {
+            this.AggregatorInformation = AggregatorInformation;
             this.OrderInformation = OrderInformation;
             this.BuyerInformation = BuyerInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
@@ -52,11 +56,19 @@ namespace CyberSource.Model
             this.MerchantInformation = MerchantInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.RecipientInformation = RecipientInformation;
-            this.MerchantDefinedInformation = MerchantDefinedInformation;
+            this.SenderInformation = SenderInformation;
             this.DeviceInformation = DeviceInformation;
             this.PaymentInformation = PaymentInformation;
+            this.InstallmentInformation = InstallmentInformation;
+            this.MerchantDefinedInformation = MerchantDefinedInformation;
         }
         
+        /// <summary>
+        /// Gets or Sets AggregatorInformation
+        /// </summary>
+        [DataMember(Name="aggregatorInformation", EmitDefaultValue=false)]
+        public Ucv1sessionsDataAggregatorInformation AggregatorInformation { get; set; }
+
         /// <summary>
         /// Gets or Sets OrderInformation
         /// </summary>
@@ -100,10 +112,10 @@ namespace CyberSource.Model
         public Ucv1sessionsDataRecipientInformation RecipientInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets MerchantDefinedInformation
+        /// Gets or Sets SenderInformation
         /// </summary>
-        [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
-        public List<Ucv1sessionsDataMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
+        [DataMember(Name="senderInformation", EmitDefaultValue=false)]
+        public Ucv1sessionsDataSenderInformation SenderInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceInformation
@@ -118,6 +130,18 @@ namespace CyberSource.Model
         public Ucv1sessionsDataPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets InstallmentInformation
+        /// </summary>
+        [DataMember(Name="installmentInformation", EmitDefaultValue=false)]
+        public Ucv1sessionsDataInstallmentInformation InstallmentInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantDefinedInformation
+        /// </summary>
+        [DataMember(Name="merchantDefinedInformation", EmitDefaultValue=false)]
+        public List<Ucv1sessionsDataMerchantDefinedInformation> MerchantDefinedInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +149,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Ucv1sessionsData {\n");
+            if (AggregatorInformation != null) sb.Append("  AggregatorInformation: ").Append(AggregatorInformation).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(OrderInformation).Append("\n");
             if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(BuyerInformation).Append("\n");
             if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(ClientReferenceInformation).Append("\n");
@@ -132,9 +157,11 @@ namespace CyberSource.Model
             if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(MerchantInformation).Append("\n");
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(ProcessingInformation).Append("\n");
             if (RecipientInformation != null) sb.Append("  RecipientInformation: ").Append(RecipientInformation).Append("\n");
-            if (MerchantDefinedInformation != null) sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
+            if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(SenderInformation).Append("\n");
             if (DeviceInformation != null) sb.Append("  DeviceInformation: ").Append(DeviceInformation).Append("\n");
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
+            if (InstallmentInformation != null) sb.Append("  InstallmentInformation: ").Append(InstallmentInformation).Append("\n");
+            if (MerchantDefinedInformation != null) sb.Append("  MerchantDefinedInformation: ").Append(MerchantDefinedInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +199,11 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.AggregatorInformation == other.AggregatorInformation ||
+                    this.AggregatorInformation != null &&
+                    this.AggregatorInformation.Equals(other.AggregatorInformation)
+                ) && 
+                (
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
@@ -207,9 +239,9 @@ namespace CyberSource.Model
                     this.RecipientInformation.Equals(other.RecipientInformation)
                 ) && 
                 (
-                    this.MerchantDefinedInformation == other.MerchantDefinedInformation ||
-                    this.MerchantDefinedInformation != null &&
-                    this.MerchantDefinedInformation.SequenceEqual(other.MerchantDefinedInformation)
+                    this.SenderInformation == other.SenderInformation ||
+                    this.SenderInformation != null &&
+                    this.SenderInformation.Equals(other.SenderInformation)
                 ) && 
                 (
                     this.DeviceInformation == other.DeviceInformation ||
@@ -220,6 +252,16 @@ namespace CyberSource.Model
                     this.PaymentInformation == other.PaymentInformation ||
                     this.PaymentInformation != null &&
                     this.PaymentInformation.Equals(other.PaymentInformation)
+                ) && 
+                (
+                    this.InstallmentInformation == other.InstallmentInformation ||
+                    this.InstallmentInformation != null &&
+                    this.InstallmentInformation.Equals(other.InstallmentInformation)
+                ) && 
+                (
+                    this.MerchantDefinedInformation == other.MerchantDefinedInformation ||
+                    this.MerchantDefinedInformation != null &&
+                    this.MerchantDefinedInformation.SequenceEqual(other.MerchantDefinedInformation)
                 );
         }
 
@@ -234,6 +276,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.AggregatorInformation != null)
+                    hash = hash * 59 + this.AggregatorInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.BuyerInformation != null)
@@ -248,12 +292,16 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.RecipientInformation != null)
                     hash = hash * 59 + this.RecipientInformation.GetHashCode();
-                if (this.MerchantDefinedInformation != null)
-                    hash = hash * 59 + this.MerchantDefinedInformation.GetHashCode();
+                if (this.SenderInformation != null)
+                    hash = hash * 59 + this.SenderInformation.GetHashCode();
                 if (this.DeviceInformation != null)
                     hash = hash * 59 + this.DeviceInformation.GetHashCode();
                 if (this.PaymentInformation != null)
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
+                if (this.InstallmentInformation != null)
+                    hash = hash * 59 + this.InstallmentInformation.GetHashCode();
+                if (this.MerchantDefinedInformation != null)
+                    hash = hash * 59 + this.MerchantDefinedInformation.GetHashCode();
                 return hash;
             }
         }

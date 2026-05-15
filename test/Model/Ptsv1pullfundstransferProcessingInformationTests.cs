@@ -120,6 +120,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'LanguageCode'
         }
+        /// <summary>
+        /// Test the property 'AccountVerificationCode'
+        /// </summary>
+        [Test]
+        public void AccountVerificationCodeTest()
+        {
+            // TODO unit test for the property 'AccountVerificationCode'
+        }
 
     }
 
