@@ -7,7 +7,7 @@ The CyberSource .NET client provides convenient access to the [CyberSource REST 
 
 ## System Requirements
 
-* .NET Framework 4.6.1
+* .NET Framework 4.8
 
 ## Installation
 
@@ -312,3 +312,4 @@ CyberSource may allow Customer to access, use, and/or test a CyberSource product
 ## License
 
 This repository is distributed under a proprietary license.
+
