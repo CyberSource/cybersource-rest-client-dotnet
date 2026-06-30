@@ -66,7 +66,7 @@ namespace CyberSource.Model
         /// <param name="ShippingDestinationTypes">Shipping destination types.</param>
         /// <param name="Gift">Indicates if item is a gift.</param>
         /// <param name="Passenger">Passenger.</param>
-        public Ucv1sessionsDataOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxRate = default(string), string ShippingCountryCode = default(string), string TaxAmount = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), Upv1capturecontextsDataOrderInformationLineItemsTaxDetails TaxDetails = default(Upv1capturecontextsDataOrderInformationLineItemsTaxDetails), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), string UnitTaxAmount = default(string), string ProductDescription = default(string), string GiftCardCurrency = default(string), string ShippingDestinationTypes = default(string), bool? Gift = default(bool?), Upv1capturecontextsDataOrderInformationLineItemsPassenger Passenger = default(Upv1capturecontextsDataOrderInformationLineItemsPassenger))
+        public Ucv1sessionsDataOrderInformationLineItems(string ProductCode = default(string), string ProductName = default(string), string ProductSku = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string UnitOfMeasure = default(string), string TotalAmount = default(string), string TaxRate = default(string), string ShippingCountryCode = default(string), string TaxAmount = default(string), string TaxAppliedAfterDiscount = default(string), string TaxStatusIndicator = default(string), string TaxTypeCode = default(string), bool? AmountIncludesTax = default(bool?), string TypeOfSupply = default(string), string CommodityCode = default(string), string DiscountAmount = default(string), bool? DiscountApplied = default(bool?), string DiscountRate = default(string), string InvoiceNumber = default(string), Upv1capturecontextsDataOrderInformationTaxDetails TaxDetails = default(Upv1capturecontextsDataOrderInformationTaxDetails), string FulfillmentType = default(string), string Weight = default(string), string WeightIdentifier = default(string), string WeightUnit = default(string), string ReferenceDataCode = default(string), string ReferenceDataNumber = default(string), string UnitTaxAmount = default(string), string ProductDescription = default(string), string GiftCardCurrency = default(string), string ShippingDestinationTypes = default(string), bool? Gift = default(bool?), Upv1capturecontextsDataOrderInformationPassenger Passenger = default(Upv1capturecontextsDataOrderInformationPassenger))
         {
             this.ProductCode = ProductCode;
             this.ProductName = ProductName;
@@ -247,7 +247,7 @@ namespace CyberSource.Model
         /// Gets or Sets TaxDetails
         /// </summary>
         [DataMember(Name="taxDetails", EmitDefaultValue=false)]
-        public Upv1capturecontextsDataOrderInformationLineItemsTaxDetails TaxDetails { get; set; }
+        public Upv1capturecontextsDataOrderInformationTaxDetails TaxDetails { get; set; }
 
         /// <summary>
         /// Fulfillment type
@@ -330,7 +330,7 @@ namespace CyberSource.Model
         /// Gets or Sets Passenger
         /// </summary>
         [DataMember(Name="passenger", EmitDefaultValue=false)]
-        public Upv1capturecontextsDataOrderInformationLineItemsPassenger Passenger { get; set; }
+        public Upv1capturecontextsDataOrderInformationPassenger Passenger { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -274,7 +274,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -393,7 +393,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";

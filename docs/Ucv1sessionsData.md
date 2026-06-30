@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **AggregatorInformation** | [**Ucv1sessionsDataAggregatorInformation**](Ucv1sessionsDataAggregatorInformation.md) |  | [optional] 
 **OrderInformation** | [**Ucv1sessionsDataOrderInformation**](Ucv1sessionsDataOrderInformation.md) |  | [optional] 
 **BuyerInformation** | [**Ucv1sessionsDataBuyerInformation**](Ucv1sessionsDataBuyerInformation.md) |  | [optional] 
-**ClientReferenceInformation** | [**Upv1capturecontextsDataClientReferenceInformation**](Upv1capturecontextsDataClientReferenceInformation.md) |  | [optional] 
+**ClientReferenceInformation** | [**Ucv1sessionsDataClientReferenceInformation**](Ucv1sessionsDataClientReferenceInformation.md) |  | [optional] 
 **ConsumerAuthenticationInformation** | [**Ucv1sessionsDataConsumerAuthenticationInformation**](Ucv1sessionsDataConsumerAuthenticationInformation.md) |  | [optional] 
 **MerchantInformation** | [**Ucv1sessionsDataMerchantInformation**](Ucv1sessionsDataMerchantInformation.md) |  | [optional] 
 **ProcessingInformation** | [**Ucv1sessionsDataProcessingInformation**](Ucv1sessionsDataProcessingInformation.md) |  | [optional] 

@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="DefaultPaymentInstrument">DefaultPaymentInstrument.</param>
         /// <param name="DefaultShippingAddress">DefaultShippingAddress.</param>
-        public Tmsv2tokenizeTokenInformationCustomerEmbedded(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrument DefaultPaymentInstrument = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrument), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddress DefaultShippingAddress = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddress))
+        public Tmsv2tokenizeTokenInformationCustomerEmbedded(DefaultPaymentInstrument DefaultPaymentInstrument = default(DefaultPaymentInstrument), DefaultShippingAddress DefaultShippingAddress = default(DefaultShippingAddress))
         {
             this.DefaultPaymentInstrument = DefaultPaymentInstrument;
             this.DefaultShippingAddress = DefaultShippingAddress;
@@ -45,13 +45,13 @@ namespace CyberSource.Model
         /// Gets or Sets DefaultPaymentInstrument
         /// </summary>
         [DataMember(Name="defaultPaymentInstrument", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrument DefaultPaymentInstrument { get; set; }
+        public DefaultPaymentInstrument DefaultPaymentInstrument { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultShippingAddress
         /// </summary>
         [DataMember(Name="defaultShippingAddress", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddress DefaultShippingAddress { get; set; }
+        public DefaultShippingAddress DefaultShippingAddress { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

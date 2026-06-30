@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="CredentialStoredOnFile">Store the credential on file&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="MerchantInitiatedTransaction">MerchantInitiatedTransaction.</param>
-        public Ucv1sessionsDataProcessingInformationAuthorizationOptionsInitiator(bool? CredentialStoredOnFile = default(bool?), Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction MerchantInitiatedTransaction = default(Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction))
+        public Ucv1sessionsDataProcessingInformationAuthorizationOptionsInitiator(bool? CredentialStoredOnFile = default(bool?), UnifiedCheckoutMerchantInitiatedTransaction MerchantInitiatedTransaction = default(UnifiedCheckoutMerchantInitiatedTransaction))
         {
             this.CredentialStoredOnFile = CredentialStoredOnFile;
             this.MerchantInitiatedTransaction = MerchantInitiatedTransaction;
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         /// Gets or Sets MerchantInitiatedTransaction
         /// </summary>
         [DataMember(Name="merchantInitiatedTransaction", EmitDefaultValue=false)]
-        public Upv1capturecontextsDataProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransaction MerchantInitiatedTransaction { get; set; }
+        public UnifiedCheckoutMerchantInitiatedTransaction MerchantInitiatedTransaction { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

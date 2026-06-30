@@ -25,7 +25,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Allows a single Token Management Service (TMS) token to be presented within the Unified Checkout user interface. This enables customers to complete a payment using an existing stored credential.  Supported token types: - customer - instrumentIdentifiers - paymentInstruments  **Important note:** If a customer token ID is provided and token creation (tokenCreate) is enabled for a paymentInstrument or instrumentIdentifier within the Complete Mandate, Unified Checkout will create a new payment instrument or instrument identifier and associate it with the specified customer token. 
+    /// Allows a single Token Management Service (TMS) token to be presented within the Unified Checkout user interface. This enables customers to complete a payment using an existing stored credential.  Supported token types: - customer - instrumentIdentifiers - paymentInstruments&lt;br&gt;&lt;br&gt;  The allowedPaymentTypes field must also include TMS_TOKEN as shown below for the token to show in Unified Checkout:    \&quot;allowedPaymentTypes\&quot;: [\&quot;TMS-TOKEN\&quot;] &lt;br&gt;&lt;br&gt;  **Important note:** If a customer token ID is provided and token creation (tokenCreate) is enabled for a paymentInstrument or instrumentIdentifier within the Complete Mandate, Unified Checkout will create a new payment instrument or instrument identifier and associate it with the specified customer token. 
     /// </summary>
     [DataContract]
     public partial class Ucv1sessionsPaymentConfigurationsTMSTOKEN :  IEquatable<Ucv1sessionsPaymentConfigurationsTMSTOKEN>, IValidatableObject

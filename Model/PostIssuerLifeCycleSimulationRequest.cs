@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="State">The new state of the Tokenized Card. Possible Values: - ACTIVE - SUSPENDED - DELETED .</param>
         /// <param name="Card">Card.</param>
         /// <param name="Metadata">Metadata.</param>
-        public PostIssuerLifeCycleSimulationRequest(string State = default(string), Tmsv2tokenizedcardstokenizedCardIdissuerlifecycleeventsimulationsCard Card = default(Tmsv2tokenizedcardstokenizedCardIdissuerlifecycleeventsimulationsCard), Tmsv2tokenizedcardstokenizedCardIdissuerlifecycleeventsimulationsMetadata Metadata = default(Tmsv2tokenizedcardstokenizedCardIdissuerlifecycleeventsimulationsMetadata))
+        public PostIssuerLifeCycleSimulationRequest(string State = default(string), Tmsv2tokenizedcardstokenizedCardIdissuerlifecycleeventsimulationsCard Card = default(Tmsv2tokenizedcardstokenizedCardIdissuerlifecycleeventsimulationsCard), TmsIssuerLifeCycleEventSimulationMetadata Metadata = default(TmsIssuerLifeCycleEventSimulationMetadata))
         {
             this.State = State;
             this.Card = Card;
@@ -60,7 +60,7 @@ namespace CyberSource.Model
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public Tmsv2tokenizedcardstokenizedCardIdissuerlifecycleeventsimulationsMetadata Metadata { get; set; }
+        public TmsIssuerLifeCycleEventSimulationMetadata Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

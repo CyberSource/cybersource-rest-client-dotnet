@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="ResponseCode">This field is set to the value of response code returned by the processor. .</param>
         /// <param name="SellerProtection">SellerProtection.</param>
         /// <param name="Avs">Avs.</param>
-        public PtsV2PaymentsPost201Response1ProcessorInformation(string TransactionId = default(string), string TradeNumber = default(string), string RawResponse = default(string), string RawResponseLocal = default(string), string ResponseDetails = default(string), string ResponseCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), PtsV2PaymentsPost201Response1ProcessorInformationAvs Avs = default(PtsV2PaymentsPost201Response1ProcessorInformationAvs))
+        public PtsV2PaymentsPost201Response1ProcessorInformation(string TransactionId = default(string), string TradeNumber = default(string), string RawResponse = default(string), string RawResponseLocal = default(string), string ResponseDetails = default(string), string ResponseCode = default(string), ProcessorInformationSellerProtection SellerProtection = default(ProcessorInformationSellerProtection), PtsV2PaymentsPost201Response1ProcessorInformationAvs Avs = default(PtsV2PaymentsPost201Response1ProcessorInformationAvs))
         {
             this.TransactionId = TransactionId;
             this.TradeNumber = TradeNumber;
@@ -99,7 +99,7 @@ namespace CyberSource.Model
         /// Gets or Sets SellerProtection
         /// </summary>
         [DataMember(Name="sellerProtection", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection { get; set; }
+        public ProcessorInformationSellerProtection SellerProtection { get; set; }
 
         /// <summary>
         /// Gets or Sets Avs

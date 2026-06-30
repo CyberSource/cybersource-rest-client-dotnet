@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PaymentInformation** | [**Ptsv1pushfundstransferRecipientInformationPaymentInformation**](Ptsv1pushfundstransferRecipientInformationPaymentInformation.md) |  | [optional] 
+**PaymentInformation** | [**PushFundsTransferPaymentInformation**](PushFundsTransferPaymentInformation.md) |  | [optional] 
 **Address1** | **string** | First line of the recipient&#39;s address. Required for card payments  | [optional] 
 **Address2** | **string** | Second line of the recipient&#39;s address  | [optional] 
 **Locality** | **string** | Recipient city.  | [optional] 

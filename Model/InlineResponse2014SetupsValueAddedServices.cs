@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="BankAccountValidation">BankAccountValidation.</param>
         /// <param name="Flexapi">Flexapi.</param>
         /// <param name="Webhooks">Webhooks.</param>
-        public InlineResponse2014SetupsValueAddedServices(InlineResponse2014SetupsPaymentsDigitalPayments Reporting = default(InlineResponse2014SetupsPaymentsDigitalPayments), InlineResponse2014SetupsPaymentsDigitalPayments TransactionSearch = default(InlineResponse2014SetupsPaymentsDigitalPayments), InlineResponse2014SetupsPaymentsDigitalPayments BankAccountValidation = default(InlineResponse2014SetupsPaymentsDigitalPayments), InlineResponse2014SetupsPaymentsDigitalPayments Flexapi = default(InlineResponse2014SetupsPaymentsDigitalPayments), InlineResponse2014SetupsPaymentsDigitalPayments Webhooks = default(InlineResponse2014SetupsPaymentsDigitalPayments))
+        public InlineResponse2014SetupsValueAddedServices(PaymentsConfigurationSetupDigitalPayments Reporting = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments TransactionSearch = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments BankAccountValidation = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments Flexapi = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments Webhooks = default(PaymentsConfigurationSetupDigitalPayments))
         {
             this.Reporting = Reporting;
             this.TransactionSearch = TransactionSearch;
@@ -51,31 +51,31 @@ namespace CyberSource.Model
         /// Gets or Sets Reporting
         /// </summary>
         [DataMember(Name="reporting", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsDigitalPayments Reporting { get; set; }
+        public PaymentsConfigurationSetupDigitalPayments Reporting { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionSearch
         /// </summary>
         [DataMember(Name="transactionSearch", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsDigitalPayments TransactionSearch { get; set; }
+        public PaymentsConfigurationSetupDigitalPayments TransactionSearch { get; set; }
 
         /// <summary>
         /// Gets or Sets BankAccountValidation
         /// </summary>
         [DataMember(Name="bankAccountValidation", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsDigitalPayments BankAccountValidation { get; set; }
+        public PaymentsConfigurationSetupDigitalPayments BankAccountValidation { get; set; }
 
         /// <summary>
         /// Gets or Sets Flexapi
         /// </summary>
         [DataMember(Name="flexapi", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsDigitalPayments Flexapi { get; set; }
+        public PaymentsConfigurationSetupDigitalPayments Flexapi { get; set; }
 
         /// <summary>
         /// Gets or Sets Webhooks
         /// </summary>
         [DataMember(Name="webhooks", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsDigitalPayments Webhooks { get; set; }
+        public PaymentsConfigurationSetupDigitalPayments Webhooks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

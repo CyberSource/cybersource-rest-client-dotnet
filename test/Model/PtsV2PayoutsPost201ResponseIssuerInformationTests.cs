@@ -65,6 +65,126 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'OctDomesticParticipantIndicator'
+        /// </summary>
+        [Test]
+        public void OctDomesticParticipantIndicatorTest()
+        {
+            // TODO unit test for the property 'OctDomesticParticipantIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctCrossBorderParticipantIndicator'
+        /// </summary>
+        [Test]
+        public void OctCrossBorderParticipantIndicatorTest()
+        {
+            // TODO unit test for the property 'OctCrossBorderParticipantIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctMoneyTransferDomesticIndicator'
+        /// </summary>
+        [Test]
+        public void OctMoneyTransferDomesticIndicatorTest()
+        {
+            // TODO unit test for the property 'OctMoneyTransferDomesticIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctMoneyTransferCrossBorderIndicator'
+        /// </summary>
+        [Test]
+        public void OctMoneyTransferCrossBorderIndicatorTest()
+        {
+            // TODO unit test for the property 'OctMoneyTransferCrossBorderIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctMoneyTransferFastFundsDomesticIndicator'
+        /// </summary>
+        [Test]
+        public void OctMoneyTransferFastFundsDomesticIndicatorTest()
+        {
+            // TODO unit test for the property 'OctMoneyTransferFastFundsDomesticIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctMoneyTransferFastFundsCrossBorderIndicator'
+        /// </summary>
+        [Test]
+        public void OctMoneyTransferFastFundsCrossBorderIndicatorTest()
+        {
+            // TODO unit test for the property 'OctMoneyTransferFastFundsCrossBorderIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctMoneyTransferMerchantCountryRestricted'
+        /// </summary>
+        [Test]
+        public void OctMoneyTransferMerchantCountryRestrictedTest()
+        {
+            // TODO unit test for the property 'OctMoneyTransferMerchantCountryRestricted'
+        }
+        /// <summary>
+        /// Test the property 'OctNonMoneyTransferDomesticIndicator'
+        /// </summary>
+        [Test]
+        public void OctNonMoneyTransferDomesticIndicatorTest()
+        {
+            // TODO unit test for the property 'OctNonMoneyTransferDomesticIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctNonMoneyTransferCrossBorderIndicator'
+        /// </summary>
+        [Test]
+        public void OctNonMoneyTransferCrossBorderIndicatorTest()
+        {
+            // TODO unit test for the property 'OctNonMoneyTransferCrossBorderIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctNonMoneyTransferFastFundsDomesticIndicator'
+        /// </summary>
+        [Test]
+        public void OctNonMoneyTransferFastFundsDomesticIndicatorTest()
+        {
+            // TODO unit test for the property 'OctNonMoneyTransferFastFundsDomesticIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctNonMoneyTransferFastFundsCrossBorderIndicator'
+        /// </summary>
+        [Test]
+        public void OctNonMoneyTransferFastFundsCrossBorderIndicatorTest()
+        {
+            // TODO unit test for the property 'OctNonMoneyTransferFastFundsCrossBorderIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctOnlineGamblingDomesticIndicator'
+        /// </summary>
+        [Test]
+        public void OctOnlineGamblingDomesticIndicatorTest()
+        {
+            // TODO unit test for the property 'OctOnlineGamblingDomesticIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctOnlineGamblingCrossBorderIndicator'
+        /// </summary>
+        [Test]
+        public void OctOnlineGamblingCrossBorderIndicatorTest()
+        {
+            // TODO unit test for the property 'OctOnlineGamblingCrossBorderIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctOnlineGamblingFastFundsDomesticIndicator'
+        /// </summary>
+        [Test]
+        public void OctOnlineGamblingFastFundsDomesticIndicatorTest()
+        {
+            // TODO unit test for the property 'OctOnlineGamblingFastFundsDomesticIndicator'
+        }
+        /// <summary>
+        /// Test the property 'OctOnlineGamblingFastFundsCrossBorderIndicator'
+        /// </summary>
+        [Test]
+        public void OctOnlineGamblingFastFundsCrossBorderIndicatorTest()
+        {
+            // TODO unit test for the property 'OctOnlineGamblingFastFundsCrossBorderIndicator'
+        }
+        /// <summary>
         /// Test the property 'ServiceProcessingType'
         /// </summary>
         [Test]

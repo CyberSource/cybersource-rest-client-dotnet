@@ -357,7 +357,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("paymentCredentialsReference", Configuration.ApiClient.ParameterToString(paymentCredentialsReference)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -476,7 +476,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("paymentCredentialsReference", Configuration.ApiClient.ParameterToString(paymentCredentialsReference)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -590,7 +590,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("transientToken", Configuration.ApiClient.ParameterToString(transientToken)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -707,7 +707,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("transientToken", Configuration.ApiClient.ParameterToString(transientToken)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -822,7 +822,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("jti", Configuration.ApiClient.ParameterToString(jti)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -939,7 +939,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("jti", Configuration.ApiClient.ParameterToString(jti)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";

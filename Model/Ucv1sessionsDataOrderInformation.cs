@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="LineItems">LineItems.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
         /// <param name="ShippingDetails">ShippingDetails.</param>
-        public Ucv1sessionsDataOrderInformation(Ucv1sessionsDataOrderInformationAmountDetails AmountDetails = default(Ucv1sessionsDataOrderInformationAmountDetails), Ucv1sessionsDataOrderInformationBillTo BillTo = default(Ucv1sessionsDataOrderInformationBillTo), Upv1capturecontextsDataOrderInformationShipTo ShipTo = default(Upv1capturecontextsDataOrderInformationShipTo), List<Ucv1sessionsDataOrderInformationLineItems> LineItems = default(List<Ucv1sessionsDataOrderInformationLineItems>), Ucv1sessionsDataOrderInformationInvoiceDetails InvoiceDetails = default(Ucv1sessionsDataOrderInformationInvoiceDetails), Ucv1sessionsDataOrderInformationShippingDetails ShippingDetails = default(Ucv1sessionsDataOrderInformationShippingDetails))
+        public Ucv1sessionsDataOrderInformation(Ucv1sessionsDataOrderInformationAmountDetails AmountDetails = default(Ucv1sessionsDataOrderInformationAmountDetails), Ucv1sessionsDataOrderInformationBillTo BillTo = default(Ucv1sessionsDataOrderInformationBillTo), Ucv1sessionsDataOrderInformationShipTo ShipTo = default(Ucv1sessionsDataOrderInformationShipTo), List<Ucv1sessionsDataOrderInformationLineItems> LineItems = default(List<Ucv1sessionsDataOrderInformationLineItems>), Ucv1sessionsDataOrderInformationInvoiceDetails InvoiceDetails = default(Ucv1sessionsDataOrderInformationInvoiceDetails), Ucv1sessionsDataOrderInformationShippingDetails ShippingDetails = default(Ucv1sessionsDataOrderInformationShippingDetails))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
@@ -65,7 +65,7 @@ namespace CyberSource.Model
         /// Gets or Sets ShipTo
         /// </summary>
         [DataMember(Name="shipTo", EmitDefaultValue=false)]
-        public Upv1capturecontextsDataOrderInformationShipTo ShipTo { get; set; }
+        public Ucv1sessionsDataOrderInformationShipTo ShipTo { get; set; }
 
         /// <summary>
         /// Gets or Sets LineItems

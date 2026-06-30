@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentInstruments
         /// </summary>
         [DataMember(Name="paymentInstruments", EmitDefaultValue=false)]
-        public List<PaymentInstrumentListEmbeddedPaymentInstruments> PaymentInstruments { get; private set; }
+        public List<PaymentInstrument> PaymentInstruments { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="CommerceIndicator">&gt; This field is ignored when you provide the &#x60;subscriptionInformation.originalTransactionId&#x60; or update the subscription.  Commerce Indicator is a way to identify the type of transaction. Some payment card companies use this information when determining discount rates.  Valid values: - &#x60;MOTO&#x60; - &#x60;RECURRING&#x60; - &#x60;INTERNET&#x60;  Please add the ecommerce indicator based on the rules defined by your gateway/processor. Some gateways may not accept the Commerce Indicator &#x60;RECURRING&#x60; with a Zero Dollar Authorization, that is done for subscriptions starting at a future date. .</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
-        public Rbsv1subscriptionsProcessingInformation(string CommerceIndicator = default(string), Rbsv1subscriptionsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Rbsv1subscriptionsProcessingInformationAuthorizationOptions))
+        public Rbsv1subscriptionsProcessingInformation(string CommerceIndicator = default(string), RbsAuthorizationOptions AuthorizationOptions = default(RbsAuthorizationOptions))
         {
             this.CommerceIndicator = CommerceIndicator;
             this.AuthorizationOptions = AuthorizationOptions;
@@ -52,7 +52,7 @@ namespace CyberSource.Model
         /// Gets or Sets AuthorizationOptions
         /// </summary>
         [DataMember(Name="authorizationOptions", EmitDefaultValue=false)]
-        public Rbsv1subscriptionsProcessingInformationAuthorizationOptions AuthorizationOptions { get; set; }
+        public RbsAuthorizationOptions AuthorizationOptions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

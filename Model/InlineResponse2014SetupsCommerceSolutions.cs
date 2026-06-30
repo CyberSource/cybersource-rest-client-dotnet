@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="AccountUpdater">AccountUpdater.</param>
         /// <param name="BinLookup">BinLookup.</param>
         /// <param name="AgenticCommerce">AgenticCommerce.</param>
-        public InlineResponse2014SetupsCommerceSolutions(InlineResponse2014SetupsPaymentsCardProcessing TokenManagement = default(InlineResponse2014SetupsPaymentsCardProcessing), InlineResponse2014SetupsPaymentsCardProcessing AccountUpdater = default(InlineResponse2014SetupsPaymentsCardProcessing), InlineResponse2014SetupsPaymentsCardProcessing BinLookup = default(InlineResponse2014SetupsPaymentsCardProcessing), InlineResponse2014SetupsPaymentsCardProcessing AgenticCommerce = default(InlineResponse2014SetupsPaymentsCardProcessing))
+        public InlineResponse2014SetupsCommerceSolutions(PaymentsConfigurationSetupCardProcessing TokenManagement = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing AccountUpdater = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing BinLookup = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing AgenticCommerce = default(PaymentsConfigurationSetupCardProcessing))
         {
             this.TokenManagement = TokenManagement;
             this.AccountUpdater = AccountUpdater;
@@ -49,25 +49,25 @@ namespace CyberSource.Model
         /// Gets or Sets TokenManagement
         /// </summary>
         [DataMember(Name="tokenManagement", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsCardProcessing TokenManagement { get; set; }
+        public PaymentsConfigurationSetupCardProcessing TokenManagement { get; set; }
 
         /// <summary>
         /// Gets or Sets AccountUpdater
         /// </summary>
         [DataMember(Name="accountUpdater", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsCardProcessing AccountUpdater { get; set; }
+        public PaymentsConfigurationSetupCardProcessing AccountUpdater { get; set; }
 
         /// <summary>
         /// Gets or Sets BinLookup
         /// </summary>
         [DataMember(Name="binLookup", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsCardProcessing BinLookup { get; set; }
+        public PaymentsConfigurationSetupCardProcessing BinLookup { get; set; }
 
         /// <summary>
         /// Gets or Sets AgenticCommerce
         /// </summary>
         [DataMember(Name="agenticCommerce", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsCardProcessing AgenticCommerce { get; set; }
+        public PaymentsConfigurationSetupCardProcessing AgenticCommerce { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -4,7 +4,7 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ProvisionMppCredentials**](CredentialsApi.md#provisionmppcredentials) | **POST** /acp/v1/mpp/credentials | Provision MPP credentials
+[**ProvisionMppCredentials**](CredentialsApi.md#provisionmppcredentials) | **POST** /icc/v1/mpp/credentials | Provision MPP credentials
 
 
 <a name="provisionmppcredentials"></a>

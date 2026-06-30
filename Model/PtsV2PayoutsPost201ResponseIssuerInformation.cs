@@ -33,12 +33,147 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PayoutsPost201ResponseIssuerInformation" /> class.
         /// </summary>
+        /// <param name="OctDomesticParticipantIndicator">Domestic indicator for Push funds (OCT). If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctCrossBorderParticipantIndicator">Cross-border indicator for push funds (OCT). If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctMoneyTransferDomesticIndicator">Indicates whether domestic money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.        Supported for Visa Direct. .</param>
+        /// <param name="OctMoneyTransferCrossBorderIndicator">Indicates whether cross-border money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctMoneyTransferFastFundsDomesticIndicator">Indicates whether domestic money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctMoneyTransferFastFundsCrossBorderIndicator">Indicates whether cross-border money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctMoneyTransferMerchantCountryRestricted">This field indicates if the recipient issuer can accept push funds (OCT) transactions from the merchant country.  If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctNonMoneyTransferDomesticIndicator">Indicates whether domestic non-money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctNonMoneyTransferCrossBorderIndicator">Indicates whether cross-border non-money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctNonMoneyTransferFastFundsDomesticIndicator">Indicates whether domestic non-money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctNonMoneyTransferFastFundsCrossBorderIndicator">Indicates whether cross-border non-money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctOnlineGamblingDomesticIndicator">Indicates whether domestic gambling OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctOnlineGamblingCrossBorderIndicator">Indicates whether cross-border gambling OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctOnlineGamblingFastFundsDomesticIndicator">Indicates whether domestic gambling OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
+        /// <param name="OctOnlineGamblingFastFundsCrossBorderIndicator">Indicates whether cross-border gambling OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. .</param>
         /// <param name="ServiceProcessingType">This field contains values that identify the service type under which the transaction should be processed. The valid value for the Visa Alias Directory Service is A0 (Alias) and 00 (normal transaction). .</param>
-        public PtsV2PayoutsPost201ResponseIssuerInformation(string ServiceProcessingType = default(string))
+        public PtsV2PayoutsPost201ResponseIssuerInformation(bool? OctDomesticParticipantIndicator = default(bool?), bool? OctCrossBorderParticipantIndicator = default(bool?), bool? OctMoneyTransferDomesticIndicator = default(bool?), bool? OctMoneyTransferCrossBorderIndicator = default(bool?), bool? OctMoneyTransferFastFundsDomesticIndicator = default(bool?), bool? OctMoneyTransferFastFundsCrossBorderIndicator = default(bool?), bool? OctMoneyTransferMerchantCountryRestricted = default(bool?), bool? OctNonMoneyTransferDomesticIndicator = default(bool?), bool? OctNonMoneyTransferCrossBorderIndicator = default(bool?), bool? OctNonMoneyTransferFastFundsDomesticIndicator = default(bool?), bool? OctNonMoneyTransferFastFundsCrossBorderIndicator = default(bool?), bool? OctOnlineGamblingDomesticIndicator = default(bool?), bool? OctOnlineGamblingCrossBorderIndicator = default(bool?), bool? OctOnlineGamblingFastFundsDomesticIndicator = default(bool?), bool? OctOnlineGamblingFastFundsCrossBorderIndicator = default(bool?), string ServiceProcessingType = default(string))
         {
+            this.OctDomesticParticipantIndicator = OctDomesticParticipantIndicator;
+            this.OctCrossBorderParticipantIndicator = OctCrossBorderParticipantIndicator;
+            this.OctMoneyTransferDomesticIndicator = OctMoneyTransferDomesticIndicator;
+            this.OctMoneyTransferCrossBorderIndicator = OctMoneyTransferCrossBorderIndicator;
+            this.OctMoneyTransferFastFundsDomesticIndicator = OctMoneyTransferFastFundsDomesticIndicator;
+            this.OctMoneyTransferFastFundsCrossBorderIndicator = OctMoneyTransferFastFundsCrossBorderIndicator;
+            this.OctMoneyTransferMerchantCountryRestricted = OctMoneyTransferMerchantCountryRestricted;
+            this.OctNonMoneyTransferDomesticIndicator = OctNonMoneyTransferDomesticIndicator;
+            this.OctNonMoneyTransferCrossBorderIndicator = OctNonMoneyTransferCrossBorderIndicator;
+            this.OctNonMoneyTransferFastFundsDomesticIndicator = OctNonMoneyTransferFastFundsDomesticIndicator;
+            this.OctNonMoneyTransferFastFundsCrossBorderIndicator = OctNonMoneyTransferFastFundsCrossBorderIndicator;
+            this.OctOnlineGamblingDomesticIndicator = OctOnlineGamblingDomesticIndicator;
+            this.OctOnlineGamblingCrossBorderIndicator = OctOnlineGamblingCrossBorderIndicator;
+            this.OctOnlineGamblingFastFundsDomesticIndicator = OctOnlineGamblingFastFundsDomesticIndicator;
+            this.OctOnlineGamblingFastFundsCrossBorderIndicator = OctOnlineGamblingFastFundsCrossBorderIndicator;
             this.ServiceProcessingType = ServiceProcessingType;
         }
         
+        /// <summary>
+        /// Domestic indicator for Push funds (OCT). If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Domestic indicator for Push funds (OCT). If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octDomesticParticipantIndicator", EmitDefaultValue=false)]
+        public bool? OctDomesticParticipantIndicator { get; set; }
+
+        /// <summary>
+        /// Cross-border indicator for push funds (OCT). If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Cross-border indicator for push funds (OCT). If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octCrossBorderParticipantIndicator", EmitDefaultValue=false)]
+        public bool? OctCrossBorderParticipantIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether domestic money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.        Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether domestic money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.        Supported for Visa Direct. </value>
+        [DataMember(Name="octMoneyTransferDomesticIndicator", EmitDefaultValue=false)]
+        public bool? OctMoneyTransferDomesticIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether cross-border money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether cross-border money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octMoneyTransferCrossBorderIndicator", EmitDefaultValue=false)]
+        public bool? OctMoneyTransferCrossBorderIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether domestic money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether domestic money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octMoneyTransferFastFundsDomesticIndicator", EmitDefaultValue=false)]
+        public bool? OctMoneyTransferFastFundsDomesticIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether cross-border money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether cross-border money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octMoneyTransferFastFundsCrossBorderIndicator", EmitDefaultValue=false)]
+        public bool? OctMoneyTransferFastFundsCrossBorderIndicator { get; set; }
+
+        /// <summary>
+        /// This field indicates if the recipient issuer can accept push funds (OCT) transactions from the merchant country.  If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>This field indicates if the recipient issuer can accept push funds (OCT) transactions from the merchant country.  If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octMoneyTransferMerchantCountryRestricted", EmitDefaultValue=false)]
+        public bool? OctMoneyTransferMerchantCountryRestricted { get; set; }
+
+        /// <summary>
+        /// Indicates whether domestic non-money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether domestic non-money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octNonMoneyTransferDomesticIndicator", EmitDefaultValue=false)]
+        public bool? OctNonMoneyTransferDomesticIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether cross-border non-money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether cross-border non-money transfer OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octNonMoneyTransferCrossBorderIndicator", EmitDefaultValue=false)]
+        public bool? OctNonMoneyTransferCrossBorderIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether domestic non-money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether domestic non-money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octNonMoneyTransferFastFundsDomesticIndicator", EmitDefaultValue=false)]
+        public bool? OctNonMoneyTransferFastFundsDomesticIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether cross-border non-money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether cross-border non-money transfer OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octNonMoneyTransferFastFundsCrossBorderIndicator", EmitDefaultValue=false)]
+        public bool? OctNonMoneyTransferFastFundsCrossBorderIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether domestic gambling OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether domestic gambling OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octOnlineGamblingDomesticIndicator", EmitDefaultValue=false)]
+        public bool? OctOnlineGamblingDomesticIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether cross-border gambling OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether cross-border gambling OCTs (push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octOnlineGamblingCrossBorderIndicator", EmitDefaultValue=false)]
+        public bool? OctOnlineGamblingCrossBorderIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether domestic gambling OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether domestic gambling OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octOnlineGamblingFastFundsDomesticIndicator", EmitDefaultValue=false)]
+        public bool? OctOnlineGamblingFastFundsDomesticIndicator { get; set; }
+
+        /// <summary>
+        /// Indicates whether cross-border gambling OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. 
+        /// </summary>
+        /// <value>Indicates whether cross-border gambling OCTs (fast push funds) are allowed. If no Funds Transfer Attributes Inquiry data is available for this card account, the field is omitted.   Supported for Visa Direct. </value>
+        [DataMember(Name="octOnlineGamblingFastFundsCrossBorderIndicator", EmitDefaultValue=false)]
+        public bool? OctOnlineGamblingFastFundsCrossBorderIndicator { get; set; }
+
         /// <summary>
         /// This field contains values that identify the service type under which the transaction should be processed. The valid value for the Visa Alias Directory Service is A0 (Alias) and 00 (normal transaction). 
         /// </summary>
@@ -54,6 +189,21 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PayoutsPost201ResponseIssuerInformation {\n");
+            if (OctDomesticParticipantIndicator != null) sb.Append("  OctDomesticParticipantIndicator: ").Append(OctDomesticParticipantIndicator).Append("\n");
+            if (OctCrossBorderParticipantIndicator != null) sb.Append("  OctCrossBorderParticipantIndicator: ").Append(OctCrossBorderParticipantIndicator).Append("\n");
+            if (OctMoneyTransferDomesticIndicator != null) sb.Append("  OctMoneyTransferDomesticIndicator: ").Append(OctMoneyTransferDomesticIndicator).Append("\n");
+            if (OctMoneyTransferCrossBorderIndicator != null) sb.Append("  OctMoneyTransferCrossBorderIndicator: ").Append(OctMoneyTransferCrossBorderIndicator).Append("\n");
+            if (OctMoneyTransferFastFundsDomesticIndicator != null) sb.Append("  OctMoneyTransferFastFundsDomesticIndicator: ").Append(OctMoneyTransferFastFundsDomesticIndicator).Append("\n");
+            if (OctMoneyTransferFastFundsCrossBorderIndicator != null) sb.Append("  OctMoneyTransferFastFundsCrossBorderIndicator: ").Append(OctMoneyTransferFastFundsCrossBorderIndicator).Append("\n");
+            if (OctMoneyTransferMerchantCountryRestricted != null) sb.Append("  OctMoneyTransferMerchantCountryRestricted: ").Append(OctMoneyTransferMerchantCountryRestricted).Append("\n");
+            if (OctNonMoneyTransferDomesticIndicator != null) sb.Append("  OctNonMoneyTransferDomesticIndicator: ").Append(OctNonMoneyTransferDomesticIndicator).Append("\n");
+            if (OctNonMoneyTransferCrossBorderIndicator != null) sb.Append("  OctNonMoneyTransferCrossBorderIndicator: ").Append(OctNonMoneyTransferCrossBorderIndicator).Append("\n");
+            if (OctNonMoneyTransferFastFundsDomesticIndicator != null) sb.Append("  OctNonMoneyTransferFastFundsDomesticIndicator: ").Append(OctNonMoneyTransferFastFundsDomesticIndicator).Append("\n");
+            if (OctNonMoneyTransferFastFundsCrossBorderIndicator != null) sb.Append("  OctNonMoneyTransferFastFundsCrossBorderIndicator: ").Append(OctNonMoneyTransferFastFundsCrossBorderIndicator).Append("\n");
+            if (OctOnlineGamblingDomesticIndicator != null) sb.Append("  OctOnlineGamblingDomesticIndicator: ").Append(OctOnlineGamblingDomesticIndicator).Append("\n");
+            if (OctOnlineGamblingCrossBorderIndicator != null) sb.Append("  OctOnlineGamblingCrossBorderIndicator: ").Append(OctOnlineGamblingCrossBorderIndicator).Append("\n");
+            if (OctOnlineGamblingFastFundsDomesticIndicator != null) sb.Append("  OctOnlineGamblingFastFundsDomesticIndicator: ").Append(OctOnlineGamblingFastFundsDomesticIndicator).Append("\n");
+            if (OctOnlineGamblingFastFundsCrossBorderIndicator != null) sb.Append("  OctOnlineGamblingFastFundsCrossBorderIndicator: ").Append(OctOnlineGamblingFastFundsCrossBorderIndicator).Append("\n");
             if (ServiceProcessingType != null) sb.Append("  ServiceProcessingType: ").Append(ServiceProcessingType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -92,6 +242,81 @@ namespace CyberSource.Model
 
             return 
                 (
+                    this.OctDomesticParticipantIndicator == other.OctDomesticParticipantIndicator ||
+                    this.OctDomesticParticipantIndicator != null &&
+                    this.OctDomesticParticipantIndicator.Equals(other.OctDomesticParticipantIndicator)
+                ) && 
+                (
+                    this.OctCrossBorderParticipantIndicator == other.OctCrossBorderParticipantIndicator ||
+                    this.OctCrossBorderParticipantIndicator != null &&
+                    this.OctCrossBorderParticipantIndicator.Equals(other.OctCrossBorderParticipantIndicator)
+                ) && 
+                (
+                    this.OctMoneyTransferDomesticIndicator == other.OctMoneyTransferDomesticIndicator ||
+                    this.OctMoneyTransferDomesticIndicator != null &&
+                    this.OctMoneyTransferDomesticIndicator.Equals(other.OctMoneyTransferDomesticIndicator)
+                ) && 
+                (
+                    this.OctMoneyTransferCrossBorderIndicator == other.OctMoneyTransferCrossBorderIndicator ||
+                    this.OctMoneyTransferCrossBorderIndicator != null &&
+                    this.OctMoneyTransferCrossBorderIndicator.Equals(other.OctMoneyTransferCrossBorderIndicator)
+                ) && 
+                (
+                    this.OctMoneyTransferFastFundsDomesticIndicator == other.OctMoneyTransferFastFundsDomesticIndicator ||
+                    this.OctMoneyTransferFastFundsDomesticIndicator != null &&
+                    this.OctMoneyTransferFastFundsDomesticIndicator.Equals(other.OctMoneyTransferFastFundsDomesticIndicator)
+                ) && 
+                (
+                    this.OctMoneyTransferFastFundsCrossBorderIndicator == other.OctMoneyTransferFastFundsCrossBorderIndicator ||
+                    this.OctMoneyTransferFastFundsCrossBorderIndicator != null &&
+                    this.OctMoneyTransferFastFundsCrossBorderIndicator.Equals(other.OctMoneyTransferFastFundsCrossBorderIndicator)
+                ) && 
+                (
+                    this.OctMoneyTransferMerchantCountryRestricted == other.OctMoneyTransferMerchantCountryRestricted ||
+                    this.OctMoneyTransferMerchantCountryRestricted != null &&
+                    this.OctMoneyTransferMerchantCountryRestricted.Equals(other.OctMoneyTransferMerchantCountryRestricted)
+                ) && 
+                (
+                    this.OctNonMoneyTransferDomesticIndicator == other.OctNonMoneyTransferDomesticIndicator ||
+                    this.OctNonMoneyTransferDomesticIndicator != null &&
+                    this.OctNonMoneyTransferDomesticIndicator.Equals(other.OctNonMoneyTransferDomesticIndicator)
+                ) && 
+                (
+                    this.OctNonMoneyTransferCrossBorderIndicator == other.OctNonMoneyTransferCrossBorderIndicator ||
+                    this.OctNonMoneyTransferCrossBorderIndicator != null &&
+                    this.OctNonMoneyTransferCrossBorderIndicator.Equals(other.OctNonMoneyTransferCrossBorderIndicator)
+                ) && 
+                (
+                    this.OctNonMoneyTransferFastFundsDomesticIndicator == other.OctNonMoneyTransferFastFundsDomesticIndicator ||
+                    this.OctNonMoneyTransferFastFundsDomesticIndicator != null &&
+                    this.OctNonMoneyTransferFastFundsDomesticIndicator.Equals(other.OctNonMoneyTransferFastFundsDomesticIndicator)
+                ) && 
+                (
+                    this.OctNonMoneyTransferFastFundsCrossBorderIndicator == other.OctNonMoneyTransferFastFundsCrossBorderIndicator ||
+                    this.OctNonMoneyTransferFastFundsCrossBorderIndicator != null &&
+                    this.OctNonMoneyTransferFastFundsCrossBorderIndicator.Equals(other.OctNonMoneyTransferFastFundsCrossBorderIndicator)
+                ) && 
+                (
+                    this.OctOnlineGamblingDomesticIndicator == other.OctOnlineGamblingDomesticIndicator ||
+                    this.OctOnlineGamblingDomesticIndicator != null &&
+                    this.OctOnlineGamblingDomesticIndicator.Equals(other.OctOnlineGamblingDomesticIndicator)
+                ) && 
+                (
+                    this.OctOnlineGamblingCrossBorderIndicator == other.OctOnlineGamblingCrossBorderIndicator ||
+                    this.OctOnlineGamblingCrossBorderIndicator != null &&
+                    this.OctOnlineGamblingCrossBorderIndicator.Equals(other.OctOnlineGamblingCrossBorderIndicator)
+                ) && 
+                (
+                    this.OctOnlineGamblingFastFundsDomesticIndicator == other.OctOnlineGamblingFastFundsDomesticIndicator ||
+                    this.OctOnlineGamblingFastFundsDomesticIndicator != null &&
+                    this.OctOnlineGamblingFastFundsDomesticIndicator.Equals(other.OctOnlineGamblingFastFundsDomesticIndicator)
+                ) && 
+                (
+                    this.OctOnlineGamblingFastFundsCrossBorderIndicator == other.OctOnlineGamblingFastFundsCrossBorderIndicator ||
+                    this.OctOnlineGamblingFastFundsCrossBorderIndicator != null &&
+                    this.OctOnlineGamblingFastFundsCrossBorderIndicator.Equals(other.OctOnlineGamblingFastFundsCrossBorderIndicator)
+                ) && 
+                (
                     this.ServiceProcessingType == other.ServiceProcessingType ||
                     this.ServiceProcessingType != null &&
                     this.ServiceProcessingType.Equals(other.ServiceProcessingType)
@@ -109,6 +334,36 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.OctDomesticParticipantIndicator != null)
+                    hash = hash * 59 + this.OctDomesticParticipantIndicator.GetHashCode();
+                if (this.OctCrossBorderParticipantIndicator != null)
+                    hash = hash * 59 + this.OctCrossBorderParticipantIndicator.GetHashCode();
+                if (this.OctMoneyTransferDomesticIndicator != null)
+                    hash = hash * 59 + this.OctMoneyTransferDomesticIndicator.GetHashCode();
+                if (this.OctMoneyTransferCrossBorderIndicator != null)
+                    hash = hash * 59 + this.OctMoneyTransferCrossBorderIndicator.GetHashCode();
+                if (this.OctMoneyTransferFastFundsDomesticIndicator != null)
+                    hash = hash * 59 + this.OctMoneyTransferFastFundsDomesticIndicator.GetHashCode();
+                if (this.OctMoneyTransferFastFundsCrossBorderIndicator != null)
+                    hash = hash * 59 + this.OctMoneyTransferFastFundsCrossBorderIndicator.GetHashCode();
+                if (this.OctMoneyTransferMerchantCountryRestricted != null)
+                    hash = hash * 59 + this.OctMoneyTransferMerchantCountryRestricted.GetHashCode();
+                if (this.OctNonMoneyTransferDomesticIndicator != null)
+                    hash = hash * 59 + this.OctNonMoneyTransferDomesticIndicator.GetHashCode();
+                if (this.OctNonMoneyTransferCrossBorderIndicator != null)
+                    hash = hash * 59 + this.OctNonMoneyTransferCrossBorderIndicator.GetHashCode();
+                if (this.OctNonMoneyTransferFastFundsDomesticIndicator != null)
+                    hash = hash * 59 + this.OctNonMoneyTransferFastFundsDomesticIndicator.GetHashCode();
+                if (this.OctNonMoneyTransferFastFundsCrossBorderIndicator != null)
+                    hash = hash * 59 + this.OctNonMoneyTransferFastFundsCrossBorderIndicator.GetHashCode();
+                if (this.OctOnlineGamblingDomesticIndicator != null)
+                    hash = hash * 59 + this.OctOnlineGamblingDomesticIndicator.GetHashCode();
+                if (this.OctOnlineGamblingCrossBorderIndicator != null)
+                    hash = hash * 59 + this.OctOnlineGamblingCrossBorderIndicator.GetHashCode();
+                if (this.OctOnlineGamblingFastFundsDomesticIndicator != null)
+                    hash = hash * 59 + this.OctOnlineGamblingFastFundsDomesticIndicator.GetHashCode();
+                if (this.OctOnlineGamblingFastFundsCrossBorderIndicator != null)
+                    hash = hash * 59 + this.OctOnlineGamblingFastFundsCrossBorderIndicator.GetHashCode();
                 if (this.ServiceProcessingType != null)
                     hash = hash * 59 + this.ServiceProcessingType.GetHashCode();
                 return hash;

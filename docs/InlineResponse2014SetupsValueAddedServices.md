@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Reporting** | [**InlineResponse2014SetupsPaymentsDigitalPayments**](InlineResponse2014SetupsPaymentsDigitalPayments.md) |  | [optional] 
-**TransactionSearch** | [**InlineResponse2014SetupsPaymentsDigitalPayments**](InlineResponse2014SetupsPaymentsDigitalPayments.md) |  | [optional] 
-**BankAccountValidation** | [**InlineResponse2014SetupsPaymentsDigitalPayments**](InlineResponse2014SetupsPaymentsDigitalPayments.md) |  | [optional] 
-**Flexapi** | [**InlineResponse2014SetupsPaymentsDigitalPayments**](InlineResponse2014SetupsPaymentsDigitalPayments.md) |  | [optional] 
-**Webhooks** | [**InlineResponse2014SetupsPaymentsDigitalPayments**](InlineResponse2014SetupsPaymentsDigitalPayments.md) |  | [optional] 
+**Reporting** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
+**TransactionSearch** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
+**BankAccountValidation** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
+**Flexapi** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
+**Webhooks** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -128,15 +128,15 @@ namespace CyberSource.Test
         }
         
         /// <summary>
-        /// Test UpdateSessionReq
+        /// Test UpdateSessionRequest
         /// </summary>
         [Test]
-        public void UpdateSessionReqTest()
+        public void UpdateSessionRequestTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //CreateSessionRequest createSessionRequest = null;
             //string id = null;
-            //var response = instance.UpdateSessionReq(createSessionRequest, id);
+            //var response = instance.UpdateSessionRequest(createSessionRequest, id);
             //Assert.IsInstanceOf<PtsV2PaymentsPost201Response2> (response, "response is PtsV2PaymentsPost201Response2");
         }
         

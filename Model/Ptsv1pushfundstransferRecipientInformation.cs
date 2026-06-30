@@ -49,7 +49,7 @@ namespace CyberSource.Model
         /// <param name="BuildingNumber">Building number in the street address.  For example, if the street address is: Rua da Quitanda 187 then the building number is 187.  Applicable to domestic Colombia transactions only. .</param>
         /// <param name="StreetName">This field contains the street name of the recipient&#39;s address.  Applicable to domestic Colombia transactions only. .</param>
         /// <param name="Type">&#x60;B&#x60; for Business or &#x60;I&#x60; for individual. .</param>
-        public Ptsv1pushfundstransferRecipientInformation(Ptsv1pushfundstransferRecipientInformationPaymentInformation PaymentInformation = default(Ptsv1pushfundstransferRecipientInformationPaymentInformation), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Country = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string PhoneNumber = default(string), string Email = default(string), Ptsv1pushfundstransferRecipientInformationPersonalIdentification PersonalIdentification = default(Ptsv1pushfundstransferRecipientInformationPersonalIdentification), string BuildingNumber = default(string), string StreetName = default(string), string Type = default(string))
+        public Ptsv1pushfundstransferRecipientInformation(PushFundsTransferPaymentInformation PaymentInformation = default(PushFundsTransferPaymentInformation), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string PostalCode = default(string), string AdministrativeArea = default(string), string Country = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string PhoneNumber = default(string), string Email = default(string), Ptsv1pushfundstransferRecipientInformationPersonalIdentification PersonalIdentification = default(Ptsv1pushfundstransferRecipientInformationPersonalIdentification), string BuildingNumber = default(string), string StreetName = default(string), string Type = default(string))
         {
             this.PaymentInformation = PaymentInformation;
             this.Address1 = Address1;
@@ -73,7 +73,7 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentInformation
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public Ptsv1pushfundstransferRecipientInformationPaymentInformation PaymentInformation { get; set; }
+        public PushFundsTransferPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// First line of the recipient&#39;s address. Required for card payments 

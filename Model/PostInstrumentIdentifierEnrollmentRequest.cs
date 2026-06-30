@@ -47,7 +47,7 @@ namespace CyberSource.Model
         /// <param name="BillTo">BillTo.</param>
         /// <param name="Metadata">Metadata.</param>
         /// <param name="Embedded">Embedded.</param>
-        public PostInstrumentIdentifierEnrollmentRequest(TmsEmbeddedInstrumentIdentifierLinks Links = default(TmsEmbeddedInstrumentIdentifierLinks), string Id = default(string), string Type = default(string), string Source = default(string), Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation = default(Ptsv2paymentsTokenInformationTokenProvisioningInformation), TmsEmbeddedInstrumentIdentifierCard Card = default(TmsEmbeddedInstrumentIdentifierCard), TmsEmbeddedInstrumentIdentifierPointOfSaleInformation PointOfSaleInformation = default(TmsEmbeddedInstrumentIdentifierPointOfSaleInformation), TmsEmbeddedInstrumentIdentifierBankAccount BankAccount = default(TmsEmbeddedInstrumentIdentifierBankAccount), Tmsv2TokenizedCard TokenizedCard = default(Tmsv2TokenizedCard), TmsEmbeddedInstrumentIdentifierIssuer Issuer = default(TmsEmbeddedInstrumentIdentifierIssuer), TmsEmbeddedInstrumentIdentifierProcessingInformation ProcessingInformation = default(TmsEmbeddedInstrumentIdentifierProcessingInformation), TmsEmbeddedInstrumentIdentifierBillTo BillTo = default(TmsEmbeddedInstrumentIdentifierBillTo), TmsEmbeddedInstrumentIdentifierMetadata Metadata = default(TmsEmbeddedInstrumentIdentifierMetadata), TmsEmbeddedInstrumentIdentifierEmbedded Embedded = default(TmsEmbeddedInstrumentIdentifierEmbedded))
+        public PostInstrumentIdentifierEnrollmentRequest(TmsEmbeddedInstrumentIdentifierLinks Links = default(TmsEmbeddedInstrumentIdentifierLinks), string Id = default(string), string Type = default(string), string Source = default(string), Ptsv2paymentsTokenInformationTokenProvisioningInformation TokenProvisioningInformation = default(Ptsv2paymentsTokenInformationTokenProvisioningInformation), TmsEmbeddedInstrumentIdentifierCard Card = default(TmsEmbeddedInstrumentIdentifierCard), TmsPointOfSaleInformation PointOfSaleInformation = default(TmsPointOfSaleInformation), TmsEmbeddedInstrumentIdentifierBankAccount BankAccount = default(TmsEmbeddedInstrumentIdentifierBankAccount), Tmsv2TokenizedCard TokenizedCard = default(Tmsv2TokenizedCard), TmsEmbeddedInstrumentIdentifierIssuer Issuer = default(TmsEmbeddedInstrumentIdentifierIssuer), TmsEmbeddedInstrumentIdentifierProcessingInformation ProcessingInformation = default(TmsEmbeddedInstrumentIdentifierProcessingInformation), TmsEmbeddedInstrumentIdentifierBillTo BillTo = default(TmsEmbeddedInstrumentIdentifierBillTo), TmsEmbeddedInstrumentIdentifierMetadata Metadata = default(TmsEmbeddedInstrumentIdentifierMetadata), TmsEmbeddedInstrumentIdentifierEmbedded Embedded = default(TmsEmbeddedInstrumentIdentifierEmbedded))
         {
             this.Links = Links;
             this.Id = Id;
@@ -122,7 +122,7 @@ namespace CyberSource.Model
         /// Gets or Sets PointOfSaleInformation
         /// </summary>
         [DataMember(Name="pointOfSaleInformation", EmitDefaultValue=false)]
-        public TmsEmbeddedInstrumentIdentifierPointOfSaleInformation PointOfSaleInformation { get; set; }
+        public TmsPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BankAccount

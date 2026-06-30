@@ -423,7 +423,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", Configuration.ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -546,7 +546,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", Configuration.ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -670,7 +670,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", Configuration.ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -795,7 +795,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", Configuration.ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -928,7 +928,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", Configuration.ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter
@@ -1064,7 +1064,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", Configuration.ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (profileId != null)
             {
                 localVarHeaderParams.Add("profile-id", Configuration.ApiClient.ParameterToString(profileId)); // header parameter

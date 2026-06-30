@@ -128,6 +128,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'CedpVerifiedIndicator'
         }
+        /// <summary>
+        /// Test the property 'FeeProgramIndicator'
+        /// </summary>
+        [Test]
+        public void FeeProgramIndicatorTest()
+        {
+            // TODO unit test for the property 'FeeProgramIndicator'
+        }
 
     }
 

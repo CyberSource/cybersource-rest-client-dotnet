@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="GlobalPaymentInformation">GlobalPaymentInformation.</param>
         /// <param name="ReceiptInformation">ReceiptInformation.</param>
-        public VTConfigCardNotPresent(VTConfigCardNotPresentGlobalPaymentInformation GlobalPaymentInformation = default(VTConfigCardNotPresentGlobalPaymentInformation), VTConfigCardNotPresentReceiptInformation ReceiptInformation = default(VTConfigCardNotPresentReceiptInformation))
+        public VTConfigCardNotPresent(VirtualTerminalGlobalPaymentSettings GlobalPaymentInformation = default(VirtualTerminalGlobalPaymentSettings), VTConfigCardNotPresentReceiptInformation ReceiptInformation = default(VTConfigCardNotPresentReceiptInformation))
         {
             this.GlobalPaymentInformation = GlobalPaymentInformation;
             this.ReceiptInformation = ReceiptInformation;
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// Gets or Sets GlobalPaymentInformation
         /// </summary>
         [DataMember(Name="globalPaymentInformation", EmitDefaultValue=false)]
-        public VTConfigCardNotPresentGlobalPaymentInformation GlobalPaymentInformation { get; set; }
+        public VirtualTerminalGlobalPaymentSettings GlobalPaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ReceiptInformation

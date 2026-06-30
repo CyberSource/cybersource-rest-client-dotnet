@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="ClientCorrelationId">Client Correlation Id used during the tokenization or during FIDO assertion. (required).</param>
         /// <param name="PaymentInformation">PaymentInformation (required).</param>
         /// <param name="TransactionData">List of transaction data. (required).</param>
-        public AgenticRetrievePaymentCredentialsRequest(string ClientCorrelationId = default(string), Acpv1tokensPaymentInformation PaymentInformation = default(Acpv1tokensPaymentInformation), List<Acpv1instructionsinstructionIdcredentialsTransactionData> TransactionData = default(List<Acpv1instructionsinstructionIdcredentialsTransactionData>))
+        public AgenticRetrievePaymentCredentialsRequest(string ClientCorrelationId = default(string), Iccv1tokensPaymentInformation PaymentInformation = default(Iccv1tokensPaymentInformation), List<Iccv1instructionsinstructionIdcredentialsTransactionData> TransactionData = default(List<Iccv1instructionsinstructionIdcredentialsTransactionData>))
         {
             this.ClientCorrelationId = ClientCorrelationId;
             this.PaymentInformation = PaymentInformation;
@@ -59,14 +59,14 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentInformation
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public Acpv1tokensPaymentInformation PaymentInformation { get; set; }
+        public Iccv1tokensPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// List of transaction data.
         /// </summary>
         /// <value>List of transaction data.</value>
         [DataMember(Name="transactionData", EmitDefaultValue=false)]
-        public List<Acpv1instructionsinstructionIdcredentialsTransactionData> TransactionData { get; set; }
+        public List<Iccv1instructionsinstructionIdcredentialsTransactionData> TransactionData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

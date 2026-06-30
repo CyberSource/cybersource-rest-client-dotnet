@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **RawResponseLocal** | **string** | Failure reason returned by the processor in the local language of the processor. | [optional] 
 **ResponseDetails** | **string** | This field might contain information about a decline.  | [optional] 
 **ResponseCode** | **string** | This field is set to the value of response code returned by the processor.  | [optional] 
-**SellerProtection** | [**PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection**](PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection.md) |  | [optional] 
+**SellerProtection** | [**ProcessorInformationSellerProtection**](ProcessorInformationSellerProtection.md) |  | [optional] 
 **Avs** | [**PtsV2PaymentsPost201Response1ProcessorInformationAvs**](PtsV2PaymentsPost201Response1ProcessorInformationAvs.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

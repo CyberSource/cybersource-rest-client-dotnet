@@ -20,13 +20,13 @@ rd /s /q ..\src
 
 echo "starting of powershell commands"
 
-powershell -Command "Get-ChildItem '..\Api\*.cs' -Recurse | ForEach-Object { (Get-Content $_).Replace('Method.POST','Method.Post').Replace('Method.GET','Method.Get').Replace('Method.PATCH','Method.Patch').Replace('Method.DELETE','Method.Delete').Replace('Method.PUT','Method.Put') | Set-Content $_ }"
+powershell -Command "Get-ChildItem '..\Api\*.cs' -Recurse | ForEach-Object { $file = $_.FullName; $content = [System.IO.File]::ReadAllText($file); $modified = $content.Replace('Method.POST','Method.Post').Replace('Method.GET','Method.Get').Replace('Method.PATCH','Method.Patch').Replace('Method.DELETE','Method.Delete').Replace('Method.PUT','Method.Put'); [System.IO.File]::WriteAllText($file, $modified) }"
 
-powershell -Command "(Get-Content ..\Api\SecureFileShareApi.cs) | ForEach-Object { $_ -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement' } | Set-Content ..\Api\SecureFileShareApi.cs"
+powershell -Command "Set-Content ..\Api\SecureFileShareApi.cs ((Get-Content ..\Api\SecureFileShareApi.cs -Raw) -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement')"
 
-powershell -Command "(Get-Content ..\Api\ReportDownloadsApi.cs) | ForEach-Object { $_ -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement' } | Set-Content ..\Api\ReportDownloadsApi.cs"
+powershell -Command "Set-Content ..\Api\ReportDownloadsApi.cs ((Get-Content ..\Api\ReportDownloadsApi.cs -Raw) -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement')"
 
-powershell -Command "(Get-Content ..\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement' } | Set-Content ..\Api\TransactionBatchesApi.cs"
+powershell -Command "Set-Content ..\Api\TransactionBatchesApi.cs ((Get-Content ..\Api\TransactionBatchesApi.cs -Raw) -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement')"
 
 powershell -Command " Set-Content ..\Api\SecureFileShareApi.cs ((get-content ..\Api\SecureFileShareApi.cs -raw) -replace '\*_\/_\*;charset=utf-8', '*/*;charset=utf-8') "
 

@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="MerchantCategoryCode">Merchant Category Code (MCC) is a four-digit number assigned to a business by credit card companies when the business first starts accepting credit cards as a form of payment. The MCC is used to classify the business by the type of goods or services it provides. .</param>
         /// <param name="Processors">This is a map. The allowed keys are below. Value should be an object containing a sole boolean property - enabled. &lt;table&gt;   &lt;tr&gt;     &lt;td&gt;klarna&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;payPal&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;alipay&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;bancontact&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;giropay&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;ideal&lt;/td&gt;   &lt;/tr&gt; &lt;/table&gt; .</param>
-        public PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurations(string MerchantCategoryCode = default(string), Dictionary<string, PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsProcessors> Processors = default(Dictionary<string, PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsProcessors>))
+        public PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurations(string MerchantCategoryCode = default(string), Dictionary<string, AlternativePaymentsProcessorConfiguration> Processors = default(Dictionary<string, AlternativePaymentsProcessorConfiguration>))
         {
             this.MerchantCategoryCode = MerchantCategoryCode;
             this.Processors = Processors;
@@ -53,7 +53,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>This is a map. The allowed keys are below. Value should be an object containing a sole boolean property - enabled. &lt;table&gt;   &lt;tr&gt;     &lt;td&gt;klarna&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;payPal&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;alipay&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;bancontact&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;giropay&lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;     &lt;td&gt;ideal&lt;/td&gt;   &lt;/tr&gt; &lt;/table&gt; </value>
         [DataMember(Name="processors", EmitDefaultValue=false)]
-        public Dictionary<string, PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsProcessors> Processors { get; set; }
+        public Dictionary<string, AlternativePaymentsProcessorConfiguration> Processors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -96,6 +96,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'RelyingPartyId'
         }
+        /// <summary>
+        /// Test the property 'UserAuthenticationMethod'
+        /// </summary>
+        [Test]
+        public void UserAuthenticationMethodTest()
+        {
+            // TODO unit test for the property 'UserAuthenticationMethod'
+        }
 
     }
 

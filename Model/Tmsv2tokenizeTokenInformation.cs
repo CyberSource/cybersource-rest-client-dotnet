@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="ShippingAddress">ShippingAddress.</param>
         /// <param name="PaymentInstrument">PaymentInstrument.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
-        public Tmsv2tokenizeTokenInformation(string Jti = default(string), string TransientTokenJwt = default(string), Tmsv2tokenizeTokenInformationCustomer Customer = default(Tmsv2tokenizeTokenInformationCustomer), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddress ShippingAddress = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddress), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrument PaymentInstrument = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrument), TmsEmbeddedInstrumentIdentifier InstrumentIdentifier = default(TmsEmbeddedInstrumentIdentifier))
+        public Tmsv2tokenizeTokenInformation(string Jti = default(string), string TransientTokenJwt = default(string), Tmsv2tokenizeTokenInformationCustomer Customer = default(Tmsv2tokenizeTokenInformationCustomer), DefaultShippingAddress ShippingAddress = default(DefaultShippingAddress), DefaultPaymentInstrument PaymentInstrument = default(DefaultPaymentInstrument), TmsEmbeddedInstrumentIdentifier InstrumentIdentifier = default(TmsEmbeddedInstrumentIdentifier))
         {
             this.Jti = Jti;
             this.TransientTokenJwt = TransientTokenJwt;
@@ -73,13 +73,13 @@ namespace CyberSource.Model
         /// Gets or Sets ShippingAddress
         /// </summary>
         [DataMember(Name="shippingAddress", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultShippingAddress ShippingAddress { get; set; }
+        public DefaultShippingAddress ShippingAddress { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentInstrument
         /// </summary>
         [DataMember(Name="paymentInstrument", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrument PaymentInstrument { get; set; }
+        public DefaultPaymentInstrument PaymentInstrument { get; set; }
 
         /// <summary>
         /// Gets or Sets InstrumentIdentifier
