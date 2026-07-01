@@ -320,7 +320,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("registrationId", Configuration.ApiClient.ParameterToString(registrationId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -336,7 +336,7 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "mandatory";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetRegistration,GetRegistrationAsync,GetRegistrationWithHttpInfo,GetRegistrationAsyncWithHttpInfo"))
             {
@@ -439,7 +439,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("registrationId", Configuration.ApiClient.ParameterToString(registrationId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -455,7 +455,7 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "mandatory";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "GetRegistration,GetRegistrationAsync,GetRegistrationWithHttpInfo,GetRegistrationAsyncWithHttpInfo"))
             {
@@ -569,7 +569,7 @@ namespace CyberSource.Api
                 localVarPostBody = postRegistrationBody; // byte array
             }
             
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "mandatory";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostRegistration,PostRegistrationAsync,PostRegistrationWithHttpInfo,PostRegistrationAsyncWithHttpInfo"))
             {
@@ -686,7 +686,7 @@ namespace CyberSource.Api
                 localVarPostBody = postRegistrationBody; // byte array
             }
 
-            String inboundMLEStatus = "false";
+            String inboundMLEStatus = "mandatory";
             MerchantConfig merchantConfig = new MerchantConfig(Configuration.MerchantConfigDictionaryObj, Configuration.MapToControlMLEonAPI, Configuration.ResponseMlePrivateKey);
             if (MLEUtility.CheckIsMLEForAPI(merchantConfig, inboundMLEStatus, "PostRegistration,PostRegistrationAsync,PostRegistrationWithHttpInfo,PostRegistrationAsyncWithHttpInfo"))
             {

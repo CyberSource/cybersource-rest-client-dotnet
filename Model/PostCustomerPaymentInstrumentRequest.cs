@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
         /// <param name="Metadata">Metadata.</param>
         /// <param name="Embedded">Embedded.</param>
-        public PostCustomerPaymentInstrumentRequest(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentLinks Links = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentLinks), string Id = default(string), bool? Default = default(bool?), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBankAccount BankAccount = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBankAccount), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentCard Card = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentCard), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBuyerInformation BuyerInformation = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBuyerInformation), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo BillTo = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo), TmsPaymentInstrumentProcessingInfo ProcessingInformation = default(TmsPaymentInstrumentProcessingInfo), TmsMerchantInformation MerchantInformation = default(TmsMerchantInformation), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentInstrumentIdentifier InstrumentIdentifier = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentInstrumentIdentifier), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentMetadata Metadata = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentMetadata), Tmsv1paymentinstrumentsEmbedded Embedded = default(Tmsv1paymentinstrumentsEmbedded))
+        public PostCustomerPaymentInstrumentRequest(DefaultPaymentInstrumentLinks Links = default(DefaultPaymentInstrumentLinks), string Id = default(string), bool? Default = default(bool?), DefaultPaymentInstrumentBankAccount BankAccount = default(DefaultPaymentInstrumentBankAccount), DefaultPaymentInstrumentCard Card = default(DefaultPaymentInstrumentCard), DefaultPaymentInstrumentBuyerInformation BuyerInformation = default(DefaultPaymentInstrumentBuyerInformation), DefaultPaymentInstrumentBillTo BillTo = default(DefaultPaymentInstrumentBillTo), TmsPaymentInstrumentProcessingInfo ProcessingInformation = default(TmsPaymentInstrumentProcessingInfo), TmsMerchantInformation MerchantInformation = default(TmsMerchantInformation), DefaultPaymentInstrumentInstrumentIdentifier InstrumentIdentifier = default(DefaultPaymentInstrumentInstrumentIdentifier), DefaultPaymentInstrumentMetadata Metadata = default(DefaultPaymentInstrumentMetadata), Tmsv1paymentinstrumentsEmbedded Embedded = default(Tmsv1paymentinstrumentsEmbedded))
         {
             this.Links = Links;
             this.Id = Id;
@@ -65,7 +65,7 @@ namespace CyberSource.Model
         /// Gets or Sets Links
         /// </summary>
         [DataMember(Name="_links", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentLinks Links { get; set; }
+        public DefaultPaymentInstrumentLinks Links { get; set; }
 
         /// <summary>
         /// The Id of the Payment Instrument Token.
@@ -106,25 +106,25 @@ namespace CyberSource.Model
         /// Gets or Sets BankAccount
         /// </summary>
         [DataMember(Name="bankAccount", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBankAccount BankAccount { get; set; }
+        public DefaultPaymentInstrumentBankAccount BankAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets Card
         /// </summary>
         [DataMember(Name="card", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentCard Card { get; set; }
+        public DefaultPaymentInstrumentCard Card { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
         /// </summary>
         [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBuyerInformation BuyerInformation { get; set; }
+        public DefaultPaymentInstrumentBuyerInformation BuyerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BillTo
         /// </summary>
         [DataMember(Name="billTo", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo BillTo { get; set; }
+        public DefaultPaymentInstrumentBillTo BillTo { get; set; }
 
         /// <summary>
         /// Gets or Sets ProcessingInformation
@@ -142,13 +142,13 @@ namespace CyberSource.Model
         /// Gets or Sets InstrumentIdentifier
         /// </summary>
         [DataMember(Name="instrumentIdentifier", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentInstrumentIdentifier InstrumentIdentifier { get; set; }
+        public DefaultPaymentInstrumentInstrumentIdentifier InstrumentIdentifier { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentMetadata Metadata { get; set; }
+        public DefaultPaymentInstrumentMetadata Metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets Embedded

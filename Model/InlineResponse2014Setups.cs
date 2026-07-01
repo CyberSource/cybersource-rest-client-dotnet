@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="Risk">Risk.</param>
         /// <param name="CommerceSolutions">CommerceSolutions.</param>
         /// <param name="ValueAddedServices">ValueAddedServices.</param>
-        public InlineResponse2014Setups(InlineResponse2014SetupsPayments Payments = default(InlineResponse2014SetupsPayments), InlineResponse2014SetupsRisk Risk = default(InlineResponse2014SetupsRisk), InlineResponse2014SetupsCommerceSolutions CommerceSolutions = default(InlineResponse2014SetupsCommerceSolutions), InlineResponse2014SetupsValueAddedServices ValueAddedServices = default(InlineResponse2014SetupsValueAddedServices))
+        public InlineResponse2014Setups(PaymentsConfigurationSetup Payments = default(PaymentsConfigurationSetup), InlineResponse2014SetupsRisk Risk = default(InlineResponse2014SetupsRisk), InlineResponse2014SetupsCommerceSolutions CommerceSolutions = default(InlineResponse2014SetupsCommerceSolutions), InlineResponse2014SetupsValueAddedServices ValueAddedServices = default(InlineResponse2014SetupsValueAddedServices))
         {
             this.Payments = Payments;
             this.Risk = Risk;
@@ -49,7 +49,7 @@ namespace CyberSource.Model
         /// Gets or Sets Payments
         /// </summary>
         [DataMember(Name="payments", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPayments Payments { get; set; }
+        public PaymentsConfigurationSetup Payments { get; set; }
 
         /// <summary>
         /// Gets or Sets Risk

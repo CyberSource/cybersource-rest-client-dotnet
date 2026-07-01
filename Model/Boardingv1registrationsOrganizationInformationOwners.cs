@@ -52,7 +52,7 @@ namespace CyberSource.Model
         /// <param name="PhoneNumber">PhoneNumber (required).</param>
         /// <param name="Email">Email (required).</param>
         /// <param name="Address">Address (required).</param>
-        public Boardingv1registrationsOrganizationInformationOwners(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), DateTime? BirthDate = default(DateTime?), bool? IsPrimary = default(bool?), string Ssn = default(string), string PassportNumber = default(string), string PassportCountry = default(string), string JobTitle = default(string), bool? HasSignificantResponsability = default(bool?), decimal? OwnershipPercentage = default(decimal?), string PhoneNumber = default(string), string Email = default(string), Boardingv1registrationsOrganizationInformationBusinessInformationAddress Address = default(Boardingv1registrationsOrganizationInformationBusinessInformationAddress))
+        public Boardingv1registrationsOrganizationInformationOwners(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), DateTime? BirthDate = default(DateTime?), bool? IsPrimary = default(bool?), string Ssn = default(string), string PassportNumber = default(string), string PassportCountry = default(string), string JobTitle = default(string), bool? HasSignificantResponsability = default(bool?), decimal? OwnershipPercentage = default(decimal?), string PhoneNumber = default(string), string Email = default(string), BoardingBusinessInformationAddress Address = default(BoardingBusinessInformationAddress))
         {
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
@@ -159,7 +159,7 @@ namespace CyberSource.Model
         /// Gets or Sets Address
         /// </summary>
         [DataMember(Name="address", EmitDefaultValue=false)]
-        public Boardingv1registrationsOrganizationInformationBusinessInformationAddress Address { get; set; }
+        public BoardingBusinessInformationAddress Address { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PaymentsProductsMicroformConfigurationInformationConfigurations" /> class.
         /// </summary>
         /// <param name="Features">Features.</param>
-        public PaymentsProductsMicroformConfigurationInformationConfigurations(PaymentsProductsMicroformConfigurationInformationConfigurationsFeatures Features = default(PaymentsProductsMicroformConfigurationInformationConfigurationsFeatures))
+        public PaymentsProductsMicroformConfigurationInformationConfigurations(MicroformConfigFeatures Features = default(MicroformConfigFeatures))
         {
             this.Features = Features;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets Features
         /// </summary>
         [DataMember(Name="features", EmitDefaultValue=false)]
-        public PaymentsProductsMicroformConfigurationInformationConfigurationsFeatures Features { get; set; }
+        public MicroformConfigFeatures Features { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

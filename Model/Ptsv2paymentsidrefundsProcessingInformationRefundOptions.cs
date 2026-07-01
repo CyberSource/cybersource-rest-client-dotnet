@@ -34,9 +34,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidrefundsProcessingInformationRefundOptions" /> class.
         /// </summary>
         /// <param name="Reason">The reason for the refund..</param>
-        public Ptsv2paymentsidrefundsProcessingInformationRefundOptions(string Reason = default(string))
+        /// <param name="ReconciliationIdAlternate">Alternative reference number that can be up to 12 characters in length. If this field is used, it overrides any data added to the ccCaptureService_reconciliationID field. You can use this value to reconcile Cybersource reports with processor reports..</param>
+        public Ptsv2paymentsidrefundsProcessingInformationRefundOptions(string Reason = default(string), string ReconciliationIdAlternate = default(string))
         {
             this.Reason = Reason;
+            this.ReconciliationIdAlternate = ReconciliationIdAlternate;
         }
         
         /// <summary>
@@ -47,6 +49,13 @@ namespace CyberSource.Model
         public string Reason { get; set; }
 
         /// <summary>
+        /// Alternative reference number that can be up to 12 characters in length. If this field is used, it overrides any data added to the ccCaptureService_reconciliationID field. You can use this value to reconcile Cybersource reports with processor reports.
+        /// </summary>
+        /// <value>Alternative reference number that can be up to 12 characters in length. If this field is used, it overrides any data added to the ccCaptureService_reconciliationID field. You can use this value to reconcile Cybersource reports with processor reports.</value>
+        [DataMember(Name="reconciliationIdAlternate", EmitDefaultValue=false)]
+        public string ReconciliationIdAlternate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +64,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2paymentsidrefundsProcessingInformationRefundOptions {\n");
             if (Reason != null) sb.Append("  Reason: ").Append(Reason).Append("\n");
+            if (ReconciliationIdAlternate != null) sb.Append("  ReconciliationIdAlternate: ").Append(ReconciliationIdAlternate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +105,11 @@ namespace CyberSource.Model
                     this.Reason == other.Reason ||
                     this.Reason != null &&
                     this.Reason.Equals(other.Reason)
+                ) && 
+                (
+                    this.ReconciliationIdAlternate == other.ReconciliationIdAlternate ||
+                    this.ReconciliationIdAlternate != null &&
+                    this.ReconciliationIdAlternate.Equals(other.ReconciliationIdAlternate)
                 );
         }
 
@@ -111,6 +126,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Reason != null)
                     hash = hash * 59 + this.Reason.GetHashCode();
+                if (this.ReconciliationIdAlternate != null)
+                    hash = hash * 59 + this.ReconciliationIdAlternate.GetHashCode();
                 return hash;
             }
         }

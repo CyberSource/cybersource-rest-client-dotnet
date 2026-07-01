@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="Description">Description.</param>
         /// <param name="DefaultSettings">DefaultSettings.</param>
         /// <param name="SubscriptionType">&#39;The subscription type for which report definition is required. By default the type will be CUSTOM.&#39; Valid Values: - &#39;CLASSIC&#39; - &#39;CUSTOM&#39; - &#39;STANDARD&#39; .</param>
-        public ReportingV3ReportDefinitionsNameGet200Response(string Type = default(string), int? ReportDefinitionId = default(int?), string ReportDefintionName = default(string), List<ReportingV3ReportDefinitionsNameGet200ResponseAttributes> Attributes = default(List<ReportingV3ReportDefinitionsNameGet200ResponseAttributes>), List<string> SupportedFormats = default(List<string>), string Description = default(string), ReportingV3ReportDefinitionsNameGet200ResponseDefaultSettings DefaultSettings = default(ReportingV3ReportDefinitionsNameGet200ResponseDefaultSettings), string SubscriptionType = default(string))
+        public ReportingV3ReportDefinitionsNameGet200Response(string Type = default(string), int? ReportDefinitionId = default(int?), string ReportDefintionName = default(string), List<ReportingV3ReportDefinitionsNameGet200ResponseAttributes> Attributes = default(List<ReportingV3ReportDefinitionsNameGet200ResponseAttributes>), List<string> SupportedFormats = default(List<string>), string Description = default(string), ReportDefinitionDefaultSettings DefaultSettings = default(ReportDefinitionDefaultSettings), string SubscriptionType = default(string))
         {
             this.Type = Type;
             this.ReportDefinitionId = ReportDefinitionId;
@@ -93,7 +93,7 @@ namespace CyberSource.Model
         /// Gets or Sets DefaultSettings
         /// </summary>
         [DataMember(Name="defaultSettings", EmitDefaultValue=false)]
-        public ReportingV3ReportDefinitionsNameGet200ResponseDefaultSettings DefaultSettings { get; set; }
+        public ReportDefinitionDefaultSettings DefaultSettings { get; set; }
 
         /// <summary>
         /// &#39;The subscription type for which report definition is required. By default the type will be CUSTOM.&#39; Valid Values: - &#39;CLASSIC&#39; - &#39;CUSTOM&#39; - &#39;STANDARD&#39; 

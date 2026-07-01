@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation (required).</param>
         /// <param name="AssuranceData">Assurance data. (required).</param>
-        public AgenticCancelPurchaseIntentRequest(string ClientCorrelationId = default(string), Acpv1tokensPaymentInformation PaymentInformation = default(Acpv1tokensPaymentInformation), Acpv1tokensDeviceInformation DeviceInformation = default(Acpv1tokensDeviceInformation), List<Acpv1tokensAssuranceData> AssuranceData = default(List<Acpv1tokensAssuranceData>))
+        public AgenticCancelPurchaseIntentRequest(string ClientCorrelationId = default(string), Iccv1tokensPaymentInformation PaymentInformation = default(Iccv1tokensPaymentInformation), Iccv1tokensDeviceInformation DeviceInformation = default(Iccv1tokensDeviceInformation), List<Iccv1tokensAssuranceData> AssuranceData = default(List<Iccv1tokensAssuranceData>))
         {
             this.ClientCorrelationId = ClientCorrelationId;
             this.PaymentInformation = PaymentInformation;
@@ -61,20 +61,20 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentInformation
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public Acpv1tokensPaymentInformation PaymentInformation { get; set; }
+        public Iccv1tokensPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceInformation
         /// </summary>
         [DataMember(Name="deviceInformation", EmitDefaultValue=false)]
-        public Acpv1tokensDeviceInformation DeviceInformation { get; set; }
+        public Iccv1tokensDeviceInformation DeviceInformation { get; set; }
 
         /// <summary>
         /// Assurance data.
         /// </summary>
         /// <value>Assurance data.</value>
         [DataMember(Name="assuranceData", EmitDefaultValue=false)]
-        public List<Acpv1tokensAssuranceData> AssuranceData { get; set; }
+        public List<Iccv1tokensAssuranceData> AssuranceData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// <param name="MerchantRiskPrediction">Mastercard is introducing the Merchant Risk Predict Service in the middle East/Africa Region. A newly launched service comprised of seven independent artificial intelligence (AI)-powered scores intended to augment existing merchant risk management practices. .</param>
         /// <param name="SellerProtection">SellerProtection.</param>
         /// <param name="Network">Network.</param>
-        public PtsV2IncrementalAuthorizationPatch201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string ResponseDetails = default(string), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), string MerchantRiskPrediction = default(string), PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection = default(PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
+        public PtsV2IncrementalAuthorizationPatch201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string SystemTraceAuditNumber = default(string), string ResponseDetails = default(string), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), string MerchantRiskPrediction = default(string), ProcessorInformationSellerProtection SellerProtection = default(ProcessorInformationSellerProtection), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
         {
             this.ApprovalCode = ApprovalCode;
             this.TransactionId = TransactionId;
@@ -116,7 +116,7 @@ namespace CyberSource.Model
         /// Gets or Sets SellerProtection
         /// </summary>
         [DataMember(Name="sellerProtection", EmitDefaultValue=false)]
-        public PtsV2PaymentsPost201ResponseProcessorInformationSellerProtection SellerProtection { get; set; }
+        public ProcessorInformationSellerProtection SellerProtection { get; set; }
 
         /// <summary>
         /// Gets or Sets Network

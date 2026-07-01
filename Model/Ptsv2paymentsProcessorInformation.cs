@@ -41,7 +41,8 @@ namespace CyberSource.Model
         /// <param name="SupplementaryTransactionData">Supplementary transaction data for Klarna Advantage Plus. Fields to capture Interoperability Data from Merchant and transfer to Klarna for Authorization/Sale/Re-Auth/Capture APIs. .</param>
         /// <param name="ResponseSourceCode">Field contains the response source code that identifies the source. .</param>
         /// <param name="CedpVerifiedIndicator">Merchant Commercial Enhanced Data Program (CEDP) verified indicator for capture/bill requests.  This field is used when the client is doing authorization with a different gateway and capture/settlement with CyberSource.  This field flows in ISO field 34, DSID 02 tag DA, in AN, EBCDIC format.  Possible values: - &#x60;Y&#x60;: Merchant CEDP verified  #### Used by **Capture Request** Request field for force capture/bill support when auth is done with a different gateway. .</param>
-        public Ptsv2paymentsProcessorInformation(string PreApprovalToken = default(string), Ptsv2paymentsProcessorInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessorInformationAuthorizationOptions), Ptsv2paymentsProcessorInformationReversal Reversal = default(Ptsv2paymentsProcessorInformationReversal), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), string AuthApprovalToken = default(string), string SupplementaryTransactionData = default(string), string ResponseSourceCode = default(string), string CedpVerifiedIndicator = default(string))
+        /// <param name="FeeProgramIndicator">Interchange reimbursement fee program indicator (FPI), which is used when assessing the fee applied to a cross-border or domestic Asia Pacific financial transaction. Acquirers and issues retain and return the FPI value in chargeback and representments..</param>
+        public Ptsv2paymentsProcessorInformation(string PreApprovalToken = default(string), Ptsv2paymentsProcessorInformationAuthorizationOptions AuthorizationOptions = default(Ptsv2paymentsProcessorInformationAuthorizationOptions), Ptsv2paymentsProcessorInformationReversal Reversal = default(Ptsv2paymentsProcessorInformationReversal), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), string AuthApprovalToken = default(string), string SupplementaryTransactionData = default(string), string ResponseSourceCode = default(string), string CedpVerifiedIndicator = default(string), string FeeProgramIndicator = default(string))
         {
             this.PreApprovalToken = PreApprovalToken;
             this.AuthorizationOptions = AuthorizationOptions;
@@ -51,6 +52,7 @@ namespace CyberSource.Model
             this.SupplementaryTransactionData = SupplementaryTransactionData;
             this.ResponseSourceCode = ResponseSourceCode;
             this.CedpVerifiedIndicator = CedpVerifiedIndicator;
+            this.FeeProgramIndicator = FeeProgramIndicator;
         }
         
         /// <summary>
@@ -107,6 +109,13 @@ namespace CyberSource.Model
         public string CedpVerifiedIndicator { get; set; }
 
         /// <summary>
+        /// Interchange reimbursement fee program indicator (FPI), which is used when assessing the fee applied to a cross-border or domestic Asia Pacific financial transaction. Acquirers and issues retain and return the FPI value in chargeback and representments.
+        /// </summary>
+        /// <value>Interchange reimbursement fee program indicator (FPI), which is used when assessing the fee applied to a cross-border or domestic Asia Pacific financial transaction. Acquirers and issues retain and return the FPI value in chargeback and representments.</value>
+        [DataMember(Name="feeProgramIndicator", EmitDefaultValue=false)]
+        public string FeeProgramIndicator { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -122,6 +131,7 @@ namespace CyberSource.Model
             if (SupplementaryTransactionData != null) sb.Append("  SupplementaryTransactionData: ").Append(SupplementaryTransactionData).Append("\n");
             if (ResponseSourceCode != null) sb.Append("  ResponseSourceCode: ").Append(ResponseSourceCode).Append("\n");
             if (CedpVerifiedIndicator != null) sb.Append("  CedpVerifiedIndicator: ").Append(CedpVerifiedIndicator).Append("\n");
+            if (FeeProgramIndicator != null) sb.Append("  FeeProgramIndicator: ").Append(FeeProgramIndicator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -197,6 +207,11 @@ namespace CyberSource.Model
                     this.CedpVerifiedIndicator == other.CedpVerifiedIndicator ||
                     this.CedpVerifiedIndicator != null &&
                     this.CedpVerifiedIndicator.Equals(other.CedpVerifiedIndicator)
+                ) && 
+                (
+                    this.FeeProgramIndicator == other.FeeProgramIndicator ||
+                    this.FeeProgramIndicator != null &&
+                    this.FeeProgramIndicator.Equals(other.FeeProgramIndicator)
                 );
         }
 
@@ -227,6 +242,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ResponseSourceCode.GetHashCode();
                 if (this.CedpVerifiedIndicator != null)
                     hash = hash * 59 + this.CedpVerifiedIndicator.GetHashCode();
+                if (this.FeeProgramIndicator != null)
+                    hash = hash * 59 + this.FeeProgramIndicator.GetHashCode();
                 return hash;
             }
         }

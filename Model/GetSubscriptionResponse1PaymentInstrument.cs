@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="Card">Card.</param>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
-        public GetSubscriptionResponse1PaymentInstrument(string Id = default(string), GetSubscriptionResponse1PaymentInstrumentBankAccount BankAccount = default(GetSubscriptionResponse1PaymentInstrumentBankAccount), GetSubscriptionResponse1PaymentInstrumentCard Card = default(GetSubscriptionResponse1PaymentInstrumentCard), Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo BillTo = default(Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo), GetSubscriptionResponse1PaymentInstrumentBuyerInformation BuyerInformation = default(GetSubscriptionResponse1PaymentInstrumentBuyerInformation))
+        public GetSubscriptionResponse1PaymentInstrument(string Id = default(string), GetSubscriptionResponse1PaymentInstrumentBankAccount BankAccount = default(GetSubscriptionResponse1PaymentInstrumentBankAccount), GetSubscriptionResponse1PaymentInstrumentCard Card = default(GetSubscriptionResponse1PaymentInstrumentCard), DefaultPaymentInstrumentBillTo BillTo = default(DefaultPaymentInstrumentBillTo), FollowOnTransactionBuyerInformation BuyerInformation = default(FollowOnTransactionBuyerInformation))
         {
             this.Id = Id;
             this.BankAccount = BankAccount;
@@ -70,13 +70,13 @@ namespace CyberSource.Model
         /// Gets or Sets BillTo
         /// </summary>
         [DataMember(Name="billTo", EmitDefaultValue=false)]
-        public Tmsv2tokenizeTokenInformationCustomerEmbeddedDefaultPaymentInstrumentBillTo BillTo { get; set; }
+        public DefaultPaymentInstrumentBillTo BillTo { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
         /// </summary>
         [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
-        public GetSubscriptionResponse1PaymentInstrumentBuyerInformation BuyerInformation { get; set; }
+        public FollowOnTransactionBuyerInformation BuyerInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

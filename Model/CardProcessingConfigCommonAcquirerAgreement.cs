@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="CardProcessingConfigCommonAcquirerAgreement" /> class.
         /// </summary>
         /// <param name="AcquirerCode">AcquirerCode.</param>
-        public CardProcessingConfigCommonAcquirerAgreement(CardProcessingConfigCommonAcquirerAgreementAcquirerCode AcquirerCode = default(CardProcessingConfigCommonAcquirerAgreementAcquirerCode))
+        public CardProcessingConfigCommonAcquirerAgreement(BoardingAcquirerDetails AcquirerCode = default(BoardingAcquirerDetails))
         {
             this.AcquirerCode = AcquirerCode;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets AcquirerCode
         /// </summary>
         [DataMember(Name="acquirerCode", EmitDefaultValue=false)]
-        public CardProcessingConfigCommonAcquirerAgreementAcquirerCode AcquirerCode { get; set; }
+        public BoardingAcquirerDetails AcquirerCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

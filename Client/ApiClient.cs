@@ -25,6 +25,7 @@ using AuthenticationSdk.core;
 using AuthenticationSdk.util;
 using NLog;
 using System.Security;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using CyberSource.Utilities;
 
@@ -37,7 +38,7 @@ namespace CyberSource.Client
     {
         public class RestClientFactory
         {
-            private static readonly ConcurrentDictionary<int, Lazy<RestClient>> _restClientInstances = new ConcurrentDictionary<int, Lazy<RestClient>>();
+            private static readonly ConcurrentDictionary<RestClientCacheKey, Lazy<RestClient>> _restClientInstances = new ConcurrentDictionary<RestClientCacheKey, Lazy<RestClient>>();
 
             public static RestClient GetRestClient(MerchantConfig merchantConfig, RestClientOptions clientOptions)
             {
@@ -52,35 +53,199 @@ namespace CyberSource.Client
                     ServicePointManager.MaxServicePointIdleTime = int.Parse(Constants.DefaultKeepAliveTime);
                 }
 
-                int hash = GetHashOfRestClientOptions(clientOptions);
+                RestClientCacheKey cacheKey = RestClientCacheKey.From(clientOptions);
 
-                if (!_restClientInstances.TryGetValue(hash, out Lazy<RestClient> lazyClient))
+                if (!_restClientInstances.TryGetValue(cacheKey, out Lazy<RestClient> lazyClient))
                 {
                     lazyClient = _restClientInstances.GetOrAdd(
-                                     hash,
+                                     cacheKey,
                                      _ => new Lazy<RestClient>(() => new RestClient(clientOptions)));
                 }
 
                 return lazyClient.Value;
             }
 
-            private static int GetHashOfRestClientOptions(RestClientOptions clientOptions)
+            /// <summary>
+            /// Composite cache key for <see cref="RestClient"/> instances. Equality is based on
+            /// stable, content-derived values (base URL string, client certificate thumbprints,
+            /// resolved proxy URI, proxy credential digest, timeout, user agent and the connection
+            /// pool / keep-alive settings baked into the cached HttpClient) so that two distinct
+            /// <see cref="RestClientOptions"/> with the same hash cannot be conflated by the cache
+            /// (AISAST-10814 -- prevents cross-tenant connection reuse on hash collisions).
+            ///
+            /// NOTE: This class is kept structurally identical to the same-named class in the
+            /// sibling cybersource-rest-client-dotnetstandard repo. Keep them in sync when editing.
+            /// </summary>
+            internal sealed class RestClientCacheKey : IEquatable<RestClientCacheKey>
             {
-                unchecked
-                {
-                    int hashCode = 41;
-                    if (clientOptions.BaseUrl != null)
-                        hashCode = hashCode * 43 + clientOptions.BaseUrl.GetHashCode();
-                    if (clientOptions.ClientCertificates != null)
-                        hashCode = hashCode * 43 + clientOptions.ClientCertificates.GetHashCode();
-                    if (clientOptions.Proxy != null)
-                        hashCode = hashCode * 43 + clientOptions.Proxy.GetHashCode();
-                    if (clientOptions.Timeout != null)
-                        hashCode = hashCode * 43 + clientOptions.Timeout.GetHashCode();
-                    if (clientOptions.UserAgent != null)
-                        hashCode = hashCode * 43 + clientOptions.UserAgent.GetHashCode();
+                private readonly string _baseUrl;
+                private readonly string[] _certificateThumbprints;
+                private readonly string _proxyKey;
+                private readonly string _proxyCredentialsDigest;
+                private readonly object _timeout;
+                private readonly string _userAgent;
+                private readonly int _connectionLimit;
+                private readonly int _idleTime;
+                private readonly int _hashCode;
 
-                    return hashCode;
+                private RestClientCacheKey(
+                    string baseUrl,
+                    string[] certificateThumbprints,
+                    string proxyKey,
+                    string proxyCredentialsDigest,
+                    object timeout,
+                    string userAgent,
+                    int connectionLimit,
+                    int idleTime)
+                {
+                    _baseUrl = baseUrl;
+                    _certificateThumbprints = certificateThumbprints;
+                    _proxyKey = proxyKey;
+                    _proxyCredentialsDigest = proxyCredentialsDigest;
+                    _timeout = timeout;
+                    _userAgent = userAgent;
+                    _connectionLimit = connectionLimit;
+                    _idleTime = idleTime;
+                    _hashCode = ComputeHashCode();
+                }
+
+                public static RestClientCacheKey From(RestClientOptions clientOptions, int connectionLimit = 0, int idleTime = 0)
+                {
+                    string baseUrl = clientOptions?.BaseUrl?.AbsoluteUri;
+
+                    string[] thumbprints = null;
+                    if (clientOptions?.ClientCertificates != null && clientOptions.ClientCertificates.Count > 0)
+                    {
+                        thumbprints = new string[clientOptions.ClientCertificates.Count];
+                        for (int i = 0; i < clientOptions.ClientCertificates.Count; i++)
+                        {
+                            X509Certificate cert = clientOptions.ClientCertificates[i];
+                            if (cert is X509Certificate2 cert2 && !string.IsNullOrEmpty(cert2.Thumbprint))
+                            {
+                                thumbprints[i] = cert2.Thumbprint;
+                            }
+                            else
+                            {
+                                thumbprints[i] = cert?.GetCertHashString();
+                            }
+                        }
+                    }
+
+                    string proxyKey = null;
+                    string proxyCredentialsDigest = null;
+                    if (clientOptions?.Proxy != null)
+                    {
+                        try
+                        {
+                            // Resolve against the actual BaseUrl when available, otherwise a
+                            // deterministic sentinel, so two IWebProxy instances configured the
+                            // same way produce the same key.
+                            Uri probe = clientOptions.BaseUrl ?? new Uri("https://cybersource-cache-key.invalid");
+                            Uri resolved = clientOptions.Proxy.GetProxy(probe);
+                            proxyKey = resolved != null
+                                ? resolved.AbsoluteUri
+                                : clientOptions.Proxy.GetType().FullName;
+                        }
+                        catch
+                        {
+                            proxyKey = clientOptions.Proxy.GetType().FullName;
+                        }
+
+                        proxyCredentialsDigest = ComputeProxyCredentialsDigest(clientOptions.Proxy.Credentials);
+                    }
+
+                    return new RestClientCacheKey(
+                        baseUrl,
+                        thumbprints,
+                        proxyKey,
+                        proxyCredentialsDigest,
+                        clientOptions?.Timeout,
+                        clientOptions?.UserAgent,
+                        connectionLimit,
+                        idleTime);
+                }
+
+                public bool Equals(RestClientCacheKey other)
+                {
+                    if (other is null) return false;
+                    if (ReferenceEquals(this, other)) return true;
+
+                    if (!string.Equals(_baseUrl, other._baseUrl, StringComparison.Ordinal)) return false;
+                    if (!string.Equals(_proxyKey, other._proxyKey, StringComparison.Ordinal)) return false;
+                    if (!string.Equals(_proxyCredentialsDigest, other._proxyCredentialsDigest, StringComparison.Ordinal)) return false;
+                    if (!string.Equals(_userAgent, other._userAgent, StringComparison.Ordinal)) return false;
+                    if (!object.Equals(_timeout, other._timeout)) return false;
+                    if (_connectionLimit != other._connectionLimit) return false;
+                    if (_idleTime != other._idleTime) return false;
+
+                    if (_certificateThumbprints == null && other._certificateThumbprints == null) return true;
+                    if (_certificateThumbprints == null || other._certificateThumbprints == null) return false;
+                    if (_certificateThumbprints.Length != other._certificateThumbprints.Length) return false;
+                    for (int i = 0; i < _certificateThumbprints.Length; i++)
+                    {
+                        if (!string.Equals(_certificateThumbprints[i], other._certificateThumbprints[i], StringComparison.OrdinalIgnoreCase))
+                            return false;
+                    }
+                    return true;
+                }
+
+                public override bool Equals(object obj) => Equals(obj as RestClientCacheKey);
+
+                public override int GetHashCode() => _hashCode;
+
+                private int ComputeHashCode()
+                {
+                    unchecked
+                    {
+                        int hash = 17;
+                        hash = hash * 31 + (_baseUrl != null ? StringComparer.Ordinal.GetHashCode(_baseUrl) : 0);
+                        hash = hash * 31 + (_proxyKey != null ? StringComparer.Ordinal.GetHashCode(_proxyKey) : 0);
+                        hash = hash * 31 + (_proxyCredentialsDigest != null ? StringComparer.Ordinal.GetHashCode(_proxyCredentialsDigest) : 0);
+                        hash = hash * 31 + (_userAgent != null ? StringComparer.Ordinal.GetHashCode(_userAgent) : 0);
+                        hash = hash * 31 + (_timeout != null ? _timeout.GetHashCode() : 0);
+                        hash = hash * 31 + _connectionLimit;
+                        hash = hash * 31 + _idleTime;
+                        if (_certificateThumbprints != null)
+                        {
+                            foreach (string tp in _certificateThumbprints)
+                            {
+                                hash = hash * 31 + (tp != null ? StringComparer.OrdinalIgnoreCase.GetHashCode(tp) : 0);
+                            }
+                        }
+                        return hash;
+                    }
+                }
+
+                private static string ComputeProxyCredentialsDigest(ICredentials credentials)
+                {
+                    if (!(credentials is NetworkCredential nc))
+                    {
+                        return null;
+                    }
+
+                    string userPart = (nc.UserName ?? string.Empty) + "|" + (nc.Domain ?? string.Empty);
+                    if (string.IsNullOrEmpty(nc.Password))
+                    {
+                        return userPart;
+                    }
+
+                    // Hash the password so it is not retained in plain text inside the long-lived
+                    // cache key, while still discriminating between different proxy credentials.
+                    return userPart + "|" + ComputeSha256Hex(nc.Password);
+                }
+
+                private static string ComputeSha256Hex(string input)
+                {
+                    using (var sha = SHA256.Create())
+                    {
+                        byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(input));
+                        var hex = new StringBuilder(bytes.Length * 2);
+                        foreach (byte b in bytes)
+                        {
+                            hex.Append(b.ToString("x2"));
+                        }
+                        return hex.ToString();
+                    }
                 }
             }
         }
@@ -230,16 +395,17 @@ namespace CyberSource.Client
                     request.AddHeader(param.Key, param.Value);
             }
 
+            Dictionary<string, string> authenticationHeaders;
             if (postBody == null)
             {
-                CallAuthenticationHeaders(method.ToString(), path, isResponseMLEForApi: isResponseMLEForApi);
+                authenticationHeaders = CallAuthenticationHeaders(method.ToString(), path, isResponseMLEForApi: isResponseMLEForApi);
             }
             else
             {
-                CallAuthenticationHeaders(method.ToString(), path, postBody.ToString(), isResponseMLEForApi: isResponseMLEForApi);
+                authenticationHeaders = CallAuthenticationHeaders(method.ToString(), path, postBody.ToString(), isResponseMLEForApi: isResponseMLEForApi);
             }
 
-            foreach (var param in Configuration.DefaultHeader)
+            foreach (var param in authenticationHeaders)
             {
                 if (param.Key == "Authorization")
                 {
@@ -369,8 +535,6 @@ namespace CyberSource.Client
 			
 			// check if Response MLE is enabled, then decrypt the response content and then deserialize
             ResponseMleHandler.DecryptMleResponseIfNeeded(response,merchantConfig);
-
-            Configuration.DefaultHeader.Clear();
 
             // Logging Response Headers
             httpResponseStatusCode = (int)response.StatusCode;
@@ -521,8 +685,6 @@ namespace CyberSource.Client
 			// check if Response MLE is enabled, then decrypt the response content and then deserialize
             ResponseMleHandler.DecryptMleResponseIfNeeded(response,merchantConfig);
 
-            Configuration.DefaultHeader.Clear();
-            
             // Logging Response Headers
             var httpResponseStatusCode = (int)response.StatusCode;
             var httpResponseHeaders = response.Headers;
@@ -848,7 +1010,9 @@ namespace CyberSource.Client
         /// <param name="requestType">GET/POST/PUT/PATCH/DELETE</param>
         /// <param name="requestTarget">Resource Path</param>
         /// <param name="requestJsonData">Request Payload</param>
-        public void CallAuthenticationHeaders(string requestType, string requestTarget, string requestJsonData = null, bool isResponseMLEForApi = false)
+        /// <param name="isResponseMLEForApi">Whether MLE is enabled for the response</param>
+        /// <returns>Dictionary of authentication headers for the request</returns>
+        public Dictionary<string, string> CallAuthenticationHeaders(string requestType, string requestTarget, string requestJsonData = null, bool isResponseMLEForApi = false)
         {
             requestTarget = Uri.EscapeUriString(requestTarget);
 
@@ -910,8 +1074,7 @@ namespace CyberSource.Client
             //     authenticationHeaders.Add("v-c-solution-id", Configuration.SolutionId);
             // }
 
-            //Set the Configuration
-            Configuration.DefaultHeader = authenticationHeaders;
+            return authenticationHeaders;
         }
     }
 }

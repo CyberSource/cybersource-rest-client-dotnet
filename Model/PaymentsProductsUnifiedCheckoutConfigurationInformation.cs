@@ -34,7 +34,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PaymentsProductsUnifiedCheckoutConfigurationInformation" /> class.
         /// </summary>
         /// <param name="Configurations">Configurations.</param>
-        public PaymentsProductsUnifiedCheckoutConfigurationInformation(PaymentsProductsUnifiedCheckoutConfigurationInformationConfigurations Configurations = default(PaymentsProductsUnifiedCheckoutConfigurationInformationConfigurations))
+        public PaymentsProductsUnifiedCheckoutConfigurationInformation(UcConfigurations Configurations = default(UcConfigurations))
         {
             this.Configurations = Configurations;
         }
@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets Configurations
         /// </summary>
         [DataMember(Name="configurations", EmitDefaultValue=false)]
-        public PaymentsProductsUnifiedCheckoutConfigurationInformationConfigurations Configurations { get; set; }
+        public UcConfigurations Configurations { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

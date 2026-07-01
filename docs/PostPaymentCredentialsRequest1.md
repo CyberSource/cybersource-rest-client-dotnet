@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **TransactionType** | **string** | Specifies the type of transaction for which the network token credentials are required. Possible Values:   - ECOM: Ecommerce transaction. If transactionType is not provided, ECOM is set as the default.   - AFT: Account Funding Transaction. This is only supported for VISA and paymentCredentialType of CRYPTOGRAM.  | [optional] 
 **ClientCorrelationId** | **string** | Used to correlate authentication and payment credential requests.  | [optional] 
 **OrderInformation** | [**Tmsv3tokenstokenIdpaymentcredentialsOrderInformation**](Tmsv3tokenstokenIdpaymentcredentialsOrderInformation.md) |  | [optional] 
-**MerchantInformation** | [**Tmsv3tokenstokenIdpaymentcredentialsMerchantInformation**](Tmsv3tokenstokenIdpaymentcredentialsMerchantInformation.md) |  | [optional] 
+**MerchantInformation** | [**TmsMerchantInformation**](TmsMerchantInformation.md) |  | [optional] 
 **DeviceInformation** | [**Tmsv3tokenstokenIdpaymentcredentialsDeviceInformation**](Tmsv3tokenstokenIdpaymentcredentialsDeviceInformation.md) |  | [optional] 
 **AuthenticatedIdentities** | [**List&lt;Tmsv3tokenstokenIdpaymentcredentialsAuthenticatedIdentities&gt;**](Tmsv3tokenstokenIdpaymentcredentialsAuthenticatedIdentities.md) |  | [optional] 
 

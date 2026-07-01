@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="TransactionResponseComplete">TransactionResponseComplete.</param>
         /// <param name="TransactionResponseWithPendingEvents">TransactionResponseWithPendingEvents.</param>
-        public AgenticRetrievePaymentCredentialsResponse200(AgenticRetrievePaymentCredentialsResponse200TransactionResponseComplete TransactionResponseComplete = default(AgenticRetrievePaymentCredentialsResponse200TransactionResponseComplete), AgenticRetrievePaymentCredentialsResponse200TransactionResponseWithPendingEvents TransactionResponseWithPendingEvents = default(AgenticRetrievePaymentCredentialsResponse200TransactionResponseWithPendingEvents))
+        public AgenticRetrievePaymentCredentialsResponse200(AgenticRetrievePaymentCredentialsResponse200TransactionResponseComplete TransactionResponseComplete = default(AgenticRetrievePaymentCredentialsResponse200TransactionResponseComplete), IccTransactionResponsePendingEvents TransactionResponseWithPendingEvents = default(IccTransactionResponsePendingEvents))
         {
             this.TransactionResponseComplete = TransactionResponseComplete;
             this.TransactionResponseWithPendingEvents = TransactionResponseWithPendingEvents;
@@ -51,7 +51,7 @@ namespace CyberSource.Model
         /// Gets or Sets TransactionResponseWithPendingEvents
         /// </summary>
         [DataMember(Name="TransactionResponseWithPendingEvents", EmitDefaultValue=false)]
-        public AgenticRetrievePaymentCredentialsResponse200TransactionResponseWithPendingEvents TransactionResponseWithPendingEvents { get; set; }
+        public IccTransactionResponsePendingEvents TransactionResponseWithPendingEvents { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

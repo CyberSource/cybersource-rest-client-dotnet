@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="AuthenticatedIdentities">AuthenticatedIdentities.</param>
-        public PostPaymentCredentialsRequest(string PaymentCredentialType = default(string), string TransactionType = default(string), string ClientCorrelationId = default(string), Tmsv3tokenstokenIdpaymentcredentialsOrderInformation OrderInformation = default(Tmsv3tokenstokenIdpaymentcredentialsOrderInformation), Tmsv3tokenstokenIdpaymentcredentialsMerchantInformation MerchantInformation = default(Tmsv3tokenstokenIdpaymentcredentialsMerchantInformation), Tmsv3tokenstokenIdpaymentcredentialsDeviceInformation DeviceInformation = default(Tmsv3tokenstokenIdpaymentcredentialsDeviceInformation), List<Tmsv3tokenstokenIdpaymentcredentialsAuthenticatedIdentities> AuthenticatedIdentities = default(List<Tmsv3tokenstokenIdpaymentcredentialsAuthenticatedIdentities>))
+        public PostPaymentCredentialsRequest(string PaymentCredentialType = default(string), string TransactionType = default(string), string ClientCorrelationId = default(string), Tmsv3tokenstokenIdpaymentcredentialsOrderInformation OrderInformation = default(Tmsv3tokenstokenIdpaymentcredentialsOrderInformation), TmsMerchantInformation MerchantInformation = default(TmsMerchantInformation), Tmsv3tokenstokenIdpaymentcredentialsDeviceInformation DeviceInformation = default(Tmsv3tokenstokenIdpaymentcredentialsDeviceInformation), List<Tmsv3tokenstokenIdpaymentcredentialsAuthenticatedIdentities> AuthenticatedIdentities = default(List<Tmsv3tokenstokenIdpaymentcredentialsAuthenticatedIdentities>))
         {
             this.PaymentCredentialType = PaymentCredentialType;
             this.TransactionType = TransactionType;
@@ -82,7 +82,7 @@ namespace CyberSource.Model
         /// Gets or Sets MerchantInformation
         /// </summary>
         [DataMember(Name="merchantInformation", EmitDefaultValue=false)]
-        public Tmsv3tokenstokenIdpaymentcredentialsMerchantInformation MerchantInformation { get; set; }
+        public TmsMerchantInformation MerchantInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceInformation

@@ -35,11 +35,13 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="GOOGLEPAY">GOOGLEPAY.</param>
         /// <param name="CLICKTOPAY">CLICKTOPAY.</param>
+        /// <param name="PAYPAL">PAYPAL.</param>
         /// <param name="TMS_TOKEN">TMS_TOKEN.</param>
-        public Ucv1sessionsPaymentConfigurations(Ucv1sessionsPaymentConfigurationsGOOGLEPAY GOOGLEPAY = default(Ucv1sessionsPaymentConfigurationsGOOGLEPAY), Ucv1sessionsPaymentConfigurationsCLICKTOPAY CLICKTOPAY = default(Ucv1sessionsPaymentConfigurationsCLICKTOPAY), Ucv1sessionsPaymentConfigurationsTMSTOKEN TMS_TOKEN = default(Ucv1sessionsPaymentConfigurationsTMSTOKEN))
+        public Ucv1sessionsPaymentConfigurations(Ucv1sessionsPaymentConfigurationsGOOGLEPAY GOOGLEPAY = default(Ucv1sessionsPaymentConfigurationsGOOGLEPAY), Ucv1sessionsPaymentConfigurationsCLICKTOPAY CLICKTOPAY = default(Ucv1sessionsPaymentConfigurationsCLICKTOPAY), Ucv1sessionsPaymentConfigurationsPAYPAL PAYPAL = default(Ucv1sessionsPaymentConfigurationsPAYPAL), Ucv1sessionsPaymentConfigurationsTMSTOKEN TMS_TOKEN = default(Ucv1sessionsPaymentConfigurationsTMSTOKEN))
         {
             this.GOOGLEPAY = GOOGLEPAY;
             this.CLICKTOPAY = CLICKTOPAY;
+            this.PAYPAL = PAYPAL;
             this.TMS_TOKEN = TMS_TOKEN;
         }
         
@@ -54,6 +56,12 @@ namespace CyberSource.Model
         /// </summary>
         [DataMember(Name="CLICKTOPAY", EmitDefaultValue=false)]
         public Ucv1sessionsPaymentConfigurationsCLICKTOPAY CLICKTOPAY { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PAYPAL
+        /// </summary>
+        [DataMember(Name="PAYPAL", EmitDefaultValue=false)]
+        public Ucv1sessionsPaymentConfigurationsPAYPAL PAYPAL { get; set; }
 
         /// <summary>
         /// Gets or Sets TMS_TOKEN
@@ -71,6 +79,7 @@ namespace CyberSource.Model
             sb.Append("class Ucv1sessionsPaymentConfigurations {\n");
             if (GOOGLEPAY != null) sb.Append("  GOOGLEPAY: ").Append(GOOGLEPAY).Append("\n");
             if (CLICKTOPAY != null) sb.Append("  CLICKTOPAY: ").Append(CLICKTOPAY).Append("\n");
+            if (PAYPAL != null) sb.Append("  PAYPAL: ").Append(PAYPAL).Append("\n");
             if (TMS_TOKEN != null) sb.Append("  TMS_TOKEN: ").Append(TMS_TOKEN).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -119,6 +128,11 @@ namespace CyberSource.Model
                     this.CLICKTOPAY.Equals(other.CLICKTOPAY)
                 ) && 
                 (
+                    this.PAYPAL == other.PAYPAL ||
+                    this.PAYPAL != null &&
+                    this.PAYPAL.Equals(other.PAYPAL)
+                ) && 
+                (
                     this.TMS_TOKEN == other.TMS_TOKEN ||
                     this.TMS_TOKEN != null &&
                     this.TMS_TOKEN.Equals(other.TMS_TOKEN)
@@ -140,6 +154,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.GOOGLEPAY.GetHashCode();
                 if (this.CLICKTOPAY != null)
                     hash = hash * 59 + this.CLICKTOPAY.GetHashCode();
+                if (this.PAYPAL != null)
+                    hash = hash * 59 + this.PAYPAL.GetHashCode();
                 if (this.TMS_TOKEN != null)
                     hash = hash * 59 + this.TMS_TOKEN.GetHashCode();
                 return hash;

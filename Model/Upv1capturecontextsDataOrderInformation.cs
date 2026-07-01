@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="ShipTo">ShipTo.</param>
         /// <param name="LineItems">LineItems.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
-        public Upv1capturecontextsDataOrderInformation(Upv1capturecontextsDataOrderInformationAmountDetails AmountDetails = default(Upv1capturecontextsDataOrderInformationAmountDetails), Upv1capturecontextsDataOrderInformationBillTo BillTo = default(Upv1capturecontextsDataOrderInformationBillTo), Upv1capturecontextsDataOrderInformationShipTo ShipTo = default(Upv1capturecontextsDataOrderInformationShipTo), Upv1capturecontextsDataOrderInformationLineItems LineItems = default(Upv1capturecontextsDataOrderInformationLineItems), Upv1capturecontextsDataOrderInformationInvoiceDetails InvoiceDetails = default(Upv1capturecontextsDataOrderInformationInvoiceDetails))
+        public Upv1capturecontextsDataOrderInformation(Upv1capturecontextsDataOrderInformationAmountDetails AmountDetails = default(Upv1capturecontextsDataOrderInformationAmountDetails), Upv1capturecontextsDataOrderInformationBillTo BillTo = default(Upv1capturecontextsDataOrderInformationBillTo), Upv1capturecontextsDataOrderInformationShipTo ShipTo = default(Upv1capturecontextsDataOrderInformationShipTo), List<Upv1capturecontextsDataOrderInformationLineItems> LineItems = default(List<Upv1capturecontextsDataOrderInformationLineItems>), Upv1capturecontextsDataOrderInformationInvoiceDetails InvoiceDetails = default(Upv1capturecontextsDataOrderInformationInvoiceDetails))
         {
             this.AmountDetails = AmountDetails;
             this.BillTo = BillTo;
@@ -69,7 +69,7 @@ namespace CyberSource.Model
         /// Gets or Sets LineItems
         /// </summary>
         [DataMember(Name="lineItems", EmitDefaultValue=false)]
-        public Upv1capturecontextsDataOrderInformationLineItems LineItems { get; set; }
+        public List<Upv1capturecontextsDataOrderInformationLineItems> LineItems { get; set; }
 
         /// <summary>
         /// Gets or Sets InvoiceDetails
@@ -144,7 +144,7 @@ namespace CyberSource.Model
                 (
                     this.LineItems == other.LineItems ||
                     this.LineItems != null &&
-                    this.LineItems.Equals(other.LineItems)
+                    this.LineItems.SequenceEqual(other.LineItems)
                 ) && 
                 (
                     this.InvoiceDetails == other.InvoiceDetails ||

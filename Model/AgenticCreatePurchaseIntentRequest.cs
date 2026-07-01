@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="IsRecurring">Indicates whether the transaction is recurring. Default value is false..</param>
         /// <param name="ConsumerPrompt">Recap - A summary or condensed version of user prompts that leads to the purchase..</param>
-        public AgenticCreatePurchaseIntentRequest(string ClientCorrelationId = default(string), Acpv1tokensPaymentInformation PaymentInformation = default(Acpv1tokensPaymentInformation), Acpv1tokensDeviceInformation DeviceInformation = default(Acpv1tokensDeviceInformation), List<Acpv1tokensAssuranceData> AssuranceData = default(List<Acpv1tokensAssuranceData>), List<Acpv1instructionsMandates> Mandates = default(List<Acpv1instructionsMandates>), Acpv1tokensBuyerInformation BuyerInformation = default(Acpv1tokensBuyerInformation), bool? IsRecurring = default(bool?), string ConsumerPrompt = default(string))
+        public AgenticCreatePurchaseIntentRequest(string ClientCorrelationId = default(string), Iccv1tokensPaymentInformation PaymentInformation = default(Iccv1tokensPaymentInformation), Iccv1tokensDeviceInformation DeviceInformation = default(Iccv1tokensDeviceInformation), List<Iccv1tokensAssuranceData> AssuranceData = default(List<Iccv1tokensAssuranceData>), List<Iccv1instructionsMandates> Mandates = default(List<Iccv1instructionsMandates>), Iccv1tokensBuyerInformation BuyerInformation = default(Iccv1tokensBuyerInformation), bool? IsRecurring = default(bool?), string ConsumerPrompt = default(string))
         {
             this.ClientCorrelationId = ClientCorrelationId;
             this.PaymentInformation = PaymentInformation;
@@ -69,33 +69,33 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentInformation
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public Acpv1tokensPaymentInformation PaymentInformation { get; set; }
+        public Iccv1tokensPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceInformation
         /// </summary>
         [DataMember(Name="deviceInformation", EmitDefaultValue=false)]
-        public Acpv1tokensDeviceInformation DeviceInformation { get; set; }
+        public Iccv1tokensDeviceInformation DeviceInformation { get; set; }
 
         /// <summary>
         /// Assurance data.
         /// </summary>
         /// <value>Assurance data.</value>
         [DataMember(Name="assuranceData", EmitDefaultValue=false)]
-        public List<Acpv1tokensAssuranceData> AssuranceData { get; set; }
+        public List<Iccv1tokensAssuranceData> AssuranceData { get; set; }
 
         /// <summary>
         /// Mandate data.
         /// </summary>
         /// <value>Mandate data.</value>
         [DataMember(Name="mandates", EmitDefaultValue=false)]
-        public List<Acpv1instructionsMandates> Mandates { get; set; }
+        public List<Iccv1instructionsMandates> Mandates { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
         /// </summary>
         [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
-        public Acpv1tokensBuyerInformation BuyerInformation { get; set; }
+        public Iccv1tokensBuyerInformation BuyerInformation { get; set; }
 
         /// <summary>
         /// Indicates whether the transaction is recurring. Default value is false.

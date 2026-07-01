@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="ClientCorrelationId">Client Correlation Id used during the tokenization or during FIDO assertion. (required).</param>
         /// <param name="PaymentInformation">PaymentInformation (required).</param>
         /// <param name="ConfirmationData">(Required) Contains Transaction, Order and Payment Confirmation Events. (required).</param>
-        public AgenticConfirmTransactionEventsRequest(string ClientCorrelationId = default(string), Acpv1tokensPaymentInformation PaymentInformation = default(Acpv1tokensPaymentInformation), List<Acpv1instructionsinstructionIdconfirmationsConfirmationData> ConfirmationData = default(List<Acpv1instructionsinstructionIdconfirmationsConfirmationData>))
+        public AgenticConfirmTransactionEventsRequest(string ClientCorrelationId = default(string), Iccv1tokensPaymentInformation PaymentInformation = default(Iccv1tokensPaymentInformation), List<Iccv1instructionsinstructionIdconfirmationsConfirmationData> ConfirmationData = default(List<Iccv1instructionsinstructionIdconfirmationsConfirmationData>))
         {
             this.ClientCorrelationId = ClientCorrelationId;
             this.PaymentInformation = PaymentInformation;
@@ -59,14 +59,14 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentInformation
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public Acpv1tokensPaymentInformation PaymentInformation { get; set; }
+        public Iccv1tokensPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// (Required) Contains Transaction, Order and Payment Confirmation Events.
         /// </summary>
         /// <value>(Required) Contains Transaction, Order and Payment Confirmation Events.</value>
         [DataMember(Name="confirmationData", EmitDefaultValue=false)]
-        public List<Acpv1instructionsinstructionIdconfirmationsConfirmationData> ConfirmationData { get; set; }
+        public List<Iccv1instructionsinstructionIdconfirmationsConfirmationData> ConfirmationData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

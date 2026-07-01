@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// <param name="FraudManagementEssentials">FraudManagementEssentials.</param>
         /// <param name="DecisionManager">DecisionManager.</param>
         /// <param name="EnhancedAuthentication">EnhancedAuthentication.</param>
-        public InlineResponse2014SetupsRisk(InlineResponse2014SetupsPaymentsCardProcessing FraudManagementEssentials = default(InlineResponse2014SetupsPaymentsCardProcessing), InlineResponse2014SetupsPaymentsCardProcessing DecisionManager = default(InlineResponse2014SetupsPaymentsCardProcessing), InlineResponse2014SetupsPaymentsCardProcessing EnhancedAuthentication = default(InlineResponse2014SetupsPaymentsCardProcessing))
+        public InlineResponse2014SetupsRisk(PaymentsConfigurationSetupCardProcessing FraudManagementEssentials = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing DecisionManager = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing EnhancedAuthentication = default(PaymentsConfigurationSetupCardProcessing))
         {
             this.FraudManagementEssentials = FraudManagementEssentials;
             this.DecisionManager = DecisionManager;
@@ -47,19 +47,19 @@ namespace CyberSource.Model
         /// Gets or Sets FraudManagementEssentials
         /// </summary>
         [DataMember(Name="fraudManagementEssentials", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsCardProcessing FraudManagementEssentials { get; set; }
+        public PaymentsConfigurationSetupCardProcessing FraudManagementEssentials { get; set; }
 
         /// <summary>
         /// Gets or Sets DecisionManager
         /// </summary>
         [DataMember(Name="decisionManager", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsCardProcessing DecisionManager { get; set; }
+        public PaymentsConfigurationSetupCardProcessing DecisionManager { get; set; }
 
         /// <summary>
         /// Gets or Sets EnhancedAuthentication
         /// </summary>
         [DataMember(Name="enhancedAuthentication", EmitDefaultValue=false)]
-        public InlineResponse2014SetupsPaymentsCardProcessing EnhancedAuthentication { get; set; }
+        public PaymentsConfigurationSetupCardProcessing EnhancedAuthentication { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

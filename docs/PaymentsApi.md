@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**CreateSessionRequest**](PaymentsApi.md#createsessionrequest) | **POST** /pts/v2/payment-references | Create Alternative Payments Sessions Request
 [**IncrementAuth**](PaymentsApi.md#incrementauth) | **PATCH** /pts/v2/payments/{id} | Increment an Authorization
 [**RefreshPaymentStatus**](PaymentsApi.md#refreshpaymentstatus) | **POST** /pts/v2/refresh-payment-status/{id} | Check a Payment Status
-[**UpdateSessionReq**](PaymentsApi.md#updatesessionreq) | **PATCH** /pts/v2/payment-references/{id} | Update Alternative Payments Sessions Request
+[**UpdateSessionRequest**](PaymentsApi.md#updatesessionrequest) | **PATCH** /pts/v2/payment-references/{id} | Update Alternative Payments Sessions Request
 
 
 <a name="createorderrequest"></a>
@@ -70,8 +70,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Content-Type**: application/json, application/json; charset=utf-8
+ - **Accept**: application/hal+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -131,8 +131,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Content-Type**: application/json, application/json; charset=utf-8
+ - **Accept**: application/hal+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -192,8 +192,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Content-Type**: application/json, application/json; charset=utf-8
+ - **Accept**: application/hal+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -255,8 +255,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Content-Type**: application/json, application/json; charset=utf-8
+ - **Accept**: application/hal+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -318,14 +318,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Content-Type**: application/json, application/json; charset=utf-8
+ - **Accept**: application/hal+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatesessionreq"></a>
-# **UpdateSessionReq**
-> PtsV2PaymentsPost201Response2 UpdateSessionReq (CreateSessionRequest createSessionRequest, string id)
+<a name="updatesessionrequest"></a>
+# **UpdateSessionRequest**
+> PtsV2PaymentsPost201Response2 UpdateSessionRequest (CreateSessionRequest createSessionRequest, string id)
 
 Update Alternative Payments Sessions Request
 
@@ -341,7 +341,7 @@ using CyberSource.Model;
 
 namespace Example
 {
-    public class UpdateSessionReqExample
+    public class UpdateSessionRequestExample
     {
         public void main()
         {
@@ -352,12 +352,12 @@ namespace Example
             try
             {
                 // Update Alternative Payments Sessions Request
-                PtsV2PaymentsPost201Response2 result = apiInstance.UpdateSessionReq(createSessionRequest, id);
+                PtsV2PaymentsPost201Response2 result = apiInstance.UpdateSessionRequest(createSessionRequest, id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling PaymentsApi.UpdateSessionReq: " + e.Message );
+                Debug.Print("Exception when calling PaymentsApi.UpdateSessionRequest: " + e.Message );
             }
         }
     }
@@ -381,8 +381,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/hal+json;charset=utf-8
+ - **Content-Type**: application/json, application/json; charset=utf-8
+ - **Accept**: application/hal+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

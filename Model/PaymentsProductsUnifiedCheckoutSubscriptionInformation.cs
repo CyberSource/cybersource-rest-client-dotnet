@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="EnablementStatus">Possible values: - PENDING - ENABLED_AND_USABLE - ENABLED_NOT_USABLE - DISABLED (default to &quot;ENABLED_AND_USABLE&quot;).</param>
         /// <param name="SelfServiceability">Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY (default to &quot;NOT_SELF_SERVICEABLE&quot;).</param>
         /// <param name="Features">Features.</param>
-        public PaymentsProductsUnifiedCheckoutSubscriptionInformation(bool? Enabled = default(bool?), string EnablementStatus = "ENABLED_AND_USABLE", string SelfServiceability = "NOT_SELF_SERVICEABLE", PaymentsProductsUnifiedCheckoutSubscriptionInformationFeatures Features = default(PaymentsProductsUnifiedCheckoutSubscriptionInformationFeatures))
+        public PaymentsProductsUnifiedCheckoutSubscriptionInformation(bool? Enabled = default(bool?), string EnablementStatus = "ENABLED_AND_USABLE", string SelfServiceability = "NOT_SELF_SERVICEABLE", UcFeatureSubscription Features = default(UcFeatureSubscription))
         {
             this.Enabled = Enabled;
             // use default value if no "EnablementStatus" provided
@@ -85,7 +85,7 @@ namespace CyberSource.Model
         /// Gets or Sets Features
         /// </summary>
         [DataMember(Name="features", EmitDefaultValue=false)]
-        public PaymentsProductsUnifiedCheckoutSubscriptionInformationFeatures Features { get; set; }
+        public UcFeatureSubscription Features { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

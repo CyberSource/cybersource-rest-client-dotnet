@@ -47,7 +47,7 @@ namespace CyberSource.Model
         /// <param name="EnrollmentReferenceData">EnrollmentReferenceData.</param>
         /// <param name="AssuranceData">Assurance data..</param>
         /// <param name="ConsentData">Consent data..</param>
-        public AgenticCardEnrollmentRequest(string ClientCorrelationId = default(string), Acpv1tokensDeviceInformation DeviceInformation = default(Acpv1tokensDeviceInformation), Acpv1tokensBuyerInformation BuyerInformation = default(Acpv1tokensBuyerInformation), Acpv1tokensBillTo BillTo = default(Acpv1tokensBillTo), Acpv1tokensConsumerIdentity ConsumerIdentity = default(Acpv1tokensConsumerIdentity), Acpv1tokensPaymentInformation PaymentInformation = default(Acpv1tokensPaymentInformation), Acpv1tokensEnrollmentReferenceData EnrollmentReferenceData = default(Acpv1tokensEnrollmentReferenceData), List<Acpv1tokensAssuranceData> AssuranceData = default(List<Acpv1tokensAssuranceData>), List<Acpv1tokensConsentData> ConsentData = default(List<Acpv1tokensConsentData>))
+        public AgenticCardEnrollmentRequest(string ClientCorrelationId = default(string), Iccv1tokensDeviceInformation DeviceInformation = default(Iccv1tokensDeviceInformation), Iccv1tokensBuyerInformation BuyerInformation = default(Iccv1tokensBuyerInformation), Iccv1tokensBillTo BillTo = default(Iccv1tokensBillTo), Iccv1tokensConsumerIdentity ConsumerIdentity = default(Iccv1tokensConsumerIdentity), Iccv1tokensPaymentInformation PaymentInformation = default(Iccv1tokensPaymentInformation), Iccv1tokensEnrollmentReferenceData EnrollmentReferenceData = default(Iccv1tokensEnrollmentReferenceData), List<Iccv1tokensAssuranceData> AssuranceData = default(List<Iccv1tokensAssuranceData>), List<Iccv1tokensConsentData> ConsentData = default(List<Iccv1tokensConsentData>))
         {
             this.ClientCorrelationId = ClientCorrelationId;
             this.DeviceInformation = DeviceInformation;
@@ -71,51 +71,51 @@ namespace CyberSource.Model
         /// Gets or Sets DeviceInformation
         /// </summary>
         [DataMember(Name="deviceInformation", EmitDefaultValue=false)]
-        public Acpv1tokensDeviceInformation DeviceInformation { get; set; }
+        public Iccv1tokensDeviceInformation DeviceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
         /// </summary>
         [DataMember(Name="buyerInformation", EmitDefaultValue=false)]
-        public Acpv1tokensBuyerInformation BuyerInformation { get; set; }
+        public Iccv1tokensBuyerInformation BuyerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets BillTo
         /// </summary>
         [DataMember(Name="billTo", EmitDefaultValue=false)]
-        public Acpv1tokensBillTo BillTo { get; set; }
+        public Iccv1tokensBillTo BillTo { get; set; }
 
         /// <summary>
         /// Gets or Sets ConsumerIdentity
         /// </summary>
         [DataMember(Name="consumerIdentity", EmitDefaultValue=false)]
-        public Acpv1tokensConsumerIdentity ConsumerIdentity { get; set; }
+        public Iccv1tokensConsumerIdentity ConsumerIdentity { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentInformation
         /// </summary>
         [DataMember(Name="paymentInformation", EmitDefaultValue=false)]
-        public Acpv1tokensPaymentInformation PaymentInformation { get; set; }
+        public Iccv1tokensPaymentInformation PaymentInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets EnrollmentReferenceData
         /// </summary>
         [DataMember(Name="enrollmentReferenceData", EmitDefaultValue=false)]
-        public Acpv1tokensEnrollmentReferenceData EnrollmentReferenceData { get; set; }
+        public Iccv1tokensEnrollmentReferenceData EnrollmentReferenceData { get; set; }
 
         /// <summary>
         /// Assurance data.
         /// </summary>
         /// <value>Assurance data.</value>
         [DataMember(Name="assuranceData", EmitDefaultValue=false)]
-        public List<Acpv1tokensAssuranceData> AssuranceData { get; set; }
+        public List<Iccv1tokensAssuranceData> AssuranceData { get; set; }
 
         /// <summary>
         /// Consent data.
         /// </summary>
         /// <value>Consent data.</value>
         [DataMember(Name="consentData", EmitDefaultValue=false)]
-        public List<Acpv1tokensConsentData> ConsentData { get; set; }
+        public List<Iccv1tokensConsentData> ConsentData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

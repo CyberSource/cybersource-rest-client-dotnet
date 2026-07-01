@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="BusinessInformation">BusinessInformation (required).</param>
         /// <param name="KYC">KYC.</param>
         /// <param name="Owners">Owners.</param>
-        public Boardingv1registrationsOrganizationInformation(string OrganizationId = default(string), string ParentOrganizationId = default(string), string Type = default(string), string Status = default(string), bool? Configurable = false, Boardingv1registrationsOrganizationInformationBusinessInformation BusinessInformation = default(Boardingv1registrationsOrganizationInformationBusinessInformation), Boardingv1registrationsOrganizationInformationKYC KYC = default(Boardingv1registrationsOrganizationInformationKYC), List<Boardingv1registrationsOrganizationInformationOwners> Owners = default(List<Boardingv1registrationsOrganizationInformationOwners>))
+        public Boardingv1registrationsOrganizationInformation(string OrganizationId = default(string), string ParentOrganizationId = default(string), string Type = default(string), string Status = default(string), bool? Configurable = false, BoardingBusinessInformation BusinessInformation = default(BoardingBusinessInformation), Boardingv1registrationsOrganizationInformationKYC KYC = default(Boardingv1registrationsOrganizationInformationKYC), List<Boardingv1registrationsOrganizationInformationOwners> Owners = default(List<Boardingv1registrationsOrganizationInformationOwners>))
         {
             this.OrganizationId = OrganizationId;
             this.ParentOrganizationId = ParentOrganizationId;
@@ -110,7 +110,7 @@ namespace CyberSource.Model
         /// Gets or Sets BusinessInformation
         /// </summary>
         [DataMember(Name="businessInformation", EmitDefaultValue=false)]
-        public Boardingv1registrationsOrganizationInformationBusinessInformation BusinessInformation { get; set; }
+        public BoardingBusinessInformation BusinessInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets KYC

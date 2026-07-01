@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Payments** | [**InlineResponse2014SetupsPayments**](InlineResponse2014SetupsPayments.md) |  | [optional] 
+**Payments** | [**PaymentsConfigurationSetup**](PaymentsConfigurationSetup.md) |  | [optional] 
 **Risk** | [**InlineResponse2014SetupsRisk**](InlineResponse2014SetupsRisk.md) |  | [optional] 
 **CommerceSolutions** | [**InlineResponse2014SetupsCommerceSolutions**](InlineResponse2014SetupsCommerceSolutions.md) |  | [optional] 
 **ValueAddedServices** | [**InlineResponse2014SetupsValueAddedServices**](InlineResponse2014SetupsValueAddedServices.md) |  | [optional] 

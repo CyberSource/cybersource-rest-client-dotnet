@@ -81,6 +81,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'CLICKTOPAY'
         }
         /// <summary>
+        /// Test the property 'PAYPAL'
+        /// </summary>
+        [Test]
+        public void PAYPALTest()
+        {
+            // TODO unit test for the property 'PAYPAL'
+        }
+        /// <summary>
         /// Test the property 'TMS_TOKEN'
         /// </summary>
         [Test]

@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="InstrumentId">TMS instrument identifier referencing the stored card. (required).</param>
         /// <param name="Challenge">Challenge (required).</param>
-        public MppCredentialsRequest(string InstrumentId = default(string), Acpv1mppcredentialsChallenge Challenge = default(Acpv1mppcredentialsChallenge))
+        public MppCredentialsRequest(string InstrumentId = default(string), Iccv1mppcredentialsChallenge Challenge = default(Iccv1mppcredentialsChallenge))
         {
             this.InstrumentId = InstrumentId;
             this.Challenge = Challenge;
@@ -57,7 +57,7 @@ namespace CyberSource.Model
         /// Gets or Sets Challenge
         /// </summary>
         [DataMember(Name="challenge", EmitDefaultValue=false)]
-        public Acpv1mppcredentialsChallenge Challenge { get; set; }
+        public Iccv1mppcredentialsChallenge Challenge { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

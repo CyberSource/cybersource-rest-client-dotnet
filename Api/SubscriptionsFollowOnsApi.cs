@@ -331,7 +331,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("requestId", Configuration.ApiClient.ParameterToString(requestId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (createSubscriptionRequest != null && createSubscriptionRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
@@ -458,7 +458,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("requestId", Configuration.ApiClient.ParameterToString(requestId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (createSubscriptionRequest != null && createSubscriptionRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
@@ -575,7 +575,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("requestId", Configuration.ApiClient.ParameterToString(requestId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
@@ -697,7 +697,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("requestId", Configuration.ApiClient.ParameterToString(requestId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToString(localVarPathParams)}");
+            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(logUtility.ConvertDictionaryToString(localVarPathParams))}");
             if (Method.Get == Method.Post)
             {
                 localVarPostBody = "{}";
