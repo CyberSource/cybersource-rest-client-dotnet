@@ -25,7 +25,8 @@
         {{#description}}
         /// <value>{{description}}</value>
         {{/description}}
-        [DataMember(Name="{{baseName}}", EmitDefaultValue={{emitDefaultValue}})]
+        [JsonPropertyName("{{baseName}}")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public {{{datatypeWithEnum}}}{{#isEnum}}{{^isContainer}}?{{/isContainer}}{{/isEnum}} {{name}} { get; set; }
         {{/isEnum}}
         {{/vars}}
@@ -34,7 +35,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="{{classname}}" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
+        [JsonConstructor]
         protected {{classname}}() { }
     {{/hasOnlyReadOnly}}
     {{/hasRequired}}
@@ -47,7 +48,7 @@
         {{/isReadOnly}}
         {{/vars}}
     {{#hasOnlyReadOnly}}
-        [JsonConstructorAttribute]
+        [JsonConstructor]
     {{/hasOnlyReadOnly}}
         public {{classname}}({{#readWriteVars}}{{{datatypeWithEnum}}}{{#isEnum}}{{^isContainer}}?{{/isContainer}}{{/isEnum}} {{name}} = {{#defaultValue}}{{{defaultValue}}}{{/defaultValue}}{{^defaultValue}}default({{{datatypeWithEnum}}}{{#isEnum}}{{^isContainer}}?{{/isContainer}}{{/isEnum}}){{/defaultValue}}{{^-last}}, {{/-last}}{{/readWriteVars}})
         {
@@ -76,7 +77,8 @@ this.{{name}} = {{name}};
         /// {{^description}}Gets or Sets {{{name}}}{{/description}}{{#description}}{{description}}{{/description}}
         /// </summary>{{#description}}
         /// <value>{{description}}</value>{{/description}}
-        [DataMember(Name="{{baseName}}", EmitDefaultValue={{emitDefaultValue}})]{{#isDate}}
+        [JsonPropertyName("{{baseName}}")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]{{#isDate}}
         [JsonConverter(typeof(SwaggerDateConverter))]{{/isDate}}
         public {{{datatype}}} {{name}} { get; {{#isReadOnly}}private {{/isReadOnly}}set; }
         {{/isEnum}}
@@ -91,7 +93,7 @@ this.{{name}} = {{name}};
             var sb = new StringBuilder();
             sb.Append("class {{classname}} {\n");
             {{#vars}}
-            if ({{name}} != null) sb.Append("  {{name}}: ").Append({{name}}).Append("\n");
+            if ({{name}} != null) sb.Append("  {{name}}: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("{{classname}}", "{{baseName}}", {{name}}.ToString())).Append("\n");
             {{/vars}}
             sb.Append("}\n");
             return sb.ToString();
@@ -103,7 +105,7 @@ this.{{name}} = {{name}};
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("{{classname}}", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
         }
 
         /// <summary>

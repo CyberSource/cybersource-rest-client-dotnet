@@ -1,67 +1,99 @@
 @echo off
 
-rd /s /q ..\Api
-rd /s /q ..\Client
-rd /s /q ..\Model
+REM ============================================================================
+REM  Path layout (relative to this script at <repo-root>\generator\):
+REM    ..              -> repo root
+REM    ..\src          -> main project (Api, Client, Model, Utilities, .csproj)
+REM    ..\tests        -> test project
+REM    ..\docs         -> generated docs
+REM    ..\..           -> parent of repo (swagger-codegen output staging area)
+REM ============================================================================
+
+rd /s /q ..\src\Api
+rd /s /q ..\src\Client
+rd /s /q ..\src\Model
 rd /s /q ..\docs
-rd /s /q ..\test
+rd /s /q ..\tests\Api
+rd /s /q ..\tests\Model
 
 setlocal enabledelayedexpansion
-python replaceFieldNamesForPaths.py -i cybersource-rest-spec.json -o cybersource-rest-spec-dotnet.json > replaceFieldLogs.log
+python replaceFieldNamesForPaths.py -i cybersource-rest-spec.json -o cybersource-rest-spec-netstandard.json > replaceFieldLogs.log
 del replaceFieldLogs.log
 endlocal
 
-java -jar swagger-codegen-cli-2.4.38.jar generate -t cybersource-csharp-template -i cybersource-rest-spec-dotnet.json -l csharp -o ../ -c cybersource-csharp-config.json
+java -jar swagger-codegen-cli-2.4.38.jar generate -t cybersource-csharp-template -i cybersource-rest-spec-netstandard.json -l csharp -o ..\ -c cybersource-csharp-config.json
 
-xcopy ..\src\cybersource ..\ /s /e /y /exclude:excludelist.txt
-md ..\test
-xcopy ..\src\cybersource.test ..\test /s /e /y
-rd /s /q ..\src
+powershell -Command "Get-ChildItem '..\src\CyberSource\Api\*.cs' -Recurse | ForEach-Object { (Get-Content $_).Replace('Method.POST','Method.Post').Replace('Method.GET','Method.Get').Replace('Method.PATCH','Method.Patch').Replace('Method.DELETE','Method.Delete').Replace('Method.PUT','Method.Put') | Set-Content $_ }"
 
-echo "starting of powershell commands"
+powershell -Command "(Get-Content ..\src\CyberSource\Api\SecureFileShareApi.cs) | ForEach-Object { $_ -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement' } | Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
 
-powershell -Command "Get-ChildItem '..\Api\*.cs' -Recurse | ForEach-Object { $file = $_.FullName; $content = [System.IO.File]::ReadAllText($file); $modified = $content.Replace('Method.POST','Method.Post').Replace('Method.GET','Method.Get').Replace('Method.PATCH','Method.Patch').Replace('Method.DELETE','Method.Delete').Replace('Method.PUT','Method.Put'); [System.IO.File]::WriteAllText($file, $modified) }"
+powershell -Command "(Get-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs) | ForEach-Object { $_ -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement' } | Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
 
-powershell -Command "Set-Content ..\Api\SecureFileShareApi.cs ((Get-Content ..\Api\SecureFileShareApi.cs -Raw) -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement')"
+powershell -Command "(Get-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs) | ForEach-Object { $_ -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement' } | Set-Content ..\src\CyberSource\Api\TransactionBatchesApi.cs"
 
-powershell -Command "Set-Content ..\Api\ReportDownloadsApi.cs ((Get-Content ..\Api\ReportDownloadsApi.cs -Raw) -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement')"
+powershell -Command " Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs ((Get-Content ..\src\CyberSource\Api\SecureFileShareApi.cs -raw) -replace '\*_\/_\*;charset=utf-8', '*/*;charset=utf-8') "
 
-powershell -Command "Set-Content ..\Api\TransactionBatchesApi.cs ((Get-Content ..\Api\TransactionBatchesApi.cs -Raw) -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement')"
+REM Loading content of excludeList.txt into a space-separated list in a variable
+SETLOCAL EnableDelayedExpansion
+SET excludeList=
+FOR /f "tokens=* delims=\n" %%a in ('type "excludelist.txt"') do (
+    SET excludeList=!excludeList! %%a
+)
 
-powershell -Command " Set-Content ..\Api\SecureFileShareApi.cs ((get-content ..\Api\SecureFileShareApi.cs -raw) -replace '\*_\/_\*;charset=utf-8', '*/*;charset=utf-8') "
+powershell Rename-Item ..\src\CyberSource.Test\Model\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1Tests.cs RiskV1AddressVerificationsPost201ResponseStandardAddressAddress1Tests.cs
 
-REM For changing nuspec filename in csproj file
-powershell -Command "(Get-Content ..\CyberSource.csproj) | ForEach-Object { $_ -replace '<None Include=\"CyberSource.nuspec\" />', '<None Include=\"cybersource-rest-client-dotnet.nuspec\" />' } | Set-Content ..\CyberSource.csproj"
+powershell Rename-Item ..\src\CyberSource\Model\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1.cs RiskV1AddressVerificationsPost201ResponseAddress1.cs
 
-powershell -Command "(Get-Content ..\test\CyberSource.Test.csproj) | ForEach-Object { $_ -replace 'CyberSource\\CyberSource.csproj', 'cybersource-rest-client-dotnet.csproj' } | ForEach-Object { $_ -replace '<Name>CyberSource</Name>', '<Name>cybersource-rest-client-dotnet</Name>' } | Set-Content ..\test\CyberSource.Test.csproj"
+powershell Rename-Item ..\docs\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1.md RiskV1AddressVerificationsPost201ResponseAddress1.md
 
-REM For Renaming the .csproj file Name from Cybersource to cybersource-rest-client-dotnet
-del ..\cybersource-rest-client-dotnet.csproj
-powershell Rename-Item ..\CyberSource.csproj cybersource-rest-client-dotnet.csproj
-powershell Rename-Item ..\test\CyberSource.Test.csproj cybersource-rest-client-dotnet.Test.csproj
+powershell Rename-Item ..\src\CyberSource.Test\Model\Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionTests.cs Ptsv2paymentsMerchantInitiatedTransactionTests.cs
 
-REM For changing project filenames in sln file
-powershell -Command "(Get-Content ..\CyberSource.sln) | ForEach-Object { $_ -replace 'CyberSource', 'cybersource-rest-client-dotnet' } | Set-Content ..\CyberSource.sln"
+robocopy ..\src\CyberSource ..\src /S /XF %excludeList%
 
-REM For Renaming the .sln filename from Cybersource to cybersource-rest-client-dotnet
-del ..\cybersource-rest-client-dotnet.sln
-
-powershell Rename-Item ..\CyberSource.sln cybersource-rest-client-dotnet.sln
-
-echo "completed powershell commands"
+robocopy ..\src\CyberSource.Test ..\tests /S /XF %excludeList%
 
 @REM replace sdkLinks fieldName to links for supporting links field name in request/response body
 echo "starting of replacing the links keyword in PblPaymentLinksAllGet200Response.cs model"
-powershell -Command "Set-Content ..\Model\PblPaymentLinksAllGet200Response.cs ((Get-Content ..\Model\PblPaymentLinksAllGet200Response.cs -Raw) -replace '\[DataMember\(Name=\"sdkLinks\", EmitDefaultValue=false\)\]', '[DataMember(Name=\"links\", EmitDefaultValue=false)]')"
+powershell -Command "Set-Content ..\src\Model\PblPaymentLinksAllGet200Response.cs ((Get-Content ..\src\Model\PblPaymentLinksAllGet200Response.cs -Raw) -replace '\[JsonPropertyName\(\"sdkLinks\"\)\]', '[JsonPropertyName(\"links\")]')"
 echo "completed the task of replacing the links keyword in PblPaymentLinksAllGet200Response.cs model"
 
+rd /s /q ..\src\CyberSource
+rd /s /q ..\src\CyberSource.Test
+del ..\*ignore
+del ..\.travis.yml
+del ..\build.*
+del ..\git_push.sh
+del ..\mono_nunit_test.sh
+del ..\README.md
+del ..\license.txt
+del ..\CyberSource.sln
+
+git checkout ..\.gitignore
 git checkout ..\README.md
-git checkout ..\Api\OAuthApi.cs
-git checkout ..\Model\AccessTokenResponse.cs
-git checkout ..\Model\CreateAccessTokenRequest.cs
+git checkout ..\license.txt
 
-git checkout ..\test\packages.config
+del ..\src\Client\IReadableConfiguration.cs
 
-del ..\Client\IReadableConfiguration.cs
+git checkout ..\src\Api\OAuthApi.cs
+git checkout ..\src\Model\AccessTokenResponse.cs
+git checkout ..\src\Model\CreateAccessTokenRequest.cs
+git checkout ..\src\Client\GlobalConfiguration.cs
+git checkout ..\src\Api\ApiBase.cs
+git checkout ..\src\Client\IConfiguration.cs
+git checkout ..\src\Client\IMerchantLegacySettings.cs
+git checkout ..\src\Client\IMerchantNetworkSettings.cs
+git checkout ..\src\Client\IMutableConfiguration.cs
+git checkout ..\src\Client\ConfigurationAuthenticationExtensions.cs
+git checkout ..\src\Client\ConfigurationMLEExtensions.cs
+git checkout ..\src\Client\MerchantCredentialSettingsFactory.cs
+git checkout ..\src\Client\MerchantCredentialSettingsProcessor.cs
+git checkout ..\src\Client\MerchantCredentialSettingsValidator.cs
+git checkout ..\src\Client\MerchantLegacySettings.cs
+git checkout ..\src\Client\MerchantMLESettingsFactory.cs
+git checkout ..\src\Client\MerchantMLESettingsProcessor.cs
+git checkout ..\src\Client\MerchantMLESettingsValidator.cs
+git checkout ..\src\Client\MerchantRequestSettingsFactory.cs
+git checkout ..\src\Client\MerchantNetworkSettings.cs
+git checkout ..\src\Client\RestClientFactory.cs
 
 pause
