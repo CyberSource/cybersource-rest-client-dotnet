@@ -1,0 +1,31 @@
+<Project>
+
+  <!--
+    Two csprojs (CyberSource.Rest.Client.NetStandard.csproj and
+    CyberSource.Rest.Client.csproj) share this src/ source folder.
+    By default they would share src/obj/ and src/bin/, which causes
+    auto-generated AssemblyInfo collisions and corrupts each other's
+    restored assets.
+
+    Scope obj/ and bin/ per project so the two csprojs are fully isolated
+    even though they sit side by side. (Mirrors the pattern in the
+    AuthenticationSdk repo.)
+  -->
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)bin\$(MSBuildProjectName)\</BaseOutputPath>
+  </PropertyGroup>
+
+  <!--
+    Default 'obj/**' exclusion only covers the current project's
+    BaseIntermediateOutputPath. Since both csprojs share src/, each one's
+    compile glob would otherwise pick up the other's generated
+    *.AssemblyInfo.cs and explode with CS0579 duplicate-attribute errors.
+    Exclude the entire src/obj and src/bin trees from default item globs.
+  -->
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildThisFileDirectory)obj\**;$(MSBuildThisFileDirectory)bin\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+</Project>

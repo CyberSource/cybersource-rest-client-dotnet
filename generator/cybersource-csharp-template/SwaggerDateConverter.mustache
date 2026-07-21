@@ -1,5 +1,8 @@
 {{>partial_header}}
-using Newtonsoft.Json.Converters;
+using System;
+using System.Globalization;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace {{packageName}}.Client
 {
@@ -7,15 +10,40 @@ namespace {{packageName}}.Client
     /// Formatter for 'date' swagger formats ss defined by full-date - RFC3339
     /// see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types
     /// </summary>
-    public class SwaggerDateConverter : IsoDateTimeConverter
+    public class SwaggerDateConverter : JsonConverter<DateTime>
     {
+        // full-date   = date-fullyear "-" date-month "-" date-mday
+        private const string DateTimeFormat = "yyyy-MM-dd";
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="SwaggerDateConverter" /> class.
+        /// Reads and converts the JSON value to a <see cref="DateTime" />.
         /// </summary>
-        public SwaggerDateConverter()
+        public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            // full-date   = date-fullyear "-" date-month "-" date-mday
-            DateTimeFormat = "yyyy-MM-dd";
+            string value = reader.GetString();
+
+            if (string.IsNullOrEmpty(value))
+            {
+                return default;
+            }
+
+            // Preserve the lenient read behavior of the previous Newtonsoft.Json based
+            // converter (IsoDateTimeConverter + DateParseHandling.DateTime), which accepted
+            // both the canonical "yyyy-MM-dd" format and full ISO-8601 datetimes.
+            if (DateTime.TryParseExact(value, DateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime exact))
+            {
+                return exact;
+            }
+
+            return DateTime.Parse(value, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind);
+        }
+
+        /// <summary>
+        /// Writes the specified <see cref="DateTime" /> value as JSON.
+        /// </summary>
+        public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
+        {
+            writer.WriteStringValue(value.ToString(DateTimeFormat, CultureInfo.InvariantCulture));
         }
     }
 }

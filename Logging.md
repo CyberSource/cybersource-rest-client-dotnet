@@ -2,7 +2,7 @@
 
 # Logging in CyberSource REST Client SDK (.NET)
 
-Since v0.0.1.14, a new logging framework has been introduced in the SDK. This new logging framework makes use of NLog, and standardizes the logging so that it can be integrated with the logging in the client application. The decision to use NLog for building this logging framework has been taken based on benchmark studies that have been made on various logging platforms supported for C#/.NET.
+The logging framework implemented in this SDK makes use of NLog, and standardizes the logging so that it can be integrated with the logging in the client application. The decision to use NLog for building this logging framework has been taken based on benchmark studies that have been made on various logging platforms supported for C#/.NET.
 
 [One such study](https://www.loggly.com/blog/benchmarking-5-popular-net-logging-libraries/) performed benchmarking of five logging frameworks on the market &mdash; Log4Net, ELMAH, NLog, Microsoft Enterprise Library, and NSpring. In this study,
 

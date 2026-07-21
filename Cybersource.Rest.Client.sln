@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37411.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybersource.Rest.Client", "src\Cybersource.Rest.Client.csproj", "{EF0EF155-BFB6-DCE7-4B80-3D40D71538D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cybersource.Rest.Client.Tests", "tests\Cybersource.Rest.Client.Tests.csproj", "{359D1E4E-F886-8400-4194-312558B47D46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF0EF155-BFB6-DCE7-4B80-3D40D71538D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0EF155-BFB6-DCE7-4B80-3D40D71538D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0EF155-BFB6-DCE7-4B80-3D40D71538D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0EF155-BFB6-DCE7-4B80-3D40D71538D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{359D1E4E-F886-8400-4194-312558B47D46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{359D1E4E-F886-8400-4194-312558B47D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{359D1E4E-F886-8400-4194-312558B47D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{359D1E4E-F886-8400-4194-312558B47D46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75FE37AC-132F-41AB-9839-9D08D25D8814}
+	EndGlobalSection
+EndGlobal
