@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Riskv1liststypeentriesDeviceInformation
     /// </summary>
     [DataContract]
-    public partial class Riskv1liststypeentriesDeviceInformation :  IEquatable<Riskv1liststypeentriesDeviceInformation>, IValidatableObject
+    public partial class Riskv1liststypeentriesDeviceInformation :  ModelExtensions, IEquatable<Riskv1liststypeentriesDeviceInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1liststypeentriesDeviceInformation" /> class.
@@ -67,6 +68,7 @@ namespace CyberSource.Model
             sb.Append("class Riskv1liststypeentriesDeviceInformation {\n");
             if (IpAddress != null) sb.Append("  IpAddress: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1liststypeentriesDeviceInformation", "ipAddress", IpAddress.ToString())).Append("\n");
             if (NetworkIpAddress != null) sb.Append("  NetworkIpAddress: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1liststypeentriesDeviceInformation", "networkIpAddress", NetworkIpAddress.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +79,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Riskv1liststypeentriesDeviceInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Riskv1liststypeentriesDeviceInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -102,7 +104,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.IpAddress == other.IpAddress ||
                     this.IpAddress != null &&
@@ -126,10 +132,13 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.IpAddress != null)
                     hash = hash * 59 + this.IpAddress.GetHashCode();
                 if (this.NetworkIpAddress != null)
                     hash = hash * 59 + this.NetworkIpAddress.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

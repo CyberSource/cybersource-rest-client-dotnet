@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// PostDeviceSearchRequestV3
     /// </summary>
     [DataContract]
-    public partial class PostDeviceSearchRequestV3 :  IEquatable<PostDeviceSearchRequestV3>, IValidatableObject
+    public partial class PostDeviceSearchRequestV3 :  ModelExtensions, IEquatable<PostDeviceSearchRequestV3>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PostDeviceSearchRequestV3" /> class.
@@ -89,6 +90,7 @@ namespace CyberSource.Model
             if (Sort != null) sb.Append("  Sort: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PostDeviceSearchRequestV3", "sort", Sort.ToString())).Append("\n");
             if (Offset != null) sb.Append("  Offset: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PostDeviceSearchRequestV3", "offset", Offset.ToString())).Append("\n");
             if (Limit != null) sb.Append("  Limit: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PostDeviceSearchRequestV3", "limit", Limit.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,7 +101,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PostDeviceSearchRequestV3", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PostDeviceSearchRequestV3", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -124,7 +126,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Query == other.Query ||
                     this.Query != null &&
@@ -158,6 +164,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Query != null)
                     hash = hash * 59 + this.Query.GetHashCode();
                 if (this.Sort != null)
@@ -166,6 +174,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Offset.GetHashCode();
                 if (this.Limit != null)
                     hash = hash * 59 + this.Limit.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

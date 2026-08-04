@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -116,10 +118,10 @@ namespace CyberSource.Api
         /// <returns>ReportingV3InterchangeClearingLevelDetailsGet200Response</returns>
         public ReportingV3InterchangeClearingLevelDetailsGet200Response GetInterchangeClearingLevelDetails(DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetInterchangeClearingLevelDetails\" STARTED");
+            logger.LogDebug("CALLING API \"GetInterchangeClearingLevelDetails\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3InterchangeClearingLevelDetailsGet200Response> localVarResponse = GetInterchangeClearingLevelDetailsWithHttpInfo(startTime, endTime, organizationId);
-            logger.Debug("CALLING API \"GetInterchangeClearingLevelDetails\" ENDED");
+            logger.LogDebug("CALLING API \"GetInterchangeClearingLevelDetails\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -139,13 +141,13 @@ namespace CyberSource.Api
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
+                logger.LogError("ApiException : Missing required parameter 'startTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
             }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
+                logger.LogError("ApiException : Missing required parameter 'endTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
             }
 
@@ -178,19 +180,19 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("startTime", ApiClient.ParameterToString(startTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endTime != null)
             {
                 localVarQueryParams.Add("endTime", ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -214,11 +216,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -238,7 +240,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetInterchangeClearingLevelDetails", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -258,10 +260,10 @@ namespace CyberSource.Api
         /// <returns>Task of ReportingV3InterchangeClearingLevelDetailsGet200Response</returns>
         public async Task<ReportingV3InterchangeClearingLevelDetailsGet200Response> GetInterchangeClearingLevelDetailsAsync(DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetInterchangeClearingLevelDetailsAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetInterchangeClearingLevelDetailsAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3InterchangeClearingLevelDetailsGet200Response> localVarResponse = await GetInterchangeClearingLevelDetailsAsyncWithHttpInfo(startTime, endTime, organizationId);
-            logger.Debug("CALLING API \"GetInterchangeClearingLevelDetailsAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetInterchangeClearingLevelDetailsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -282,13 +284,13 @@ namespace CyberSource.Api
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
+                logger.LogError("ApiException : Missing required parameter 'startTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
             }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
+                logger.LogError("ApiException : Missing required parameter 'endTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling InterchangeClearingLevelDetailsApi->GetInterchangeClearingLevelDetails");
             }
 
@@ -321,19 +323,19 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("startTime", ApiClient.ParameterToString(startTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endTime != null)
             {
                 localVarQueryParams.Add("endTime", ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -356,11 +358,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -380,7 +382,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetInterchangeClearingLevelDetails", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

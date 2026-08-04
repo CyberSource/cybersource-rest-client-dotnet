@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -152,10 +154,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2CreateOrderPost201Response</returns>
         public PtsV2CreateOrderPost201Response CreateOrder(CreateOrderRequest createOrderRequest)
         {
-            logger.Debug("CALLING API \"CreateOrder\" STARTED");
+            logger.LogDebug("CALLING API \"CreateOrder\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2CreateOrderPost201Response> localVarResponse = CreateOrderWithHttpInfo(createOrderRequest);
-            logger.Debug("CALLING API \"CreateOrder\" ENDED");
+            logger.LogDebug("CALLING API \"CreateOrder\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -173,7 +175,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createOrderRequest' is set
             if (createOrderRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createOrderRequest' when calling OrdersApi->CreateOrder");
+                logger.LogError("ApiException : Missing required parameter 'createOrderRequest' when calling OrdersApi->CreateOrder");
                 throw new ApiException(400, "Missing required parameter 'createOrderRequest' when calling OrdersApi->CreateOrder");
             }
 
@@ -214,23 +216,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreateOrder,CreateOrderAsync,CreateOrderWithHttpInfo,CreateOrderAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateOrder,CreateOrderAsync,CreateOrderWithHttpInfo,CreateOrderAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -245,7 +247,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateOrder", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -263,10 +265,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2CreateOrderPost201Response</returns>
         public async Task<PtsV2CreateOrderPost201Response> CreateOrderAsync(CreateOrderRequest createOrderRequest)
         {
-            logger.Debug("CALLING API \"CreateOrderAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateOrderAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2CreateOrderPost201Response> localVarResponse = await CreateOrderAsyncWithHttpInfo(createOrderRequest);
-            logger.Debug("CALLING API \"CreateOrderAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreateOrderAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -285,7 +287,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createOrderRequest' is set
             if (createOrderRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createOrderRequest' when calling OrdersApi->CreateOrder");
+                logger.LogError("ApiException : Missing required parameter 'createOrderRequest' when calling OrdersApi->CreateOrder");
                 throw new ApiException(400, "Missing required parameter 'createOrderRequest' when calling OrdersApi->CreateOrder");
             }
 
@@ -326,23 +328,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreateOrder,CreateOrderAsync,CreateOrderWithHttpInfo,CreateOrderAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateOrder,CreateOrderAsync,CreateOrderWithHttpInfo,CreateOrderAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -357,7 +359,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateOrder", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -375,10 +377,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2UpdateOrderPatch201Response</returns>
         public PtsV2UpdateOrderPatch201Response UpdateOrder(string id, UpdateOrderRequest updateOrderRequest)
         {
-            logger.Debug("CALLING API \"UpdateOrder\" STARTED");
+            logger.LogDebug("CALLING API \"UpdateOrder\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2UpdateOrderPatch201Response> localVarResponse = UpdateOrderWithHttpInfo(id, updateOrderRequest);
-            logger.Debug("CALLING API \"UpdateOrder\" ENDED");
+            logger.LogDebug("CALLING API \"UpdateOrder\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -397,13 +399,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling OrdersApi->UpdateOrder");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling OrdersApi->UpdateOrder");
                 throw new ApiException(400, "Missing required parameter 'id' when calling OrdersApi->UpdateOrder");
             }
             // verify the required parameter 'updateOrderRequest' is set
             if (updateOrderRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updateOrderRequest' when calling OrdersApi->UpdateOrder");
+                logger.LogError("ApiException : Missing required parameter 'updateOrderRequest' when calling OrdersApi->UpdateOrder");
                 throw new ApiException(400, "Missing required parameter 'updateOrderRequest' when calling OrdersApi->UpdateOrder");
             }
 
@@ -436,7 +438,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (updateOrderRequest != null && updateOrderRequest.GetType() != typeof(byte[]))
             {
@@ -450,23 +452,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "UpdateOrder,UpdateOrderAsync,UpdateOrderWithHttpInfo,UpdateOrderAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "UpdateOrder,UpdateOrderAsync,UpdateOrderWithHttpInfo,UpdateOrderAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -481,7 +483,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("UpdateOrder", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -500,10 +502,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2UpdateOrderPatch201Response</returns>
         public async Task<PtsV2UpdateOrderPatch201Response> UpdateOrderAsync(string id, UpdateOrderRequest updateOrderRequest)
         {
-            logger.Debug("CALLING API \"UpdateOrderAsync\" STARTED");
+            logger.LogDebug("CALLING API \"UpdateOrderAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2UpdateOrderPatch201Response> localVarResponse = await UpdateOrderAsyncWithHttpInfo(id, updateOrderRequest);
-            logger.Debug("CALLING API \"UpdateOrderAsync\" ENDED");
+            logger.LogDebug("CALLING API \"UpdateOrderAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -523,13 +525,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling OrdersApi->UpdateOrder");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling OrdersApi->UpdateOrder");
                 throw new ApiException(400, "Missing required parameter 'id' when calling OrdersApi->UpdateOrder");
             }
             // verify the required parameter 'updateOrderRequest' is set
             if (updateOrderRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updateOrderRequest' when calling OrdersApi->UpdateOrder");
+                logger.LogError("ApiException : Missing required parameter 'updateOrderRequest' when calling OrdersApi->UpdateOrder");
                 throw new ApiException(400, "Missing required parameter 'updateOrderRequest' when calling OrdersApi->UpdateOrder");
             }
 
@@ -562,7 +564,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (updateOrderRequest != null && updateOrderRequest.GetType() != typeof(byte[]))
             {
@@ -576,23 +578,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "UpdateOrder,UpdateOrderAsync,UpdateOrderWithHttpInfo,UpdateOrderAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "UpdateOrder,UpdateOrderAsync,UpdateOrderWithHttpInfo,UpdateOrderAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -607,7 +609,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("UpdateOrder", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

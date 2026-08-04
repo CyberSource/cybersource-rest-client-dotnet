@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Payment Information data. References the tokenized payment card to use for this transaction. At least one of customer, paymentInstrument, or instrumentIdentifier must be provided. The instrumentIdentifier is the most commonly used reference. If you have a TMS instrument identifier, provide it in instrumentIdentifier.id.
     /// </summary>
     [DataContract]
-    public partial class Iccv1tokensPaymentInformation :  IEquatable<Iccv1tokensPaymentInformation>, IValidatableObject
+    public partial class Iccv1tokensPaymentInformation :  ModelExtensions, IEquatable<Iccv1tokensPaymentInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Iccv1tokensPaymentInformation" /> class.
@@ -80,6 +81,7 @@ namespace CyberSource.Model
             if (Customer != null) sb.Append("  Customer: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1tokensPaymentInformation", "customer", Customer.ToString())).Append("\n");
             if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1tokensPaymentInformation", "paymentInstrument", PaymentInstrument.ToString())).Append("\n");
             if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1tokensPaymentInformation", "instrumentIdentifier", InstrumentIdentifier.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,7 +92,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1tokensPaymentInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1tokensPaymentInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -115,7 +117,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Customer == other.Customer ||
                     this.Customer != null &&
@@ -144,12 +150,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
                 if (this.PaymentInstrument != null)
                     hash = hash * 59 + this.PaymentInstrument.GetHashCode();
                 if (this.InstrumentIdentifier != null)
                     hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

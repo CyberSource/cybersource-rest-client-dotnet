@@ -18,6 +18,8 @@ using CyberSource.Client;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -105,7 +107,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void GetXSDV2(string reportDefinitionNameVersion)
         {
-            logger.Debug("CALLING API \"GetXSDV2\" STARTED");
+            logger.LogDebug("CALLING API \"GetXSDV2\" STARTED");
             this.SetStatusCode(null);
             GetXSDV2WithHttpInfo(reportDefinitionNameVersion);
         }
@@ -123,7 +125,7 @@ namespace CyberSource.Api
             // verify the required parameter 'reportDefinitionNameVersion' is set
             if (reportDefinitionNameVersion == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportDefinitionNameVersion' when calling DownloadXSDApi->GetXSDV2");
+                logger.LogError("ApiException : Missing required parameter 'reportDefinitionNameVersion' when calling DownloadXSDApi->GetXSDV2");
                 throw new ApiException(400, "Missing required parameter 'reportDefinitionNameVersion' when calling DownloadXSDApi->GetXSDV2");
             }
 
@@ -155,7 +157,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportDefinitionNameVersion", ApiClient.ParameterToString(reportDefinitionNameVersion)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -179,11 +181,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -203,7 +205,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetXSDV2", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -222,7 +224,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task GetXSDV2Async(string reportDefinitionNameVersion)
         {
-            logger.Debug("CALLING API \"GetXSDV2Async\" STARTED");
+            logger.LogDebug("CALLING API \"GetXSDV2Async\" STARTED");
             this.SetStatusCode(null);
             await GetXSDV2AsyncWithHttpInfo(reportDefinitionNameVersion);
 
@@ -241,7 +243,7 @@ namespace CyberSource.Api
             // verify the required parameter 'reportDefinitionNameVersion' is set
             if (reportDefinitionNameVersion == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportDefinitionNameVersion' when calling DownloadXSDApi->GetXSDV2");
+                logger.LogError("ApiException : Missing required parameter 'reportDefinitionNameVersion' when calling DownloadXSDApi->GetXSDV2");
                 throw new ApiException(400, "Missing required parameter 'reportDefinitionNameVersion' when calling DownloadXSDApi->GetXSDV2");
             }
 
@@ -273,7 +275,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportDefinitionNameVersion", ApiClient.ParameterToString(reportDefinitionNameVersion)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -296,11 +298,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -320,7 +322,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetXSDV2", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

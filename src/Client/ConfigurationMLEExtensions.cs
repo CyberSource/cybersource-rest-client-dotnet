@@ -45,7 +45,7 @@ namespace CyberSource.Client
                 throw new ArgumentException("Configuration must be mutable to add HTTP signature credentials.", nameof(configuration));
             }
 
-            var processor = new MerchantMLESettingsProcessor(new MerchantMLESettingsFactory(), new MerchantMLESettingsValidator());
+            var processor = new MerchantMLESettingsProcessor(new MerchantMLESettingsFactory(), new MerchantMLESettingsValidator(configuration.MerchantLegacySettings.LoggerFactory), configuration.MerchantLegacySettings.LoggerFactory);
 
             var newMLESettings = processor.CreateMLESettings(configurationDictionary, mapToControlMLEonAPI, responseMlePrivateKey);
 

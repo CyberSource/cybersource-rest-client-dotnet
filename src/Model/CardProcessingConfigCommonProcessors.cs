@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// CardProcessingConfigCommonProcessors
     /// </summary>
     [DataContract]
-    public partial class CardProcessingConfigCommonProcessors :  IEquatable<CardProcessingConfigCommonProcessors>, IValidatableObject
+    public partial class CardProcessingConfigCommonProcessors :  ModelExtensions, IEquatable<CardProcessingConfigCommonProcessors>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CardProcessingConfigCommonProcessors" /> class.
@@ -621,6 +622,7 @@ namespace CyberSource.Model
             if (EnablePosNetworkSwitching != null) sb.Append("  EnablePosNetworkSwitching: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CardProcessingConfigCommonProcessors", "enablePosNetworkSwitching", EnablePosNetworkSwitching.ToString())).Append("\n");
             if (EnableDynamicCurrencyConversion != null) sb.Append("  EnableDynamicCurrencyConversion: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CardProcessingConfigCommonProcessors", "enableDynamicCurrencyConversion", EnableDynamicCurrencyConversion.ToString())).Append("\n");
             if (MerchantTier != null) sb.Append("  MerchantTier: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CardProcessingConfigCommonProcessors", "merchantTier", MerchantTier.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -631,7 +633,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("CardProcessingConfigCommonProcessors", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("CardProcessingConfigCommonProcessors", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -656,7 +658,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.BatchGroup == other.BatchGroup ||
                     this.BatchGroup != null &&
@@ -930,6 +936,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.BatchGroup != null)
                     hash = hash * 59 + this.BatchGroup.GetHashCode();
                 if (this.BusinessApplicationId != null)
@@ -1034,6 +1042,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EnableDynamicCurrencyConversion.GetHashCode();
                 if (this.MerchantTier != null)
                     hash = hash * 59 + this.MerchantTier.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

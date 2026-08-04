@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Consumer Identity data. Identifies the consumer using an email address or phone number.
     /// </summary>
     [DataContract]
-    public partial class Iccv1tokensConsumerIdentity :  IEquatable<Iccv1tokensConsumerIdentity>, IValidatableObject
+    public partial class Iccv1tokensConsumerIdentity :  ModelExtensions, IEquatable<Iccv1tokensConsumerIdentity>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Iccv1tokensConsumerIdentity" /> class.
@@ -94,6 +95,7 @@ namespace CyberSource.Model
             if (IdentityValue != null) sb.Append("  IdentityValue: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1tokensConsumerIdentity", "identityValue", IdentityValue.ToString())).Append("\n");
             if (IdentityProvider != null) sb.Append("  IdentityProvider: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1tokensConsumerIdentity", "identityProvider", IdentityProvider.ToString())).Append("\n");
             if (IdentityProviderUrl != null) sb.Append("  IdentityProviderUrl: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1tokensConsumerIdentity", "identityProviderUrl", IdentityProviderUrl.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,7 +106,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1tokensConsumerIdentity", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1tokensConsumerIdentity", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -129,7 +131,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.IdentityType == other.IdentityType ||
                     this.IdentityType != null &&
@@ -163,6 +169,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.IdentityType != null)
                     hash = hash * 59 + this.IdentityType.GetHashCode();
                 if (this.IdentityValue != null)
@@ -171,6 +179,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.IdentityProvider.GetHashCode();
                 if (this.IdentityProviderUrl != null)
                     hash = hash * 59 + this.IdentityProviderUrl.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

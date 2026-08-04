@@ -25,6 +25,8 @@ java -jar swagger-codegen-cli-2.4.38.jar generate -t cybersource-csharp-template
 
 powershell -Command "Get-ChildItem '..\src\CyberSource\Api\*.cs' -Recurse | ForEach-Object { (Get-Content $_).Replace('Method.POST','Method.Post').Replace('Method.GET','Method.Get').Replace('Method.PATCH','Method.Patch').Replace('Method.DELETE','Method.Delete').Replace('Method.PUT','Method.Put') | Set-Content $_ }"
 
+powershell -Command "Get-ChildItem '..\src\CyberSource\Api\*.cs' -Recurse | ForEach-Object { (Get-Content $_ -Raw).Replace('{session_id}','{sessionId}').Replace('{product_id}','{productId}') | Set-Content $_ -NoNewline }"
+
 powershell -Command "(Get-Content ..\src\CyberSource\Api\SecureFileShareApi.cs) | ForEach-Object { $_ -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement' } | Set-Content ..\src\CyberSource\Api\SecureFileShareApi.cs"
 
 powershell -Command "(Get-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs) | ForEach-Object { $_ -replace 'null\); \/\/ Return statement', 'localVarResponse.Content); // Return statement' } | Set-Content ..\src\CyberSource\Api\ReportDownloadsApi.cs"
@@ -40,13 +42,13 @@ FOR /f "tokens=* delims=\n" %%a in ('type "excludelist.txt"') do (
     SET excludeList=!excludeList! %%a
 )
 
-powershell Rename-Item ..\src\CyberSource.Test\Model\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1Tests.cs RiskV1AddressVerificationsPost201ResponseStandardAddressAddress1Tests.cs
+powershell -Command "if (Test-Path ..\src\CyberSource.Test\Model\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1Tests.cs) { Rename-Item ..\src\CyberSource.Test\Model\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1Tests.cs RiskV1AddressVerificationsPost201ResponseStandardAddressAddress1Tests.cs }"
 
-powershell Rename-Item ..\src\CyberSource\Model\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1.cs RiskV1AddressVerificationsPost201ResponseAddress1.cs
+powershell -Command "if (Test-Path ..\src\CyberSource\Model\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1.cs) { Rename-Item ..\src\CyberSource\Model\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1.cs RiskV1AddressVerificationsPost201ResponseAddress1.cs }"
 
-powershell Rename-Item ..\docs\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1.md RiskV1AddressVerificationsPost201ResponseAddress1.md
+powershell -Command "if (Test-Path ..\docs\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1.md) { Rename-Item ..\docs\RiskV1AddressVerificationsPost201ResponseAddressVerificationInformationStandardAddressAddress1.md RiskV1AddressVerificationsPost201ResponseAddress1.md }"
 
-powershell Rename-Item ..\src\CyberSource.Test\Model\Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionTests.cs Ptsv2paymentsMerchantInitiatedTransactionTests.cs
+powershell -Command "if (Test-Path ..\src\CyberSource.Test\Model\Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionTests.cs) { Rename-Item ..\src\CyberSource.Test\Model\Ptsv2paymentsProcessingInformationAuthorizationOptionsInitiatorMerchantInitiatedTransactionTests.cs Ptsv2paymentsMerchantInitiatedTransactionTests.cs }"
 
 robocopy ..\src\CyberSource ..\src /S /XF %excludeList%
 
@@ -75,14 +77,20 @@ git checkout ..\license.txt
 del ..\src\Client\IReadableConfiguration.cs
 
 git checkout ..\src\Api\OAuthApi.cs
+git checkout ..\src\Api\ApiBase.cs
 git checkout ..\src\Model\AccessTokenResponse.cs
 git checkout ..\src\Model\CreateAccessTokenRequest.cs
 git checkout ..\src\Client\GlobalConfiguration.cs
-git checkout ..\src\Api\ApiBase.cs
+git checkout ..\src\Client\RestClientCacheKey.cs
+git checkout ..\src\Client\SdkHttpMessageHandlerBuilder.cs
+git checkout ..\src\Client\SdkOwnedCacheEntry.cs
+git checkout ..\src\Client\SdkOwnedRestClientCache.cs
+git checkout ..\src\Client\ServiceCollectionExtensions.cs
 git checkout ..\src\Client\IConfiguration.cs
 git checkout ..\src\Client\IMerchantLegacySettings.cs
 git checkout ..\src\Client\IMerchantNetworkSettings.cs
 git checkout ..\src\Client\IMutableConfiguration.cs
+git checkout ..\src\Client\IMutableMerchantNetworkSettings.cs
 git checkout ..\src\Client\ConfigurationAuthenticationExtensions.cs
 git checkout ..\src\Client\ConfigurationMLEExtensions.cs
 git checkout ..\src\Client\MerchantCredentialSettingsFactory.cs
@@ -94,6 +102,7 @@ git checkout ..\src\Client\MerchantMLESettingsProcessor.cs
 git checkout ..\src\Client\MerchantMLESettingsValidator.cs
 git checkout ..\src\Client\MerchantRequestSettingsFactory.cs
 git checkout ..\src\Client\MerchantNetworkSettings.cs
+git checkout ..\src\Client\MerchantNetworkSettingsExtensions.cs
 git checkout ..\src\Client\RestClientFactory.cs
 
 pause

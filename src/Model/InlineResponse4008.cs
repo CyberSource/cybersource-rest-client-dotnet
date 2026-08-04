@@ -19,88 +19,73 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Error Bean
+    /// InlineResponse4008
     /// </summary>
     [DataContract]
-    public partial class InlineResponse4008 :  IEquatable<InlineResponse4008>, IValidatableObject
+    public partial class InlineResponse4008 :  ModelExtensions, IEquatable<InlineResponse4008>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4008" /> class.
         /// </summary>
-        [JsonConstructor]
-        protected InlineResponse4008() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse4008" /> class.
-        /// </summary>
-        /// <param name="Code">Error code (required).</param>
-        /// <param name="Message">Error message (required).</param>
-        /// <param name="LocalizationKey">Localization Key Name.</param>
-        /// <param name="CorrelationId">Correlation Id.</param>
-        /// <param name="Detail">Error Detail.</param>
-        /// <param name="Fields">Error fields List.</param>
-        public InlineResponse4008(string Code = default(string), string Message = default(string), string LocalizationKey = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse4008Fields> Fields = default(List<InlineResponse4008Fields>))
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
+        /// <param name="Reason">The reason of the status.  Possible values:  - INVALID_DATA  - INVALID_MERCHANT_CONFIGURATION   .</param>
+        /// <param name="Message">The detail message related to the status and reason listed above..</param>
+        /// <param name="Details">Details.</param>
+        public InlineResponse4008(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
         {
-            this.Code = Code;
+            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Status = Status;
+            this.Reason = Reason;
             this.Message = Message;
-            this.LocalizationKey = LocalizationKey;
-            this.CorrelationId = CorrelationId;
-            this.Detail = Detail;
-            this.Fields = Fields;
+            this.Details = Details;
         }
         
         /// <summary>
-        /// Error code
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
         /// </summary>
-        /// <value>Error code</value>
-        [JsonPropertyName("code")]
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
+        [JsonPropertyName("submitTimeUtc")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Code { get; set; }
+        public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// Error message
+        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
         /// </summary>
-        /// <value>Error message</value>
+        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
+        [JsonPropertyName("status")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// The reason of the status.  Possible values:  - INVALID_DATA  - INVALID_MERCHANT_CONFIGURATION   
+        /// </summary>
+        /// <value>The reason of the status.  Possible values:  - INVALID_DATA  - INVALID_MERCHANT_CONFIGURATION   </value>
+        [JsonPropertyName("reason")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Reason { get; set; }
+
+        /// <summary>
+        /// The detail message related to the status and reason listed above.
+        /// </summary>
+        /// <value>The detail message related to the status and reason listed above.</value>
         [JsonPropertyName("message")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Localization Key Name
+        /// Gets or Sets Details
         /// </summary>
-        /// <value>Localization Key Name</value>
-        [JsonPropertyName("localizationKey")]
+        [JsonPropertyName("details")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string LocalizationKey { get; set; }
-
-        /// <summary>
-        /// Correlation Id
-        /// </summary>
-        /// <value>Correlation Id</value>
-        [JsonPropertyName("correlationId")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string CorrelationId { get; set; }
-
-        /// <summary>
-        /// Error Detail
-        /// </summary>
-        /// <value>Error Detail</value>
-        [JsonPropertyName("detail")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Detail { get; set; }
-
-        /// <summary>
-        /// Error fields List
-        /// </summary>
-        /// <value>Error fields List</value>
-        [JsonPropertyName("fields")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse4008Fields> Fields { get; set; }
+        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,12 +95,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4008 {\n");
-            if (Code != null) sb.Append("  Code: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4008", "code", Code.ToString())).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4008", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4008", "status", Status.ToString())).Append("\n");
+            if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4008", "reason", Reason.ToString())).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4008", "message", Message.ToString())).Append("\n");
-            if (LocalizationKey != null) sb.Append("  LocalizationKey: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4008", "localizationKey", LocalizationKey.ToString())).Append("\n");
-            if (CorrelationId != null) sb.Append("  CorrelationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4008", "correlationId", CorrelationId.ToString())).Append("\n");
-            if (Detail != null) sb.Append("  Detail: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4008", "detail", Detail.ToString())).Append("\n");
-            if (Fields != null) sb.Append("  Fields: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4008", "fields", Fields.ToString())).Append("\n");
+            if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4008", "details", Details.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,7 +111,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse4008", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse4008", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -151,11 +136,25 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
+                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
+                    this.SubmitTimeUtc != null &&
+                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                ) && 
+                (
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -163,24 +162,9 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.LocalizationKey == other.LocalizationKey ||
-                    this.LocalizationKey != null &&
-                    this.LocalizationKey.Equals(other.LocalizationKey)
-                ) && 
-                (
-                    this.CorrelationId == other.CorrelationId ||
-                    this.CorrelationId != null &&
-                    this.CorrelationId.Equals(other.CorrelationId)
-                ) && 
-                (
-                    this.Detail == other.Detail ||
-                    this.Detail != null &&
-                    this.Detail.Equals(other.Detail)
-                ) && 
-                (
-                    this.Fields == other.Fields ||
-                    this.Fields != null &&
-                    this.Fields.SequenceEqual(other.Fields)
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -195,18 +179,19 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
+                if (this.SubmitTimeUtc != null)
+                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
-                if (this.LocalizationKey != null)
-                    hash = hash * 59 + this.LocalizationKey.GetHashCode();
-                if (this.CorrelationId != null)
-                    hash = hash * 59 + this.CorrelationId.GetHashCode();
-                if (this.Detail != null)
-                    hash = hash * 59 + this.Detail.GetHashCode();
-                if (this.Fields != null)
-                    hash = hash * 59 + this.Fields.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

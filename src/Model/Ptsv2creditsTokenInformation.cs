@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Ptsv2creditsTokenInformation
     /// </summary>
     [DataContract]
-    public partial class Ptsv2creditsTokenInformation :  IEquatable<Ptsv2creditsTokenInformation>, IValidatableObject
+    public partial class Ptsv2creditsTokenInformation :  ModelExtensions, IEquatable<Ptsv2creditsTokenInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2creditsTokenInformation" /> class.
@@ -88,6 +89,7 @@ namespace CyberSource.Model
             if (TransientTokenJwt != null) sb.Append("  TransientTokenJwt: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2creditsTokenInformation", "transientTokenJwt", TransientTokenJwt.ToString())).Append("\n");
             if (NetworkTokenOption != null) sb.Append("  NetworkTokenOption: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2creditsTokenInformation", "networkTokenOption", NetworkTokenOption.ToString())).Append("\n");
             if (TokenProvisioningInformation != null) sb.Append("  TokenProvisioningInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2creditsTokenInformation", "tokenProvisioningInformation", TokenProvisioningInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,7 +100,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2creditsTokenInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2creditsTokenInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -123,7 +125,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Jti == other.Jti ||
                     this.Jti != null &&
@@ -157,6 +163,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Jti != null)
                     hash = hash * 59 + this.Jti.GetHashCode();
                 if (this.TransientTokenJwt != null)
@@ -165,6 +173,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.NetworkTokenOption.GetHashCode();
                 if (this.TokenProvisioningInformation != null)
                     hash = hash * 59 + this.TokenProvisioningInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

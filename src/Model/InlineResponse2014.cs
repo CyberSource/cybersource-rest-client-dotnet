@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,93 +29,80 @@ namespace CyberSource.Model
     /// InlineResponse2014
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2014 :  IEquatable<InlineResponse2014>, IValidatableObject
+    public partial class InlineResponse2014 :  ModelExtensions, IEquatable<InlineResponse2014>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2014" /> class.
         /// </summary>
-        /// <param name="Id">Id.</param>
-        /// <param name="RegistrationInformation">RegistrationInformation.</param>
-        /// <param name="IntegrationInformation">IntegrationInformation.</param>
-        /// <param name="OrganizationInformation">OrganizationInformation.</param>
-        /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
-        /// <param name="Message">Message.</param>
-        /// <param name="Details">Details.</param>
-        public InlineResponse2014(string Id = default(string), InlineResponse2014RegistrationInformation RegistrationInformation = default(InlineResponse2014RegistrationInformation), InlineResponse2014IntegrationInformation IntegrationInformation = default(InlineResponse2014IntegrationInformation), InlineResponse2014OrganizationInformation OrganizationInformation = default(InlineResponse2014OrganizationInformation), List<InlineResponse2014ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2014ProductInformationSetups>), string Message = default(string), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
+        /// <param name="Id">A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; .</param>
+        /// <param name="SubmitTimeStampUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        /// <param name="OrderInformation">OrderInformation.</param>
+        /// <param name="ErrorInformation">ErrorInformation.</param>
+        /// <param name="ProcessorInformation">ProcessorInformation.</param>
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
+        public InlineResponse2014(string Id = default(string), string Status = default(string), string SubmitTimeStampUtc = default(string), InlineResponse2014OrderInformation OrderInformation = default(InlineResponse2014OrderInformation), InlineResponse2014ErrorInformation ErrorInformation = default(InlineResponse2014ErrorInformation), InlineResponse2014ProcessorInformation ProcessorInformation = default(InlineResponse2014ProcessorInformation), InlineResponse2014ProcessingInformation ProcessingInformation = default(InlineResponse2014ProcessingInformation))
         {
             this.Id = Id;
-            this.RegistrationInformation = RegistrationInformation;
-            this.IntegrationInformation = IntegrationInformation;
-            this.OrganizationInformation = OrganizationInformation;
-            this.ProductInformationSetups = ProductInformationSetups;
-            this.Message = Message;
-            this.Details = Details;
+            this.Status = Status;
+            this.SubmitTimeStampUtc = SubmitTimeStampUtc;
+            this.OrderInformation = OrderInformation;
+            this.ErrorInformation = ErrorInformation;
+            this.ProcessorInformation = ProcessorInformation;
+            this.ProcessingInformation = ProcessingInformation;
         }
         
         /// <summary>
-        /// Gets or Sets Id
+        /// A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. 
         /// </summary>
+        /// <value>A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. </value>
         [JsonPropertyName("id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; 
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [JsonPropertyName("submitTimeUtc")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public DateTime? SubmitTimeUtc { get; private set; }
-
-        /// <summary>
-        /// The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; 
-        /// </summary>
-        /// <value>The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; </value>
+        /// <value>The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; </value>
         [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Status { get; private set; }
+        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets RegistrationInformation
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
         /// </summary>
-        [JsonPropertyName("registrationInformation")]
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [JsonPropertyName("submitTimeStampUtc")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2014RegistrationInformation RegistrationInformation { get; set; }
+        public string SubmitTimeStampUtc { get; set; }
 
         /// <summary>
-        /// Gets or Sets IntegrationInformation
+        /// Gets or Sets OrderInformation
         /// </summary>
-        [JsonPropertyName("integrationInformation")]
+        [JsonPropertyName("orderInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2014IntegrationInformation IntegrationInformation { get; set; }
+        public InlineResponse2014OrderInformation OrderInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets OrganizationInformation
+        /// Gets or Sets ErrorInformation
         /// </summary>
-        [JsonPropertyName("organizationInformation")]
+        [JsonPropertyName("errorInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2014OrganizationInformation OrganizationInformation { get; set; }
+        public InlineResponse2014ErrorInformation ErrorInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProductInformationSetups
+        /// Gets or Sets ProcessorInformation
         /// </summary>
-        [JsonPropertyName("productInformationSetups")]
+        [JsonPropertyName("processorInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse2014ProductInformationSetups> ProductInformationSetups { get; set; }
+        public InlineResponse2014ProcessorInformation ProcessorInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Gets or Sets ProcessingInformation
         /// </summary>
-        [JsonPropertyName("message")]
+        [JsonPropertyName("processingInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Details
-        /// </summary>
-        [JsonPropertyName("details")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, List<Object>> Details { get; set; }
+        public InlineResponse2014ProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -125,14 +113,13 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2014 {\n");
             if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "id", Id.ToString())).Append("\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "status", Status.ToString())).Append("\n");
-            if (RegistrationInformation != null) sb.Append("  RegistrationInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "registrationInformation", RegistrationInformation.ToString())).Append("\n");
-            if (IntegrationInformation != null) sb.Append("  IntegrationInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "integrationInformation", IntegrationInformation.ToString())).Append("\n");
-            if (OrganizationInformation != null) sb.Append("  OrganizationInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "organizationInformation", OrganizationInformation.ToString())).Append("\n");
-            if (ProductInformationSetups != null) sb.Append("  ProductInformationSetups: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "productInformationSetups", ProductInformationSetups.ToString())).Append("\n");
-            if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "message", Message.ToString())).Append("\n");
-            if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "details", Details.ToString())).Append("\n");
+            if (SubmitTimeStampUtc != null) sb.Append("  SubmitTimeStampUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "submitTimeStampUtc", SubmitTimeStampUtc.ToString())).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "orderInformation", OrderInformation.ToString())).Append("\n");
+            if (ErrorInformation != null) sb.Append("  ErrorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "errorInformation", ErrorInformation.ToString())).Append("\n");
+            if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "processorInformation", ProcessorInformation.ToString())).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "processingInformation", ProcessingInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,7 +130,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2014", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2014", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -168,16 +155,15 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Id == other.Id ||
                     this.Id != null &&
                     this.Id.Equals(other.Id)
-                ) && 
-                (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
                 ) && 
                 (
                     this.Status == other.Status ||
@@ -185,34 +171,29 @@ namespace CyberSource.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.RegistrationInformation == other.RegistrationInformation ||
-                    this.RegistrationInformation != null &&
-                    this.RegistrationInformation.Equals(other.RegistrationInformation)
+                    this.SubmitTimeStampUtc == other.SubmitTimeStampUtc ||
+                    this.SubmitTimeStampUtc != null &&
+                    this.SubmitTimeStampUtc.Equals(other.SubmitTimeStampUtc)
                 ) && 
                 (
-                    this.IntegrationInformation == other.IntegrationInformation ||
-                    this.IntegrationInformation != null &&
-                    this.IntegrationInformation.Equals(other.IntegrationInformation)
+                    this.OrderInformation == other.OrderInformation ||
+                    this.OrderInformation != null &&
+                    this.OrderInformation.Equals(other.OrderInformation)
                 ) && 
                 (
-                    this.OrganizationInformation == other.OrganizationInformation ||
-                    this.OrganizationInformation != null &&
-                    this.OrganizationInformation.Equals(other.OrganizationInformation)
+                    this.ErrorInformation == other.ErrorInformation ||
+                    this.ErrorInformation != null &&
+                    this.ErrorInformation.Equals(other.ErrorInformation)
                 ) && 
                 (
-                    this.ProductInformationSetups == other.ProductInformationSetups ||
-                    this.ProductInformationSetups != null &&
-                    this.ProductInformationSetups.SequenceEqual(other.ProductInformationSetups)
+                    this.ProcessorInformation == other.ProcessorInformation ||
+                    this.ProcessorInformation != null &&
+                    this.ProcessorInformation.Equals(other.ProcessorInformation)
                 ) && 
                 (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
-                ) && 
-                (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
                 );
         }
 
@@ -227,24 +208,23 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.RegistrationInformation != null)
-                    hash = hash * 59 + this.RegistrationInformation.GetHashCode();
-                if (this.IntegrationInformation != null)
-                    hash = hash * 59 + this.IntegrationInformation.GetHashCode();
-                if (this.OrganizationInformation != null)
-                    hash = hash * 59 + this.OrganizationInformation.GetHashCode();
-                if (this.ProductInformationSetups != null)
-                    hash = hash * 59 + this.ProductInformationSetups.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
+                if (this.SubmitTimeStampUtc != null)
+                    hash = hash * 59 + this.SubmitTimeStampUtc.GetHashCode();
+                if (this.OrderInformation != null)
+                    hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.ErrorInformation != null)
+                    hash = hash * 59 + this.ErrorInformation.GetHashCode();
+                if (this.ProcessorInformation != null)
+                    hash = hash * 59 + this.ProcessorInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

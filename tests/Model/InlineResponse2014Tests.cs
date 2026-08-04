@@ -73,14 +73,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'SubmitTimeUtc'
-        /// </summary>
-        [Test]
-        public void SubmitTimeUtcTest()
-        {
-            // TODO unit test for the property 'SubmitTimeUtc'
-        }
-        /// <summary>
         /// Test the property 'Status'
         /// </summary>
         [Test]
@@ -89,52 +81,44 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'RegistrationInformation'
+        /// Test the property 'SubmitTimeStampUtc'
         /// </summary>
         [Test]
-        public void RegistrationInformationTest()
+        public void SubmitTimeStampUtcTest()
         {
-            // TODO unit test for the property 'RegistrationInformation'
+            // TODO unit test for the property 'SubmitTimeStampUtc'
         }
         /// <summary>
-        /// Test the property 'IntegrationInformation'
+        /// Test the property 'OrderInformation'
         /// </summary>
         [Test]
-        public void IntegrationInformationTest()
+        public void OrderInformationTest()
         {
-            // TODO unit test for the property 'IntegrationInformation'
+            // TODO unit test for the property 'OrderInformation'
         }
         /// <summary>
-        /// Test the property 'OrganizationInformation'
+        /// Test the property 'ErrorInformation'
         /// </summary>
         [Test]
-        public void OrganizationInformationTest()
+        public void ErrorInformationTest()
         {
-            // TODO unit test for the property 'OrganizationInformation'
+            // TODO unit test for the property 'ErrorInformation'
         }
         /// <summary>
-        /// Test the property 'ProductInformationSetups'
+        /// Test the property 'ProcessorInformation'
         /// </summary>
         [Test]
-        public void ProductInformationSetupsTest()
+        public void ProcessorInformationTest()
         {
-            // TODO unit test for the property 'ProductInformationSetups'
+            // TODO unit test for the property 'ProcessorInformation'
         }
         /// <summary>
-        /// Test the property 'Message'
+        /// Test the property 'ProcessingInformation'
         /// </summary>
         [Test]
-        public void MessageTest()
+        public void ProcessingInformationTest()
         {
-            // TODO unit test for the property 'Message'
-        }
-        /// <summary>
-        /// Test the property 'Details'
-        /// </summary>
-        [Test]
-        public void DetailsTest()
-        {
-            // TODO unit test for the property 'Details'
+            // TODO unit test for the property 'ProcessingInformation'
         }
 
     }

@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -377,7 +379,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void DeleteInstrumentIdentifier(string instrumentIdentifierId, string profileId = null)
         {
-            logger.Debug("CALLING API \"DeleteInstrumentIdentifier\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
             DeleteInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, profileId);
         }
@@ -396,7 +398,7 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
             }
 
@@ -428,7 +430,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -457,11 +459,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -481,7 +483,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -501,7 +503,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task DeleteInstrumentIdentifierAsync(string instrumentIdentifierId, string profileId = null)
         {
-            logger.Debug("CALLING API \"DeleteInstrumentIdentifierAsync\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
             await DeleteInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, profileId);
 
@@ -521,7 +523,7 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->DeleteInstrumentIdentifier");
             }
 
@@ -553,7 +555,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -581,11 +583,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -605,7 +607,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -625,10 +627,10 @@ namespace CyberSource.Api
         /// <returns>PostInstrumentIdentifierRequest</returns>
         public PostInstrumentIdentifierRequest GetInstrumentIdentifier(string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null)
         {
-            logger.Debug("CALLING API \"GetInstrumentIdentifier\" STARTED");
+            logger.LogDebug("CALLING API \"GetInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = GetInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails);
-            logger.Debug("CALLING API \"GetInstrumentIdentifier\" ENDED");
+            logger.LogDebug("CALLING API \"GetInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -648,7 +650,7 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
             }
 
@@ -680,13 +682,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (retrieveBinDetails != null)
             {
                 localVarQueryParams.Add("retrieveBinDetails", ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -715,11 +717,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -739,7 +741,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -759,10 +761,10 @@ namespace CyberSource.Api
         /// <returns>Task of PostInstrumentIdentifierRequest</returns>
         public async Task<PostInstrumentIdentifierRequest> GetInstrumentIdentifierAsync(string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null)
         {
-            logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = await GetInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails);
-            logger.Debug("CALLING API \"GetInstrumentIdentifierAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -783,7 +785,7 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifier");
             }
 
@@ -815,13 +817,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (retrieveBinDetails != null)
             {
                 localVarQueryParams.Add("retrieveBinDetails", ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -849,11 +851,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -873,7 +875,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -894,10 +896,10 @@ namespace CyberSource.Api
         /// <returns>PaymentInstrumentList</returns>
         public PaymentInstrumentList GetInstrumentIdentifierPaymentInstrumentsList(string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
         {
-            logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" STARTED");
+            logger.LogDebug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PaymentInstrumentList> localVarResponse = GetInstrumentIdentifierPaymentInstrumentsListWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
-            logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" ENDED");
+            logger.LogDebug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsList\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -919,7 +921,7 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
             }
 
@@ -951,25 +953,25 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (retrieveBinDetails != null)
             {
                 localVarQueryParams.Add("retrieveBinDetails", ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -998,11 +1000,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1022,7 +1024,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1044,10 +1046,10 @@ namespace CyberSource.Api
         /// <returns>Task of PaymentInstrumentList</returns>
         public async Task<PaymentInstrumentList> GetInstrumentIdentifierPaymentInstrumentsListAsync(string instrumentIdentifierId, string profileId = null, bool? retrieveBinDetails = null, long? offset = null, long? limit = null)
         {
-            logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PaymentInstrumentList> localVarResponse = await GetInstrumentIdentifierPaymentInstrumentsListAsyncWithHttpInfo(instrumentIdentifierId, profileId, retrieveBinDetails, offset, limit);
-            logger.Debug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetInstrumentIdentifierPaymentInstrumentsListAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1070,7 +1072,7 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->GetInstrumentIdentifierPaymentInstrumentsList");
             }
 
@@ -1102,25 +1104,25 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (retrieveBinDetails != null)
             {
                 localVarQueryParams.Add("retrieveBinDetails", ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -1148,11 +1150,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1172,7 +1174,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetInstrumentIdentifierPaymentInstrumentsList", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1193,10 +1195,10 @@ namespace CyberSource.Api
         /// <returns>PatchInstrumentIdentifierRequest</returns>
         public PatchInstrumentIdentifierRequest PatchInstrumentIdentifier(string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
         {
-            logger.Debug("CALLING API \"PatchInstrumentIdentifier\" STARTED");
+            logger.LogDebug("CALLING API \"PatchInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PatchInstrumentIdentifierRequest> localVarResponse = PatchInstrumentIdentifierWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, retrieveBinDetails, ifMatch);
-            logger.Debug("CALLING API \"PatchInstrumentIdentifier\" ENDED");
+            logger.LogDebug("CALLING API \"PatchInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1218,13 +1220,13 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
             }
             // verify the required parameter 'patchInstrumentIdentifierRequest' is set
             if (patchInstrumentIdentifierRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
+                logger.LogError("ApiException : Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
             }
 
@@ -1256,13 +1258,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (retrieveBinDetails != null)
             {
                 localVarQueryParams.Add("retrieveBinDetails", ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -1291,18 +1293,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PatchInstrumentIdentifier,PatchInstrumentIdentifierAsync,PatchInstrumentIdentifierWithHttpInfo,PatchInstrumentIdentifierAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1317,7 +1319,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1339,10 +1341,10 @@ namespace CyberSource.Api
         /// <returns>Task of PatchInstrumentIdentifierRequest</returns>
         public async Task<PatchInstrumentIdentifierRequest> PatchInstrumentIdentifierAsync(string instrumentIdentifierId, PatchInstrumentIdentifierRequest patchInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null, string ifMatch = null)
         {
-            logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PatchInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PatchInstrumentIdentifierRequest> localVarResponse = await PatchInstrumentIdentifierAsyncWithHttpInfo(instrumentIdentifierId, patchInstrumentIdentifierRequest, profileId, retrieveBinDetails, ifMatch);
-            logger.Debug("CALLING API \"PatchInstrumentIdentifierAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PatchInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1365,13 +1367,13 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
             }
             // verify the required parameter 'patchInstrumentIdentifierRequest' is set
             if (patchInstrumentIdentifierRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
+                logger.LogError("ApiException : Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'patchInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PatchInstrumentIdentifier");
             }
 
@@ -1403,13 +1405,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (retrieveBinDetails != null)
             {
                 localVarQueryParams.Add("retrieveBinDetails", ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -1438,18 +1440,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PatchInstrumentIdentifier,PatchInstrumentIdentifierAsync,PatchInstrumentIdentifierWithHttpInfo,PatchInstrumentIdentifierAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1464,7 +1466,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PatchInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1483,10 +1485,10 @@ namespace CyberSource.Api
         /// <returns>PostInstrumentIdentifierRequest</returns>
         public PostInstrumentIdentifierRequest PostInstrumentIdentifier(PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null)
         {
-            logger.Debug("CALLING API \"PostInstrumentIdentifier\" STARTED");
+            logger.LogDebug("CALLING API \"PostInstrumentIdentifier\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = PostInstrumentIdentifierWithHttpInfo(postInstrumentIdentifierRequest, profileId, retrieveBinDetails);
-            logger.Debug("CALLING API \"PostInstrumentIdentifier\" ENDED");
+            logger.LogDebug("CALLING API \"PostInstrumentIdentifier\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1506,7 +1508,7 @@ namespace CyberSource.Api
             // verify the required parameter 'postInstrumentIdentifierRequest' is set
             if (postInstrumentIdentifierRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifier");
+                logger.LogError("ApiException : Missing required parameter 'postInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifier");
             }
 
@@ -1538,7 +1540,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("retrieveBinDetails", ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -1562,18 +1564,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostInstrumentIdentifier,PostInstrumentIdentifierAsync,PostInstrumentIdentifierWithHttpInfo,PostInstrumentIdentifierAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1588,7 +1590,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1608,10 +1610,10 @@ namespace CyberSource.Api
         /// <returns>Task of PostInstrumentIdentifierRequest</returns>
         public async Task<PostInstrumentIdentifierRequest> PostInstrumentIdentifierAsync(PostInstrumentIdentifierRequest postInstrumentIdentifierRequest, string profileId = null, bool? retrieveBinDetails = null)
         {
-            logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostInstrumentIdentifierAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostInstrumentIdentifierRequest> localVarResponse = await PostInstrumentIdentifierAsyncWithHttpInfo(postInstrumentIdentifierRequest, profileId, retrieveBinDetails);
-            logger.Debug("CALLING API \"PostInstrumentIdentifierAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PostInstrumentIdentifierAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1632,7 +1634,7 @@ namespace CyberSource.Api
             // verify the required parameter 'postInstrumentIdentifierRequest' is set
             if (postInstrumentIdentifierRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifier");
+                logger.LogError("ApiException : Missing required parameter 'postInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifier");
                 throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifier");
             }
 
@@ -1664,7 +1666,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("retrieveBinDetails", ApiClient.ParameterToString(retrieveBinDetails)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -1688,18 +1690,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostInstrumentIdentifier,PostInstrumentIdentifierAsync,PostInstrumentIdentifierWithHttpInfo,PostInstrumentIdentifierAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1714,7 +1716,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostInstrumentIdentifier", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1733,7 +1735,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void PostInstrumentIdentifierEnrollment(string instrumentIdentifierId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostInstrumentIdentifierEnrollment\" STARTED");
+            logger.LogDebug("CALLING API \"PostInstrumentIdentifierEnrollment\" STARTED");
             this.SetStatusCode(null);
             PostInstrumentIdentifierEnrollmentWithHttpInfo(instrumentIdentifierId, postInstrumentIdentifierEnrollmentRequest, profileId);
         }
@@ -1753,13 +1755,13 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
             }
             // verify the required parameter 'postInstrumentIdentifierEnrollmentRequest' is set
             if (postInstrumentIdentifierEnrollmentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+                logger.LogError("ApiException : Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
                 throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
             }
 
@@ -1791,7 +1793,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1815,18 +1817,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostInstrumentIdentifierEnrollment,PostInstrumentIdentifierEnrollmentAsync,PostInstrumentIdentifierEnrollmentWithHttpInfo,PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1841,7 +1843,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1862,7 +1864,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task PostInstrumentIdentifierEnrollmentAsync(string instrumentIdentifierId, PostInstrumentIdentifierEnrollmentRequest postInstrumentIdentifierEnrollmentRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostInstrumentIdentifierEnrollmentAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostInstrumentIdentifierEnrollmentAsync\" STARTED");
             this.SetStatusCode(null);
             await PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo(instrumentIdentifierId, postInstrumentIdentifierEnrollmentRequest, profileId);
 
@@ -1883,13 +1885,13 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
             }
             // verify the required parameter 'postInstrumentIdentifierEnrollmentRequest' is set
             if (postInstrumentIdentifierEnrollmentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
+                logger.LogError("ApiException : Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
                 throw new ApiException(400, "Missing required parameter 'postInstrumentIdentifierEnrollmentRequest' when calling InstrumentIdentifierApi->PostInstrumentIdentifierEnrollment");
             }
 
@@ -1921,7 +1923,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1945,18 +1947,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostInstrumentIdentifierEnrollment,PostInstrumentIdentifierEnrollmentAsync,PostInstrumentIdentifierEnrollmentWithHttpInfo,PostInstrumentIdentifierEnrollmentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1971,7 +1973,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostInstrumentIdentifierEnrollment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

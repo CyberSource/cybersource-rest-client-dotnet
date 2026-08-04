@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// TmsTokenFormats
     /// </summary>
     [DataContract]
-    public partial class TmsTokenFormats :  IEquatable<TmsTokenFormats>, IValidatableObject
+    public partial class TmsTokenFormats :  ModelExtensions, IEquatable<TmsTokenFormats>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TmsTokenFormats" /> class.
@@ -89,6 +90,7 @@ namespace CyberSource.Model
             if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsTokenFormats", "paymentInstrument", PaymentInstrument.ToString())).Append("\n");
             if (InstrumentIdentifierCard != null) sb.Append("  InstrumentIdentifierCard: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsTokenFormats", "instrumentIdentifierCard", InstrumentIdentifierCard.ToString())).Append("\n");
             if (InstrumentIdentifierBankAccount != null) sb.Append("  InstrumentIdentifierBankAccount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsTokenFormats", "instrumentIdentifierBankAccount", InstrumentIdentifierBankAccount.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,7 +101,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TmsTokenFormats", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TmsTokenFormats", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -124,7 +126,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Customer == other.Customer ||
                     this.Customer != null &&
@@ -158,6 +164,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
                 if (this.PaymentInstrument != null)
@@ -166,6 +174,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InstrumentIdentifierCard.GetHashCode();
                 if (this.InstrumentIdentifierBankAccount != null)
                     hash = hash * 59 + this.InstrumentIdentifierBankAccount.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

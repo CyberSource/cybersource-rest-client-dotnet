@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -106,10 +108,10 @@ namespace CyberSource.Api
         /// <returns>string</returns>
         public string GenerateFlexAPICaptureContext(GenerateFlexAPICaptureContextRequest generateFlexAPICaptureContextRequest)
         {
-            logger.Debug("CALLING API \"GenerateFlexAPICaptureContext\" STARTED");
+            logger.LogDebug("CALLING API \"GenerateFlexAPICaptureContext\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<string> localVarResponse = GenerateFlexAPICaptureContextWithHttpInfo(generateFlexAPICaptureContextRequest);
-            logger.Debug("CALLING API \"GenerateFlexAPICaptureContext\" ENDED");
+            logger.LogDebug("CALLING API \"GenerateFlexAPICaptureContext\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -127,7 +129,7 @@ namespace CyberSource.Api
             // verify the required parameter 'generateFlexAPICaptureContextRequest' is set
             if (generateFlexAPICaptureContextRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'generateFlexAPICaptureContextRequest' when calling FlexAPIApi->GenerateFlexAPICaptureContext");
+                logger.LogError("ApiException : Missing required parameter 'generateFlexAPICaptureContextRequest' when calling FlexAPIApi->GenerateFlexAPICaptureContext");
                 throw new ApiException(400, "Missing required parameter 'generateFlexAPICaptureContextRequest' when calling FlexAPIApi->GenerateFlexAPICaptureContext");
             }
 
@@ -172,18 +174,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "GenerateFlexAPICaptureContext,GenerateFlexAPICaptureContextAsync,GenerateFlexAPICaptureContextWithHttpInfo,GenerateFlexAPICaptureContextAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -198,7 +200,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GenerateFlexAPICaptureContext", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -216,10 +218,10 @@ namespace CyberSource.Api
         /// <returns>Task of string</returns>
         public async Task<string> GenerateFlexAPICaptureContextAsync(GenerateFlexAPICaptureContextRequest generateFlexAPICaptureContextRequest)
         {
-            logger.Debug("CALLING API \"GenerateFlexAPICaptureContextAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GenerateFlexAPICaptureContextAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<string> localVarResponse = await GenerateFlexAPICaptureContextAsyncWithHttpInfo(generateFlexAPICaptureContextRequest);
-            logger.Debug("CALLING API \"GenerateFlexAPICaptureContextAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GenerateFlexAPICaptureContextAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -238,7 +240,7 @@ namespace CyberSource.Api
             // verify the required parameter 'generateFlexAPICaptureContextRequest' is set
             if (generateFlexAPICaptureContextRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'generateFlexAPICaptureContextRequest' when calling FlexAPIApi->GenerateFlexAPICaptureContext");
+                logger.LogError("ApiException : Missing required parameter 'generateFlexAPICaptureContextRequest' when calling FlexAPIApi->GenerateFlexAPICaptureContext");
                 throw new ApiException(400, "Missing required parameter 'generateFlexAPICaptureContextRequest' when calling FlexAPIApi->GenerateFlexAPICaptureContext");
             }
 
@@ -283,18 +285,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "GenerateFlexAPICaptureContext,GenerateFlexAPICaptureContextAsync,GenerateFlexAPICaptureContextWithHttpInfo,GenerateFlexAPICaptureContextAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -309,7 +311,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GenerateFlexAPICaptureContext", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

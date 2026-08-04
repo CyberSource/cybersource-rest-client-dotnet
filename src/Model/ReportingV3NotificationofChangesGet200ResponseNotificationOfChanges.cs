@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Notification Of Change
     /// </summary>
     [DataContract]
-    public partial class ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges :  IEquatable<ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges>, IValidatableObject
+    public partial class ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges :  ModelExtensions, IEquatable<ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges" /> class.
@@ -133,6 +134,7 @@ namespace CyberSource.Model
             if (RoutingNumber != null) sb.Append("  RoutingNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges", "routingNumber", RoutingNumber.ToString())).Append("\n");
             if (AccountNumber != null) sb.Append("  AccountNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges", "accountNumber", AccountNumber.ToString())).Append("\n");
             if (ConsumerName != null) sb.Append("  ConsumerName: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges", "consumerName", ConsumerName.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,7 +145,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ReportingV3NotificationofChangesGet200ResponseNotificationOfChanges", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -168,7 +170,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.MerchantReferenceNumber == other.MerchantReferenceNumber ||
                     this.MerchantReferenceNumber != null &&
@@ -222,6 +228,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.MerchantReferenceNumber != null)
                     hash = hash * 59 + this.MerchantReferenceNumber.GetHashCode();
                 if (this.TransactionReferenceNumber != null)
@@ -238,6 +246,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AccountNumber.GetHashCode();
                 if (this.ConsumerName != null)
                     hash = hash * 59 + this.ConsumerName.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

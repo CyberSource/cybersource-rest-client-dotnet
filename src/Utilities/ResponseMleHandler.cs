@@ -3,6 +3,7 @@ using AuthenticationSdk.util;
 using System;
 using CyberSource.Client;
 using RestSharp;
+using Microsoft.Extensions.Logging;
 
 namespace CyberSource.Utilities
 {
@@ -13,7 +14,8 @@ namespace CyberSource.Utilities
         /// </summary>
         /// <param name="localVarResponse">The HTTP response</param>
         /// <param name="merchantConfig">Merchant configuration for decryption</param>
-        public static void DecryptMleResponseIfNeeded(RestResponse localVarResponse, MerchantConfig merchantConfig)
+        /// <param name="loggerFactory">Optional logger factory for logging.</param>
+        public static void DecryptMleResponseIfNeeded(RestResponse localVarResponse, MerchantConfig merchantConfig, ILoggerFactory loggerFactory = null)
         {
             if (MLEUtility.CheckIsMleEncryptedResponse(localVarResponse.Content))
             {
@@ -24,7 +26,7 @@ namespace CyberSource.Utilities
             
                 try
                 {
-                    var decryptedContent = MLEUtility.DecryptMleResponsePayload(merchantConfig, localVarResponse.Content);
+                    var decryptedContent = MLEUtility.DecryptMleResponsePayload(merchantConfig, localVarResponse.Content, loggerFactory);
                     localVarResponse.Content = decryptedContent;
                 }
                 catch (Exception e)
@@ -41,7 +43,8 @@ namespace CyberSource.Utilities
         /// <param name="localVarResponse">The HTTP response</param>
         /// <param name="merchantCredentialSettings">Object of IMerchantCredentialSettings containing merchant credentials</param>
         /// <param name="merchantMLESettings">Object of IMerchantMLESettings containing merchant MLE credentials</param>
-        public static void DecryptMleResponseIfNeeded(RestResponse localVarResponse, IMerchantCredentialSettings merchantCredentialSettings, IMerchantMLESettings merchantMLESettings)
+        /// <param name="loggerFactory">Optional logger factory for logging.</param>
+        public static void DecryptMleResponseIfNeeded(RestResponse localVarResponse, IMerchantCredentialSettings merchantCredentialSettings, IMerchantMLESettings merchantMLESettings, ILoggerFactory loggerFactory = null)
         {
             if (MLEUtility.CheckIsMleEncryptedResponse(localVarResponse.Content))
             {
@@ -52,7 +55,7 @@ namespace CyberSource.Utilities
 
                 try
                 {
-                    var decryptedContent = MLEUtility.DecryptMleResponsePayload(merchantCredentialSettings, merchantMLESettings, localVarResponse.Content);
+                    var decryptedContent = MLEUtility.DecryptMleResponsePayload(merchantCredentialSettings, merchantMLESettings, localVarResponse.Content, loggerFactory);
                     localVarResponse.Content = decryptedContent;
                 }
                 catch (Exception e)

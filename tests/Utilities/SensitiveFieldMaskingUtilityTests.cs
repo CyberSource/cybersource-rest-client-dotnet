@@ -1,6 +1,8 @@
 using System;
 using NUnit.Framework;
-using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using CyberSource.Utilities;
 
 namespace cybersource_rest_client_netstandard.Test.Utilities
@@ -81,7 +83,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"client_secret\": \"mySecret\", \"grant_type\": \"authorization_code\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["client_secret"]);
             Assert.AreEqual("authorization_code", (string)obj["grant_type"]);
         }
@@ -91,7 +93,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"refresh_token\": \"tok123\", \"expires_in\": 3600}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["refresh_token"]);
         }
 
@@ -100,7 +102,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"access_token\": \"tok456\", \"token_type\": \"Bearer\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["access_token"]);
         }
 
@@ -111,7 +113,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"token_type\": \"Bearer\", \"access_token\": \"tok\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual("Bearer", (string)obj["token_type"]);
         }
 
@@ -120,8 +122,8 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"refresh_token_expires_in\": 7200}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
-            Assert.AreEqual("7200", (string)obj["refresh_token_expires_in"]);
+            var obj = JsonNode.Parse(result);
+            Assert.AreEqual("7200", obj["refresh_token_expires_in"].ToString());
         }
 
         [Test]
@@ -129,7 +131,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"grant_type\": \"client_credentials\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual("client_credentials", (string)obj["grant_type"]);
         }
 
@@ -155,7 +157,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"password\": null}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.IsNull((string)obj["password"]);
         }
 
@@ -196,7 +198,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"securityCode\": \"123\", \"amount\": \"100\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["securityCode"]);
             Assert.AreEqual("100", (string)obj["amount"]);
         }
@@ -206,7 +208,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"cardNumber\": \"4111111111111111\", \"currency\": \"USD\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["cardNumber"]);
             Assert.AreEqual("USD", (string)obj["currency"]);
         }
@@ -216,7 +218,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"number\": \"4111111111111111\", \"type\": \"Visa\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["number"]);
             Assert.AreEqual("Visa", (string)obj["type"]);
         }
@@ -226,7 +228,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"accountNumber\": \"123456789\", \"routingNumber\": \"021000021\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["accountNumber"]);
         }
 
@@ -235,7 +237,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"ssn\": \"123-45-6789\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["ssn"]);
         }
 
@@ -310,7 +312,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"email\": \"user@example.com\", \"language\": \"en-US\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["email"]);
             Assert.AreEqual("en-US", (string)obj["language"]);
         }
@@ -320,7 +322,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"phoneNumber\": \"+1-555-0100\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["phoneNumber"]);
         }
 
@@ -329,7 +331,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"mobilePhone\": \"+1-555-0100\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["mobilePhone"]);
         }
 
@@ -338,7 +340,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"firstName\": \"Jane\", \"middleName\": \"Q\", \"lastName\": \"Doe\", \"gender\": \"F\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["firstName"]);
             Assert.AreEqual(Masked, (string)obj["middleName"]);
             Assert.AreEqual(Masked, (string)obj["lastName"]);
@@ -350,7 +352,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"dateOfBirth\": \"1990-01-01\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["dateOfBirth"]);
         }
 
@@ -359,7 +361,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"ipAddress\": \"10.0.0.1\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["ipAddress"]);
         }
 
@@ -368,7 +370,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"accountNumber\": \"123456789\", \"routingNumber\": \"021000021\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["accountNumber"]);
             Assert.AreEqual(Masked, (string)obj["routingNumber"]);
         }
@@ -378,7 +380,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"vatRegistrationNumber\": \"GB123456789\", \"companyTaxId\": \"12-3456789\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["vatRegistrationNumber"]);
             Assert.AreEqual(Masked, (string)obj["companyTaxId"]);
         }
@@ -388,7 +390,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"personalIdentification\": \"A1234567\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["personalIdentification"]);
         }
 
@@ -487,7 +489,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"passportNumber\": \"X12345678\", \"nationalId\": \"AB1234567\", \"country\": \"US\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["passportNumber"]);
             Assert.AreEqual(Masked, (string)obj["nationalId"]);
             Assert.AreEqual("US", (string)obj["country"]);
@@ -498,7 +500,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"birthDate\": \"1990-01-01\", \"countryOfBirth\": \"US\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["birthDate"]);
             Assert.AreEqual(Masked, (string)obj["countryOfBirth"]);
         }
@@ -508,7 +510,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"taxId\": \"12-3456789\", \"taxIdNumber\": \"98-7654321\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["taxId"]);
             Assert.AreEqual(Masked, (string)obj["taxIdNumber"]);
         }
@@ -518,7 +520,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"fullName\": \"Jane Doe\", \"legalName\": \"Acme Inc\", \"beneficiaryName\": \"Jane Doe\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["fullName"]);
             Assert.AreEqual(Masked, (string)obj["legalName"]);
             Assert.AreEqual(Masked, (string)obj["beneficiaryName"]);
@@ -529,7 +531,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"alternateEmail\": \"user@example.com\", \"alternatePhoneNumber\": \"+1-555-0100\", \"workPhone\": \"+1-555-0200\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["alternateEmail"]);
             Assert.AreEqual(Masked, (string)obj["alternatePhoneNumber"]);
             Assert.AreEqual(Masked, (string)obj["workPhone"]);
@@ -540,7 +542,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"iban\": \"DE89370400440532013000\", \"swiftCode\": \"DEUTDEFF\", \"bankName\": \"Acme Bank\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["iban"]);
             Assert.AreEqual(Masked, (string)obj["swiftCode"]);
             Assert.AreEqual("Acme Bank", (string)obj["bankName"]);
@@ -551,7 +553,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"bankAccount\": \"123456789\", \"accountHolderName\": \"Jane Doe\", \"accountRoutingNumber\": \"021000021\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["bankAccount"]);
             Assert.AreEqual(Masked, (string)obj["accountHolderName"]);
             Assert.AreEqual(Masked, (string)obj["accountRoutingNumber"]);
@@ -562,7 +564,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"correctedAccountNumber\": \"987654321\", \"correctedRoutingNumber\": \"021000021\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["correctedAccountNumber"]);
             Assert.AreEqual(Masked, (string)obj["correctedRoutingNumber"]);
         }
@@ -619,7 +621,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"trackData\": \"B4111111111111111^DOE/JANE^2512\", \"cardType\": \"Visa\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["trackData"]);
             Assert.AreEqual("Visa", (string)obj["cardType"]);
         }
@@ -629,7 +631,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"jis2TrackData\": \"4111111111111111=251210100000000\", \"cardType\": \"Visa\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["jis2TrackData"]);
             Assert.AreEqual("Visa", (string)obj["cardType"]);
         }
@@ -639,7 +641,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"cavv\": \"AAABCSIIAAAAAAACcwgQkAAAAAAA=\", \"eci\": \"05\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["cavv"]);
             Assert.AreEqual("05", (string)obj["eci"]);
         }
@@ -649,7 +651,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"ucafAuthenticationData\": \"AAABCSIIAAAAAAACcwgQkAAAAAAA=\", \"eci\": \"07\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["ucafAuthenticationData"]);
             Assert.AreEqual("07", (string)obj["eci"]);
         }
@@ -659,7 +661,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"proxyPan\": \"4111111111111111\", \"currency\": \"USD\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["proxyPan"]);
             Assert.AreEqual("USD", (string)obj["currency"]);
         }
@@ -669,7 +671,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"emv\": \"9F2608C2C4F5A4F3E1B7\", \"currency\": \"USD\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["emv"]);
             Assert.AreEqual("USD", (string)obj["currency"]);
         }
@@ -703,7 +705,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"responseAccessToken\": \"eyJhbGc.payload.sig\", \"eci\": \"05\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["responseAccessToken"]);
             Assert.AreEqual("05", (string)obj["eci"]);
         }
@@ -713,7 +715,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"transientTokenJwt\": \"eyJhbGc.payload.sig\", \"networkTokenOption\": \"STANDARD\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["transientTokenJwt"]);
             Assert.AreEqual("STANDARD", (string)obj["networkTokenOption"]);
         }
@@ -723,7 +725,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"transactionToken\": \"rupay-token-xyz\", \"xid\": \"abc123\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["transactionToken"]);
             Assert.AreEqual("abc123", (string)obj["xid"]);
         }
@@ -733,7 +735,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"legacyToken\": \"legacy-id-abc\", \"thirdPartyToken\": \"3p-token-def\", \"currency\": \"USD\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["legacyToken"]);
             Assert.AreEqual(Masked, (string)obj["thirdPartyToken"]);
             Assert.AreEqual("USD", (string)obj["currency"]);
@@ -750,7 +752,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"passcode\": \"otp-123456\", \"consumerId\": \"C-1\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["passcode"]);
             Assert.AreEqual("C-1", (string)obj["consumerId"]);
         }
@@ -800,7 +802,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"value\": \"otp-issuer-987\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Tmsv2tokenizedcardsPasscode", json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["value"]);
         }
 
@@ -809,7 +811,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"keySerialNumber\": \"FFFF11111111110001\", \"descriptor\": \"Ymx1ZWZpbg==\", \"value\": \"encrypted-p2pe-blob\", \"encoding\": \"Base64\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsPaymentInformationFluidData", json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["value"]);
             Assert.AreEqual("FFFF11111111110001", (string)obj["keySerialNumber"]);
             Assert.AreEqual("Base64", (string)obj["encoding"]);
@@ -820,7 +822,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"value\": \"encrypted-p2pe-blob\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Riskv1authenticationsetupsPaymentInformationFluidData", json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["value"]);
         }
 
@@ -829,7 +831,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"value\": \"encrypted-p2pe-blob\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Riskv1authenticationresultsPaymentInformationFluidData", json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["value"]);
         }
 
@@ -838,7 +840,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"tag\": \"9F26\", \"value\": \"C2C4F5A4F3E1B7\", \"source\": \"CARD\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TmsEmbeddedInstrumentIdentifierPointOfSaleInformationEmvTags", json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["value"]);
             Assert.AreEqual("9F26", (string)obj["tag"]);
             Assert.AreEqual("CARD", (string)obj["source"]);
@@ -850,7 +852,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"value\": \"safe-payload\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("SomeUnrelatedModel", json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual("safe-payload", (string)obj["value"]);
         }
 
@@ -861,7 +863,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"value\": \"payload\", \"nested\": {\"password\": \"p@ss\"}}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("SomeUnrelatedModel", json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual("payload", (string)obj["value"]);
             Assert.AreEqual(Masked, (string)obj["nested"]["password"]);
         }
@@ -872,7 +874,7 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             var json = "{\"password\": \"p@ss\", \"value\": \"v\"}";
             var result = SensitiveFieldMaskingUtility.MaskSensitiveDataInJson(null, json);
-            var obj = JObject.Parse(result);
+            var obj = JsonNode.Parse(result);
             Assert.AreEqual(Masked, (string)obj["password"]);
             Assert.AreEqual("v", (string)obj["value"]);
         }
@@ -882,6 +884,92 @@ namespace cybersource_rest_client_netstandard.Test.Utilities
         {
             Assert.AreEqual(string.Empty, SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Tmsv2tokenizedcardsPasscode", string.Empty));
             Assert.IsNull(SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Tmsv2tokenizedcardsPasscode", null));
+        }
+
+        // ─── MaskExtraFields: extension-store (extra-field) masking (design G1) ───
+        // Gives ToString() diagnostics the same masking ToJson() already applies to
+        // the overflow store.
+
+        private static Dictionary<string, JsonElement> Store(string json) =>
+            JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(json);
+
+        [Test]
+        public void MaskExtraFields_NullStore_ReturnsEmpty()
+            => Assert.AreEqual(string.Empty, SensitiveFieldMaskingUtility.MaskExtraFields(null));
+
+        [Test]
+        public void MaskExtraFields_EmptyStore_ReturnsEmpty()
+            => Assert.AreEqual(string.Empty, SensitiveFieldMaskingUtility.MaskExtraFields(new Dictionary<string, JsonElement>()));
+
+        [Test]
+        public void MaskExtraFields_NonSensitiveScalar_RenderedVerbatim()
+        {
+            var result = SensitiveFieldMaskingUtility.MaskExtraFields(Store("{\"merchantCategoryCode\":\"5999\"}"));
+            Assert.AreEqual("  merchantCategoryCode: 5999\n", result);
+        }
+
+        [Test]
+        public void MaskExtraFields_NonSensitiveNumber_RenderedVerbatim()
+        {
+            var result = SensitiveFieldMaskingUtility.MaskExtraFields(Store("{\"retryCount\":3}"));
+            Assert.AreEqual("  retryCount: 3\n", result);
+        }
+
+        [Test]
+        public void MaskExtraFields_SensitiveKey_ValueRedacted()
+        {
+            var result = SensitiveFieldMaskingUtility.MaskExtraFields(Store("{\"password\":\"s3cr3t!\"}"));
+            Assert.AreEqual("  password: ***\n", result);
+        }
+
+        [Test]
+        public void MaskExtraFields_SensitiveKeyFragment_ValueRedacted()
+        {
+            // "clientSecret" matches the 'secret' fragment / normalized catalog.
+            var result = SensitiveFieldMaskingUtility.MaskExtraFields(Store("{\"clientSecret\":\"abc\"}"));
+            Assert.AreEqual("  clientSecret: ***\n", result);
+        }
+
+        [Test]
+        public void MaskExtraFields_SensitiveNumericKey_ValueRedacted()
+        {
+            // PAN added under the "number" key — masked even though it is numeric/string.
+            var result = SensitiveFieldMaskingUtility.MaskExtraFields(Store("{\"number\":\"4111111111111111\"}"));
+            Assert.AreEqual("  number: ***\n", result);
+        }
+
+        [Test]
+        public void MaskExtraFields_NestedObject_NestedSensitiveKeyRedacted()
+        {
+            var result = SensitiveFieldMaskingUtility.MaskExtraFields(Store("{\"card\":{\"number\":\"4111111111111111\",\"type\":\"visa\"}}"));
+            StringAssert.StartsWith("  card: ", result);
+            var inner = JsonNode.Parse(result.Substring("  card: ".Length).TrimEnd('\n'));
+            Assert.AreEqual(Masked, (string)inner["number"]);
+            Assert.AreEqual("visa", (string)inner["type"]);
+        }
+
+        [Test]
+        public void MaskExtraFields_Array_NestedSensitiveKeyRedacted()
+        {
+            var result = SensitiveFieldMaskingUtility.MaskExtraFields(Store("{\"cards\":[{\"cvv\":\"123\"}]}"));
+            StringAssert.StartsWith("  cards: ", result);
+            var inner = JsonNode.Parse(result.Substring("  cards: ".Length).TrimEnd('\n'));
+            Assert.AreEqual(Masked, (string)inner[0]["cvv"]);
+        }
+
+        [Test]
+        public void MaskExtraFields_NullValue_RenderedAsNull()
+        {
+            var result = SensitiveFieldMaskingUtility.MaskExtraFields(Store("{\"note\":null}"));
+            Assert.AreEqual("  note: null\n", result);
+        }
+
+        [Test]
+        public void MaskExtraFields_MultipleEntries_OneLineEach()
+        {
+            var result = SensitiveFieldMaskingUtility.MaskExtraFields(Store("{\"password\":\"x\",\"label\":\"ok\"}"));
+            StringAssert.Contains("  password: ***\n", result);
+            StringAssert.Contains("  label: ok\n", result);
         }
     }
 }

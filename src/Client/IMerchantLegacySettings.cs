@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,6 +16,11 @@ namespace CyberSource.Client
         /// Gets the HTTP user agent string to be sent with API requests.
         /// </summary>
         string UserAgent { get; }
+
+        /// <summary>
+        /// Gets or sets the logger factory for creating logger instances.
+        /// </summary>
+        public ILoggerFactory LoggerFactory { get; }
 
         /// <summary>
         /// Gets or sets the dictionary of default HTTP headers to be included in every API request.

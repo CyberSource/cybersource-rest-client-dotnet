@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -328,7 +330,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void DeleteCustomerShippingAddress(string customerId, string shippingAddressId, string profileId = null)
         {
-            logger.Debug("CALLING API \"DeleteCustomerShippingAddress\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteCustomerShippingAddress\" STARTED");
             this.SetStatusCode(null);
             DeleteCustomerShippingAddressWithHttpInfo(customerId, shippingAddressId, profileId);
         }
@@ -348,13 +350,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
             }
             // verify the required parameter 'shippingAddressId' is set
             if (shippingAddressId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
             }
 
@@ -386,13 +388,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (shippingAddressId != null)
             {
                 localVarPathParams.Add("shippingAddressId", ApiClient.ParameterToString(shippingAddressId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -421,11 +423,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -445,7 +447,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -466,7 +468,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task DeleteCustomerShippingAddressAsync(string customerId, string shippingAddressId, string profileId = null)
         {
-            logger.Debug("CALLING API \"DeleteCustomerShippingAddressAsync\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteCustomerShippingAddressAsync\" STARTED");
             this.SetStatusCode(null);
             await DeleteCustomerShippingAddressAsyncWithHttpInfo(customerId, shippingAddressId, profileId);
 
@@ -487,13 +489,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
             }
             // verify the required parameter 'shippingAddressId' is set
             if (shippingAddressId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->DeleteCustomerShippingAddress");
             }
 
@@ -525,13 +527,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (shippingAddressId != null)
             {
                 localVarPathParams.Add("shippingAddressId", ApiClient.ParameterToString(shippingAddressId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -559,11 +561,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -583,7 +585,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -603,10 +605,10 @@ namespace CyberSource.Api
         /// <returns>PostCustomerShippingAddressRequest</returns>
         public PostCustomerShippingAddressRequest GetCustomerShippingAddress(string customerId, string shippingAddressId, string profileId = null)
         {
-            logger.Debug("CALLING API \"GetCustomerShippingAddress\" STARTED");
+            logger.LogDebug("CALLING API \"GetCustomerShippingAddress\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostCustomerShippingAddressRequest> localVarResponse = GetCustomerShippingAddressWithHttpInfo(customerId, shippingAddressId, profileId);
-            logger.Debug("CALLING API \"GetCustomerShippingAddress\" ENDED");
+            logger.LogDebug("CALLING API \"GetCustomerShippingAddress\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -626,13 +628,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
             }
             // verify the required parameter 'shippingAddressId' is set
             if (shippingAddressId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
             }
 
@@ -664,13 +666,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (shippingAddressId != null)
             {
                 localVarPathParams.Add("shippingAddressId", ApiClient.ParameterToString(shippingAddressId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -699,11 +701,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -723,7 +725,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -743,10 +745,10 @@ namespace CyberSource.Api
         /// <returns>Task of PostCustomerShippingAddressRequest</returns>
         public async Task<PostCustomerShippingAddressRequest> GetCustomerShippingAddressAsync(string customerId, string shippingAddressId, string profileId = null)
         {
-            logger.Debug("CALLING API \"GetCustomerShippingAddressAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetCustomerShippingAddressAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostCustomerShippingAddressRequest> localVarResponse = await GetCustomerShippingAddressAsyncWithHttpInfo(customerId, shippingAddressId, profileId);
-            logger.Debug("CALLING API \"GetCustomerShippingAddressAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetCustomerShippingAddressAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -767,13 +769,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
             }
             // verify the required parameter 'shippingAddressId' is set
             if (shippingAddressId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->GetCustomerShippingAddress");
             }
 
@@ -805,13 +807,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (shippingAddressId != null)
             {
                 localVarPathParams.Add("shippingAddressId", ApiClient.ParameterToString(shippingAddressId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -839,11 +841,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -863,7 +865,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -883,10 +885,10 @@ namespace CyberSource.Api
         /// <returns>ShippingAddressListForCustomer</returns>
         public ShippingAddressListForCustomer GetCustomerShippingAddressesList(string customerId, string profileId = null, long? offset = null, long? limit = null)
         {
-            logger.Debug("CALLING API \"GetCustomerShippingAddressesList\" STARTED");
+            logger.LogDebug("CALLING API \"GetCustomerShippingAddressesList\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ShippingAddressListForCustomer> localVarResponse = GetCustomerShippingAddressesListWithHttpInfo(customerId, profileId, offset, limit);
-            logger.Debug("CALLING API \"GetCustomerShippingAddressesList\" ENDED");
+            logger.LogDebug("CALLING API \"GetCustomerShippingAddressesList\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -907,7 +909,7 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddressesList");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddressesList");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddressesList");
             }
 
@@ -939,19 +941,19 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -980,11 +982,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1004,7 +1006,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetCustomerShippingAddressesList", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1025,10 +1027,10 @@ namespace CyberSource.Api
         /// <returns>Task of ShippingAddressListForCustomer</returns>
         public async Task<ShippingAddressListForCustomer> GetCustomerShippingAddressesListAsync(string customerId, string profileId = null, long? offset = null, long? limit = null)
         {
-            logger.Debug("CALLING API \"GetCustomerShippingAddressesListAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetCustomerShippingAddressesListAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ShippingAddressListForCustomer> localVarResponse = await GetCustomerShippingAddressesListAsyncWithHttpInfo(customerId, profileId, offset, limit);
-            logger.Debug("CALLING API \"GetCustomerShippingAddressesListAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetCustomerShippingAddressesListAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1050,7 +1052,7 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddressesList");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddressesList");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerShippingAddressApi->GetCustomerShippingAddressesList");
             }
 
@@ -1082,19 +1084,19 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -1122,11 +1124,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1146,7 +1148,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetCustomerShippingAddressesList", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1167,10 +1169,10 @@ namespace CyberSource.Api
         /// <returns>PatchCustomerShippingAddressRequest</returns>
         public PatchCustomerShippingAddressRequest PatchCustomersShippingAddress(string customerId, string shippingAddressId, PatchCustomerShippingAddressRequest patchCustomerShippingAddressRequest, string profileId = null, string ifMatch = null)
         {
-            logger.Debug("CALLING API \"PatchCustomersShippingAddress\" STARTED");
+            logger.LogDebug("CALLING API \"PatchCustomersShippingAddress\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PatchCustomerShippingAddressRequest> localVarResponse = PatchCustomersShippingAddressWithHttpInfo(customerId, shippingAddressId, patchCustomerShippingAddressRequest, profileId, ifMatch);
-            logger.Debug("CALLING API \"PatchCustomersShippingAddress\" ENDED");
+            logger.LogDebug("CALLING API \"PatchCustomersShippingAddress\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1192,19 +1194,19 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
             }
             // verify the required parameter 'shippingAddressId' is set
             if (shippingAddressId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
             }
             // verify the required parameter 'patchCustomerShippingAddressRequest' is set
             if (patchCustomerShippingAddressRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'patchCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'patchCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'patchCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
             }
 
@@ -1236,13 +1238,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (shippingAddressId != null)
             {
                 localVarPathParams.Add("shippingAddressId", ApiClient.ParameterToString(shippingAddressId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1271,18 +1273,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PatchCustomersShippingAddress,PatchCustomersShippingAddressAsync,PatchCustomersShippingAddressWithHttpInfo,PatchCustomersShippingAddressAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1297,7 +1299,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PatchCustomersShippingAddress", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1319,10 +1321,10 @@ namespace CyberSource.Api
         /// <returns>Task of PatchCustomerShippingAddressRequest</returns>
         public async Task<PatchCustomerShippingAddressRequest> PatchCustomersShippingAddressAsync(string customerId, string shippingAddressId, PatchCustomerShippingAddressRequest patchCustomerShippingAddressRequest, string profileId = null, string ifMatch = null)
         {
-            logger.Debug("CALLING API \"PatchCustomersShippingAddressAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PatchCustomersShippingAddressAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PatchCustomerShippingAddressRequest> localVarResponse = await PatchCustomersShippingAddressAsyncWithHttpInfo(customerId, shippingAddressId, patchCustomerShippingAddressRequest, profileId, ifMatch);
-            logger.Debug("CALLING API \"PatchCustomersShippingAddressAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PatchCustomersShippingAddressAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1345,19 +1347,19 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
             }
             // verify the required parameter 'shippingAddressId' is set
             if (shippingAddressId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'shippingAddressId' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
             }
             // verify the required parameter 'patchCustomerShippingAddressRequest' is set
             if (patchCustomerShippingAddressRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'patchCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'patchCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'patchCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PatchCustomersShippingAddress");
             }
 
@@ -1389,13 +1391,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (shippingAddressId != null)
             {
                 localVarPathParams.Add("shippingAddressId", ApiClient.ParameterToString(shippingAddressId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1424,18 +1426,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PatchCustomersShippingAddress,PatchCustomersShippingAddressAsync,PatchCustomersShippingAddressWithHttpInfo,PatchCustomersShippingAddressAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1450,7 +1452,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PatchCustomersShippingAddress", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1469,10 +1471,10 @@ namespace CyberSource.Api
         /// <returns>PostCustomerShippingAddressRequest</returns>
         public PostCustomerShippingAddressRequest PostCustomerShippingAddress(string customerId, PostCustomerShippingAddressRequest postCustomerShippingAddressRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostCustomerShippingAddress\" STARTED");
+            logger.LogDebug("CALLING API \"PostCustomerShippingAddress\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostCustomerShippingAddressRequest> localVarResponse = PostCustomerShippingAddressWithHttpInfo(customerId, postCustomerShippingAddressRequest, profileId);
-            logger.Debug("CALLING API \"PostCustomerShippingAddress\" ENDED");
+            logger.LogDebug("CALLING API \"PostCustomerShippingAddress\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1492,13 +1494,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
             }
             // verify the required parameter 'postCustomerShippingAddressRequest' is set
             if (postCustomerShippingAddressRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'postCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'postCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
             }
 
@@ -1530,7 +1532,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1554,18 +1556,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostCustomerShippingAddress,PostCustomerShippingAddressAsync,PostCustomerShippingAddressWithHttpInfo,PostCustomerShippingAddressAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1580,7 +1582,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1600,10 +1602,10 @@ namespace CyberSource.Api
         /// <returns>Task of PostCustomerShippingAddressRequest</returns>
         public async Task<PostCustomerShippingAddressRequest> PostCustomerShippingAddressAsync(string customerId, PostCustomerShippingAddressRequest postCustomerShippingAddressRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostCustomerShippingAddressAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostCustomerShippingAddressAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostCustomerShippingAddressRequest> localVarResponse = await PostCustomerShippingAddressAsyncWithHttpInfo(customerId, postCustomerShippingAddressRequest, profileId);
-            logger.Debug("CALLING API \"PostCustomerShippingAddressAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PostCustomerShippingAddressAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1624,13 +1626,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
             }
             // verify the required parameter 'postCustomerShippingAddressRequest' is set
             if (postCustomerShippingAddressRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
+                logger.LogError("ApiException : Missing required parameter 'postCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
                 throw new ApiException(400, "Missing required parameter 'postCustomerShippingAddressRequest' when calling CustomerShippingAddressApi->PostCustomerShippingAddress");
             }
 
@@ -1662,7 +1664,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1686,18 +1688,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostCustomerShippingAddress,PostCustomerShippingAddressAsync,PostCustomerShippingAddressWithHttpInfo,PostCustomerShippingAddressAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1712,7 +1714,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostCustomerShippingAddress", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

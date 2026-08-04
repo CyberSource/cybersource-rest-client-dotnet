@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// ReportingV3ConversionDetailsGet200ResponseConversionDetails
     /// </summary>
     [DataContract]
-    public partial class ReportingV3ConversionDetailsGet200ResponseConversionDetails :  IEquatable<ReportingV3ConversionDetailsGet200ResponseConversionDetails>, IValidatableObject
+    public partial class ReportingV3ConversionDetailsGet200ResponseConversionDetails :  ModelExtensions, IEquatable<ReportingV3ConversionDetailsGet200ResponseConversionDetails>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3ConversionDetailsGet200ResponseConversionDetails" /> class.
@@ -154,6 +155,7 @@ namespace CyberSource.Model
             if (Queue != null) sb.Append("  Queue: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3ConversionDetailsGet200ResponseConversionDetails", "queue", Queue.ToString())).Append("\n");
             if (Profile != null) sb.Append("  Profile: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3ConversionDetailsGet200ResponseConversionDetails", "profile", Profile.ToString())).Append("\n");
             if (Notes != null) sb.Append("  Notes: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3ConversionDetailsGet200ResponseConversionDetails", "notes", Notes.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -164,7 +166,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ReportingV3ConversionDetailsGet200ResponseConversionDetails", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ReportingV3ConversionDetailsGet200ResponseConversionDetails", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -189,7 +191,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.MerchantReferenceNumber == other.MerchantReferenceNumber ||
                     this.MerchantReferenceNumber != null &&
@@ -253,6 +259,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.MerchantReferenceNumber != null)
                     hash = hash * 59 + this.MerchantReferenceNumber.GetHashCode();
                 if (this.ConversionTime != null)
@@ -273,6 +281,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Profile.GetHashCode();
                 if (this.Notes != null)
                     hash = hash * 59 + this.Notes.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

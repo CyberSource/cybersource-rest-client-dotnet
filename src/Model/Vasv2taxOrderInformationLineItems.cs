@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Vasv2taxOrderInformationLineItems
     /// </summary>
     [DataContract]
-    public partial class Vasv2taxOrderInformationLineItems :  IEquatable<Vasv2taxOrderInformationLineItems>, IValidatableObject
+    public partial class Vasv2taxOrderInformationLineItems :  ModelExtensions, IEquatable<Vasv2taxOrderInformationLineItems>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Vasv2taxOrderInformationLineItems" /> class.
@@ -197,6 +198,7 @@ namespace CyberSource.Model
             if (ShipFromPostalCode != null) sb.Append("  ShipFromPostalCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Vasv2taxOrderInformationLineItems", "shipFromPostalCode", ShipFromPostalCode.ToString())).Append("\n");
             if (BuyerVatRegistrationNumber != null) sb.Append("  BuyerVatRegistrationNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Vasv2taxOrderInformationLineItems", "buyerVatRegistrationNumber", BuyerVatRegistrationNumber.ToString())).Append("\n");
             if (SellerVatRegistrationNumber != null) sb.Append("  SellerVatRegistrationNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Vasv2taxOrderInformationLineItems", "sellerVatRegistrationNumber", SellerVatRegistrationNumber.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -207,7 +209,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Vasv2taxOrderInformationLineItems", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Vasv2taxOrderInformationLineItems", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -232,7 +234,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.ProductSKU == other.ProductSKU ||
                     this.ProductSKU != null &&
@@ -316,6 +322,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.ProductSKU != null)
                     hash = hash * 59 + this.ProductSKU.GetHashCode();
                 if (this.ProductCode != null)
@@ -344,6 +352,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BuyerVatRegistrationNumber.GetHashCode();
                 if (this.SellerVatRegistrationNumber != null)
                     hash = hash * 59 + this.SellerVatRegistrationNumber.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

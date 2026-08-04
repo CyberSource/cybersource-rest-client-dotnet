@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields
     /// </summary>
     [DataContract]
-    public partial class VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields :  IEquatable<VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields>, IValidatableObject
+    public partial class VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields :  ModelExtensions, IEquatable<VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields" /> class.
@@ -295,6 +296,7 @@ namespace CyberSource.Model
             if (MerchantDefinedData3DisplayOnReceipt != null) sb.Append("  MerchantDefinedData3DisplayOnReceipt: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields", "merchantDefinedData3DisplayOnReceipt", MerchantDefinedData3DisplayOnReceipt.ToString())).Append("\n");
             if (MerchantDefinedData4DisplayOnReceipt != null) sb.Append("  MerchantDefinedData4DisplayOnReceipt: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields", "merchantDefinedData4DisplayOnReceipt", MerchantDefinedData4DisplayOnReceipt.ToString())).Append("\n");
             if (MerchantDefinedData5DisplayOnReceipt != null) sb.Append("  MerchantDefinedData5DisplayOnReceipt: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields", "merchantDefinedData5DisplayOnReceipt", MerchantDefinedData5DisplayOnReceipt.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -305,7 +307,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("VirtualTerminalGlobalPaymentSettingsMerchantDefinedDataFields", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -330,7 +332,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.DisplayMerchantDefinedData1 == other.DisplayMerchantDefinedData1 ||
                     this.DisplayMerchantDefinedData1 != null &&
@@ -469,6 +475,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.DisplayMerchantDefinedData1 != null)
                     hash = hash * 59 + this.DisplayMerchantDefinedData1.GetHashCode();
                 if (this.DisplayMerchantDefinedData2 != null)
@@ -519,6 +527,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantDefinedData4DisplayOnReceipt.GetHashCode();
                 if (this.MerchantDefinedData5DisplayOnReceipt != null)
                     hash = hash * 59 + this.MerchantDefinedData5DisplayOnReceipt.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -8,5 +8,14 @@ Name | Type | Description | Notes
 **FieldsIncluded** | **List&lt;string&gt;** | This field can contain one or more of the following values. When you specify more than one value, separate them with commas (,). - &#x60;account_key_hash&#x60; - &#x60;customer_account_id&#x60; - &#x60;customer_email&#x60; - &#x60;customer_ipaddress&#x60; - &#x60;customer_phone&#x60; - &#x60;device_fingerprint&#x60; - &#x60;ship_address&#x60; If no value is specified, &#x60;account_key_hash&#x60;, &#x60;customer_email&#x60;, and &#x60;ship_address&#x60; are used by default. Note &#x60;account_key_hash&#x60; adds the field that contains the card number (&#x60;customer_cc_number&#x60;).  | [optional] 
 **Action** | **string** | This field can contain one of the following values: - add: Mark as Suspect. - clear: Clear Mark as Suspect. - hide: Remove from history.  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

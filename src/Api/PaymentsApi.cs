@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -333,10 +335,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsOrderPost201Response</returns>
         public PtsV2PaymentsOrderPost201Response CreateOrderRequest(OrderPaymentRequest orderPaymentRequest, string id)
         {
-            logger.Debug("CALLING API \"CreateOrderRequest\" STARTED");
+            logger.LogDebug("CALLING API \"CreateOrderRequest\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsOrderPost201Response> localVarResponse = CreateOrderRequestWithHttpInfo(orderPaymentRequest, id);
-            logger.Debug("CALLING API \"CreateOrderRequest\" ENDED");
+            logger.LogDebug("CALLING API \"CreateOrderRequest\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -355,13 +357,13 @@ namespace CyberSource.Api
             // verify the required parameter 'orderPaymentRequest' is set
             if (orderPaymentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'orderPaymentRequest' when calling PaymentsApi->CreateOrderRequest");
+                logger.LogError("ApiException : Missing required parameter 'orderPaymentRequest' when calling PaymentsApi->CreateOrderRequest");
                 throw new ApiException(400, "Missing required parameter 'orderPaymentRequest' when calling PaymentsApi->CreateOrderRequest");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->CreateOrderRequest");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PaymentsApi->CreateOrderRequest");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->CreateOrderRequest");
             }
 
@@ -394,7 +396,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (orderPaymentRequest != null && orderPaymentRequest.GetType() != typeof(byte[]))
             {
@@ -413,18 +415,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateOrderRequest,CreateOrderRequestAsync,CreateOrderRequestWithHttpInfo,CreateOrderRequestAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -439,7 +441,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateOrderRequest", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -458,10 +460,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsOrderPost201Response</returns>
         public async Task<PtsV2PaymentsOrderPost201Response> CreateOrderRequestAsync(OrderPaymentRequest orderPaymentRequest, string id)
         {
-            logger.Debug("CALLING API \"CreateOrderRequestAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateOrderRequestAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsOrderPost201Response> localVarResponse = await CreateOrderRequestAsyncWithHttpInfo(orderPaymentRequest, id);
-            logger.Debug("CALLING API \"CreateOrderRequestAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreateOrderRequestAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -481,13 +483,13 @@ namespace CyberSource.Api
             // verify the required parameter 'orderPaymentRequest' is set
             if (orderPaymentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'orderPaymentRequest' when calling PaymentsApi->CreateOrderRequest");
+                logger.LogError("ApiException : Missing required parameter 'orderPaymentRequest' when calling PaymentsApi->CreateOrderRequest");
                 throw new ApiException(400, "Missing required parameter 'orderPaymentRequest' when calling PaymentsApi->CreateOrderRequest");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->CreateOrderRequest");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PaymentsApi->CreateOrderRequest");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->CreateOrderRequest");
             }
 
@@ -520,7 +522,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (orderPaymentRequest != null && orderPaymentRequest.GetType() != typeof(byte[]))
             {
@@ -539,18 +541,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateOrderRequest,CreateOrderRequestAsync,CreateOrderRequestWithHttpInfo,CreateOrderRequestAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -565,7 +567,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateOrderRequest", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -582,10 +584,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsPost201Response</returns>
         public PtsV2PaymentsPost201Response CreatePayment(CreatePaymentRequest createPaymentRequest)
         {
-            logger.Debug("CALLING API \"CreatePayment\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePayment\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsPost201Response> localVarResponse = CreatePaymentWithHttpInfo(createPaymentRequest);
-            logger.Debug("CALLING API \"CreatePayment\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePayment\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -603,7 +605,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createPaymentRequest' is set
             if (createPaymentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createPaymentRequest' when calling PaymentsApi->CreatePayment");
+                logger.LogError("ApiException : Missing required parameter 'createPaymentRequest' when calling PaymentsApi->CreatePayment");
                 throw new ApiException(400, "Missing required parameter 'createPaymentRequest' when calling PaymentsApi->CreatePayment");
             }
 
@@ -649,18 +651,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePayment,CreatePaymentAsync,CreatePaymentWithHttpInfo,CreatePaymentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -675,7 +677,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePayment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -693,10 +695,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsPost201Response</returns>
         public async Task<PtsV2PaymentsPost201Response> CreatePaymentAsync(CreatePaymentRequest createPaymentRequest)
         {
-            logger.Debug("CALLING API \"CreatePaymentAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePaymentAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsPost201Response> localVarResponse = await CreatePaymentAsyncWithHttpInfo(createPaymentRequest);
-            logger.Debug("CALLING API \"CreatePaymentAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePaymentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -715,7 +717,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createPaymentRequest' is set
             if (createPaymentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createPaymentRequest' when calling PaymentsApi->CreatePayment");
+                logger.LogError("ApiException : Missing required parameter 'createPaymentRequest' when calling PaymentsApi->CreatePayment");
                 throw new ApiException(400, "Missing required parameter 'createPaymentRequest' when calling PaymentsApi->CreatePayment");
             }
 
@@ -761,18 +763,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePayment,CreatePaymentAsync,CreatePaymentWithHttpInfo,CreatePaymentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -787,7 +789,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePayment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -804,10 +806,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsPost201Response2</returns>
         public PtsV2PaymentsPost201Response2 CreateSessionRequest(CreateSessionReq createSessionReq)
         {
-            logger.Debug("CALLING API \"CreateSessionRequest\" STARTED");
+            logger.LogDebug("CALLING API \"CreateSessionRequest\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = CreateSessionRequestWithHttpInfo(createSessionReq);
-            logger.Debug("CALLING API \"CreateSessionRequest\" ENDED");
+            logger.LogDebug("CALLING API \"CreateSessionRequest\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -825,7 +827,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createSessionReq' is set
             if (createSessionReq == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createSessionReq' when calling PaymentsApi->CreateSessionRequest");
+                logger.LogError("ApiException : Missing required parameter 'createSessionReq' when calling PaymentsApi->CreateSessionRequest");
                 throw new ApiException(400, "Missing required parameter 'createSessionReq' when calling PaymentsApi->CreateSessionRequest");
             }
 
@@ -871,18 +873,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateSessionRequest,CreateSessionRequestAsync,CreateSessionRequestWithHttpInfo,CreateSessionRequestAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -897,7 +899,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateSessionRequest", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -915,10 +917,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsPost201Response2</returns>
         public async Task<PtsV2PaymentsPost201Response2> CreateSessionRequestAsync(CreateSessionReq createSessionReq)
         {
-            logger.Debug("CALLING API \"CreateSessionRequestAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateSessionRequestAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = await CreateSessionRequestAsyncWithHttpInfo(createSessionReq);
-            logger.Debug("CALLING API \"CreateSessionRequestAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreateSessionRequestAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -937,7 +939,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createSessionReq' is set
             if (createSessionReq == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createSessionReq' when calling PaymentsApi->CreateSessionRequest");
+                logger.LogError("ApiException : Missing required parameter 'createSessionReq' when calling PaymentsApi->CreateSessionRequest");
                 throw new ApiException(400, "Missing required parameter 'createSessionReq' when calling PaymentsApi->CreateSessionRequest");
             }
 
@@ -983,18 +985,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateSessionRequest,CreateSessionRequestAsync,CreateSessionRequestWithHttpInfo,CreateSessionRequestAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1009,7 +1011,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateSessionRequest", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1027,10 +1029,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2IncrementalAuthorizationPatch201Response</returns>
         public PtsV2IncrementalAuthorizationPatch201Response IncrementAuth(string id, IncrementAuthRequest incrementAuthRequest)
         {
-            logger.Debug("CALLING API \"IncrementAuth\" STARTED");
+            logger.LogDebug("CALLING API \"IncrementAuth\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2IncrementalAuthorizationPatch201Response> localVarResponse = IncrementAuthWithHttpInfo(id, incrementAuthRequest);
-            logger.Debug("CALLING API \"IncrementAuth\" ENDED");
+            logger.LogDebug("CALLING API \"IncrementAuth\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1049,13 +1051,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->IncrementAuth");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PaymentsApi->IncrementAuth");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->IncrementAuth");
             }
             // verify the required parameter 'incrementAuthRequest' is set
             if (incrementAuthRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'incrementAuthRequest' when calling PaymentsApi->IncrementAuth");
+                logger.LogError("ApiException : Missing required parameter 'incrementAuthRequest' when calling PaymentsApi->IncrementAuth");
                 throw new ApiException(400, "Missing required parameter 'incrementAuthRequest' when calling PaymentsApi->IncrementAuth");
             }
 
@@ -1088,7 +1090,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (incrementAuthRequest != null && incrementAuthRequest.GetType() != typeof(byte[]))
             {
@@ -1107,18 +1109,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "IncrementAuth,IncrementAuthAsync,IncrementAuthWithHttpInfo,IncrementAuthAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1133,7 +1135,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("IncrementAuth", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1152,10 +1154,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2IncrementalAuthorizationPatch201Response</returns>
         public async Task<PtsV2IncrementalAuthorizationPatch201Response> IncrementAuthAsync(string id, IncrementAuthRequest incrementAuthRequest)
         {
-            logger.Debug("CALLING API \"IncrementAuthAsync\" STARTED");
+            logger.LogDebug("CALLING API \"IncrementAuthAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2IncrementalAuthorizationPatch201Response> localVarResponse = await IncrementAuthAsyncWithHttpInfo(id, incrementAuthRequest);
-            logger.Debug("CALLING API \"IncrementAuthAsync\" ENDED");
+            logger.LogDebug("CALLING API \"IncrementAuthAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1175,13 +1177,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->IncrementAuth");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PaymentsApi->IncrementAuth");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->IncrementAuth");
             }
             // verify the required parameter 'incrementAuthRequest' is set
             if (incrementAuthRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'incrementAuthRequest' when calling PaymentsApi->IncrementAuth");
+                logger.LogError("ApiException : Missing required parameter 'incrementAuthRequest' when calling PaymentsApi->IncrementAuth");
                 throw new ApiException(400, "Missing required parameter 'incrementAuthRequest' when calling PaymentsApi->IncrementAuth");
             }
 
@@ -1214,7 +1216,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (incrementAuthRequest != null && incrementAuthRequest.GetType() != typeof(byte[]))
             {
@@ -1233,18 +1235,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "IncrementAuth,IncrementAuthAsync,IncrementAuthWithHttpInfo,IncrementAuthAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1259,7 +1261,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("IncrementAuth", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1277,10 +1279,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsPost201Response1</returns>
         public PtsV2PaymentsPost201Response1 RefreshPaymentStatus(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
         {
-            logger.Debug("CALLING API \"RefreshPaymentStatus\" STARTED");
+            logger.LogDebug("CALLING API \"RefreshPaymentStatus\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsPost201Response1> localVarResponse = RefreshPaymentStatusWithHttpInfo(id, refreshPaymentStatusRequest);
-            logger.Debug("CALLING API \"RefreshPaymentStatus\" ENDED");
+            logger.LogDebug("CALLING API \"RefreshPaymentStatus\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1299,13 +1301,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->RefreshPaymentStatus");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PaymentsApi->RefreshPaymentStatus");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->RefreshPaymentStatus");
             }
             // verify the required parameter 'refreshPaymentStatusRequest' is set
             if (refreshPaymentStatusRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'refreshPaymentStatusRequest' when calling PaymentsApi->RefreshPaymentStatus");
+                logger.LogError("ApiException : Missing required parameter 'refreshPaymentStatusRequest' when calling PaymentsApi->RefreshPaymentStatus");
                 throw new ApiException(400, "Missing required parameter 'refreshPaymentStatusRequest' when calling PaymentsApi->RefreshPaymentStatus");
             }
 
@@ -1338,7 +1340,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (refreshPaymentStatusRequest != null && refreshPaymentStatusRequest.GetType() != typeof(byte[]))
             {
@@ -1357,18 +1359,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "RefreshPaymentStatus,RefreshPaymentStatusAsync,RefreshPaymentStatusWithHttpInfo,RefreshPaymentStatusAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1383,7 +1385,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("RefreshPaymentStatus", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1402,10 +1404,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsPost201Response1</returns>
         public async Task<PtsV2PaymentsPost201Response1> RefreshPaymentStatusAsync(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
         {
-            logger.Debug("CALLING API \"RefreshPaymentStatusAsync\" STARTED");
+            logger.LogDebug("CALLING API \"RefreshPaymentStatusAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsPost201Response1> localVarResponse = await RefreshPaymentStatusAsyncWithHttpInfo(id, refreshPaymentStatusRequest);
-            logger.Debug("CALLING API \"RefreshPaymentStatusAsync\" ENDED");
+            logger.LogDebug("CALLING API \"RefreshPaymentStatusAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1425,13 +1427,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->RefreshPaymentStatus");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PaymentsApi->RefreshPaymentStatus");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->RefreshPaymentStatus");
             }
             // verify the required parameter 'refreshPaymentStatusRequest' is set
             if (refreshPaymentStatusRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'refreshPaymentStatusRequest' when calling PaymentsApi->RefreshPaymentStatus");
+                logger.LogError("ApiException : Missing required parameter 'refreshPaymentStatusRequest' when calling PaymentsApi->RefreshPaymentStatus");
                 throw new ApiException(400, "Missing required parameter 'refreshPaymentStatusRequest' when calling PaymentsApi->RefreshPaymentStatus");
             }
 
@@ -1464,7 +1466,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (refreshPaymentStatusRequest != null && refreshPaymentStatusRequest.GetType() != typeof(byte[]))
             {
@@ -1483,18 +1485,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "RefreshPaymentStatus,RefreshPaymentStatusAsync,RefreshPaymentStatusWithHttpInfo,RefreshPaymentStatusAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1509,7 +1511,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("RefreshPaymentStatus", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1527,10 +1529,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsPost201Response2</returns>
         public PtsV2PaymentsPost201Response2 UpdateSessionRequest(CreateSessionRequest createSessionRequest, string id)
         {
-            logger.Debug("CALLING API \"UpdateSessionRequest\" STARTED");
+            logger.LogDebug("CALLING API \"UpdateSessionRequest\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = UpdateSessionRequestWithHttpInfo(createSessionRequest, id);
-            logger.Debug("CALLING API \"UpdateSessionRequest\" ENDED");
+            logger.LogDebug("CALLING API \"UpdateSessionRequest\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1549,13 +1551,13 @@ namespace CyberSource.Api
             // verify the required parameter 'createSessionRequest' is set
             if (createSessionRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createSessionRequest' when calling PaymentsApi->UpdateSessionRequest");
+                logger.LogError("ApiException : Missing required parameter 'createSessionRequest' when calling PaymentsApi->UpdateSessionRequest");
                 throw new ApiException(400, "Missing required parameter 'createSessionRequest' when calling PaymentsApi->UpdateSessionRequest");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->UpdateSessionRequest");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PaymentsApi->UpdateSessionRequest");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->UpdateSessionRequest");
             }
 
@@ -1588,7 +1590,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (createSessionRequest != null && createSessionRequest.GetType() != typeof(byte[]))
             {
@@ -1607,18 +1609,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "UpdateSessionRequest,UpdateSessionRequestAsync,UpdateSessionRequestWithHttpInfo,UpdateSessionRequestAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1633,7 +1635,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("UpdateSessionRequest", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1652,10 +1654,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsPost201Response2</returns>
         public async Task<PtsV2PaymentsPost201Response2> UpdateSessionRequestAsync(CreateSessionRequest createSessionRequest, string id)
         {
-            logger.Debug("CALLING API \"UpdateSessionRequestAsync\" STARTED");
+            logger.LogDebug("CALLING API \"UpdateSessionRequestAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = await UpdateSessionRequestAsyncWithHttpInfo(createSessionRequest, id);
-            logger.Debug("CALLING API \"UpdateSessionRequestAsync\" ENDED");
+            logger.LogDebug("CALLING API \"UpdateSessionRequestAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1675,13 +1677,13 @@ namespace CyberSource.Api
             // verify the required parameter 'createSessionRequest' is set
             if (createSessionRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createSessionRequest' when calling PaymentsApi->UpdateSessionRequest");
+                logger.LogError("ApiException : Missing required parameter 'createSessionRequest' when calling PaymentsApi->UpdateSessionRequest");
                 throw new ApiException(400, "Missing required parameter 'createSessionRequest' when calling PaymentsApi->UpdateSessionRequest");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PaymentsApi->UpdateSessionRequest");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PaymentsApi->UpdateSessionRequest");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PaymentsApi->UpdateSessionRequest");
             }
 
@@ -1714,7 +1716,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (createSessionRequest != null && createSessionRequest.GetType() != typeof(byte[]))
             {
@@ -1733,18 +1735,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "UpdateSessionRequest,UpdateSessionRequestAsync,UpdateSessionRequestWithHttpInfo,UpdateSessionRequestAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1759,7 +1761,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("UpdateSessionRequest", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

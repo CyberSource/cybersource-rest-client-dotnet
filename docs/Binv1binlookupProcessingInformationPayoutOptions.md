@@ -7,5 +7,14 @@ Name | Type | Description | Notes
 **NetworkId** | **string** | The networks specified in this field must be a subset of the information provided during program enrollment    Possible values: - 0020 : Accel/Exchange - 0024 : CU24 - 0003 : Interlink - 0016 : Maestro - 0018 : NYCE - 0027 : NYCE - 0009 : Pulse - 0017 : Pulse - 0019 : Pulse - 0008 : Star - 0010 : Star - 0011 : Star - 0012 : Star - 0015 : Star - 0002 : Visa/PLUS  | [optional] 
 **AcquirerBin** | **string** | BIN under which the Funds Transfer application is registered. This must match the information provided during enrollment.  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

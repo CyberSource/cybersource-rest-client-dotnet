@@ -9,5 +9,14 @@ Name | Type | Description | Notes
 **AccountFundingReferenceId** | **string** | Visa (maxLength of 15) or MasterCard (maxLength of 40) generated transaction identifier (TID) that is unique for each original authorization and financial request. * Applicable only for CTV for Payouts.  | [optional] 
 **DeferredDateTime** | **string** | #### Visa Platform Connect  Contains date and time value indicating scheduled deferred OCT.  Format is : &#39;yyyyMMddHHmm&#39;, where  &#39;YYYY&#39; &#x3D; year &#39;MM&#39; &#x3D; month &#39;DD&#39; &#x3D; day &#39;hh&#39; &#x3D; hour &#39;mm&#39; &#x3D; minutes  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

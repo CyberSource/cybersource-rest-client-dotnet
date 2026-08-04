@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// *NEW* Name of the payment processor. Example - \&quot;wellsfargoach\&quot;
     /// </summary>
     [DataContract]
-    public partial class ECheckConfigFeaturesAccountValidationServiceProcessors :  IEquatable<ECheckConfigFeaturesAccountValidationServiceProcessors>, IValidatableObject
+    public partial class ECheckConfigFeaturesAccountValidationServiceProcessors :  ModelExtensions, IEquatable<ECheckConfigFeaturesAccountValidationServiceProcessors>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ECheckConfigFeaturesAccountValidationServiceProcessors" /> class.
@@ -168,6 +169,7 @@ namespace CyberSource.Model
             if (AvsEntityId != null) sb.Append("  AvsEntityId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ECheckConfigFeaturesAccountValidationServiceProcessors", "avsEntityId", AvsEntityId.ToString())).Append("\n");
             if (AvsResultMode != null) sb.Append("  AvsResultMode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ECheckConfigFeaturesAccountValidationServiceProcessors", "avsResultMode", AvsResultMode.ToString())).Append("\n");
             if (EnableAvsTokenCreation != null) sb.Append("  EnableAvsTokenCreation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ECheckConfigFeaturesAccountValidationServiceProcessors", "enableAvsTokenCreation", EnableAvsTokenCreation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -178,7 +180,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ECheckConfigFeaturesAccountValidationServiceProcessors", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ECheckConfigFeaturesAccountValidationServiceProcessors", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -203,7 +205,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.AvsAccountOwnershipService == other.AvsAccountOwnershipService ||
                     this.AvsAccountOwnershipService != null &&
@@ -262,6 +268,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.AvsAccountOwnershipService != null)
                     hash = hash * 59 + this.AvsAccountOwnershipService.GetHashCode();
                 if (this.AvsAccountStatusService != null)
@@ -280,6 +288,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AvsResultMode.GetHashCode();
                 if (this.EnableAvsTokenCreation != null)
                     hash = hash * 59 + this.EnableAvsTokenCreation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

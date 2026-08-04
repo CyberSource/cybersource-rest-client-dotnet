@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -148,10 +150,10 @@ namespace CyberSource.Api
         /// <returns>TssV2TransactionsPost201Response</returns>
         public TssV2TransactionsPost201Response CreateSearch(CreateSearchRequest createSearchRequest)
         {
-            logger.Debug("CALLING API \"CreateSearch\" STARTED");
+            logger.LogDebug("CALLING API \"CreateSearch\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = CreateSearchWithHttpInfo(createSearchRequest);
-            logger.Debug("CALLING API \"CreateSearch\" ENDED");
+            logger.LogDebug("CALLING API \"CreateSearch\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -169,7 +171,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createSearchRequest' is set
             if (createSearchRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createSearchRequest' when calling SearchTransactionsApi->CreateSearch");
+                logger.LogError("ApiException : Missing required parameter 'createSearchRequest' when calling SearchTransactionsApi->CreateSearch");
                 throw new ApiException(400, "Missing required parameter 'createSearchRequest' when calling SearchTransactionsApi->CreateSearch");
             }
 
@@ -214,18 +216,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateSearch,CreateSearchAsync,CreateSearchWithHttpInfo,CreateSearchAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -240,7 +242,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateSearch", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -258,10 +260,10 @@ namespace CyberSource.Api
         /// <returns>Task of TssV2TransactionsPost201Response</returns>
         public async Task<TssV2TransactionsPost201Response> CreateSearchAsync(CreateSearchRequest createSearchRequest)
         {
-            logger.Debug("CALLING API \"CreateSearchAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateSearchAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await CreateSearchAsyncWithHttpInfo(createSearchRequest);
-            logger.Debug("CALLING API \"CreateSearchAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreateSearchAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -280,7 +282,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createSearchRequest' is set
             if (createSearchRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createSearchRequest' when calling SearchTransactionsApi->CreateSearch");
+                logger.LogError("ApiException : Missing required parameter 'createSearchRequest' when calling SearchTransactionsApi->CreateSearch");
                 throw new ApiException(400, "Missing required parameter 'createSearchRequest' when calling SearchTransactionsApi->CreateSearch");
             }
 
@@ -325,18 +327,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateSearch,CreateSearchAsync,CreateSearchWithHttpInfo,CreateSearchAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -351,7 +353,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateSearch", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -368,10 +370,10 @@ namespace CyberSource.Api
         /// <returns>TssV2TransactionsPost201Response</returns>
         public TssV2TransactionsPost201Response GetSearch(string searchId)
         {
-            logger.Debug("CALLING API \"GetSearch\" STARTED");
+            logger.LogDebug("CALLING API \"GetSearch\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = GetSearchWithHttpInfo(searchId);
-            logger.Debug("CALLING API \"GetSearch\" ENDED");
+            logger.LogDebug("CALLING API \"GetSearch\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -389,7 +391,7 @@ namespace CyberSource.Api
             // verify the required parameter 'searchId' is set
             if (searchId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'searchId' when calling SearchTransactionsApi->GetSearch");
+                logger.LogError("ApiException : Missing required parameter 'searchId' when calling SearchTransactionsApi->GetSearch");
                 throw new ApiException(400, "Missing required parameter 'searchId' when calling SearchTransactionsApi->GetSearch");
             }
 
@@ -421,7 +423,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("searchId", ApiClient.ParameterToString(searchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -445,11 +447,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -469,7 +471,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetSearch", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -487,10 +489,10 @@ namespace CyberSource.Api
         /// <returns>Task of TssV2TransactionsPost201Response</returns>
         public async Task<TssV2TransactionsPost201Response> GetSearchAsync(string searchId)
         {
-            logger.Debug("CALLING API \"GetSearchAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetSearchAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<TssV2TransactionsPost201Response> localVarResponse = await GetSearchAsyncWithHttpInfo(searchId);
-            logger.Debug("CALLING API \"GetSearchAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetSearchAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -509,7 +511,7 @@ namespace CyberSource.Api
             // verify the required parameter 'searchId' is set
             if (searchId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'searchId' when calling SearchTransactionsApi->GetSearch");
+                logger.LogError("ApiException : Missing required parameter 'searchId' when calling SearchTransactionsApi->GetSearch");
                 throw new ApiException(400, "Missing required parameter 'searchId' when calling SearchTransactionsApi->GetSearch");
             }
 
@@ -541,7 +543,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("searchId", ApiClient.ParameterToString(searchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -564,11 +566,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -588,7 +590,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetSearch", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

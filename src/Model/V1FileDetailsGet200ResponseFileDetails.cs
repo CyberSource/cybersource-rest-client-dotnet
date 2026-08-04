@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// V1FileDetailsGet200ResponseFileDetails
     /// </summary>
     [DataContract]
-    public partial class V1FileDetailsGet200ResponseFileDetails :  IEquatable<V1FileDetailsGet200ResponseFileDetails>, IValidatableObject
+    public partial class V1FileDetailsGet200ResponseFileDetails :  ModelExtensions, IEquatable<V1FileDetailsGet200ResponseFileDetails>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="V1FileDetailsGet200ResponseFileDetails" /> class.
@@ -123,6 +124,7 @@ namespace CyberSource.Model
             if (Date != null) sb.Append("  Date: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("V1FileDetailsGet200ResponseFileDetails", "date", Date.ToString())).Append("\n");
             if (MimeType != null) sb.Append("  MimeType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("V1FileDetailsGet200ResponseFileDetails", "mimeType", MimeType.ToString())).Append("\n");
             if (Size != null) sb.Append("  Size: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("V1FileDetailsGet200ResponseFileDetails", "size", Size.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -133,7 +135,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("V1FileDetailsGet200ResponseFileDetails", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("V1FileDetailsGet200ResponseFileDetails", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -158,7 +160,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.FileId == other.FileId ||
                     this.FileId != null &&
@@ -207,6 +213,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.FileId != null)
                     hash = hash * 59 + this.FileId.GetHashCode();
                 if (this.Name != null)
@@ -221,6 +229,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MimeType.GetHashCode();
                 if (this.Size != null)
                     hash = hash * 59 + this.Size.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

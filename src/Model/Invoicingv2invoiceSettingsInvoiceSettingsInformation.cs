@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Invoicingv2invoiceSettingsInvoiceSettingsInformation
     /// </summary>
     [DataContract]
-    public partial class Invoicingv2invoiceSettingsInvoiceSettingsInformation :  IEquatable<Invoicingv2invoiceSettingsInvoiceSettingsInformation>, IValidatableObject
+    public partial class Invoicingv2invoiceSettingsInvoiceSettingsInformation :  ModelExtensions, IEquatable<Invoicingv2invoiceSettingsInvoiceSettingsInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Invoicingv2invoiceSettingsInvoiceSettingsInformation" /> class.
@@ -47,9 +48,10 @@ namespace CyberSource.Model
         /// <param name="PhoneNumber">Collect the payers phone number. (default to false).</param>
         /// <param name="Email">Collect the payers email address when the email address is not known or confirm it if it is known at the time of invoice creation. (default to false).</param>
         /// <param name="EnableMerchantEmailNotifications">Whether you would like to receive payment notification for successful transaction (default to false).</param>
+        /// <param name="MerchantEmail">The merchant&#39;s email address for receiving payment notifications..</param>
         /// <param name="CustomLabels">A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten. .</param>
         /// <param name="CustomRedirectUrls">CustomRedirectUrls.</param>
-        public Invoicingv2invoiceSettingsInvoiceSettingsInformation(string MerchantLogo = default(string), string MerchantDisplayName = default(string), string CustomEmailMessage = default(string), bool? EnableReminders = default(bool?), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle HeaderStyle = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle), string DeliveryLanguage = default(string), string DefaultCurrencyCode = default(string), string PayerAuthenticationInInvoicing = default(string), bool? ShowVatNumber = false, string VatRegistrationNumber = default(string), bool? ShipTo = false, bool? PhoneNumber = false, bool? Email = false, bool? EnableMerchantEmailNotifications = false, List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels> CustomLabels = default(List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels>), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationCustomRedirectUrls CustomRedirectUrls = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationCustomRedirectUrls))
+        public Invoicingv2invoiceSettingsInvoiceSettingsInformation(string MerchantLogo = default(string), string MerchantDisplayName = default(string), string CustomEmailMessage = default(string), bool? EnableReminders = default(bool?), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle HeaderStyle = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationHeaderStyle), string DeliveryLanguage = default(string), string DefaultCurrencyCode = default(string), string PayerAuthenticationInInvoicing = default(string), bool? ShowVatNumber = false, string VatRegistrationNumber = default(string), bool? ShipTo = false, bool? PhoneNumber = false, bool? Email = false, bool? EnableMerchantEmailNotifications = false, string MerchantEmail = default(string), List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels> CustomLabels = default(List<InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels>), InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationCustomRedirectUrls CustomRedirectUrls = default(InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationCustomRedirectUrls))
         {
             this.MerchantLogo = MerchantLogo;
             this.MerchantDisplayName = MerchantDisplayName;
@@ -105,6 +107,7 @@ namespace CyberSource.Model
             {
                 this.EnableMerchantEmailNotifications = EnableMerchantEmailNotifications;
             }
+            this.MerchantEmail = MerchantEmail;
             this.CustomLabels = CustomLabels;
             this.CustomRedirectUrls = CustomRedirectUrls;
         }
@@ -221,6 +224,14 @@ namespace CyberSource.Model
         public bool? EnableMerchantEmailNotifications { get; set; }
 
         /// <summary>
+        /// The merchant&#39;s email address for receiving payment notifications.
+        /// </summary>
+        /// <value>The merchant&#39;s email address for receiving payment notifications.</value>
+        [JsonPropertyName("merchantEmail")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string MerchantEmail { get; set; }
+
+        /// <summary>
         /// A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten. 
         /// </summary>
         /// <value>A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten. </value>
@@ -257,8 +268,10 @@ namespace CyberSource.Model
             if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoiceSettingsInvoiceSettingsInformation", "phoneNumber", PhoneNumber.ToString())).Append("\n");
             if (Email != null) sb.Append("  Email: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoiceSettingsInvoiceSettingsInformation", "email", Email.ToString())).Append("\n");
             if (EnableMerchantEmailNotifications != null) sb.Append("  EnableMerchantEmailNotifications: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoiceSettingsInvoiceSettingsInformation", "enableMerchantEmailNotifications", EnableMerchantEmailNotifications.ToString())).Append("\n");
+            if (MerchantEmail != null) sb.Append("  MerchantEmail: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoiceSettingsInvoiceSettingsInformation", "merchantEmail", MerchantEmail.ToString())).Append("\n");
             if (CustomLabels != null) sb.Append("  CustomLabels: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoiceSettingsInvoiceSettingsInformation", "customLabels", CustomLabels.ToString())).Append("\n");
             if (CustomRedirectUrls != null) sb.Append("  CustomRedirectUrls: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoiceSettingsInvoiceSettingsInformation", "customRedirectUrls", CustomRedirectUrls.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -269,7 +282,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Invoicingv2invoiceSettingsInvoiceSettingsInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Invoicingv2invoiceSettingsInvoiceSettingsInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -294,7 +307,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.MerchantLogo == other.MerchantLogo ||
                     this.MerchantLogo != null &&
@@ -366,6 +383,11 @@ namespace CyberSource.Model
                     this.EnableMerchantEmailNotifications.Equals(other.EnableMerchantEmailNotifications)
                 ) && 
                 (
+                    this.MerchantEmail == other.MerchantEmail ||
+                    this.MerchantEmail != null &&
+                    this.MerchantEmail.Equals(other.MerchantEmail)
+                ) && 
+                (
                     this.CustomLabels == other.CustomLabels ||
                     this.CustomLabels != null &&
                     this.CustomLabels.SequenceEqual(other.CustomLabels)
@@ -388,6 +410,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.MerchantLogo != null)
                     hash = hash * 59 + this.MerchantLogo.GetHashCode();
                 if (this.MerchantDisplayName != null)
@@ -416,10 +440,13 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Email.GetHashCode();
                 if (this.EnableMerchantEmailNotifications != null)
                     hash = hash * 59 + this.EnableMerchantEmailNotifications.GetHashCode();
+                if (this.MerchantEmail != null)
+                    hash = hash * 59 + this.MerchantEmail.GetHashCode();
                 if (this.CustomLabels != null)
                     hash = hash * 59 + this.CustomLabels.GetHashCode();
                 if (this.CustomRedirectUrls != null)
                     hash = hash * 59 + this.CustomRedirectUrls.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

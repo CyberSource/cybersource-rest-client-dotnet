@@ -35,5 +35,14 @@ Name | Type | Description | Notes
 **TerminalMake** | **string** | This is the manufacturer name of the reader which is used to accept the payment. Possible values:  - PAX  - Verifone  - Ingenico  | [optional] 
 **ServiceCode** | **string** | #### Visa Platform Connect Mastercard service code that is included in the track data.  This field is supported only for Mastercard on Visa Platform Connect.   You can extract the service code from the track data and provide it in this API field.   When not provided it will be extracted from:   - Track2Data for MSR transactions   - EMV tag 5F30 for EMV transactions  To enable this feature please call support.  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

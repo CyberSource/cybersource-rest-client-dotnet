@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -246,7 +248,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void GetTransactionBatchDetails(string id, DateTime? uploadDate = null, string status = null)
         {
-            logger.Debug("CALLING API \"GetTransactionBatchDetails\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionBatchDetails\" STARTED");
             this.SetStatusCode(null);
             GetTransactionBatchDetailsWithHttpInfo(id, uploadDate, status);
         }
@@ -266,7 +268,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchDetails");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchDetails");
                 throw new ApiException(400, "Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchDetails");
             }
 
@@ -300,19 +302,19 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (uploadDate != null)
             {
                 localVarQueryParams.Add("uploadDate", ApiClient.ParameterToString(uploadDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (status != null)
             {
                 localVarQueryParams.Add("status", ApiClient.ParameterToString(status)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -336,11 +338,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -360,7 +362,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransactionBatchDetails", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -381,7 +383,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task GetTransactionBatchDetailsAsync(string id, DateTime? uploadDate = null, string status = null)
         {
-            logger.Debug("CALLING API \"GetTransactionBatchDetailsAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionBatchDetailsAsync\" STARTED");
             this.SetStatusCode(null);
             await GetTransactionBatchDetailsAsyncWithHttpInfo(id, uploadDate, status);
 
@@ -402,7 +404,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchDetails");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchDetails");
                 throw new ApiException(400, "Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchDetails");
             }
 
@@ -436,19 +438,19 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (uploadDate != null)
             {
                 localVarQueryParams.Add("uploadDate", ApiClient.ParameterToString(uploadDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (status != null)
             {
                 localVarQueryParams.Add("status", ApiClient.ParameterToString(status)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -471,11 +473,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -495,7 +497,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransactionBatchDetails", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -513,10 +515,10 @@ namespace CyberSource.Api
         /// <returns>PtsV1TransactionBatchesIdGet200Response</returns>
         public PtsV1TransactionBatchesIdGet200Response GetTransactionBatchId(string id)
         {
-            logger.Debug("CALLING API \"GetTransactionBatchId\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionBatchId\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV1TransactionBatchesIdGet200Response> localVarResponse = GetTransactionBatchIdWithHttpInfo(id);
-            logger.Debug("CALLING API \"GetTransactionBatchId\" ENDED");
+            logger.LogDebug("CALLING API \"GetTransactionBatchId\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -534,7 +536,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchId");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchId");
                 throw new ApiException(400, "Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchId");
             }
 
@@ -566,7 +568,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -590,11 +592,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -614,7 +616,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransactionBatchId", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -632,10 +634,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV1TransactionBatchesIdGet200Response</returns>
         public async Task<PtsV1TransactionBatchesIdGet200Response> GetTransactionBatchIdAsync(string id)
         {
-            logger.Debug("CALLING API \"GetTransactionBatchIdAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionBatchIdAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV1TransactionBatchesIdGet200Response> localVarResponse = await GetTransactionBatchIdAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"GetTransactionBatchIdAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetTransactionBatchIdAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -654,7 +656,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchId");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchId");
                 throw new ApiException(400, "Missing required parameter 'id' when calling TransactionBatchesApi->GetTransactionBatchId");
             }
 
@@ -686,7 +688,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -709,11 +711,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -733,7 +735,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransactionBatchId", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -751,10 +753,10 @@ namespace CyberSource.Api
         /// <returns>PtsV1TransactionBatchesGet200Response</returns>
         public PtsV1TransactionBatchesGet200Response GetTransactionBatches(DateTime? startTime, DateTime? endTime)
         {
-            logger.Debug("CALLING API \"GetTransactionBatches\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionBatches\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV1TransactionBatchesGet200Response> localVarResponse = GetTransactionBatchesWithHttpInfo(startTime, endTime);
-            logger.Debug("CALLING API \"GetTransactionBatches\" ENDED");
+            logger.LogDebug("CALLING API \"GetTransactionBatches\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -773,13 +775,13 @@ namespace CyberSource.Api
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling TransactionBatchesApi->GetTransactionBatches");
+                logger.LogError("ApiException : Missing required parameter 'startTime' when calling TransactionBatchesApi->GetTransactionBatches");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling TransactionBatchesApi->GetTransactionBatches");
             }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling TransactionBatchesApi->GetTransactionBatches");
+                logger.LogError("ApiException : Missing required parameter 'endTime' when calling TransactionBatchesApi->GetTransactionBatches");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling TransactionBatchesApi->GetTransactionBatches");
             }
 
@@ -811,13 +813,13 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("startTime", ApiClient.ParameterToString(startTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endTime != null)
             {
                 localVarQueryParams.Add("endTime", ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -841,11 +843,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -865,7 +867,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransactionBatches", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -884,10 +886,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV1TransactionBatchesGet200Response</returns>
         public async Task<PtsV1TransactionBatchesGet200Response> GetTransactionBatchesAsync(DateTime? startTime, DateTime? endTime)
         {
-            logger.Debug("CALLING API \"GetTransactionBatchesAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionBatchesAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV1TransactionBatchesGet200Response> localVarResponse = await GetTransactionBatchesAsyncWithHttpInfo(startTime, endTime);
-            logger.Debug("CALLING API \"GetTransactionBatchesAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetTransactionBatchesAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -907,13 +909,13 @@ namespace CyberSource.Api
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling TransactionBatchesApi->GetTransactionBatches");
+                logger.LogError("ApiException : Missing required parameter 'startTime' when calling TransactionBatchesApi->GetTransactionBatches");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling TransactionBatchesApi->GetTransactionBatches");
             }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling TransactionBatchesApi->GetTransactionBatches");
+                logger.LogError("ApiException : Missing required parameter 'endTime' when calling TransactionBatchesApi->GetTransactionBatches");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling TransactionBatchesApi->GetTransactionBatches");
             }
 
@@ -945,13 +947,13 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("startTime", ApiClient.ParameterToString(startTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endTime != null)
             {
                 localVarQueryParams.Add("endTime", ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -974,11 +976,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -998,7 +1000,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransactionBatches", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1015,7 +1017,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void UploadTransactionBatch(System.IO.Stream _file)
         {
-            logger.Debug("CALLING API \"UploadTransactionBatch\" STARTED");
+            logger.LogDebug("CALLING API \"UploadTransactionBatch\" STARTED");
             this.SetStatusCode(null);
             UploadTransactionBatchWithHttpInfo(_file);
         }
@@ -1033,7 +1035,7 @@ namespace CyberSource.Api
             // verify the required parameter '_file' is set
             if (_file == null)
             {
-                logger.Error("ApiException : Missing required parameter '_file' when calling TransactionBatchesApi->UploadTransactionBatch");
+                logger.LogError("ApiException : Missing required parameter '_file' when calling TransactionBatchesApi->UploadTransactionBatch");
                 throw new ApiException(400, "Missing required parameter '_file' when calling TransactionBatchesApi->UploadTransactionBatch");
             }
 
@@ -1088,11 +1090,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1112,7 +1114,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("UploadTransactionBatch", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1131,7 +1133,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task UploadTransactionBatchAsync(System.IO.Stream _file)
         {
-            logger.Debug("CALLING API \"UploadTransactionBatchAsync\" STARTED");
+            logger.LogDebug("CALLING API \"UploadTransactionBatchAsync\" STARTED");
             this.SetStatusCode(null);
             await UploadTransactionBatchAsyncWithHttpInfo(_file);
 
@@ -1150,7 +1152,7 @@ namespace CyberSource.Api
             // verify the required parameter '_file' is set
             if (_file == null)
             {
-                logger.Error("ApiException : Missing required parameter '_file' when calling TransactionBatchesApi->UploadTransactionBatch");
+                logger.LogError("ApiException : Missing required parameter '_file' when calling TransactionBatchesApi->UploadTransactionBatch");
                 throw new ApiException(400, "Missing required parameter '_file' when calling TransactionBatchesApi->UploadTransactionBatch");
             }
 
@@ -1203,11 +1205,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1227,7 +1229,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("UploadTransactionBatch", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

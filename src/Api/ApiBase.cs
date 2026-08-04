@@ -1,5 +1,6 @@
 ﻿using CyberSource.Client;
-using NLog;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,8 @@ namespace CyberSource.Api
     public abstract class ApiBase
     {
         #region Properties
-        protected static Logger logger;
+        protected ILogger<ApiBase> logger = NullLogger<ApiBase>.Instance;
+        protected ILoggerFactory loggerFactory;
         private ExceptionFactory _exceptionFactory = (name, response) => null;
         private int? _statusCode;
 
@@ -37,7 +39,7 @@ namespace CyberSource.Api
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    logger.Error("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
+                    logger.LogError("InvalidOperationException : Multicast delegate for ExceptionFactory is unsupported.");
                     throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 _exceptionFactory = value;
@@ -80,7 +82,8 @@ namespace CyberSource.Api
 
             ExceptionFactory = DefaultExceptionFactory;
 
-            logger ??= LogManager.GetCurrentClassLogger();
+            loggerFactory = Configuration.MerchantLegacySettings.LoggerFactory ?? NullLoggerFactory.Instance;
+            logger = loggerFactory.CreateLogger<ApiBase>();
         }
         #endregion Constructors
 

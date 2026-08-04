@@ -400,7 +400,7 @@ No authorization required
 
 <a name="posttokenizedcarddelete"></a>
 # **PostTokenizedCardDelete**
-> void PostTokenizedCardDelete (string tokenizedCardId, string profileId = null, TmsTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null)
+> void PostTokenizedCardDelete (string tokenizedCardId, string profileId = null, PostTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null)
 
 Delete a Tokenized Card
 
@@ -423,7 +423,7 @@ namespace Example
             var apiInstance = new NetworkTokensApi();
             var tokenizedCardId = tokenizedCardId_example;  // string | The Id of a tokenized card.
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
-            var postTokenizedCardDeleteRequest = new TmsTokenizedCardDeleteRequest(); // TmsTokenizedCardDeleteRequest |  (optional) 
+            var postTokenizedCardDeleteRequest = new PostTokenizedCardDeleteRequest(); // PostTokenizedCardDeleteRequest |  (optional) 
 
             try
             {
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tokenizedCardId** | **string**| The Id of a tokenized card. | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
- **postTokenizedCardDeleteRequest** | [**TmsTokenizedCardDeleteRequest**](TmsTokenizedCardDeleteRequest.md)|  | [optional] 
+ **postTokenizedCardDeleteRequest** | [**PostTokenizedCardDeleteRequest**](PostTokenizedCardDeleteRequest.md)|  | [optional] 
 
 ### Return type
 

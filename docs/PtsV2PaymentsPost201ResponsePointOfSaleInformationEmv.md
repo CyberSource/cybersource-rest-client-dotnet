@@ -7,5 +7,14 @@ Name | Type | Description | Notes
 **ChipValidationType** | **string** | Entity or service that provided the validation results returned in &#x60;chipValidationResult&#x60;.  Possible values:  - &#x60;02&#x60;: MasterCard on-behalf pre-validation service (The MasterCard authorization platform validated the M/Chip cryptogram before the authorization request reached the issuer.)  - &#x60;03&#x60;: MasterCard on-behalf stand-in service (The MasterCard authorization platform validated the M/Chip cryptogram because the issuer was not available.)  - &#x60;50&#x60;: Issuer  - &#x60;90&#x60;: Chip fall-back transaction downgrade process (The chip could not be read.)  This field is returned only for NFC payment network tokenization transactions with MasterCard.  **Note** No CyberSource through VisaNet acquirers support EMV at this time.  | [optional] 
 **ChipValidationResult** | **string** | Cryptogram validation results returned by the entity or service specified in &#x60;chipValidationType&#x60;.  Possible values: - &#x60;A&#x60;: Application cryptogram is valid, but the application transaction counter (ATC) is outside allowed range. (A large jump in ATC values may indicate data copying or other fraud.) - &#x60;C&#x60;: Chip validation was completed successfully. - &#x60;E&#x60;: Application cryptogram is valid but the ATC indicates possible replay fraud. - &#x60;F&#x60;: Format error in the chip data. - &#x60;G&#x60;: Application cryptogram is valid but is not a valid authorization request cryptogram (ARQC). - &#x60;I&#x60;: Application cryptogram is invalid. - &#x60;T&#x60;: Application cryptogram is valid but terminal verification results (TVR) or card verification results (CVR) are invalid. - &#x60;U&#x60;: Application cryptogram could not be validated because of a technical error.  This field is returned only for NFC payment network tokenization transactions with MasterCard.  **Note** No CyberSource through VisaNet acquirers support EMV at this time.  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

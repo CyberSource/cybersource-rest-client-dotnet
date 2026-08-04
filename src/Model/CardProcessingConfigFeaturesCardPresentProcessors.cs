@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// CardProcessingConfigFeaturesCardPresentProcessors
     /// </summary>
     [DataContract]
-    public partial class CardProcessingConfigFeaturesCardPresentProcessors :  IEquatable<CardProcessingConfigFeaturesCardPresentProcessors>, IValidatableObject
+    public partial class CardProcessingConfigFeaturesCardPresentProcessors :  ModelExtensions, IEquatable<CardProcessingConfigFeaturesCardPresentProcessors>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CardProcessingConfigFeaturesCardPresentProcessors" /> class.
@@ -122,6 +123,7 @@ namespace CyberSource.Model
             if (PinDebitReimbursementCode != null) sb.Append("  PinDebitReimbursementCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CardProcessingConfigFeaturesCardPresentProcessors", "pinDebitReimbursementCode", PinDebitReimbursementCode.ToString())).Append("\n");
             if (FinancialInstitutionId != null) sb.Append("  FinancialInstitutionId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CardProcessingConfigFeaturesCardPresentProcessors", "financialInstitutionId", FinancialInstitutionId.ToString())).Append("\n");
             if (EnablePinTranslation != null) sb.Append("  EnablePinTranslation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CardProcessingConfigFeaturesCardPresentProcessors", "enablePinTranslation", EnablePinTranslation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -132,7 +134,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("CardProcessingConfigFeaturesCardPresentProcessors", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("CardProcessingConfigFeaturesCardPresentProcessors", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -157,7 +159,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.DefaultPointOfSaleTerminalId == other.DefaultPointOfSaleTerminalId ||
                     this.DefaultPointOfSaleTerminalId != null &&
@@ -206,6 +212,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.DefaultPointOfSaleTerminalId != null)
                     hash = hash * 59 + this.DefaultPointOfSaleTerminalId.GetHashCode();
                 if (this.PointOfSaleTerminalIds != null)
@@ -220,6 +228,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FinancialInstitutionId.GetHashCode();
                 if (this.EnablePinTranslation != null)
                     hash = hash * 59 + this.EnablePinTranslation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -190,10 +192,10 @@ namespace CyberSource.Api
         /// <returns>RiskV1AuthenticationsPost201Response</returns>
         public RiskV1AuthenticationsPost201Response CheckPayerAuthEnrollment(CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest)
         {
-            logger.Debug("CALLING API \"CheckPayerAuthEnrollment\" STARTED");
+            logger.LogDebug("CALLING API \"CheckPayerAuthEnrollment\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationsPost201Response> localVarResponse = CheckPayerAuthEnrollmentWithHttpInfo(checkPayerAuthEnrollmentRequest);
-            logger.Debug("CALLING API \"CheckPayerAuthEnrollment\" ENDED");
+            logger.LogDebug("CALLING API \"CheckPayerAuthEnrollment\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -211,7 +213,7 @@ namespace CyberSource.Api
             // verify the required parameter 'checkPayerAuthEnrollmentRequest' is set
             if (checkPayerAuthEnrollmentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'checkPayerAuthEnrollmentRequest' when calling PayerAuthenticationApi->CheckPayerAuthEnrollment");
+                logger.LogError("ApiException : Missing required parameter 'checkPayerAuthEnrollmentRequest' when calling PayerAuthenticationApi->CheckPayerAuthEnrollment");
                 throw new ApiException(400, "Missing required parameter 'checkPayerAuthEnrollmentRequest' when calling PayerAuthenticationApi->CheckPayerAuthEnrollment");
             }
 
@@ -256,18 +258,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CheckPayerAuthEnrollment,CheckPayerAuthEnrollmentAsync,CheckPayerAuthEnrollmentWithHttpInfo,CheckPayerAuthEnrollmentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -282,7 +284,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -300,10 +302,10 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1AuthenticationsPost201Response</returns>
         public async Task<RiskV1AuthenticationsPost201Response> CheckPayerAuthEnrollmentAsync(CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest)
         {
-            logger.Debug("CALLING API \"CheckPayerAuthEnrollmentAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CheckPayerAuthEnrollmentAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationsPost201Response> localVarResponse = await CheckPayerAuthEnrollmentAsyncWithHttpInfo(checkPayerAuthEnrollmentRequest);
-            logger.Debug("CALLING API \"CheckPayerAuthEnrollmentAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CheckPayerAuthEnrollmentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -322,7 +324,7 @@ namespace CyberSource.Api
             // verify the required parameter 'checkPayerAuthEnrollmentRequest' is set
             if (checkPayerAuthEnrollmentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'checkPayerAuthEnrollmentRequest' when calling PayerAuthenticationApi->CheckPayerAuthEnrollment");
+                logger.LogError("ApiException : Missing required parameter 'checkPayerAuthEnrollmentRequest' when calling PayerAuthenticationApi->CheckPayerAuthEnrollment");
                 throw new ApiException(400, "Missing required parameter 'checkPayerAuthEnrollmentRequest' when calling PayerAuthenticationApi->CheckPayerAuthEnrollment");
             }
 
@@ -367,18 +369,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CheckPayerAuthEnrollment,CheckPayerAuthEnrollmentAsync,CheckPayerAuthEnrollmentWithHttpInfo,CheckPayerAuthEnrollmentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -393,7 +395,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CheckPayerAuthEnrollment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -410,10 +412,10 @@ namespace CyberSource.Api
         /// <returns>RiskV1AuthenticationSetupsPost201Response</returns>
         public RiskV1AuthenticationSetupsPost201Response PayerAuthSetup(PayerAuthSetupRequest payerAuthSetupRequest)
         {
-            logger.Debug("CALLING API \"PayerAuthSetup\" STARTED");
+            logger.LogDebug("CALLING API \"PayerAuthSetup\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = PayerAuthSetupWithHttpInfo(payerAuthSetupRequest);
-            logger.Debug("CALLING API \"PayerAuthSetup\" ENDED");
+            logger.LogDebug("CALLING API \"PayerAuthSetup\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -431,7 +433,7 @@ namespace CyberSource.Api
             // verify the required parameter 'payerAuthSetupRequest' is set
             if (payerAuthSetupRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
+                logger.LogError("ApiException : Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
                 throw new ApiException(400, "Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
             }
 
@@ -476,18 +478,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PayerAuthSetup,PayerAuthSetupAsync,PayerAuthSetupWithHttpInfo,PayerAuthSetupAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -502,7 +504,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PayerAuthSetup", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -520,10 +522,10 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1AuthenticationSetupsPost201Response</returns>
         public async Task<RiskV1AuthenticationSetupsPost201Response> PayerAuthSetupAsync(PayerAuthSetupRequest payerAuthSetupRequest)
         {
-            logger.Debug("CALLING API \"PayerAuthSetupAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PayerAuthSetupAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationSetupsPost201Response> localVarResponse = await PayerAuthSetupAsyncWithHttpInfo(payerAuthSetupRequest);
-            logger.Debug("CALLING API \"PayerAuthSetupAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PayerAuthSetupAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -542,7 +544,7 @@ namespace CyberSource.Api
             // verify the required parameter 'payerAuthSetupRequest' is set
             if (payerAuthSetupRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
+                logger.LogError("ApiException : Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
                 throw new ApiException(400, "Missing required parameter 'payerAuthSetupRequest' when calling PayerAuthenticationApi->PayerAuthSetup");
             }
 
@@ -587,18 +589,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PayerAuthSetup,PayerAuthSetupAsync,PayerAuthSetupWithHttpInfo,PayerAuthSetupAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -613,7 +615,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PayerAuthSetup", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -630,10 +632,10 @@ namespace CyberSource.Api
         /// <returns>RiskV1AuthenticationResultsPost201Response</returns>
         public RiskV1AuthenticationResultsPost201Response ValidateAuthenticationResults(ValidateRequest validateRequest)
         {
-            logger.Debug("CALLING API \"ValidateAuthenticationResults\" STARTED");
+            logger.LogDebug("CALLING API \"ValidateAuthenticationResults\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = ValidateAuthenticationResultsWithHttpInfo(validateRequest);
-            logger.Debug("CALLING API \"ValidateAuthenticationResults\" ENDED");
+            logger.LogDebug("CALLING API \"ValidateAuthenticationResults\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -651,7 +653,7 @@ namespace CyberSource.Api
             // verify the required parameter 'validateRequest' is set
             if (validateRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
+                logger.LogError("ApiException : Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
                 throw new ApiException(400, "Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
             }
 
@@ -696,18 +698,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "ValidateAuthenticationResults,ValidateAuthenticationResultsAsync,ValidateAuthenticationResultsWithHttpInfo,ValidateAuthenticationResultsAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -722,7 +724,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -740,10 +742,10 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1AuthenticationResultsPost201Response</returns>
         public async Task<RiskV1AuthenticationResultsPost201Response> ValidateAuthenticationResultsAsync(ValidateRequest validateRequest)
         {
-            logger.Debug("CALLING API \"ValidateAuthenticationResultsAsync\" STARTED");
+            logger.LogDebug("CALLING API \"ValidateAuthenticationResultsAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1AuthenticationResultsPost201Response> localVarResponse = await ValidateAuthenticationResultsAsyncWithHttpInfo(validateRequest);
-            logger.Debug("CALLING API \"ValidateAuthenticationResultsAsync\" ENDED");
+            logger.LogDebug("CALLING API \"ValidateAuthenticationResultsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -762,7 +764,7 @@ namespace CyberSource.Api
             // verify the required parameter 'validateRequest' is set
             if (validateRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
+                logger.LogError("ApiException : Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
                 throw new ApiException(400, "Missing required parameter 'validateRequest' when calling PayerAuthenticationApi->ValidateAuthenticationResults");
             }
 
@@ -807,18 +809,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "ValidateAuthenticationResults,ValidateAuthenticationResultsAsync,ValidateAuthenticationResultsWithHttpInfo,ValidateAuthenticationResultsAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -833,7 +835,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ValidateAuthenticationResults", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

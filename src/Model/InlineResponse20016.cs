@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// InlineResponse20016
     /// </summary>
     [DataContract]
-    public partial class InlineResponse20016 :  IEquatable<InlineResponse20016>, IValidatableObject
+    public partial class InlineResponse20016 :  ModelExtensions, IEquatable<InlineResponse20016>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20016" /> class.
@@ -44,7 +45,7 @@ namespace CyberSource.Model
         /// <param name="Status">Message describing the status of the currency conversion request.  Values: - &#x60;PENDING&#x60; - &#x60;DECLINED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; - &#x60;OFFER_DECLINED&#x60; - &#x60;AUTHORIZED&#x60; - &#x60;AUTHORIZATION_DECLINED&#x60; - &#x60;AUTHORIZATION_FAILURE&#x60; - &#x60;REVERSED&#x60; - &#x60;CAPTURED&#x60; - &#x60;REFUNDED&#x60; - &#x60;CANCELLED&#x60;  (required).</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public InlineResponse20016(InlineResponse20016ClientReferenceInformation ClientReferenceInformation = default(InlineResponse20016ClientReferenceInformation), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), InlineResponse2019ErrorInformation ErrorInformation = default(InlineResponse2019ErrorInformation), InlineResponse2019OrderInformation OrderInformation = default(InlineResponse2019OrderInformation))
+        public InlineResponse20016(InlineResponse20016ClientReferenceInformation ClientReferenceInformation = default(InlineResponse20016ClientReferenceInformation), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), InlineResponse20112ErrorInformation ErrorInformation = default(InlineResponse20112ErrorInformation), InlineResponse20112OrderInformation OrderInformation = default(InlineResponse20112OrderInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.Id = Id;
@@ -90,14 +91,14 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("errorInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2019ErrorInformation ErrorInformation { get; set; }
+        public InlineResponse20112ErrorInformation ErrorInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation
         /// </summary>
         [JsonPropertyName("orderInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2019OrderInformation OrderInformation { get; set; }
+        public InlineResponse20112OrderInformation OrderInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -113,6 +114,7 @@ namespace CyberSource.Model
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20016", "status", Status.ToString())).Append("\n");
             if (ErrorInformation != null) sb.Append("  ErrorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20016", "errorInformation", ErrorInformation.ToString())).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20016", "orderInformation", OrderInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,7 +125,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse20016", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse20016", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -148,7 +150,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.ClientReferenceInformation == other.ClientReferenceInformation ||
                     this.ClientReferenceInformation != null &&
@@ -192,6 +198,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.ClientReferenceInformation != null)
                     hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.Id != null)
@@ -204,6 +212,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ErrorInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

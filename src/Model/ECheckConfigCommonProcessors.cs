@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Payment Processing connection used to support eCheck, aka ACH, payment methods. Example - \&quot;bofaach\&quot;
     /// </summary>
     [DataContract]
-    public partial class ECheckConfigCommonProcessors :  IEquatable<ECheckConfigCommonProcessors>, IValidatableObject
+    public partial class ECheckConfigCommonProcessors :  ModelExtensions, IEquatable<ECheckConfigCommonProcessors>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ECheckConfigCommonProcessors" /> class.
@@ -140,6 +141,7 @@ namespace CyberSource.Model
             if (EnableAccuityForAvs != null) sb.Append("  EnableAccuityForAvs: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ECheckConfigCommonProcessors", "enableAccuityForAvs", EnableAccuityForAvs.ToString())).Append("\n");
             if (AccuityCheckType != null) sb.Append("  AccuityCheckType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ECheckConfigCommonProcessors", "accuityCheckType", AccuityCheckType.ToString())).Append("\n");
             if (SetCompletedState != null) sb.Append("  SetCompletedState: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ECheckConfigCommonProcessors", "setCompletedState", SetCompletedState.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,7 +152,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ECheckConfigCommonProcessors", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ECheckConfigCommonProcessors", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -175,7 +177,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.CompanyEntryDescription == other.CompanyEntryDescription ||
                     this.CompanyEntryDescription != null &&
@@ -219,6 +225,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.CompanyEntryDescription != null)
                     hash = hash * 59 + this.CompanyEntryDescription.GetHashCode();
                 if (this.CompanyId != null)
@@ -231,6 +239,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AccuityCheckType.GetHashCode();
                 if (this.SetCompletedState != null)
                     hash = hash * 59 + this.SetCompletedState.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

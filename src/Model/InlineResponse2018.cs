@@ -19,26 +19,31 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Egress Asymmetric Key Information Response. 
+    /// Egress Key Information Response 
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2018 :  IEquatable<InlineResponse2018>, IValidatableObject
+    public partial class InlineResponse2018 :  ModelExtensions, IEquatable<InlineResponse2018>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2018" /> class.
         /// </summary>
         /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
         /// <param name="Status">The status of the submitted transaction. Possible values:  - ACCEPTED .</param>
-        public InlineResponse2018(string SubmitTimeUtc = default(string), string Status = default(string))
+        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
+        /// <param name="KeyInformation">KeyInformation.</param>
+        public InlineResponse2018(string SubmitTimeUtc = default(string), string Status = default(string), Kmsegressv2keyssymClientReferenceInformation ClientReferenceInformation = default(Kmsegressv2keyssymClientReferenceInformation), InlineResponse2018KeyInformation KeyInformation = default(InlineResponse2018KeyInformation))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
+            this.ClientReferenceInformation = ClientReferenceInformation;
+            this.KeyInformation = KeyInformation;
         }
         
         /// <summary>
@@ -58,6 +63,20 @@ namespace CyberSource.Model
         public string Status { get; set; }
 
         /// <summary>
+        /// Gets or Sets ClientReferenceInformation
+        /// </summary>
+        [JsonPropertyName("clientReferenceInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Kmsegressv2keyssymClientReferenceInformation ClientReferenceInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets KeyInformation
+        /// </summary>
+        [JsonPropertyName("keyInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse2018KeyInformation KeyInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -67,6 +86,9 @@ namespace CyberSource.Model
             sb.Append("class InlineResponse2018 {\n");
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2018", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2018", "status", Status.ToString())).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2018", "clientReferenceInformation", ClientReferenceInformation.ToString())).Append("\n");
+            if (KeyInformation != null) sb.Append("  KeyInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2018", "keyInformation", KeyInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +99,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2018", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2018", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -102,7 +124,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.SubmitTimeUtc == other.SubmitTimeUtc ||
                     this.SubmitTimeUtc != null &&
@@ -112,6 +138,16 @@ namespace CyberSource.Model
                     this.Status == other.Status ||
                     this.Status != null &&
                     this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
+                    this.ClientReferenceInformation != null &&
+                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
+                ) && 
+                (
+                    this.KeyInformation == other.KeyInformation ||
+                    this.KeyInformation != null &&
+                    this.KeyInformation.Equals(other.KeyInformation)
                 );
         }
 
@@ -126,10 +162,17 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.SubmitTimeUtc != null)
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
+                if (this.ClientReferenceInformation != null)
+                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
+                if (this.KeyInformation != null)
+                    hash = hash * 59 + this.KeyInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

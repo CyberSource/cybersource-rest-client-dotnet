@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Merchant RSA public encryption key as a JSON Web Key (JWK,  RFC 7517). Must be RSA (kty&#x3D;RSA), alg&#x3D;RSA-OAEP-256, use&#x3D;enc. Used to encrypt the token payload using RSA-OAEP with SHA-256 per MPP spec Section 7.4.
     /// </summary>
     [DataContract]
-    public partial class Iccv1mppcredentialsChallengeEncryptionJwk :  IEquatable<Iccv1mppcredentialsChallengeEncryptionJwk>, IValidatableObject
+    public partial class Iccv1mppcredentialsChallengeEncryptionJwk :  ModelExtensions, IEquatable<Iccv1mppcredentialsChallengeEncryptionJwk>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Iccv1mppcredentialsChallengeEncryptionJwk" /> class.
@@ -116,6 +117,7 @@ namespace CyberSource.Model
             if (Alg != null) sb.Append("  Alg: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1mppcredentialsChallengeEncryptionJwk", "alg", Alg.ToString())).Append("\n");
             if (N != null) sb.Append("  N: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1mppcredentialsChallengeEncryptionJwk", "n", N.ToString())).Append("\n");
             if (E != null) sb.Append("  E: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1mppcredentialsChallengeEncryptionJwk", "e", E.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,7 +128,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1mppcredentialsChallengeEncryptionJwk", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1mppcredentialsChallengeEncryptionJwk", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -151,7 +153,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Kty == other.Kty ||
                     this.Kty != null &&
@@ -195,6 +201,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Kty != null)
                     hash = hash * 59 + this.Kty.GetHashCode();
                 if (this.Kid != null)
@@ -207,6 +215,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.N.GetHashCode();
                 if (this.E != null)
                     hash = hash * 59 + this.E.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

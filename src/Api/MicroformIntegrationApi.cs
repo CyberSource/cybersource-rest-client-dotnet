@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -106,10 +108,10 @@ namespace CyberSource.Api
         /// <returns>string</returns>
         public string GenerateCaptureContext(GenerateCaptureContextRequest generateCaptureContextRequest)
         {
-            logger.Debug("CALLING API \"GenerateCaptureContext\" STARTED");
+            logger.LogDebug("CALLING API \"GenerateCaptureContext\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<string> localVarResponse = GenerateCaptureContextWithHttpInfo(generateCaptureContextRequest);
-            logger.Debug("CALLING API \"GenerateCaptureContext\" ENDED");
+            logger.LogDebug("CALLING API \"GenerateCaptureContext\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -127,7 +129,7 @@ namespace CyberSource.Api
             // verify the required parameter 'generateCaptureContextRequest' is set
             if (generateCaptureContextRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'generateCaptureContextRequest' when calling MicroformIntegrationApi->GenerateCaptureContext");
+                logger.LogError("ApiException : Missing required parameter 'generateCaptureContextRequest' when calling MicroformIntegrationApi->GenerateCaptureContext");
                 throw new ApiException(400, "Missing required parameter 'generateCaptureContextRequest' when calling MicroformIntegrationApi->GenerateCaptureContext");
             }
 
@@ -172,18 +174,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "GenerateCaptureContext,GenerateCaptureContextAsync,GenerateCaptureContextWithHttpInfo,GenerateCaptureContextAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -198,7 +200,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GenerateCaptureContext", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -216,10 +218,10 @@ namespace CyberSource.Api
         /// <returns>Task of string</returns>
         public async Task<string> GenerateCaptureContextAsync(GenerateCaptureContextRequest generateCaptureContextRequest)
         {
-            logger.Debug("CALLING API \"GenerateCaptureContextAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GenerateCaptureContextAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<string> localVarResponse = await GenerateCaptureContextAsyncWithHttpInfo(generateCaptureContextRequest);
-            logger.Debug("CALLING API \"GenerateCaptureContextAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GenerateCaptureContextAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -238,7 +240,7 @@ namespace CyberSource.Api
             // verify the required parameter 'generateCaptureContextRequest' is set
             if (generateCaptureContextRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'generateCaptureContextRequest' when calling MicroformIntegrationApi->GenerateCaptureContext");
+                logger.LogError("ApiException : Missing required parameter 'generateCaptureContextRequest' when calling MicroformIntegrationApi->GenerateCaptureContext");
                 throw new ApiException(400, "Missing required parameter 'generateCaptureContextRequest' when calling MicroformIntegrationApi->GenerateCaptureContext");
             }
 
@@ -283,18 +285,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "GenerateCaptureContext,GenerateCaptureContextAsync,GenerateCaptureContextWithHttpInfo,GenerateCaptureContextAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -309,7 +311,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GenerateCaptureContext", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

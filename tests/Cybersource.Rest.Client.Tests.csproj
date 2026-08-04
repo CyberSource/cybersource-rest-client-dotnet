@@ -34,12 +34,13 @@
   <PropertyGroup>
     <NoWarn>$(NoWarn);CS0162;CS0169;CS0219;CS0414;CS0618;CS1718;CA2200;CS8600;CS8601;CS8602;CS8603;CS8604;CS8618;CS8619;CS8620;CS8621;CS8625;CS8629;CS8714;CS8765;CS8767</NoWarn>
     <NoWarn>$(NoWarn);SYSLIB0013;SYSLIB0051;SYSLIB0057;</NoWarn>
-    <NoWarn>$(NoWarn);NUnit2005;</NoWarn>
+    <NoWarn>$(NoWarn);NUnit2005;NUnit2015;NUnit2031;</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net461'
                  Or '$(TargetFramework)' == 'net5.0'
-                 Or '$(TargetFramework)' == 'net6.0'">
+                 Or '$(TargetFramework)' == 'net6.0'
+                 Or '$(TargetFramework)' == 'net7.0'">
     <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
   </PropertyGroup>
 

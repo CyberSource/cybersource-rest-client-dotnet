@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -106,10 +108,10 @@ namespace CyberSource.Api
         /// <returns>TssV2TransactionsGet200Response</returns>
         public TssV2TransactionsGet200Response GetTransaction(string id)
         {
-            logger.Debug("CALLING API \"GetTransaction\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransaction\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<TssV2TransactionsGet200Response> localVarResponse = GetTransactionWithHttpInfo(id);
-            logger.Debug("CALLING API \"GetTransaction\" ENDED");
+            logger.LogDebug("CALLING API \"GetTransaction\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -127,7 +129,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling TransactionDetailsApi->GetTransaction");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling TransactionDetailsApi->GetTransaction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling TransactionDetailsApi->GetTransaction");
             }
 
@@ -159,7 +161,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -183,11 +185,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -207,7 +209,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransaction", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -225,10 +227,10 @@ namespace CyberSource.Api
         /// <returns>Task of TssV2TransactionsGet200Response</returns>
         public async Task<TssV2TransactionsGet200Response> GetTransactionAsync(string id)
         {
-            logger.Debug("CALLING API \"GetTransactionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<TssV2TransactionsGet200Response> localVarResponse = await GetTransactionAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"GetTransactionAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetTransactionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -247,7 +249,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling TransactionDetailsApi->GetTransaction");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling TransactionDetailsApi->GetTransaction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling TransactionDetailsApi->GetTransaction");
             }
 
@@ -279,7 +281,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -302,11 +304,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -326,7 +328,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransaction", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

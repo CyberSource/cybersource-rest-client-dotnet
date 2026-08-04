@@ -1,13 +1,18 @@
 ﻿using AuthenticationSdk.util;
-using NLog;
+using CyberSource.Utilities.Serialization;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Reflection;
-
+using System.Text.Json;
 using NetworkKeys = AuthenticationSdk.core.MerchantConfigurationKeys.MerchantNetworkSettingsKeys;
 
 namespace CyberSource.Client
@@ -17,7 +22,7 @@ namespace CyberSource.Client
     /// Handles proxy settings, SSL/TLS configuration, timeout, connection pool settings, and request/response data.
     /// Loads configuration from merchant settings or App.Config and initializes network-related properties.
     /// </summary>
-    public class MerchantNetworkSettings : IMerchantNetworkSettings
+    public class MerchantNetworkSettings : IMutableMerchantNetworkSettings
     {
         #region Properties
         /// <summary>
@@ -103,9 +108,52 @@ namespace CyberSource.Client
         public bool IsSDK { get; set; }
 
         /// <summary>
-        /// Gets or sets the NLog logger instance for logging network configuration and validation messages.
+        /// Gets or sets the logger instance for logging network configuration and validation messages.
         /// </summary>
-        public static Logger Logger { get; set; }
+        public ILogger Logger { get; set; } = NullLogger<MerchantNetworkSettings>.Instance;
+
+        /// <summary>
+        /// Gets the JSON serializer options used to serialize request payloads sent to the CyberSource API.
+        /// </summary>
+        public JsonSerializerOptions SerializationOptions {  get; internal set; }
+
+        /// <summary>
+        /// Gets the JSON serializer options used to deserialize response payloads returned from the CyberSource API.
+        /// </summary>
+        public JsonSerializerOptions DeserializationOptions {  get; internal set; }
+
+        private readonly List<Action<JsonSerializerOptions>> _serializationPostConfigures = new List<Action<JsonSerializerOptions>>();
+        private readonly List<Action<JsonSerializerOptions>> _deserializationPostConfigures = new List<Action<JsonSerializerOptions>>();
+
+        /// <inheritdoc />
+        public IReadOnlyList<Action<JsonSerializerOptions>> SerializationPostConfigures =>
+            new ReadOnlyCollection<Action<JsonSerializerOptions>>(_serializationPostConfigures);
+
+        /// <inheritdoc />
+        public IReadOnlyList<Action<JsonSerializerOptions>> DeserializationPostConfigures =>
+            new ReadOnlyCollection<Action<JsonSerializerOptions>>(_deserializationPostConfigures);
+
+        /// <inheritdoc />
+        public IOptionsMonitor<SdkSerializerOptions> SerializerOptionsMonitor { get; internal set; }
+
+        /// <inheritdoc />
+        public IOptionsMonitor<SdkDeserializerOptions> DeserializerOptionsMonitor { get; internal set; }
+
+        /// <summary>
+        /// Gets the caller-supplied <see cref="System.Net.Http.HttpClient"/> that RestSharp should use for outgoing requests.
+        /// When non-<c>null</c>, the caller owns its lifetime (the SDK never disposes it) and is responsible for handler,
+        /// proxy, client certificate, connection pool, and timeout configuration. When <c>null</c>, the SDK falls back to
+        /// <see cref="HttpClientFactory"/> if provided, otherwise to its internally managed
+        /// <see cref="StandardSocketsHttpHandler"/>-backed cached client.
+        /// </summary>
+        public HttpClient HttpClient { get; internal set; }
+
+        /// <summary>
+        /// Gets the caller-supplied <see cref="System.Net.Http.IHttpClientFactory"/>. Only consulted when
+        /// <see cref="HttpClient"/> is <c>null</c>. The SDK calls <see cref="System.Net.Http.IHttpClientFactory.CreateClient(string)"/>
+        /// per request and never disposes the returned client.
+        /// </summary>
+        public IHttpClientFactory HttpClientFactory { get; internal set; }
         #endregion Properties
 
         #region Constructors
@@ -115,12 +163,9 @@ namespace CyberSource.Client
         /// </summary>
         /// <param name="merchantLegacySettings">The legacy merchant settings containing network configuration data. If null, configuration is loaded from App.Config.</param>
         /// <exception cref="Exception">Thrown when configuration is invalid or cannot be accessed.</exception>
-        public MerchantNetworkSettings(IReadOnlyDictionary<string, string> merchantNetworkDictionary = null)
+        public MerchantNetworkSettings(IReadOnlyDictionary<string, string> merchantNetworkDictionary = null, ILoggerFactory loggerFactory = null)
         {
-            if (Logger == null)
-            {
-                Logger = LogManager.GetCurrentClassLogger();
-            }
+            Logger = loggerFactory?.CreateLogger<MerchantNetworkSettings>() ?? NullLogger<MerchantNetworkSettings>.Instance;
 
             if (merchantNetworkDictionary == null)
             {
@@ -133,12 +178,12 @@ namespace CyberSource.Client
                 }
                 catch (ConfigurationErrorsException ex)
                 {
-                    Logger.Error($"Error accessing MerchantConfig section in App.Config: {ex.Message}");
+                    Logger.LogError(ex, $"Error accessing MerchantConfig section in App.Config");
                     throw new Exception($"{Constants.ErrorPrefix} Error accessing MerchantConfig section in App.Config: {ex.Message}", ex);
                 }
                 catch (Exception ex)
                 {
-                    Logger.Error($"Unexpected error accessing MerchantConfig section in App.Config: {ex.Message}");
+                    Logger.LogError(ex, $"Unexpected error accessing MerchantConfig section in App.Config");
                     throw new Exception($"{Constants.ErrorPrefix} Unexpected error accessing MerchantConfig section in App.Config: {ex.Message}", ex);
                 }
             }
@@ -207,7 +252,7 @@ namespace CyberSource.Client
             }
             catch (KeyNotFoundException err)
             {
-                Logger.Error($"Configuration key not found: {err.Message}");
+                Logger.LogError(err, $"Configuration key not found: {err.Message}");
                 throw new Exception($"{Constants.ErrorPrefix} {err.Message}");
             }
         }
@@ -217,7 +262,7 @@ namespace CyberSource.Client
         /// Constructs an identifier in the format "cybs-rest-sdk-dotnet-{version}" using the assembly version.
         /// </summary>
         /// <returns>The SDK client identifier string including the SDK name and version.</returns>
-        private string GetClientId()
+        private static string GetClientId()
         {
             var assembly = typeof(MerchantNetworkSettings).Assembly;
 
@@ -235,6 +280,134 @@ namespace CyberSource.Client
             Proxy = proxy;
         }
         #endregion Methods
+
+        #region Mutable Methods
+        public void SetDefaultDeveloperId(string value)
+        {
+            DefaultDeveloperId = value;
+        }
+
+        public void SetUseProxy(string value)
+        {
+            UseProxy = value;
+        }
+
+        public void SetProxyAddress(string value)
+        {
+            ProxyAddress = value;
+        }
+
+        public void SetProxyPort(string value)
+        {
+            ProxyPort = value;
+        }
+
+        public void SetProxyUsername(string value)
+        {
+            ProxyUsername = value;
+        }
+
+        public void SetProxyPassword(string value)
+        {
+            ProxyPassword = value;
+        }
+
+        public void SetProxy(WebProxy value)
+        {
+            Proxy = value;
+        }
+
+        public void SetTimeOut(int value)
+        {
+            TimeOut = value;
+        }
+
+        public void SetMaxConnectionPoolSize(string value)
+        {
+            MaxConnectionPoolSize = value;
+        }
+
+        public void SetKeepAliveTime(string value)
+        {
+            KeepAliveTime = value;
+        }
+
+        public void SetRequestTarget(string value)
+        {
+            RequestTarget = value;
+        }
+
+        public void SetRequestJsonData(string value)
+        {
+            RequestJsonData = value;
+        }
+
+        public void SetRequestType(string value)
+        {
+            RequestType = value;
+        }
+
+        public void SetSdkClientId(string value)
+        {
+            SdkClientId = value;
+        }
+
+        public void SetIsSDK(bool value)
+        {
+            IsSDK = value;
+        }
+
+        public void SetLogger(ILogger value)
+        {
+            Logger = value;
+        }
+
+        public void SetSerializationOptions(JsonSerializerOptions value)
+        {
+            SerializationOptions = value;
+        }
+
+        public void SetDeserializationOptions(JsonSerializerOptions value)
+        {
+            DeserializationOptions = value;
+        }
+
+        public void SetHttpClient(HttpClient value)
+        {
+            HttpClient = value;
+        }
+
+        public void SetHttpClientFactory(IHttpClientFactory value)
+        {
+            HttpClientFactory = value;
+        }
+
+        /// <inheritdoc />
+        public void AddSerializationPostConfigure(Action<JsonSerializerOptions> postConfigure)
+        {
+            if (postConfigure == null) { return; }
+            _serializationPostConfigures.Add(postConfigure);
+        }
+
+        /// <inheritdoc />
+        public void AddDeserializationPostConfigure(Action<JsonSerializerOptions> postConfigure)
+        {
+            if (postConfigure == null) { return; }
+            _deserializationPostConfigures.Add(postConfigure);
+        }
+
+        /// <inheritdoc />
+        public void SetSerializerOptionsMonitor(IOptionsMonitor<SdkSerializerOptions> value)
+        {
+            SerializerOptionsMonitor = value;
+        }
+
+        /// <inheritdoc />
+        public void SetDeserializerOptionsMonitor(IOptionsMonitor<SdkDeserializerOptions> value)
+        {
+            DeserializerOptionsMonitor = value;
+        }
+        #endregion Mutable Methods
     }
 
     /// <summary>

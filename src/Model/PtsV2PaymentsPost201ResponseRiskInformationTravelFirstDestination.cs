@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination
     /// </summary>
     [DataContract]
-    public partial class PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination :  IEquatable<PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination>, IValidatableObject
+    public partial class PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination :  ModelExtensions, IEquatable<PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination" /> class.
@@ -89,6 +90,7 @@ namespace CyberSource.Model
             if (Locality != null) sb.Append("  Locality: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination", "locality", Locality.ToString())).Append("\n");
             if (Latitude != null) sb.Append("  Latitude: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination", "latitude", Latitude.ToString())).Append("\n");
             if (Longitude != null) sb.Append("  Longitude: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination", "longitude", Longitude.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,7 +101,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PtsV2PaymentsPost201ResponseRiskInformationTravelFirstDestination", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -124,7 +126,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Country == other.Country ||
                     this.Country != null &&
@@ -158,6 +164,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Country != null)
                     hash = hash * 59 + this.Country.GetHashCode();
                 if (this.Locality != null)
@@ -166,6 +174,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Latitude.GetHashCode();
                 if (this.Longitude != null)
                     hash = hash * 59 + this.Longitude.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -290,10 +292,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
         public PtsV2PaymentsVoidsPost201Response MitVoid(MitVoidRequest mitVoidRequest)
         {
-            logger.Debug("CALLING API \"MitVoid\" STARTED");
+            logger.LogDebug("CALLING API \"MitVoid\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = MitVoidWithHttpInfo(mitVoidRequest);
-            logger.Debug("CALLING API \"MitVoid\" ENDED");
+            logger.LogDebug("CALLING API \"MitVoid\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -311,7 +313,7 @@ namespace CyberSource.Api
             // verify the required parameter 'mitVoidRequest' is set
             if (mitVoidRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'mitVoidRequest' when calling VoidApi->MitVoid");
+                logger.LogError("ApiException : Missing required parameter 'mitVoidRequest' when calling VoidApi->MitVoid");
                 throw new ApiException(400, "Missing required parameter 'mitVoidRequest' when calling VoidApi->MitVoid");
             }
 
@@ -357,18 +359,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "MitVoid,MitVoidAsync,MitVoidWithHttpInfo,MitVoidAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -383,7 +385,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("MitVoid", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -401,10 +403,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
         public async Task<PtsV2PaymentsVoidsPost201Response> MitVoidAsync(MitVoidRequest mitVoidRequest)
         {
-            logger.Debug("CALLING API \"MitVoidAsync\" STARTED");
+            logger.LogDebug("CALLING API \"MitVoidAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await MitVoidAsyncWithHttpInfo(mitVoidRequest);
-            logger.Debug("CALLING API \"MitVoidAsync\" ENDED");
+            logger.LogDebug("CALLING API \"MitVoidAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -423,7 +425,7 @@ namespace CyberSource.Api
             // verify the required parameter 'mitVoidRequest' is set
             if (mitVoidRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'mitVoidRequest' when calling VoidApi->MitVoid");
+                logger.LogError("ApiException : Missing required parameter 'mitVoidRequest' when calling VoidApi->MitVoid");
                 throw new ApiException(400, "Missing required parameter 'mitVoidRequest' when calling VoidApi->MitVoid");
             }
 
@@ -469,18 +471,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "MitVoid,MitVoidAsync,MitVoidWithHttpInfo,MitVoidAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -495,7 +497,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("MitVoid", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -513,10 +515,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
         public PtsV2PaymentsVoidsPost201Response VoidCapture(VoidCaptureRequest voidCaptureRequest, string id)
         {
-            logger.Debug("CALLING API \"VoidCapture\" STARTED");
+            logger.LogDebug("CALLING API \"VoidCapture\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = VoidCaptureWithHttpInfo(voidCaptureRequest, id);
-            logger.Debug("CALLING API \"VoidCapture\" ENDED");
+            logger.LogDebug("CALLING API \"VoidCapture\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -535,13 +537,13 @@ namespace CyberSource.Api
             // verify the required parameter 'voidCaptureRequest' is set
             if (voidCaptureRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'voidCaptureRequest' when calling VoidApi->VoidCapture");
+                logger.LogError("ApiException : Missing required parameter 'voidCaptureRequest' when calling VoidApi->VoidCapture");
                 throw new ApiException(400, "Missing required parameter 'voidCaptureRequest' when calling VoidApi->VoidCapture");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling VoidApi->VoidCapture");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling VoidApi->VoidCapture");
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidCapture");
             }
 
@@ -574,7 +576,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (voidCaptureRequest != null && voidCaptureRequest.GetType() != typeof(byte[]))
             {
@@ -593,18 +595,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VoidCapture,VoidCaptureAsync,VoidCaptureWithHttpInfo,VoidCaptureAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -619,7 +621,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VoidCapture", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -638,10 +640,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
         public async Task<PtsV2PaymentsVoidsPost201Response> VoidCaptureAsync(VoidCaptureRequest voidCaptureRequest, string id)
         {
-            logger.Debug("CALLING API \"VoidCaptureAsync\" STARTED");
+            logger.LogDebug("CALLING API \"VoidCaptureAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidCaptureAsyncWithHttpInfo(voidCaptureRequest, id);
-            logger.Debug("CALLING API \"VoidCaptureAsync\" ENDED");
+            logger.LogDebug("CALLING API \"VoidCaptureAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -661,13 +663,13 @@ namespace CyberSource.Api
             // verify the required parameter 'voidCaptureRequest' is set
             if (voidCaptureRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'voidCaptureRequest' when calling VoidApi->VoidCapture");
+                logger.LogError("ApiException : Missing required parameter 'voidCaptureRequest' when calling VoidApi->VoidCapture");
                 throw new ApiException(400, "Missing required parameter 'voidCaptureRequest' when calling VoidApi->VoidCapture");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling VoidApi->VoidCapture");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling VoidApi->VoidCapture");
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidCapture");
             }
 
@@ -700,7 +702,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (voidCaptureRequest != null && voidCaptureRequest.GetType() != typeof(byte[]))
             {
@@ -719,18 +721,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VoidCapture,VoidCaptureAsync,VoidCaptureWithHttpInfo,VoidCaptureAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -745,7 +747,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VoidCapture", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -763,10 +765,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
         public PtsV2PaymentsVoidsPost201Response VoidCredit(VoidCreditRequest voidCreditRequest, string id)
         {
-            logger.Debug("CALLING API \"VoidCredit\" STARTED");
+            logger.LogDebug("CALLING API \"VoidCredit\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = VoidCreditWithHttpInfo(voidCreditRequest, id);
-            logger.Debug("CALLING API \"VoidCredit\" ENDED");
+            logger.LogDebug("CALLING API \"VoidCredit\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -785,13 +787,13 @@ namespace CyberSource.Api
             // verify the required parameter 'voidCreditRequest' is set
             if (voidCreditRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'voidCreditRequest' when calling VoidApi->VoidCredit");
+                logger.LogError("ApiException : Missing required parameter 'voidCreditRequest' when calling VoidApi->VoidCredit");
                 throw new ApiException(400, "Missing required parameter 'voidCreditRequest' when calling VoidApi->VoidCredit");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling VoidApi->VoidCredit");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling VoidApi->VoidCredit");
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidCredit");
             }
 
@@ -824,7 +826,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (voidCreditRequest != null && voidCreditRequest.GetType() != typeof(byte[]))
             {
@@ -843,18 +845,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VoidCredit,VoidCreditAsync,VoidCreditWithHttpInfo,VoidCreditAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -869,7 +871,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VoidCredit", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -888,10 +890,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
         public async Task<PtsV2PaymentsVoidsPost201Response> VoidCreditAsync(VoidCreditRequest voidCreditRequest, string id)
         {
-            logger.Debug("CALLING API \"VoidCreditAsync\" STARTED");
+            logger.LogDebug("CALLING API \"VoidCreditAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidCreditAsyncWithHttpInfo(voidCreditRequest, id);
-            logger.Debug("CALLING API \"VoidCreditAsync\" ENDED");
+            logger.LogDebug("CALLING API \"VoidCreditAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -911,13 +913,13 @@ namespace CyberSource.Api
             // verify the required parameter 'voidCreditRequest' is set
             if (voidCreditRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'voidCreditRequest' when calling VoidApi->VoidCredit");
+                logger.LogError("ApiException : Missing required parameter 'voidCreditRequest' when calling VoidApi->VoidCredit");
                 throw new ApiException(400, "Missing required parameter 'voidCreditRequest' when calling VoidApi->VoidCredit");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling VoidApi->VoidCredit");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling VoidApi->VoidCredit");
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidCredit");
             }
 
@@ -950,7 +952,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (voidCreditRequest != null && voidCreditRequest.GetType() != typeof(byte[]))
             {
@@ -969,18 +971,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VoidCredit,VoidCreditAsync,VoidCreditWithHttpInfo,VoidCreditAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -995,7 +997,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VoidCredit", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1013,10 +1015,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
         public PtsV2PaymentsVoidsPost201Response VoidPayment(VoidPaymentRequest voidPaymentRequest, string id)
         {
-            logger.Debug("CALLING API \"VoidPayment\" STARTED");
+            logger.LogDebug("CALLING API \"VoidPayment\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = VoidPaymentWithHttpInfo(voidPaymentRequest, id);
-            logger.Debug("CALLING API \"VoidPayment\" ENDED");
+            logger.LogDebug("CALLING API \"VoidPayment\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1035,13 +1037,13 @@ namespace CyberSource.Api
             // verify the required parameter 'voidPaymentRequest' is set
             if (voidPaymentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'voidPaymentRequest' when calling VoidApi->VoidPayment");
+                logger.LogError("ApiException : Missing required parameter 'voidPaymentRequest' when calling VoidApi->VoidPayment");
                 throw new ApiException(400, "Missing required parameter 'voidPaymentRequest' when calling VoidApi->VoidPayment");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling VoidApi->VoidPayment");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling VoidApi->VoidPayment");
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidPayment");
             }
 
@@ -1074,7 +1076,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (voidPaymentRequest != null && voidPaymentRequest.GetType() != typeof(byte[]))
             {
@@ -1093,18 +1095,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VoidPayment,VoidPaymentAsync,VoidPaymentWithHttpInfo,VoidPaymentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1119,7 +1121,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VoidPayment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1138,10 +1140,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
         public async Task<PtsV2PaymentsVoidsPost201Response> VoidPaymentAsync(VoidPaymentRequest voidPaymentRequest, string id)
         {
-            logger.Debug("CALLING API \"VoidPaymentAsync\" STARTED");
+            logger.LogDebug("CALLING API \"VoidPaymentAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidPaymentAsyncWithHttpInfo(voidPaymentRequest, id);
-            logger.Debug("CALLING API \"VoidPaymentAsync\" ENDED");
+            logger.LogDebug("CALLING API \"VoidPaymentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1161,13 +1163,13 @@ namespace CyberSource.Api
             // verify the required parameter 'voidPaymentRequest' is set
             if (voidPaymentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'voidPaymentRequest' when calling VoidApi->VoidPayment");
+                logger.LogError("ApiException : Missing required parameter 'voidPaymentRequest' when calling VoidApi->VoidPayment");
                 throw new ApiException(400, "Missing required parameter 'voidPaymentRequest' when calling VoidApi->VoidPayment");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling VoidApi->VoidPayment");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling VoidApi->VoidPayment");
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidPayment");
             }
 
@@ -1200,7 +1202,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (voidPaymentRequest != null && voidPaymentRequest.GetType() != typeof(byte[]))
             {
@@ -1219,18 +1221,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VoidPayment,VoidPaymentAsync,VoidPaymentWithHttpInfo,VoidPaymentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1245,7 +1247,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VoidPayment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1263,10 +1265,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsVoidsPost201Response</returns>
         public PtsV2PaymentsVoidsPost201Response VoidRefund(VoidRefundRequest voidRefundRequest, string id)
         {
-            logger.Debug("CALLING API \"VoidRefund\" STARTED");
+            logger.LogDebug("CALLING API \"VoidRefund\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = VoidRefundWithHttpInfo(voidRefundRequest, id);
-            logger.Debug("CALLING API \"VoidRefund\" ENDED");
+            logger.LogDebug("CALLING API \"VoidRefund\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1285,13 +1287,13 @@ namespace CyberSource.Api
             // verify the required parameter 'voidRefundRequest' is set
             if (voidRefundRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'voidRefundRequest' when calling VoidApi->VoidRefund");
+                logger.LogError("ApiException : Missing required parameter 'voidRefundRequest' when calling VoidApi->VoidRefund");
                 throw new ApiException(400, "Missing required parameter 'voidRefundRequest' when calling VoidApi->VoidRefund");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling VoidApi->VoidRefund");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling VoidApi->VoidRefund");
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidRefund");
             }
 
@@ -1324,7 +1326,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (voidRefundRequest != null && voidRefundRequest.GetType() != typeof(byte[]))
             {
@@ -1343,18 +1345,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VoidRefund,VoidRefundAsync,VoidRefundWithHttpInfo,VoidRefundAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1369,7 +1371,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VoidRefund", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1388,10 +1390,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsVoidsPost201Response</returns>
         public async Task<PtsV2PaymentsVoidsPost201Response> VoidRefundAsync(VoidRefundRequest voidRefundRequest, string id)
         {
-            logger.Debug("CALLING API \"VoidRefundAsync\" STARTED");
+            logger.LogDebug("CALLING API \"VoidRefundAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsVoidsPost201Response> localVarResponse = await VoidRefundAsyncWithHttpInfo(voidRefundRequest, id);
-            logger.Debug("CALLING API \"VoidRefundAsync\" ENDED");
+            logger.LogDebug("CALLING API \"VoidRefundAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1411,13 +1413,13 @@ namespace CyberSource.Api
             // verify the required parameter 'voidRefundRequest' is set
             if (voidRefundRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'voidRefundRequest' when calling VoidApi->VoidRefund");
+                logger.LogError("ApiException : Missing required parameter 'voidRefundRequest' when calling VoidApi->VoidRefund");
                 throw new ApiException(400, "Missing required parameter 'voidRefundRequest' when calling VoidApi->VoidRefund");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling VoidApi->VoidRefund");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling VoidApi->VoidRefund");
                 throw new ApiException(400, "Missing required parameter 'id' when calling VoidApi->VoidRefund");
             }
 
@@ -1450,7 +1452,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (voidRefundRequest != null && voidRefundRequest.GetType() != typeof(byte[]))
             {
@@ -1469,18 +1471,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VoidRefund,VoidRefundAsync,VoidRefundWithHttpInfo,VoidRefundAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1495,7 +1497,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VoidRefund", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

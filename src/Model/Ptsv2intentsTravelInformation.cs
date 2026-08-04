@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Ptsv2intentsTravelInformation
     /// </summary>
     [DataContract]
-    public partial class Ptsv2intentsTravelInformation :  IEquatable<Ptsv2intentsTravelInformation>, IValidatableObject
+    public partial class Ptsv2intentsTravelInformation :  ModelExtensions, IEquatable<Ptsv2intentsTravelInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2intentsTravelInformation" /> class.
@@ -77,6 +78,7 @@ namespace CyberSource.Model
             if (Agency != null) sb.Append("  Agency: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2intentsTravelInformation", "agency", Agency.ToString())).Append("\n");
             if (JourneyType != null) sb.Append("  JourneyType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2intentsTravelInformation", "journeyType", JourneyType.ToString())).Append("\n");
             if (ActualFinalDestination != null) sb.Append("  ActualFinalDestination: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2intentsTravelInformation", "actualFinalDestination", ActualFinalDestination.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,7 +89,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2intentsTravelInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2intentsTravelInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -112,7 +114,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Agency == other.Agency ||
                     this.Agency != null &&
@@ -141,12 +147,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Agency != null)
                     hash = hash * 59 + this.Agency.GetHashCode();
                 if (this.JourneyType != null)
                     hash = hash * 59 + this.JourneyType.GetHashCode();
                 if (this.ActualFinalDestination != null)
                     hash = hash * 59 + this.ActualFinalDestination.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -57,8 +59,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>InlineResponse2016</returns>
-        InlineResponse2016 GetWebhookSubscriptionById(string webhookId);
+        /// <returns>InlineResponse2019</returns>
+        InlineResponse2019 GetWebhookSubscriptionById(string webhookId);
 
         /// <summary>
         /// Get Details On a Single Webhook
@@ -68,8 +70,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>ApiResponse of InlineResponse2016</returns>
-        ApiResponse<InlineResponse2016> GetWebhookSubscriptionByIdWithHttpInfo(string webhookId);
+        /// <returns>ApiResponse of InlineResponse2019</returns>
+        ApiResponse<InlineResponse2019> GetWebhookSubscriptionByIdWithHttpInfo(string webhookId);
         /// <summary>
         /// Get Details On All Created Webhooks
         /// </summary>
@@ -103,8 +105,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>InlineResponse2017</returns>
-        InlineResponse2017 NotificationSubscriptionsV1WebhooksWebhookIdPost(string webhookId);
+        /// <returns>InlineResponse20110</returns>
+        InlineResponse20110 NotificationSubscriptionsV1WebhooksWebhookIdPost(string webhookId);
 
         /// <summary>
         /// Test a Webhook Configuration
@@ -114,8 +116,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>ApiResponse of InlineResponse2017</returns>
-        ApiResponse<InlineResponse2017> NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo(string webhookId);
+        /// <returns>ApiResponse of InlineResponse20110</returns>
+        ApiResponse<InlineResponse20110> NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo(string webhookId);
         /// <summary>
         /// Update a Webhook Subscription
         /// </summary>
@@ -173,8 +175,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>InlineResponse2018</returns>
-        InlineResponse2018 SaveAsymEgressKey(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
+        /// <returns>InlineResponse20111</returns>
+        InlineResponse20111 SaveAsymEgressKey(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
 
         /// <summary>
         /// Message Level Encryption
@@ -187,8 +189,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2018</returns>
-        ApiResponse<InlineResponse2018> SaveAsymEgressKeyWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
+        /// <returns>ApiResponse of InlineResponse20111</returns>
+        ApiResponse<InlineResponse20111> SaveAsymEgressKeyWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -220,8 +222,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of InlineResponse2016</returns>
-        System.Threading.Tasks.Task<InlineResponse2016> GetWebhookSubscriptionByIdAsync(string webhookId);
+        /// <returns>Task of InlineResponse2019</returns>
+        System.Threading.Tasks.Task<InlineResponse2019> GetWebhookSubscriptionByIdAsync(string webhookId);
 
         /// <summary>
         /// Get Details On a Single Webhook
@@ -231,8 +233,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2016>> GetWebhookSubscriptionByIdAsyncWithHttpInfo(string webhookId);
+        /// <returns>Task of ApiResponse (InlineResponse2019)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2019>> GetWebhookSubscriptionByIdAsyncWithHttpInfo(string webhookId);
         /// <summary>
         /// Get Details On All Created Webhooks
         /// </summary>
@@ -266,8 +268,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>Task of InlineResponse2017</returns>
-        System.Threading.Tasks.Task<InlineResponse2017> NotificationSubscriptionsV1WebhooksWebhookIdPostAsync(string webhookId);
+        /// <returns>Task of InlineResponse20110</returns>
+        System.Threading.Tasks.Task<InlineResponse20110> NotificationSubscriptionsV1WebhooksWebhookIdPostAsync(string webhookId);
 
         /// <summary>
         /// Test a Webhook Configuration
@@ -277,8 +279,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2017>> NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo(string webhookId);
+        /// <returns>Task of ApiResponse (InlineResponse20110)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20110>> NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo(string webhookId);
         /// <summary>
         /// Update a Webhook Subscription
         /// </summary>
@@ -336,8 +338,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>Task of InlineResponse2018</returns>
-        System.Threading.Tasks.Task<InlineResponse2018> SaveAsymEgressKeyAsync(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
+        /// <returns>Task of InlineResponse20111</returns>
+        System.Threading.Tasks.Task<InlineResponse20111> SaveAsymEgressKeyAsync(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
 
         /// <summary>
         /// Message Level Encryption
@@ -350,8 +352,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2018>> SaveAsymEgressKeyAsyncWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
+        /// <returns>Task of ApiResponse (InlineResponse20111)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20111>> SaveAsymEgressKeyAsyncWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
         #endregion Asynchronous Operations
     }
 
@@ -386,7 +388,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void DeleteWebhookSubscription(string webhookId)
         {
-            logger.Debug("CALLING API \"DeleteWebhookSubscription\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteWebhookSubscription\" STARTED");
             this.SetStatusCode(null);
             DeleteWebhookSubscriptionWithHttpInfo(webhookId);
         }
@@ -404,7 +406,7 @@ namespace CyberSource.Api
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->DeleteWebhookSubscription");
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->DeleteWebhookSubscription");
                 throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->DeleteWebhookSubscription");
             }
 
@@ -436,7 +438,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Delete == Method.Post)
             {
@@ -460,11 +462,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -484,7 +486,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteWebhookSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -503,7 +505,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task DeleteWebhookSubscriptionAsync(string webhookId)
         {
-            logger.Debug("CALLING API \"DeleteWebhookSubscriptionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteWebhookSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
             await DeleteWebhookSubscriptionAsyncWithHttpInfo(webhookId);
 
@@ -522,7 +524,7 @@ namespace CyberSource.Api
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->DeleteWebhookSubscription");
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->DeleteWebhookSubscription");
                 throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->DeleteWebhookSubscription");
             }
 
@@ -554,7 +556,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Delete == Method.Post)
             {
@@ -577,11 +579,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -601,7 +603,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteWebhookSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -616,13 +618,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>InlineResponse2016</returns>
-        public InlineResponse2016 GetWebhookSubscriptionById(string webhookId)
+        /// <returns>InlineResponse2019</returns>
+        public InlineResponse2019 GetWebhookSubscriptionById(string webhookId)
         {
-            logger.Debug("CALLING API \"GetWebhookSubscriptionById\" STARTED");
+            logger.LogDebug("CALLING API \"GetWebhookSubscriptionById\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2016> localVarResponse = GetWebhookSubscriptionByIdWithHttpInfo(webhookId);
-            logger.Debug("CALLING API \"GetWebhookSubscriptionById\" ENDED");
+            ApiResponse<InlineResponse2019> localVarResponse = GetWebhookSubscriptionByIdWithHttpInfo(webhookId);
+            logger.LogDebug("CALLING API \"GetWebhookSubscriptionById\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -632,15 +634,15 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>ApiResponse of InlineResponse2016</returns>
-        public ApiResponse< InlineResponse2016 > GetWebhookSubscriptionByIdWithHttpInfo(string webhookId)
+        /// <returns>ApiResponse of InlineResponse2019</returns>
+        public ApiResponse< InlineResponse2019 > GetWebhookSubscriptionByIdWithHttpInfo(string webhookId)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookSubscriptionById");
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookSubscriptionById");
                 throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookSubscriptionById");
             }
 
@@ -672,7 +674,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -696,11 +698,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -720,14 +722,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetWebhookSubscriptionById", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2019>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2016) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016))); // Return statement
+                (InlineResponse2019) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2019))); // Return statement
         }
 
         /// <summary>
@@ -735,13 +737,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of InlineResponse2016</returns>
-        public async Task<InlineResponse2016> GetWebhookSubscriptionByIdAsync(string webhookId)
+        /// <returns>Task of InlineResponse2019</returns>
+        public async Task<InlineResponse2019> GetWebhookSubscriptionByIdAsync(string webhookId)
         {
-            logger.Debug("CALLING API \"GetWebhookSubscriptionByIdAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetWebhookSubscriptionByIdAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2016> localVarResponse = await GetWebhookSubscriptionByIdAsyncWithHttpInfo(webhookId);
-            logger.Debug("CALLING API \"GetWebhookSubscriptionByIdAsync\" ENDED");
+            ApiResponse<InlineResponse2019> localVarResponse = await GetWebhookSubscriptionByIdAsyncWithHttpInfo(webhookId);
+            logger.LogDebug("CALLING API \"GetWebhookSubscriptionByIdAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -752,15 +754,15 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
-        public async Task<ApiResponse<InlineResponse2016>> GetWebhookSubscriptionByIdAsyncWithHttpInfo(string webhookId)
+        /// <returns>Task of ApiResponse (InlineResponse2019)</returns>
+        public async Task<ApiResponse<InlineResponse2019>> GetWebhookSubscriptionByIdAsyncWithHttpInfo(string webhookId)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookSubscriptionById");
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookSubscriptionById");
                 throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->GetWebhookSubscriptionById");
             }
 
@@ -792,7 +794,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -815,11 +817,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -839,14 +841,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetWebhookSubscriptionById", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2019>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2016) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016))); // Return statement
+                (InlineResponse2019) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2019))); // Return statement
         }
         /// <summary>
         /// Get Details On All Created Webhooks Retrieve a list of all previously created webhooks.
@@ -858,10 +860,10 @@ namespace CyberSource.Api
         /// <returns>List&lt;InlineResponse2007&gt;</returns>
         public List<InlineResponse2007> GetWebhookSubscriptionsByOrg(string organizationId, string productId = null, string eventType = null)
         {
-            logger.Debug("CALLING API \"GetWebhookSubscriptionsByOrg\" STARTED");
+            logger.LogDebug("CALLING API \"GetWebhookSubscriptionsByOrg\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<List<InlineResponse2007>> localVarResponse = GetWebhookSubscriptionsByOrgWithHttpInfo(organizationId, productId, eventType);
-            logger.Debug("CALLING API \"GetWebhookSubscriptionsByOrg\" ENDED");
+            logger.LogDebug("CALLING API \"GetWebhookSubscriptionsByOrg\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -881,7 +883,7 @@ namespace CyberSource.Api
             // verify the required parameter 'organizationId' is set
             if (organizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
+                logger.LogError("ApiException : Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
                 throw new ApiException(400, "Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
             }
 
@@ -913,19 +915,19 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (productId != null)
             {
                 localVarQueryParams.Add("productId", ApiClient.ParameterToString(productId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (eventType != null)
             {
                 localVarQueryParams.Add("eventType", ApiClient.ParameterToString(eventType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -949,11 +951,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -973,7 +975,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetWebhookSubscriptionsByOrg", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -993,10 +995,10 @@ namespace CyberSource.Api
         /// <returns>Task of List&lt;InlineResponse2007&gt;</returns>
         public async Task<List<InlineResponse2007>> GetWebhookSubscriptionsByOrgAsync(string organizationId, string productId = null, string eventType = null)
         {
-            logger.Debug("CALLING API \"GetWebhookSubscriptionsByOrgAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetWebhookSubscriptionsByOrgAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<List<InlineResponse2007>> localVarResponse = await GetWebhookSubscriptionsByOrgAsyncWithHttpInfo(organizationId, productId, eventType);
-            logger.Debug("CALLING API \"GetWebhookSubscriptionsByOrgAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetWebhookSubscriptionsByOrgAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1017,7 +1019,7 @@ namespace CyberSource.Api
             // verify the required parameter 'organizationId' is set
             if (organizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
+                logger.LogError("ApiException : Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
                 throw new ApiException(400, "Missing required parameter 'organizationId' when calling ManageWebhooksApi->GetWebhookSubscriptionsByOrg");
             }
 
@@ -1049,19 +1051,19 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (productId != null)
             {
                 localVarQueryParams.Add("productId", ApiClient.ParameterToString(productId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (eventType != null)
             {
                 localVarQueryParams.Add("eventType", ApiClient.ParameterToString(eventType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -1084,11 +1086,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1108,7 +1110,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetWebhookSubscriptionsByOrg", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1122,13 +1124,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>InlineResponse2017</returns>
-        public InlineResponse2017 NotificationSubscriptionsV1WebhooksWebhookIdPost(string webhookId)
+        /// <returns>InlineResponse20110</returns>
+        public InlineResponse20110 NotificationSubscriptionsV1WebhooksWebhookIdPost(string webhookId)
         {
-            logger.Debug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPost\" STARTED");
+            logger.LogDebug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPost\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2017> localVarResponse = NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo(webhookId);
-            logger.Debug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPost\" ENDED");
+            ApiResponse<InlineResponse20110> localVarResponse = NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo(webhookId);
+            logger.LogDebug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPost\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1138,15 +1140,15 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>ApiResponse of InlineResponse2017</returns>
-        public ApiResponse< InlineResponse2017 > NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo(string webhookId)
+        /// <returns>ApiResponse of InlineResponse20110</returns>
+        public ApiResponse< InlineResponse20110 > NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo(string webhookId)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV1WebhooksWebhookIdPost");
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV1WebhooksWebhookIdPost");
                 throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV1WebhooksWebhookIdPost");
             }
 
@@ -1178,7 +1180,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -1202,11 +1204,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1226,14 +1228,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("NotificationSubscriptionsV1WebhooksWebhookIdPost", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20110>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017))); // Return statement
+                (InlineResponse20110) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20110))); // Return statement
         }
 
         /// <summary>
@@ -1241,13 +1243,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>Task of InlineResponse2017</returns>
-        public async Task<InlineResponse2017> NotificationSubscriptionsV1WebhooksWebhookIdPostAsync(string webhookId)
+        /// <returns>Task of InlineResponse20110</returns>
+        public async Task<InlineResponse20110> NotificationSubscriptionsV1WebhooksWebhookIdPostAsync(string webhookId)
         {
-            logger.Debug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPostAsync\" STARTED");
+            logger.LogDebug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPostAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2017> localVarResponse = await NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo(webhookId);
-            logger.Debug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPostAsync\" ENDED");
+            ApiResponse<InlineResponse20110> localVarResponse = await NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo(webhookId);
+            logger.LogDebug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPostAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1258,15 +1260,15 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
-        public async Task<ApiResponse<InlineResponse2017>> NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo(string webhookId)
+        /// <returns>Task of ApiResponse (InlineResponse20110)</returns>
+        public async Task<ApiResponse<InlineResponse20110>> NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo(string webhookId)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV1WebhooksWebhookIdPost");
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV1WebhooksWebhookIdPost");
                 throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV1WebhooksWebhookIdPost");
             }
 
@@ -1298,7 +1300,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -1321,11 +1323,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1345,14 +1347,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("NotificationSubscriptionsV1WebhooksWebhookIdPost", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20110>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017))); // Return statement
+                (InlineResponse20110) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20110))); // Return statement
         }
         /// <summary>
         /// Update a Webhook Subscription Update a Webhook Subscription.
@@ -1363,10 +1365,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse2008</returns>
         public InlineResponse2008 NotificationSubscriptionsV2WebhooksWebhookIdPatch(string webhookId, UpdateWebhook updateWebhook = null)
         {
-            logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatch\" STARTED");
+            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatch\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2008> localVarResponse = NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo(webhookId, updateWebhook);
-            logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatch\" ENDED");
+            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatch\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1385,7 +1387,7 @@ namespace CyberSource.Api
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdPatch");
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdPatch");
                 throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdPatch");
             }
 
@@ -1417,7 +1419,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (updateWebhook != null && updateWebhook.GetType() != typeof(byte[]))
             {
@@ -1436,18 +1438,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "NotificationSubscriptionsV2WebhooksWebhookIdPatch,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync,NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1462,7 +1464,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("NotificationSubscriptionsV2WebhooksWebhookIdPatch", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1481,10 +1483,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse2008</returns>
         public async Task<InlineResponse2008> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync(string webhookId, UpdateWebhook updateWebhook = null)
         {
-            logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync\" STARTED");
+            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2008> localVarResponse = await NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo(webhookId, updateWebhook);
-            logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync\" ENDED");
+            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1504,7 +1506,7 @@ namespace CyberSource.Api
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdPatch");
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdPatch");
                 throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdPatch");
             }
 
@@ -1536,7 +1538,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (updateWebhook != null && updateWebhook.GetType() != typeof(byte[]))
             {
@@ -1555,18 +1557,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "NotificationSubscriptionsV2WebhooksWebhookIdPatch,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync,NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1581,7 +1583,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("NotificationSubscriptionsV2WebhooksWebhookIdPatch", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1599,7 +1601,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void NotificationSubscriptionsV2WebhooksWebhookIdStatusPut(string webhookId, UpdateStatus updateStatus = null)
         {
-            logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdStatusPut\" STARTED");
+            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdStatusPut\" STARTED");
             this.SetStatusCode(null);
             NotificationSubscriptionsV2WebhooksWebhookIdStatusPutWithHttpInfo(webhookId, updateStatus);
         }
@@ -1618,7 +1620,7 @@ namespace CyberSource.Api
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdStatusPut");
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdStatusPut");
                 throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdStatusPut");
             }
 
@@ -1650,7 +1652,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (updateStatus != null && updateStatus.GetType() != typeof(byte[]))
             {
@@ -1669,18 +1671,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "NotificationSubscriptionsV2WebhooksWebhookIdStatusPut,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsync,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1695,7 +1697,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("NotificationSubscriptionsV2WebhooksWebhookIdStatusPut", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1715,7 +1717,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsync(string webhookId, UpdateStatus updateStatus = null)
         {
-            logger.Debug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsync\" STARTED");
+            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsync\" STARTED");
             this.SetStatusCode(null);
             await NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsyncWithHttpInfo(webhookId, updateStatus);
 
@@ -1735,7 +1737,7 @@ namespace CyberSource.Api
             // verify the required parameter 'webhookId' is set
             if (webhookId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdStatusPut");
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdStatusPut");
                 throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdStatusPut");
             }
 
@@ -1767,7 +1769,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (updateStatus != null && updateStatus.GetType() != typeof(byte[]))
             {
@@ -1786,18 +1788,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "NotificationSubscriptionsV2WebhooksWebhookIdStatusPut,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsync,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdStatusPutAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1812,7 +1814,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("NotificationSubscriptionsV2WebhooksWebhookIdStatusPut", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1830,13 +1832,13 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>InlineResponse2018</returns>
-        public InlineResponse2018 SaveAsymEgressKey(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
+        /// <returns>InlineResponse20111</returns>
+        public InlineResponse20111 SaveAsymEgressKey(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
-            logger.Debug("CALLING API \"SaveAsymEgressKey\" STARTED");
+            logger.LogDebug("CALLING API \"SaveAsymEgressKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2018> localVarResponse = SaveAsymEgressKeyWithHttpInfo(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
-            logger.Debug("CALLING API \"SaveAsymEgressKey\" ENDED");
+            ApiResponse<InlineResponse20111> localVarResponse = SaveAsymEgressKeyWithHttpInfo(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
+            logger.LogDebug("CALLING API \"SaveAsymEgressKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1849,15 +1851,15 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2018</returns>
-        public ApiResponse< InlineResponse2018 > SaveAsymEgressKeyWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
+        /// <returns>ApiResponse of InlineResponse20111</returns>
+        public ApiResponse< InlineResponse20111 > SaveAsymEgressKeyWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'saveAsymEgressKey' is set
             if (saveAsymEgressKey == null)
             {
-                logger.Error("ApiException : Missing required parameter 'saveAsymEgressKey' when calling ManageWebhooksApi->SaveAsymEgressKey");
+                logger.LogError("ApiException : Missing required parameter 'saveAsymEgressKey' when calling ManageWebhooksApi->SaveAsymEgressKey");
                 throw new ApiException(400, "Missing required parameter 'saveAsymEgressKey' when calling ManageWebhooksApi->SaveAsymEgressKey");
             }
 
@@ -1917,18 +1919,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "SaveAsymEgressKey,SaveAsymEgressKeyAsync,SaveAsymEgressKeyWithHttpInfo,SaveAsymEgressKeyAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1943,14 +1945,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("SaveAsymEgressKey", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2018>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20111>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2018))); // Return statement
+                (InlineResponse20111) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20111))); // Return statement
         }
 
         /// <summary>
@@ -1961,13 +1963,13 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>Task of InlineResponse2018</returns>
-        public async Task<InlineResponse2018> SaveAsymEgressKeyAsync(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
+        /// <returns>Task of InlineResponse20111</returns>
+        public async Task<InlineResponse20111> SaveAsymEgressKeyAsync(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
-            logger.Debug("CALLING API \"SaveAsymEgressKeyAsync\" STARTED");
+            logger.LogDebug("CALLING API \"SaveAsymEgressKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2018> localVarResponse = await SaveAsymEgressKeyAsyncWithHttpInfo(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
-            logger.Debug("CALLING API \"SaveAsymEgressKeyAsync\" ENDED");
+            ApiResponse<InlineResponse20111> localVarResponse = await SaveAsymEgressKeyAsyncWithHttpInfo(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
+            logger.LogDebug("CALLING API \"SaveAsymEgressKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1981,15 +1983,15 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
-        public async Task<ApiResponse<InlineResponse2018>> SaveAsymEgressKeyAsyncWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
+        /// <returns>Task of ApiResponse (InlineResponse20111)</returns>
+        public async Task<ApiResponse<InlineResponse20111>> SaveAsymEgressKeyAsyncWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'saveAsymEgressKey' is set
             if (saveAsymEgressKey == null)
             {
-                logger.Error("ApiException : Missing required parameter 'saveAsymEgressKey' when calling ManageWebhooksApi->SaveAsymEgressKey");
+                logger.LogError("ApiException : Missing required parameter 'saveAsymEgressKey' when calling ManageWebhooksApi->SaveAsymEgressKey");
                 throw new ApiException(400, "Missing required parameter 'saveAsymEgressKey' when calling ManageWebhooksApi->SaveAsymEgressKey");
             }
 
@@ -2049,18 +2051,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "SaveAsymEgressKey,SaveAsymEgressKeyAsync,SaveAsymEgressKeyWithHttpInfo,SaveAsymEgressKeyAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -2075,14 +2077,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("SaveAsymEgressKey", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2018>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20111>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2018))); // Return statement
+                (InlineResponse20111) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20111))); // Return statement
         }
     }
 }

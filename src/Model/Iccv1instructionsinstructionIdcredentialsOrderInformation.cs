@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Order information.
     /// </summary>
     [DataContract]
-    public partial class Iccv1instructionsinstructionIdcredentialsOrderInformation :  IEquatable<Iccv1instructionsinstructionIdcredentialsOrderInformation>, IValidatableObject
+    public partial class Iccv1instructionsinstructionIdcredentialsOrderInformation :  ModelExtensions, IEquatable<Iccv1instructionsinstructionIdcredentialsOrderInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Iccv1instructionsinstructionIdcredentialsOrderInformation" /> class.
@@ -91,6 +92,7 @@ namespace CyberSource.Model
             if (ShipTo != null) sb.Append("  ShipTo: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1instructionsinstructionIdcredentialsOrderInformation", "shipTo", ShipTo.ToString())).Append("\n");
             if (LineItems != null) sb.Append("  LineItems: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1instructionsinstructionIdcredentialsOrderInformation", "lineItems", LineItems.ToString())).Append("\n");
             if (DeliveryMethod != null) sb.Append("  DeliveryMethod: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1instructionsinstructionIdcredentialsOrderInformation", "deliveryMethod", DeliveryMethod.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,7 +103,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1instructionsinstructionIdcredentialsOrderInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1instructionsinstructionIdcredentialsOrderInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -126,7 +128,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.AmountDetail == other.AmountDetail ||
                     this.AmountDetail != null &&
@@ -160,6 +166,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.AmountDetail != null)
                     hash = hash * 59 + this.AmountDetail.GetHashCode();
                 if (this.ShipTo != null)
@@ -168,6 +176,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.LineItems.GetHashCode();
                 if (this.DeliveryMethod != null)
                     hash = hash * 59 + this.DeliveryMethod.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

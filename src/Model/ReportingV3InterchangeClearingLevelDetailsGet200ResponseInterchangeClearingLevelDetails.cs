@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails
     /// </summary>
     [DataContract]
-    public partial class ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails :  IEquatable<ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails>, IValidatableObject
+    public partial class ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails :  ModelExtensions, IEquatable<ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails" /> class.
@@ -559,6 +560,7 @@ namespace CyberSource.Model
             if (CreditDeltaIndicator != null) sb.Append("  CreditDeltaIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails", "creditDeltaIndicator", CreditDeltaIndicator.ToString())).Append("\n");
             if (FeeCategory != null) sb.Append("  FeeCategory: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails", "feeCategory", FeeCategory.ToString())).Append("\n");
             if (ApplicationName != null) sb.Append("  ApplicationName: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails", "applicationName", ApplicationName.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -569,7 +571,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ReportingV3InterchangeClearingLevelDetailsGet200ResponseInterchangeClearingLevelDetails", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -594,7 +596,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.RequestId == other.RequestId ||
                     this.RequestId != null &&
@@ -863,6 +869,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.RequestId != null)
                     hash = hash * 59 + this.RequestId.GetHashCode();
                 if (this.OrganizationId != null)
@@ -965,6 +973,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FeeCategory.GetHashCode();
                 if (this.ApplicationName != null)
                     hash = hash * 59 + this.ApplicationName.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

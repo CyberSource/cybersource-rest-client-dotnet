@@ -1,10 +1,7 @@
-﻿using CyberSource.Client;
-using CyberSource.Model;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace CyberSource.Utilities.Tracking
 {
@@ -33,505 +30,145 @@ namespace CyberSource.Utilities.Tracking
                 developerIdValue = !string.IsNullOrEmpty(defaultMerchantConfigDeveloperId) ? defaultMerchantConfigDeveloperId : developerIdValue;
             }
 
-            switch (requestClass)
+            InjectDeveloperId(requestObj, developerIdValue);
+            return requestObj;
+        }
+
+        // The developer-id is injected into the request's
+        // ClientReferenceInformation -> Partner -> DeveloperId chain whenever the runtime
+        // type exposes that shape. Decided by cached reflection (one inspection per type),
+        // so it is correct for subclasses and any request carrying the shape, and it
+        // never overwrites a developer-id the caller already set.
+        private static readonly ConcurrentDictionary<Type, DeveloperIdPath> _developerIdPathCache =
+            new ConcurrentDictionary<Type, DeveloperIdPath>();
+
+        private void InjectDeveloperId(object requestObj, string developerIdValue)
+        {
+            if (requestObj == null)
             {
-                case "CapturePaymentRequest":
-                    CapturePaymentRequest capturePaymentRequest = (CapturePaymentRequest)requestObj;
-
-                    if (capturePaymentRequest.ClientReferenceInformation == null)
-                    {
-                        capturePaymentRequest.ClientReferenceInformation = new Ptsv2paymentsClientReferenceInformation();
-                    }
-
-                    if (capturePaymentRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        capturePaymentRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsClientReferenceInformationPartner();
-                    }
-
-                    if (capturePaymentRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        capturePaymentRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return capturePaymentRequest;
-                case "CreateCreditRequest":
-                    CreateCreditRequest createCreditRequest = (CreateCreditRequest)requestObj;
-
-                    if (createCreditRequest.ClientReferenceInformation == null)
-                    {
-                        createCreditRequest.ClientReferenceInformation = new Ptsv2paymentsClientReferenceInformation();
-                    }
-
-                    if (createCreditRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        createCreditRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsClientReferenceInformationPartner();
-                    }
-
-                    if (createCreditRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        createCreditRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return createCreditRequest;
-                case "AddNegativeListRequest":
-                    AddNegativeListRequest addNegativeListRequest = (AddNegativeListRequest)requestObj;
-
-                    if (addNegativeListRequest.ClientReferenceInformation == null)
-                    {
-                        addNegativeListRequest.ClientReferenceInformation = new RiskV1DecisionsPost201ResponseClientReferenceInformation();
-                    }
-
-                    if (addNegativeListRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        addNegativeListRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (addNegativeListRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        addNegativeListRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return addNegativeListRequest;
-                case "CreateBundledDecisionManagerCaseRequest":
-                    CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest = (CreateBundledDecisionManagerCaseRequest)requestObj;
-
-                    if (createBundledDecisionManagerCaseRequest.ClientReferenceInformation == null)
-                    {
-                        createBundledDecisionManagerCaseRequest.ClientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
-                    }
-
-                    if (createBundledDecisionManagerCaseRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        createBundledDecisionManagerCaseRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (createBundledDecisionManagerCaseRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        createBundledDecisionManagerCaseRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return createBundledDecisionManagerCaseRequest;
-                case "FraudMarkingActionRequest":
-                    FraudMarkingActionRequest fraudMarkingActionRequest = (FraudMarkingActionRequest)requestObj;
-
-                    if (fraudMarkingActionRequest.ClientReferenceInformation == null)
-                    {
-                        fraudMarkingActionRequest.ClientReferenceInformation = new RiskV1DecisionsPost201ResponseClientReferenceInformation();
-                    }
-
-                    if (fraudMarkingActionRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        fraudMarkingActionRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (fraudMarkingActionRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        fraudMarkingActionRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return fraudMarkingActionRequest;
-                case "CheckPayerAuthEnrollmentRequest":
-                    CheckPayerAuthEnrollmentRequest checkPayerAuthEnrollmentRequest = (CheckPayerAuthEnrollmentRequest)requestObj;
-
-                    if (checkPayerAuthEnrollmentRequest.ClientReferenceInformation == null)
-                    {
-                        checkPayerAuthEnrollmentRequest.ClientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
-                    }
-
-                    if (checkPayerAuthEnrollmentRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        checkPayerAuthEnrollmentRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (checkPayerAuthEnrollmentRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        checkPayerAuthEnrollmentRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return checkPayerAuthEnrollmentRequest;
-                case "PayerAuthSetupRequest":
-                    PayerAuthSetupRequest payerAuthSetupRequest = (PayerAuthSetupRequest)requestObj;
-
-                    if (payerAuthSetupRequest.ClientReferenceInformation == null)
-                    {
-                        payerAuthSetupRequest.ClientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
-                    }
-
-                    if (payerAuthSetupRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        payerAuthSetupRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (payerAuthSetupRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        payerAuthSetupRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return payerAuthSetupRequest;
-                case "ValidateRequest":
-                    ValidateRequest validateRequest = (ValidateRequest)requestObj;
-
-                    if (validateRequest.ClientReferenceInformation == null)
-                    {
-                        validateRequest.ClientReferenceInformation = new Riskv1decisionsClientReferenceInformation();
-                    }
-
-                    if (validateRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        validateRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (validateRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        validateRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return validateRequest;
-                case "CreatePaymentRequest":
-                    CreatePaymentRequest createPaymentRequest = (CreatePaymentRequest)requestObj;
-
-                    if (createPaymentRequest.ClientReferenceInformation == null)
-                    {
-                        createPaymentRequest.ClientReferenceInformation = new Ptsv2paymentsClientReferenceInformation();
-                    }
-
-                    if (createPaymentRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        createPaymentRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsClientReferenceInformationPartner();
-                    }
-
-                    if (createPaymentRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        createPaymentRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return createPaymentRequest;
-                case "IncrementAuthRequest":
-                    IncrementAuthRequest incrementAuthRequest = (IncrementAuthRequest)requestObj;
-
-                    if (incrementAuthRequest.ClientReferenceInformation == null)
-                    {
-                        incrementAuthRequest.ClientReferenceInformation = new Ptsv2paymentsidClientReferenceInformation();
-                    }
-
-                    if (incrementAuthRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        incrementAuthRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsidClientReferenceInformationPartner();
-                    }
-
-                    if (incrementAuthRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        incrementAuthRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return incrementAuthRequest;
-                case "CreatePlanRequest":
-                    CreatePlanRequest createPlanRequest = (CreatePlanRequest)requestObj;
-
-                    //if (createPlanRequest.ClientReferenceInformation == null)
-                    //{
-                    //    createPlanRequest.ClientReferenceInformation = new Rbsv1plansClientReferenceInformation();
-                    //}
-
-                    //if (createPlanRequest.ClientReferenceInformation.Partner == null)
-                    //{
-                    //    createPlanRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    //}
-
-                    //if (createPlanRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    //{
-                    //    createPlanRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    //}
-
-                    return createPlanRequest;
-                case "RefundCaptureRequest":
-                    RefundCaptureRequest refundCaptureRequest = (RefundCaptureRequest)requestObj;
-
-                    if (refundCaptureRequest.ClientReferenceInformation == null)
-                    {
-                        refundCaptureRequest.ClientReferenceInformation = new Ptsv2paymentsidrefundsClientReferenceInformation();
-                    }
-
-                    if (refundCaptureRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        refundCaptureRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsClientReferenceInformationPartner();
-                    }
-
-                    if (refundCaptureRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        refundCaptureRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return refundCaptureRequest;
-                case "RefundPaymentRequest":
-                    RefundPaymentRequest refundPaymentRequest = (RefundPaymentRequest)requestObj;
-
-                    if (refundPaymentRequest.ClientReferenceInformation == null)
-                    {
-                        refundPaymentRequest.ClientReferenceInformation = new Ptsv2paymentsidrefundsClientReferenceInformation();
-                    }
-
-                    if (refundPaymentRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        refundPaymentRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsClientReferenceInformationPartner();
-                    }
-
-                    if (refundPaymentRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        refundPaymentRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return refundPaymentRequest;
-                case "AuthReversalRequest":
-                    AuthReversalRequest authReversalRequest = (AuthReversalRequest)requestObj;
-
-                    if (authReversalRequest.ClientReferenceInformation == null)
-                    {
-                        authReversalRequest.ClientReferenceInformation = new Ptsv2paymentsidreversalsClientReferenceInformation();
-                    }
-
-                    if (authReversalRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        authReversalRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsidreversalsClientReferenceInformationPartner();
-                    }
-
-                    if (authReversalRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        authReversalRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return authReversalRequest;
-                case "MitReversalRequest":
-                    MitReversalRequest mitReversalRequest = (MitReversalRequest)requestObj;
-
-                    if (mitReversalRequest.ClientReferenceInformation == null)
-                    {
-                        mitReversalRequest.ClientReferenceInformation = new Ptsv2paymentsClientReferenceInformation();
-                    }
-
-                    if (mitReversalRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        mitReversalRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsClientReferenceInformationPartner();
-                    }
-
-                    if (mitReversalRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        mitReversalRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return mitReversalRequest;
-                case "CreateSubscriptionRequest":
-                    CreateSubscriptionRequest createSubscriptionRequest = (CreateSubscriptionRequest)requestObj;
-
-                    //if (createSubscriptionRequest.ClientReferenceInformation == null)
-                    //{
-                    //    createSubscriptionRequest.ClientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation();
-                    //}
-
-                    //if (createSubscriptionRequest.ClientReferenceInformation.Partner == null)
-                    //{
-                    //    createSubscriptionRequest.ClientReferenceInformation.Partner = new Rbsv1subscriptionsClientReferenceInformationPartner();
-                    //}
-
-                    //if (createSubscriptionRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    //{
-                    //    createSubscriptionRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    //}
-
-                    return createSubscriptionRequest;
-                case "UpdateSubscription":
-                    UpdateSubscription updateSubscription = (UpdateSubscription)requestObj;
-
-                    //if (updateSubscription.ClientReferenceInformation == null)
-                    //{
-                    //    updateSubscription.ClientReferenceInformation = new Rbsv1subscriptionsClientReferenceInformation();
-                    //}
-
-                    //if (updateSubscription.ClientReferenceInformation.Partner == null)
-                    //{
-                    //    updateSubscription.ClientReferenceInformation.Partner = new Rbsv1subscriptionsClientReferenceInformationPartner();
-                    //}
-
-                    //if (updateSubscription.ClientReferenceInformation.Partner.DeveloperId == null)
-                    //{
-                    //    updateSubscription.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    //}
-
-                    return updateSubscription;
-                case "TaxRequest":
-                    TaxRequest taxRequest = (TaxRequest)requestObj;
-
-                    if (taxRequest.ClientReferenceInformation == null)
-                    {
-                        taxRequest.ClientReferenceInformation = new Vasv2taxClientReferenceInformation();
-                    }
-
-                    if (taxRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        taxRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (taxRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        taxRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return taxRequest;
-                case "VoidTaxRequest":
-                    VoidTaxRequest voidTaxRequest = (VoidTaxRequest)requestObj;
-
-                    if (voidTaxRequest.ClientReferenceInformation == null)
-                    {
-                        voidTaxRequest.ClientReferenceInformation = new Vasv2taxidClientReferenceInformation();
-                    }
-
-                    if (voidTaxRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        voidTaxRequest.ClientReferenceInformation.Partner = new Vasv2taxidClientReferenceInformationPartner();
-                    }
-
-                    if (voidTaxRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        voidTaxRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return voidTaxRequest;
-                case "ValidateExportComplianceRequest":
-                    ValidateExportComplianceRequest validateExportComplianceRequest = (ValidateExportComplianceRequest)requestObj;
-
-                    if (validateExportComplianceRequest.ClientReferenceInformation == null)
-                    {
-                        validateExportComplianceRequest.ClientReferenceInformation = new RiskV1DecisionsPost201ResponseClientReferenceInformation();
-                    }
-
-                    if (validateExportComplianceRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        validateExportComplianceRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (validateExportComplianceRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        validateExportComplianceRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return validateExportComplianceRequest;
-                case "VerifyCustomerAddressRequest":
-                    VerifyCustomerAddressRequest verifyCustomerAddressRequest = (VerifyCustomerAddressRequest)requestObj;
-
-                    if (verifyCustomerAddressRequest.ClientReferenceInformation == null)
-                    {
-                        verifyCustomerAddressRequest.ClientReferenceInformation = new RiskV1DecisionsPost201ResponseClientReferenceInformation();
-                    }
-
-                    if (verifyCustomerAddressRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        verifyCustomerAddressRequest.ClientReferenceInformation.Partner = new Riskv1decisionsClientReferenceInformationPartner();
-                    }
-
-                    if (verifyCustomerAddressRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        verifyCustomerAddressRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return verifyCustomerAddressRequest;
-                case "MitVoidRequest":
-                    MitVoidRequest mitVoidRequest = (MitVoidRequest)requestObj;
-
-                    if (mitVoidRequest.ClientReferenceInformation == null)
-                    {
-                        mitVoidRequest.ClientReferenceInformation = new Ptsv2paymentsClientReferenceInformation();
-                    }
-
-                    if (mitVoidRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        mitVoidRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsClientReferenceInformationPartner();
-                    }
-
-                    if (mitVoidRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        mitVoidRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return mitVoidRequest;
-                case "VoidCaptureRequest":
-                    VoidCaptureRequest voidCaptureRequest = (VoidCaptureRequest)requestObj;
-
-                    if (voidCaptureRequest.ClientReferenceInformation == null)
-                    {
-                        voidCaptureRequest.ClientReferenceInformation = new Ptsv2paymentsidreversalsClientReferenceInformation();
-                    }
-
-                    if (voidCaptureRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        voidCaptureRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsidreversalsClientReferenceInformationPartner();
-                    }
-
-                    if (voidCaptureRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        voidCaptureRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return voidCaptureRequest;
-                case "VoidCreditRequest":
-                    VoidCreditRequest voidCreditRequest = (VoidCreditRequest)requestObj;
-
-                    if (voidCreditRequest.ClientReferenceInformation == null)
-                    {
-                        voidCreditRequest.ClientReferenceInformation = new Ptsv2paymentsidreversalsClientReferenceInformation();
-                    }
-
-                    if (voidCreditRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        voidCreditRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsidreversalsClientReferenceInformationPartner();
-                    }
-
-                    if (voidCreditRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        voidCreditRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return voidCreditRequest;
-                case "VoidPaymentRequest":
-                    VoidPaymentRequest voidPaymentRequest = (VoidPaymentRequest)requestObj;
-
-                    if (voidPaymentRequest.ClientReferenceInformation == null)
-                    {
-                        voidPaymentRequest.ClientReferenceInformation = new Ptsv2paymentsidreversalsClientReferenceInformation();
-                    }
-
-                    if (voidPaymentRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        voidPaymentRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsidreversalsClientReferenceInformationPartner();
-                    }
-
-                    if (voidPaymentRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        voidPaymentRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return voidPaymentRequest;
-                case "VoidRefundRequest":
-                    VoidRefundRequest voidRefundRequest = (VoidRefundRequest)requestObj;
-
-                    if (voidRefundRequest.ClientReferenceInformation == null)
-                    {
-                        voidRefundRequest.ClientReferenceInformation = new Ptsv2paymentsidreversalsClientReferenceInformation();
-                    }
-
-                    if (voidRefundRequest.ClientReferenceInformation.Partner == null)
-                    {
-                        voidRefundRequest.ClientReferenceInformation.Partner = new Ptsv2paymentsidreversalsClientReferenceInformationPartner();
-                    }
-
-                    if (voidRefundRequest.ClientReferenceInformation.Partner.DeveloperId == null)
-                    {
-                        voidRefundRequest.ClientReferenceInformation.Partner.DeveloperId = developerIdValue;
-                    }
-
-                    return voidRefundRequest;
-                default:
-                    return requestObj;
+                return;
             }
+
+            DeveloperIdPath path = _developerIdPathCache.GetOrAdd(requestObj.GetType(), ResolveDeveloperIdPath);
+            if (path == null)
+            {
+                // Request type does not expose the CRI -> Partner -> DeveloperId shape.
+                return;
+            }
+
+            object clientReferenceInformation = path.ClientReferenceInformation.GetValue(requestObj);
+            if (clientReferenceInformation == null)
+            {
+                clientReferenceInformation = CreateInstance(path.ClientReferenceInformation.PropertyType);
+                if (clientReferenceInformation == null)
+                {
+                    return;
+                }
+
+                path.ClientReferenceInformation.SetValue(requestObj, clientReferenceInformation);
+            }
+
+            object partner = path.Partner.GetValue(clientReferenceInformation);
+            if (partner == null)
+            {
+                partner = CreateInstance(path.Partner.PropertyType);
+                if (partner == null)
+                {
+                    return;
+                }
+
+                path.Partner.SetValue(clientReferenceInformation, partner);
+            }
+
+            // Never overwrite a developer-id the caller already supplied.
+            if (path.DeveloperId.GetValue(partner) == null)
+            {
+                path.DeveloperId.SetValue(partner, developerIdValue);
+            }
+        }
+
+        /// <summary>
+        /// Inspects a request type for the ClientReferenceInformation -> Partner ->
+        /// DeveloperId (string) property chain. Returns null when the shape is absent; the
+        /// result is cached so the reflection cost is paid once per type.
+        /// </summary>
+        private static DeveloperIdPath ResolveDeveloperIdPath(Type requestType)
+        {
+            const BindingFlags flags = BindingFlags.Public | BindingFlags.Instance;
+
+            PropertyInfo clientReferenceInformation = requestType.GetProperty("ClientReferenceInformation", flags);
+            if (clientReferenceInformation == null || !clientReferenceInformation.CanRead || !clientReferenceInformation.CanWrite)
+            {
+                return null;
+            }
+
+            PropertyInfo partner = clientReferenceInformation.PropertyType.GetProperty("Partner", flags);
+            if (partner == null || !partner.CanRead || !partner.CanWrite)
+            {
+                return null;
+            }
+
+            PropertyInfo developerId = partner.PropertyType.GetProperty("DeveloperId", flags);
+            if (developerId == null || !developerId.CanWrite || developerId.PropertyType != typeof(string))
+            {
+                return null;
+            }
+
+            return new DeveloperIdPath
+            {
+                ClientReferenceInformation = clientReferenceInformation,
+                Partner = partner,
+                DeveloperId = developerId
+            };
+        }
+
+        /// <summary>
+        /// Creates an instance of a generated model type. Generated models expose either a
+        /// real parameterless constructor or a single constructor whose parameters are all
+        /// optional; this invokes the fewest-parameter constructor with default arguments.
+        /// </summary>
+        private static object CreateInstance(Type type)
+        {
+            ConstructorInfo ctor = type
+                .GetConstructors(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                .OrderBy(c => c.GetParameters().Length)
+                .FirstOrDefault();
+
+            if (ctor == null)
+            {
+                return null;
+            }
+
+            ParameterInfo[] parameters = ctor.GetParameters();
+            object[] args = new object[parameters.Length];
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                ParameterInfo p = parameters[i];
+                if (p.HasDefaultValue)
+                {
+                    args[i] = p.DefaultValue;
+                }
+                else if (p.ParameterType.IsValueType)
+                {
+                    args[i] = Activator.CreateInstance(p.ParameterType);
+                }
+                else
+                {
+                    args[i] = null;
+                }
+            }
+
+            return ctor.Invoke(args);
+        }
+
+        /// <summary>
+        /// Cached PropertyInfo chain for the developer-id injection shape.
+        /// </summary>
+        private sealed class DeveloperIdPath
+        {
+            public PropertyInfo ClientReferenceInformation { get; set; }
+            public PropertyInfo Partner { get; set; }
+            public PropertyInfo DeveloperId { get; set; }
         }
     }
 }

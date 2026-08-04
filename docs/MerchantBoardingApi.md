@@ -5,6 +5,7 @@ All URIs are relative to *https://apitest.cybersource.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetRegistration**](MerchantBoardingApi.md#getregistration) | **GET** /boarding/v1/registrations/{registrationId} | Gets all the information on a boarding registration
+[**PatchRegistration**](MerchantBoardingApi.md#patchregistration) | **PATCH** /boarding/v1/registrations/{registrationId} | Updates the information on a boarding registration
 [**PostRegistration**](MerchantBoardingApi.md#postregistration) | **POST** /boarding/v1/registrations | Create a boarding registration
 
 
@@ -69,9 +70,74 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="patchregistration"></a>
+# **PatchRegistration**
+> InlineResponse2005 PatchRegistration (string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
+
+Updates the information on a boarding registration
+
+This end point will partially update a boarding registration 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class PatchRegistrationExample
+    {
+        public void main()
+        {
+            var apiInstance = new MerchantBoardingApi();
+            var registrationId = registrationId_example;  // string | Identifies the boarding registration to be updated
+            var patchRegistrationBody = new PatchRegistrationBody(); // PatchRegistrationBody | Boarding registration data to be patched
+            var vCIdempotencyId = vCIdempotencyId_example;  // string | defines idempotency of the request (optional) 
+
+            try
+            {
+                // Updates the information on a boarding registration
+                InlineResponse2005 result = apiInstance.PatchRegistration(registrationId, patchRegistrationBody, vCIdempotencyId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MerchantBoardingApi.PatchRegistration: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registrationId** | **string**| Identifies the boarding registration to be updated | 
+ **patchRegistrationBody** | [**PatchRegistrationBody**](PatchRegistrationBody.md)| Boarding registration data to be patched | 
+ **vCIdempotencyId** | **string**| defines idempotency of the request | [optional] 
+
+### Return type
+
+[**InlineResponse2005**](InlineResponse2005.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="postregistration"></a>
 # **PostRegistration**
-> InlineResponse2014 PostRegistration (PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+> InlineResponse2017 PostRegistration (PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
 
 Create a boarding registration
 
@@ -98,7 +164,7 @@ namespace Example
             try
             {
                 // Create a boarding registration
-                InlineResponse2014 result = apiInstance.PostRegistration(postRegistrationBody, vCIdempotencyId);
+                InlineResponse2017 result = apiInstance.PostRegistration(postRegistrationBody, vCIdempotencyId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -119,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2017**](InlineResponse2017.md)
 
 ### Authorization
 

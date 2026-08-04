@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// CommerceSolutionsProducts
     /// </summary>
     [DataContract]
-    public partial class CommerceSolutionsProducts :  IEquatable<CommerceSolutionsProducts>, IValidatableObject
+    public partial class CommerceSolutionsProducts :  ModelExtensions, IEquatable<CommerceSolutionsProducts>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CommerceSolutionsProducts" /> class.
@@ -85,6 +86,7 @@ namespace CyberSource.Model
             if (AccountUpdater != null) sb.Append("  AccountUpdater: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CommerceSolutionsProducts", "accountUpdater", AccountUpdater.ToString())).Append("\n");
             if (BinLookup != null) sb.Append("  BinLookup: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CommerceSolutionsProducts", "binLookup", BinLookup.ToString())).Append("\n");
             if (AgenticCommerce != null) sb.Append("  AgenticCommerce: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CommerceSolutionsProducts", "agenticCommerce", AgenticCommerce.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,7 +97,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("CommerceSolutionsProducts", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("CommerceSolutionsProducts", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -120,7 +122,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.TokenManagement == other.TokenManagement ||
                     this.TokenManagement != null &&
@@ -154,6 +160,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.TokenManagement != null)
                     hash = hash * 59 + this.TokenManagement.GetHashCode();
                 if (this.AccountUpdater != null)
@@ -162,6 +170,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BinLookup.GetHashCode();
                 if (this.AgenticCommerce != null)
                     hash = hash * 59 + this.AgenticCommerce.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

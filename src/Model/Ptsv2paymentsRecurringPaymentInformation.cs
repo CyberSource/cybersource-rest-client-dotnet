@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,18 +29,13 @@ namespace CyberSource.Model
     /// This object contains recurring payment information.
     /// </summary>
     [DataContract]
-    public partial class Ptsv2paymentsRecurringPaymentInformation :  IEquatable<Ptsv2paymentsRecurringPaymentInformation>, IValidatableObject
+    public partial class Ptsv2paymentsRecurringPaymentInformation :  ModelExtensions, IEquatable<Ptsv2paymentsRecurringPaymentInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsRecurringPaymentInformation" /> class.
         /// </summary>
-        [JsonConstructor]
-        protected Ptsv2paymentsRecurringPaymentInformation() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Ptsv2paymentsRecurringPaymentInformation" /> class.
-        /// </summary>
-        /// <param name="EndDate">The date after which no further recurring authorizations should be performed. Format: &#x60;YYYY-MM-DD&#x60; **Note** This field is required for recurring transactions.  (required).</param>
-        /// <param name="Frequency">Integer value indicating the minimum number of days between recurring authorizations. A frequency of monthly is indicated by the value 28. Multiple of 28 days will be used to indicate months.  Example: 6 months &#x3D; 168  Example values accepted (31 days): - 31 - 031 - 0031  **Note** This field is required for recurring transactions.  (required).</param>
+        /// <param name="EndDate">The date after which no further recurring authorizations should be performed. Format: &#x60;YYYY-MM-DD&#x60; **Note** This field is required for recurring transactions. .</param>
+        /// <param name="Frequency">Integer value indicating the minimum number of days between recurring authorizations. A frequency of monthly is indicated by the value 28. Multiple of 28 days will be used to indicate months.  Example: 6 months &#x3D; 168  Example values accepted (31 days): - 31 - 031 - 0031  **Note** This field is required for recurring transactions. .</param>
         /// <param name="NumberOfPayments">Total number of payments for the duration of the recurring subscription. .</param>
         /// <param name="OriginalPurchaseDate">Date of original purchase. Required for recurring transactions. Format: &#x60;YYYY-MM-DDTHH:MM:SSZ&#x60; **Note**: If this field is empty, the current date is used. .</param>
         /// <param name="SequenceNumber">This field is mandatory for Cartes Bancaires recurring transactions on Credit Mutuel-CIC.       This field records recurring sequence, e.g. 1st for initial,  2 for subsequent, 3 etc .</param>
@@ -171,6 +167,7 @@ namespace CyberSource.Model
             if (AmountType != null) sb.Append("  AmountType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRecurringPaymentInformation", "amountType", AmountType.ToString())).Append("\n");
             if (MaximumAmount != null) sb.Append("  MaximumAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRecurringPaymentInformation", "maximumAmount", MaximumAmount.ToString())).Append("\n");
             if (ReferenceNumber != null) sb.Append("  ReferenceNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRecurringPaymentInformation", "referenceNumber", ReferenceNumber.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -181,7 +178,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsRecurringPaymentInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsRecurringPaymentInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -206,7 +203,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.EndDate == other.EndDate ||
                     this.EndDate != null &&
@@ -275,6 +276,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.EndDate != null)
                     hash = hash * 59 + this.EndDate.GetHashCode();
                 if (this.Frequency != null)
@@ -297,6 +300,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MaximumAmount.GetHashCode();
                 if (this.ReferenceNumber != null)
                     hash = hash * 59 + this.ReferenceNumber.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

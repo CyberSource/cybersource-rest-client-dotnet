@@ -4,10 +4,16 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Net;
 using System.Security.Cryptography;
 using AuthenticationSdk.core;
+using CyberSource.Utilities.Serialization;
+using System.Text.Json;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
 
 namespace {{packageName}}.Client
 {
@@ -53,18 +59,60 @@ namespace {{packageName}}.Client
         /// <param name="merchConfigDictObj">Dictionary Object for Merchant Config. Refer to <see cref="MerchantConfigurationKeys"/> for the list of possible keys</param>
         /// <param name="mapToControlMLEonAPI">Dictionary mapping API operation names to MLE control settings in format "requestMLE::responseMLE" or "requestMLE" to override global MLE configuration per API</param>
         /// <param name="responseMlePrivateKey">Optional pre-loaded asymmetric private key for decrypting MLE responses; if provided, takes precedence over loading from file path</param>
+        /// <param name="loggerFactory">Optional <see cref="ILoggerFactory"/> used to create loggers throughout the SDK. Defaults to <see cref="NullLoggerFactory.Instance"/>.</param>
+        /// <param name="serializationOptions">Optional <see cref="JsonSerializerOptions"/> used to serialize request payloads.</param>
+        /// <param name="deserializationOptions">Optional <see cref="JsonSerializerOptions"/> used to deserialize response payloads.</param>
+        /// <param name="httpClient">
+        /// Optional caller-owned <see cref="HttpClient"/> used by RestSharp for all outgoing requests. When supplied, the SDK
+        /// bypasses its internally cached <see cref="StandardSocketsHttpHandler"/>-backed client and never disposes the
+        /// supplied instance. The caller is responsible for configuring its handler, proxy, client certificates, connection
+        /// pooling, and timeout. Takes precedence over <paramref name="httpClientFactory"/>.
+        /// </param>
+        /// <param name="httpClientFactory">
+        /// Optional <see cref="IHttpClientFactory"/> used to resolve an <see cref="HttpClient"/> per request. Only consulted
+        /// when <paramref name="httpClient"/> is <c>null</c>. The SDK never disposes the resolved client; handler pooling and
+        /// rotation are the factory's responsibility. This is the recommended DI path for modern
+        /// <c>Microsoft.Extensions.DependencyInjection</c>-based consumers.
+        /// </param>
+        /// <param name="httpClientName">
+        /// Optional logical name passed to <see cref="IHttpClientFactory.CreateClient(string)"/>. When <c>null</c> or empty,
+        /// the default unnamed client is resolved. Only used when <paramref name="httpClientFactory"/> is supplied.
+        /// </param>
+        /// <param name="serializerOptionsMonitor">
+        /// Optional DI-resolved monitor for <see cref="SdkSerializerOptions"/>. When supplied, the SDK reads
+        /// <c>CurrentValue.Options</c> from it at <see cref="ApiClient"/> construction time and ignores
+        /// <paramref name="serializationOptions"/> for the serialization track. Intended for hosts that also called
+        /// <see cref="ServiceCollectionExtensions.AddSerialization(Microsoft.Extensions.DependencyInjection.IServiceCollection)"/>.
+        /// </param>
+        /// <param name="deserializerOptionsMonitor">
+        /// Optional DI-resolved monitor for <see cref="SdkDeserializerOptions"/>. When supplied, takes precedence over
+        /// <paramref name="deserializationOptions"/> for the general response-body deserialization track. The SDK also
+        /// uses this monitor as the source for the PBL-model deserialization track: <see cref="ApiClient"/> reads
+        /// <c>CurrentValue.Options</c> from it, clones the instance, and applies the SDK's PBL invariants
+        /// (<see cref="SdkPblDeserializerOptionsPostConfigure"/>) on top so the general and PBL tracks never share a
+        /// mutable instance.
+        /// </param>
         public Configuration(Dictionary<string, string> defaultHeader = null,
                              string tempFolderPath = null,
                              string dateTimeFormat = null,
                              int timeout = 100000,
                              IReadOnlyDictionary<string, string> merchConfigDictObj = null,
                              Dictionary<string, string> mapToControlMLEonAPI = null,
-                             AsymmetricAlgorithm responseMlePrivateKey = null
+                             AsymmetricAlgorithm responseMlePrivateKey = null,
+                             ILoggerFactory loggerFactory = null,
+                             JsonSerializerOptions serializationOptions = null,
+                             JsonSerializerOptions deserializationOptions = null,
+                             HttpClient httpClient = null,
+                             IHttpClientFactory httpClientFactory = null,
+                             IOptionsMonitor<SdkSerializerOptions> serializerOptionsMonitor = null,
+                             IOptionsMonitor<SdkDeserializerOptions> deserializerOptionsMonitor = null
                             )
         {
             int effectiveTimeout = (merchConfigDictObj != null && merchConfigDictObj.ContainsKey("timeout")) 
                 ? int.Parse(merchConfigDictObj["timeout"]) 
                 : timeout;
+
+            loggerFactory ??= NullLoggerFactory.Instance;
 
             MerchantLegacySettings = new MerchantLegacySettings
             {
@@ -72,14 +120,20 @@ namespace {{packageName}}.Client
                 TimeOut = effectiveTimeout,
                 TempFolderPath = tempFolderPath,
                 DateTimeFormat = dateTimeFormat,
-                MerchantConfigDictionaryObj = merchConfigDictObj
+                MerchantConfigDictionaryObj = merchConfigDictObj,
+                LoggerFactory = loggerFactory
             };
 
             MerchantCredentialSettings = new MerchantCredentialSettingsFactory().Create(MerchantLegacySettings);
 
             MerchantMLESettings = new MerchantMLESettingsFactory().Create(MerchantLegacySettings, mapToControlMLEonAPI, responseMlePrivateKey);
 
-            MerchantNetworkSettings = new MerchantNetworkSettings(MerchantLegacySettings.MerchantConfigDictionaryObj);
+            MerchantNetworkSettings = new MerchantNetworkSettings(MerchantLegacySettings.MerchantConfigDictionaryObj, MerchantLegacySettings.LoggerFactory)
+                                                .AddSerializationOptions(serializationOptions)
+                                                .AddDeserializationOptions(deserializationOptions)
+                                                .AddHttpClient(httpClient)
+                                                .AddHttpClientFactory(httpClientFactory)
+                                                .AddSdkOptionsMonitors(serializerOptionsMonitor, deserializerOptionsMonitor);
         }
 
         /// <summary>
@@ -99,6 +153,48 @@ namespace {{packageName}}.Client
             MerchantMLESettings = merchantMLESettings;
             MerchantNetworkSettings = merchantNetworkSettings;
             MerchantLegacySettings = merchantLegacySettings;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the Configuration class with pre-configured merchant settings and
+        /// DI-resolved <see cref="IOptionsMonitor{TOptions}"/> instances for the SDK's JSON options wrappers.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This is the pure-DI constructor: hosts that register the SDK's serialization pipeline via
+        /// <see cref="ServiceCollectionExtensions.AddSerialization(Microsoft.Extensions.DependencyInjection.IServiceCollection)"/>
+        /// resolve the two monitors from the container and pass them through here. The
+        /// <see cref="ApiClient"/> constructed with the returned <see cref="Configuration"/> will read
+        /// <c>CurrentValue.Options</c> from each monitor (already fully post-configured through the
+        /// options pipeline: consumer callbacks first, SDK invariants last).
+        /// </para>
+        /// <para>
+        /// Serialization and deserialization stay on separate options instances. The PBL-model
+        /// deserialization track is derived from <paramref name="deserializerOptionsMonitor"/> at
+        /// <see cref="ApiClient"/> construction time: the SDK clones the monitor's current value and
+        /// applies its mandatory PBL invariants on top, so the general and PBL tracks never share a
+        /// mutable instance.
+        /// </para>
+        /// </remarks>
+        /// <param name="merchantCredentialSettings">Pre-configured merchant credential settings containing authentication credentials and keys.</param>
+        /// <param name="merchantMLESettings">Pre-configured merchant MLE settings for request and response encryption.</param>
+        /// <param name="merchantNetworkSettings">Pre-configured merchant network settings for HTTP communication and proxy configuration.</param>
+        /// <param name="merchantLegacySettings">Pre-configured merchant legacy settings for backward compatibility.</param>
+        /// <param name="serializerOptionsMonitor">DI-resolved monitor for <see cref="SdkSerializerOptions"/>.</param>
+        /// <param name="deserializerOptionsMonitor">DI-resolved monitor for <see cref="SdkDeserializerOptions"/>. Also used as the source for the PBL-model deserialization track.</param>
+        public Configuration(IMerchantCredentialSettings merchantCredentialSettings,
+                    IMerchantMLESettings merchantMLESettings,
+                    IMerchantNetworkSettings merchantNetworkSettings,
+                    IMerchantLegacySettings merchantLegacySettings,
+                    IOptionsMonitor<SdkSerializerOptions> serializerOptionsMonitor,
+                    IOptionsMonitor<SdkDeserializerOptions> deserializerOptionsMonitor)
+            : this(merchantCredentialSettings, merchantMLESettings, merchantNetworkSettings, merchantLegacySettings)
+        {
+            if (merchantNetworkSettings is IMutableMerchantNetworkSettings mutable)
+            {
+                mutable.SetSerializerOptionsMonitor(serializerOptionsMonitor);
+                mutable.SetDeserializerOptionsMonitor(deserializerOptionsMonitor);
+            }
         }
         #endregion Constructors
 

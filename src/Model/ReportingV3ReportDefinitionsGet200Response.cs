@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// ReportingV3ReportDefinitionsGet200Response
     /// </summary>
     [DataContract]
-    public partial class ReportingV3ReportDefinitionsGet200Response :  IEquatable<ReportingV3ReportDefinitionsGet200Response>, IValidatableObject
+    public partial class ReportingV3ReportDefinitionsGet200Response :  ModelExtensions, IEquatable<ReportingV3ReportDefinitionsGet200Response>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3ReportDefinitionsGet200Response" /> class.
@@ -55,6 +56,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class ReportingV3ReportDefinitionsGet200Response {\n");
             if (ReportDefinitions != null) sb.Append("  ReportDefinitions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3ReportDefinitionsGet200Response", "reportDefinitions", ReportDefinitions.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -65,7 +67,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ReportingV3ReportDefinitionsGet200Response", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ReportingV3ReportDefinitionsGet200Response", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -90,7 +92,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.ReportDefinitions == other.ReportDefinitions ||
                     this.ReportDefinitions != null &&
@@ -109,8 +115,11 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.ReportDefinitions != null)
                     hash = hash * 59 + this.ReportDefinitions.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

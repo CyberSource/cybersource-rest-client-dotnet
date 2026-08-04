@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -199,10 +201,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2ModifyBillingAgreementPost201Response</returns>
         public PtsV2ModifyBillingAgreementPost201Response BillingAgreementsDeRegistration(ModifyBillingAgreement modifyBillingAgreement, string id)
         {
-            logger.Debug("CALLING API \"BillingAgreementsDeRegistration\" STARTED");
+            logger.LogDebug("CALLING API \"BillingAgreementsDeRegistration\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2ModifyBillingAgreementPost201Response> localVarResponse = BillingAgreementsDeRegistrationWithHttpInfo(modifyBillingAgreement, id);
-            logger.Debug("CALLING API \"BillingAgreementsDeRegistration\" ENDED");
+            logger.LogDebug("CALLING API \"BillingAgreementsDeRegistration\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -221,13 +223,13 @@ namespace CyberSource.Api
             // verify the required parameter 'modifyBillingAgreement' is set
             if (modifyBillingAgreement == null)
             {
-                logger.Error("ApiException : Missing required parameter 'modifyBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
+                logger.LogError("ApiException : Missing required parameter 'modifyBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
                 throw new ApiException(400, "Missing required parameter 'modifyBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
                 throw new ApiException(400, "Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
             }
 
@@ -260,7 +262,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (modifyBillingAgreement != null && modifyBillingAgreement.GetType() != typeof(byte[]))
             {
@@ -279,18 +281,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "BillingAgreementsDeRegistration,BillingAgreementsDeRegistrationAsync,BillingAgreementsDeRegistrationWithHttpInfo,BillingAgreementsDeRegistrationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -305,7 +307,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("BillingAgreementsDeRegistration", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -324,10 +326,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2ModifyBillingAgreementPost201Response</returns>
         public async Task<PtsV2ModifyBillingAgreementPost201Response> BillingAgreementsDeRegistrationAsync(ModifyBillingAgreement modifyBillingAgreement, string id)
         {
-            logger.Debug("CALLING API \"BillingAgreementsDeRegistrationAsync\" STARTED");
+            logger.LogDebug("CALLING API \"BillingAgreementsDeRegistrationAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2ModifyBillingAgreementPost201Response> localVarResponse = await BillingAgreementsDeRegistrationAsyncWithHttpInfo(modifyBillingAgreement, id);
-            logger.Debug("CALLING API \"BillingAgreementsDeRegistrationAsync\" ENDED");
+            logger.LogDebug("CALLING API \"BillingAgreementsDeRegistrationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -347,13 +349,13 @@ namespace CyberSource.Api
             // verify the required parameter 'modifyBillingAgreement' is set
             if (modifyBillingAgreement == null)
             {
-                logger.Error("ApiException : Missing required parameter 'modifyBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
+                logger.LogError("ApiException : Missing required parameter 'modifyBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
                 throw new ApiException(400, "Missing required parameter 'modifyBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
                 throw new ApiException(400, "Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsDeRegistration");
             }
 
@@ -386,7 +388,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (modifyBillingAgreement != null && modifyBillingAgreement.GetType() != typeof(byte[]))
             {
@@ -405,18 +407,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "BillingAgreementsDeRegistration,BillingAgreementsDeRegistrationAsync,BillingAgreementsDeRegistrationWithHttpInfo,BillingAgreementsDeRegistrationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -431,7 +433,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("BillingAgreementsDeRegistration", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -449,10 +451,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2CreditsPost201Response1</returns>
         public PtsV2CreditsPost201Response1 BillingAgreementsIntimation(IntimateBillingAgreement intimateBillingAgreement, string id)
         {
-            logger.Debug("CALLING API \"BillingAgreementsIntimation\" STARTED");
+            logger.LogDebug("CALLING API \"BillingAgreementsIntimation\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2CreditsPost201Response1> localVarResponse = BillingAgreementsIntimationWithHttpInfo(intimateBillingAgreement, id);
-            logger.Debug("CALLING API \"BillingAgreementsIntimation\" ENDED");
+            logger.LogDebug("CALLING API \"BillingAgreementsIntimation\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -471,13 +473,13 @@ namespace CyberSource.Api
             // verify the required parameter 'intimateBillingAgreement' is set
             if (intimateBillingAgreement == null)
             {
-                logger.Error("ApiException : Missing required parameter 'intimateBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsIntimation");
+                logger.LogError("ApiException : Missing required parameter 'intimateBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsIntimation");
                 throw new ApiException(400, "Missing required parameter 'intimateBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsIntimation");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsIntimation");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsIntimation");
                 throw new ApiException(400, "Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsIntimation");
             }
 
@@ -510,7 +512,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (intimateBillingAgreement != null && intimateBillingAgreement.GetType() != typeof(byte[]))
             {
@@ -529,18 +531,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "BillingAgreementsIntimation,BillingAgreementsIntimationAsync,BillingAgreementsIntimationWithHttpInfo,BillingAgreementsIntimationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -555,7 +557,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("BillingAgreementsIntimation", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -574,10 +576,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2CreditsPost201Response1</returns>
         public async Task<PtsV2CreditsPost201Response1> BillingAgreementsIntimationAsync(IntimateBillingAgreement intimateBillingAgreement, string id)
         {
-            logger.Debug("CALLING API \"BillingAgreementsIntimationAsync\" STARTED");
+            logger.LogDebug("CALLING API \"BillingAgreementsIntimationAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2CreditsPost201Response1> localVarResponse = await BillingAgreementsIntimationAsyncWithHttpInfo(intimateBillingAgreement, id);
-            logger.Debug("CALLING API \"BillingAgreementsIntimationAsync\" ENDED");
+            logger.LogDebug("CALLING API \"BillingAgreementsIntimationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -597,13 +599,13 @@ namespace CyberSource.Api
             // verify the required parameter 'intimateBillingAgreement' is set
             if (intimateBillingAgreement == null)
             {
-                logger.Error("ApiException : Missing required parameter 'intimateBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsIntimation");
+                logger.LogError("ApiException : Missing required parameter 'intimateBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsIntimation");
                 throw new ApiException(400, "Missing required parameter 'intimateBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsIntimation");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsIntimation");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsIntimation");
                 throw new ApiException(400, "Missing required parameter 'id' when calling BillingAgreementsApi->BillingAgreementsIntimation");
             }
 
@@ -636,7 +638,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (intimateBillingAgreement != null && intimateBillingAgreement.GetType() != typeof(byte[]))
             {
@@ -655,18 +657,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "BillingAgreementsIntimation,BillingAgreementsIntimationAsync,BillingAgreementsIntimationWithHttpInfo,BillingAgreementsIntimationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -681,7 +683,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("BillingAgreementsIntimation", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -698,10 +700,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2CreateBillingAgreementPost201Response</returns>
         public PtsV2CreateBillingAgreementPost201Response BillingAgreementsRegistration(CreateBillingAgreement createBillingAgreement)
         {
-            logger.Debug("CALLING API \"BillingAgreementsRegistration\" STARTED");
+            logger.LogDebug("CALLING API \"BillingAgreementsRegistration\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2CreateBillingAgreementPost201Response> localVarResponse = BillingAgreementsRegistrationWithHttpInfo(createBillingAgreement);
-            logger.Debug("CALLING API \"BillingAgreementsRegistration\" ENDED");
+            logger.LogDebug("CALLING API \"BillingAgreementsRegistration\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -719,7 +721,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createBillingAgreement' is set
             if (createBillingAgreement == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsRegistration");
+                logger.LogError("ApiException : Missing required parameter 'createBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsRegistration");
                 throw new ApiException(400, "Missing required parameter 'createBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsRegistration");
             }
 
@@ -765,18 +767,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "BillingAgreementsRegistration,BillingAgreementsRegistrationAsync,BillingAgreementsRegistrationWithHttpInfo,BillingAgreementsRegistrationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -791,7 +793,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("BillingAgreementsRegistration", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -809,10 +811,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2CreateBillingAgreementPost201Response</returns>
         public async Task<PtsV2CreateBillingAgreementPost201Response> BillingAgreementsRegistrationAsync(CreateBillingAgreement createBillingAgreement)
         {
-            logger.Debug("CALLING API \"BillingAgreementsRegistrationAsync\" STARTED");
+            logger.LogDebug("CALLING API \"BillingAgreementsRegistrationAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2CreateBillingAgreementPost201Response> localVarResponse = await BillingAgreementsRegistrationAsyncWithHttpInfo(createBillingAgreement);
-            logger.Debug("CALLING API \"BillingAgreementsRegistrationAsync\" ENDED");
+            logger.LogDebug("CALLING API \"BillingAgreementsRegistrationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -831,7 +833,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createBillingAgreement' is set
             if (createBillingAgreement == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsRegistration");
+                logger.LogError("ApiException : Missing required parameter 'createBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsRegistration");
                 throw new ApiException(400, "Missing required parameter 'createBillingAgreement' when calling BillingAgreementsApi->BillingAgreementsRegistration");
             }
 
@@ -877,18 +879,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "BillingAgreementsRegistration,BillingAgreementsRegistrationAsync,BillingAgreementsRegistrationWithHttpInfo,BillingAgreementsRegistrationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -903,7 +905,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("BillingAgreementsRegistration", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

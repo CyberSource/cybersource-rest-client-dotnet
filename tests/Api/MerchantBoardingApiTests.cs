@@ -78,6 +78,20 @@ namespace CyberSource.Test
         }
         
         /// <summary>
+        /// Test PatchRegistration
+        /// </summary>
+        [Test]
+        public void PatchRegistrationTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string registrationId = null;
+            //PatchRegistrationBody patchRegistrationBody = null;
+            //string vCIdempotencyId = null;
+            //var response = instance.PatchRegistration(registrationId, patchRegistrationBody, vCIdempotencyId);
+            //Assert.IsInstanceOf<InlineResponse2005> (response, "response is InlineResponse2005");
+        }
+        
+        /// <summary>
         /// Test PostRegistration
         /// </summary>
         [Test]
@@ -87,7 +101,7 @@ namespace CyberSource.Test
             //PostRegistrationBody postRegistrationBody = null;
             //string vCIdempotencyId = null;
             //var response = instance.PostRegistration(postRegistrationBody, vCIdempotencyId);
-            //Assert.IsInstanceOf<InlineResponse2014> (response, "response is InlineResponse2014");
+            //Assert.IsInstanceOf<InlineResponse2017> (response, "response is InlineResponse2017");
         }
         
     }

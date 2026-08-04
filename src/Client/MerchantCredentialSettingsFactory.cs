@@ -1,4 +1,5 @@
 ﻿using AuthenticationSdk.core;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,8 +26,9 @@ namespace CyberSource.Client
         /// Creates merchant credential settings with mandatory fields populated.
         /// </summary>
         /// <param name="normalizedFields">A read-only dictionary containing normalized configuration fields required for mandatory settings.</param>
+        /// <param name="loggerFactory">The logger factory for creating loggers.</param>
         /// <returns>An <see cref="IMerchantCredentialSettings"/> instance with mandatory fields configured.</returns>
-        IMerchantCredentialSettings CreateMandatorySettings(IReadOnlyDictionary<string, string> normalizedFields);
+        IMerchantCredentialSettings CreateMandatorySettings(IReadOnlyDictionary<string, string> normalizedFields, ILoggerFactory loggerFactory);
 
         /// <summary>
         /// Adds HTTP signature credentials to the provided merchant credential settings.
@@ -77,17 +79,18 @@ namespace CyberSource.Client
         /// <returns>An <see cref="IMerchantCredentialSettings"/> instance created from the legacy settings' configuration dictionary.</returns>
         public IMerchantCredentialSettings Create(IMerchantLegacySettings merchantLegacySettings)
         {
-            return new MerchantCredentialSettings(merchantLegacySettings.MerchantConfigDictionaryObj);
+            return new MerchantCredentialSettings(merchantLegacySettings.MerchantConfigDictionaryObj, merchantLegacySettings.LoggerFactory);
         }
 
         /// <summary>
         /// Creates merchant credential settings with mandatory fields from normalized configuration fields.
         /// </summary>
         /// <param name="normalizedFields">A read-only dictionary containing normalized configuration fields.</param>
+        /// <param name="loggerFactory">The logger factory for creating loggers.</param>
         /// <returns>An <see cref="IMerchantCredentialSettings"/> instance with mandatory fields configured.</returns>
-        public IMerchantCredentialSettings CreateMandatorySettings(IReadOnlyDictionary<string, string> normalizedFields)
+        public IMerchantCredentialSettings CreateMandatorySettings(IReadOnlyDictionary<string, string> normalizedFields, ILoggerFactory loggerFactory)
         {
-            return new MerchantCredentialSettings(normalizedFields, true);
+            return new MerchantCredentialSettings(normalizedFields, loggerFactory, true);
         }
 
         /// <summary>

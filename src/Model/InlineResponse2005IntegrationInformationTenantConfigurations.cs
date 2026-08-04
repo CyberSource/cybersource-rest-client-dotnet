@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// InlineResponse2005IntegrationInformationTenantConfigurations
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2005IntegrationInformationTenantConfigurations :  IEquatable<InlineResponse2005IntegrationInformationTenantConfigurations>, IValidatableObject
+    public partial class InlineResponse2005IntegrationInformationTenantConfigurations :  ModelExtensions, IEquatable<InlineResponse2005IntegrationInformationTenantConfigurations>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2005IntegrationInformationTenantConfigurations" /> class.
@@ -38,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="Status">Possible values: - LIVE - INACTIVE - TEST.</param>
         /// <param name="SubmitTimeUtc">Time of request in UTC..</param>
         /// <param name="TenantInformation">TenantInformation.</param>
-        public InlineResponse2005IntegrationInformationTenantConfigurations(string SolutionId = default(string), string TenantConfigurationId = default(string), string Status = default(string), DateTime? SubmitTimeUtc = default(DateTime?), Boardingv1registrationsIntegrationInformationTenantInformation TenantInformation = default(Boardingv1registrationsIntegrationInformationTenantInformation))
+        public InlineResponse2005IntegrationInformationTenantConfigurations(string SolutionId = default(string), string TenantConfigurationId = default(string), string Status = default(string), DateTime? SubmitTimeUtc = default(DateTime?), TenantInformation TenantInformation = default(TenantInformation))
         {
             this.SolutionId = SolutionId;
             this.TenantConfigurationId = TenantConfigurationId;
@@ -84,7 +85,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("tenantInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Boardingv1registrationsIntegrationInformationTenantInformation TenantInformation { get; set; }
+        public TenantInformation TenantInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,6 +100,7 @@ namespace CyberSource.Model
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2005IntegrationInformationTenantConfigurations", "status", Status.ToString())).Append("\n");
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2005IntegrationInformationTenantConfigurations", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
             if (TenantInformation != null) sb.Append("  TenantInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2005IntegrationInformationTenantConfigurations", "tenantInformation", TenantInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,7 +111,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2005IntegrationInformationTenantConfigurations", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2005IntegrationInformationTenantConfigurations", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -134,7 +136,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.SolutionId == other.SolutionId ||
                     this.SolutionId != null &&
@@ -173,6 +179,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.SolutionId != null)
                     hash = hash * 59 + this.SolutionId.GetHashCode();
                 if (this.TenantConfigurationId != null)
@@ -183,6 +191,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.TenantInformation != null)
                     hash = hash * 59 + this.TenantInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

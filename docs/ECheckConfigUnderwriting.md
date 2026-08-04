@@ -14,5 +14,14 @@ Name | Type | Description | Notes
 **RiskReserveTargetAmount** | **decimal?** | Mandatory  Reserve Target (fixed $ amount)&#x3D;&gt; Relevant for Fixed Reserve ONLY  The maximum dollar amount that can be held in Risk Reserve for a fixed reserve. Once risk withholdings reach the Reserve Target established for the eCheck.Net account, a portion of available funds will be deposited to the merchant&#39;s bank account 12 digit including decimal  | 
 **SolutionOrganizationId** | **string** | Solution organization id | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Contains link specific detail.
     /// </summary>
     [DataContract]
-    public partial class Iplv2paymentlinksPurchaseInformation :  IEquatable<Iplv2paymentlinksPurchaseInformation>, IValidatableObject
+    public partial class Iplv2paymentlinksPurchaseInformation :  ModelExtensions, IEquatable<Iplv2paymentlinksPurchaseInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Iplv2paymentlinksPurchaseInformation" /> class.
@@ -39,9 +40,17 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Iplv2paymentlinksPurchaseInformation" /> class.
         /// </summary>
         /// <param name="PurchaseNumber">The purchase number (required).</param>
-        public Iplv2paymentlinksPurchaseInformation(string PurchaseNumber = default(string))
+        /// <param name="TransactionReferenceNumber">The transaction reference number (TRN) is a identifier assigned to each payment transaction that allows merchants, customers, and payment processors to track and reference specific transactions throughout their lifecycle.  When provided, this value is passed to the payment processor as the reconciliation ID for the payment. For invoices this is typically the invoice number, and for purchase or donation links it is typically the link identifier.  Only letters and numbers are allowed; spaces and other special characters are not permitted. .</param>
+        /// <param name="ExpirationDate">Define an expiration date for the link.  The date must be today or in the future.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. .</param>
+        /// <param name="ExpirationAmount">Define an expiry amount for the link.  Must be null or greater than 0.  If the total price of all transactions for this link exceeds the expiry amount, the link will expire. .</param>
+        /// <param name="ExpirationQuantity">Define an expiration quantity for the link.  Must be null or greater than 0.  If the total quantity of items sold exceeds the expiration quantity, the link is expired. .</param>
+        public Iplv2paymentlinksPurchaseInformation(string PurchaseNumber = default(string), string TransactionReferenceNumber = default(string), DateTime? ExpirationDate = default(DateTime?), string ExpirationAmount = default(string), string ExpirationQuantity = default(string))
         {
             this.PurchaseNumber = PurchaseNumber;
+            this.TransactionReferenceNumber = TransactionReferenceNumber;
+            this.ExpirationDate = ExpirationDate;
+            this.ExpirationAmount = ExpirationAmount;
+            this.ExpirationQuantity = ExpirationQuantity;
         }
         
         /// <summary>
@@ -53,6 +62,39 @@ namespace CyberSource.Model
         public string PurchaseNumber { get; set; }
 
         /// <summary>
+        /// The transaction reference number (TRN) is a identifier assigned to each payment transaction that allows merchants, customers, and payment processors to track and reference specific transactions throughout their lifecycle.  When provided, this value is passed to the payment processor as the reconciliation ID for the payment. For invoices this is typically the invoice number, and for purchase or donation links it is typically the link identifier.  Only letters and numbers are allowed; spaces and other special characters are not permitted. 
+        /// </summary>
+        /// <value>The transaction reference number (TRN) is a identifier assigned to each payment transaction that allows merchants, customers, and payment processors to track and reference specific transactions throughout their lifecycle.  When provided, this value is passed to the payment processor as the reconciliation ID for the payment. For invoices this is typically the invoice number, and for purchase or donation links it is typically the link identifier.  Only letters and numbers are allowed; spaces and other special characters are not permitted. </value>
+        [JsonPropertyName("transactionReferenceNumber")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string TransactionReferenceNumber { get; set; }
+
+        /// <summary>
+        /// Define an expiration date for the link.  The date must be today or in the future.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. 
+        /// </summary>
+        /// <value>Define an expiration date for the link.  The date must be today or in the future.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. </value>
+        [JsonPropertyName("expirationDate")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        [JsonConverter(typeof(SwaggerDateConverter))]
+        public DateTime? ExpirationDate { get; set; }
+
+        /// <summary>
+        /// Define an expiry amount for the link.  Must be null or greater than 0.  If the total price of all transactions for this link exceeds the expiry amount, the link will expire. 
+        /// </summary>
+        /// <value>Define an expiry amount for the link.  Must be null or greater than 0.  If the total price of all transactions for this link exceeds the expiry amount, the link will expire. </value>
+        [JsonPropertyName("expirationAmount")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string ExpirationAmount { get; set; }
+
+        /// <summary>
+        /// Define an expiration quantity for the link.  Must be null or greater than 0.  If the total quantity of items sold exceeds the expiration quantity, the link is expired. 
+        /// </summary>
+        /// <value>Define an expiration quantity for the link.  Must be null or greater than 0.  If the total quantity of items sold exceeds the expiration quantity, the link is expired. </value>
+        [JsonPropertyName("expirationQuantity")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string ExpirationQuantity { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,6 +103,11 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Iplv2paymentlinksPurchaseInformation {\n");
             if (PurchaseNumber != null) sb.Append("  PurchaseNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksPurchaseInformation", "purchaseNumber", PurchaseNumber.ToString())).Append("\n");
+            if (TransactionReferenceNumber != null) sb.Append("  TransactionReferenceNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksPurchaseInformation", "transactionReferenceNumber", TransactionReferenceNumber.ToString())).Append("\n");
+            if (ExpirationDate != null) sb.Append("  ExpirationDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksPurchaseInformation", "expirationDate", ExpirationDate.ToString())).Append("\n");
+            if (ExpirationAmount != null) sb.Append("  ExpirationAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksPurchaseInformation", "expirationAmount", ExpirationAmount.ToString())).Append("\n");
+            if (ExpirationQuantity != null) sb.Append("  ExpirationQuantity: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksPurchaseInformation", "expirationQuantity", ExpirationQuantity.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -71,7 +118,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iplv2paymentlinksPurchaseInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iplv2paymentlinksPurchaseInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -96,11 +143,35 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.PurchaseNumber == other.PurchaseNumber ||
                     this.PurchaseNumber != null &&
                     this.PurchaseNumber.Equals(other.PurchaseNumber)
+                ) && 
+                (
+                    this.TransactionReferenceNumber == other.TransactionReferenceNumber ||
+                    this.TransactionReferenceNumber != null &&
+                    this.TransactionReferenceNumber.Equals(other.TransactionReferenceNumber)
+                ) && 
+                (
+                    this.ExpirationDate == other.ExpirationDate ||
+                    this.ExpirationDate != null &&
+                    this.ExpirationDate.Equals(other.ExpirationDate)
+                ) && 
+                (
+                    this.ExpirationAmount == other.ExpirationAmount ||
+                    this.ExpirationAmount != null &&
+                    this.ExpirationAmount.Equals(other.ExpirationAmount)
+                ) && 
+                (
+                    this.ExpirationQuantity == other.ExpirationQuantity ||
+                    this.ExpirationQuantity != null &&
+                    this.ExpirationQuantity.Equals(other.ExpirationQuantity)
                 );
         }
 
@@ -115,8 +186,19 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.PurchaseNumber != null)
                     hash = hash * 59 + this.PurchaseNumber.GetHashCode();
+                if (this.TransactionReferenceNumber != null)
+                    hash = hash * 59 + this.TransactionReferenceNumber.GetHashCode();
+                if (this.ExpirationDate != null)
+                    hash = hash * 59 + this.ExpirationDate.GetHashCode();
+                if (this.ExpirationAmount != null)
+                    hash = hash * 59 + this.ExpirationAmount.GetHashCode();
+                if (this.ExpirationQuantity != null)
+                    hash = hash * 59 + this.ExpirationQuantity.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

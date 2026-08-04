@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -153,10 +155,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsReversalsPost201Response</returns>
         public PtsV2PaymentsReversalsPost201Response AuthReversal(string id, AuthReversalRequest authReversalRequest)
         {
-            logger.Debug("CALLING API \"AuthReversal\" STARTED");
+            logger.LogDebug("CALLING API \"AuthReversal\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = AuthReversalWithHttpInfo(id, authReversalRequest);
-            logger.Debug("CALLING API \"AuthReversal\" ENDED");
+            logger.LogDebug("CALLING API \"AuthReversal\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -175,13 +177,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling ReversalApi->AuthReversal");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling ReversalApi->AuthReversal");
                 throw new ApiException(400, "Missing required parameter 'id' when calling ReversalApi->AuthReversal");
             }
             // verify the required parameter 'authReversalRequest' is set
             if (authReversalRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'authReversalRequest' when calling ReversalApi->AuthReversal");
+                logger.LogError("ApiException : Missing required parameter 'authReversalRequest' when calling ReversalApi->AuthReversal");
                 throw new ApiException(400, "Missing required parameter 'authReversalRequest' when calling ReversalApi->AuthReversal");
             }
 
@@ -214,7 +216,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (authReversalRequest != null && authReversalRequest.GetType() != typeof(byte[]))
             {
@@ -233,18 +235,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "AuthReversal,AuthReversalAsync,AuthReversalWithHttpInfo,AuthReversalAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -259,7 +261,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("AuthReversal", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -278,10 +280,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsReversalsPost201Response</returns>
         public async Task<PtsV2PaymentsReversalsPost201Response> AuthReversalAsync(string id, AuthReversalRequest authReversalRequest)
         {
-            logger.Debug("CALLING API \"AuthReversalAsync\" STARTED");
+            logger.LogDebug("CALLING API \"AuthReversalAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = await AuthReversalAsyncWithHttpInfo(id, authReversalRequest);
-            logger.Debug("CALLING API \"AuthReversalAsync\" ENDED");
+            logger.LogDebug("CALLING API \"AuthReversalAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -301,13 +303,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling ReversalApi->AuthReversal");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling ReversalApi->AuthReversal");
                 throw new ApiException(400, "Missing required parameter 'id' when calling ReversalApi->AuthReversal");
             }
             // verify the required parameter 'authReversalRequest' is set
             if (authReversalRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'authReversalRequest' when calling ReversalApi->AuthReversal");
+                logger.LogError("ApiException : Missing required parameter 'authReversalRequest' when calling ReversalApi->AuthReversal");
                 throw new ApiException(400, "Missing required parameter 'authReversalRequest' when calling ReversalApi->AuthReversal");
             }
 
@@ -340,7 +342,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (authReversalRequest != null && authReversalRequest.GetType() != typeof(byte[]))
             {
@@ -359,18 +361,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "AuthReversal,AuthReversalAsync,AuthReversalWithHttpInfo,AuthReversalAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -385,7 +387,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("AuthReversal", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -402,10 +404,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsReversalsPost201Response</returns>
         public PtsV2PaymentsReversalsPost201Response MitReversal(MitReversalRequest mitReversalRequest)
         {
-            logger.Debug("CALLING API \"MitReversal\" STARTED");
+            logger.LogDebug("CALLING API \"MitReversal\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = MitReversalWithHttpInfo(mitReversalRequest);
-            logger.Debug("CALLING API \"MitReversal\" ENDED");
+            logger.LogDebug("CALLING API \"MitReversal\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -423,7 +425,7 @@ namespace CyberSource.Api
             // verify the required parameter 'mitReversalRequest' is set
             if (mitReversalRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'mitReversalRequest' when calling ReversalApi->MitReversal");
+                logger.LogError("ApiException : Missing required parameter 'mitReversalRequest' when calling ReversalApi->MitReversal");
                 throw new ApiException(400, "Missing required parameter 'mitReversalRequest' when calling ReversalApi->MitReversal");
             }
 
@@ -469,18 +471,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "MitReversal,MitReversalAsync,MitReversalWithHttpInfo,MitReversalAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -495,7 +497,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("MitReversal", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -513,10 +515,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsReversalsPost201Response</returns>
         public async Task<PtsV2PaymentsReversalsPost201Response> MitReversalAsync(MitReversalRequest mitReversalRequest)
         {
-            logger.Debug("CALLING API \"MitReversalAsync\" STARTED");
+            logger.LogDebug("CALLING API \"MitReversalAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsReversalsPost201Response> localVarResponse = await MitReversalAsyncWithHttpInfo(mitReversalRequest);
-            logger.Debug("CALLING API \"MitReversalAsync\" ENDED");
+            logger.LogDebug("CALLING API \"MitReversalAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -535,7 +537,7 @@ namespace CyberSource.Api
             // verify the required parameter 'mitReversalRequest' is set
             if (mitReversalRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'mitReversalRequest' when calling ReversalApi->MitReversal");
+                logger.LogError("ApiException : Missing required parameter 'mitReversalRequest' when calling ReversalApi->MitReversal");
                 throw new ApiException(400, "Missing required parameter 'mitReversalRequest' when calling ReversalApi->MitReversal");
             }
 
@@ -581,18 +583,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "MitReversal,MitReversalAsync,MitReversalWithHttpInfo,MitReversalAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -607,7 +609,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("MitReversal", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

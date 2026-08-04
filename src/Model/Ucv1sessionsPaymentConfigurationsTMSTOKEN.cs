@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Allows a single Token Management Service (TMS) token to be presented within the Unified Checkout user interface. This enables customers to complete a payment using an existing stored credential.  Supported token types: - customer - instrumentIdentifiers - paymentInstruments&lt;br&gt;&lt;br&gt;  The allowedPaymentTypes field must also include TMS_TOKEN as shown below for the token to show in Unified Checkout:    \&quot;allowedPaymentTypes\&quot;: [\&quot;TMS-TOKEN\&quot;] &lt;br&gt;&lt;br&gt;  **Important note:** If a customer token ID is provided and token creation (tokenCreate) is enabled for a paymentInstrument or instrumentIdentifier within the Complete Mandate, Unified Checkout will create a new payment instrument or instrument identifier and associate it with the specified customer token. 
     /// </summary>
     [DataContract]
-    public partial class Ucv1sessionsPaymentConfigurationsTMSTOKEN :  IEquatable<Ucv1sessionsPaymentConfigurationsTMSTOKEN>, IValidatableObject
+    public partial class Ucv1sessionsPaymentConfigurationsTMSTOKEN :  ModelExtensions, IEquatable<Ucv1sessionsPaymentConfigurationsTMSTOKEN>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ucv1sessionsPaymentConfigurationsTMSTOKEN" /> class.
@@ -77,6 +78,7 @@ namespace CyberSource.Model
             if (Customer != null) sb.Append("  Customer: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsPaymentConfigurationsTMSTOKEN", "customer", Customer.ToString())).Append("\n");
             if (PaymentInstruments != null) sb.Append("  PaymentInstruments: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsPaymentConfigurationsTMSTOKEN", "paymentInstruments", PaymentInstruments.ToString())).Append("\n");
             if (InstrumentIdentifiers != null) sb.Append("  InstrumentIdentifiers: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsPaymentConfigurationsTMSTOKEN", "instrumentIdentifiers", InstrumentIdentifiers.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,7 +89,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ucv1sessionsPaymentConfigurationsTMSTOKEN", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ucv1sessionsPaymentConfigurationsTMSTOKEN", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -112,7 +114,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Customer == other.Customer ||
                     this.Customer != null &&
@@ -141,12 +147,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Customer != null)
                     hash = hash * 59 + this.Customer.GetHashCode();
                 if (this.PaymentInstruments != null)
                     hash = hash * 59 + this.PaymentInstruments.GetHashCode();
                 if (this.InstrumentIdentifiers != null)
                     hash = hash * 59 + this.InstrumentIdentifiers.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

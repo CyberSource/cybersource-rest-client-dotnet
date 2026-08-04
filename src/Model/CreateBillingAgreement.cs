@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// CreateBillingAgreement
     /// </summary>
     [DataContract]
-    public partial class CreateBillingAgreement :  IEquatable<CreateBillingAgreement>, IValidatableObject
+    public partial class CreateBillingAgreement :  ModelExtensions, IEquatable<CreateBillingAgreement>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateBillingAgreement" /> class.
@@ -155,6 +156,7 @@ namespace CyberSource.Model
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBillingAgreement", "paymentInformation", PaymentInformation.ToString())).Append("\n");
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBillingAgreement", "processingInformation", ProcessingInformation.ToString())).Append("\n");
             if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBillingAgreement", "buyerInformation", BuyerInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,7 +167,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("CreateBillingAgreement", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("CreateBillingAgreement", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -190,7 +192,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.AgreementInformation == other.AgreementInformation ||
                     this.AgreementInformation != null &&
@@ -259,6 +265,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.AgreementInformation != null)
                     hash = hash * 59 + this.AgreementInformation.GetHashCode();
                 if (this.ClientReferenceInformation != null)
@@ -281,6 +289,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 if (this.BuyerInformation != null)
                     hash = hash * 59 + this.BuyerInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace CyberSource.Utilities.Serialization
 {
-    public class ProtectedConstructorConverterFactory : JsonConverterFactory
+    internal class ProtectedConstructorConverterFactory : JsonConverterFactory
     {
         public override bool CanConvert(Type typeToConvert)
         {

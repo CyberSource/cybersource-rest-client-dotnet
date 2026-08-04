@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// CardProcessingConfigFeaturesCardNotPresent
     /// </summary>
     [DataContract]
-    public partial class CardProcessingConfigFeaturesCardNotPresent :  IEquatable<CardProcessingConfigFeaturesCardNotPresent>, IValidatableObject
+    public partial class CardProcessingConfigFeaturesCardNotPresent :  ModelExtensions, IEquatable<CardProcessingConfigFeaturesCardNotPresent>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CardProcessingConfigFeaturesCardNotPresent" /> class.
@@ -99,6 +100,7 @@ namespace CyberSource.Model
             if (VisaStraightThroughProcessingOnly != null) sb.Append("  VisaStraightThroughProcessingOnly: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CardProcessingConfigFeaturesCardNotPresent", "visaStraightThroughProcessingOnly", VisaStraightThroughProcessingOnly.ToString())).Append("\n");
             if (AmexTransactionAdviceAddendum1 != null) sb.Append("  AmexTransactionAdviceAddendum1: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CardProcessingConfigFeaturesCardNotPresent", "amexTransactionAdviceAddendum1", AmexTransactionAdviceAddendum1.ToString())).Append("\n");
             if (Installment != null) sb.Append("  Installment: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CardProcessingConfigFeaturesCardNotPresent", "installment", Installment.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,7 +111,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("CardProcessingConfigFeaturesCardNotPresent", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("CardProcessingConfigFeaturesCardNotPresent", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -134,7 +136,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Processors == other.Processors ||
                     this.Processors != null &&
@@ -173,6 +179,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Processors != null)
                     hash = hash * 59 + this.Processors.GetHashCode();
                 if (this.IgnoreAddressVerificationSystem != null)
@@ -183,6 +191,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AmexTransactionAdviceAddendum1.GetHashCode();
                 if (this.Installment != null)
                     hash = hash * 59 + this.Installment.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

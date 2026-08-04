@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Payment/Transaction Confirmation Data provided by the payment processor/acquirer.
     /// </summary>
     [DataContract]
-    public partial class Iccv1instructionsinstructionIdconfirmationsProcessorInformation :  IEquatable<Iccv1instructionsinstructionIdconfirmationsProcessorInformation>, IValidatableObject
+    public partial class Iccv1instructionsinstructionIdconfirmationsProcessorInformation :  ModelExtensions, IEquatable<Iccv1instructionsinstructionIdconfirmationsProcessorInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Iccv1instructionsinstructionIdconfirmationsProcessorInformation" /> class.
@@ -180,6 +181,7 @@ namespace CyberSource.Model
             if (AmountDetail != null) sb.Append("  AmountDetail: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1instructionsinstructionIdconfirmationsProcessorInformation", "amountDetail", AmountDetail.ToString())).Append("\n");
             if (EntryMode != null) sb.Append("  EntryMode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1instructionsinstructionIdconfirmationsProcessorInformation", "entryMode", EntryMode.ToString())).Append("\n");
             if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1instructionsinstructionIdconfirmationsProcessorInformation", "paymentInstrument", PaymentInstrument.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -190,7 +192,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1instructionsinstructionIdconfirmationsProcessorInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1instructionsinstructionIdconfirmationsProcessorInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -215,7 +217,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.DynamicDataId == other.DynamicDataId ||
                     this.DynamicDataId != null &&
@@ -289,6 +295,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.DynamicDataId != null)
                     hash = hash * 59 + this.DynamicDataId.GetHashCode();
                 if (this.TransactionType != null)
@@ -313,6 +321,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.EntryMode.GetHashCode();
                 if (this.PaymentInstrument != null)
                     hash = hash * 59 + this.PaymentInstrument.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

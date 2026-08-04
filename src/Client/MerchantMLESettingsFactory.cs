@@ -1,4 +1,5 @@
 ﻿using AuthenticationSdk.core;
+using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 
@@ -25,8 +26,9 @@ namespace CyberSource.Client
         /// <param name="normalizedFields">A dictionary containing normalized merchant configuration key-value pairs that have already been validated.</param>
         /// <param name="mapToControlMLEonAPI">A dictionary mapping API operation names to MLE control settings in formats "requestMLE::responseMLE" or "requestMLE".</param>
         /// <param name="responseMlePrivateKey">Optional pre-loaded asymmetric private key for decrypting MLE responses.</param>
+        /// <param name="loggerFactory">The logger factory for creating loggers.</param>
         /// <returns>A merchant MLE settings instance created from the normalized fields without re-validation.</returns>
-        IMerchantMLESettings CreateMLESettings(IReadOnlyDictionary<string, string> normalizedFields, Dictionary<string, string> mapToControlMLEonAPI, AsymmetricAlgorithm responseMlePrivateKey);
+        IMerchantMLESettings CreateMLESettings(IReadOnlyDictionary<string, string> normalizedFields, Dictionary<string, string> mapToControlMLEonAPI, AsymmetricAlgorithm responseMlePrivateKey, ILoggerFactory loggerFactory);
     }
 
     /// <summary>
@@ -45,7 +47,7 @@ namespace CyberSource.Client
         /// <returns>A new MLE settings instance configured with the provided parameters.</returns>
         public IMerchantMLESettings Create(IMerchantLegacySettings merchantLegacySettings, Dictionary<string, string> mapToControlMLEonAPI = null, AsymmetricAlgorithm responseMlePrivateKey = null)
         {
-            return new MerchantMLESettings(merchantLegacySettings.MerchantConfigDictionaryObj, mapToControlMLEonAPI, responseMlePrivateKey);
+            return new MerchantMLESettings(merchantLegacySettings.MerchantConfigDictionaryObj, mapToControlMLEonAPI, responseMlePrivateKey, merchantLegacySettings.LoggerFactory);
         }
 
         /// <summary>
@@ -55,10 +57,11 @@ namespace CyberSource.Client
         /// <param name="normalizedFields">A dictionary containing normalized merchant MLE configuration key-value pairs that have already been validated.</param>
         /// <param name="mapToControlMLEonAPI">A dictionary mapping API operation names to MLE control settings. Supports formats "requestMLE::responseMLE" or "requestMLE".</param>
         /// <param name="responseMlePrivateKey">Optional pre-loaded asymmetric private key for decrypting MLE responses.</param>
+        /// <param name="loggerFactory">The logger factory for creating loggers.</param>
         /// <returns>A new MLE settings instance with validation skipped (isValidated=true).</returns>
-        public IMerchantMLESettings CreateMLESettings(IReadOnlyDictionary<string, string> normalizedFields, Dictionary<string, string> mapToControlMLEonAPI, AsymmetricAlgorithm responseMlePrivateKey)
+        public IMerchantMLESettings CreateMLESettings(IReadOnlyDictionary<string, string> normalizedFields, Dictionary<string, string> mapToControlMLEonAPI, AsymmetricAlgorithm responseMlePrivateKey, ILoggerFactory loggerFactory)
         {
-            return new MerchantMLESettings(normalizedFields, mapToControlMLEonAPI, responseMlePrivateKey, true);
+            return new MerchantMLESettings(normalizedFields, mapToControlMLEonAPI, responseMlePrivateKey, loggerFactory, true);
         }
     }
 }

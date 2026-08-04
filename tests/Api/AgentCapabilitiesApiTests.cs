@@ -66,6 +66,51 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test ActivateAgentKey
+        /// </summary>
+        [Test]
+        public void ActivateAgentKeyTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string agentId = null;
+            //string keyId = null;
+            //var response = instance.ActivateAgentKey(agentId, keyId);
+            //Assert.IsInstanceOf<AddAgentKeyResponse201> (response, "response is AddAgentKeyResponse201");
+        }
+        
+        /// <summary>
+        /// Test AddAgentKey
+        /// </summary>
+        [Test]
+        public void AddAgentKeyTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string agentId = null;
+            //KeyRequest keyRequest = null;
+            //var response = instance.AddAgentKey(agentId, keyRequest);
+            //Assert.IsInstanceOf<AddAgentKeyResponse201> (response, "response is AddAgentKeyResponse201");
+        }
+        
+        /// <summary>
+        /// Test CancelCheckout
+        /// </summary>
+        [Test]
+        public void CancelCheckoutTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string sessionId = null;
+            //string idempotencyKey = null;
+            //string acceptLanguage = null;
+            //string userAgent = null;
+            //string requestId = null;
+            //string signature = null;
+            //string timestamp = null;
+            //string aPIVersion = null;
+            //var response = instance.CancelCheckout(sessionId, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            //Assert.IsInstanceOf<InlineResponse20018> (response, "response is InlineResponse20018");
+        }
+        
+        /// <summary>
         /// Test CancelPurchaseIntent
         /// </summary>
         [Test]
@@ -76,6 +121,26 @@ namespace CyberSource.Test
             //AgenticCancelPurchaseIntentRequest agenticCancelPurchaseIntentRequest = null;
             //var response = instance.CancelPurchaseIntent(instructionId, agenticCancelPurchaseIntentRequest);
             //Assert.IsInstanceOf<AgenticCreatePurchaseIntentResponse200> (response, "response is AgenticCreatePurchaseIntentResponse200");
+        }
+        
+        /// <summary>
+        /// Test CompleteCheckout
+        /// </summary>
+        [Test]
+        public void CompleteCheckoutTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string sessionId = null;
+            //AcpCompleteCheckoutRequest acpCompleteCheckoutRequest = null;
+            //string idempotencyKey = null;
+            //string acceptLanguage = null;
+            //string userAgent = null;
+            //string requestId = null;
+            //string signature = null;
+            //string timestamp = null;
+            //string aPIVersion = null;
+            //var response = instance.CompleteCheckout(sessionId, acpCompleteCheckoutRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            //Assert.IsInstanceOf<InlineResponse20017> (response, "response is InlineResponse20017");
         }
         
         /// <summary>
@@ -92,6 +157,38 @@ namespace CyberSource.Test
         }
         
         /// <summary>
+        /// Test CreateCheckoutSession
+        /// </summary>
+        [Test]
+        public void CreateCheckoutSessionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest = null;
+            //string idempotencyKey = null;
+            //string acceptLanguage = null;
+            //string userAgent = null;
+            //string requestId = null;
+            //string signature = null;
+            //string timestamp = null;
+            //string aPIVersion = null;
+            //var response = instance.CreateCheckoutSession(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
+        }
+        
+        /// <summary>
+        /// Test DeactivateAgentKey
+        /// </summary>
+        [Test]
+        public void DeactivateAgentKeyTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string agentId = null;
+            //string keyId = null;
+            //instance.DeactivateAgentKey(agentId, keyId);
+            
+        }
+        
+        /// <summary>
         /// Test EnrollCard
         /// </summary>
         [Test]
@@ -101,6 +198,51 @@ namespace CyberSource.Test
             //AgenticCardEnrollmentRequest agenticCardEnrollmentRequest = null;
             //var response = instance.EnrollCard(agenticCardEnrollmentRequest);
             //Assert.IsInstanceOf<AgenticCardEnrollmentResponse200> (response, "response is AgenticCardEnrollmentResponse200");
+        }
+        
+        /// <summary>
+        /// Test GetAgent
+        /// </summary>
+        [Test]
+        public void GetAgentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string agentId = null;
+            //var response = instance.GetAgent(agentId);
+            //Assert.IsInstanceOf<AgentRegistrationResponse201> (response, "response is AgentRegistrationResponse201");
+        }
+        
+        /// <summary>
+        /// Test GetAgentKey
+        /// </summary>
+        [Test]
+        public void GetAgentKeyTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string agentId = null;
+            //string keyId = null;
+            //var response = instance.GetAgentKey(agentId, keyId);
+            //Assert.IsInstanceOf<AddAgentKeyResponse201> (response, "response is AddAgentKeyResponse201");
+        }
+        
+        /// <summary>
+        /// Test GetCheckoutSession
+        /// </summary>
+        [Test]
+        public void GetCheckoutSessionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string sessionId = null;
+            //Object acpGetCheckoutSessionRequest = null;
+            //string idempotencyKey = null;
+            //string acceptLanguage = null;
+            //string userAgent = null;
+            //string requestId = null;
+            //string signature = null;
+            //string timestamp = null;
+            //string aPIVersion = null;
+            //var response = instance.GetCheckoutSession(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
         }
         
         /// <summary>
@@ -116,6 +258,32 @@ namespace CyberSource.Test
         }
         
         /// <summary>
+        /// Test ListAgentKeys
+        /// </summary>
+        [Test]
+        public void ListAgentKeysTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string agentId = null;
+            //int? page = null;
+            //int? pageSize = null;
+            //var response = instance.ListAgentKeys(agentId, page, pageSize);
+            //Assert.IsInstanceOf<ListAgentKeysResponse200> (response, "response is ListAgentKeysResponse200");
+        }
+        
+        /// <summary>
+        /// Test RegisterAgent
+        /// </summary>
+        [Test]
+        public void RegisterAgentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //AgentRequest agentRequest = null;
+            //var response = instance.RegisterAgent(agentRequest);
+            //Assert.IsInstanceOf<AgentRegistrationResponse201> (response, "response is AgentRegistrationResponse201");
+        }
+        
+        /// <summary>
         /// Test RetrievePaymentCredentials
         /// </summary>
         [Test]
@@ -126,6 +294,119 @@ namespace CyberSource.Test
             //AgenticRetrievePaymentCredentialsRequest agenticRetrievePaymentCredentialsRequest = null;
             //var response = instance.RetrievePaymentCredentials(instructionId, agenticRetrievePaymentCredentialsRequest);
             //Assert.IsInstanceOf<AgenticRetrievePaymentCredentialsResponse200> (response, "response is AgenticRetrievePaymentCredentialsResponse200");
+        }
+        
+        /// <summary>
+        /// Test UcpCancelCheckout
+        /// </summary>
+        [Test]
+        public void UcpCancelCheckoutTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string sessionId = null;
+            //var response = instance.UcpCancelCheckout(sessionId);
+            //Assert.IsInstanceOf<InlineResponse20114> (response, "response is InlineResponse20114");
+        }
+        
+        /// <summary>
+        /// Test UcpCompleteCheckout
+        /// </summary>
+        [Test]
+        public void UcpCompleteCheckoutTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string sessionId = null;
+            //string idempotencyKey = null;
+            //UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null;
+            //var response = instance.UcpCompleteCheckout(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
+            //Assert.IsInstanceOf<InlineResponse20114> (response, "response is InlineResponse20114");
+        }
+        
+        /// <summary>
+        /// Test UcpCreateCheckoutSession
+        /// </summary>
+        [Test]
+        public void UcpCreateCheckoutSessionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest = null;
+            //string idempotencyKey = null;
+            //var response = instance.UcpCreateCheckoutSession(ucpCreateCheckoutSessionRequest, idempotencyKey);
+            //Assert.IsInstanceOf<InlineResponse20114> (response, "response is InlineResponse20114");
+        }
+        
+        /// <summary>
+        /// Test UcpGetCheckoutSession
+        /// </summary>
+        [Test]
+        public void UcpGetCheckoutSessionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string sessionId = null;
+            //Object ucpGetCheckoutSessionRequest = null;
+            //var response = instance.UcpGetCheckoutSession(sessionId, ucpGetCheckoutSessionRequest);
+            //Assert.IsInstanceOf<InlineResponse20114> (response, "response is InlineResponse20114");
+        }
+        
+        /// <summary>
+        /// Test UcpUpdateCheckoutSession
+        /// </summary>
+        [Test]
+        public void UcpUpdateCheckoutSessionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string sessionId = null;
+            //UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest = null;
+            //string idempotencyKey = null;
+            //var response = instance.UcpUpdateCheckoutSession(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
+            //Assert.IsInstanceOf<InlineResponse20114> (response, "response is InlineResponse20114");
+        }
+        
+        /// <summary>
+        /// Test UpdateAgent
+        /// </summary>
+        [Test]
+        public void UpdateAgentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string agentId = null;
+            //AgentUpdate agentUpdate = null;
+            //var response = instance.UpdateAgent(agentId, agentUpdate);
+            //Assert.IsInstanceOf<AgentRegistrationResponse201> (response, "response is AgentRegistrationResponse201");
+        }
+        
+        /// <summary>
+        /// Test UpdateAgentKey
+        /// </summary>
+        [Test]
+        public void UpdateAgentKeyTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string agentId = null;
+            //string keyId = null;
+            //KeyUpdate keyUpdate = null;
+            //var response = instance.UpdateAgentKey(agentId, keyId, keyUpdate);
+            //Assert.IsInstanceOf<AddAgentKeyResponse201> (response, "response is AddAgentKeyResponse201");
+        }
+        
+        /// <summary>
+        /// Test UpdateCheckoutSession
+        /// </summary>
+        [Test]
+        public void UpdateCheckoutSessionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string sessionId = null;
+            //AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest = null;
+            //string idempotencyKey = null;
+            //string acceptLanguage = null;
+            //string userAgent = null;
+            //string requestId = null;
+            //string signature = null;
+            //string timestamp = null;
+            //string aPIVersion = null;
+            //var response = instance.UpdateCheckoutSession(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
         }
         
         /// <summary>

@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -41,8 +43,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
         /// <param name="offerRequest"></param>
-        /// <returns>InlineResponse2019</returns>
-        InlineResponse2019 CreateOffer(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
+        /// <returns>InlineResponse20112</returns>
+        InlineResponse20112 CreateOffer(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
 
         /// <summary>
         /// Create an Offer
@@ -57,8 +59,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
         /// <param name="offerRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2019</returns>
-        ApiResponse<InlineResponse2019> CreateOfferWithHttpInfo(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
+        /// <returns>ApiResponse of InlineResponse20112</returns>
+        ApiResponse<InlineResponse20112> CreateOfferWithHttpInfo(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
         /// <summary>
         /// Retrieve an Offer
         /// </summary>
@@ -105,8 +107,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
         /// <param name="offerRequest"></param>
-        /// <returns>Task of InlineResponse2019</returns>
-        System.Threading.Tasks.Task<InlineResponse2019> CreateOfferAsync(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
+        /// <returns>Task of InlineResponse20112</returns>
+        System.Threading.Tasks.Task<InlineResponse20112> CreateOfferAsync(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
 
         /// <summary>
         /// Create an Offer
@@ -121,8 +123,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
         /// <param name="offerRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2019)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2019>> CreateOfferAsyncWithHttpInfo(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
+        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20112>> CreateOfferAsyncWithHttpInfo(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest);
         /// <summary>
         /// Retrieve an Offer
         /// </summary>
@@ -190,14 +192,14 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
         /// <param name="offerRequest"></param>
-        /// <returns>InlineResponse2019</returns>
-        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public InlineResponse2019 CreateOffer(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
+        /// <returns>InlineResponse20112</returns>
+        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder: The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
+        public InlineResponse20112 CreateOffer(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
         {
-            logger.Debug("CALLING API \"CreateOffer\" STARTED");
+            logger.LogDebug("CALLING API \"CreateOffer\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2019> localVarResponse = CreateOfferWithHttpInfo(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
-            logger.Debug("CALLING API \"CreateOffer\" ENDED");
+            ApiResponse<InlineResponse20112> localVarResponse = CreateOfferWithHttpInfo(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
+            logger.LogDebug("CALLING API \"CreateOffer\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -212,45 +214,45 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
         /// <param name="offerRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2019</returns>
-        public ApiResponse< InlineResponse2019 > CreateOfferWithHttpInfo(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
+        /// <returns>ApiResponse of InlineResponse20112</returns>
+        public ApiResponse< InlineResponse20112 > CreateOfferWithHttpInfo(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling OffersApi->CreateOffer");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling OffersApi->CreateOffer");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling OffersApi->CreateOffer");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling OffersApi->CreateOffer");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling OffersApi->CreateOffer");
             }
             // verify the required parameter 'offerRequest' is set
             if (offerRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'offerRequest' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'offerRequest' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'offerRequest' when calling OffersApi->CreateOffer");
             }
 
@@ -320,18 +322,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateOffer,CreateOfferAsync,CreateOfferWithHttpInfo,CreateOfferAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -346,14 +348,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateOffer", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2019>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2019) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2019))); // Return statement
+                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
         }
 
         /// <summary>
@@ -366,13 +368,13 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
         /// <param name="offerRequest"></param>
-        /// <returns>Task of InlineResponse2019</returns>
-        public async Task<InlineResponse2019> CreateOfferAsync(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
+        /// <returns>Task of InlineResponse20112</returns>
+        public async Task<InlineResponse20112> CreateOfferAsync(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
         {
-            logger.Debug("CALLING API \"CreateOfferAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateOfferAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2019> localVarResponse = await CreateOfferAsyncWithHttpInfo(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
-            logger.Debug("CALLING API \"CreateOfferAsync\" ENDED");
+            ApiResponse<InlineResponse20112> localVarResponse = await CreateOfferAsyncWithHttpInfo(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
+            logger.LogDebug("CALLING API \"CreateOfferAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -388,45 +390,45 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
         /// <param name="offerRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2019)</returns>
-        public async Task<ApiResponse<InlineResponse2019>> CreateOfferAsyncWithHttpInfo(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
+        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
+        public async Task<ApiResponse<InlineResponse20112>> CreateOfferAsyncWithHttpInfo(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling OffersApi->CreateOffer");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling OffersApi->CreateOffer");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling OffersApi->CreateOffer");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling OffersApi->CreateOffer");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling OffersApi->CreateOffer");
             }
             // verify the required parameter 'offerRequest' is set
             if (offerRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'offerRequest' when calling OffersApi->CreateOffer");
+                logger.LogError("ApiException : Missing required parameter 'offerRequest' when calling OffersApi->CreateOffer");
                 throw new ApiException(400, "Missing required parameter 'offerRequest' when calling OffersApi->CreateOffer");
             }
 
@@ -496,18 +498,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateOffer,CreateOfferAsync,CreateOfferWithHttpInfo,CreateOfferAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -522,14 +524,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateOffer", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2019>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2019) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2019))); // Return statement
+                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
         }
         /// <summary>
         /// Retrieve an Offer Retrieves an offer record from the system. 
@@ -544,10 +546,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse20016</returns>
         public InlineResponse20016 GetOffer(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, string id)
         {
-            logger.Debug("CALLING API \"GetOffer\" STARTED");
+            logger.LogDebug("CALLING API \"GetOffer\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20016> localVarResponse = GetOfferWithHttpInfo(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
-            logger.Debug("CALLING API \"GetOffer\" ENDED");
+            logger.LogDebug("CALLING API \"GetOffer\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -570,37 +572,37 @@ namespace CyberSource.Api
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling OffersApi->GetOffer");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling OffersApi->GetOffer");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling OffersApi->GetOffer");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling OffersApi->GetOffer");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling OffersApi->GetOffer");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'id' when calling OffersApi->GetOffer");
             }
 
@@ -632,7 +634,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (contentType != null)
             {
@@ -681,11 +683,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -705,7 +707,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetOffer", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -728,10 +730,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse20016</returns>
         public async Task<InlineResponse20016> GetOfferAsync(string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, string id)
         {
-            logger.Debug("CALLING API \"GetOfferAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetOfferAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20016> localVarResponse = await GetOfferAsyncWithHttpInfo(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
-            logger.Debug("CALLING API \"GetOfferAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetOfferAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -755,37 +757,37 @@ namespace CyberSource.Api
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling OffersApi->GetOffer");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling OffersApi->GetOffer");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling OffersApi->GetOffer");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling OffersApi->GetOffer");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling OffersApi->GetOffer");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling OffersApi->GetOffer");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling OffersApi->GetOffer");
                 throw new ApiException(400, "Missing required parameter 'id' when calling OffersApi->GetOffer");
             }
 
@@ -817,7 +819,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (contentType != null)
             {
@@ -865,11 +867,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -889,7 +891,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetOffer", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

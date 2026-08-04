@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,103 +29,93 @@ namespace CyberSource.Model
     /// InlineResponse2017
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2017 :  IEquatable<InlineResponse2017>, IValidatableObject
+    public partial class InlineResponse2017 :  ModelExtensions, IEquatable<InlineResponse2017>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2017" /> class.
         /// </summary>
-        /// <param name="EventDate">Date that the webhook was delivered.</param>
-        /// <param name="EventType">The event name the webhook was delivered for.</param>
-        /// <param name="OrganizationId">The Organization Identifier..</param>
-        /// <param name="Payloads">Payloads.</param>
-        /// <param name="ProductId">The product the webhook was delivered for.</param>
-        /// <param name="RequestType">Identifies the the type of request.</param>
-        /// <param name="RetryNumber">The number of retry attempts for a given webhook.</param>
-        /// <param name="TransactionTraceId">The identifier for the webhook.</param>
-        /// <param name="WebhookId">The identifier of the subscription.</param>
-        public InlineResponse2017(string EventDate = default(string), string EventType = default(string), string OrganizationId = default(string), InlineResponse2017Payloads Payloads = default(InlineResponse2017Payloads), string ProductId = default(string), string RequestType = default(string), int? RetryNumber = default(int?), string TransactionTraceId = default(string), string WebhookId = default(string))
+        /// <param name="Id">Id.</param>
+        /// <param name="RegistrationInformation">RegistrationInformation.</param>
+        /// <param name="IntegrationInformation">IntegrationInformation.</param>
+        /// <param name="OrganizationInformation">OrganizationInformation.</param>
+        /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
+        /// <param name="Message">Message.</param>
+        /// <param name="Details">Details.</param>
+        public InlineResponse2017(string Id = default(string), InlineResponse2017RegistrationInformation RegistrationInformation = default(InlineResponse2017RegistrationInformation), InlineResponse2017IntegrationInformation IntegrationInformation = default(InlineResponse2017IntegrationInformation), InlineResponse2017OrganizationInformation OrganizationInformation = default(InlineResponse2017OrganizationInformation), List<InlineResponse2017ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2017ProductInformationSetups>), string Message = default(string), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
         {
-            this.EventDate = EventDate;
-            this.EventType = EventType;
-            this.OrganizationId = OrganizationId;
-            this.Payloads = Payloads;
-            this.ProductId = ProductId;
-            this.RequestType = RequestType;
-            this.RetryNumber = RetryNumber;
-            this.TransactionTraceId = TransactionTraceId;
-            this.WebhookId = WebhookId;
+            this.Id = Id;
+            this.RegistrationInformation = RegistrationInformation;
+            this.IntegrationInformation = IntegrationInformation;
+            this.OrganizationInformation = OrganizationInformation;
+            this.ProductInformationSetups = ProductInformationSetups;
+            this.Message = Message;
+            this.Details = Details;
         }
         
         /// <summary>
-        /// Date that the webhook was delivered
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>Date that the webhook was delivered</value>
-        [JsonPropertyName("eventDate")]
+        [JsonPropertyName("id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string EventDate { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
-        /// The event name the webhook was delivered for
+        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
         /// </summary>
-        /// <value>The event name the webhook was delivered for</value>
-        [JsonPropertyName("eventType")]
+        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [JsonPropertyName("submitTimeUtc")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string EventType { get; set; }
+        public DateTime? SubmitTimeUtc { get; private set; }
 
         /// <summary>
-        /// The Organization Identifier.
+        /// The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; 
         /// </summary>
-        /// <value>The Organization Identifier.</value>
-        [JsonPropertyName("organizationId")]
+        /// <value>The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; </value>
+        [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string OrganizationId { get; set; }
+        public string Status { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Payloads
+        /// Gets or Sets RegistrationInformation
         /// </summary>
-        [JsonPropertyName("payloads")]
+        [JsonPropertyName("registrationInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2017Payloads Payloads { get; set; }
+        public InlineResponse2017RegistrationInformation RegistrationInformation { get; set; }
 
         /// <summary>
-        /// The product the webhook was delivered for
+        /// Gets or Sets IntegrationInformation
         /// </summary>
-        /// <value>The product the webhook was delivered for</value>
-        [JsonPropertyName("productId")]
+        [JsonPropertyName("integrationInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string ProductId { get; set; }
+        public InlineResponse2017IntegrationInformation IntegrationInformation { get; set; }
 
         /// <summary>
-        /// Identifies the the type of request
+        /// Gets or Sets OrganizationInformation
         /// </summary>
-        /// <value>Identifies the the type of request</value>
-        [JsonPropertyName("requestType")]
+        [JsonPropertyName("organizationInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string RequestType { get; set; }
+        public InlineResponse2017OrganizationInformation OrganizationInformation { get; set; }
 
         /// <summary>
-        /// The number of retry attempts for a given webhook
+        /// Gets or Sets ProductInformationSetups
         /// </summary>
-        /// <value>The number of retry attempts for a given webhook</value>
-        [JsonPropertyName("retryNumber")]
+        [JsonPropertyName("productInformationSetups")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? RetryNumber { get; set; }
+        public List<InlineResponse2017ProductInformationSetups> ProductInformationSetups { get; set; }
 
         /// <summary>
-        /// The identifier for the webhook
+        /// Gets or Sets Message
         /// </summary>
-        /// <value>The identifier for the webhook</value>
-        [JsonPropertyName("transactionTraceId")]
+        [JsonPropertyName("message")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string TransactionTraceId { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
-        /// The identifier of the subscription
+        /// Gets or Sets Details
         /// </summary>
-        /// <value>The identifier of the subscription</value>
-        [JsonPropertyName("webhookId")]
+        [JsonPropertyName("details")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string WebhookId { get; set; }
+        public Dictionary<string, List<Object>> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -134,15 +125,16 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2017 {\n");
-            if (EventDate != null) sb.Append("  EventDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "eventDate", EventDate.ToString())).Append("\n");
-            if (EventType != null) sb.Append("  EventType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "eventType", EventType.ToString())).Append("\n");
-            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "organizationId", OrganizationId.ToString())).Append("\n");
-            if (Payloads != null) sb.Append("  Payloads: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "payloads", Payloads.ToString())).Append("\n");
-            if (ProductId != null) sb.Append("  ProductId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "productId", ProductId.ToString())).Append("\n");
-            if (RequestType != null) sb.Append("  RequestType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "requestType", RequestType.ToString())).Append("\n");
-            if (RetryNumber != null) sb.Append("  RetryNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "retryNumber", RetryNumber.ToString())).Append("\n");
-            if (TransactionTraceId != null) sb.Append("  TransactionTraceId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "transactionTraceId", TransactionTraceId.ToString())).Append("\n");
-            if (WebhookId != null) sb.Append("  WebhookId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "webhookId", WebhookId.ToString())).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "id", Id.ToString())).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "status", Status.ToString())).Append("\n");
+            if (RegistrationInformation != null) sb.Append("  RegistrationInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "registrationInformation", RegistrationInformation.ToString())).Append("\n");
+            if (IntegrationInformation != null) sb.Append("  IntegrationInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "integrationInformation", IntegrationInformation.ToString())).Append("\n");
+            if (OrganizationInformation != null) sb.Append("  OrganizationInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "organizationInformation", OrganizationInformation.ToString())).Append("\n");
+            if (ProductInformationSetups != null) sb.Append("  ProductInformationSetups: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "productInformationSetups", ProductInformationSetups.ToString())).Append("\n");
+            if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "message", Message.ToString())).Append("\n");
+            if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "details", Details.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,7 +145,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2017", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2017", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -178,51 +170,55 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
-                    this.EventDate == other.EventDate ||
-                    this.EventDate != null &&
-                    this.EventDate.Equals(other.EventDate)
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.EventType == other.EventType ||
-                    this.EventType != null &&
-                    this.EventType.Equals(other.EventType)
+                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
+                    this.SubmitTimeUtc != null &&
+                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
                 ) && 
                 (
-                    this.OrganizationId == other.OrganizationId ||
-                    this.OrganizationId != null &&
-                    this.OrganizationId.Equals(other.OrganizationId)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Payloads == other.Payloads ||
-                    this.Payloads != null &&
-                    this.Payloads.Equals(other.Payloads)
+                    this.RegistrationInformation == other.RegistrationInformation ||
+                    this.RegistrationInformation != null &&
+                    this.RegistrationInformation.Equals(other.RegistrationInformation)
                 ) && 
                 (
-                    this.ProductId == other.ProductId ||
-                    this.ProductId != null &&
-                    this.ProductId.Equals(other.ProductId)
+                    this.IntegrationInformation == other.IntegrationInformation ||
+                    this.IntegrationInformation != null &&
+                    this.IntegrationInformation.Equals(other.IntegrationInformation)
                 ) && 
                 (
-                    this.RequestType == other.RequestType ||
-                    this.RequestType != null &&
-                    this.RequestType.Equals(other.RequestType)
+                    this.OrganizationInformation == other.OrganizationInformation ||
+                    this.OrganizationInformation != null &&
+                    this.OrganizationInformation.Equals(other.OrganizationInformation)
                 ) && 
                 (
-                    this.RetryNumber == other.RetryNumber ||
-                    this.RetryNumber != null &&
-                    this.RetryNumber.Equals(other.RetryNumber)
+                    this.ProductInformationSetups == other.ProductInformationSetups ||
+                    this.ProductInformationSetups != null &&
+                    this.ProductInformationSetups.SequenceEqual(other.ProductInformationSetups)
                 ) && 
                 (
-                    this.TransactionTraceId == other.TransactionTraceId ||
-                    this.TransactionTraceId != null &&
-                    this.TransactionTraceId.Equals(other.TransactionTraceId)
+                    this.Message == other.Message ||
+                    this.Message != null &&
+                    this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.WebhookId == other.WebhookId ||
-                    this.WebhookId != null &&
-                    this.WebhookId.Equals(other.WebhookId)
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 );
         }
 
@@ -237,24 +233,27 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.EventDate != null)
-                    hash = hash * 59 + this.EventDate.GetHashCode();
-                if (this.EventType != null)
-                    hash = hash * 59 + this.EventType.GetHashCode();
-                if (this.OrganizationId != null)
-                    hash = hash * 59 + this.OrganizationId.GetHashCode();
-                if (this.Payloads != null)
-                    hash = hash * 59 + this.Payloads.GetHashCode();
-                if (this.ProductId != null)
-                    hash = hash * 59 + this.ProductId.GetHashCode();
-                if (this.RequestType != null)
-                    hash = hash * 59 + this.RequestType.GetHashCode();
-                if (this.RetryNumber != null)
-                    hash = hash * 59 + this.RetryNumber.GetHashCode();
-                if (this.TransactionTraceId != null)
-                    hash = hash * 59 + this.TransactionTraceId.GetHashCode();
-                if (this.WebhookId != null)
-                    hash = hash * 59 + this.WebhookId.GetHashCode();
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
+                if (this.SubmitTimeUtc != null)
+                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.RegistrationInformation != null)
+                    hash = hash * 59 + this.RegistrationInformation.GetHashCode();
+                if (this.IntegrationInformation != null)
+                    hash = hash * 59 + this.IntegrationInformation.GetHashCode();
+                if (this.OrganizationInformation != null)
+                    hash = hash * 59 + this.OrganizationInformation.GetHashCode();
+                if (this.ProductInformationSetups != null)
+                    hash = hash * 59 + this.ProductInformationSetups.GetHashCode();
+                if (this.Message != null)
+                    hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Details != null)
+                    hash = hash * 59 + this.Details.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

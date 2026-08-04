@@ -18,7 +18,8 @@ using System.Net;
 using System.Net.Http;
 using System.Security;
 using System.Security.Cryptography.X509Certificates;
-using NLog;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 {{#netStandard}}
 using RestSharp.Portable;
 using RestSharp.Portable.HttpClient;
@@ -30,7 +31,10 @@ using AuthenticationSdk.core;
 using AuthenticationSdk.util;
 using CyberSource.Utilities;
 using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
 using CyberSource.Utilities.Serialization;
+using CyberSource.Utilities.Extensibility;
+using Microsoft.Extensions.Options;
 
 namespace {{packageName}}.Client
 {
@@ -58,12 +62,19 @@ namespace {{packageName}}.Client
 
         private static readonly JsonSerializerOptions serializationSettings = new JsonSerializerOptions(JsonSerializerDefaults.Web)
         {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            // Serialize-time conflict guard: throws when a JSON field is set both
+            // as a typed property and via SetExtraField. Applied graph-wide so nested
+            // ExtensibleModel objects are covered.
+            TypeInfoResolver = new DefaultJsonTypeInfoResolver
+            {
+                Modifiers = { ModelExtensions.EnforceExtraFieldConflicts }
+            }
         };
 
         private static readonly JsonSerializerOptions pblModelDeserializerOptions = new JsonSerializerOptions
         {
-            PropertyNamingPolicy = new Utilities.Serialization.CustomContractResolver(),
+            PropertyNamingPolicy = new CustomContractResolver(),
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
             Converters =
             {
@@ -74,9 +85,34 @@ namespace {{packageName}}.Client
         };
 
         /// <summary>
+        /// The effective JSON deserializer options used by <see cref="Deserialize"/>.
+        /// When the caller supplies custom options via <see cref="IMerchantNetworkSettings.DeserializationOptions"/>
+        /// on the configuration, those are used; otherwise the SDK default <see cref="deserializationSettings"/>
+        /// (which includes the required CyberSource model converters) is used.
+        /// </summary>
+        private readonly JsonSerializerOptions _deserializationSettings;
+
+        /// <summary>
+        /// The effective JSON serializer options used by <see cref="Serialize"/>.
+        /// When the caller supplies custom options via <see cref="IMerchantNetworkSettings.SerializationOptions"/>
+        /// on the configuration, those are used; otherwise the SDK default <see cref="serializationSettings"/> is used.
+        /// </summary>
+        private readonly JsonSerializerOptions _serializationSettings;
+
+        /// <summary>
+        /// The effective JSON deserializer options used by <see cref="Deserialize"/> for the PBL model
+        /// (<see cref="Model.PblPaymentLinksAllGet200Response"/>). When the caller supplies custom options via
+        /// <see cref="IMerchantNetworkSettings.DeserializationOptions"/>, they are combined with the SDK's
+        /// <see cref="pblModelDeserializerOptions"/>; otherwise the SDK defaults are used.
+        /// </summary>
+        private readonly JsonSerializerOptions _pblModelDeserializerOptions;
+
+        /// <summary>
         /// Internal class logger
         /// </summary>
-        private static Logger logger;
+        private ILogger<ApiClient> logger = NullLogger<ApiClient>.Instance;
+
+        private ILoggerFactory loggerFactory;
         #endregion Private Properties
 
         #region Public Properties
@@ -126,7 +162,24 @@ namespace {{packageName}}.Client
             RestClient.IgnoreResponseStatusCode = true;
             {{/netStandard}}
 
-            logger ??= LogManager.GetCurrentClassLogger();
+            // Resolve each JSON options track independently through a unified pipeline. Each track
+            // preserves its own separation invariant: serialization, deserialization, and PBL
+            // deserialization never share a JsonSerializerOptions instance.
+            _serializationSettings = ResolveSerializationSettings(_merchantNetworkSettings);
+            _deserializationSettings = ResolveDeserializationSettings(_merchantNetworkSettings);
+            _pblModelDeserializerOptions = ResolvePblDeserializationSettings(_merchantNetworkSettings);
+
+            // Bridge into ModelExtensions so the extra-field write/read paths honor the same
+            // effective options as ApiClient.Serialize / ApiClient.Deserialize. Serialization and
+            // deserialization remain on independent static hooks, matching the split maintained
+            // above. Last-writer-wins semantics apply when multiple ApiClient instances are
+            // constructed with divergent options (documented on both SetSerializerOptions and
+            // SetDeserializerOptions).
+            ModelExtensions.SetSerializerOptions(_serializationSettings);
+            ModelExtensions.SetDeserializerOptions(_deserializationSettings);
+
+            loggerFactory = _merchantLegacySettings?.LoggerFactory ?? NullLoggerFactory.Instance;
+            logger = loggerFactory.CreateLogger<ApiClient>();
         }
 
         /// <summary>
@@ -177,89 +230,6 @@ namespace {{packageName}}.Client
             string contentType, bool isResponseMLEForApi = false)
         {
             return CallApiAsync(path, method, queryParams, postBody, headerParams, formParams, fileParams, pathParams, contentType, isResponseMLEForApi).GetAwaiter().GetResult();
-
-            ////declared separately to handle both regular call and download file calls
-            //int httpResponseStatusCode;
-            //IList<Parameter> httpResponseHeaders = null;
-            //string httpResponseData = string.Empty;
-
-            //LogUtility logUtility = new LogUtility();
-
-            //if (!string.IsNullOrEmpty(AcceptHeader))
-            //{
-            //    var defaultAcceptHeader = "," + headerParams["Accept"];
-            //    defaultAcceptHeader = AcceptHeader + defaultAcceptHeader.Replace("," + AcceptHeader, "");
-            //    headerParams.Remove("Accept");
-            //    headerParams.Add("Accept", defaultAcceptHeader);
-            //}
-
-            ////check if the Response is to be downloaded as a file, this value to be set by the calling API class
-            //var request = PrepareRequest(
-            //    path, method, queryParams, postBody, headerParams, formParams, fileParams,
-            //    pathParams, contentType, isResponseMLEForApi);
-
-            //var newRestClientOptions = GetRestClientOptions(_merchantNetworkSettings, _merchantCredentialSettings, _merchantLegacySettings.UserAgent, TimeSpan.FromMilliseconds(_merchantNetworkSettings.TimeOut));
-
-            //// RestClient.ClearHandlers();
-
-            //var actualRestClient = RestClientFactory.GetRestClient(_merchantNetworkSettings, newRestClientOptions);
-
-            //// Logging Request Headers
-            //var headerPrintOutput = new StringBuilder();
-            //foreach (var param in request.Parameters)
-            //{
-            //    if (param.Type.ToString().Equals("HttpHeader"))
-            //    {
-            //        headerPrintOutput.Append($"{param.Name} : {param.Value}\n");
-            //    }
-            //}
-
-            //logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
-
-            //InterceptRequest(request);
-            {{#netStandard}}
-            //var response = RestClient.Execute(request).Result;
-            {{/netStandard}}
-            {{^netStandard}}
-            {{^supportsUWP}}
-            ////var response = (RestResponse) actualRestClient.Execute(request);
-            //var response = actualRestClient.ExecuteAsync(request).GetAwaiter().GetResult();
-            {{/supportsUWP}}
-            {{#supportsUWP}}
-            ////Using async method to perform sync call (uwp-only)
-            //var response = RestClient.ExecuteTaskAsync(request).Result;
-            {{/supportsUWP}}
-            {{/netStandard}}
-            //InterceptResponse(request, response);
-
-            //// check if Response MLE is enabled, then decrypt the response content and then deserialize
-            //ResponseMleHandler.DecryptMleResponseIfNeeded(response, _merchantCredentialSettings, _merchantMLESettings);
-
-            // Note: per-request auth headers are now scoped locally inside PrepareRequest
-            // (see CallAuthenticationHeaders) to avoid a race condition on the shared
-            // _merchantLegacySettings.DefaultHeader dictionary between concurrent calls.
-
-            //// Logging Response Headers
-            //httpResponseStatusCode = (int)response.StatusCode;
-            //httpResponseHeaders = response.Headers?.ToList<Parameter>();
-            //httpResponseData = response.Content;
-
-            //logger.Debug($"HTTP Response Status Code: {httpResponseStatusCode}");
-
-            //var responseHeadersBuilder = new StringBuilder();
-            //foreach (var header in httpResponseHeaders)
-            //{
-            //    responseHeadersBuilder.Append($"{header}\n");
-            //}
-
-            //logger.Debug($"HTTP Response Headers :\n{logUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
-
-            //if (!string.IsNullOrEmpty(httpResponseData))
-            //{
-            //    logger.Debug($"HTTP Response Body :\n{logUtility.MaskSensitiveData(httpResponseData)}");
-            //}
-
-            //return response;
         }
 
         {{#supportsAsync}}
@@ -295,7 +265,9 @@ namespace {{packageName}}.Client
 
             var newRestClientOptions = GetRestClientOptions(_merchantNetworkSettings, _merchantCredentialSettings, _merchantLegacySettings.UserAgent, TimeSpan.FromMilliseconds(_merchantNetworkSettings.TimeOut));
 
-            var actualRestClient = RestClientFactory.GetRestClient(_merchantNetworkSettings, newRestClientOptions);
+            var actualRestClient = RestClientFactory.GetRestClient(
+                _merchantNetworkSettings,
+                newRestClientOptions);
 
             // Logging Request Headers
             var headerPrintOutput = new StringBuilder();
@@ -307,14 +279,14 @@ namespace {{packageName}}.Client
                 }
             }
 
-            logger.Debug($"HTTP Request Headers :\n{logUtility.MaskSensitiveData(headerPrintOutput.ToString())}");
+            logger.LogDebug("HTTP Request Headers :{NewLine}{Message}", Environment.NewLine, logUtility.MaskSensitiveData(headerPrintOutput.ToString()));
 
             InterceptRequest(request);
             var response = await actualRestClient.Execute{{^netStandard}}Async{{/netStandard}}(request);
             InterceptResponse(request, response);
 
             // check if Response MLE is enabled, then decrypt the response content and then deserialize
-            ResponseMleHandler.DecryptMleResponseIfNeeded(response, _merchantCredentialSettings, _merchantMLESettings);
+            ResponseMleHandler.DecryptMleResponseIfNeeded(response, _merchantCredentialSettings, _merchantMLESettings, loggerFactory);
 
             // Note: per-request auth headers are now scoped locally inside PrepareRequest
             // (see CallAuthenticationHeaders) to avoid a race condition on the shared
@@ -325,7 +297,7 @@ namespace {{packageName}}.Client
             httpResponseHeaders = response.Headers?.ToList<Parameter>();
             httpResponseData = response.Content;
 
-            logger.Debug($"HTTP Response Status Code: {httpResponseStatusCode}");
+            logger.LogDebug("HTTP Response Status Code: {StatusCode}", httpResponseStatusCode);
 
             var responseHeadersBuilder = new StringBuilder();
             foreach (var header in httpResponseHeaders)
@@ -333,11 +305,11 @@ namespace {{packageName}}.Client
                 responseHeadersBuilder.Append($"{header}\n");
             }
 
-            logger.Debug($"HTTP Response Headers :\n{logUtility.MaskSensitiveData(responseHeadersBuilder.ToString())}");
+            logger.LogDebug("HTTP Response Headers :{NewLine}{Message}", Environment.NewLine, logUtility.MaskSensitiveData(responseHeadersBuilder.ToString()));
 
             if (!string.IsNullOrEmpty(httpResponseData))
             {
-                logger.Debug($"HTTP Response Body :\n{logUtility.MaskSensitiveData(httpResponseData)}");
+                logger.LogDebug("HTTP Response Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(httpResponseData)));
             }
 
             return response;
@@ -441,7 +413,7 @@ namespace {{packageName}}.Client
                             }
                             catch (Exception ex)
                             {
-                                logger.Error($"Error writing file '{fileName}': {ex.Message}");
+                                logger.LogError(ex, "Error writing file '{FileName}'", fileName);
                                 throw new Exception($"Error writing file '{fileName}': {ex.Message}");
                             }
                         }
@@ -466,16 +438,16 @@ namespace {{packageName}}.Client
             {
                 if (type == typeof(Model.PblPaymentLinksAllGet200Response))
                 {
-                    return JsonSerializer.Deserialize(response.Content, type, pblModelDeserializerOptions);
+                    return JsonSerializer.Deserialize(response.Content, type, _pblModelDeserializerOptions);
                 }
                 else
                 {
-                    return JsonSerializer.Deserialize(response.Content, type, deserializationSettings);
+                    return JsonSerializer.Deserialize(response.Content, type, _deserializationSettings);
                 }
             }
             catch (Exception e)
             {
-                logger.Error($"JSON Deserialization Exception : {e.Message}");
+                logger.LogError(e, "JSON Deserialization Exception");
                 throw new ApiException(500, $"JSON Deserialization failed: {e.Message}", null, e);
             }
         }
@@ -489,11 +461,11 @@ namespace {{packageName}}.Client
         {
             try
             {
-                return obj != null ? JsonSerializer.Serialize(obj, serializationSettings) : null;
+                return obj != null ? JsonSerializer.Serialize(obj, _serializationSettings) : null;
             }
             catch (Exception e)
             {
-                logger.Error($"JSON Serialization Exception : {e.Message}");
+                logger.LogError(e, "JSON Serialization Exception");
                 throw new ApiException(500, $"JSON Serialization failed: {e.Message}", null, e);
             }
         }
@@ -598,7 +570,7 @@ namespace {{packageName}}.Client
         /// <returns>A new dictionary of authentication headers for this request only.</returns>
         public Dictionary<string, string> CallAuthenticationHeaders(IMerchantRequestSettings merchantRequestSettings, bool isResponseMLEForApi = false)
         {
-            var authorize = new Authorize(_merchantCredentialSettings, merchantRequestSettings, _merchantMLESettings);
+            var authorize = new Authorize(_merchantCredentialSettings, merchantRequestSettings, _merchantMLESettings, loggerFactory);
 
             //these are the Request Headers to be sent along with the HTTP Request
             var authenticationHeaders = new Dictionary<string, string>();
@@ -655,6 +627,176 @@ namespace {{packageName}}.Client
         #endregion Public Methods
 
         #region Private Methods
+        /// <summary>
+        /// Resolves the effective serialization <see cref="JsonSerializerOptions"/> for this
+        /// <see cref="ApiClient"/> instance.
+        /// </summary>
+        /// <remarks>
+        /// Resolution order:
+        /// <list type="number">
+        /// <item><description>If a DI-resolved
+        /// <see cref="Microsoft.Extensions.Options.IOptionsMonitor{TOptions}"/> for
+        /// <see cref="SdkSerializerOptions"/> has been attached, its
+        /// <see cref="Microsoft.Extensions.Options.IOptionsMonitor{TOptions}.CurrentValue"/>.<see cref="SdkSerializerOptions.Options"/>
+        /// is used — the options pipeline has already run all consumer and SDK post-configures.</description></item>
+        /// <item><description>Otherwise, the caller's
+        /// <see cref="IMerchantNetworkSettings.SerializationOptions"/> is used as the seed (or the
+        /// SDK static default when absent). Consumer post-configures registered via
+        /// <see cref="IMerchantNetworkSettings.SerializationPostConfigures"/> run next, then the SDK
+        /// invariants (<see cref="SdkSerializerOptionsPostConfigure"/>) run last.</description></item>
+        /// </list>
+        /// The SDK invariants always run after consumer post-configures so they win any conflict.
+        /// The returned instance is fresh (never a caller-owned reference) unless step 1 supplied
+        /// one directly.
+        /// </remarks>
+        private static JsonSerializerOptions ResolveSerializationSettings(IMerchantNetworkSettings settings)
+        {
+            var monitor = settings?.SerializerOptionsMonitor;
+            if (monitor != null)
+            {
+                var monitorValue = monitor.CurrentValue?.Options;
+                if (monitorValue == null) { return serializationSettings; }
+
+                // Defensively re-apply the SDK invariants. The options pipeline invokes
+                // IPostConfigureOptions<T> in registration order, so a consumer PostConfigure
+                // call issued AFTER AddSerialization would otherwise run last and
+                // clobber the SDK's invariants. Apply is idempotent (scalar overwrite, converter
+                // dedup) so calling it here makes the SDK's guarantee registration-order-
+                // independent without allocating a new options instance.
+                SdkSerializerOptionsPostConfigure.Apply(monitorValue);
+                return monitorValue;
+            }
+
+            var seed = settings?.SerializationOptions;
+            var postConfigures = settings?.SerializationPostConfigures;
+
+            // Fast path: no seed, no post-configures -> use the SDK's cached static default so
+            // its instance-identity remains observable to tests that pin it.
+            if (seed == null && (postConfigures == null || postConfigures.Count == 0))
+            {
+                return serializationSettings;
+            }
+
+            var target = seed != null
+                ? new JsonSerializerOptions(seed)
+                : new JsonSerializerOptions(JsonSerializerDefaults.Web);
+
+            if (postConfigures != null)
+            {
+                foreach (var postConfigure in postConfigures)
+                {
+                    postConfigure?.Invoke(target);
+                }
+            }
+
+            SdkSerializerOptionsPostConfigure.Apply(target);
+            return target;
+        }
+
+        /// <summary>
+        /// Resolves the effective response-body deserialization <see cref="JsonSerializerOptions"/>
+        /// for this <see cref="ApiClient"/> instance.
+        /// </summary>
+        /// <remarks>
+        /// Resolution order mirrors <see cref="ResolveSerializationSettings"/> but targets the
+        /// <see cref="SdkDeserializerOptions"/> monitor,
+        /// <see cref="IMerchantNetworkSettings.DeserializationOptions"/>, and
+        /// <see cref="IMerchantNetworkSettings.DeserializationPostConfigures"/>. Kept
+        /// distinct from the serialization path so consumer customizations on one track never
+        /// bleed into the other.
+        /// </remarks>
+        private static JsonSerializerOptions ResolveDeserializationSettings(IMerchantNetworkSettings settings)
+        {
+            var monitor = settings?.DeserializerOptionsMonitor;
+            if (monitor != null)
+            {
+                var monitorValue = monitor.CurrentValue?.Options;
+                if (monitorValue == null) { return deserializationSettings; }
+
+                // See ResolveSerializationSettings for the defensive re-apply rationale.
+                SdkDeserializerOptionsPostConfigure.Apply(monitorValue);
+                return monitorValue;
+            }
+
+            var seed = settings?.DeserializationOptions;
+            var postConfigures = settings?.DeserializationPostConfigures;
+
+            // Fast path: no seed, no post-configures -> use the SDK's cached static default so
+            // its instance-identity remains observable to tests that pin it. Mirrors
+            // ResolveSerializationSettings so both tracks enforce SDK invariants symmetrically.
+            if (seed == null && (postConfigures == null || postConfigures.Count == 0))
+            {
+                return deserializationSettings;
+            }
+
+            var target = seed != null
+                ? new JsonSerializerOptions(seed)
+                : new JsonSerializerOptions(JsonSerializerDefaults.Web);
+
+            if (postConfigures != null)
+            {
+                foreach (var postConfigure in postConfigures)
+                {
+                    postConfigure?.Invoke(target);
+                }
+            }
+
+            SdkDeserializerOptionsPostConfigure.Apply(target);
+            return target;
+        }
+
+        /// <summary>
+        /// Resolves the effective PBL-model deserialization <see cref="JsonSerializerOptions"/>
+        /// for this <see cref="ApiClient"/> instance.
+        /// </summary>
+        /// <remarks>
+        /// The general <see cref="IMerchantNetworkSettings.DeserializerOptionsMonitor"/> is
+        /// consulted first: its <c>CurrentValue.Options</c> is cloned (the general and PBL tracks
+        /// must never share a mutable instance, since PBL forces a distinct
+        /// <c>PropertyNamingPolicy</c>) and the SDK's PBL invariants are layered on top of the
+        /// clone. When no monitor is supplied, the caller's
+        /// <see cref="IMerchantNetworkSettings.DeserializationOptions"/> — if present — is used as
+        /// the seed so a caller who customizes the general deserialization track gets the same
+        /// customizations applied to the PBL path (byte-identical to the historic
+        /// <c>MergePblModelDeserializerOptions</c> behavior).
+        /// </remarks>
+        private static JsonSerializerOptions ResolvePblDeserializationSettings(IMerchantNetworkSettings settings)
+        {
+            // Derive the PBL options from the general deserializer monitor so a caller who configured
+            // IOptionsMonitor<SdkDeserializerOptions> gets the same customizations on the PBL path.
+            // The clone is mandatory: the PBL invariants overwrite PropertyNamingPolicy with
+            // CustomContractResolver, which would corrupt the general deserialization track if
+            // applied to the monitor's shared instance.
+            var deserializerMonitor = settings?.DeserializerOptionsMonitor;
+            if (deserializerMonitor != null)
+            {
+                var deserializerMonitorValue = deserializerMonitor.CurrentValue?.Options;
+                if (deserializerMonitorValue == null) { return pblModelDeserializerOptions; }
+
+                var derived = new JsonSerializerOptions(deserializerMonitorValue);
+                SdkPblDeserializerOptionsPostConfigure.Apply(derived);
+                return derived;
+            }
+
+            var seed = settings?.DeserializationOptions;
+
+            // Fast path: no seed -> use the SDK's cached static default so its instance-identity
+            // remains observable to tests that pin it. Consumers cannot post-configure the PBL
+            // track directly; the PBL invariants are non-negotiable and are derived entirely
+            // from DeserializerOptionsMonitor / DeserializationOptions.
+            if (seed == null)
+            {
+                return pblModelDeserializerOptions;
+            }
+
+            // Clone the caller's general deserialization seed and layer the PBL-only invariants
+            // on top so PBL responses share the caller's general deserialization customizations
+            // but always keep the required CustomContractResolver naming policy and converters.
+            var target = new JsonSerializerOptions(seed);
+            SdkPblDeserializerOptionsPostConfigure.Apply(target);
+            return target;
+        }
+
         /// <summary>
         /// Creates the RestSharp request object by adding all the parameters and headers to be sent in the HTTP Request.
         /// </summary>
@@ -950,7 +1092,6 @@ namespace {{packageName}}.Client
 
             if (input == null)
             {
-                logger.Error("ArgumentNullException : URL to encode is null");
                 throw new ArgumentNullException("URL to encode is null.");
             }
 

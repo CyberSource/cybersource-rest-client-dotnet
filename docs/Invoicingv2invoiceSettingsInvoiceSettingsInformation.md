@@ -17,8 +17,18 @@ Name | Type | Description | Notes
 **PhoneNumber** | **bool?** | Collect the payers phone number. | [optional] [default to false]
 **Email** | **bool?** | Collect the payers email address when the email address is not known or confirm it if it is known at the time of invoice creation. | [optional] [default to false]
 **EnableMerchantEmailNotifications** | **bool?** | Whether you would like to receive payment notification for successful transaction | [optional] [default to false]
+**MerchantEmail** | **string** | The merchant&#39;s email address for receiving payment notifications. | [optional] 
 **CustomLabels** | [**List&lt;InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels&gt;**](InvoicingV2InvoicesPost201ResponseInvoiceInformationCustomLabels.md) | A list of custom labels that allows you to override (rename) default field names and control the visibility of specific fields on invoices and items. If the list is empty, the labels will not be overwritten.  | [optional] 
 **CustomRedirectUrls** | [**InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationCustomRedirectUrls**](InvoicingV2InvoiceSettingsGet200ResponseInvoiceSettingsInformationCustomRedirectUrls.md) |  | [optional] 
+
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

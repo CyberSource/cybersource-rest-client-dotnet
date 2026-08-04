@@ -97,6 +97,22 @@ namespace CyberSource.Test
             // TODO unit test for the property 'NetworkPartnerId'
         }
         /// <summary>
+        /// Test the property 'TransactionTypeIndicator'
+        /// </summary>
+        [Test]
+        public void TransactionTypeIndicatorTest()
+        {
+            // TODO unit test for the property 'TransactionTypeIndicator'
+        }
+        /// <summary>
+        /// Test the property 'InterchangeRateDesignator'
+        /// </summary>
+        [Test]
+        public void InterchangeRateDesignatorTest()
+        {
+            // TODO unit test for the property 'InterchangeRateDesignator'
+        }
+        /// <summary>
         /// Test the property 'ProcessingCode'
         /// </summary>
         [Test]

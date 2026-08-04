@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -231,7 +233,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void CreateReport(CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
-            logger.Debug("CALLING API \"CreateReport\" STARTED");
+            logger.LogDebug("CALLING API \"CreateReport\" STARTED");
             this.SetStatusCode(null);
             CreateReportWithHttpInfo(createAdhocReportRequest, organizationId);
         }
@@ -250,7 +252,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createAdhocReportRequest' is set
             if (createAdhocReportRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createAdhocReportRequest' when calling ReportsApi->CreateReport");
+                logger.LogError("ApiException : Missing required parameter 'createAdhocReportRequest' when calling ReportsApi->CreateReport");
                 throw new ApiException(400, "Missing required parameter 'createAdhocReportRequest' when calling ReportsApi->CreateReport");
             }
 
@@ -282,7 +284,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (createAdhocReportRequest != null && createAdhocReportRequest.GetType() != typeof(byte[]))
             {
@@ -301,18 +303,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateReport,CreateReportAsync,CreateReportWithHttpInfo,CreateReportAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -327,7 +329,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateReport", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -347,7 +349,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task CreateReportAsync(CreateAdhocReportRequest createAdhocReportRequest, string organizationId = null)
         {
-            logger.Debug("CALLING API \"CreateReportAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateReportAsync\" STARTED");
             this.SetStatusCode(null);
             await CreateReportAsyncWithHttpInfo(createAdhocReportRequest, organizationId);
 
@@ -367,7 +369,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createAdhocReportRequest' is set
             if (createAdhocReportRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createAdhocReportRequest' when calling ReportsApi->CreateReport");
+                logger.LogError("ApiException : Missing required parameter 'createAdhocReportRequest' when calling ReportsApi->CreateReport");
                 throw new ApiException(400, "Missing required parameter 'createAdhocReportRequest' when calling ReportsApi->CreateReport");
             }
 
@@ -399,7 +401,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (createAdhocReportRequest != null && createAdhocReportRequest.GetType() != typeof(byte[]))
             {
@@ -418,18 +420,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateReport,CreateReportAsync,CreateReportWithHttpInfo,CreateReportAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -444,7 +446,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateReport", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -463,10 +465,10 @@ namespace CyberSource.Api
         /// <returns>ReportingV3ReportsIdGet200Response</returns>
         public ReportingV3ReportsIdGet200Response GetReportByReportId(string reportId, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetReportByReportId\" STARTED");
+            logger.LogDebug("CALLING API \"GetReportByReportId\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse = GetReportByReportIdWithHttpInfo(reportId, organizationId);
-            logger.Debug("CALLING API \"GetReportByReportId\" ENDED");
+            logger.LogDebug("CALLING API \"GetReportByReportId\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -485,7 +487,7 @@ namespace CyberSource.Api
             // verify the required parameter 'reportId' is set
             if (reportId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
+                logger.LogError("ApiException : Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
                 throw new ApiException(400, "Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
             }
 
@@ -518,13 +520,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportId", ApiClient.ParameterToString(reportId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -548,11 +550,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -572,7 +574,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetReportByReportId", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -591,10 +593,10 @@ namespace CyberSource.Api
         /// <returns>Task of ReportingV3ReportsIdGet200Response</returns>
         public async Task<ReportingV3ReportsIdGet200Response> GetReportByReportIdAsync(string reportId, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetReportByReportIdAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetReportByReportIdAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportsIdGet200Response> localVarResponse = await GetReportByReportIdAsyncWithHttpInfo(reportId, organizationId);
-            logger.Debug("CALLING API \"GetReportByReportIdAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetReportByReportIdAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -614,7 +616,7 @@ namespace CyberSource.Api
             // verify the required parameter 'reportId' is set
             if (reportId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
+                logger.LogError("ApiException : Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
                 throw new ApiException(400, "Missing required parameter 'reportId' when calling ReportsApi->GetReportByReportId");
             }
 
@@ -647,13 +649,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportId", ApiClient.ParameterToString(reportId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -676,11 +678,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -700,7 +702,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetReportByReportId", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -725,10 +727,10 @@ namespace CyberSource.Api
         /// <returns>ReportingV3ReportsGet200Response</returns>
         public ReportingV3ReportsGet200Response SearchReports(DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
-            logger.Debug("CALLING API \"SearchReports\" STARTED");
+            logger.LogDebug("CALLING API \"SearchReports\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportsGet200Response> localVarResponse = SearchReportsWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
-            logger.Debug("CALLING API \"SearchReports\" ENDED");
+            logger.LogDebug("CALLING API \"SearchReports\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -754,19 +756,19 @@ namespace CyberSource.Api
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling ReportsApi->SearchReports");
+                logger.LogError("ApiException : Missing required parameter 'startTime' when calling ReportsApi->SearchReports");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling ReportsApi->SearchReports");
             }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling ReportsApi->SearchReports");
+                logger.LogError("ApiException : Missing required parameter 'endTime' when calling ReportsApi->SearchReports");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling ReportsApi->SearchReports");
             }
             // verify the required parameter 'timeQueryType' is set
             if (timeQueryType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
+                logger.LogError("ApiException : Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
                 throw new ApiException(400, "Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
             }
 
@@ -798,55 +800,55 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (startTime != null)
             {
                 localVarQueryParams.Add("startTime", ApiClient.ParameterToString(startTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endTime != null)
             {
                 localVarQueryParams.Add("endTime", ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (timeQueryType != null)
             {
                 localVarQueryParams.Add("timeQueryType", ApiClient.ParameterToString(timeQueryType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportMimeType != null)
             {
                 localVarQueryParams.Add("reportMimeType", ApiClient.ParameterToString(reportMimeType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportFrequency != null)
             {
                 localVarQueryParams.Add("reportFrequency", ApiClient.ParameterToString(reportFrequency)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportName != null)
             {
                 localVarQueryParams.Add("reportName", ApiClient.ParameterToString(reportName)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportDefinitionId != null)
             {
                 localVarQueryParams.Add("reportDefinitionId", ApiClient.ParameterToString(reportDefinitionId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportStatus != null)
             {
                 localVarQueryParams.Add("reportStatus", ApiClient.ParameterToString(reportStatus)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -870,11 +872,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -894,7 +896,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("SearchReports", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -920,10 +922,10 @@ namespace CyberSource.Api
         /// <returns>Task of ReportingV3ReportsGet200Response</returns>
         public async Task<ReportingV3ReportsGet200Response> SearchReportsAsync(DateTime? startTime, DateTime? endTime, string timeQueryType, string organizationId = null, string reportMimeType = null, string reportFrequency = null, string reportName = null, int? reportDefinitionId = null, string reportStatus = null)
         {
-            logger.Debug("CALLING API \"SearchReportsAsync\" STARTED");
+            logger.LogDebug("CALLING API \"SearchReportsAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportsGet200Response> localVarResponse = await SearchReportsAsyncWithHttpInfo(startTime, endTime, timeQueryType, organizationId, reportMimeType, reportFrequency, reportName, reportDefinitionId, reportStatus);
-            logger.Debug("CALLING API \"SearchReportsAsync\" ENDED");
+            logger.LogDebug("CALLING API \"SearchReportsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -950,19 +952,19 @@ namespace CyberSource.Api
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling ReportsApi->SearchReports");
+                logger.LogError("ApiException : Missing required parameter 'startTime' when calling ReportsApi->SearchReports");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling ReportsApi->SearchReports");
             }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling ReportsApi->SearchReports");
+                logger.LogError("ApiException : Missing required parameter 'endTime' when calling ReportsApi->SearchReports");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling ReportsApi->SearchReports");
             }
             // verify the required parameter 'timeQueryType' is set
             if (timeQueryType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
+                logger.LogError("ApiException : Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
                 throw new ApiException(400, "Missing required parameter 'timeQueryType' when calling ReportsApi->SearchReports");
             }
 
@@ -994,55 +996,55 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (startTime != null)
             {
                 localVarQueryParams.Add("startTime", ApiClient.ParameterToString(startTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endTime != null)
             {
                 localVarQueryParams.Add("endTime", ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (timeQueryType != null)
             {
                 localVarQueryParams.Add("timeQueryType", ApiClient.ParameterToString(timeQueryType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportMimeType != null)
             {
                 localVarQueryParams.Add("reportMimeType", ApiClient.ParameterToString(reportMimeType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportFrequency != null)
             {
                 localVarQueryParams.Add("reportFrequency", ApiClient.ParameterToString(reportFrequency)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportName != null)
             {
                 localVarQueryParams.Add("reportName", ApiClient.ParameterToString(reportName)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportDefinitionId != null)
             {
                 localVarQueryParams.Add("reportDefinitionId", ApiClient.ParameterToString(reportDefinitionId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportStatus != null)
             {
                 localVarQueryParams.Add("reportStatus", ApiClient.ParameterToString(reportStatus)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -1065,11 +1067,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1089,7 +1091,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("SearchReports", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// PayerAuthConfigCardTypesVerifiedByVisaCurrencies
     /// </summary>
     [DataContract]
-    public partial class PayerAuthConfigCardTypesVerifiedByVisaCurrencies :  IEquatable<PayerAuthConfigCardTypesVerifiedByVisaCurrencies>, IValidatableObject
+    public partial class PayerAuthConfigCardTypesVerifiedByVisaCurrencies :  ModelExtensions, IEquatable<PayerAuthConfigCardTypesVerifiedByVisaCurrencies>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PayerAuthConfigCardTypesVerifiedByVisaCurrencies" /> class.
@@ -78,6 +79,7 @@ namespace CyberSource.Model
             if (CurrencyCodes != null) sb.Append("  CurrencyCodes: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PayerAuthConfigCardTypesVerifiedByVisaCurrencies", "currencyCodes", CurrencyCodes.ToString())).Append("\n");
             if (AcquirerId != null) sb.Append("  AcquirerId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PayerAuthConfigCardTypesVerifiedByVisaCurrencies", "acquirerId", AcquirerId.ToString())).Append("\n");
             if (ProcessorMerchantId != null) sb.Append("  ProcessorMerchantId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PayerAuthConfigCardTypesVerifiedByVisaCurrencies", "processorMerchantId", ProcessorMerchantId.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,7 +90,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PayerAuthConfigCardTypesVerifiedByVisaCurrencies", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PayerAuthConfigCardTypesVerifiedByVisaCurrencies", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -113,7 +115,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.CurrencyCodes == other.CurrencyCodes ||
                     this.CurrencyCodes != null &&
@@ -142,12 +148,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.CurrencyCodes != null)
                     hash = hash * 59 + this.CurrencyCodes.GetHashCode();
                 if (this.AcquirerId != null)
                     hash = hash * 59 + this.AcquirerId.GetHashCode();
                 if (this.ProcessorMerchantId != null)
                     hash = hash * 59 + this.ProcessorMerchantId.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

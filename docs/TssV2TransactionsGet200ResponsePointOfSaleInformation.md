@@ -9,5 +9,14 @@ Name | Type | Description | Notes
 **CardholderVerificationMethodUsed** | **int?** | Method that was used to verify the cardholder&#39;s identity. Possible values:    - &#x60;0&#x60;: No verification   - &#x60;1&#x60;: Signature   - &#x60;2&#x60;: PIN   - &#x60;3&#x60;: Cardholder device CVM   - &#x60;4&#x60;: Biometric   - &#x60;5&#x60;: OTP  | [optional] 
 **Emv** | [**Ptsv2paymentsidreversalsPointOfSaleInformationEmv**](Ptsv2paymentsidreversalsPointOfSaleInformationEmv.md) |  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

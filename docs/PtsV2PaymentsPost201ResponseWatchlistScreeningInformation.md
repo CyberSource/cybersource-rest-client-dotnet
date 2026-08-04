@@ -7,5 +7,14 @@ Name | Type | Description | Notes
 **InfoCodes** | **List&lt;string&gt;** | Returned when the Denied Parties List check (first two codes) or the export service (all others) would have declined the transaction. This field can contain one or more of these values: - &#x60;MATCH-DPC&#x60;: Denied Parties List match. - &#x60;UNV-DPC&#x60;: Denied Parties List unavailable. - &#x60;MATCH-BCO&#x60;: Billing country restricted. - &#x60;MATCH-EMCO&#x60;: Email country restricted. - &#x60;MATCH-HCO&#x60;: Host name country restricted. - &#x60;MATCH-IPCO&#x60;: IP country restricted. - &#x60;MATCH-SCO&#x60;: Shipping country restricted.  | [optional] 
 **WatchList** | [**ExportComplianceWatchList**](ExportComplianceWatchList.md) |  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

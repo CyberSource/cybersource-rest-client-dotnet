@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -104,13 +106,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
         /// <returns>InlineResponse20015</returns>
-        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
+        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder: The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
         public InlineResponse20015 BankAccountValidationRequest(AccountValidationsRequest accountValidationsRequest)
         {
-            logger.Debug("CALLING API \"BankAccountValidationRequest\" STARTED");
+            logger.LogDebug("CALLING API \"BankAccountValidationRequest\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20015> localVarResponse = BankAccountValidationRequestWithHttpInfo(accountValidationsRequest);
-            logger.Debug("CALLING API \"BankAccountValidationRequest\" ENDED");
+            logger.LogDebug("CALLING API \"BankAccountValidationRequest\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -128,7 +130,7 @@ namespace CyberSource.Api
             // verify the required parameter 'accountValidationsRequest' is set
             if (accountValidationsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'accountValidationsRequest' when calling BankAccountValidationApi->BankAccountValidationRequest");
+                logger.LogError("ApiException : Missing required parameter 'accountValidationsRequest' when calling BankAccountValidationApi->BankAccountValidationRequest");
                 throw new ApiException(400, "Missing required parameter 'accountValidationsRequest' when calling BankAccountValidationApi->BankAccountValidationRequest");
             }
 
@@ -173,18 +175,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "BankAccountValidationRequest,BankAccountValidationRequestAsync,BankAccountValidationRequestWithHttpInfo,BankAccountValidationRequestAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -199,7 +201,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("BankAccountValidationRequest", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -217,10 +219,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse20015</returns>
         public async Task<InlineResponse20015> BankAccountValidationRequestAsync(AccountValidationsRequest accountValidationsRequest)
         {
-            logger.Debug("CALLING API \"BankAccountValidationRequestAsync\" STARTED");
+            logger.LogDebug("CALLING API \"BankAccountValidationRequestAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20015> localVarResponse = await BankAccountValidationRequestAsyncWithHttpInfo(accountValidationsRequest);
-            logger.Debug("CALLING API \"BankAccountValidationRequestAsync\" ENDED");
+            logger.LogDebug("CALLING API \"BankAccountValidationRequestAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -239,7 +241,7 @@ namespace CyberSource.Api
             // verify the required parameter 'accountValidationsRequest' is set
             if (accountValidationsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'accountValidationsRequest' when calling BankAccountValidationApi->BankAccountValidationRequest");
+                logger.LogError("ApiException : Missing required parameter 'accountValidationsRequest' when calling BankAccountValidationApi->BankAccountValidationRequest");
                 throw new ApiException(400, "Missing required parameter 'accountValidationsRequest' when calling BankAccountValidationApi->BankAccountValidationRequest");
             }
 
@@ -284,18 +286,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "BankAccountValidationRequest,BankAccountValidationRequestAsync,BankAccountValidationRequestWithHttpInfo,BankAccountValidationRequestAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -310,7 +312,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("BankAccountValidationRequest", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

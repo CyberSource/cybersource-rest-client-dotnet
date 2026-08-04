@@ -23,5 +23,14 @@ Name | Type | Description | Notes
 **Regulated** | **string** | Indicates whether the card is regulated according to the Durbin Amendment. If the card is regulated, the card issuer is subject to price caps and interchange rules. This field is supported for Visa, Mastercard, Discover, Diners Club, and JCB on Chase Paymentech Solutions. Possible values:   - &#x60;Y&#x60;: Yes  - &#x60;N&#x60;: No  - &#x60;X&#x60;: Not applicable / Unknown  | [optional] 
 **AccountHolderType** | **string** | This is the account owner information, valid values are: - &#x60;01&#x60; : primary account holder - &#x60;02&#x60; : secondary account holder This is returned in the response of an account verification transaction by the Issuer.   | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

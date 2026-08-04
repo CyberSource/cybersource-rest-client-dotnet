@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// The expirationMonth, expirationYear and securityCode is sent to the issuer as part of network token enrollment and is not stored under the Instrument Identifier. 
     /// </summary>
     [DataContract]
-    public partial class TmsEmbeddedInstrumentIdentifierCard :  IEquatable<TmsEmbeddedInstrumentIdentifierCard>, IValidatableObject
+    public partial class TmsEmbeddedInstrumentIdentifierCard :  ModelExtensions, IEquatable<TmsEmbeddedInstrumentIdentifierCard>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TmsEmbeddedInstrumentIdentifierCard" /> class.
@@ -89,6 +90,7 @@ namespace CyberSource.Model
             if (ExpirationMonth != null) sb.Append("  ExpirationMonth: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsEmbeddedInstrumentIdentifierCard", "expirationMonth", ExpirationMonth.ToString())).Append("\n");
             if (ExpirationYear != null) sb.Append("  ExpirationYear: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsEmbeddedInstrumentIdentifierCard", "expirationYear", ExpirationYear.ToString())).Append("\n");
             if (SecurityCode != null) sb.Append("  SecurityCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsEmbeddedInstrumentIdentifierCard", "securityCode", SecurityCode.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,7 +101,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TmsEmbeddedInstrumentIdentifierCard", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TmsEmbeddedInstrumentIdentifierCard", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -124,7 +126,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Number == other.Number ||
                     this.Number != null &&
@@ -158,6 +164,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Number != null)
                     hash = hash * 59 + this.Number.GetHashCode();
                 if (this.ExpirationMonth != null)
@@ -166,6 +174,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ExpirationYear.GetHashCode();
                 if (this.SecurityCode != null)
                     hash = hash * 59 + this.SecurityCode.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

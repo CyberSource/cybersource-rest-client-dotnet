@@ -16,5 +16,14 @@ Name | Type | Description | Notes
 **SecurityCodeIndicator** | **string** | Indicates whether a CVN code was sent. Possible values:   - &#x60;0&#x60; (default): CVN service not requested. This default value is used when you do not include      &#x60;securityCode&#x60; field in the request.  - &#x60;1&#x60; (default): CVN service requested and supported. This default value is used when you include      &#x60;securityCode&#x60; field in the request.  - &#x60;2&#x60;: CVN on credit card is illegible.  - &#x60;9&#x60;: CVN was not imprinted on credit card.  #### FDMS Nashville Required for American Express cards; otherwise, optional.  #### TSYS Acquiring Solutions Optional if &#x60;pointOfSaleInformation.entryMode&#x3D;keyed&#x60;; otherwise, not used.  #### All other processors Optional.  | [optional] 
 **AssuranceMethod** | **string** | Confidence level of the tokenization. This value is assigned by the token service provider.  **Note** This field is supported only for **Visa Platform Connect**  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

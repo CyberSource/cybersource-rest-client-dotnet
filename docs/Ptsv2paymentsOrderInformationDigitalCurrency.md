@@ -7,5 +7,14 @@ Name | Type | Description | Notes
 **RampProviderCountry** | **string** | Ramp is a platform where we can buy Digital currency, for example Coinbase. This value identifies the country where the Ramp provider is registered. | [optional] 
 **ConversionAffiliate** | **string** | Affiliate is the platform for the digital currency transactions. The merchant provides the Affiliate country for transaction processing. The combination of affiliate country and ramp country helps to derive the foreign retail indicator. | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

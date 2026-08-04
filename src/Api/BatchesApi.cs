@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -244,10 +246,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse20014</returns>
         public InlineResponse20014 GetBatchReport(string batchId)
         {
-            logger.Debug("CALLING API \"GetBatchReport\" STARTED");
+            logger.LogDebug("CALLING API \"GetBatchReport\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20014> localVarResponse = GetBatchReportWithHttpInfo(batchId);
-            logger.Debug("CALLING API \"GetBatchReport\" ENDED");
+            logger.LogDebug("CALLING API \"GetBatchReport\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -265,7 +267,7 @@ namespace CyberSource.Api
             // verify the required parameter 'batchId' is set
             if (batchId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'batchId' when calling BatchesApi->GetBatchReport");
+                logger.LogError("ApiException : Missing required parameter 'batchId' when calling BatchesApi->GetBatchReport");
                 throw new ApiException(400, "Missing required parameter 'batchId' when calling BatchesApi->GetBatchReport");
             }
 
@@ -297,7 +299,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("batchId", ApiClient.ParameterToString(batchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -321,11 +323,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -345,7 +347,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetBatchReport", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -363,10 +365,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse20014</returns>
         public async Task<InlineResponse20014> GetBatchReportAsync(string batchId)
         {
-            logger.Debug("CALLING API \"GetBatchReportAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetBatchReportAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20014> localVarResponse = await GetBatchReportAsyncWithHttpInfo(batchId);
-            logger.Debug("CALLING API \"GetBatchReportAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetBatchReportAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -385,7 +387,7 @@ namespace CyberSource.Api
             // verify the required parameter 'batchId' is set
             if (batchId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'batchId' when calling BatchesApi->GetBatchReport");
+                logger.LogError("ApiException : Missing required parameter 'batchId' when calling BatchesApi->GetBatchReport");
                 throw new ApiException(400, "Missing required parameter 'batchId' when calling BatchesApi->GetBatchReport");
             }
 
@@ -417,7 +419,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("batchId", ApiClient.ParameterToString(batchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -440,11 +442,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -464,7 +466,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetBatchReport", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -481,10 +483,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse20013</returns>
         public InlineResponse20013 GetBatchStatus(string batchId)
         {
-            logger.Debug("CALLING API \"GetBatchStatus\" STARTED");
+            logger.LogDebug("CALLING API \"GetBatchStatus\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20013> localVarResponse = GetBatchStatusWithHttpInfo(batchId);
-            logger.Debug("CALLING API \"GetBatchStatus\" ENDED");
+            logger.LogDebug("CALLING API \"GetBatchStatus\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -502,7 +504,7 @@ namespace CyberSource.Api
             // verify the required parameter 'batchId' is set
             if (batchId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'batchId' when calling BatchesApi->GetBatchStatus");
+                logger.LogError("ApiException : Missing required parameter 'batchId' when calling BatchesApi->GetBatchStatus");
                 throw new ApiException(400, "Missing required parameter 'batchId' when calling BatchesApi->GetBatchStatus");
             }
 
@@ -534,7 +536,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("batchId", ApiClient.ParameterToString(batchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -558,11 +560,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -582,7 +584,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetBatchStatus", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -600,10 +602,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse20013</returns>
         public async Task<InlineResponse20013> GetBatchStatusAsync(string batchId)
         {
-            logger.Debug("CALLING API \"GetBatchStatusAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetBatchStatusAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20013> localVarResponse = await GetBatchStatusAsyncWithHttpInfo(batchId);
-            logger.Debug("CALLING API \"GetBatchStatusAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetBatchStatusAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -622,7 +624,7 @@ namespace CyberSource.Api
             // verify the required parameter 'batchId' is set
             if (batchId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'batchId' when calling BatchesApi->GetBatchStatus");
+                logger.LogError("ApiException : Missing required parameter 'batchId' when calling BatchesApi->GetBatchStatus");
                 throw new ApiException(400, "Missing required parameter 'batchId' when calling BatchesApi->GetBatchStatus");
             }
 
@@ -654,7 +656,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("batchId", ApiClient.ParameterToString(batchId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -677,11 +679,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -701,7 +703,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetBatchStatus", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -721,10 +723,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse20012</returns>
         public InlineResponse20012 GetBatchesList(long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
         {
-            logger.Debug("CALLING API \"GetBatchesList\" STARTED");
+            logger.LogDebug("CALLING API \"GetBatchesList\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20012> localVarResponse = GetBatchesListWithHttpInfo(offset, limit, fromDate, toDate);
-            logger.Debug("CALLING API \"GetBatchesList\" ENDED");
+            logger.LogDebug("CALLING API \"GetBatchesList\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -772,25 +774,25 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (fromDate != null)
             {
                 localVarQueryParams.Add("fromDate", ApiClient.ParameterToString(fromDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (toDate != null)
             {
                 localVarQueryParams.Add("toDate", ApiClient.ParameterToString(toDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -814,11 +816,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -838,7 +840,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetBatchesList", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -859,10 +861,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse20012</returns>
         public async Task<InlineResponse20012> GetBatchesListAsync(long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
         {
-            logger.Debug("CALLING API \"GetBatchesListAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetBatchesListAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20012> localVarResponse = await GetBatchesListAsyncWithHttpInfo(offset, limit, fromDate, toDate);
-            logger.Debug("CALLING API \"GetBatchesListAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetBatchesListAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -911,25 +913,25 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (fromDate != null)
             {
                 localVarQueryParams.Add("fromDate", ApiClient.ParameterToString(fromDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (toDate != null)
             {
                 localVarQueryParams.Add("toDate", ApiClient.ParameterToString(toDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -952,11 +954,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -976,7 +978,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetBatchesList", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -993,10 +995,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse202</returns>
         public InlineResponse202 PostBatch(Body body)
         {
-            logger.Debug("CALLING API \"PostBatch\" STARTED");
+            logger.LogDebug("CALLING API \"PostBatch\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse202> localVarResponse = PostBatchWithHttpInfo(body);
-            logger.Debug("CALLING API \"PostBatch\" ENDED");
+            logger.LogDebug("CALLING API \"PostBatch\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1014,7 +1016,7 @@ namespace CyberSource.Api
             // verify the required parameter 'body' is set
             if (body == null)
             {
-                logger.Error("ApiException : Missing required parameter 'body' when calling BatchesApi->PostBatch");
+                logger.LogError("ApiException : Missing required parameter 'body' when calling BatchesApi->PostBatch");
                 throw new ApiException(400, "Missing required parameter 'body' when calling BatchesApi->PostBatch");
             }
 
@@ -1059,18 +1061,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostBatch,PostBatchAsync,PostBatchWithHttpInfo,PostBatchAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1085,7 +1087,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostBatch", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1103,10 +1105,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse202</returns>
         public async Task<InlineResponse202> PostBatchAsync(Body body)
         {
-            logger.Debug("CALLING API \"PostBatchAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostBatchAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse202> localVarResponse = await PostBatchAsyncWithHttpInfo(body);
-            logger.Debug("CALLING API \"PostBatchAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PostBatchAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1125,7 +1127,7 @@ namespace CyberSource.Api
             // verify the required parameter 'body' is set
             if (body == null)
             {
-                logger.Error("ApiException : Missing required parameter 'body' when calling BatchesApi->PostBatch");
+                logger.LogError("ApiException : Missing required parameter 'body' when calling BatchesApi->PostBatch");
                 throw new ApiException(400, "Missing required parameter 'body' when calling BatchesApi->PostBatch");
             }
 
@@ -1170,18 +1172,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostBatch,PostBatchAsync,PostBatchWithHttpInfo,PostBatchAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1196,7 +1198,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostBatch", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

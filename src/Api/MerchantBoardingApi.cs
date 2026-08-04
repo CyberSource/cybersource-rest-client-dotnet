@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -50,6 +52,31 @@ namespace CyberSource.Api
         /// <returns>ApiResponse of InlineResponse2005</returns>
         ApiResponse<InlineResponse2005> GetRegistrationWithHttpInfo(string registrationId);
         /// <summary>
+        /// Updates the information on a boarding registration
+        /// </summary>
+        /// <remarks>
+        /// This end point will partially update a boarding registration 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registrationId">Identifies the boarding registration to be updated</param>
+        /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
+        /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 PatchRegistration(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
+
+        /// <summary>
+        /// Updates the information on a boarding registration
+        /// </summary>
+        /// <remarks>
+        /// This end point will partially update a boarding registration 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registrationId">Identifies the boarding registration to be updated</param>
+        /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
+        /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> PatchRegistrationWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
+        /// <summary>
         /// Create a boarding registration
         /// </summary>
         /// <remarks>
@@ -58,8 +85,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>InlineResponse2014</returns>
-        InlineResponse2014 PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>InlineResponse2017</returns>
+        InlineResponse2017 PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
 
         /// <summary>
         /// Create a boarding registration
@@ -70,8 +97,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        ApiResponse<InlineResponse2014> PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>ApiResponse of InlineResponse2017</returns>
+        ApiResponse<InlineResponse2017> PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -96,6 +123,31 @@ namespace CyberSource.Api
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetRegistrationAsyncWithHttpInfo(string registrationId);
         /// <summary>
+        /// Updates the information on a boarding registration
+        /// </summary>
+        /// <remarks>
+        /// This end point will partially update a boarding registration 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registrationId">Identifies the boarding registration to be updated</param>
+        /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
+        /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> PatchRegistrationAsync(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
+
+        /// <summary>
+        /// Updates the information on a boarding registration
+        /// </summary>
+        /// <remarks>
+        /// This end point will partially update a boarding registration 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registrationId">Identifies the boarding registration to be updated</param>
+        /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
+        /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PatchRegistrationAsyncWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
+        /// <summary>
         /// Create a boarding registration
         /// </summary>
         /// <remarks>
@@ -104,8 +156,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of InlineResponse2014</returns>
-        System.Threading.Tasks.Task<InlineResponse2014> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>Task of InlineResponse2017</returns>
+        System.Threading.Tasks.Task<InlineResponse2017> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
 
         /// <summary>
         /// Create a boarding registration
@@ -116,8 +168,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2017>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
         #endregion Asynchronous Operations
     }
 
@@ -152,10 +204,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse2005</returns>
         public InlineResponse2005 GetRegistration(string registrationId)
         {
-            logger.Debug("CALLING API \"GetRegistration\" STARTED");
+            logger.LogDebug("CALLING API \"GetRegistration\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2005> localVarResponse = GetRegistrationWithHttpInfo(registrationId);
-            logger.Debug("CALLING API \"GetRegistration\" ENDED");
+            logger.LogDebug("CALLING API \"GetRegistration\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -173,7 +225,7 @@ namespace CyberSource.Api
             // verify the required parameter 'registrationId' is set
             if (registrationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'registrationId' when calling MerchantBoardingApi->GetRegistration");
+                logger.LogError("ApiException : Missing required parameter 'registrationId' when calling MerchantBoardingApi->GetRegistration");
                 throw new ApiException(400, "Missing required parameter 'registrationId' when calling MerchantBoardingApi->GetRegistration");
             }
 
@@ -205,7 +257,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("registrationId", ApiClient.ParameterToString(registrationId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -229,11 +281,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -253,7 +305,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetRegistration", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -271,10 +323,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse2005</returns>
         public async Task<InlineResponse2005> GetRegistrationAsync(string registrationId)
         {
-            logger.Debug("CALLING API \"GetRegistrationAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetRegistrationAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2005> localVarResponse = await GetRegistrationAsyncWithHttpInfo(registrationId);
-            logger.Debug("CALLING API \"GetRegistrationAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetRegistrationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -293,7 +345,7 @@ namespace CyberSource.Api
             // verify the required parameter 'registrationId' is set
             if (registrationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'registrationId' when calling MerchantBoardingApi->GetRegistration");
+                logger.LogError("ApiException : Missing required parameter 'registrationId' when calling MerchantBoardingApi->GetRegistration");
                 throw new ApiException(400, "Missing required parameter 'registrationId' when calling MerchantBoardingApi->GetRegistration");
             }
 
@@ -325,7 +377,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("registrationId", ApiClient.ParameterToString(registrationId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -348,11 +400,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -372,7 +424,269 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetRegistration", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InlineResponse2005) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+        }
+        /// <summary>
+        /// Updates the information on a boarding registration This end point will partially update a boarding registration 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registrationId">Identifies the boarding registration to be updated</param>
+        /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
+        /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 PatchRegistration(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
+        {
+            logger.LogDebug("CALLING API \"PatchRegistration\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse2005> localVarResponse = PatchRegistrationWithHttpInfo(registrationId, patchRegistrationBody, vCIdempotencyId);
+            logger.LogDebug("CALLING API \"PatchRegistration\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Updates the information on a boarding registration This end point will partially update a boarding registration 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registrationId">Identifies the boarding registration to be updated</param>
+        /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
+        /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse< InlineResponse2005 > PatchRegistrationWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'registrationId' is set
+            if (registrationId == null)
+            {
+                logger.LogError("ApiException : Missing required parameter 'registrationId' when calling MerchantBoardingApi->PatchRegistration");
+                throw new ApiException(400, "Missing required parameter 'registrationId' when calling MerchantBoardingApi->PatchRegistration");
+            }
+            // verify the required parameter 'patchRegistrationBody' is set
+            if (patchRegistrationBody == null)
+            {
+                logger.LogError("ApiException : Missing required parameter 'patchRegistrationBody' when calling MerchantBoardingApi->PatchRegistration");
+                throw new ApiException(400, "Missing required parameter 'patchRegistrationBody' when calling MerchantBoardingApi->PatchRegistration");
+            }
+
+            var localVarPath = $"/boarding/v1/registrations/{registrationId}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json"
+            };
+            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json"
+            };
+            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (registrationId != null)
+            {
+                localVarPathParams.Add("registrationId", ApiClient.ParameterToString(registrationId)); // path parameter
+            }
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
+
+            if (vCIdempotencyId != null)
+            {
+                localVarHeaderParams.Add("v-c-idempotency-id", ApiClient.ParameterToString(vCIdempotencyId)); // header parameter
+            }
+
+            if (patchRegistrationBody != null && patchRegistrationBody.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                patchRegistrationBody = (PatchRegistrationBody)sdkTracker.InsertDeveloperIdTracker(patchRegistrationBody, patchRegistrationBody.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(patchRegistrationBody); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = patchRegistrationBody; // byte array
+            }
+
+
+            string inboundMLEStatus = "optional";
+            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "PatchRegistration,PatchRegistrationAsync,PatchRegistrationWithHttpInfo,PatchRegistrationAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                }
+                catch (Exception e)
+                {
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
+                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PatchRegistration,PatchRegistrationAsync,PatchRegistrationWithHttpInfo,PatchRegistrationAsyncWithHttpInfo");
+
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
+                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PatchRegistration", localVarResponse);
+                if (exception != null)
+                {
+                    logger.LogError("Exception : {Message}", exception.Message);
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                (InlineResponse2005) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+        }
+
+        /// <summary>
+        /// Updates the information on a boarding registration This end point will partially update a boarding registration 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registrationId">Identifies the boarding registration to be updated</param>
+        /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
+        /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
+        /// <returns>Task of InlineResponse2005</returns>
+        public async Task<InlineResponse2005> PatchRegistrationAsync(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
+        {
+            logger.LogDebug("CALLING API \"PatchRegistrationAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<InlineResponse2005> localVarResponse = await PatchRegistrationAsyncWithHttpInfo(registrationId, patchRegistrationBody, vCIdempotencyId);
+            logger.LogDebug("CALLING API \"PatchRegistrationAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Updates the information on a boarding registration This end point will partially update a boarding registration 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registrationId">Identifies the boarding registration to be updated</param>
+        /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
+        /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        public async Task<ApiResponse<InlineResponse2005>> PatchRegistrationAsyncWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'registrationId' is set
+            if (registrationId == null)
+            {
+                logger.LogError("ApiException : Missing required parameter 'registrationId' when calling MerchantBoardingApi->PatchRegistration");
+                throw new ApiException(400, "Missing required parameter 'registrationId' when calling MerchantBoardingApi->PatchRegistration");
+            }
+            // verify the required parameter 'patchRegistrationBody' is set
+            if (patchRegistrationBody == null)
+            {
+                logger.LogError("ApiException : Missing required parameter 'patchRegistrationBody' when calling MerchantBoardingApi->PatchRegistration");
+                throw new ApiException(400, "Missing required parameter 'patchRegistrationBody' when calling MerchantBoardingApi->PatchRegistration");
+            }
+
+            var localVarPath = $"/boarding/v1/registrations/{registrationId}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json"
+            };
+            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json"
+            };
+            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (registrationId != null)
+            {
+                localVarPathParams.Add("registrationId", ApiClient.ParameterToString(registrationId)); // path parameter
+            }
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
+
+            if (vCIdempotencyId != null)
+            {
+                localVarHeaderParams.Add("v-c-idempotency-id", ApiClient.ParameterToString(vCIdempotencyId)); // header parameter
+            }
+
+            if (patchRegistrationBody != null && patchRegistrationBody.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                patchRegistrationBody = (PatchRegistrationBody)sdkTracker.InsertDeveloperIdTracker(patchRegistrationBody, patchRegistrationBody.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(patchRegistrationBody); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = patchRegistrationBody; // byte array
+            }
+
+
+            string inboundMLEStatus = "optional";
+            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "PatchRegistration,PatchRegistrationAsync,PatchRegistrationWithHttpInfo,PatchRegistrationAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                }
+                catch (Exception e)
+                {
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
+                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PatchRegistration,PatchRegistrationAsync,PatchRegistrationWithHttpInfo,PatchRegistrationAsyncWithHttpInfo");
+
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
+
+
+            // make the HTTP request
+            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
+                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PatchRegistration", localVarResponse);
+                if (exception != null)
+                {
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -387,13 +701,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>InlineResponse2014</returns>
-        public InlineResponse2014 PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>InlineResponse2017</returns>
+        public InlineResponse2017 PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
-            logger.Debug("CALLING API \"PostRegistration\" STARTED");
+            logger.LogDebug("CALLING API \"PostRegistration\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2014> localVarResponse = PostRegistrationWithHttpInfo(postRegistrationBody, vCIdempotencyId);
-            logger.Debug("CALLING API \"PostRegistration\" ENDED");
+            ApiResponse<InlineResponse2017> localVarResponse = PostRegistrationWithHttpInfo(postRegistrationBody, vCIdempotencyId);
+            logger.LogDebug("CALLING API \"PostRegistration\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -404,15 +718,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        public ApiResponse< InlineResponse2014 > PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>ApiResponse of InlineResponse2017</returns>
+        public ApiResponse< InlineResponse2017 > PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'postRegistrationBody' is set
             if (postRegistrationBody == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postRegistrationBody' when calling MerchantBoardingApi->PostRegistration");
+                logger.LogError("ApiException : Missing required parameter 'postRegistrationBody' when calling MerchantBoardingApi->PostRegistration");
                 throw new ApiException(400, "Missing required parameter 'postRegistrationBody' when calling MerchantBoardingApi->PostRegistration");
             }
 
@@ -457,23 +771,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "mandatory";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "PostRegistration,PostRegistrationAsync,PostRegistrationWithHttpInfo,PostRegistrationAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostRegistration,PostRegistrationAsync,PostRegistrationWithHttpInfo,PostRegistrationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -488,14 +802,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostRegistration", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2014) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
+                (InlineResponse2017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017))); // Return statement
         }
 
         /// <summary>
@@ -504,13 +818,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of InlineResponse2014</returns>
-        public async Task<InlineResponse2014> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>Task of InlineResponse2017</returns>
+        public async Task<InlineResponse2017> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
-            logger.Debug("CALLING API \"PostRegistrationAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostRegistrationAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2014> localVarResponse = await PostRegistrationAsyncWithHttpInfo(postRegistrationBody, vCIdempotencyId);
-            logger.Debug("CALLING API \"PostRegistrationAsync\" ENDED");
+            ApiResponse<InlineResponse2017> localVarResponse = await PostRegistrationAsyncWithHttpInfo(postRegistrationBody, vCIdempotencyId);
+            logger.LogDebug("CALLING API \"PostRegistrationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -522,15 +836,15 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        public async Task<ApiResponse<InlineResponse2014>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
+        public async Task<ApiResponse<InlineResponse2017>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'postRegistrationBody' is set
             if (postRegistrationBody == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postRegistrationBody' when calling MerchantBoardingApi->PostRegistration");
+                logger.LogError("ApiException : Missing required parameter 'postRegistrationBody' when calling MerchantBoardingApi->PostRegistration");
                 throw new ApiException(400, "Missing required parameter 'postRegistrationBody' when calling MerchantBoardingApi->PostRegistration");
             }
 
@@ -575,23 +889,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "mandatory";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "PostRegistration,PostRegistrationAsync,PostRegistrationWithHttpInfo,PostRegistrationAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostRegistration,PostRegistrationAsync,PostRegistrationWithHttpInfo,PostRegistrationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -606,14 +920,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostRegistration", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2014) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
+                (InlineResponse2017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017))); // Return statement
         }
     }
 }

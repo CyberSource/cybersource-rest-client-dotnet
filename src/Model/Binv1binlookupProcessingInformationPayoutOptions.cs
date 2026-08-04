@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Payout fields request parameters 
     /// </summary>
     [DataContract]
-    public partial class Binv1binlookupProcessingInformationPayoutOptions :  IEquatable<Binv1binlookupProcessingInformationPayoutOptions>, IValidatableObject
+    public partial class Binv1binlookupProcessingInformationPayoutOptions :  ModelExtensions, IEquatable<Binv1binlookupProcessingInformationPayoutOptions>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Binv1binlookupProcessingInformationPayoutOptions" /> class.
@@ -78,6 +79,7 @@ namespace CyberSource.Model
             if (PayoutInquiry != null) sb.Append("  PayoutInquiry: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Binv1binlookupProcessingInformationPayoutOptions", "payoutInquiry", PayoutInquiry.ToString())).Append("\n");
             if (NetworkId != null) sb.Append("  NetworkId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Binv1binlookupProcessingInformationPayoutOptions", "networkId", NetworkId.ToString())).Append("\n");
             if (AcquirerBin != null) sb.Append("  AcquirerBin: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Binv1binlookupProcessingInformationPayoutOptions", "acquirerBin", AcquirerBin.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,7 +90,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Binv1binlookupProcessingInformationPayoutOptions", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Binv1binlookupProcessingInformationPayoutOptions", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -113,7 +115,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.PayoutInquiry == other.PayoutInquiry ||
                     this.PayoutInquiry != null &&
@@ -142,12 +148,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.PayoutInquiry != null)
                     hash = hash * 59 + this.PayoutInquiry.GetHashCode();
                 if (this.NetworkId != null)
                     hash = hash * 59 + this.NetworkId.GetHashCode();
                 if (this.AcquirerBin != null)
                     hash = hash * 59 + this.AcquirerBin.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

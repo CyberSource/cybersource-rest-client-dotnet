@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -116,7 +118,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void DownloadReport(DateTime? reportDate, string reportName, string organizationId = null)
         {
-            logger.Debug("CALLING API \"DownloadReport\" STARTED");
+            logger.LogDebug("CALLING API \"DownloadReport\" STARTED");
             this.SetStatusCode(null);
             DownloadReportWithHttpInfo(reportDate, reportName, organizationId);
         }
@@ -136,13 +138,13 @@ namespace CyberSource.Api
             // verify the required parameter 'reportDate' is set
             if (reportDate == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportDate' when calling ReportDownloadsApi->DownloadReport");
+                logger.LogError("ApiException : Missing required parameter 'reportDate' when calling ReportDownloadsApi->DownloadReport");
                 throw new ApiException(400, "Missing required parameter 'reportDate' when calling ReportDownloadsApi->DownloadReport");
             }
             // verify the required parameter 'reportName' is set
             if (reportName == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
+                logger.LogError("ApiException : Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
             }
 
@@ -175,19 +177,19 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportDate != null)
             {
                 localVarQueryParams.Add("reportDate", ApiClient.ParameterToString(reportDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportName != null)
             {
                 localVarQueryParams.Add("reportName", ApiClient.ParameterToString(reportName)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -211,11 +213,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -235,7 +237,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DownloadReport", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -256,7 +258,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task DownloadReportAsync(DateTime? reportDate, string reportName, string organizationId = null)
         {
-            logger.Debug("CALLING API \"DownloadReportAsync\" STARTED");
+            logger.LogDebug("CALLING API \"DownloadReportAsync\" STARTED");
             this.SetStatusCode(null);
             await DownloadReportAsyncWithHttpInfo(reportDate, reportName, organizationId);
 
@@ -277,13 +279,13 @@ namespace CyberSource.Api
             // verify the required parameter 'reportDate' is set
             if (reportDate == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportDate' when calling ReportDownloadsApi->DownloadReport");
+                logger.LogError("ApiException : Missing required parameter 'reportDate' when calling ReportDownloadsApi->DownloadReport");
                 throw new ApiException(400, "Missing required parameter 'reportDate' when calling ReportDownloadsApi->DownloadReport");
             }
             // verify the required parameter 'reportName' is set
             if (reportName == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
+                logger.LogError("ApiException : Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportDownloadsApi->DownloadReport");
             }
 
@@ -316,19 +318,19 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportDate != null)
             {
                 localVarQueryParams.Add("reportDate", ApiClient.ParameterToString(reportDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportName != null)
             {
                 localVarQueryParams.Add("reportName", ApiClient.ParameterToString(reportName)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -351,11 +353,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -375,7 +377,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DownloadReport", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

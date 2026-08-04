@@ -18,6 +18,8 @@ using CyberSource.Client;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -189,10 +191,10 @@ namespace CyberSource.Api
         /// <returns>string</returns>
         public string GetPaymentCredentialsForTransientToken(string paymentCredentialsReference)
         {
-            logger.Debug("CALLING API \"GetPaymentCredentialsForTransientToken\" STARTED");
+            logger.LogDebug("CALLING API \"GetPaymentCredentialsForTransientToken\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<string> localVarResponse = GetPaymentCredentialsForTransientTokenWithHttpInfo(paymentCredentialsReference);
-            logger.Debug("CALLING API \"GetPaymentCredentialsForTransientToken\" ENDED");
+            logger.LogDebug("CALLING API \"GetPaymentCredentialsForTransientToken\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -210,7 +212,7 @@ namespace CyberSource.Api
             // verify the required parameter 'paymentCredentialsReference' is set
             if (paymentCredentialsReference == null)
             {
-                logger.Error("ApiException : Missing required parameter 'paymentCredentialsReference' when calling TransientTokenDataV2Api->GetPaymentCredentialsForTransientToken");
+                logger.LogError("ApiException : Missing required parameter 'paymentCredentialsReference' when calling TransientTokenDataV2Api->GetPaymentCredentialsForTransientToken");
                 throw new ApiException(400, "Missing required parameter 'paymentCredentialsReference' when calling TransientTokenDataV2Api->GetPaymentCredentialsForTransientToken");
             }
 
@@ -242,7 +244,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("paymentCredentialsReference", ApiClient.ParameterToString(paymentCredentialsReference)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -266,11 +268,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -290,7 +292,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetPaymentCredentialsForTransientToken", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -308,10 +310,10 @@ namespace CyberSource.Api
         /// <returns>Task of string</returns>
         public async Task<string> GetPaymentCredentialsForTransientTokenAsync(string paymentCredentialsReference)
         {
-            logger.Debug("CALLING API \"GetPaymentCredentialsForTransientTokenAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetPaymentCredentialsForTransientTokenAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<string> localVarResponse = await GetPaymentCredentialsForTransientTokenAsyncWithHttpInfo(paymentCredentialsReference);
-            logger.Debug("CALLING API \"GetPaymentCredentialsForTransientTokenAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetPaymentCredentialsForTransientTokenAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -330,7 +332,7 @@ namespace CyberSource.Api
             // verify the required parameter 'paymentCredentialsReference' is set
             if (paymentCredentialsReference == null)
             {
-                logger.Error("ApiException : Missing required parameter 'paymentCredentialsReference' when calling TransientTokenDataV2Api->GetPaymentCredentialsForTransientToken");
+                logger.LogError("ApiException : Missing required parameter 'paymentCredentialsReference' when calling TransientTokenDataV2Api->GetPaymentCredentialsForTransientToken");
                 throw new ApiException(400, "Missing required parameter 'paymentCredentialsReference' when calling TransientTokenDataV2Api->GetPaymentCredentialsForTransientToken");
             }
 
@@ -362,7 +364,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("paymentCredentialsReference", ApiClient.ParameterToString(paymentCredentialsReference)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -385,11 +387,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -409,7 +411,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetPaymentCredentialsForTransientToken", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -426,7 +428,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void GetTransactionForTransientToken(string transientToken)
         {
-            logger.Debug("CALLING API \"GetTransactionForTransientToken\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionForTransientToken\" STARTED");
             this.SetStatusCode(null);
             GetTransactionForTransientTokenWithHttpInfo(transientToken);
         }
@@ -444,7 +446,7 @@ namespace CyberSource.Api
             // verify the required parameter 'transientToken' is set
             if (transientToken == null)
             {
-                logger.Error("ApiException : Missing required parameter 'transientToken' when calling TransientTokenDataV2Api->GetTransactionForTransientToken");
+                logger.LogError("ApiException : Missing required parameter 'transientToken' when calling TransientTokenDataV2Api->GetTransactionForTransientToken");
                 throw new ApiException(400, "Missing required parameter 'transientToken' when calling TransientTokenDataV2Api->GetTransactionForTransientToken");
             }
 
@@ -476,7 +478,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("transientToken", ApiClient.ParameterToString(transientToken)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -500,11 +502,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -524,7 +526,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransactionForTransientToken", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -543,7 +545,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task GetTransactionForTransientTokenAsync(string transientToken)
         {
-            logger.Debug("CALLING API \"GetTransactionForTransientTokenAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionForTransientTokenAsync\" STARTED");
             this.SetStatusCode(null);
             await GetTransactionForTransientTokenAsyncWithHttpInfo(transientToken);
 
@@ -562,7 +564,7 @@ namespace CyberSource.Api
             // verify the required parameter 'transientToken' is set
             if (transientToken == null)
             {
-                logger.Error("ApiException : Missing required parameter 'transientToken' when calling TransientTokenDataV2Api->GetTransactionForTransientToken");
+                logger.LogError("ApiException : Missing required parameter 'transientToken' when calling TransientTokenDataV2Api->GetTransactionForTransientToken");
                 throw new ApiException(400, "Missing required parameter 'transientToken' when calling TransientTokenDataV2Api->GetTransactionForTransientToken");
             }
 
@@ -594,7 +596,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("transientToken", ApiClient.ParameterToString(transientToken)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -617,11 +619,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -641,7 +643,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransactionForTransientToken", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -659,7 +661,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void GetTransactionForTransientTokenJTI(string jti)
         {
-            logger.Debug("CALLING API \"GetTransactionForTransientTokenJTI\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionForTransientTokenJTI\" STARTED");
             this.SetStatusCode(null);
             GetTransactionForTransientTokenJTIWithHttpInfo(jti);
         }
@@ -677,7 +679,7 @@ namespace CyberSource.Api
             // verify the required parameter 'jti' is set
             if (jti == null)
             {
-                logger.Error("ApiException : Missing required parameter 'jti' when calling TransientTokenDataV2Api->GetTransactionForTransientTokenJTI");
+                logger.LogError("ApiException : Missing required parameter 'jti' when calling TransientTokenDataV2Api->GetTransactionForTransientTokenJTI");
                 throw new ApiException(400, "Missing required parameter 'jti' when calling TransientTokenDataV2Api->GetTransactionForTransientTokenJTI");
             }
 
@@ -709,7 +711,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("jti", ApiClient.ParameterToString(jti)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -733,11 +735,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -757,7 +759,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransactionForTransientTokenJTI", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -776,7 +778,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task GetTransactionForTransientTokenJTIAsync(string jti)
         {
-            logger.Debug("CALLING API \"GetTransactionForTransientTokenJTIAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetTransactionForTransientTokenJTIAsync\" STARTED");
             this.SetStatusCode(null);
             await GetTransactionForTransientTokenJTIAsyncWithHttpInfo(jti);
 
@@ -795,7 +797,7 @@ namespace CyberSource.Api
             // verify the required parameter 'jti' is set
             if (jti == null)
             {
-                logger.Error("ApiException : Missing required parameter 'jti' when calling TransientTokenDataV2Api->GetTransactionForTransientTokenJTI");
+                logger.LogError("ApiException : Missing required parameter 'jti' when calling TransientTokenDataV2Api->GetTransactionForTransientTokenJTI");
                 throw new ApiException(400, "Missing required parameter 'jti' when calling TransientTokenDataV2Api->GetTransactionForTransientTokenJTI");
             }
 
@@ -827,7 +829,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("jti", ApiClient.ParameterToString(jti)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -850,11 +852,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -874,7 +876,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTransactionForTransientTokenJTI", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

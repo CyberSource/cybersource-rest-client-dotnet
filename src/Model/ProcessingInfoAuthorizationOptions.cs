@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// ProcessingInfoAuthorizationOptions
     /// </summary>
     [DataContract]
-    public partial class ProcessingInfoAuthorizationOptions :  IEquatable<ProcessingInfoAuthorizationOptions>, IValidatableObject
+    public partial class ProcessingInfoAuthorizationOptions :  ModelExtensions, IEquatable<ProcessingInfoAuthorizationOptions>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessingInfoAuthorizationOptions" /> class.
@@ -43,6 +44,7 @@ namespace CyberSource.Model
         /// <param name="BalanceInquiry">Flag that indicates whether to return balance information.  Possible values: - &#x60;true&#x60;: Return balance information. - &#x60;false&#x60;: Do not return balance information.  #### Used by **Authorization** Required for a balance inquiry; otherwise, not used.  #### PIN debit Required for a balance inquiry request of a PIN debit purchase; otherwise, not used. .</param>
         /// <param name="IgnoreAvsResult">Flag for a sale request that indicates whether to allow the capture service to run even when the authorization receives an AVS decline, as indicated by a reply flag value of DAVSNO.  Possible values: - &#x60;true&#x60;: Ignore the results of AVS checking and run the capture service. - &#x60;false&#x60; (default): If the authorization receives an AVS decline, do not run the capture service. When the value of this field is &#x60;true&#x60;, the list in the &#x60;processingInformation.authorizationOptions.declineAvsFlags&#x60; field is ignored.  #### Used by **Authorization** Optional field. String (3)  (default to false).</param>
         /// <param name="DeclineAvsFlags">Comma-separated list of AVS flags that cause the reply flag &#x60;DAVSNO&#x60; to be returned.  **Important** To receive declines for the AVS code &#x60;N&#x60;, you must include the value &#x60;N&#x60; in the comma-separated list.    ### AVS Codes for Cielo 3.0 and CyberSource Latin American Processing    **Note** CyberSource Latin American Processing is the name of a specific processing connection that CyberSource supports.   In the CyberSource API documentation, CyberSource Latin American Processing does not refer to the general topic of processing in Latin America.   The information in this section is for the specific processing connection called CyberSource Latin American Processing.   It is not for any other Latin American processors that CyberSource supports.  |AVS Code|Description| |- -- |- -- | |D|Partial match: postal code and address match.| |E|Not supported: AVS is not supported for this card type. _or_ Invalid: the acquirer returned an unrecognized value for the AVS response.| |F|Partial match: postal code matches, but CPF and address do not match.*| |G|Not supported: AVS not supported or not verified.| |I|No match: AVS information is not available.| |K|Partial match: CPF matches, but postal code and address do not match.*| |L|Partial match: postal code and CPF match, but address does not match.*| |N|No match: postal code, CPF, and address do not match.*| |O|Partial match: CPF and address match, but postal code does not match.*| |R|Not supported: your implementation does not support AVS _or_ System unavailable.| |T|Partial match: address matches, but postal code and CPF do not match.*| |V|Match: postal code, CPF, and address match.*| |* CPF (Cadastro de Pessoas Fisicas) is required only for Redecard in Brazil.||  ### AVS Codes for All Other Processors  **Note** The list of AVS codes for all other processors follows these descriptions of the processor-specific information for these codes.  #### American Express Cards For American Express cards only, you can receive Visa and CyberSource AVS codes in addition to the American Express AVS codes.  **Note** For CyberSource through VisaNet, the American Express AVS codes are converted to Visa AVS codes before they are returned to you. As a result, you will not receive American Express AVS codes for the American Express card type.&lt;br/&gt;&lt;br/&gt;  _American Express Card codes_: &#x60;F&#x60;, &#x60;H&#x60;, &#x60;K&#x60;, &#x60;L&#x60;, &#x60;O&#x60;, &#x60;T&#x60;, &#x60;V&#x60;  #### Domestic and International Visa Cards The international and domestic alphabetic AVS codes are the Visa standard AVS codes. CyberSource maps the standard AVS return codes for other types of payment cards, including American Express cards, to the Visa standard AVS codes.  AVS is considered either domestic or international, depending on the location of the bank that issued the customer&#39;s payment card: - When the bank is in the U.S., the AVS is domestic. - When the bank is outside the U.S., the AVS is international.  You should be prepared to handle both domestic and international AVS result codes: - For international cards, you can receive domestic AVS codes in addition to the international AVS codes. - For domestic cards, you can receive international AVS codes in addition to the domestic AVS codes.  _International Visa Codes_: &#x60;B&#x60;, &#x60;C&#x60;, &#x60;D&#x60;, &#x60;G&#x60;, &#x60;I&#x60;, &#x60;M&#x60;, &#x60;P&#x60;  _Domestic Visa Codes_: &#x60;A&#x60;, &#x60;E&#x60;,&#x60;N&#x60;, &#x60;R&#x60;, &#x60;S&#x60;, &#x60;U&#x60;, &#x60;W&#x60;, &#x60;X&#x60;, &#x60;Y&#x60;, &#x60;Z&#x60;  #### CyberSource Codes The numeric AVS codes are created by CyberSource and are not standard Visa codes. These AVS codes can be returned for any card type.  _CyberSource Codes_: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;  ### Table of AVS Codes for All Other Processors  |AVS Code|Description| |- -- |- -- | |A|Partial match: street address matches, but 5-digit and 9-digit postal codes do not match.| |B|Partial match: street address matches, but postal code is not verified. Returned only for Visa cards not issued in the U.S.| |C|No match: street address and postal code do not match. Returned only for Visa cards not issued in the U.S.| |D &amp; M|Match: street address and postal code match. Returned only for Visa cards not issued in the U.S.| |E|Invalid: AVS data is invalid or AVS is not allowed for this card type.| |F|Partial match: card member&#39;s name does not match, but billing postal code matches.| |G|Not supported: issuing bank outside the U.S. does not support AVS.| |H|Partial match: card member&#39;s name does not match, but street address and postal code match. Returned only for the American Express card type.| |I|No match: address not verified. Returned only for Visa cards not issued in the U.S.| |K|Partial match: card member&#39;s name matches, but billing address and billing postal code do not match. Returned only for the American Express card type.| |L|Partial match: card member&#39;s name and billing postal code match, but billing address does not match. Returned only for the American Express card type.| |M|See the entry for D &amp; M.| |N|No match: one of the following: street address and postal code do not match _or_ (American Express card type only) card member&#39;s name, street address, and postal code do not match.| |O|Partial match: card member&#39;s name and billing address match, but billing postal code does not match. Returned only for the American Express card type.| |P|Partial match: postal code matches, but street address not verified. Returned only for Visa cards not issued in the U.S.| |R|System unavailable.| |S|Not supported: issuing bank in the U.S. does not support AVS.| |T|Partial match: card member&#39;s name does not match, but street address matches. Returned only for the American Express card type.| |U|System unavailable: address information unavailable for one of these reasons: The U.S. bank does not support AVS outside the U.S. _or_ The AVS in a U.S. bank is not functioning properly.| |V|Match: card member&#39;s name, billing address, and billing postal code match. Returned only for the American Express card type.| |W|Partial match: street address does not match, but 9-digit postal code matches.| |X|Match: street address and 9-digit postal code match.| |Y|Match: street address and 5-digit postal code match.| |Z|Partial match: street address does not match, but 5-digit postal code matches.| |1|Not supported: one of the following: AVS is not supported for this processor or card type _or_ AVS is disabled for your CyberSource account. To enable AVS, contact CyberSource Customer Support.| |2|Unrecognized: the processor returned an unrecognized value for the AVS response.| |3|Match: address is confirmed. Returned only for PayPal Express Checkout.| |4|No match: address is not confirmed. Returned only for PayPal Express Checkout.| |5|No match: no AVS code was returned by the processor.| .</param>
+        /// <param name="DeclineAniFlags">User-defined list of ANI (Address Name Inquiry) codes that will cause the system to decline a transaction.  Address Name Inquiry is a Verification suite product which checks whether the name shared in the  transaction matches with the one stored at the issuing bank. This field replicates the same behavior  as AVS (which uses DAVSNO flag), but for ANI verification using the DANINO flag.  **Important**:  - By default, no ANI codes cause declines (empty/null) - Merchant specifies which ANI codes should trigger declines - When triggered, returns reason code 217 with reply flag &#x60;DANINO&#x60; - Use space to separate values in the list - To receive declines for the ANI code N, include the value N in the list  ### ANI Result Codes  |ANI Code|Description| |- -- |- -- | |Y|Match: Full name match with issuing bank records| |O|Partial match: Partial name match with issuing bank records| |N|No match: Name does not match issuing bank records| |U|Unverified: ANI verification not performed or not supported| |R|Retry: System should retry the ANI check|  ### Reply Flag When Triggered  When a transaction&#39;s ANI result matches one of the codes in this list, the system returns: - **Reason Code**: 217 - **Reply Flag**: &#x60;DANINO&#x60; - **Description**: Decline. The authorization request was approved by the issuing bank but was    flagged because it did not pass the Address Name Inquiry (ANI) check. - **Possible Action**: Review the order for the possibility of fraud.  #### Used by **Authorization** Optional field for controlling ANI-based declines.  #### API Ticket ACCAPI-2138 .</param>
         /// <param name="IgnoreCvResult">Flag for a sale request that indicates whether to allow the capture service to run even when the authorization receives a CVN decline, as indicated by an &#x60;processorInformation.cardVerification.resultCode&#x60; value of &#x60;D&#x60; or &#x60;N&#x60;. Possible values: - &#x60;true&#x60;: Ignore the results of CVN checking and run the capture service. - &#x60;false&#x60; (default): If the authorization receives a CVN decline, do not run the capture service.  #### Used by **Authorization** Optional field.  (default to false).</param>
         /// <param name="Initiator">Initiator.</param>
         /// <param name="BillPayment">Indicates payment for bill or payment towards existing contractual loan.  Possible values: - &#x60;true&#x60;: Bill payment or loan payment. - &#x60;false&#x60; (default): Not a bill payment or loan payment.  Optional request field. .</param>
@@ -60,7 +62,7 @@ namespace CyberSource.Model
         /// <param name="ServiceType">Field is used for back-to-back funding transaction and can be defined as a payment flow that automatically transfers funds through a real-time  funding or a live-load. This type of transaction can also be connected to a purchase.  In back-to-back funding of general purpose card that is used to make a purchase, two separate accounts are involved:  - account one is used to make the purchase - account two is used to automatically fund or reimburse account one  Possible values: - 0B &#x3D; back to back funding transaction - 00 &#x3D; normal transaction - 01 &#x3D; originator hold - 02 &#x3D; Visa deferred OCT hold, default interval - 03 &#x3D; Visa deferred OCT hold, user-defined interval - 09 &#x3D; Cancel pending deferred OCT request - 0I &#x3D; Visa Direct custom program 1 - 0Q &#x3D; uery the status of the deferred OCT - A0 &#x3D; Alias Directory 2 .</param>
         /// <param name="BalanceUpdate">Merchant to inform Cybersource whether a transaction is Money load with Balance Update.  Possible values:   - &#x60;true&#x60; (This is a Money load with balance update transaction)   - &#x60;false&#x60; (default value) (This is not a Money load with balance update transaction) .</param>
         /// <param name="MoneyLoad">Merchant to inform Cybersource whether a transaction is Money load with Money load only.  Possible values:   - &#x60;true&#x60; (This is a money load transaction)   - &#x60;false&#x60; (default value) (This is not a money load transaction) .</param>
-        public ProcessingInfoAuthorizationOptions(string AuthType = default(string), string PanReturnIndicator = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), string ExtendAuthIndicator = default(string), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), bool? IgnoreCvResult = false, ProcessingInfoAuthorizationOptionsInitiator Initiator = default(ProcessingInfoAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?), string TransportationMode = default(string), string AggregatedAuthIndicator = default(string), string DebtRecoveryIndicator = default(string), bool? DeferredAuthIndicator = default(bool?), bool? CashAdvanceIndicator = default(bool?), bool? SplitPaymentTransaction = default(bool?), bool? CardVerificationIndicator = default(bool?), string TransactionMode = default(string), bool? AftIndicator = default(bool?), string ServiceType = default(string), bool? BalanceUpdate = default(bool?), bool? MoneyLoad = default(bool?))
+        public ProcessingInfoAuthorizationOptions(string AuthType = default(string), string PanReturnIndicator = default(string), string VerbalAuthCode = default(string), string VerbalAuthTransactionId = default(string), string AuthIndicator = default(string), bool? PartialAuthIndicator = default(bool?), string ExtendAuthIndicator = default(string), bool? BalanceInquiry = default(bool?), bool? IgnoreAvsResult = false, List<string> DeclineAvsFlags = default(List<string>), List<string> DeclineAniFlags = default(List<string>), bool? IgnoreCvResult = false, ProcessingInfoAuthorizationOptionsInitiator Initiator = default(ProcessingInfoAuthorizationOptionsInitiator), bool? BillPayment = default(bool?), string BillPaymentType = default(string), bool? RedemptionInquiry = default(bool?), string TransportationMode = default(string), string AggregatedAuthIndicator = default(string), string DebtRecoveryIndicator = default(string), bool? DeferredAuthIndicator = default(bool?), bool? CashAdvanceIndicator = default(bool?), bool? SplitPaymentTransaction = default(bool?), bool? CardVerificationIndicator = default(bool?), string TransactionMode = default(string), bool? AftIndicator = default(bool?), string ServiceType = default(string), bool? BalanceUpdate = default(bool?), bool? MoneyLoad = default(bool?))
         {
             this.AuthType = AuthType;
             this.PanReturnIndicator = PanReturnIndicator;
@@ -80,6 +82,7 @@ namespace CyberSource.Model
                 this.IgnoreAvsResult = IgnoreAvsResult;
             }
             this.DeclineAvsFlags = DeclineAvsFlags;
+            this.DeclineAniFlags = DeclineAniFlags;
             // use default value if no "IgnoreCvResult" provided
             if (IgnoreCvResult == null)
             {
@@ -186,6 +189,14 @@ namespace CyberSource.Model
         [JsonPropertyName("declineAvsFlags")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<string> DeclineAvsFlags { get; set; }
+
+        /// <summary>
+        /// User-defined list of ANI (Address Name Inquiry) codes that will cause the system to decline a transaction.  Address Name Inquiry is a Verification suite product which checks whether the name shared in the  transaction matches with the one stored at the issuing bank. This field replicates the same behavior  as AVS (which uses DAVSNO flag), but for ANI verification using the DANINO flag.  **Important**:  - By default, no ANI codes cause declines (empty/null) - Merchant specifies which ANI codes should trigger declines - When triggered, returns reason code 217 with reply flag &#x60;DANINO&#x60; - Use space to separate values in the list - To receive declines for the ANI code N, include the value N in the list  ### ANI Result Codes  |ANI Code|Description| |- -- |- -- | |Y|Match: Full name match with issuing bank records| |O|Partial match: Partial name match with issuing bank records| |N|No match: Name does not match issuing bank records| |U|Unverified: ANI verification not performed or not supported| |R|Retry: System should retry the ANI check|  ### Reply Flag When Triggered  When a transaction&#39;s ANI result matches one of the codes in this list, the system returns: - **Reason Code**: 217 - **Reply Flag**: &#x60;DANINO&#x60; - **Description**: Decline. The authorization request was approved by the issuing bank but was    flagged because it did not pass the Address Name Inquiry (ANI) check. - **Possible Action**: Review the order for the possibility of fraud.  #### Used by **Authorization** Optional field for controlling ANI-based declines.  #### API Ticket ACCAPI-2138 
+        /// </summary>
+        /// <value>User-defined list of ANI (Address Name Inquiry) codes that will cause the system to decline a transaction.  Address Name Inquiry is a Verification suite product which checks whether the name shared in the  transaction matches with the one stored at the issuing bank. This field replicates the same behavior  as AVS (which uses DAVSNO flag), but for ANI verification using the DANINO flag.  **Important**:  - By default, no ANI codes cause declines (empty/null) - Merchant specifies which ANI codes should trigger declines - When triggered, returns reason code 217 with reply flag &#x60;DANINO&#x60; - Use space to separate values in the list - To receive declines for the ANI code N, include the value N in the list  ### ANI Result Codes  |ANI Code|Description| |- -- |- -- | |Y|Match: Full name match with issuing bank records| |O|Partial match: Partial name match with issuing bank records| |N|No match: Name does not match issuing bank records| |U|Unverified: ANI verification not performed or not supported| |R|Retry: System should retry the ANI check|  ### Reply Flag When Triggered  When a transaction&#39;s ANI result matches one of the codes in this list, the system returns: - **Reason Code**: 217 - **Reply Flag**: &#x60;DANINO&#x60; - **Description**: Decline. The authorization request was approved by the issuing bank but was    flagged because it did not pass the Address Name Inquiry (ANI) check. - **Possible Action**: Review the order for the possibility of fraud.  #### Used by **Authorization** Optional field for controlling ANI-based declines.  #### API Ticket ACCAPI-2138 </value>
+        [JsonPropertyName("declineAniFlags")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<string> DeclineAniFlags { get; set; }
 
         /// <summary>
         /// Flag for a sale request that indicates whether to allow the capture service to run even when the authorization receives a CVN decline, as indicated by an &#x60;processorInformation.cardVerification.resultCode&#x60; value of &#x60;D&#x60; or &#x60;N&#x60;. Possible values: - &#x60;true&#x60;: Ignore the results of CVN checking and run the capture service. - &#x60;false&#x60; (default): If the authorization receives a CVN decline, do not run the capture service.  #### Used by **Authorization** Optional field. 
@@ -340,6 +351,7 @@ namespace CyberSource.Model
             if (BalanceInquiry != null) sb.Append("  BalanceInquiry: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ProcessingInfoAuthorizationOptions", "balanceInquiry", BalanceInquiry.ToString())).Append("\n");
             if (IgnoreAvsResult != null) sb.Append("  IgnoreAvsResult: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ProcessingInfoAuthorizationOptions", "ignoreAvsResult", IgnoreAvsResult.ToString())).Append("\n");
             if (DeclineAvsFlags != null) sb.Append("  DeclineAvsFlags: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ProcessingInfoAuthorizationOptions", "declineAvsFlags", DeclineAvsFlags.ToString())).Append("\n");
+            if (DeclineAniFlags != null) sb.Append("  DeclineAniFlags: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ProcessingInfoAuthorizationOptions", "declineAniFlags", DeclineAniFlags.ToString())).Append("\n");
             if (IgnoreCvResult != null) sb.Append("  IgnoreCvResult: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ProcessingInfoAuthorizationOptions", "ignoreCvResult", IgnoreCvResult.ToString())).Append("\n");
             if (Initiator != null) sb.Append("  Initiator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ProcessingInfoAuthorizationOptions", "initiator", Initiator.ToString())).Append("\n");
             if (BillPayment != null) sb.Append("  BillPayment: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ProcessingInfoAuthorizationOptions", "billPayment", BillPayment.ToString())).Append("\n");
@@ -357,6 +369,7 @@ namespace CyberSource.Model
             if (ServiceType != null) sb.Append("  ServiceType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ProcessingInfoAuthorizationOptions", "serviceType", ServiceType.ToString())).Append("\n");
             if (BalanceUpdate != null) sb.Append("  BalanceUpdate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ProcessingInfoAuthorizationOptions", "balanceUpdate", BalanceUpdate.ToString())).Append("\n");
             if (MoneyLoad != null) sb.Append("  MoneyLoad: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ProcessingInfoAuthorizationOptions", "moneyLoad", MoneyLoad.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -367,7 +380,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ProcessingInfoAuthorizationOptions", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ProcessingInfoAuthorizationOptions", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -392,7 +405,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.AuthType == other.AuthType ||
                     this.AuthType != null &&
@@ -442,6 +459,11 @@ namespace CyberSource.Model
                     this.DeclineAvsFlags == other.DeclineAvsFlags ||
                     this.DeclineAvsFlags != null &&
                     this.DeclineAvsFlags.SequenceEqual(other.DeclineAvsFlags)
+                ) && 
+                (
+                    this.DeclineAniFlags == other.DeclineAniFlags ||
+                    this.DeclineAniFlags != null &&
+                    this.DeclineAniFlags.SequenceEqual(other.DeclineAniFlags)
                 ) && 
                 (
                     this.IgnoreCvResult == other.IgnoreCvResult ||
@@ -541,6 +563,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.AuthType != null)
                     hash = hash * 59 + this.AuthType.GetHashCode();
                 if (this.PanReturnIndicator != null)
@@ -561,6 +585,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.IgnoreAvsResult.GetHashCode();
                 if (this.DeclineAvsFlags != null)
                     hash = hash * 59 + this.DeclineAvsFlags.GetHashCode();
+                if (this.DeclineAniFlags != null)
+                    hash = hash * 59 + this.DeclineAniFlags.GetHashCode();
                 if (this.IgnoreCvResult != null)
                     hash = hash * 59 + this.IgnoreCvResult.GetHashCode();
                 if (this.Initiator != null)
@@ -595,6 +621,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BalanceUpdate.GetHashCode();
                 if (this.MoneyLoad != null)
                     hash = hash * 59 + this.MoneyLoad.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// InlineResponse2005IntegrationInformation
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2005IntegrationInformation :  IEquatable<InlineResponse2005IntegrationInformation>, IValidatableObject
+    public partial class InlineResponse2005IntegrationInformation :  ModelExtensions, IEquatable<InlineResponse2005IntegrationInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2005IntegrationInformation" /> class.
@@ -76,6 +77,7 @@ namespace CyberSource.Model
             if (Oauth2 != null) sb.Append("  Oauth2: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2005IntegrationInformation", "oauth2", Oauth2.ToString())).Append("\n");
             if (TenantConfigurations != null) sb.Append("  TenantConfigurations: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2005IntegrationInformation", "tenantConfigurations", TenantConfigurations.ToString())).Append("\n");
             if (Msd != null) sb.Append("  Msd: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2005IntegrationInformation", "msd", Msd.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,7 +88,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2005IntegrationInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2005IntegrationInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -111,7 +113,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Oauth2 == other.Oauth2 ||
                     this.Oauth2 != null &&
@@ -140,12 +146,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Oauth2 != null)
                     hash = hash * 59 + this.Oauth2.GetHashCode();
                 if (this.TenantConfigurations != null)
                     hash = hash * 59 + this.TenantConfigurations.GetHashCode();
                 if (this.Msd != null)
                     hash = hash * 59 + this.Msd.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

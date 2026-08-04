@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="createoffer"></a>
 # **CreateOffer**
-> InlineResponse2019 CreateOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
+> InlineResponse20112 CreateOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
 
 Create an Offer
 
@@ -41,7 +41,7 @@ namespace Example
             try
             {
                 // Create an Offer
-                InlineResponse2019 result = apiInstance.CreateOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
+                InlineResponse20112 result = apiInstance.CreateOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2019**](InlineResponse2019.md)
+[**InlineResponse20112**](InlineResponse20112.md)
 
 ### Authorization
 

@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,19 +29,26 @@ namespace CyberSource.Model
     /// InlineResponse4004
     /// </summary>
     [DataContract]
-    public partial class InlineResponse4004 :  IEquatable<InlineResponse4004>, IValidatableObject
+    public partial class InlineResponse4004 :  ModelExtensions, IEquatable<InlineResponse4004>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4004" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
-        /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_CARD_TYPE .</param>
-        /// <param name="Message">The detail message related to the status and reason listed above..</param>
+        [JsonConstructor]
+        protected InlineResponse4004() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse4004" /> class.
+        /// </summary>
+        /// <param name="Id">A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. .</param>
+        /// <param name="SubmitTimeStampUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        /// <param name="Status">Possible values: - INVALID_REQUEST  (required).</param>
+        /// <param name="Reason">The reason of the status.  Possible values: - INVALID_DATA - MISSING_FIELD .</param>
+        /// <param name="Message">The detail message related to the status and reason listed above. .</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse4004(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
+        public InlineResponse4004(string Id = default(string), string SubmitTimeStampUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse2014ErrorInformationDetails> Details = default(List<InlineResponse2014ErrorInformationDetails>))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Id = Id;
+            this.SubmitTimeStampUtc = SubmitTimeStampUtc;
             this.Status = Status;
             this.Reason = Reason;
             this.Message = Message;
@@ -48,33 +56,41 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
+        /// A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
-        [JsonPropertyName("submitTimeUtc")]
+        /// <value>A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. </value>
+        [JsonPropertyName("id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SubmitTimeUtc { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
         /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [JsonPropertyName("submitTimeStampUtc")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string SubmitTimeStampUtc { get; set; }
+
+        /// <summary>
+        /// Possible values: - INVALID_REQUEST 
+        /// </summary>
+        /// <value>Possible values: - INVALID_REQUEST </value>
         [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Status { get; set; }
 
         /// <summary>
-        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_CARD_TYPE 
+        /// The reason of the status.  Possible values: - INVALID_DATA - MISSING_FIELD 
         /// </summary>
-        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_CARD  - CARD_TYPE_NOT_ACCEPTED  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_CARD_TYPE </value>
+        /// <value>The reason of the status.  Possible values: - INVALID_DATA - MISSING_FIELD </value>
         [JsonPropertyName("reason")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Reason { get; set; }
 
         /// <summary>
-        /// The detail message related to the status and reason listed above.
+        /// The detail message related to the status and reason listed above. 
         /// </summary>
-        /// <value>The detail message related to the status and reason listed above.</value>
+        /// <value>The detail message related to the status and reason listed above. </value>
         [JsonPropertyName("message")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Message { get; set; }
@@ -84,7 +100,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("details")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
+        public List<InlineResponse2014ErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -94,11 +110,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4004 {\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "id", Id.ToString())).Append("\n");
+            if (SubmitTimeStampUtc != null) sb.Append("  SubmitTimeStampUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "submitTimeStampUtc", SubmitTimeStampUtc.ToString())).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "status", Status.ToString())).Append("\n");
             if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "reason", Reason.ToString())).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "message", Message.ToString())).Append("\n");
             if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "details", Details.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,7 +127,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse4004", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse4004", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -134,11 +152,20 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
+                ) && 
+                (
+                    this.SubmitTimeStampUtc == other.SubmitTimeStampUtc ||
+                    this.SubmitTimeStampUtc != null &&
+                    this.SubmitTimeStampUtc.Equals(other.SubmitTimeStampUtc)
                 ) && 
                 (
                     this.Status == other.Status ||
@@ -173,8 +200,12 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
+                if (this.SubmitTimeStampUtc != null)
+                    hash = hash * 59 + this.SubmitTimeStampUtc.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Reason != null)
@@ -183,6 +214,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Message.GetHashCode();
                 if (this.Details != null)
                     hash = hash * 59 + this.Details.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }
