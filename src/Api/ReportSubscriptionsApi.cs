@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -291,7 +293,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void CreateStandardOrClassicSubscription(PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
         {
-            logger.Debug("CALLING API \"CreateStandardOrClassicSubscription\" STARTED");
+            logger.LogDebug("CALLING API \"CreateStandardOrClassicSubscription\" STARTED");
             this.SetStatusCode(null);
             CreateStandardOrClassicSubscriptionWithHttpInfo(predefinedSubscriptionRequestBean, organizationId);
         }
@@ -310,7 +312,7 @@ namespace CyberSource.Api
             // verify the required parameter 'predefinedSubscriptionRequestBean' is set
             if (predefinedSubscriptionRequestBean == null)
             {
-                logger.Error("ApiException : Missing required parameter 'predefinedSubscriptionRequestBean' when calling ReportSubscriptionsApi->CreateStandardOrClassicSubscription");
+                logger.LogError("ApiException : Missing required parameter 'predefinedSubscriptionRequestBean' when calling ReportSubscriptionsApi->CreateStandardOrClassicSubscription");
                 throw new ApiException(400, "Missing required parameter 'predefinedSubscriptionRequestBean' when calling ReportSubscriptionsApi->CreateStandardOrClassicSubscription");
             }
 
@@ -342,7 +344,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (predefinedSubscriptionRequestBean != null && predefinedSubscriptionRequestBean.GetType() != typeof(byte[]))
             {
@@ -361,18 +363,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateStandardOrClassicSubscription,CreateStandardOrClassicSubscriptionAsync,CreateStandardOrClassicSubscriptionWithHttpInfo,CreateStandardOrClassicSubscriptionAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -387,7 +389,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateStandardOrClassicSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -407,7 +409,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task CreateStandardOrClassicSubscriptionAsync(PredefinedSubscriptionRequestBean predefinedSubscriptionRequestBean, string organizationId = null)
         {
-            logger.Debug("CALLING API \"CreateStandardOrClassicSubscriptionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateStandardOrClassicSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
             await CreateStandardOrClassicSubscriptionAsyncWithHttpInfo(predefinedSubscriptionRequestBean, organizationId);
 
@@ -427,7 +429,7 @@ namespace CyberSource.Api
             // verify the required parameter 'predefinedSubscriptionRequestBean' is set
             if (predefinedSubscriptionRequestBean == null)
             {
-                logger.Error("ApiException : Missing required parameter 'predefinedSubscriptionRequestBean' when calling ReportSubscriptionsApi->CreateStandardOrClassicSubscription");
+                logger.LogError("ApiException : Missing required parameter 'predefinedSubscriptionRequestBean' when calling ReportSubscriptionsApi->CreateStandardOrClassicSubscription");
                 throw new ApiException(400, "Missing required parameter 'predefinedSubscriptionRequestBean' when calling ReportSubscriptionsApi->CreateStandardOrClassicSubscription");
             }
 
@@ -459,7 +461,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (predefinedSubscriptionRequestBean != null && predefinedSubscriptionRequestBean.GetType() != typeof(byte[]))
             {
@@ -478,18 +480,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateStandardOrClassicSubscription,CreateStandardOrClassicSubscriptionAsync,CreateStandardOrClassicSubscriptionWithHttpInfo,CreateStandardOrClassicSubscriptionAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -504,7 +506,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateStandardOrClassicSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -523,7 +525,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void CreateSubscription(CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null)
         {
-            logger.Debug("CALLING API \"CreateSubscription\" STARTED");
+            logger.LogDebug("CALLING API \"CreateSubscription\" STARTED");
             this.SetStatusCode(null);
             CreateSubscriptionWithHttpInfo(createReportSubscriptionRequest, organizationId);
         }
@@ -542,7 +544,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createReportSubscriptionRequest' is set
             if (createReportSubscriptionRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createReportSubscriptionRequest' when calling ReportSubscriptionsApi->CreateSubscription");
+                logger.LogError("ApiException : Missing required parameter 'createReportSubscriptionRequest' when calling ReportSubscriptionsApi->CreateSubscription");
                 throw new ApiException(400, "Missing required parameter 'createReportSubscriptionRequest' when calling ReportSubscriptionsApi->CreateSubscription");
             }
 
@@ -574,7 +576,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (createReportSubscriptionRequest != null && createReportSubscriptionRequest.GetType() != typeof(byte[]))
             {
@@ -593,18 +595,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateSubscription,CreateSubscriptionAsync,CreateSubscriptionWithHttpInfo,CreateSubscriptionAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -619,7 +621,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -639,7 +641,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task CreateSubscriptionAsync(CreateReportSubscriptionRequest createReportSubscriptionRequest, string organizationId = null)
         {
-            logger.Debug("CALLING API \"CreateSubscriptionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
             await CreateSubscriptionAsyncWithHttpInfo(createReportSubscriptionRequest, organizationId);
 
@@ -659,7 +661,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createReportSubscriptionRequest' is set
             if (createReportSubscriptionRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createReportSubscriptionRequest' when calling ReportSubscriptionsApi->CreateSubscription");
+                logger.LogError("ApiException : Missing required parameter 'createReportSubscriptionRequest' when calling ReportSubscriptionsApi->CreateSubscription");
                 throw new ApiException(400, "Missing required parameter 'createReportSubscriptionRequest' when calling ReportSubscriptionsApi->CreateSubscription");
             }
 
@@ -691,7 +693,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (createReportSubscriptionRequest != null && createReportSubscriptionRequest.GetType() != typeof(byte[]))
             {
@@ -710,18 +712,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateSubscription,CreateSubscriptionAsync,CreateSubscriptionWithHttpInfo,CreateSubscriptionAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -736,7 +738,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -755,7 +757,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void DeleteSubscription(string reportName, string organizationId = null)
         {
-            logger.Debug("CALLING API \"DeleteSubscription\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteSubscription\" STARTED");
             this.SetStatusCode(null);
             DeleteSubscriptionWithHttpInfo(reportName, organizationId);
         }
@@ -774,7 +776,7 @@ namespace CyberSource.Api
             // verify the required parameter 'reportName' is set
             if (reportName == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportName' when calling ReportSubscriptionsApi->DeleteSubscription");
+                logger.LogError("ApiException : Missing required parameter 'reportName' when calling ReportSubscriptionsApi->DeleteSubscription");
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportSubscriptionsApi->DeleteSubscription");
             }
 
@@ -806,13 +808,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportName", ApiClient.ParameterToString(reportName)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Delete == Method.Post)
             {
@@ -836,11 +838,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -860,7 +862,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -880,7 +882,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task DeleteSubscriptionAsync(string reportName, string organizationId = null)
         {
-            logger.Debug("CALLING API \"DeleteSubscriptionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
             await DeleteSubscriptionAsyncWithHttpInfo(reportName, organizationId);
 
@@ -900,7 +902,7 @@ namespace CyberSource.Api
             // verify the required parameter 'reportName' is set
             if (reportName == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportName' when calling ReportSubscriptionsApi->DeleteSubscription");
+                logger.LogError("ApiException : Missing required parameter 'reportName' when calling ReportSubscriptionsApi->DeleteSubscription");
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportSubscriptionsApi->DeleteSubscription");
             }
 
@@ -932,13 +934,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportName", ApiClient.ParameterToString(reportName)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Delete == Method.Post)
             {
@@ -961,11 +963,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -985,7 +987,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1003,10 +1005,10 @@ namespace CyberSource.Api
         /// <returns>ReportingV3ReportSubscriptionsGet200Response</returns>
         public ReportingV3ReportSubscriptionsGet200Response GetAllSubscriptions(string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetAllSubscriptions\" STARTED");
+            logger.LogDebug("CALLING API \"GetAllSubscriptions\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportSubscriptionsGet200Response> localVarResponse = GetAllSubscriptionsWithHttpInfo(organizationId);
-            logger.Debug("CALLING API \"GetAllSubscriptions\" ENDED");
+            logger.LogDebug("CALLING API \"GetAllSubscriptions\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1050,7 +1052,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -1074,11 +1076,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1098,7 +1100,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetAllSubscriptions", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1116,10 +1118,10 @@ namespace CyberSource.Api
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200Response</returns>
         public async Task<ReportingV3ReportSubscriptionsGet200Response> GetAllSubscriptionsAsync(string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetAllSubscriptionsAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportSubscriptionsGet200Response> localVarResponse = await GetAllSubscriptionsAsyncWithHttpInfo(organizationId);
-            logger.Debug("CALLING API \"GetAllSubscriptionsAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetAllSubscriptionsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1164,7 +1166,7 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -1187,11 +1189,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1211,7 +1213,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetAllSubscriptions", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1229,10 +1231,10 @@ namespace CyberSource.Api
         /// <returns>ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
         public ReportingV3ReportSubscriptionsGet200ResponseSubscriptions GetSubscription(string reportName, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetSubscription\" STARTED");
+            logger.LogDebug("CALLING API \"GetSubscription\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> localVarResponse = GetSubscriptionWithHttpInfo(reportName, organizationId);
-            logger.Debug("CALLING API \"GetSubscription\" ENDED");
+            logger.LogDebug("CALLING API \"GetSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1251,7 +1253,7 @@ namespace CyberSource.Api
             // verify the required parameter 'reportName' is set
             if (reportName == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportName' when calling ReportSubscriptionsApi->GetSubscription");
+                logger.LogError("ApiException : Missing required parameter 'reportName' when calling ReportSubscriptionsApi->GetSubscription");
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportSubscriptionsApi->GetSubscription");
             }
 
@@ -1283,13 +1285,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportName", ApiClient.ParameterToString(reportName)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -1313,11 +1315,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1337,7 +1339,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1356,10 +1358,10 @@ namespace CyberSource.Api
         /// <returns>Task of ReportingV3ReportSubscriptionsGet200ResponseSubscriptions</returns>
         public async Task<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> GetSubscriptionAsync(string reportName, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetSubscriptionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportSubscriptionsGet200ResponseSubscriptions> localVarResponse = await GetSubscriptionAsyncWithHttpInfo(reportName, organizationId);
-            logger.Debug("CALLING API \"GetSubscriptionAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1379,7 +1381,7 @@ namespace CyberSource.Api
             // verify the required parameter 'reportName' is set
             if (reportName == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportName' when calling ReportSubscriptionsApi->GetSubscription");
+                logger.LogError("ApiException : Missing required parameter 'reportName' when calling ReportSubscriptionsApi->GetSubscription");
                 throw new ApiException(400, "Missing required parameter 'reportName' when calling ReportSubscriptionsApi->GetSubscription");
             }
 
@@ -1411,13 +1413,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportName", ApiClient.ParameterToString(reportName)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -1440,11 +1442,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1464,7 +1466,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

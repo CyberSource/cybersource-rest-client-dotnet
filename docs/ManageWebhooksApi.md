@@ -75,7 +75,7 @@ No authorization required
 
 <a name="getwebhooksubscriptionbyid"></a>
 # **GetWebhookSubscriptionById**
-> InlineResponse2016 GetWebhookSubscriptionById (string webhookId)
+> InlineResponse2019 GetWebhookSubscriptionById (string webhookId)
 
 Get Details On a Single Webhook
 
@@ -101,7 +101,7 @@ namespace Example
             try
             {
                 // Get Details On a Single Webhook
-                InlineResponse2016 result = apiInstance.GetWebhookSubscriptionById(webhookId);
+                InlineResponse2019 result = apiInstance.GetWebhookSubscriptionById(webhookId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2016**](InlineResponse2016.md)
+[**InlineResponse2019**](InlineResponse2019.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ No authorization required
 
 <a name="notificationsubscriptionsv1webhookswebhookidpost"></a>
 # **NotificationSubscriptionsV1WebhooksWebhookIdPost**
-> InlineResponse2017 NotificationSubscriptionsV1WebhooksWebhookIdPost (string webhookId)
+> InlineResponse20110 NotificationSubscriptionsV1WebhooksWebhookIdPost (string webhookId)
 
 Test a Webhook Configuration
 
@@ -227,7 +227,7 @@ namespace Example
             try
             {
                 // Test a Webhook Configuration
-                InlineResponse2017 result = apiInstance.NotificationSubscriptionsV1WebhooksWebhookIdPost(webhookId);
+                InlineResponse20110 result = apiInstance.NotificationSubscriptionsV1WebhooksWebhookIdPost(webhookId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2017**](InlineResponse2017.md)
+[**InlineResponse20110**](InlineResponse20110.md)
 
 ### Authorization
 
@@ -387,7 +387,7 @@ No authorization required
 
 <a name="saveasymegresskey"></a>
 # **SaveAsymEgressKey**
-> InlineResponse2018 SaveAsymEgressKey (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
+> InlineResponse20111 SaveAsymEgressKey (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
 
 Message Level Encryption
 
@@ -416,7 +416,7 @@ namespace Example
             try
             {
                 // Message Level Encryption
-                InlineResponse2018 result = apiInstance.SaveAsymEgressKey(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
+                InlineResponse20111 result = apiInstance.SaveAsymEgressKey(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2018**](InlineResponse2018.md)
+[**InlineResponse20111**](InlineResponse20111.md)
 
 ### Authorization
 

@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// This is a server-to-server API request to generate the capture context that can be used to initiate an instance of Microform on an acceptance page.   The capture context is a digitally signed JWT that provides authentication, one-time keys, and the target origin to the Microform Integration application. 
     /// </summary>
     [DataContract]
-    public partial class GenerateCaptureContextRequest :  IEquatable<GenerateCaptureContextRequest>, IValidatableObject
+    public partial class GenerateCaptureContextRequest :  ModelExtensions, IEquatable<GenerateCaptureContextRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerateCaptureContextRequest" /> class.
@@ -99,6 +100,7 @@ namespace CyberSource.Model
             if (AllowedCardNetworks != null) sb.Append("  AllowedCardNetworks: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GenerateCaptureContextRequest", "allowedCardNetworks", AllowedCardNetworks.ToString())).Append("\n");
             if (AllowedPaymentTypes != null) sb.Append("  AllowedPaymentTypes: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GenerateCaptureContextRequest", "allowedPaymentTypes", AllowedPaymentTypes.ToString())).Append("\n");
             if (TransientTokenResponseOptions != null) sb.Append("  TransientTokenResponseOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GenerateCaptureContextRequest", "transientTokenResponseOptions", TransientTokenResponseOptions.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,7 +111,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("GenerateCaptureContextRequest", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("GenerateCaptureContextRequest", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -134,7 +136,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.ClientVersion == other.ClientVersion ||
                     this.ClientVersion != null &&
@@ -173,6 +179,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.ClientVersion != null)
                     hash = hash * 59 + this.ClientVersion.GetHashCode();
                 if (this.TargetOrigins != null)
@@ -183,6 +191,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AllowedPaymentTypes.GetHashCode();
                 if (this.TransientTokenResponseOptions != null)
                     hash = hash * 59 + this.TransientTokenResponseOptions.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -24,7 +24,7 @@ namespace CyberSource.Utilities
     /// separate, but their credential entries must stay in sync.
     /// MAINTENANCE: if you add a new credential field to one list, add it to the other.
     /// </summary>
-    public static class SensitiveFieldMaskingUtility
+    internal static class SensitiveFieldMaskingUtility
     {
         private const string MaskedValue = "***";
 
@@ -195,7 +195,7 @@ namespace CyberSource.Utilities
         /// XML, form-encoded, and malformed-JSON shapes plus a Luhn-validated PAN sweep, so the
         /// utility never returns sensitive data verbatim even on non-JSON diagnostic output.
         /// </summary>
-        public static string MaskSensitiveDataInJson(string json)
+        internal static string MaskSensitiveDataInJson(string json)
         {
             if (string.IsNullOrEmpty(json))
                 return json;
@@ -204,7 +204,7 @@ namespace CyberSource.Utilities
             {
                 var token = JsonNode.Parse(json);
                 MaskToken(token);
-                return token.ToJsonString(new JsonSerializerOptions{ WriteIndented = true });
+                return token.ToJsonString(new JsonSerializerOptions { WriteIndented = true });
             }
             catch (JsonException)
             {
@@ -218,7 +218,7 @@ namespace CyberSource.Utilities
         /// for the given <paramref name="className"/>. Intended for use in ToJson() of model
         /// classes that have generically-named sensitive properties (e.g. "value").
         /// </summary>
-        public static string MaskSensitiveDataInJson(string className, string json)
+        internal static string MaskSensitiveDataInJson(string className, string json)
         {
             if (string.IsNullOrEmpty(json))
                 return json;
@@ -237,7 +237,7 @@ namespace CyberSource.Utilities
                     }
                 }
                 MaskToken(token);
-                return token.ToJsonString(new JsonSerializerOptions{ WriteIndented = true });
+                return token.ToJsonString(new JsonSerializerOptions { WriteIndented = true });
             }
             catch (JsonException)
             {
@@ -298,7 +298,7 @@ namespace CyberSource.Utilities
         /// Returns "***" when fieldName is in the sensitive keys set, otherwise returns value unchanged.
         /// Intended for use in ToString() implementations.
         /// </summary>
-        public static string MaskFieldValue(string fieldName, string value)
+        internal static string MaskFieldValue(string fieldName, string value)
         {
             if (value == null)
                 return null;
@@ -313,12 +313,59 @@ namespace CyberSource.Utilities
         /// Intended for use in ToString() to mask generically-named sensitive properties
         /// (e.g. "value" on Tmsv2tokenizedcardsPasscode / FluidData / EMV-tag classes).
         /// </summary>
-        public static string MaskFieldValue(string className, string fieldName, string value)
+        internal static string MaskFieldValue(string className, string fieldName, string value)
         {
             if (value == null)
                 return null;
 
             return IsSensitiveClassField(className, fieldName) ? MaskedValue : value;
+        }
+
+        /// <summary>
+        /// Renders an extension-data (extra-field) store as masked <c>"  name: value"</c>
+        /// lines for <c>ToString()</c> diagnostics, giving extra fields the same masking
+        /// that declared properties receive. The whole value is redacted when
+        /// the extra-field name itself is sensitive; object/array values are JSON-walked so
+        /// nested sensitive keys are redacted too. Returns an empty string when the store is
+        /// null or empty.
+        /// </summary>
+        internal static string MaskExtraFields(IDictionary<string, JsonElement> extraFields)
+        {
+            if (extraFields == null || extraFields.Count == 0)
+                return string.Empty;
+
+            var sb = new StringBuilder();
+            foreach (KeyValuePair<string, JsonElement> entry in extraFields)
+            {
+                sb.Append("  ").Append(entry.Key).Append(": ")
+                  .Append(MaskExtraFieldValue(entry.Key, entry.Value)).Append("\n");
+            }
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Masks a single extra-field value. Redacts the whole value when the field name is
+        /// sensitive; otherwise recursively masks nested sensitive keys for object/array
+        /// values and returns scalar values verbatim.
+        /// </summary>
+        private static string MaskExtraFieldValue(string fieldName, JsonElement value)
+        {
+            if (IsSensitiveKey(fieldName))
+                return MaskedValue;
+
+            switch (value.ValueKind)
+            {
+                case JsonValueKind.Object:
+                case JsonValueKind.Array:
+                    JsonNode node = JsonNode.Parse(value.GetRawText());
+                    MaskToken(node);
+                    return node.ToJsonString();
+                case JsonValueKind.Null:
+                case JsonValueKind.Undefined:
+                    return "null";
+                default:
+                    return value.ToString();
+            }
         }
 
         private static void MaskToken(JsonNode token)

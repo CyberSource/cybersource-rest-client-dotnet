@@ -156,7 +156,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string tokenizedCardId = null;
             //string profileId = null;
-            //TmsTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null;
+            //PostTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null;
             //instance.PostTokenizedCardDelete(tokenizedCardId, profileId, postTokenizedCardDeleteRequest);
             
         }

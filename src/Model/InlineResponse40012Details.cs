@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,34 +29,44 @@ namespace CyberSource.Model
     /// InlineResponse40012Details
     /// </summary>
     [DataContract]
-    public partial class InlineResponse40012Details :  IEquatable<InlineResponse40012Details>, IValidatableObject
+    public partial class InlineResponse40012Details :  ModelExtensions, IEquatable<InlineResponse40012Details>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse40012Details" /> class.
         /// </summary>
-        /// <param name="Field">This is the flattened JSON object field name/path that is either missing or invalid. .</param>
-        /// <param name="Reason">Possible reasons for the error.  Possible values:   - &#x60;MISSING_FIELD&#x60;   - &#x60;INVALID_DATA&#x60; .</param>
-        public InlineResponse40012Details(string Field = default(string), string Reason = default(string))
+        /// <param name="Field">This is the flattened JSON object field name/path that is either missing or invalid..</param>
+        /// <param name="Reason">Possible reasons for the error. .</param>
+        /// <param name="Code">An optional short string which identifies the exact field error..</param>
+        public InlineResponse40012Details(string Field = default(string), string Reason = default(string), string Code = default(string))
         {
             this.Field = Field;
             this.Reason = Reason;
+            this.Code = Code;
         }
         
         /// <summary>
-        /// This is the flattened JSON object field name/path that is either missing or invalid. 
+        /// This is the flattened JSON object field name/path that is either missing or invalid.
         /// </summary>
-        /// <value>This is the flattened JSON object field name/path that is either missing or invalid. </value>
+        /// <value>This is the flattened JSON object field name/path that is either missing or invalid.</value>
         [JsonPropertyName("field")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Field { get; set; }
 
         /// <summary>
-        /// Possible reasons for the error.  Possible values:   - &#x60;MISSING_FIELD&#x60;   - &#x60;INVALID_DATA&#x60; 
+        /// Possible reasons for the error. 
         /// </summary>
-        /// <value>Possible reasons for the error.  Possible values:   - &#x60;MISSING_FIELD&#x60;   - &#x60;INVALID_DATA&#x60; </value>
+        /// <value>Possible reasons for the error. </value>
         [JsonPropertyName("reason")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Reason { get; set; }
+
+        /// <summary>
+        /// An optional short string which identifies the exact field error.
+        /// </summary>
+        /// <value>An optional short string which identifies the exact field error.</value>
+        [JsonPropertyName("code")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Code { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,6 +78,8 @@ namespace CyberSource.Model
             sb.Append("class InlineResponse40012Details {\n");
             if (Field != null) sb.Append("  Field: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40012Details", "field", Field.ToString())).Append("\n");
             if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40012Details", "reason", Reason.ToString())).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40012Details", "code", Code.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +90,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse40012Details", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse40012Details", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -102,7 +115,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Field == other.Field ||
                     this.Field != null &&
@@ -112,6 +129,11 @@ namespace CyberSource.Model
                     this.Reason == other.Reason ||
                     this.Reason != null &&
                     this.Reason.Equals(other.Reason)
+                ) && 
+                (
+                    this.Code == other.Code ||
+                    this.Code != null &&
+                    this.Code.Equals(other.Code)
                 );
         }
 
@@ -126,10 +148,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Field != null)
                     hash = hash * 59 + this.Field.GetHashCode();
                 if (this.Reason != null)
                     hash = hash * 59 + this.Reason.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -106,10 +108,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse201</returns>
         public InlineResponse201 RetrieveOrDeletePaymentToken(Request request)
         {
-            logger.Debug("CALLING API \"RetrieveOrDeletePaymentToken\" STARTED");
+            logger.LogDebug("CALLING API \"RetrieveOrDeletePaymentToken\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse201> localVarResponse = RetrieveOrDeletePaymentTokenWithHttpInfo(request);
-            logger.Debug("CALLING API \"RetrieveOrDeletePaymentToken\" ENDED");
+            logger.LogDebug("CALLING API \"RetrieveOrDeletePaymentToken\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -127,7 +129,7 @@ namespace CyberSource.Api
             // verify the required parameter 'request' is set
             if (request == null)
             {
-                logger.Error("ApiException : Missing required parameter 'request' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
+                logger.LogError("ApiException : Missing required parameter 'request' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
                 throw new ApiException(400, "Missing required parameter 'request' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
             }
 
@@ -168,23 +170,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "RetrieveOrDeletePaymentToken,RetrieveOrDeletePaymentTokenAsync,RetrieveOrDeletePaymentTokenWithHttpInfo,RetrieveOrDeletePaymentTokenAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "RetrieveOrDeletePaymentToken,RetrieveOrDeletePaymentTokenAsync,RetrieveOrDeletePaymentTokenWithHttpInfo,RetrieveOrDeletePaymentTokenAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -199,7 +201,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("RetrieveOrDeletePaymentToken", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -217,10 +219,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse201</returns>
         public async Task<InlineResponse201> RetrieveOrDeletePaymentTokenAsync(Request request)
         {
-            logger.Debug("CALLING API \"RetrieveOrDeletePaymentTokenAsync\" STARTED");
+            logger.LogDebug("CALLING API \"RetrieveOrDeletePaymentTokenAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse201> localVarResponse = await RetrieveOrDeletePaymentTokenAsyncWithHttpInfo(request);
-            logger.Debug("CALLING API \"RetrieveOrDeletePaymentTokenAsync\" ENDED");
+            logger.LogDebug("CALLING API \"RetrieveOrDeletePaymentTokenAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -239,7 +241,7 @@ namespace CyberSource.Api
             // verify the required parameter 'request' is set
             if (request == null)
             {
-                logger.Error("ApiException : Missing required parameter 'request' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
+                logger.LogError("ApiException : Missing required parameter 'request' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
                 throw new ApiException(400, "Missing required parameter 'request' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
             }
 
@@ -280,23 +282,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "RetrieveOrDeletePaymentToken,RetrieveOrDeletePaymentTokenAsync,RetrieveOrDeletePaymentTokenWithHttpInfo,RetrieveOrDeletePaymentTokenAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "RetrieveOrDeletePaymentToken,RetrieveOrDeletePaymentTokenAsync,RetrieveOrDeletePaymentTokenWithHttpInfo,RetrieveOrDeletePaymentTokenAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -311,7 +313,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("RetrieveOrDeletePaymentToken", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

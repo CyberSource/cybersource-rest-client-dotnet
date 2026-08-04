@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Ptsv2paymentsidrefundsPaymentInformationBankAccount
     /// </summary>
     [DataContract]
-    public partial class Ptsv2paymentsidrefundsPaymentInformationBankAccount :  IEquatable<Ptsv2paymentsidrefundsPaymentInformationBankAccount>, IValidatableObject
+    public partial class Ptsv2paymentsidrefundsPaymentInformationBankAccount :  ModelExtensions, IEquatable<Ptsv2paymentsidrefundsPaymentInformationBankAccount>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidrefundsPaymentInformationBankAccount" /> class.
@@ -100,6 +101,7 @@ namespace CyberSource.Model
             if (EncoderId != null) sb.Append("  EncoderId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsidrefundsPaymentInformationBankAccount", "encoderId", EncoderId.ToString())).Append("\n");
             if (CheckNumber != null) sb.Append("  CheckNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsidrefundsPaymentInformationBankAccount", "checkNumber", CheckNumber.ToString())).Append("\n");
             if (CheckImageReferenceNumber != null) sb.Append("  CheckImageReferenceNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsidrefundsPaymentInformationBankAccount", "checkImageReferenceNumber", CheckImageReferenceNumber.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,7 +112,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsidrefundsPaymentInformationBankAccount", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsidrefundsPaymentInformationBankAccount", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -135,7 +137,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Type == other.Type ||
                     this.Type != null &&
@@ -174,6 +180,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Number != null)
@@ -184,6 +192,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CheckNumber.GetHashCode();
                 if (this.CheckImageReferenceNumber != null)
                     hash = hash * 59 + this.CheckImageReferenceNumber.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

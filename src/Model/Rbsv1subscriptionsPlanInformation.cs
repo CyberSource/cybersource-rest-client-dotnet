@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Rbsv1subscriptionsPlanInformation
     /// </summary>
     [DataContract]
-    public partial class Rbsv1subscriptionsPlanInformation :  IEquatable<Rbsv1subscriptionsPlanInformation>, IValidatableObject
+    public partial class Rbsv1subscriptionsPlanInformation :  ModelExtensions, IEquatable<Rbsv1subscriptionsPlanInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Rbsv1subscriptionsPlanInformation" /> class.
@@ -65,6 +66,7 @@ namespace CyberSource.Model
             sb.Append("class Rbsv1subscriptionsPlanInformation {\n");
             if (BillingPeriod != null) sb.Append("  BillingPeriod: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Rbsv1subscriptionsPlanInformation", "billingPeriod", BillingPeriod.ToString())).Append("\n");
             if (BillingCycles != null) sb.Append("  BillingCycles: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Rbsv1subscriptionsPlanInformation", "billingCycles", BillingCycles.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,7 +77,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Rbsv1subscriptionsPlanInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Rbsv1subscriptionsPlanInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -100,7 +102,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.BillingPeriod == other.BillingPeriod ||
                     this.BillingPeriod != null &&
@@ -124,10 +130,13 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.BillingPeriod != null)
                     hash = hash * 59 + this.BillingPeriod.GetHashCode();
                 if (this.BillingCycles != null)
                     hash = hash * 59 + this.BillingCycles.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

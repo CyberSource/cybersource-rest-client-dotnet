@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,13 +29,13 @@ namespace CyberSource.Model
     /// InvoicingV2InvoicesAllGet200ResponseInvoiceInformation
     /// </summary>
     [DataContract]
-    public partial class InvoicingV2InvoicesAllGet200ResponseInvoiceInformation :  IEquatable<InvoicingV2InvoicesAllGet200ResponseInvoiceInformation>, IValidatableObject
+    public partial class InvoicingV2InvoicesAllGet200ResponseInvoiceInformation :  ModelExtensions, IEquatable<InvoicingV2InvoicesAllGet200ResponseInvoiceInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoicingV2InvoicesAllGet200ResponseInvoiceInformation" /> class.
         /// </summary>
-        /// <param name="DueDate">The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day .</param>
-        /// <param name="ExpirationDate">Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day .</param>
+        /// <param name="DueDate">The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. .</param>
+        /// <param name="ExpirationDate">Define an expiration date for the link.  The date must be today or in the future.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. .</param>
         public InvoicingV2InvoicesAllGet200ResponseInvoiceInformation(DateTime? DueDate = default(DateTime?), DateTime? ExpirationDate = default(DateTime?))
         {
             this.DueDate = DueDate;
@@ -42,18 +43,18 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day 
+        /// The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. 
         /// </summary>
-        /// <value>The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day </value>
+        /// <value>The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. </value>
         [JsonPropertyName("dueDate")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         [JsonConverter(typeof(SwaggerDateConverter))]
         public DateTime? DueDate { get; set; }
 
         /// <summary>
-        /// Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day 
+        /// Define an expiration date for the link.  The date must be today or in the future.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. 
         /// </summary>
-        /// <value>Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day </value>
+        /// <value>Define an expiration date for the link.  The date must be today or in the future.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. </value>
         [JsonPropertyName("expirationDate")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         [JsonConverter(typeof(SwaggerDateConverter))]
@@ -69,6 +70,7 @@ namespace CyberSource.Model
             sb.Append("class InvoicingV2InvoicesAllGet200ResponseInvoiceInformation {\n");
             if (DueDate != null) sb.Append("  DueDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoicesAllGet200ResponseInvoiceInformation", "dueDate", DueDate.ToString())).Append("\n");
             if (ExpirationDate != null) sb.Append("  ExpirationDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoicesAllGet200ResponseInvoiceInformation", "expirationDate", ExpirationDate.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -79,7 +81,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InvoicingV2InvoicesAllGet200ResponseInvoiceInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InvoicingV2InvoicesAllGet200ResponseInvoiceInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -104,7 +106,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.DueDate == other.DueDate ||
                     this.DueDate != null &&
@@ -128,10 +134,13 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.DueDate != null)
                     hash = hash * 59 + this.DueDate.GetHashCode();
                 if (this.ExpirationDate != null)
                     hash = hash * 59 + this.ExpirationDate.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

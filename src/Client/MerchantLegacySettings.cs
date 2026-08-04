@@ -1,5 +1,6 @@
 ﻿using AuthenticationSdk.util;
-using NLog;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -129,13 +130,28 @@ namespace CyberSource.Client
         }
 
         /// <summary>
-        /// Gets or sets the NLog logger instance for logging legacy settings configuration and messages.
+        /// Gets or sets the logger instance for logging legacy settings configuration and messages.
         /// </summary>
-        public static Logger Logger { get; set; }
+        /// <remarks>
+        /// When not explicitly set, the logger is created lazily from <see cref="LoggerFactory"/> on first access.
+        /// This ensures a factory supplied via object initializer (after the constructor runs) is honored.
+        /// </remarks>
+        //public static Logger Logger { get; set; }
+        public ILogger<MerchantLegacySettings> Logger
+        {
+            get => _logger ??= (LoggerFactory?.CreateLogger<MerchantLegacySettings>() ?? NullLogger<MerchantLegacySettings>.Instance);
+            set => _logger = value;
+        }
+        private ILogger<MerchantLegacySettings> _logger;
+
+        /// <summary>
+        /// Gets or sets the logger factory for creating logger instances.
+        /// </summary>
+        public ILoggerFactory LoggerFactory { get; set; } = NullLoggerFactory.Instance;
         #endregion Properties
 
         #region New Methods
-        private string GetUserAgent()
+        private static string GetUserAgent()
         {
             var assembly = typeof(MerchantNetworkSettings).Assembly;
 

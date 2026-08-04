@@ -1,4 +1,5 @@
 ﻿using AuthenticationSdk.core;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -65,19 +66,23 @@ namespace CyberSource.Client
     {
         private readonly MerchantCredentialSettingsFactory _factory;
         private readonly MerchantCredentialSettingsValidator _validator;
+        private readonly ILoggerFactory _loggerFactory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantCredentialSettingsProcessor"/> class.
         /// </summary>
         /// <param name="factory">The factory responsible for creating merchant credential settings instances.</param>
         /// <param name="validator">The validator responsible for validating merchant credential configuration.</param>
+        /// <param name="loggerFactory">The logger factory for creating loggers.</param>
         /// <exception cref="ArgumentNullException">Thrown when factory or validator is null.</exception>
         public MerchantCredentialSettingsProcessor(
             MerchantCredentialSettingsFactory factory,
-            MerchantCredentialSettingsValidator validator)
+            MerchantCredentialSettingsValidator validator,
+            ILoggerFactory loggerFactory = null)
         {
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));
+            _loggerFactory = loggerFactory;
         }
 
         /// <summary>
@@ -92,7 +97,7 @@ namespace CyberSource.Client
         {
             if (configurationDictionary == null) throw new ArgumentNullException(nameof(configurationDictionary));
             _validator.ValidateMandatorySettings(configurationDictionary);
-            var settings = _factory.CreateMandatorySettings(configurationDictionary);
+            var settings = _factory.CreateMandatorySettings(configurationDictionary, _loggerFactory);
             return settings;
         }
 
@@ -109,7 +114,7 @@ namespace CyberSource.Client
             if (configurationDictionary == null) throw new ArgumentNullException(nameof(configurationDictionary));
             _validator.ValidateMandatorySettings(configurationDictionary);
             _validator.ValidateHttpSignatureSettings(configurationDictionary);
-            var settings = _factory.CreateMandatorySettings(configurationDictionary);
+            var settings = _factory.CreateMandatorySettings(configurationDictionary, _loggerFactory);
             settings = _factory.CreateHttpSignatureSettings(settings, configurationDictionary);
             return settings;
         }
@@ -127,7 +132,7 @@ namespace CyberSource.Client
             if (configurationDictionary == null) throw new ArgumentNullException(nameof(configurationDictionary));
             _validator.ValidateMandatorySettings(configurationDictionary);
             _validator.ValidateJwtSettings(configurationDictionary);
-            var settings = _factory.CreateMandatorySettings(configurationDictionary);
+            var settings = _factory.CreateMandatorySettings(configurationDictionary, _loggerFactory);
             settings = _factory.CreateJwtSettings(settings, configurationDictionary);
             return settings;
         }
@@ -145,7 +150,7 @@ namespace CyberSource.Client
             if (configurationDictionary == null) throw new ArgumentNullException(nameof(configurationDictionary));
             _validator.ValidateMandatorySettings(configurationDictionary);
             _validator.ValidateOAuthSettings(configurationDictionary);
-            var settings = _factory.CreateMandatorySettings(configurationDictionary);
+            var settings = _factory.CreateMandatorySettings(configurationDictionary, _loggerFactory);
             settings = _factory.CreateOAuthSettings(settings, configurationDictionary);
             return settings;
         }
@@ -163,7 +168,7 @@ namespace CyberSource.Client
             if (configurationDictionary == null) throw new ArgumentNullException(nameof(configurationDictionary));
             _validator.ValidateMandatorySettings(configurationDictionary);
             _validator.ValidateMutualAuthSettings(configurationDictionary);
-            var settings = _factory.CreateMandatorySettings(configurationDictionary);
+            var settings = _factory.CreateMandatorySettings(configurationDictionary, _loggerFactory);
             settings = _factory.CreateMutualAuthSettings(settings, configurationDictionary);
             return settings;
         }

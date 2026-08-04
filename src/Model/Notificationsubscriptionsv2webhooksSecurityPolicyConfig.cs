@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Optional configuration object for if your API or server requires oAuth for an incoming webhook.
     /// </summary>
     [DataContract]
-    public partial class Notificationsubscriptionsv2webhooksSecurityPolicyConfig :  IEquatable<Notificationsubscriptionsv2webhooksSecurityPolicyConfig>, IValidatableObject
+    public partial class Notificationsubscriptionsv2webhooksSecurityPolicyConfig :  ModelExtensions, IEquatable<Notificationsubscriptionsv2webhooksSecurityPolicyConfig>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Notificationsubscriptionsv2webhooksSecurityPolicyConfig" /> class.
@@ -77,6 +78,7 @@ namespace CyberSource.Model
             if (OAuthURL != null) sb.Append("  OAuthURL: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Notificationsubscriptionsv2webhooksSecurityPolicyConfig", "oAuthURL", OAuthURL.ToString())).Append("\n");
             if (OAuthTokenType != null) sb.Append("  OAuthTokenType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Notificationsubscriptionsv2webhooksSecurityPolicyConfig", "oAuthTokenType", OAuthTokenType.ToString())).Append("\n");
             if (AdditionalConfig != null) sb.Append("  AdditionalConfig: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Notificationsubscriptionsv2webhooksSecurityPolicyConfig", "additionalConfig", AdditionalConfig.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,7 +89,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Notificationsubscriptionsv2webhooksSecurityPolicyConfig", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Notificationsubscriptionsv2webhooksSecurityPolicyConfig", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -112,7 +114,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.OAuthURL == other.OAuthURL ||
                     this.OAuthURL != null &&
@@ -141,12 +147,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.OAuthURL != null)
                     hash = hash * 59 + this.OAuthURL.GetHashCode();
                 if (this.OAuthTokenType != null)
                     hash = hash * 59 + this.OAuthTokenType.GetHashCode();
                 if (this.AdditionalConfig != null)
                     hash = hash * 59 + this.AdditionalConfig.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

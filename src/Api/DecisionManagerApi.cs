@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -291,10 +293,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 ActionDecisionManagerCase(string id, CaseManagementActionsRequest caseManagementActionsRequest)
         {
-            logger.Debug("CALLING API \"ActionDecisionManagerCase\" STARTED");
+            logger.LogDebug("CALLING API \"ActionDecisionManagerCase\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2003> localVarResponse = ActionDecisionManagerCaseWithHttpInfo(id, caseManagementActionsRequest);
-            logger.Debug("CALLING API \"ActionDecisionManagerCase\" ENDED");
+            logger.LogDebug("CALLING API \"ActionDecisionManagerCase\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -313,13 +315,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->ActionDecisionManagerCase");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->ActionDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->ActionDecisionManagerCase");
             }
             // verify the required parameter 'caseManagementActionsRequest' is set
             if (caseManagementActionsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'caseManagementActionsRequest' when calling DecisionManagerApi->ActionDecisionManagerCase");
+                logger.LogError("ApiException : Missing required parameter 'caseManagementActionsRequest' when calling DecisionManagerApi->ActionDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'caseManagementActionsRequest' when calling DecisionManagerApi->ActionDecisionManagerCase");
             }
 
@@ -351,7 +353,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (caseManagementActionsRequest != null && caseManagementActionsRequest.GetType() != typeof(byte[]))
             {
@@ -370,18 +372,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "ActionDecisionManagerCase,ActionDecisionManagerCaseAsync,ActionDecisionManagerCaseWithHttpInfo,ActionDecisionManagerCaseAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -396,7 +398,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ActionDecisionManagerCase", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -415,10 +417,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse2003</returns>
         public async Task<InlineResponse2003> ActionDecisionManagerCaseAsync(string id, CaseManagementActionsRequest caseManagementActionsRequest)
         {
-            logger.Debug("CALLING API \"ActionDecisionManagerCaseAsync\" STARTED");
+            logger.LogDebug("CALLING API \"ActionDecisionManagerCaseAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2003> localVarResponse = await ActionDecisionManagerCaseAsyncWithHttpInfo(id, caseManagementActionsRequest);
-            logger.Debug("CALLING API \"ActionDecisionManagerCaseAsync\" ENDED");
+            logger.LogDebug("CALLING API \"ActionDecisionManagerCaseAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -438,13 +440,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->ActionDecisionManagerCase");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->ActionDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->ActionDecisionManagerCase");
             }
             // verify the required parameter 'caseManagementActionsRequest' is set
             if (caseManagementActionsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'caseManagementActionsRequest' when calling DecisionManagerApi->ActionDecisionManagerCase");
+                logger.LogError("ApiException : Missing required parameter 'caseManagementActionsRequest' when calling DecisionManagerApi->ActionDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'caseManagementActionsRequest' when calling DecisionManagerApi->ActionDecisionManagerCase");
             }
 
@@ -476,7 +478,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (caseManagementActionsRequest != null && caseManagementActionsRequest.GetType() != typeof(byte[]))
             {
@@ -495,18 +497,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "ActionDecisionManagerCase,ActionDecisionManagerCaseAsync,ActionDecisionManagerCaseWithHttpInfo,ActionDecisionManagerCaseAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -521,7 +523,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ActionDecisionManagerCase", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -539,10 +541,10 @@ namespace CyberSource.Api
         /// <returns>RiskV1UpdatePost201Response</returns>
         public RiskV1UpdatePost201Response AddNegative(string type, AddNegativeListRequest addNegativeListRequest)
         {
-            logger.Debug("CALLING API \"AddNegative\" STARTED");
+            logger.LogDebug("CALLING API \"AddNegative\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = AddNegativeWithHttpInfo(type, addNegativeListRequest);
-            logger.Debug("CALLING API \"AddNegative\" ENDED");
+            logger.LogDebug("CALLING API \"AddNegative\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -561,13 +563,13 @@ namespace CyberSource.Api
             // verify the required parameter 'type' is set
             if (type == null)
             {
-                logger.Error("ApiException : Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
+                logger.LogError("ApiException : Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
                 throw new ApiException(400, "Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
             }
             // verify the required parameter 'addNegativeListRequest' is set
             if (addNegativeListRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
+                logger.LogError("ApiException : Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
                 throw new ApiException(400, "Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
             }
 
@@ -599,7 +601,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("type", ApiClient.ParameterToString(type)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (addNegativeListRequest != null && addNegativeListRequest.GetType() != typeof(byte[]))
             {
@@ -618,18 +620,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "AddNegative,AddNegativeAsync,AddNegativeWithHttpInfo,AddNegativeAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -644,7 +646,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("AddNegative", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -663,10 +665,10 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1UpdatePost201Response</returns>
         public async Task<RiskV1UpdatePost201Response> AddNegativeAsync(string type, AddNegativeListRequest addNegativeListRequest)
         {
-            logger.Debug("CALLING API \"AddNegativeAsync\" STARTED");
+            logger.LogDebug("CALLING API \"AddNegativeAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await AddNegativeAsyncWithHttpInfo(type, addNegativeListRequest);
-            logger.Debug("CALLING API \"AddNegativeAsync\" ENDED");
+            logger.LogDebug("CALLING API \"AddNegativeAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -686,13 +688,13 @@ namespace CyberSource.Api
             // verify the required parameter 'type' is set
             if (type == null)
             {
-                logger.Error("ApiException : Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
+                logger.LogError("ApiException : Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
                 throw new ApiException(400, "Missing required parameter 'type' when calling DecisionManagerApi->AddNegative");
             }
             // verify the required parameter 'addNegativeListRequest' is set
             if (addNegativeListRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
+                logger.LogError("ApiException : Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
                 throw new ApiException(400, "Missing required parameter 'addNegativeListRequest' when calling DecisionManagerApi->AddNegative");
             }
 
@@ -724,7 +726,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("type", ApiClient.ParameterToString(type)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (addNegativeListRequest != null && addNegativeListRequest.GetType() != typeof(byte[]))
             {
@@ -743,18 +745,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "AddNegative,AddNegativeAsync,AddNegativeWithHttpInfo,AddNegativeAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -769,7 +771,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("AddNegative", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -787,10 +789,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse2012</returns>
         public InlineResponse2012 CommentDecisionManagerCase(string id, CaseManagementCommentsRequest caseManagementCommentsRequest)
         {
-            logger.Debug("CALLING API \"CommentDecisionManagerCase\" STARTED");
+            logger.LogDebug("CALLING API \"CommentDecisionManagerCase\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2012> localVarResponse = CommentDecisionManagerCaseWithHttpInfo(id, caseManagementCommentsRequest);
-            logger.Debug("CALLING API \"CommentDecisionManagerCase\" ENDED");
+            logger.LogDebug("CALLING API \"CommentDecisionManagerCase\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -809,13 +811,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->CommentDecisionManagerCase");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->CommentDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->CommentDecisionManagerCase");
             }
             // verify the required parameter 'caseManagementCommentsRequest' is set
             if (caseManagementCommentsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'caseManagementCommentsRequest' when calling DecisionManagerApi->CommentDecisionManagerCase");
+                logger.LogError("ApiException : Missing required parameter 'caseManagementCommentsRequest' when calling DecisionManagerApi->CommentDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'caseManagementCommentsRequest' when calling DecisionManagerApi->CommentDecisionManagerCase");
             }
 
@@ -847,7 +849,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (caseManagementCommentsRequest != null && caseManagementCommentsRequest.GetType() != typeof(byte[]))
             {
@@ -866,18 +868,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CommentDecisionManagerCase,CommentDecisionManagerCaseAsync,CommentDecisionManagerCaseWithHttpInfo,CommentDecisionManagerCaseAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -892,7 +894,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CommentDecisionManagerCase", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -911,10 +913,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse2012</returns>
         public async Task<InlineResponse2012> CommentDecisionManagerCaseAsync(string id, CaseManagementCommentsRequest caseManagementCommentsRequest)
         {
-            logger.Debug("CALLING API \"CommentDecisionManagerCaseAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CommentDecisionManagerCaseAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2012> localVarResponse = await CommentDecisionManagerCaseAsyncWithHttpInfo(id, caseManagementCommentsRequest);
-            logger.Debug("CALLING API \"CommentDecisionManagerCaseAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CommentDecisionManagerCaseAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -934,13 +936,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->CommentDecisionManagerCase");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->CommentDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->CommentDecisionManagerCase");
             }
             // verify the required parameter 'caseManagementCommentsRequest' is set
             if (caseManagementCommentsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'caseManagementCommentsRequest' when calling DecisionManagerApi->CommentDecisionManagerCase");
+                logger.LogError("ApiException : Missing required parameter 'caseManagementCommentsRequest' when calling DecisionManagerApi->CommentDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'caseManagementCommentsRequest' when calling DecisionManagerApi->CommentDecisionManagerCase");
             }
 
@@ -972,7 +974,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (caseManagementCommentsRequest != null && caseManagementCommentsRequest.GetType() != typeof(byte[]))
             {
@@ -991,18 +993,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CommentDecisionManagerCase,CommentDecisionManagerCaseAsync,CommentDecisionManagerCaseWithHttpInfo,CommentDecisionManagerCaseAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1017,7 +1019,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CommentDecisionManagerCase", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1034,10 +1036,10 @@ namespace CyberSource.Api
         /// <returns>RiskV1DecisionsPost201Response</returns>
         public RiskV1DecisionsPost201Response CreateBundledDecisionManagerCase(CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
-            logger.Debug("CALLING API \"CreateBundledDecisionManagerCase\" STARTED");
+            logger.LogDebug("CALLING API \"CreateBundledDecisionManagerCase\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = CreateBundledDecisionManagerCaseWithHttpInfo(createBundledDecisionManagerCaseRequest);
-            logger.Debug("CALLING API \"CreateBundledDecisionManagerCase\" ENDED");
+            logger.LogDebug("CALLING API \"CreateBundledDecisionManagerCase\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1055,7 +1057,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createBundledDecisionManagerCaseRequest' is set
             if (createBundledDecisionManagerCaseRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
+                logger.LogError("ApiException : Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
             }
 
@@ -1100,18 +1102,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateBundledDecisionManagerCase,CreateBundledDecisionManagerCaseAsync,CreateBundledDecisionManagerCaseWithHttpInfo,CreateBundledDecisionManagerCaseAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1126,7 +1128,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1144,10 +1146,10 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1DecisionsPost201Response</returns>
         public async Task<RiskV1DecisionsPost201Response> CreateBundledDecisionManagerCaseAsync(CreateBundledDecisionManagerCaseRequest createBundledDecisionManagerCaseRequest)
         {
-            logger.Debug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1DecisionsPost201Response> localVarResponse = await CreateBundledDecisionManagerCaseAsyncWithHttpInfo(createBundledDecisionManagerCaseRequest);
-            logger.Debug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreateBundledDecisionManagerCaseAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1166,7 +1168,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createBundledDecisionManagerCaseRequest' is set
             if (createBundledDecisionManagerCaseRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
+                logger.LogError("ApiException : Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
                 throw new ApiException(400, "Missing required parameter 'createBundledDecisionManagerCaseRequest' when calling DecisionManagerApi->CreateBundledDecisionManagerCase");
             }
 
@@ -1211,18 +1213,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateBundledDecisionManagerCase,CreateBundledDecisionManagerCaseAsync,CreateBundledDecisionManagerCaseWithHttpInfo,CreateBundledDecisionManagerCaseAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1237,7 +1239,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateBundledDecisionManagerCase", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1255,10 +1257,10 @@ namespace CyberSource.Api
         /// <returns>RiskV1UpdatePost201Response</returns>
         public RiskV1UpdatePost201Response FraudUpdate(string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
-            logger.Debug("CALLING API \"FraudUpdate\" STARTED");
+            logger.LogDebug("CALLING API \"FraudUpdate\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = FraudUpdateWithHttpInfo(id, fraudMarkingActionRequest);
-            logger.Debug("CALLING API \"FraudUpdate\" ENDED");
+            logger.LogDebug("CALLING API \"FraudUpdate\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1277,13 +1279,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
                 throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
             }
             // verify the required parameter 'fraudMarkingActionRequest' is set
             if (fraudMarkingActionRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
+                logger.LogError("ApiException : Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
                 throw new ApiException(400, "Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
             }
 
@@ -1315,7 +1317,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (fraudMarkingActionRequest != null && fraudMarkingActionRequest.GetType() != typeof(byte[]))
             {
@@ -1334,18 +1336,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "FraudUpdate,FraudUpdateAsync,FraudUpdateWithHttpInfo,FraudUpdateAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1360,7 +1362,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1379,10 +1381,10 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1UpdatePost201Response</returns>
         public async Task<RiskV1UpdatePost201Response> FraudUpdateAsync(string id, FraudMarkingActionRequest fraudMarkingActionRequest)
         {
-            logger.Debug("CALLING API \"FraudUpdateAsync\" STARTED");
+            logger.LogDebug("CALLING API \"FraudUpdateAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1UpdatePost201Response> localVarResponse = await FraudUpdateAsyncWithHttpInfo(id, fraudMarkingActionRequest);
-            logger.Debug("CALLING API \"FraudUpdateAsync\" ENDED");
+            logger.LogDebug("CALLING API \"FraudUpdateAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1402,13 +1404,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
                 throw new ApiException(400, "Missing required parameter 'id' when calling DecisionManagerApi->FraudUpdate");
             }
             // verify the required parameter 'fraudMarkingActionRequest' is set
             if (fraudMarkingActionRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
+                logger.LogError("ApiException : Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
                 throw new ApiException(400, "Missing required parameter 'fraudMarkingActionRequest' when calling DecisionManagerApi->FraudUpdate");
             }
 
@@ -1440,7 +1442,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (fraudMarkingActionRequest != null && fraudMarkingActionRequest.GetType() != typeof(byte[]))
             {
@@ -1459,18 +1461,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "FraudUpdate,FraudUpdateAsync,FraudUpdateWithHttpInfo,FraudUpdateAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1485,7 +1487,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("FraudUpdate", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

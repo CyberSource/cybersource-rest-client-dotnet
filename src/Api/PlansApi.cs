@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -416,10 +418,10 @@ namespace CyberSource.Api
         /// <returns>ActivateDeactivatePlanResponse</returns>
         public ActivateDeactivatePlanResponse ActivatePlan(string id)
         {
-            logger.Debug("CALLING API \"ActivatePlan\" STARTED");
+            logger.LogDebug("CALLING API \"ActivatePlan\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ActivateDeactivatePlanResponse> localVarResponse = ActivatePlanWithHttpInfo(id);
-            logger.Debug("CALLING API \"ActivatePlan\" ENDED");
+            logger.LogDebug("CALLING API \"ActivatePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -437,7 +439,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PlansApi->ActivatePlan");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PlansApi->ActivatePlan");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PlansApi->ActivatePlan");
             }
 
@@ -472,7 +474,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -496,11 +498,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -520,7 +522,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ActivatePlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -538,10 +540,10 @@ namespace CyberSource.Api
         /// <returns>Task of ActivateDeactivatePlanResponse</returns>
         public async Task<ActivateDeactivatePlanResponse> ActivatePlanAsync(string id)
         {
-            logger.Debug("CALLING API \"ActivatePlanAsync\" STARTED");
+            logger.LogDebug("CALLING API \"ActivatePlanAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ActivateDeactivatePlanResponse> localVarResponse = await ActivatePlanAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"ActivatePlanAsync\" ENDED");
+            logger.LogDebug("CALLING API \"ActivatePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -560,7 +562,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PlansApi->ActivatePlan");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PlansApi->ActivatePlan");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PlansApi->ActivatePlan");
             }
 
@@ -595,7 +597,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -618,11 +620,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -642,7 +644,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ActivatePlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -659,10 +661,10 @@ namespace CyberSource.Api
         /// <returns>CreatePlanResponse</returns>
         public CreatePlanResponse CreatePlan(CreatePlanRequest createPlanRequest)
         {
-            logger.Debug("CALLING API \"CreatePlan\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePlan\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<CreatePlanResponse> localVarResponse = CreatePlanWithHttpInfo(createPlanRequest);
-            logger.Debug("CALLING API \"CreatePlan\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -680,7 +682,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createPlanRequest' is set
             if (createPlanRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createPlanRequest' when calling PlansApi->CreatePlan");
+                logger.LogError("ApiException : Missing required parameter 'createPlanRequest' when calling PlansApi->CreatePlan");
                 throw new ApiException(400, "Missing required parameter 'createPlanRequest' when calling PlansApi->CreatePlan");
             }
 
@@ -728,18 +730,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePlan,CreatePlanAsync,CreatePlanWithHttpInfo,CreatePlanAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -754,7 +756,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -772,10 +774,10 @@ namespace CyberSource.Api
         /// <returns>Task of CreatePlanResponse</returns>
         public async Task<CreatePlanResponse> CreatePlanAsync(CreatePlanRequest createPlanRequest)
         {
-            logger.Debug("CALLING API \"CreatePlanAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePlanAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<CreatePlanResponse> localVarResponse = await CreatePlanAsyncWithHttpInfo(createPlanRequest);
-            logger.Debug("CALLING API \"CreatePlanAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -794,7 +796,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createPlanRequest' is set
             if (createPlanRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createPlanRequest' when calling PlansApi->CreatePlan");
+                logger.LogError("ApiException : Missing required parameter 'createPlanRequest' when calling PlansApi->CreatePlan");
                 throw new ApiException(400, "Missing required parameter 'createPlanRequest' when calling PlansApi->CreatePlan");
             }
 
@@ -842,18 +844,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePlan,CreatePlanAsync,CreatePlanWithHttpInfo,CreatePlanAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -868,7 +870,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -885,10 +887,10 @@ namespace CyberSource.Api
         /// <returns>ActivateDeactivatePlanResponse</returns>
         public ActivateDeactivatePlanResponse DeactivatePlan(string id)
         {
-            logger.Debug("CALLING API \"DeactivatePlan\" STARTED");
+            logger.LogDebug("CALLING API \"DeactivatePlan\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ActivateDeactivatePlanResponse> localVarResponse = DeactivatePlanWithHttpInfo(id);
-            logger.Debug("CALLING API \"DeactivatePlan\" ENDED");
+            logger.LogDebug("CALLING API \"DeactivatePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -906,7 +908,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PlansApi->DeactivatePlan");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PlansApi->DeactivatePlan");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PlansApi->DeactivatePlan");
             }
 
@@ -941,7 +943,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -965,11 +967,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -989,7 +991,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeactivatePlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1007,10 +1009,10 @@ namespace CyberSource.Api
         /// <returns>Task of ActivateDeactivatePlanResponse</returns>
         public async Task<ActivateDeactivatePlanResponse> DeactivatePlanAsync(string id)
         {
-            logger.Debug("CALLING API \"DeactivatePlanAsync\" STARTED");
+            logger.LogDebug("CALLING API \"DeactivatePlanAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ActivateDeactivatePlanResponse> localVarResponse = await DeactivatePlanAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"DeactivatePlanAsync\" ENDED");
+            logger.LogDebug("CALLING API \"DeactivatePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1029,7 +1031,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PlansApi->DeactivatePlan");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PlansApi->DeactivatePlan");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PlansApi->DeactivatePlan");
             }
 
@@ -1064,7 +1066,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -1087,11 +1089,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1111,7 +1113,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeactivatePlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1128,10 +1130,10 @@ namespace CyberSource.Api
         /// <returns>DeletePlanResponse</returns>
         public DeletePlanResponse DeletePlan(string id)
         {
-            logger.Debug("CALLING API \"DeletePlan\" STARTED");
+            logger.LogDebug("CALLING API \"DeletePlan\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<DeletePlanResponse> localVarResponse = DeletePlanWithHttpInfo(id);
-            logger.Debug("CALLING API \"DeletePlan\" ENDED");
+            logger.LogDebug("CALLING API \"DeletePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1149,7 +1151,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PlansApi->DeletePlan");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PlansApi->DeletePlan");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PlansApi->DeletePlan");
             }
 
@@ -1184,7 +1186,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Delete == Method.Post)
             {
@@ -1208,11 +1210,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1232,7 +1234,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeletePlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1250,10 +1252,10 @@ namespace CyberSource.Api
         /// <returns>Task of DeletePlanResponse</returns>
         public async Task<DeletePlanResponse> DeletePlanAsync(string id)
         {
-            logger.Debug("CALLING API \"DeletePlanAsync\" STARTED");
+            logger.LogDebug("CALLING API \"DeletePlanAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<DeletePlanResponse> localVarResponse = await DeletePlanAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"DeletePlanAsync\" ENDED");
+            logger.LogDebug("CALLING API \"DeletePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1272,7 +1274,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PlansApi->DeletePlan");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PlansApi->DeletePlan");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PlansApi->DeletePlan");
             }
 
@@ -1307,7 +1309,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Delete == Method.Post)
             {
@@ -1330,11 +1332,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1354,7 +1356,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeletePlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1371,10 +1373,10 @@ namespace CyberSource.Api
         /// <returns>GetPlanResponse</returns>
         public GetPlanResponse GetPlan(string id)
         {
-            logger.Debug("CALLING API \"GetPlan\" STARTED");
+            logger.LogDebug("CALLING API \"GetPlan\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<GetPlanResponse> localVarResponse = GetPlanWithHttpInfo(id);
-            logger.Debug("CALLING API \"GetPlan\" ENDED");
+            logger.LogDebug("CALLING API \"GetPlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1392,7 +1394,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PlansApi->GetPlan");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PlansApi->GetPlan");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PlansApi->GetPlan");
             }
 
@@ -1427,7 +1429,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -1451,11 +1453,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1475,7 +1477,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetPlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1493,10 +1495,10 @@ namespace CyberSource.Api
         /// <returns>Task of GetPlanResponse</returns>
         public async Task<GetPlanResponse> GetPlanAsync(string id)
         {
-            logger.Debug("CALLING API \"GetPlanAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetPlanAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<GetPlanResponse> localVarResponse = await GetPlanAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"GetPlanAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetPlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1515,7 +1517,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PlansApi->GetPlan");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PlansApi->GetPlan");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PlansApi->GetPlan");
             }
 
@@ -1550,7 +1552,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -1573,11 +1575,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1597,7 +1599,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetPlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1613,10 +1615,10 @@ namespace CyberSource.Api
         /// <returns>GetPlanCodeResponse</returns>
         public GetPlanCodeResponse GetPlanCode()
         {
-            logger.Debug("CALLING API \"GetPlanCode\" STARTED");
+            logger.LogDebug("CALLING API \"GetPlanCode\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<GetPlanCodeResponse> localVarResponse = GetPlanCodeWithHttpInfo();
-            logger.Debug("CALLING API \"GetPlanCode\" ENDED");
+            logger.LogDebug("CALLING API \"GetPlanCode\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1680,11 +1682,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1704,7 +1706,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetPlanCode", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1721,10 +1723,10 @@ namespace CyberSource.Api
         /// <returns>Task of GetPlanCodeResponse</returns>
         public async Task<GetPlanCodeResponse> GetPlanCodeAsync()
         {
-            logger.Debug("CALLING API \"GetPlanCodeAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetPlanCodeAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<GetPlanCodeResponse> localVarResponse = await GetPlanCodeAsyncWithHttpInfo();
-            logger.Debug("CALLING API \"GetPlanCodeAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetPlanCodeAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1788,11 +1790,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1812,7 +1814,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetPlanCode", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1833,10 +1835,10 @@ namespace CyberSource.Api
         /// <returns>GetAllPlansResponse</returns>
         public GetAllPlansResponse GetPlans(int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
         {
-            logger.Debug("CALLING API \"GetPlans\" STARTED");
+            logger.LogDebug("CALLING API \"GetPlans\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<GetAllPlansResponse> localVarResponse = GetPlansWithHttpInfo(offset, limit, code, status, name);
-            logger.Debug("CALLING API \"GetPlans\" ENDED");
+            logger.LogDebug("CALLING API \"GetPlans\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1887,31 +1889,31 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (code != null)
             {
                 localVarQueryParams.Add("code", ApiClient.ParameterToString(code)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (status != null)
             {
                 localVarQueryParams.Add("status", ApiClient.ParameterToString(status)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (name != null)
             {
                 localVarQueryParams.Add("name", ApiClient.ParameterToString(name)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -1935,11 +1937,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1959,7 +1961,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetPlans", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1981,10 +1983,10 @@ namespace CyberSource.Api
         /// <returns>Task of GetAllPlansResponse</returns>
         public async Task<GetAllPlansResponse> GetPlansAsync(int? offset = null, int? limit = null, string code = null, string status = null, string name = null)
         {
-            logger.Debug("CALLING API \"GetPlansAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetPlansAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<GetAllPlansResponse> localVarResponse = await GetPlansAsyncWithHttpInfo(offset, limit, code, status, name);
-            logger.Debug("CALLING API \"GetPlansAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetPlansAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -2036,31 +2038,31 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (code != null)
             {
                 localVarQueryParams.Add("code", ApiClient.ParameterToString(code)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (status != null)
             {
                 localVarQueryParams.Add("status", ApiClient.ParameterToString(status)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (name != null)
             {
                 localVarQueryParams.Add("name", ApiClient.ParameterToString(name)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -2083,11 +2085,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -2107,7 +2109,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetPlans", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -2125,10 +2127,10 @@ namespace CyberSource.Api
         /// <returns>UpdatePlanResponse</returns>
         public UpdatePlanResponse UpdatePlan(string id, UpdatePlanRequest updatePlanRequest)
         {
-            logger.Debug("CALLING API \"UpdatePlan\" STARTED");
+            logger.LogDebug("CALLING API \"UpdatePlan\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<UpdatePlanResponse> localVarResponse = UpdatePlanWithHttpInfo(id, updatePlanRequest);
-            logger.Debug("CALLING API \"UpdatePlan\" ENDED");
+            logger.LogDebug("CALLING API \"UpdatePlan\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -2147,13 +2149,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PlansApi->UpdatePlan");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PlansApi->UpdatePlan");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PlansApi->UpdatePlan");
             }
             // verify the required parameter 'updatePlanRequest' is set
             if (updatePlanRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updatePlanRequest' when calling PlansApi->UpdatePlan");
+                logger.LogError("ApiException : Missing required parameter 'updatePlanRequest' when calling PlansApi->UpdatePlan");
                 throw new ApiException(400, "Missing required parameter 'updatePlanRequest' when calling PlansApi->UpdatePlan");
             }
 
@@ -2188,7 +2190,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (updatePlanRequest != null && updatePlanRequest.GetType() != typeof(byte[]))
             {
@@ -2202,23 +2204,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "UpdatePlan,UpdatePlanAsync,UpdatePlanWithHttpInfo,UpdatePlanAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "UpdatePlan,UpdatePlanAsync,UpdatePlanWithHttpInfo,UpdatePlanAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -2233,7 +2235,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("UpdatePlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -2252,10 +2254,10 @@ namespace CyberSource.Api
         /// <returns>Task of UpdatePlanResponse</returns>
         public async Task<UpdatePlanResponse> UpdatePlanAsync(string id, UpdatePlanRequest updatePlanRequest)
         {
-            logger.Debug("CALLING API \"UpdatePlanAsync\" STARTED");
+            logger.LogDebug("CALLING API \"UpdatePlanAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<UpdatePlanResponse> localVarResponse = await UpdatePlanAsyncWithHttpInfo(id, updatePlanRequest);
-            logger.Debug("CALLING API \"UpdatePlanAsync\" ENDED");
+            logger.LogDebug("CALLING API \"UpdatePlanAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -2275,13 +2277,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PlansApi->UpdatePlan");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PlansApi->UpdatePlan");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PlansApi->UpdatePlan");
             }
             // verify the required parameter 'updatePlanRequest' is set
             if (updatePlanRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updatePlanRequest' when calling PlansApi->UpdatePlan");
+                logger.LogError("ApiException : Missing required parameter 'updatePlanRequest' when calling PlansApi->UpdatePlan");
                 throw new ApiException(400, "Missing required parameter 'updatePlanRequest' when calling PlansApi->UpdatePlan");
             }
 
@@ -2316,7 +2318,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (updatePlanRequest != null && updatePlanRequest.GetType() != typeof(byte[]))
             {
@@ -2330,23 +2332,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "UpdatePlan,UpdatePlanAsync,UpdatePlanWithHttpInfo,UpdatePlanAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "UpdatePlan,UpdatePlanAsync,UpdatePlanWithHttpInfo,UpdatePlanAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -2361,7 +2363,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("UpdatePlan", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

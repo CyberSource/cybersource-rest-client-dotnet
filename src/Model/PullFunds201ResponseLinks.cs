@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// PullFunds201ResponseLinks
     /// </summary>
     [DataContract]
-    public partial class PullFunds201ResponseLinks :  IEquatable<PullFunds201ResponseLinks>, IValidatableObject
+    public partial class PullFunds201ResponseLinks :  ModelExtensions, IEquatable<PullFunds201ResponseLinks>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PullFunds201ResponseLinks" /> class.
@@ -105,6 +106,7 @@ namespace CyberSource.Model
             if (Customer != null) sb.Append("  Customer: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PullFunds201ResponseLinks", "customer", Customer.ToString())).Append("\n");
             if (PaymentInstrument != null) sb.Append("  PaymentInstrument: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PullFunds201ResponseLinks", "paymentInstrument", PaymentInstrument.ToString())).Append("\n");
             if (InstrumentIdentifier != null) sb.Append("  InstrumentIdentifier: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PullFunds201ResponseLinks", "instrumentIdentifier", InstrumentIdentifier.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,7 +117,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PullFunds201ResponseLinks", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PullFunds201ResponseLinks", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -140,7 +142,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Self == other.Self ||
                     this.Self != null &&
@@ -184,6 +190,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Self != null)
                     hash = hash * 59 + this.Self.GetHashCode();
                 if (this.Reversal != null)
@@ -196,6 +204,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInstrument.GetHashCode();
                 if (this.InstrumentIdentifier != null)
                     hash = hash * 59 + this.InstrumentIdentifier.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -16,5 +16,14 @@ Name | Type | Description | Notes
 **PhoneNumber** | **string** | Sub-merchant&#39;s telephone number.  **Maximum length for procesors**   - American Express Direct: 20  - CyberSource through VisaNet: 20  - FDC Compass: 13  - FDC Nashville Global: 10  #### CyberSource through VisaNet With American Express, the value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCRB - Position: 5-24 - Field: American Express Seller Telephone Number  **FDC Compass**\\ This value must consist of uppercase characters. Use one of these recommended formats:\\ &#x60;NNN-NNN-NNNN&#x60;\\ &#x60;NNN-AAAAAAA&#x60;  | [optional] 
 **MerchantCategoryCode** | **decimal?** |  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -148,7 +150,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void DeleteTerminalAssociation(DeAssociationRequestBody deAssociationRequestBody)
         {
-            logger.Debug("CALLING API \"DeleteTerminalAssociation\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteTerminalAssociation\" STARTED");
             this.SetStatusCode(null);
             DeleteTerminalAssociationWithHttpInfo(deAssociationRequestBody);
         }
@@ -166,7 +168,7 @@ namespace CyberSource.Api
             // verify the required parameter 'deAssociationRequestBody' is set
             if (deAssociationRequestBody == null)
             {
-                logger.Error("ApiException : Missing required parameter 'deAssociationRequestBody' when calling DeviceDeAssociationApi->DeleteTerminalAssociation");
+                logger.LogError("ApiException : Missing required parameter 'deAssociationRequestBody' when calling DeviceDeAssociationApi->DeleteTerminalAssociation");
                 throw new ApiException(400, "Missing required parameter 'deAssociationRequestBody' when calling DeviceDeAssociationApi->DeleteTerminalAssociation");
             }
 
@@ -211,18 +213,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "DeleteTerminalAssociation,DeleteTerminalAssociationAsync,DeleteTerminalAssociationWithHttpInfo,DeleteTerminalAssociationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -237,7 +239,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteTerminalAssociation", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -256,7 +258,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task DeleteTerminalAssociationAsync(DeAssociationRequestBody deAssociationRequestBody)
         {
-            logger.Debug("CALLING API \"DeleteTerminalAssociationAsync\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteTerminalAssociationAsync\" STARTED");
             this.SetStatusCode(null);
             await DeleteTerminalAssociationAsyncWithHttpInfo(deAssociationRequestBody);
 
@@ -275,7 +277,7 @@ namespace CyberSource.Api
             // verify the required parameter 'deAssociationRequestBody' is set
             if (deAssociationRequestBody == null)
             {
-                logger.Error("ApiException : Missing required parameter 'deAssociationRequestBody' when calling DeviceDeAssociationApi->DeleteTerminalAssociation");
+                logger.LogError("ApiException : Missing required parameter 'deAssociationRequestBody' when calling DeviceDeAssociationApi->DeleteTerminalAssociation");
                 throw new ApiException(400, "Missing required parameter 'deAssociationRequestBody' when calling DeviceDeAssociationApi->DeleteTerminalAssociation");
             }
 
@@ -320,18 +322,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "DeleteTerminalAssociation,DeleteTerminalAssociationAsync,DeleteTerminalAssociationWithHttpInfo,DeleteTerminalAssociationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -346,7 +348,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteTerminalAssociation", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -364,10 +366,10 @@ namespace CyberSource.Api
         /// <returns>List&lt;InlineResponse20010&gt;</returns>
         public List<InlineResponse20010> PostDeAssociateV3Terminal(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
         {
-            logger.Debug("CALLING API \"PostDeAssociateV3Terminal\" STARTED");
+            logger.LogDebug("CALLING API \"PostDeAssociateV3Terminal\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<List<InlineResponse20010>> localVarResponse = PostDeAssociateV3TerminalWithHttpInfo(deviceDeAssociateV3Request);
-            logger.Debug("CALLING API \"PostDeAssociateV3Terminal\" ENDED");
+            logger.LogDebug("CALLING API \"PostDeAssociateV3Terminal\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -385,7 +387,7 @@ namespace CyberSource.Api
             // verify the required parameter 'deviceDeAssociateV3Request' is set
             if (deviceDeAssociateV3Request == null)
             {
-                logger.Error("ApiException : Missing required parameter 'deviceDeAssociateV3Request' when calling DeviceDeAssociationApi->PostDeAssociateV3Terminal");
+                logger.LogError("ApiException : Missing required parameter 'deviceDeAssociateV3Request' when calling DeviceDeAssociationApi->PostDeAssociateV3Terminal");
                 throw new ApiException(400, "Missing required parameter 'deviceDeAssociateV3Request' when calling DeviceDeAssociationApi->PostDeAssociateV3Terminal");
             }
 
@@ -430,18 +432,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostDeAssociateV3Terminal,PostDeAssociateV3TerminalAsync,PostDeAssociateV3TerminalWithHttpInfo,PostDeAssociateV3TerminalAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -456,7 +458,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostDeAssociateV3Terminal", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -474,10 +476,10 @@ namespace CyberSource.Api
         /// <returns>Task of List&lt;InlineResponse20010&gt;</returns>
         public async Task<List<InlineResponse20010>> PostDeAssociateV3TerminalAsync(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
         {
-            logger.Debug("CALLING API \"PostDeAssociateV3TerminalAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostDeAssociateV3TerminalAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<List<InlineResponse20010>> localVarResponse = await PostDeAssociateV3TerminalAsyncWithHttpInfo(deviceDeAssociateV3Request);
-            logger.Debug("CALLING API \"PostDeAssociateV3TerminalAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PostDeAssociateV3TerminalAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -496,7 +498,7 @@ namespace CyberSource.Api
             // verify the required parameter 'deviceDeAssociateV3Request' is set
             if (deviceDeAssociateV3Request == null)
             {
-                logger.Error("ApiException : Missing required parameter 'deviceDeAssociateV3Request' when calling DeviceDeAssociationApi->PostDeAssociateV3Terminal");
+                logger.LogError("ApiException : Missing required parameter 'deviceDeAssociateV3Request' when calling DeviceDeAssociationApi->PostDeAssociateV3Terminal");
                 throw new ApiException(400, "Missing required parameter 'deviceDeAssociateV3Request' when calling DeviceDeAssociationApi->PostDeAssociateV3Terminal");
             }
 
@@ -541,18 +543,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostDeAssociateV3Terminal,PostDeAssociateV3TerminalAsync,PostDeAssociateV3TerminalWithHttpInfo,PostDeAssociateV3TerminalAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -567,7 +569,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostDeAssociateV3Terminal", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

@@ -8,5 +8,14 @@ Name | Type | Description | Notes
 **AmountType** | **string** | Type of amount. This value is returned only if you request a balance inquiry. The issuer determines the value that is returned.  Possible values for deposit accounts:   - &#x60;01&#x60;: Current ledger (posted) balance.  - &#x60;02&#x60;: Current available balance, which is typically the ledger balance minus outstanding authorizations. Some  depository institutions also include pending deposits and the credit or overdraft line associated with the account.  Possible values for credit card accounts:   - &#x60;01&#x60;: Credit amount remaining for customer (open to buy).  - &#x60;02&#x60;: Credit limit.  | [optional] 
 **Currency** | **string** | Currency of the remaining balance on the account.  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

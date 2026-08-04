@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 
@@ -31,9 +32,9 @@ namespace CyberSource.Client
         /// Initializes a new instance of the <see cref="MerchantMLESettingsValidator"/> class.
         /// Creates an instance of the core MLE settings validator for delegation.
         /// </summary>
-        public MerchantMLESettingsValidator()
+        public MerchantMLESettingsValidator(ILoggerFactory loggerFactory = null)
         {
-            _coreValidator = new AuthenticationSdk.core.MerchantMLESettingsValidator();
+            _coreValidator = new AuthenticationSdk.core.MerchantMLESettingsValidator(loggerFactory);
         }
 
         /// <summary>

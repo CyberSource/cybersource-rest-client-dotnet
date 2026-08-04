@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,26 +29,30 @@ namespace CyberSource.Model
     /// Ptsv1pushfundstransferProcessingInformation
     /// </summary>
     [DataContract]
-    public partial class Ptsv1pushfundstransferProcessingInformation :  IEquatable<Ptsv1pushfundstransferProcessingInformation>, IValidatableObject
+    public partial class Ptsv1pushfundstransferProcessingInformation :  ModelExtensions, IEquatable<Ptsv1pushfundstransferProcessingInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferProcessingInformation" /> class.
         /// </summary>
-        /// <param name="BusinessApplicationId">Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;TU&#x60;: Prepaid Card Loan - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer - &#x60;PP&#x60;: P2P Money Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay  - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service .</param>
+        /// <param name="BusinessApplicationId">Payouts transaction type.  Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;LA&#x60;: Liquid Assets - &#x60;PP&#x60;: P2P Money Transfer - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service - &#x60;TU&#x60;: Prepaid Card Load  Supported BAIs vary by payment gateway and configuration. Clients are responsible for confirming gateway specific BAI availability. Conditional - If not provided in payload, the value is picked from Merchant Configuration. .</param>
         /// <param name="PayoutsOptions">PayoutsOptions.</param>
         /// <param name="FeeProgramId">Fee Program Indicator. This field identifies the interchange fee program applicable to each financial transaction. Fee program indicator (FPI) values correspond to the fee descriptor and rate for each existing fee program. .</param>
-        /// <param name="NetworkPartnerId">Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction.  This field is supported for Visa Platform Connect, Chase Paymentech Salem. .</param>
+        /// <param name="NetworkPartnerId">Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction. .</param>
+        /// <param name="TransactionTypeIndicator">Transaction Type Identifier for Mastercard Send. 3-character code that identifies the transaction type on the Mastercard network. When provided, this value takes priority over businessApplicationId for determining the payment type. .</param>
+        /// <param name="InterchangeRateDesignator">The IRD used for clearing the transaction on the Mastercard network. Details - Alphanumeric, length 2 characters.  This field is supported for Visa Platform Connect, Chase Paymentech Salem. .</param>
         /// <param name="ProcessingCode">This field contains coding that identifies (1) the customer transaction type and (2) the customer account types affected by the transaction.  Default: 5402 (Original Credit Transaction)  Contains codes that combined with some other fields such as the BAI (Business Application Id) identify some unique use cases. For Sales Tax rebates this field should be populated with the value 5120 (Value-added tax/Sales Tax) along with the businessApplicationId field set to the value &#39;FD&#39; which indicates this push funds transfer is being conducted in order to facilitate a sales tax refund. .</param>
         /// <param name="SharingGroupCode">This U.S.-only field is optionally used by PIN Debit Gateway Service participants (merchants and acquirers) to specify the network access priority. VisaNet checks to determine if there are issuer routing preferences for a network specified by the sharing group code. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on issuer preference. If an preference exists for multiple specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on acquirer routing priorities.  Valid Values:  ACCEL_EXCHANGE_E  CU24_C  INTERLINK_G  MAESTRO_8  NYCE_Y  NYCE_F  PULSE_S  PULSE_L  PULSE_H  STAR_N  STAR_W  STAR_Z  STAR_Q  STAR_M  VISA_V .</param>
         /// <param name="PurposeOfPayment">This will send purpose of funds code for original credit transactions (OCTs). .</param>
         /// <param name="ReconciliationId">Transaction&#39;s reference number..</param>
         /// <param name="AccountVerificationCode">Account verification code will inform what Payment Account Verification should be performed. With this array of codes, a merchant can choose à la carte what verifications to run. This field is optional, and the default is 1 if it is not passed in. This means that a full validation of the fields will be performed. Valid verification codes: - &#x60;1&#x60; &#x3D; Full Account Verification (Card Account, CVN, CAVV, TAVV, Address, Name, eMail, Phone, Identity) - &#x60;2&#x60; &#x3D; Card Account Verification - &#x60;3&#x60; &#x3D; Address Verification - &#x60;4&#x60; &#x3D; Card Authentication Method (CAM) (Cryptogram) - &#x60;5&#x60; &#x3D; Cardholder Authentication Verification (CAVV) - &#x60;6&#x60; &#x3D; Cardholder Identity Verification - &#x60;7&#x60; &#x3D; CVV2 Verification - &#x60;8&#x60; &#x3D; eMail Verification - &#x60;9&#x60; &#x3D; Name Verification - &#x60;10&#x60; &#x3D; Phone Verification .</param>
-        public Ptsv1pushfundstransferProcessingInformation(string BusinessApplicationId = default(string), Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pushfundstransferProcessingInformationPayoutsOptions), string FeeProgramId = default(string), string NetworkPartnerId = default(string), string ProcessingCode = default(string), string SharingGroupCode = default(string), string PurposeOfPayment = default(string), string ReconciliationId = default(string), List<string> AccountVerificationCode = default(List<string>))
+        public Ptsv1pushfundstransferProcessingInformation(string BusinessApplicationId = default(string), Ptsv1pushfundstransferProcessingInformationPayoutsOptions PayoutsOptions = default(Ptsv1pushfundstransferProcessingInformationPayoutsOptions), string FeeProgramId = default(string), string NetworkPartnerId = default(string), string TransactionTypeIndicator = default(string), string InterchangeRateDesignator = default(string), string ProcessingCode = default(string), string SharingGroupCode = default(string), string PurposeOfPayment = default(string), string ReconciliationId = default(string), List<string> AccountVerificationCode = default(List<string>))
         {
             this.BusinessApplicationId = BusinessApplicationId;
             this.PayoutsOptions = PayoutsOptions;
             this.FeeProgramId = FeeProgramId;
             this.NetworkPartnerId = NetworkPartnerId;
+            this.TransactionTypeIndicator = TransactionTypeIndicator;
+            this.InterchangeRateDesignator = InterchangeRateDesignator;
             this.ProcessingCode = ProcessingCode;
             this.SharingGroupCode = SharingGroupCode;
             this.PurposeOfPayment = PurposeOfPayment;
@@ -56,9 +61,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;TU&#x60;: Prepaid Card Loan - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer - &#x60;PP&#x60;: P2P Money Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay  - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service 
+        /// Payouts transaction type.  Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;LA&#x60;: Liquid Assets - &#x60;PP&#x60;: P2P Money Transfer - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service - &#x60;TU&#x60;: Prepaid Card Load  Supported BAIs vary by payment gateway and configuration. Clients are responsible for confirming gateway specific BAI availability. Conditional - If not provided in payload, the value is picked from Merchant Configuration. 
         /// </summary>
-        /// <value>Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;TU&#x60;: Prepaid Card Loan - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer - &#x60;PP&#x60;: P2P Money Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay  - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service </value>
+        /// <value>Payouts transaction type.  Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;LA&#x60;: Liquid Assets - &#x60;PP&#x60;: P2P Money Transfer - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service - &#x60;TU&#x60;: Prepaid Card Load  Supported BAIs vary by payment gateway and configuration. Clients are responsible for confirming gateway specific BAI availability. Conditional - If not provided in payload, the value is picked from Merchant Configuration. </value>
         [JsonPropertyName("businessApplicationId")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string BusinessApplicationId { get; set; }
@@ -79,12 +84,28 @@ namespace CyberSource.Model
         public string FeeProgramId { get; set; }
 
         /// <summary>
-        /// Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction.  This field is supported for Visa Platform Connect, Chase Paymentech Salem. 
+        /// Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction. 
         /// </summary>
-        /// <value>Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction.  This field is supported for Visa Platform Connect, Chase Paymentech Salem. </value>
+        /// <value>Merchant payment gateway ID that is assigned by Mastercard and is provided by the acquirer when a registered merchant payment gateway service provider is involved in the transaction. </value>
         [JsonPropertyName("networkPartnerId")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string NetworkPartnerId { get; set; }
+
+        /// <summary>
+        /// Transaction Type Identifier for Mastercard Send. 3-character code that identifies the transaction type on the Mastercard network. When provided, this value takes priority over businessApplicationId for determining the payment type. 
+        /// </summary>
+        /// <value>Transaction Type Identifier for Mastercard Send. 3-character code that identifies the transaction type on the Mastercard network. When provided, this value takes priority over businessApplicationId for determining the payment type. </value>
+        [JsonPropertyName("transactionTypeIndicator")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string TransactionTypeIndicator { get; set; }
+
+        /// <summary>
+        /// The IRD used for clearing the transaction on the Mastercard network. Details - Alphanumeric, length 2 characters.  This field is supported for Visa Platform Connect, Chase Paymentech Salem. 
+        /// </summary>
+        /// <value>The IRD used for clearing the transaction on the Mastercard network. Details - Alphanumeric, length 2 characters.  This field is supported for Visa Platform Connect, Chase Paymentech Salem. </value>
+        [JsonPropertyName("interchangeRateDesignator")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string InterchangeRateDesignator { get; set; }
 
         /// <summary>
         /// This field contains coding that identifies (1) the customer transaction type and (2) the customer account types affected by the transaction.  Default: 5402 (Original Credit Transaction)  Contains codes that combined with some other fields such as the BAI (Business Application Id) identify some unique use cases. For Sales Tax rebates this field should be populated with the value 5120 (Value-added tax/Sales Tax) along with the businessApplicationId field set to the value &#39;FD&#39; which indicates this push funds transfer is being conducted in order to facilitate a sales tax refund. 
@@ -138,11 +159,14 @@ namespace CyberSource.Model
             if (PayoutsOptions != null) sb.Append("  PayoutsOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferProcessingInformation", "payoutsOptions", PayoutsOptions.ToString())).Append("\n");
             if (FeeProgramId != null) sb.Append("  FeeProgramId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferProcessingInformation", "feeProgramId", FeeProgramId.ToString())).Append("\n");
             if (NetworkPartnerId != null) sb.Append("  NetworkPartnerId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferProcessingInformation", "networkPartnerId", NetworkPartnerId.ToString())).Append("\n");
+            if (TransactionTypeIndicator != null) sb.Append("  TransactionTypeIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferProcessingInformation", "transactionTypeIndicator", TransactionTypeIndicator.ToString())).Append("\n");
+            if (InterchangeRateDesignator != null) sb.Append("  InterchangeRateDesignator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferProcessingInformation", "interchangeRateDesignator", InterchangeRateDesignator.ToString())).Append("\n");
             if (ProcessingCode != null) sb.Append("  ProcessingCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferProcessingInformation", "processingCode", ProcessingCode.ToString())).Append("\n");
             if (SharingGroupCode != null) sb.Append("  SharingGroupCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferProcessingInformation", "sharingGroupCode", SharingGroupCode.ToString())).Append("\n");
             if (PurposeOfPayment != null) sb.Append("  PurposeOfPayment: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferProcessingInformation", "purposeOfPayment", PurposeOfPayment.ToString())).Append("\n");
             if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferProcessingInformation", "reconciliationId", ReconciliationId.ToString())).Append("\n");
             if (AccountVerificationCode != null) sb.Append("  AccountVerificationCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferProcessingInformation", "accountVerificationCode", AccountVerificationCode.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,7 +177,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv1pushfundstransferProcessingInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv1pushfundstransferProcessingInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -178,7 +202,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.BusinessApplicationId == other.BusinessApplicationId ||
                     this.BusinessApplicationId != null &&
@@ -198,6 +226,16 @@ namespace CyberSource.Model
                     this.NetworkPartnerId == other.NetworkPartnerId ||
                     this.NetworkPartnerId != null &&
                     this.NetworkPartnerId.Equals(other.NetworkPartnerId)
+                ) && 
+                (
+                    this.TransactionTypeIndicator == other.TransactionTypeIndicator ||
+                    this.TransactionTypeIndicator != null &&
+                    this.TransactionTypeIndicator.Equals(other.TransactionTypeIndicator)
+                ) && 
+                (
+                    this.InterchangeRateDesignator == other.InterchangeRateDesignator ||
+                    this.InterchangeRateDesignator != null &&
+                    this.InterchangeRateDesignator.Equals(other.InterchangeRateDesignator)
                 ) && 
                 (
                     this.ProcessingCode == other.ProcessingCode ||
@@ -237,6 +275,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.BusinessApplicationId != null)
                     hash = hash * 59 + this.BusinessApplicationId.GetHashCode();
                 if (this.PayoutsOptions != null)
@@ -245,6 +285,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FeeProgramId.GetHashCode();
                 if (this.NetworkPartnerId != null)
                     hash = hash * 59 + this.NetworkPartnerId.GetHashCode();
+                if (this.TransactionTypeIndicator != null)
+                    hash = hash * 59 + this.TransactionTypeIndicator.GetHashCode();
+                if (this.InterchangeRateDesignator != null)
+                    hash = hash * 59 + this.InterchangeRateDesignator.GetHashCode();
                 if (this.ProcessingCode != null)
                     hash = hash * 59 + this.ProcessingCode.GetHashCode();
                 if (this.SharingGroupCode != null)
@@ -255,6 +299,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ReconciliationId.GetHashCode();
                 if (this.AccountVerificationCode != null)
                     hash = hash * 59 + this.AccountVerificationCode.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

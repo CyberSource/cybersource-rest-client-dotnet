@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// InlineResponse2005
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2005 :  IEquatable<InlineResponse2005>, IValidatableObject
+    public partial class InlineResponse2005 :  ModelExtensions, IEquatable<InlineResponse2005>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2005" /> class.
@@ -40,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
         /// <param name="DocumentInformation">DocumentInformation.</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse2005(Boardingv1registrationsRegistrationInformation RegistrationInformation = default(Boardingv1registrationsRegistrationInformation), InlineResponse2005IntegrationInformation IntegrationInformation = default(InlineResponse2005IntegrationInformation), Boardingv1registrationsOrganizationInformation OrganizationInformation = default(Boardingv1registrationsOrganizationInformation), Boardingv1registrationsProductInformation ProductInformation = default(Boardingv1registrationsProductInformation), List<InlineResponse2014ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2014ProductInformationSetups>), Boardingv1registrationsDocumentInformation DocumentInformation = default(Boardingv1registrationsDocumentInformation), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
+        public InlineResponse2005(Boardingv1registrationsRegistrationInformation RegistrationInformation = default(Boardingv1registrationsRegistrationInformation), InlineResponse2005IntegrationInformation IntegrationInformation = default(InlineResponse2005IntegrationInformation), Boardingv1registrationsOrganizationInformation OrganizationInformation = default(Boardingv1registrationsOrganizationInformation), Boardingv1registrationsProductInformation ProductInformation = default(Boardingv1registrationsProductInformation), List<InlineResponse2017ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2017ProductInformationSetups>), Boardingv1registrationsDocumentInformation DocumentInformation = default(Boardingv1registrationsDocumentInformation), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
         {
             this.RegistrationInformation = RegistrationInformation;
             this.IntegrationInformation = IntegrationInformation;
@@ -84,7 +85,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("productInformationSetups")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse2014ProductInformationSetups> ProductInformationSetups { get; set; }
+        public List<InlineResponse2017ProductInformationSetups> ProductInformationSetups { get; set; }
 
         /// <summary>
         /// Gets or Sets DocumentInformation
@@ -115,6 +116,7 @@ namespace CyberSource.Model
             if (ProductInformationSetups != null) sb.Append("  ProductInformationSetups: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2005", "productInformationSetups", ProductInformationSetups.ToString())).Append("\n");
             if (DocumentInformation != null) sb.Append("  DocumentInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2005", "documentInformation", DocumentInformation.ToString())).Append("\n");
             if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2005", "details", Details.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,7 +127,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2005", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2005", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -150,7 +152,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.RegistrationInformation == other.RegistrationInformation ||
                     this.RegistrationInformation != null &&
@@ -199,6 +205,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.RegistrationInformation != null)
                     hash = hash * 59 + this.RegistrationInformation.GetHashCode();
                 if (this.IntegrationInformation != null)
@@ -213,6 +221,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DocumentInformation.GetHashCode();
                 if (this.Details != null)
                     hash = hash * 59 + this.Details.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

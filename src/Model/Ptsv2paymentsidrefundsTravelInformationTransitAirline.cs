@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Ptsv2paymentsidrefundsTravelInformationTransitAirline
     /// </summary>
     [DataContract]
-    public partial class Ptsv2paymentsidrefundsTravelInformationTransitAirline :  IEquatable<Ptsv2paymentsidrefundsTravelInformationTransitAirline>, IValidatableObject
+    public partial class Ptsv2paymentsidrefundsTravelInformationTransitAirline :  ModelExtensions, IEquatable<Ptsv2paymentsidrefundsTravelInformationTransitAirline>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsidrefundsTravelInformationTransitAirline" /> class.
@@ -537,6 +538,7 @@ namespace CyberSource.Model
             if (ThirdPartyStatus != null) sb.Append("  ThirdPartyStatus: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsidrefundsTravelInformationTransitAirline", "thirdPartyStatus", ThirdPartyStatus.ToString())).Append("\n");
             if (PassengerType != null) sb.Append("  PassengerType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsidrefundsTravelInformationTransitAirline", "passengerType", PassengerType.ToString())).Append("\n");
             if (TotalInsuranceAmount != null) sb.Append("  TotalInsuranceAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsidrefundsTravelInformationTransitAirline", "totalInsuranceAmount", TotalInsuranceAmount.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -547,7 +549,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsidrefundsTravelInformationTransitAirline", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsidrefundsTravelInformationTransitAirline", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -572,7 +574,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.IsDomestic == other.IsDomestic ||
                     this.IsDomestic != null &&
@@ -811,6 +817,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.IsDomestic != null)
                     hash = hash * 59 + this.IsDomestic.GetHashCode();
                 if (this.BookingReferenceNumber != null)
@@ -901,6 +909,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PassengerType.GetHashCode();
                 if (this.TotalInsuranceAmount != null)
                     hash = hash * 59 + this.TotalInsuranceAmount.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

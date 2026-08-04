@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -106,10 +108,10 @@ namespace CyberSource.Api
         /// <returns>UmsV1UsersGet200Response</returns>
         public UmsV1UsersGet200Response SearchUsers(SearchRequest searchRequest)
         {
-            logger.Debug("CALLING API \"SearchUsers\" STARTED");
+            logger.LogDebug("CALLING API \"SearchUsers\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<UmsV1UsersGet200Response> localVarResponse = SearchUsersWithHttpInfo(searchRequest);
-            logger.Debug("CALLING API \"SearchUsers\" ENDED");
+            logger.LogDebug("CALLING API \"SearchUsers\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -127,7 +129,7 @@ namespace CyberSource.Api
             // verify the required parameter 'searchRequest' is set
             if (searchRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'searchRequest' when calling UserManagementSearchApi->SearchUsers");
+                logger.LogError("ApiException : Missing required parameter 'searchRequest' when calling UserManagementSearchApi->SearchUsers");
                 throw new ApiException(400, "Missing required parameter 'searchRequest' when calling UserManagementSearchApi->SearchUsers");
             }
 
@@ -172,18 +174,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "SearchUsers,SearchUsersAsync,SearchUsersWithHttpInfo,SearchUsersAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -198,7 +200,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("SearchUsers", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -216,10 +218,10 @@ namespace CyberSource.Api
         /// <returns>Task of UmsV1UsersGet200Response</returns>
         public async Task<UmsV1UsersGet200Response> SearchUsersAsync(SearchRequest searchRequest)
         {
-            logger.Debug("CALLING API \"SearchUsersAsync\" STARTED");
+            logger.LogDebug("CALLING API \"SearchUsersAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<UmsV1UsersGet200Response> localVarResponse = await SearchUsersAsyncWithHttpInfo(searchRequest);
-            logger.Debug("CALLING API \"SearchUsersAsync\" ENDED");
+            logger.LogDebug("CALLING API \"SearchUsersAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -238,7 +240,7 @@ namespace CyberSource.Api
             // verify the required parameter 'searchRequest' is set
             if (searchRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'searchRequest' when calling UserManagementSearchApi->SearchUsers");
+                logger.LogError("ApiException : Missing required parameter 'searchRequest' when calling UserManagementSearchApi->SearchUsers");
                 throw new ApiException(400, "Missing required parameter 'searchRequest' when calling UserManagementSearchApi->SearchUsers");
             }
 
@@ -283,18 +285,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "SearchUsers,SearchUsersAsync,SearchUsersWithHttpInfo,SearchUsersAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -309,7 +311,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("SearchUsers", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

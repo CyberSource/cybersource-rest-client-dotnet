@@ -9,5 +9,14 @@ Name | Type | Description | Notes
 **DepartureDate** | **string** | Departure date for the first leg of the trip. Format: YYYYMMDD. Required for American Express SafeKey (U.S.) for travel-related requests.  | [optional] 
 **DepartureTime** | **int?** | Time of departure for this leg of the trip. The format is military time and HHMM: If not all zeros, then the hours must be &#x60;00-23&#x60; and the minutes must be &#x60;00-59&#x60;. Format: English characters only. Optional request field for travel legs.  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

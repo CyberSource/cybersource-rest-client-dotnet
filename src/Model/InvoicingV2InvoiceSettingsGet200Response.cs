@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// InvoicingV2InvoiceSettingsGet200Response
     /// </summary>
     [DataContract]
-    public partial class InvoicingV2InvoiceSettingsGet200Response :  IEquatable<InvoicingV2InvoiceSettingsGet200Response>, IValidatableObject
+    public partial class InvoicingV2InvoiceSettingsGet200Response :  ModelExtensions, IEquatable<InvoicingV2InvoiceSettingsGet200Response>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoicingV2InvoiceSettingsGet200Response" /> class.
@@ -76,6 +77,7 @@ namespace CyberSource.Model
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoiceSettingsGet200Response", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
             if (InvoiceSettingsInformation != null) sb.Append("  InvoiceSettingsInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoiceSettingsGet200Response", "invoiceSettingsInformation", InvoiceSettingsInformation.ToString())).Append("\n");
             if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoiceSettingsGet200Response", "merchantInformation", MerchantInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,7 +88,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InvoicingV2InvoiceSettingsGet200Response", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InvoicingV2InvoiceSettingsGet200Response", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -111,7 +113,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.SubmitTimeUtc == other.SubmitTimeUtc ||
                     this.SubmitTimeUtc != null &&
@@ -140,12 +146,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.SubmitTimeUtc != null)
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.InvoiceSettingsInformation != null)
                     hash = hash * 59 + this.InvoiceSettingsInformation.GetHashCode();
                 if (this.MerchantInformation != null)
                     hash = hash * 59 + this.MerchantInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

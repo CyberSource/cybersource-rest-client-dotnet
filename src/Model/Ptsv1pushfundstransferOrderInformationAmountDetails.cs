@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Ptsv1pushfundstransferOrderInformationAmountDetails
     /// </summary>
     [DataContract]
-    public partial class Ptsv1pushfundstransferOrderInformationAmountDetails :  IEquatable<Ptsv1pushfundstransferOrderInformationAmountDetails>, IValidatableObject
+    public partial class Ptsv1pushfundstransferOrderInformationAmountDetails :  ModelExtensions, IEquatable<Ptsv1pushfundstransferOrderInformationAmountDetails>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferOrderInformationAmountDetails" /> class.
@@ -38,7 +39,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv1pushfundstransferOrderInformationAmountDetails" /> class.
         /// </summary>
-        /// <param name="TotalAmount">Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  (required).</param>
+        /// <param name="TotalAmount">Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  Note For VPC, FDCCompass, Paymentech, Visa Direct, and Mastercard Send processors, the maximum supported numeric characters is 12.  Important Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths.  For zero dollar authorizations, this field may set to 0.00. Zero dollar authorizations are used for account validation only and do not place a hold or move funds.  (required).</param>
         /// <param name="Currency">Use a 3-character alpha currency code for currency of the funds transfer.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf  Currency must be supported by the processor.  (required).</param>
         /// <param name="SourceCurrency">Use a 3-character alpha currency code for source currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf .</param>
         /// <param name="DestinationCurrency">Use a 3-character alpha currency code for destination currency of the funds transfer. Supported for card and bank account based cross border funds transfers.  ISO standard currencies: http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf .</param>
@@ -53,9 +54,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places. 
+        /// Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  Note For VPC, FDCCompass, Paymentech, Visa Direct, and Mastercard Send processors, the maximum supported numeric characters is 12.  Important Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths.  For zero dollar authorizations, this field may set to 0.00. Zero dollar authorizations are used for account validation only and do not place a hold or move funds. 
         /// </summary>
-        /// <value>Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places. </value>
+        /// <value>Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places.  Note For VPC, FDCCompass, Paymentech, Visa Direct, and Mastercard Send processors, the maximum supported numeric characters is 12.  Important Some processors have specific requirements and limitations, such as maximum amounts and maximum field lengths.  For zero dollar authorizations, this field may set to 0.00. Zero dollar authorizations are used for account validation only and do not place a hold or move funds. </value>
         [JsonPropertyName("totalAmount")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string TotalAmount { get; set; }
@@ -104,6 +105,7 @@ namespace CyberSource.Model
             if (SourceCurrency != null) sb.Append("  SourceCurrency: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferOrderInformationAmountDetails", "sourceCurrency", SourceCurrency.ToString())).Append("\n");
             if (DestinationCurrency != null) sb.Append("  DestinationCurrency: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferOrderInformationAmountDetails", "destinationCurrency", DestinationCurrency.ToString())).Append("\n");
             if (Surcharge != null) sb.Append("  Surcharge: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv1pushfundstransferOrderInformationAmountDetails", "surcharge", Surcharge.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,7 +116,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv1pushfundstransferOrderInformationAmountDetails", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv1pushfundstransferOrderInformationAmountDetails", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -139,7 +141,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.TotalAmount == other.TotalAmount ||
                     this.TotalAmount != null &&
@@ -178,6 +184,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.TotalAmount != null)
                     hash = hash * 59 + this.TotalAmount.GetHashCode();
                 if (this.Currency != null)
@@ -188,6 +196,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DestinationCurrency.GetHashCode();
                 if (this.Surcharge != null)
                     hash = hash * 59 + this.Surcharge.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

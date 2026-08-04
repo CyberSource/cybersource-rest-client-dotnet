@@ -177,6 +177,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'EnableMerchantEmailNotifications'
         }
         /// <summary>
+        /// Test the property 'MerchantEmail'
+        /// </summary>
+        [Test]
+        public void MerchantEmailTest()
+        {
+            // TODO unit test for the property 'MerchantEmail'
+        }
+        /// <summary>
         /// Test the property 'CustomLabels'
         /// </summary>
         [Test]

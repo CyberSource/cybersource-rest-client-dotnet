@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation
     /// </summary>
     [DataContract]
-    public partial class Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation :  IEquatable<Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation>, IValidatableObject
+    public partial class Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation :  ModelExtensions, IEquatable<Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation" /> class.
@@ -110,6 +111,7 @@ namespace CyberSource.Model
             if (CreditReasonIndicator != null) sb.Append("  CreditReasonIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation", "creditReasonIndicator", CreditReasonIndicator.ToString())).Append("\n");
             if (Service != null) sb.Append("  Service: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation", "service", Service.ToString())).Append("\n");
             if (FeeDescription != null) sb.Append("  FeeDescription: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation", "feeDescription", FeeDescription.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,7 +122,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsTravelInformationTransitAirlineAncillaryInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -145,7 +147,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.TicketNumber == other.TicketNumber ||
                     this.TicketNumber != null &&
@@ -189,6 +195,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.TicketNumber != null)
                     hash = hash * 59 + this.TicketNumber.GetHashCode();
                 if (this.PassengerName != null)
@@ -201,6 +209,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Service.GetHashCode();
                 if (this.FeeDescription != null)
                     hash = hash * 59 + this.FeeDescription.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

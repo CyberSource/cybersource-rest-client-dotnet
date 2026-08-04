@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -106,10 +108,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PayoutsPost201Response</returns>
         public PtsV2PayoutsPost201Response OctCreatePayment(OctCreatePaymentRequest octCreatePaymentRequest)
         {
-            logger.Debug("CALLING API \"OctCreatePayment\" STARTED");
+            logger.LogDebug("CALLING API \"OctCreatePayment\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PayoutsPost201Response> localVarResponse = OctCreatePaymentWithHttpInfo(octCreatePaymentRequest);
-            logger.Debug("CALLING API \"OctCreatePayment\" ENDED");
+            logger.LogDebug("CALLING API \"OctCreatePayment\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -127,7 +129,7 @@ namespace CyberSource.Api
             // verify the required parameter 'octCreatePaymentRequest' is set
             if (octCreatePaymentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'octCreatePaymentRequest' when calling PayoutsApi->OctCreatePayment");
+                logger.LogError("ApiException : Missing required parameter 'octCreatePaymentRequest' when calling PayoutsApi->OctCreatePayment");
                 throw new ApiException(400, "Missing required parameter 'octCreatePaymentRequest' when calling PayoutsApi->OctCreatePayment");
             }
 
@@ -172,18 +174,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "OctCreatePayment,OctCreatePaymentAsync,OctCreatePaymentWithHttpInfo,OctCreatePaymentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -198,7 +200,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("OctCreatePayment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -216,10 +218,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PayoutsPost201Response</returns>
         public async Task<PtsV2PayoutsPost201Response> OctCreatePaymentAsync(OctCreatePaymentRequest octCreatePaymentRequest)
         {
-            logger.Debug("CALLING API \"OctCreatePaymentAsync\" STARTED");
+            logger.LogDebug("CALLING API \"OctCreatePaymentAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PayoutsPost201Response> localVarResponse = await OctCreatePaymentAsyncWithHttpInfo(octCreatePaymentRequest);
-            logger.Debug("CALLING API \"OctCreatePaymentAsync\" ENDED");
+            logger.LogDebug("CALLING API \"OctCreatePaymentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -238,7 +240,7 @@ namespace CyberSource.Api
             // verify the required parameter 'octCreatePaymentRequest' is set
             if (octCreatePaymentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'octCreatePaymentRequest' when calling PayoutsApi->OctCreatePayment");
+                logger.LogError("ApiException : Missing required parameter 'octCreatePaymentRequest' when calling PayoutsApi->OctCreatePayment");
                 throw new ApiException(400, "Missing required parameter 'octCreatePaymentRequest' when calling PayoutsApi->OctCreatePayment");
             }
 
@@ -283,18 +285,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "OctCreatePayment,OctCreatePaymentAsync,OctCreatePaymentWithHttpInfo,OctCreatePaymentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -309,7 +311,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("OctCreatePayment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

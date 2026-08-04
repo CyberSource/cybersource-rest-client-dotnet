@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Ptsv2paymentsProcessingInformation
     /// </summary>
     [DataContract]
-    public partial class Ptsv2paymentsProcessingInformation :  IEquatable<Ptsv2paymentsProcessingInformation>, IValidatableObject
+    public partial class Ptsv2paymentsProcessingInformation :  ModelExtensions, IEquatable<Ptsv2paymentsProcessingInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentsProcessingInformation" /> class.
@@ -52,6 +53,7 @@ namespace CyberSource.Model
         /// <param name="VisaCheckoutId">Identifier for the **Visa Checkout** order. Visa Checkout provides a unique order ID for every transaction in the Visa Checkout **callID** field. .</param>
         /// <param name="IndustryDataType">Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. .</param>
         /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
+        /// <param name="CardVerification">CardVerification.</param>
         /// <param name="CaptureOptions">CaptureOptions.</param>
         /// <param name="RecurringOptions">RecurringOptions.</param>
         /// <param name="BankTransferOptions">BankTransferOptions.</param>
@@ -81,7 +83,7 @@ namespace CyberSource.Model
         /// <param name="DestinationType">Identifies the destination/purpose of the cash-in:  • 04: M2M (Same ownership, same portfolio/arrangement) • 05: P2P (For another holder, same wallet/arrangement) • 06: Transfer to another arrangement (same ownership) • 07: Transfer to another arrangement (other ownership) • 08: Transfer to stored value digital wallet. .</param>
         /// <param name="ProgramIndicators">ProgramIndicators.</param>
         /// <param name="InquiryType">Type of inquiry for Zero dollar transactions. Mastercard is introducing Mastercard One Credential, a single, digitally connected credential that offers cardholders the ability to access multiple payment methods.   This field is used for Product Status Inquiry (PSI), Account Status Inquiry with Product Status Inquiry (ASI with PSI), and Account Status Inquiry with Product Status Inquiry and Probability Indicator.  This field is supported for Zero dollar transactions only.  Possible values: - &#x60;01&#x60;: Product status inquiry - &#x60;02&#x60;: Account status inquiry with product status inquiry - &#x60;03&#x60;: Account status Inquiry with Product Status Inquiry and Probability Indicator  #### Used by **Authorization (Zero dollar transactions)** Optional field. .</param>
-        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), ProcessingInfoAuthorizationOptions AuthorizationOptions = default(ProcessingInfoAuthorizationOptions), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), string MerchantVerificationValue = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), int? Timeout = default(int?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string), string EnablerId = default(string), string ProcessingInstruction = default(string), string TransactionTypeIndicator = default(string), string PurposeOfPayment = default(string), string LanguageCode = default(string), string OriginalPaymentId = default(string), string AmexIndirectModelType = default(string), decimal? WalletTransactionIntent = default(decimal?), decimal? DestinationType = default(decimal?), Ptsv2paymentsProcessingInformationProgramIndicators ProgramIndicators = default(Ptsv2paymentsProcessingInformationProgramIndicators), string InquiryType = default(string))
+        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), ProcessingInfoAuthorizationOptions AuthorizationOptions = default(ProcessingInfoAuthorizationOptions), Ptsv2paymentsProcessingInformationCardVerification CardVerification = default(Ptsv2paymentsProcessingInformationCardVerification), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), string MerchantVerificationValue = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), int? Timeout = default(int?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string), string EnablerId = default(string), string ProcessingInstruction = default(string), string TransactionTypeIndicator = default(string), string PurposeOfPayment = default(string), string LanguageCode = default(string), string OriginalPaymentId = default(string), string AmexIndirectModelType = default(string), decimal? WalletTransactionIntent = default(decimal?), decimal? DestinationType = default(decimal?), Ptsv2paymentsProcessingInformationProgramIndicators ProgramIndicators = default(Ptsv2paymentsProcessingInformationProgramIndicators), string InquiryType = default(string))
         {
             this.ActionList = ActionList;
             this.EnableEscrowOption = EnableEscrowOption;
@@ -110,6 +112,7 @@ namespace CyberSource.Model
             this.VisaCheckoutId = VisaCheckoutId;
             this.IndustryDataType = IndustryDataType;
             this.AuthorizationOptions = AuthorizationOptions;
+            this.CardVerification = CardVerification;
             this.CaptureOptions = CaptureOptions;
             this.RecurringOptions = RecurringOptions;
             this.BankTransferOptions = BankTransferOptions;
@@ -291,6 +294,13 @@ namespace CyberSource.Model
         [JsonPropertyName("authorizationOptions")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public ProcessingInfoAuthorizationOptions AuthorizationOptions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CardVerification
+        /// </summary>
+        [JsonPropertyName("cardVerification")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Ptsv2paymentsProcessingInformationCardVerification CardVerification { get; set; }
 
         /// <summary>
         /// Gets or Sets CaptureOptions
@@ -543,6 +553,7 @@ namespace CyberSource.Model
             if (VisaCheckoutId != null) sb.Append("  VisaCheckoutId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "visaCheckoutId", VisaCheckoutId.ToString())).Append("\n");
             if (IndustryDataType != null) sb.Append("  IndustryDataType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "industryDataType", IndustryDataType.ToString())).Append("\n");
             if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "authorizationOptions", AuthorizationOptions.ToString())).Append("\n");
+            if (CardVerification != null) sb.Append("  CardVerification: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "cardVerification", CardVerification.ToString())).Append("\n");
             if (CaptureOptions != null) sb.Append("  CaptureOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "captureOptions", CaptureOptions.ToString())).Append("\n");
             if (RecurringOptions != null) sb.Append("  RecurringOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "recurringOptions", RecurringOptions.ToString())).Append("\n");
             if (BankTransferOptions != null) sb.Append("  BankTransferOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "bankTransferOptions", BankTransferOptions.ToString())).Append("\n");
@@ -572,6 +583,7 @@ namespace CyberSource.Model
             if (DestinationType != null) sb.Append("  DestinationType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "destinationType", DestinationType.ToString())).Append("\n");
             if (ProgramIndicators != null) sb.Append("  ProgramIndicators: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "programIndicators", ProgramIndicators.ToString())).Append("\n");
             if (InquiryType != null) sb.Append("  InquiryType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "inquiryType", InquiryType.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -582,7 +594,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsProcessingInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentsProcessingInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -607,7 +619,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.ActionList == other.ActionList ||
                     this.ActionList != null &&
@@ -702,6 +718,11 @@ namespace CyberSource.Model
                     this.AuthorizationOptions == other.AuthorizationOptions ||
                     this.AuthorizationOptions != null &&
                     this.AuthorizationOptions.Equals(other.AuthorizationOptions)
+                ) && 
+                (
+                    this.CardVerification == other.CardVerification ||
+                    this.CardVerification != null &&
+                    this.CardVerification.Equals(other.CardVerification)
                 ) && 
                 (
                     this.CaptureOptions == other.CaptureOptions ||
@@ -861,6 +882,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.ActionList != null)
                     hash = hash * 59 + this.ActionList.GetHashCode();
                 if (this.EnableEscrowOption != null)
@@ -899,6 +922,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.IndustryDataType.GetHashCode();
                 if (this.AuthorizationOptions != null)
                     hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
+                if (this.CardVerification != null)
+                    hash = hash * 59 + this.CardVerification.GetHashCode();
                 if (this.CaptureOptions != null)
                     hash = hash * 59 + this.CaptureOptions.GetHashCode();
                 if (this.RecurringOptions != null)
@@ -957,6 +982,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProgramIndicators.GetHashCode();
                 if (this.InquiryType != null)
                     hash = hash * 59 + this.InquiryType.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

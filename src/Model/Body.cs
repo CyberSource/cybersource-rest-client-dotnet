@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Body
     /// </summary>
     [DataContract]
-    public partial class Body :  IEquatable<Body>, IValidatableObject
+    public partial class Body :  ModelExtensions, IEquatable<Body>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Body" /> class.
@@ -101,6 +102,7 @@ namespace CyberSource.Model
             if (Included != null) sb.Append("  Included: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Body", "included", Included.ToString())).Append("\n");
             if (MerchantReference != null) sb.Append("  MerchantReference: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Body", "merchantReference", MerchantReference.ToString())).Append("\n");
             if (NotificationEmail != null) sb.Append("  NotificationEmail: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Body", "notificationEmail", NotificationEmail.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,7 +113,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Body", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Body", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -136,7 +138,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Type == other.Type ||
                     this.Type != null &&
@@ -170,6 +176,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Included != null)
@@ -178,6 +186,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MerchantReference.GetHashCode();
                 if (this.NotificationEmail != null)
                     hash = hash * 59 + this.NotificationEmail.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

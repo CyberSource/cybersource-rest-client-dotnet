@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// ExportComplianceWatchListMatches
     /// </summary>
     [DataContract]
-    public partial class ExportComplianceWatchListMatches :  IEquatable<ExportComplianceWatchListMatches>, IValidatableObject
+    public partial class ExportComplianceWatchListMatches :  ModelExtensions, IEquatable<ExportComplianceWatchListMatches>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExportComplianceWatchListMatches" /> class.
@@ -89,6 +90,7 @@ namespace CyberSource.Model
             if (SanctionList != null) sb.Append("  SanctionList: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ExportComplianceWatchListMatches", "sanctionList", SanctionList.ToString())).Append("\n");
             if (Aliases != null) sb.Append("  Aliases: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ExportComplianceWatchListMatches", "aliases", Aliases.ToString())).Append("\n");
             if (Programs != null) sb.Append("  Programs: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ExportComplianceWatchListMatches", "programs", Programs.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,7 +101,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ExportComplianceWatchListMatches", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ExportComplianceWatchListMatches", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -124,7 +126,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Addresses == other.Addresses ||
                     this.Addresses != null &&
@@ -158,6 +164,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Addresses != null)
                     hash = hash * 59 + this.Addresses.GetHashCode();
                 if (this.SanctionList != null)
@@ -166,6 +174,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Aliases.GetHashCode();
                 if (this.Programs != null)
                     hash = hash * 59 + this.Programs.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

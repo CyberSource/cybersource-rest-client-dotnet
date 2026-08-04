@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Upv1capturecontextsDataOrderInformationAmountDetails
     /// </summary>
     [DataContract]
-    public partial class Upv1capturecontextsDataOrderInformationAmountDetails :  IEquatable<Upv1capturecontextsDataOrderInformationAmountDetails>, IValidatableObject
+    public partial class Upv1capturecontextsDataOrderInformationAmountDetails :  ModelExtensions, IEquatable<Upv1capturecontextsDataOrderInformationAmountDetails>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Upv1capturecontextsDataOrderInformationAmountDetails" /> class.
@@ -131,6 +132,7 @@ namespace CyberSource.Model
             if (ServiceFeeAmount != null) sb.Append("  ServiceFeeAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Upv1capturecontextsDataOrderInformationAmountDetails", "serviceFeeAmount", ServiceFeeAmount.ToString())).Append("\n");
             if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Upv1capturecontextsDataOrderInformationAmountDetails", "taxAmount", TaxAmount.ToString())).Append("\n");
             if (TaxDetails != null) sb.Append("  TaxDetails: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Upv1capturecontextsDataOrderInformationAmountDetails", "taxDetails", TaxDetails.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,7 +143,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Upv1capturecontextsDataOrderInformationAmountDetails", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Upv1capturecontextsDataOrderInformationAmountDetails", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -166,7 +168,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.TotalAmount == other.TotalAmount ||
                     this.TotalAmount != null &&
@@ -220,6 +226,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.TotalAmount != null)
                     hash = hash * 59 + this.TotalAmount.GetHashCode();
                 if (this.Currency != null)
@@ -236,6 +244,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TaxAmount.GetHashCode();
                 if (this.TaxDetails != null)
                     hash = hash * 59 + this.TaxDetails.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

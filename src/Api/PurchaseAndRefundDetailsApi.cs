@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -141,10 +143,10 @@ namespace CyberSource.Api
         /// <returns>ReportingV3PurchaseRefundDetailsGet200Response</returns>
         public ReportingV3PurchaseRefundDetailsGet200Response GetPurchaseAndRefundDetails(DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
         {
-            logger.Debug("CALLING API \"GetPurchaseAndRefundDetails\" STARTED");
+            logger.LogDebug("CALLING API \"GetPurchaseAndRefundDetails\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response> localVarResponse = GetPurchaseAndRefundDetailsWithHttpInfo(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
-            logger.Debug("CALLING API \"GetPurchaseAndRefundDetails\" ENDED");
+            logger.LogDebug("CALLING API \"GetPurchaseAndRefundDetails\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -169,13 +171,13 @@ namespace CyberSource.Api
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
+                logger.LogError("ApiException : Missing required parameter 'startTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
             }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
+                logger.LogError("ApiException : Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
             }
 
@@ -209,49 +211,49 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("startTime", ApiClient.ParameterToString(startTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endTime != null)
             {
                 localVarQueryParams.Add("endTime", ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (paymentSubtype != null)
             {
                 localVarQueryParams.Add("paymentSubtype", ApiClient.ParameterToString(paymentSubtype)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (viewBy != null)
             {
                 localVarQueryParams.Add("viewBy", ApiClient.ParameterToString(viewBy)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (groupName != null)
             {
                 localVarQueryParams.Add("groupName", ApiClient.ParameterToString(groupName)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -275,11 +277,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -299,7 +301,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetPurchaseAndRefundDetails", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -324,10 +326,10 @@ namespace CyberSource.Api
         /// <returns>Task of ReportingV3PurchaseRefundDetailsGet200Response</returns>
         public async Task<ReportingV3PurchaseRefundDetailsGet200Response> GetPurchaseAndRefundDetailsAsync(DateTime? startTime, DateTime? endTime, string organizationId = null, string paymentSubtype = null, string viewBy = null, string groupName = null, int? offset = null, int? limit = null)
         {
-            logger.Debug("CALLING API \"GetPurchaseAndRefundDetailsAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetPurchaseAndRefundDetailsAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3PurchaseRefundDetailsGet200Response> localVarResponse = await GetPurchaseAndRefundDetailsAsyncWithHttpInfo(startTime, endTime, organizationId, paymentSubtype, viewBy, groupName, offset, limit);
-            logger.Debug("CALLING API \"GetPurchaseAndRefundDetailsAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetPurchaseAndRefundDetailsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -353,13 +355,13 @@ namespace CyberSource.Api
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
+                logger.LogError("ApiException : Missing required parameter 'startTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
             }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
+                logger.LogError("ApiException : Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling PurchaseAndRefundDetailsApi->GetPurchaseAndRefundDetails");
             }
 
@@ -393,49 +395,49 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("startTime", ApiClient.ParameterToString(startTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endTime != null)
             {
                 localVarQueryParams.Add("endTime", ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (paymentSubtype != null)
             {
                 localVarQueryParams.Add("paymentSubtype", ApiClient.ParameterToString(paymentSubtype)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (viewBy != null)
             {
                 localVarQueryParams.Add("viewBy", ApiClient.ParameterToString(viewBy)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (groupName != null)
             {
                 localVarQueryParams.Add("groupName", ApiClient.ParameterToString(groupName)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -458,11 +460,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -482,7 +484,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetPurchaseAndRefundDetails", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace CyberSource.Utilities.Serialization
 {
-    public sealed class StringOrNumberConverter : JsonConverter<string>
+    internal sealed class StringOrNumberConverter : JsonConverter<string>
     {
         public override string Read(
             ref Utf8JsonReader reader,

@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// UnderwritingConfigurationSaleRepresentativeInformation
     /// </summary>
     [DataContract]
-    public partial class UnderwritingConfigurationSaleRepresentativeInformation :  IEquatable<UnderwritingConfigurationSaleRepresentativeInformation>, IValidatableObject
+    public partial class UnderwritingConfigurationSaleRepresentativeInformation :  ModelExtensions, IEquatable<UnderwritingConfigurationSaleRepresentativeInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnderwritingConfigurationSaleRepresentativeInformation" /> class.
@@ -116,6 +117,7 @@ namespace CyberSource.Model
             if (SalesRepEmail != null) sb.Append("  SalesRepEmail: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnderwritingConfigurationSaleRepresentativeInformation", "salesRepEmail", SalesRepEmail.ToString())).Append("\n");
             if (SalesRepNumericPhoneNumberCountryCode != null) sb.Append("  SalesRepNumericPhoneNumberCountryCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnderwritingConfigurationSaleRepresentativeInformation", "salesRepNumericPhoneNumberCountryCode", SalesRepNumericPhoneNumberCountryCode.ToString())).Append("\n");
             if (SalesRepPhoneNumber != null) sb.Append("  SalesRepPhoneNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnderwritingConfigurationSaleRepresentativeInformation", "salesRepPhoneNumber", SalesRepPhoneNumber.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,7 +128,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("UnderwritingConfigurationSaleRepresentativeInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("UnderwritingConfigurationSaleRepresentativeInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -151,7 +153,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.SalesRepId == other.SalesRepId ||
                     this.SalesRepId != null &&
@@ -195,6 +201,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.SalesRepId != null)
                     hash = hash * 59 + this.SalesRepId.GetHashCode();
                 if (this.SalesRepFirstName != null)
@@ -207,6 +215,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SalesRepNumericPhoneNumberCountryCode.GetHashCode();
                 if (this.SalesRepPhoneNumber != null)
                     hash = hash * 59 + this.SalesRepPhoneNumber.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,12 +29,12 @@ namespace CyberSource.Model
     /// Ptsv2payoutsProcessingInformation
     /// </summary>
     [DataContract]
-    public partial class Ptsv2payoutsProcessingInformation :  IEquatable<Ptsv2payoutsProcessingInformation>, IValidatableObject
+    public partial class Ptsv2payoutsProcessingInformation :  ModelExtensions, IEquatable<Ptsv2payoutsProcessingInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2payoutsProcessingInformation" /> class.
         /// </summary>
-        /// <param name="BusinessApplicationId">Payouts transaction type.  Applicable Processors: FDC Compass, Paymentech, CtV  Possible values:  **Credit Card Bill Payment**   - **CP**: credit card bill payment  **Funds Disbursement**   - **FD**: funds disbursement  - **GD**: government disbursement  - **MD**: merchant disbursement  **Money Transfer**   - **AA**: account to account. Sender and receiver are same person.  - **PP**: person to person. Sender and receiver are different.  **Prepaid Load**   - **TU**: top up .</param>
+        /// <param name="BusinessApplicationId">Payouts transaction type.  Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;LA&#x60;: Liquid Assets - &#x60;PP&#x60;: P2P Money Transfer - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service - &#x60;TU&#x60;: Prepaid Card Load  Supported BAIs vary by payment gateway and configuration. Clients are responsible for confirming gateway specific BAI availability. Conditional - If not provided in payload, the value is picked from Merchant Configuration. .</param>
         /// <param name="NetworkRoutingOrder">This field is optionally used by Push Payments Gateway participants (merchants and acquirers) to get the attributes for specified networks only. The networks specified in this field must be a subset of the information provided during program enrollment. Refer to Sharing Group Code/Network Routing Order. Note: Supported only in US for domestic transactions involving Push Payments Gateway Service.  VisaNet checks to determine if there are issuer routing preferences for any of the networks specified by the network routing order. If an issuer preference exists for one of the specified debit networks, VisaNet makes a routing selection based on the issuer&#39;s preference.  If an issuer preference exists for more than one of the specified debit networks, or if no issuer preference exists, VisaNet makes a selection based on the acquirer&#39;s routing priorities.  .</param>
         /// <param name="CommerceIndicator">Type of transaction.  Value for an OCT transaction: - &#x60;internet&#x60; .</param>
         /// <param name="ReconciliationId">Please check with Cybersource customer support to see if your merchant account is configured correctly so you can include this field in your request. * For Payouts: max length for FDCCompass is String (22). .</param>
@@ -60,9 +61,9 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Payouts transaction type.  Applicable Processors: FDC Compass, Paymentech, CtV  Possible values:  **Credit Card Bill Payment**   - **CP**: credit card bill payment  **Funds Disbursement**   - **FD**: funds disbursement  - **GD**: government disbursement  - **MD**: merchant disbursement  **Money Transfer**   - **AA**: account to account. Sender and receiver are same person.  - **PP**: person to person. Sender and receiver are different.  **Prepaid Load**   - **TU**: top up 
+        /// Payouts transaction type.  Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;LA&#x60;: Liquid Assets - &#x60;PP&#x60;: P2P Money Transfer - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service - &#x60;TU&#x60;: Prepaid Card Load  Supported BAIs vary by payment gateway and configuration. Clients are responsible for confirming gateway specific BAI availability. Conditional - If not provided in payload, the value is picked from Merchant Configuration. 
         /// </summary>
-        /// <value>Payouts transaction type.  Applicable Processors: FDC Compass, Paymentech, CtV  Possible values:  **Credit Card Bill Payment**   - **CP**: credit card bill payment  **Funds Disbursement**   - **FD**: funds disbursement  - **GD**: government disbursement  - **MD**: merchant disbursement  **Money Transfer**   - **AA**: account to account. Sender and receiver are same person.  - **PP**: person to person. Sender and receiver are different.  **Prepaid Load**   - **TU**: top up </value>
+        /// <value>Payouts transaction type.  Money Transfer (MT) - &#x60;AA&#x60;: Account to Account - &#x60;BI&#x60;: Bank-Initiated Money Transfer - &#x60;CD&#x60;: Cash Deposit - &#x60;FT&#x60;: Funds Transfer - &#x60;LA&#x60;: Liquid Assets - &#x60;PP&#x60;: P2P Money Transfer - &#x60;WT&#x60;: Wallet Transfer-Staged Digital Wallet (SDW) Transfer  Funds Disbursement (FD) - &#x60;BB&#x60;: Business-to-business Supplier Payments - &#x60;BP&#x60;: Non-Card Bill Pay - &#x60;CP&#x60;: Credit Card Bill Pay - &#x60;FD&#x60;: General Funds Disbursements - &#x60;GD&#x60;: Government Disbursements and Government Initiated Tax Refunds - &#x60;GP&#x60;: Gambling/Gaming Payouts (other than online gaming) - &#x60;LO&#x60;: Loyalty Payments - &#x60;MD&#x60;: Merchant Settlement - &#x60;MI&#x60;: Faster Refunds - &#x60;OG&#x60;: Online Gambling Payouts - &#x60;PD&#x60;: Payroll and Pension Disbursements - &#x60;RP&#x60;: Request-to-Pay Service - &#x60;TU&#x60;: Prepaid Card Load  Supported BAIs vary by payment gateway and configuration. Clients are responsible for confirming gateway specific BAI availability. Conditional - If not provided in payload, the value is picked from Merchant Configuration. </value>
         [JsonPropertyName("businessApplicationId")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string BusinessApplicationId { get; set; }
@@ -163,6 +164,7 @@ namespace CyberSource.Model
             if (LanguageCode != null) sb.Append("  LanguageCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2payoutsProcessingInformation", "languageCode", LanguageCode.ToString())).Append("\n");
             if (PurchaseOptions != null) sb.Append("  PurchaseOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2payoutsProcessingInformation", "purchaseOptions", PurchaseOptions.ToString())).Append("\n");
             if (AccountVerificationCode != null) sb.Append("  AccountVerificationCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2payoutsProcessingInformation", "accountVerificationCode", AccountVerificationCode.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,7 +175,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2payoutsProcessingInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2payoutsProcessingInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -198,7 +200,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.BusinessApplicationId == other.BusinessApplicationId ||
                     this.BusinessApplicationId != null &&
@@ -267,6 +273,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.BusinessApplicationId != null)
                     hash = hash * 59 + this.BusinessApplicationId.GetHashCode();
                 if (this.NetworkRoutingOrder != null)
@@ -289,6 +297,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PurchaseOptions.GetHashCode();
                 if (this.AccountVerificationCode != null)
                     hash = hash * 59 + this.AccountVerificationCode.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

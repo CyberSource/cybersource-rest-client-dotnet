@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Retry policy for the individual webhooks that are a part of your subscription. If a message fails to deliver, it will execute through this retry policy.  Automatic suspend and resume:  If you experience downtime and have &#x60;deactivateFlag &#x3D; true&#x60; any new messages will be held in a \&quot;SUSPENDED\&quot; status. When your healthCheckUrl returns healthy again, the subscription will automatically be re-enabled and your messages will be sent. We will ping your healthCheckUrl routinely using a POST call with an empty payload to check availability. If your endpoint returns an unhealthy status of !&#x3D; 200, we will check the healthCheckUrl at a more frequent rate until it is healthy again.  If you experience downtime and have &#x60;deactivateFlag &#x3D; false&#x60; and your message exhausts all retry attempts the message will go to a \&quot;FAILED\&quot; status. Support will be notified and will reach out to suggest you execute the \&quot;REPLAY\&quot; endpoint at a later date when your server is healthy.   Reference the below values for formulas and calculations related to the frequency of retries depending on algorithm and configuration. 
     /// </summary>
     [DataContract]
-    public partial class Notificationsubscriptionsv2webhooksRetryPolicy :  IEquatable<Notificationsubscriptionsv2webhooksRetryPolicy>, IValidatableObject
+    public partial class Notificationsubscriptionsv2webhooksRetryPolicy :  ModelExtensions, IEquatable<Notificationsubscriptionsv2webhooksRetryPolicy>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Notificationsubscriptionsv2webhooksRetryPolicy" /> class.
@@ -141,6 +142,7 @@ namespace CyberSource.Model
             if (RepeatSequenceCount != null) sb.Append("  RepeatSequenceCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Notificationsubscriptionsv2webhooksRetryPolicy", "repeatSequenceCount", RepeatSequenceCount.ToString())).Append("\n");
             if (RepeatSequenceWaitTime != null) sb.Append("  RepeatSequenceWaitTime: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Notificationsubscriptionsv2webhooksRetryPolicy", "repeatSequenceWaitTime", RepeatSequenceWaitTime.ToString())).Append("\n");
             if (AdditionalAttributes != null) sb.Append("  AdditionalAttributes: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Notificationsubscriptionsv2webhooksRetryPolicy", "additionalAttributes", AdditionalAttributes.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,7 +153,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Notificationsubscriptionsv2webhooksRetryPolicy", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Notificationsubscriptionsv2webhooksRetryPolicy", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -176,7 +178,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Algorithm == other.Algorithm ||
                     this.Algorithm != null &&
@@ -230,6 +236,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Algorithm != null)
                     hash = hash * 59 + this.Algorithm.GetHashCode();
                 if (this.FirstRetry != null)
@@ -246,6 +254,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RepeatSequenceWaitTime.GetHashCode();
                 if (this.AdditionalAttributes != null)
                     hash = hash * 59 + this.AdditionalAttributes.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

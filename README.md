@@ -74,14 +74,6 @@ By default, this SDK is configured to communicate with the sandbox environment. 
 
 API credentials are different for each environment, so be sure to switch to the appropriate credentials when switching environments.
 
-### Logging
-
-[![Generic badge](https://img.shields.io/badge/LOGGING-NEW-GREEN.svg)](https://shields.io/)
-
-The logging framework makes use of NLog, and standardizes the logging so that it can be integrated with the logging in the client application.
-
-More information about this new logging framework can be found in this file : [Logging.md](Logging.md)
-
 ## Features
 
 ### Message Level Encryption (MLE) Feature
@@ -91,6 +83,44 @@ More information about this new logging framework can be found in this file : [L
 This feature provides an implementation of Message Level Encryption (MLE) for APIs provided by CyberSource, integrated within our SDK. This feature ensures secure communication by encrypting messages at the application level before they are sent over the network.
 
 More information about this new MLE feature can be found in this file : [MLE.md](MLE.md)
+
+### Logging
+
+[![Generic badge](https://img.shields.io/badge/LOGGING-NEW-GREEN.svg)](https://shields.io/)
+
+The SDK's logging is built on top of [`Microsoft.Extensions.Logging`](https://learn.microsoft.com/dotnet/core/extensions/logging) (MEL), the standard logging abstraction for .NET.
+
+More information about this new logging framework can be found in this file : [Logging.md](Logging.md)
+
+### Serialization
+
+[![Generic badge](https://img.shields.io/badge/SERIALIZATION-NEW-GREEN.svg)](https://shields.io/)
+
+The SDK now allows customizable serialization by injecting user-provided `JsonSerializerOptions` into the SDK through dependency injection. This lets you control naming policies, converters, null-handling, and other serialization behavior without forking or subclassing the SDK.
+
+More information about this new customizable serialization can be found in this file : [Serialization.md](Serialization.md)
+
+### HttpClient Dependency Injection
+
+[![Generic badge](https://img.shields.io/badge/HTTPCLIENT-NEW-GREEN.svg)](https://shields.io/)
+
+The SDK now allows injection of user-provided `HttpClient` or `IHttpClientFactory` through dependency injection, giving you full control over the underlying transport — handler configuration, proxy, client certificates, connection pooling, and lifetime — and letting the SDK participate in a modern Microsoft.Extensions.DependencyInjection HTTP pipeline.
+
+More information about this new `HttpClient` dependency injection can be found in this file : [HttpClientDependencyInjection.md](HttpClientDependencyInjection.md)
+
+### Model Extensibility (extra / unmapped fields)
+[![Generic badge](https://img.shields.io/badge/EXTENSIBILITY-NEW-GREEN.svg)](https://shields.io/)
+
+Request/response models let you send and read JSON fields that are not yet defined as typed properties:
+
+```csharp
+request.SetExtraField("newApiField", "someValue");            // send an unmapped field
+string value = response.GetExtraField<string>("newApiField"); // read an unmapped field
+```
+
+Unknown fields on a response are preserved and re-serialized on the next request.
+
+More information about this new model extensibility feature can be found in this file : [Model-Extensions.md](Model-Extensions.md)
 
 ### JWT Authentication with Symmetric Key (Shared Secret / HS256 HMAC-SHA256) Support
 

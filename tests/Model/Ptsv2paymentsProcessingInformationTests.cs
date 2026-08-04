@@ -217,6 +217,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AuthorizationOptions'
         }
         /// <summary>
+        /// Test the property 'CardVerification'
+        /// </summary>
+        [Test]
+        public void CardVerificationTest()
+        {
+            // TODO unit test for the property 'CardVerification'
+        }
+        /// <summary>
         /// Test the property 'CaptureOptions'
         /// </summary>
         [Test]

@@ -9,5 +9,14 @@ Name | Type | Description | Notes
 **Bank** | [**Ptsv2paymentsPaymentInformationBank**](Ptsv2paymentsPaymentInformationBank.md) |  | [optional] 
 **Method** | **string** | Method of payment used for the order. This field can contain one of the following values:   - &#x60;consumer&#x60; (default): Customer credit card   - &#x60;corporate&#x60;: Corporate credit card   - &#x60;debit&#x60;: Debit card, such as a Maestro (UK Domestic) card   - &#x60;cod&#x60;: Collect on delivery   - &#x60;check&#x60;: Electronic check   - &#x60;p2p&#x60;: Person-to-person payment   - &#x60;private1&#x60;: Private label credit card   - &#x60;other&#x60;: Other payment method  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

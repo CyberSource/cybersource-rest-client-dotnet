@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// GetSubscriptionResponseReactivationInformation
     /// </summary>
     [DataContract]
-    public partial class GetSubscriptionResponseReactivationInformation :  IEquatable<GetSubscriptionResponseReactivationInformation>, IValidatableObject
+    public partial class GetSubscriptionResponseReactivationInformation :  ModelExtensions, IEquatable<GetSubscriptionResponseReactivationInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetSubscriptionResponseReactivationInformation" /> class.
@@ -67,6 +68,7 @@ namespace CyberSource.Model
             sb.Append("class GetSubscriptionResponseReactivationInformation {\n");
             if (MissedPaymentsCount != null) sb.Append("  MissedPaymentsCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GetSubscriptionResponseReactivationInformation", "missedPaymentsCount", MissedPaymentsCount.ToString())).Append("\n");
             if (MissedPaymentsTotalAmount != null) sb.Append("  MissedPaymentsTotalAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GetSubscriptionResponseReactivationInformation", "missedPaymentsTotalAmount", MissedPaymentsTotalAmount.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +79,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("GetSubscriptionResponseReactivationInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("GetSubscriptionResponseReactivationInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -102,7 +104,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.MissedPaymentsCount == other.MissedPaymentsCount ||
                     this.MissedPaymentsCount != null &&
@@ -126,10 +132,13 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.MissedPaymentsCount != null)
                     hash = hash * 59 + this.MissedPaymentsCount.GetHashCode();
                 if (this.MissedPaymentsTotalAmount != null)
                     hash = hash * 59 + this.MissedPaymentsTotalAmount.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

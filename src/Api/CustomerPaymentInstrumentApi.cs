@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -328,7 +330,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void DeleteCustomerPaymentInstrument(string customerId, string paymentInstrumentId, string profileId = null)
         {
-            logger.Debug("CALLING API \"DeleteCustomerPaymentInstrument\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteCustomerPaymentInstrument\" STARTED");
             this.SetStatusCode(null);
             DeleteCustomerPaymentInstrumentWithHttpInfo(customerId, paymentInstrumentId, profileId);
         }
@@ -348,13 +350,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
             }
             // verify the required parameter 'paymentInstrumentId' is set
             if (paymentInstrumentId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
             }
 
@@ -386,13 +388,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (paymentInstrumentId != null)
             {
                 localVarPathParams.Add("paymentInstrumentId", ApiClient.ParameterToString(paymentInstrumentId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -421,11 +423,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -445,7 +447,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -466,7 +468,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task DeleteCustomerPaymentInstrumentAsync(string customerId, string paymentInstrumentId, string profileId = null)
         {
-            logger.Debug("CALLING API \"DeleteCustomerPaymentInstrumentAsync\" STARTED");
+            logger.LogDebug("CALLING API \"DeleteCustomerPaymentInstrumentAsync\" STARTED");
             this.SetStatusCode(null);
             await DeleteCustomerPaymentInstrumentAsyncWithHttpInfo(customerId, paymentInstrumentId, profileId);
 
@@ -487,13 +489,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
             }
             // verify the required parameter 'paymentInstrumentId' is set
             if (paymentInstrumentId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->DeleteCustomerPaymentInstrument");
             }
 
@@ -525,13 +527,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (paymentInstrumentId != null)
             {
                 localVarPathParams.Add("paymentInstrumentId", ApiClient.ParameterToString(paymentInstrumentId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -559,11 +561,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -583,7 +585,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("DeleteCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -603,10 +605,10 @@ namespace CyberSource.Api
         /// <returns>PostCustomerPaymentInstrumentRequest</returns>
         public PostCustomerPaymentInstrumentRequest GetCustomerPaymentInstrument(string customerId, string paymentInstrumentId, string profileId = null)
         {
-            logger.Debug("CALLING API \"GetCustomerPaymentInstrument\" STARTED");
+            logger.LogDebug("CALLING API \"GetCustomerPaymentInstrument\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostCustomerPaymentInstrumentRequest> localVarResponse = GetCustomerPaymentInstrumentWithHttpInfo(customerId, paymentInstrumentId, profileId);
-            logger.Debug("CALLING API \"GetCustomerPaymentInstrument\" ENDED");
+            logger.LogDebug("CALLING API \"GetCustomerPaymentInstrument\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -626,13 +628,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
             }
             // verify the required parameter 'paymentInstrumentId' is set
             if (paymentInstrumentId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
             }
 
@@ -664,13 +666,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (paymentInstrumentId != null)
             {
                 localVarPathParams.Add("paymentInstrumentId", ApiClient.ParameterToString(paymentInstrumentId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -699,11 +701,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -723,7 +725,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -743,10 +745,10 @@ namespace CyberSource.Api
         /// <returns>Task of PostCustomerPaymentInstrumentRequest</returns>
         public async Task<PostCustomerPaymentInstrumentRequest> GetCustomerPaymentInstrumentAsync(string customerId, string paymentInstrumentId, string profileId = null)
         {
-            logger.Debug("CALLING API \"GetCustomerPaymentInstrumentAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetCustomerPaymentInstrumentAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostCustomerPaymentInstrumentRequest> localVarResponse = await GetCustomerPaymentInstrumentAsyncWithHttpInfo(customerId, paymentInstrumentId, profileId);
-            logger.Debug("CALLING API \"GetCustomerPaymentInstrumentAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetCustomerPaymentInstrumentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -767,13 +769,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
             }
             // verify the required parameter 'paymentInstrumentId' is set
             if (paymentInstrumentId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrument");
             }
 
@@ -805,13 +807,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (paymentInstrumentId != null)
             {
                 localVarPathParams.Add("paymentInstrumentId", ApiClient.ParameterToString(paymentInstrumentId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -839,11 +841,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -863,7 +865,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -883,10 +885,10 @@ namespace CyberSource.Api
         /// <returns>PaymentInstrumentList1</returns>
         public PaymentInstrumentList1 GetCustomerPaymentInstrumentsList(string customerId, string profileId = null, long? offset = null, long? limit = null)
         {
-            logger.Debug("CALLING API \"GetCustomerPaymentInstrumentsList\" STARTED");
+            logger.LogDebug("CALLING API \"GetCustomerPaymentInstrumentsList\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PaymentInstrumentList1> localVarResponse = GetCustomerPaymentInstrumentsListWithHttpInfo(customerId, profileId, offset, limit);
-            logger.Debug("CALLING API \"GetCustomerPaymentInstrumentsList\" ENDED");
+            logger.LogDebug("CALLING API \"GetCustomerPaymentInstrumentsList\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -907,7 +909,7 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrumentsList");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrumentsList");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrumentsList");
             }
 
@@ -939,19 +941,19 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -980,11 +982,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1004,7 +1006,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetCustomerPaymentInstrumentsList", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1025,10 +1027,10 @@ namespace CyberSource.Api
         /// <returns>Task of PaymentInstrumentList1</returns>
         public async Task<PaymentInstrumentList1> GetCustomerPaymentInstrumentsListAsync(string customerId, string profileId = null, long? offset = null, long? limit = null)
         {
-            logger.Debug("CALLING API \"GetCustomerPaymentInstrumentsListAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetCustomerPaymentInstrumentsListAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PaymentInstrumentList1> localVarResponse = await GetCustomerPaymentInstrumentsListAsyncWithHttpInfo(customerId, profileId, offset, limit);
-            logger.Debug("CALLING API \"GetCustomerPaymentInstrumentsListAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetCustomerPaymentInstrumentsListAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1050,7 +1052,7 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrumentsList");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrumentsList");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->GetCustomerPaymentInstrumentsList");
             }
 
@@ -1082,19 +1084,19 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (offset != null)
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (profileId != null)
             {
@@ -1122,11 +1124,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1146,7 +1148,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetCustomerPaymentInstrumentsList", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1167,10 +1169,10 @@ namespace CyberSource.Api
         /// <returns>PatchCustomerPaymentInstrumentRequest</returns>
         public PatchCustomerPaymentInstrumentRequest PatchCustomersPaymentInstrument(string customerId, string paymentInstrumentId, PatchCustomerPaymentInstrumentRequest patchCustomerPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
         {
-            logger.Debug("CALLING API \"PatchCustomersPaymentInstrument\" STARTED");
+            logger.LogDebug("CALLING API \"PatchCustomersPaymentInstrument\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PatchCustomerPaymentInstrumentRequest> localVarResponse = PatchCustomersPaymentInstrumentWithHttpInfo(customerId, paymentInstrumentId, patchCustomerPaymentInstrumentRequest, profileId, ifMatch);
-            logger.Debug("CALLING API \"PatchCustomersPaymentInstrument\" ENDED");
+            logger.LogDebug("CALLING API \"PatchCustomersPaymentInstrument\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1192,19 +1194,19 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
             }
             // verify the required parameter 'paymentInstrumentId' is set
             if (paymentInstrumentId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
             }
             // verify the required parameter 'patchCustomerPaymentInstrumentRequest' is set
             if (patchCustomerPaymentInstrumentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'patchCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'patchCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'patchCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
             }
 
@@ -1236,13 +1238,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (paymentInstrumentId != null)
             {
                 localVarPathParams.Add("paymentInstrumentId", ApiClient.ParameterToString(paymentInstrumentId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1271,18 +1273,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PatchCustomersPaymentInstrument,PatchCustomersPaymentInstrumentAsync,PatchCustomersPaymentInstrumentWithHttpInfo,PatchCustomersPaymentInstrumentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1297,7 +1299,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PatchCustomersPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1319,10 +1321,10 @@ namespace CyberSource.Api
         /// <returns>Task of PatchCustomerPaymentInstrumentRequest</returns>
         public async Task<PatchCustomerPaymentInstrumentRequest> PatchCustomersPaymentInstrumentAsync(string customerId, string paymentInstrumentId, PatchCustomerPaymentInstrumentRequest patchCustomerPaymentInstrumentRequest, string profileId = null, string ifMatch = null)
         {
-            logger.Debug("CALLING API \"PatchCustomersPaymentInstrumentAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PatchCustomersPaymentInstrumentAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PatchCustomerPaymentInstrumentRequest> localVarResponse = await PatchCustomersPaymentInstrumentAsyncWithHttpInfo(customerId, paymentInstrumentId, patchCustomerPaymentInstrumentRequest, profileId, ifMatch);
-            logger.Debug("CALLING API \"PatchCustomersPaymentInstrumentAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PatchCustomersPaymentInstrumentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1345,19 +1347,19 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
             }
             // verify the required parameter 'paymentInstrumentId' is set
             if (paymentInstrumentId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'paymentInstrumentId' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
             }
             // verify the required parameter 'patchCustomerPaymentInstrumentRequest' is set
             if (patchCustomerPaymentInstrumentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'patchCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'patchCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'patchCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PatchCustomersPaymentInstrument");
             }
 
@@ -1389,13 +1391,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (paymentInstrumentId != null)
             {
                 localVarPathParams.Add("paymentInstrumentId", ApiClient.ParameterToString(paymentInstrumentId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1424,18 +1426,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PatchCustomersPaymentInstrument,PatchCustomersPaymentInstrumentAsync,PatchCustomersPaymentInstrumentWithHttpInfo,PatchCustomersPaymentInstrumentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1450,7 +1452,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PatchCustomersPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1469,10 +1471,10 @@ namespace CyberSource.Api
         /// <returns>PostCustomerPaymentInstrumentRequest</returns>
         public PostCustomerPaymentInstrumentRequest PostCustomerPaymentInstrument(string customerId, PostCustomerPaymentInstrumentRequest postCustomerPaymentInstrumentRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostCustomerPaymentInstrument\" STARTED");
+            logger.LogDebug("CALLING API \"PostCustomerPaymentInstrument\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostCustomerPaymentInstrumentRequest> localVarResponse = PostCustomerPaymentInstrumentWithHttpInfo(customerId, postCustomerPaymentInstrumentRequest, profileId);
-            logger.Debug("CALLING API \"PostCustomerPaymentInstrument\" ENDED");
+            logger.LogDebug("CALLING API \"PostCustomerPaymentInstrument\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1492,13 +1494,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
             }
             // verify the required parameter 'postCustomerPaymentInstrumentRequest' is set
             if (postCustomerPaymentInstrumentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'postCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'postCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
             }
 
@@ -1530,7 +1532,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1554,18 +1556,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostCustomerPaymentInstrument,PostCustomerPaymentInstrumentAsync,PostCustomerPaymentInstrumentWithHttpInfo,PostCustomerPaymentInstrumentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1580,7 +1582,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1600,10 +1602,10 @@ namespace CyberSource.Api
         /// <returns>Task of PostCustomerPaymentInstrumentRequest</returns>
         public async Task<PostCustomerPaymentInstrumentRequest> PostCustomerPaymentInstrumentAsync(string customerId, PostCustomerPaymentInstrumentRequest postCustomerPaymentInstrumentRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostCustomerPaymentInstrumentAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostCustomerPaymentInstrumentAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PostCustomerPaymentInstrumentRequest> localVarResponse = await PostCustomerPaymentInstrumentAsyncWithHttpInfo(customerId, postCustomerPaymentInstrumentRequest, profileId);
-            logger.Debug("CALLING API \"PostCustomerPaymentInstrumentAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PostCustomerPaymentInstrumentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1624,13 +1626,13 @@ namespace CyberSource.Api
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
             }
             // verify the required parameter 'postCustomerPaymentInstrumentRequest' is set
             if (postCustomerPaymentInstrumentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
+                logger.LogError("ApiException : Missing required parameter 'postCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
                 throw new ApiException(400, "Missing required parameter 'postCustomerPaymentInstrumentRequest' when calling CustomerPaymentInstrumentApi->PostCustomerPaymentInstrument");
             }
 
@@ -1662,7 +1664,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("customerId", ApiClient.ParameterToString(customerId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1686,18 +1688,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostCustomerPaymentInstrument,PostCustomerPaymentInstrumentAsync,PostCustomerPaymentInstrumentWithHttpInfo,PostCustomerPaymentInstrumentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1712,7 +1714,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostCustomerPaymentInstrument", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace CyberSource.Utilities.Serialization
 {
-    public sealed class BooleanOrStringConverter : JsonConverter<bool>
+    internal sealed class BooleanOrStringConverter : JsonConverter<bool>
     {
         public override bool Read(
             ref Utf8JsonReader reader,

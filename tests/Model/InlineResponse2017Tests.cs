@@ -65,76 +65,76 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'EventDate'
+        /// Test the property 'Id'
         /// </summary>
         [Test]
-        public void EventDateTest()
+        public void IdTest()
         {
-            // TODO unit test for the property 'EventDate'
+            // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'EventType'
+        /// Test the property 'SubmitTimeUtc'
         /// </summary>
         [Test]
-        public void EventTypeTest()
+        public void SubmitTimeUtcTest()
         {
-            // TODO unit test for the property 'EventType'
+            // TODO unit test for the property 'SubmitTimeUtc'
         }
         /// <summary>
-        /// Test the property 'OrganizationId'
+        /// Test the property 'Status'
         /// </summary>
         [Test]
-        public void OrganizationIdTest()
+        public void StatusTest()
         {
-            // TODO unit test for the property 'OrganizationId'
+            // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'Payloads'
+        /// Test the property 'RegistrationInformation'
         /// </summary>
         [Test]
-        public void PayloadsTest()
+        public void RegistrationInformationTest()
         {
-            // TODO unit test for the property 'Payloads'
+            // TODO unit test for the property 'RegistrationInformation'
         }
         /// <summary>
-        /// Test the property 'ProductId'
+        /// Test the property 'IntegrationInformation'
         /// </summary>
         [Test]
-        public void ProductIdTest()
+        public void IntegrationInformationTest()
         {
-            // TODO unit test for the property 'ProductId'
+            // TODO unit test for the property 'IntegrationInformation'
         }
         /// <summary>
-        /// Test the property 'RequestType'
+        /// Test the property 'OrganizationInformation'
         /// </summary>
         [Test]
-        public void RequestTypeTest()
+        public void OrganizationInformationTest()
         {
-            // TODO unit test for the property 'RequestType'
+            // TODO unit test for the property 'OrganizationInformation'
         }
         /// <summary>
-        /// Test the property 'RetryNumber'
+        /// Test the property 'ProductInformationSetups'
         /// </summary>
         [Test]
-        public void RetryNumberTest()
+        public void ProductInformationSetupsTest()
         {
-            // TODO unit test for the property 'RetryNumber'
+            // TODO unit test for the property 'ProductInformationSetups'
         }
         /// <summary>
-        /// Test the property 'TransactionTraceId'
+        /// Test the property 'Message'
         /// </summary>
         [Test]
-        public void TransactionTraceIdTest()
+        public void MessageTest()
         {
-            // TODO unit test for the property 'TransactionTraceId'
+            // TODO unit test for the property 'Message'
         }
         /// <summary>
-        /// Test the property 'WebhookId'
+        /// Test the property 'Details'
         /// </summary>
         [Test]
-        public void WebhookIdTest()
+        public void DetailsTest()
         {
-            // TODO unit test for the property 'WebhookId'
+            // TODO unit test for the property 'Details'
         }
 
     }

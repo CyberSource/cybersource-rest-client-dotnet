@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Underwriting configuration containing the complete VMES (Visa Merchant Evaluation Service) payload for merchant risk evaluation. 
     /// </summary>
     [DataContract]
-    public partial class UnderwritingConfiguration :  IEquatable<UnderwritingConfiguration>, IValidatableObject
+    public partial class UnderwritingConfiguration :  ModelExtensions, IEquatable<UnderwritingConfiguration>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnderwritingConfiguration" /> class.
@@ -145,6 +146,7 @@ namespace CyberSource.Model
             if (BillingInformation != null) sb.Append("  BillingInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnderwritingConfiguration", "billingInformation", BillingInformation.ToString())).Append("\n");
             if (SaleRepresentativeInformation != null) sb.Append("  SaleRepresentativeInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnderwritingConfiguration", "saleRepresentativeInformation", SaleRepresentativeInformation.ToString())).Append("\n");
             if (FileAttachmentInformation != null) sb.Append("  FileAttachmentInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnderwritingConfiguration", "fileAttachmentInformation", FileAttachmentInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,7 +157,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("UnderwritingConfiguration", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("UnderwritingConfiguration", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -180,7 +182,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.ClientReferenceInformation == other.ClientReferenceInformation ||
                     this.ClientReferenceInformation != null &&
@@ -244,6 +250,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.ClientReferenceInformation != null)
                     hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.MerchantApplication != null)
@@ -264,6 +272,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SaleRepresentativeInformation.GetHashCode();
                 if (this.FileAttachmentInformation != null)
                     hash = hash * 59 + this.FileAttachmentInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

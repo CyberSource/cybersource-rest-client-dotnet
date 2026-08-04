@@ -136,6 +136,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TaxRate'
         }
+        /// <summary>
+        /// Test the property 'TotalAmount'
+        /// </summary>
+        [Test]
+        public void TotalAmountTest()
+        {
+            // TODO unit test for the property 'TotalAmount'
+        }
 
     }
 

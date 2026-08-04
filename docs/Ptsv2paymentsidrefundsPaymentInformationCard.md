@@ -16,5 +16,14 @@ Name | Type | Description | Notes
 **SecurityCode** | **string** | Card Verification Number.  #### FDMS Nashville Required for American Express or if swiped; otherwise, optional.  #### Ingenico ePayments Do not include this field when &#x60;commerceIndicator&#x3D;recurring&#x60;. **Note** Ingenico ePayments was previously called _Global Collect_.  #### TSYS Acquiring Solutions Optional if pointOfSaleInformation.entryMode&#x3D;keyed; otherwise, not used.  #### GPX Optional.  #### All other processors: Optional.  | [optional] 
 **UseAs** | **string** | Flag that specifies the type of account associated with the card.  This field is available only for China UnionPay, Cielo, Comercio Latino and Visa Platform Connect. The cardholder provides this information during the payment process.  This field is required for:  - Debit transactions on Cielo and Comercio Latino.  - Transactions with Brazilian-issued cards on CyberSource through VisaNet.  **China UnionPayCard Transactions on China UnionPay:** Possible values:  - C: Domestic credit card  - D: Domestic debit card  - F: International credit card  - I: International debit card  When the value is D, the e-commerce indicator and CAVV fields must be included in the authorization request. When the value is C, F or I the card verification number, expiration month and expiration year fields must in included in the authorization request.  **Cielo and Comercio Latino Credit Card Transactions:** On these processors, this field is supported only for authorizations.  Possible values:  - CR: Credit card  - DB: Debit card       **Visa Platform Connect Credit Card Transactions:** This field is supported for all card types on Visa Platform Connect. For combo **card present** transactions with Mastercard on Brazilian-issued cards, possible values:  - CR: Credit card  - DB: Debit Card  For combo **card not present** transactions with Mastercard on Brazilian-issued cards, possible values:  - C: Credit card  - D: Debit card  A value of CR or DB in the useAs field takes precedence over any value in the Source Account Type field.  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

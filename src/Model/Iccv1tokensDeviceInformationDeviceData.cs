@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Device data.
     /// </summary>
     [DataContract]
-    public partial class Iccv1tokensDeviceInformationDeviceData :  IEquatable<Iccv1tokensDeviceInformationDeviceData>, IValidatableObject
+    public partial class Iccv1tokensDeviceInformationDeviceData :  ModelExtensions, IEquatable<Iccv1tokensDeviceInformationDeviceData>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Iccv1tokensDeviceInformationDeviceData" /> class.
@@ -94,6 +95,7 @@ namespace CyberSource.Model
             if (Manufacturer != null) sb.Append("  Manufacturer: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1tokensDeviceInformationDeviceData", "manufacturer", Manufacturer.ToString())).Append("\n");
             if (Brand != null) sb.Append("  Brand: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1tokensDeviceInformationDeviceData", "brand", Brand.ToString())).Append("\n");
             if (Model != null) sb.Append("  Model: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iccv1tokensDeviceInformationDeviceData", "model", Model.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,7 +106,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1tokensDeviceInformationDeviceData", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iccv1tokensDeviceInformationDeviceData", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -129,7 +131,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Type == other.Type ||
                     this.Type != null &&
@@ -163,6 +169,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Manufacturer != null)
@@ -171,6 +179,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Brand.GetHashCode();
                 if (this.Model != null)
                     hash = hash * 59 + this.Model.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

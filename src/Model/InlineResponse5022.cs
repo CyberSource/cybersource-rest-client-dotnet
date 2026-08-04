@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,54 +29,64 @@ namespace CyberSource.Model
     /// InlineResponse5022
     /// </summary>
     [DataContract]
-    public partial class InlineResponse5022 :  IEquatable<InlineResponse5022>, IValidatableObject
+    public partial class InlineResponse5022 :  ModelExtensions, IEquatable<InlineResponse5022>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse5022" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time verification was requested  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) .</param>
-        /// <param name="Status">The status of the submitted transaction. Possible values:   - &#x60;SERVER_ERROR&#x60; .</param>
-        /// <param name="Message">The detail message related to the status and reason.</param>
-        /// <param name="Reason">The reason of the status.  Possible values:   - &#x60;SYSTEM_ERROR&#x60;   - &#x60;SERVER_TIMEOUT&#x60;   - &#x60;SERVICE_TIMEOUT&#x60; .</param>
-        public InlineResponse5022(string SubmitTimeUtc = default(string), string Status = default(string), string Message = default(string), string Reason = default(string))
+        /// <param name="Id">A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. .</param>
+        /// <param name="SubmitTimeStampUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        /// <param name="Status">Possible values: - SERVER_ERROR .</param>
+        /// <param name="Reason">The reason of the status.  Possible values: - SYSTEM_ERROR .</param>
+        /// <param name="Message">The detail message related to the status and reason listed above. .</param>
+        public InlineResponse5022(string Id = default(string), string SubmitTimeStampUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Id = Id;
+            this.SubmitTimeStampUtc = SubmitTimeStampUtc;
             this.Status = Status;
-            this.Message = Message;
             this.Reason = Reason;
+            this.Message = Message;
         }
         
         /// <summary>
-        /// Time verification was requested  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) 
+        /// A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. 
         /// </summary>
-        /// <value>Time verification was requested  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) </value>
-        [JsonPropertyName("submitTimeUtc")]
+        /// <value>A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. </value>
+        [JsonPropertyName("id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SubmitTimeUtc { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction. Possible values:   - &#x60;SERVER_ERROR&#x60; 
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
         /// </summary>
-        /// <value>The status of the submitted transaction. Possible values:   - &#x60;SERVER_ERROR&#x60; </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [JsonPropertyName("submitTimeStampUtc")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string SubmitTimeStampUtc { get; set; }
+
+        /// <summary>
+        /// Possible values: - SERVER_ERROR 
+        /// </summary>
+        /// <value>Possible values: - SERVER_ERROR </value>
         [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Status { get; set; }
 
         /// <summary>
-        /// The detail message related to the status and reason
+        /// The reason of the status.  Possible values: - SYSTEM_ERROR 
         /// </summary>
-        /// <value>The detail message related to the status and reason</value>
-        [JsonPropertyName("message")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// The reason of the status.  Possible values:   - &#x60;SYSTEM_ERROR&#x60;   - &#x60;SERVER_TIMEOUT&#x60;   - &#x60;SERVICE_TIMEOUT&#x60; 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:   - &#x60;SYSTEM_ERROR&#x60;   - &#x60;SERVER_TIMEOUT&#x60;   - &#x60;SERVICE_TIMEOUT&#x60; </value>
+        /// <value>The reason of the status.  Possible values: - SYSTEM_ERROR </value>
         [JsonPropertyName("reason")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Reason { get; set; }
+
+        /// <summary>
+        /// The detail message related to the status and reason listed above. 
+        /// </summary>
+        /// <value>The detail message related to the status and reason listed above. </value>
+        [JsonPropertyName("message")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,10 +96,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse5022 {\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5022", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5022", "id", Id.ToString())).Append("\n");
+            if (SubmitTimeStampUtc != null) sb.Append("  SubmitTimeStampUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5022", "submitTimeStampUtc", SubmitTimeStampUtc.ToString())).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5022", "status", Status.ToString())).Append("\n");
-            if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5022", "message", Message.ToString())).Append("\n");
             if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5022", "reason", Reason.ToString())).Append("\n");
+            if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5022", "message", Message.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,7 +112,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse5022", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse5022", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -124,11 +137,20 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
+                ) && 
+                (
+                    this.SubmitTimeStampUtc == other.SubmitTimeStampUtc ||
+                    this.SubmitTimeStampUtc != null &&
+                    this.SubmitTimeStampUtc.Equals(other.SubmitTimeStampUtc)
                 ) && 
                 (
                     this.Status == other.Status ||
@@ -136,14 +158,14 @@ namespace CyberSource.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
-                ) && 
-                (
                     this.Reason == other.Reason ||
                     this.Reason != null &&
                     this.Reason.Equals(other.Reason)
+                ) && 
+                (
+                    this.Message == other.Message ||
+                    this.Message != null &&
+                    this.Message.Equals(other.Message)
                 );
         }
 
@@ -158,14 +180,19 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
+                if (this.SubmitTimeStampUtc != null)
+                    hash = hash * 59 + this.SubmitTimeStampUtc.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
                 if (this.Reason != null)
                     hash = hash * 59 + this.Reason.GetHashCode();
+                if (this.Message != null)
+                    hash = hash * 59 + this.Message.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

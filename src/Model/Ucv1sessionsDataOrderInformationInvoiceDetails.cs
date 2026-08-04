@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Ucv1sessionsDataOrderInformationInvoiceDetails
     /// </summary>
     [DataContract]
-    public partial class Ucv1sessionsDataOrderInformationInvoiceDetails :  IEquatable<Ucv1sessionsDataOrderInformationInvoiceDetails>, IValidatableObject
+    public partial class Ucv1sessionsDataOrderInformationInvoiceDetails :  ModelExtensions, IEquatable<Ucv1sessionsDataOrderInformationInvoiceDetails>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ucv1sessionsDataOrderInformationInvoiceDetails" /> class.
@@ -88,6 +89,7 @@ namespace CyberSource.Model
             if (TransactionAdviceAddendum != null) sb.Append("  TransactionAdviceAddendum: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsDataOrderInformationInvoiceDetails", "transactionAdviceAddendum", TransactionAdviceAddendum.ToString())).Append("\n");
             if (InvoiceNumber != null) sb.Append("  InvoiceNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsDataOrderInformationInvoiceDetails", "invoiceNumber", InvoiceNumber.ToString())).Append("\n");
             if (ProductDescription != null) sb.Append("  ProductDescription: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsDataOrderInformationInvoiceDetails", "productDescription", ProductDescription.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,7 +100,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ucv1sessionsDataOrderInformationInvoiceDetails", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ucv1sessionsDataOrderInformationInvoiceDetails", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -123,7 +125,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.VatInvoiceReferenceNumber == other.VatInvoiceReferenceNumber ||
                     this.VatInvoiceReferenceNumber != null &&
@@ -157,6 +163,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.VatInvoiceReferenceNumber != null)
                     hash = hash * 59 + this.VatInvoiceReferenceNumber.GetHashCode();
                 if (this.TransactionAdviceAddendum != null)
@@ -165,6 +173,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InvoiceNumber.GetHashCode();
                 if (this.ProductDescription != null)
                     hash = hash * 59 + this.ProductDescription.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

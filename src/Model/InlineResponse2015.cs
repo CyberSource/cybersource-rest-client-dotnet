@@ -19,61 +19,95 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Egress Key Information Response 
+    /// InlineResponse2015
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2015 :  IEquatable<InlineResponse2015>, IValidatableObject
+    public partial class InlineResponse2015 :  ModelExtensions, IEquatable<InlineResponse2015>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2015" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
-        /// <param name="Status">The status of the submitted transaction. Possible values:  - ACCEPTED .</param>
+        [JsonConstructor]
+        protected InlineResponse2015() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse2015" /> class.
+        /// </summary>
+        /// <param name="Id">A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;SERVER_ERROR&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;DECLINED&#x60;  (required).</param>
+        /// <param name="SubmitTimeStampUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        /// <param name="Links">Links.</param>
+        /// <param name="Transactions">Transactions.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
-        /// <param name="KeyInformation">KeyInformation.</param>
-        public InlineResponse2015(string SubmitTimeUtc = default(string), string Status = default(string), Kmsegressv2keyssymClientReferenceInformation ClientReferenceInformation = default(Kmsegressv2keyssymClientReferenceInformation), InlineResponse2015KeyInformation KeyInformation = default(InlineResponse2015KeyInformation))
+        /// <param name="ErrorInformation">ErrorInformation.</param>
+        public InlineResponse2015(string Id = default(string), string Status = default(string), string SubmitTimeStampUtc = default(string), InlineResponse2015Links Links = default(InlineResponse2015Links), List<InlineResponse2015Transactions> Transactions = default(List<InlineResponse2015Transactions>), InlineResponse2015ClientReferenceInformation ClientReferenceInformation = default(InlineResponse2015ClientReferenceInformation), InlineResponse2015ErrorInformation ErrorInformation = default(InlineResponse2015ErrorInformation))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Id = Id;
             this.Status = Status;
+            this.SubmitTimeStampUtc = SubmitTimeStampUtc;
+            this.Links = Links;
+            this.Transactions = Transactions;
             this.ClientReferenceInformation = ClientReferenceInformation;
-            this.KeyInformation = KeyInformation;
+            this.ErrorInformation = ErrorInformation;
         }
         
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
+        /// A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
-        [JsonPropertyName("submitTimeUtc")]
+        /// <value>A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. </value>
+        [JsonPropertyName("id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SubmitTimeUtc { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction. Possible values:  - ACCEPTED 
+        /// The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;SERVER_ERROR&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;DECLINED&#x60; 
         /// </summary>
-        /// <value>The status of the submitted transaction. Possible values:  - ACCEPTED </value>
+        /// <value>The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;SERVER_ERROR&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;DECLINED&#x60; </value>
         [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Status { get; set; }
+
+        /// <summary>
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// </summary>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [JsonPropertyName("submitTimeStampUtc")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string SubmitTimeStampUtc { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Links
+        /// </summary>
+        [JsonPropertyName("_links")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse2015Links Links { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Transactions
+        /// </summary>
+        [JsonPropertyName("transactions")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<InlineResponse2015Transactions> Transactions { get; set; }
 
         /// <summary>
         /// Gets or Sets ClientReferenceInformation
         /// </summary>
         [JsonPropertyName("clientReferenceInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Kmsegressv2keyssymClientReferenceInformation ClientReferenceInformation { get; set; }
+        public InlineResponse2015ClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets KeyInformation
+        /// Gets or Sets ErrorInformation
         /// </summary>
-        [JsonPropertyName("keyInformation")]
+        [JsonPropertyName("errorInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2015KeyInformation KeyInformation { get; set; }
+        public InlineResponse2015ErrorInformation ErrorInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,10 +117,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2015 {\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2015", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2015", "id", Id.ToString())).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2015", "status", Status.ToString())).Append("\n");
+            if (SubmitTimeStampUtc != null) sb.Append("  SubmitTimeStampUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2015", "submitTimeStampUtc", SubmitTimeStampUtc.ToString())).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2015", "_links", Links.ToString())).Append("\n");
+            if (Transactions != null) sb.Append("  Transactions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2015", "transactions", Transactions.ToString())).Append("\n");
             if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2015", "clientReferenceInformation", ClientReferenceInformation.ToString())).Append("\n");
-            if (KeyInformation != null) sb.Append("  KeyInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2015", "keyInformation", KeyInformation.ToString())).Append("\n");
+            if (ErrorInformation != null) sb.Append("  ErrorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2015", "errorInformation", ErrorInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,7 +135,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2015", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse2015", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -122,11 +160,15 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
                     this.Status == other.Status ||
@@ -134,14 +176,29 @@ namespace CyberSource.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
+                    this.SubmitTimeStampUtc == other.SubmitTimeStampUtc ||
+                    this.SubmitTimeStampUtc != null &&
+                    this.SubmitTimeStampUtc.Equals(other.SubmitTimeStampUtc)
+                ) && 
+                (
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.Equals(other.Links)
+                ) && 
+                (
+                    this.Transactions == other.Transactions ||
+                    this.Transactions != null &&
+                    this.Transactions.SequenceEqual(other.Transactions)
+                ) && 
+                (
                     this.ClientReferenceInformation == other.ClientReferenceInformation ||
                     this.ClientReferenceInformation != null &&
                     this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
                 ) && 
                 (
-                    this.KeyInformation == other.KeyInformation ||
-                    this.KeyInformation != null &&
-                    this.KeyInformation.Equals(other.KeyInformation)
+                    this.ErrorInformation == other.ErrorInformation ||
+                    this.ErrorInformation != null &&
+                    this.ErrorInformation.Equals(other.ErrorInformation)
                 );
         }
 
@@ -156,14 +213,23 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
+                if (this.SubmitTimeStampUtc != null)
+                    hash = hash * 59 + this.SubmitTimeStampUtc.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
+                if (this.Transactions != null)
+                    hash = hash * 59 + this.Transactions.GetHashCode();
                 if (this.ClientReferenceInformation != null)
                     hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
-                if (this.KeyInformation != null)
-                    hash = hash * 59 + this.KeyInformation.GetHashCode();
+                if (this.ErrorInformation != null)
+                    hash = hash * 59 + this.ErrorInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

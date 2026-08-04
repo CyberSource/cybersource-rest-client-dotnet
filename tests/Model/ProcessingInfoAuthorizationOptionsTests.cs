@@ -145,6 +145,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'DeclineAvsFlags'
         }
         /// <summary>
+        /// Test the property 'DeclineAniFlags'
+        /// </summary>
+        [Test]
+        public void DeclineAniFlagsTest()
+        {
+            // TODO unit test for the property 'DeclineAniFlags'
+        }
+        /// <summary>
         /// Test the property 'IgnoreCvResult'
         /// </summary>
         [Test]

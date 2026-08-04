@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -185,7 +187,7 @@ namespace CyberSource.Api
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="postTokenizedCardDeleteRequest"> (optional)</param>
         /// <returns></returns>
-        void PostTokenizedCardDelete(string tokenizedCardId, string profileId = null, TmsTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null);
+        void PostTokenizedCardDelete(string tokenizedCardId, string profileId = null, PostTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null);
 
         /// <summary>
         /// Delete a Tokenized Card
@@ -198,7 +200,7 @@ namespace CyberSource.Api
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="postTokenizedCardDeleteRequest"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> PostTokenizedCardDeleteWithHttpInfo(string tokenizedCardId, string profileId = null, TmsTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null);
+        ApiResponse<Object> PostTokenizedCardDeleteWithHttpInfo(string tokenizedCardId, string profileId = null, PostTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -358,7 +360,7 @@ namespace CyberSource.Api
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="postTokenizedCardDeleteRequest"> (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task PostTokenizedCardDeleteAsync(string tokenizedCardId, string profileId = null, TmsTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null);
+        System.Threading.Tasks.Task PostTokenizedCardDeleteAsync(string tokenizedCardId, string profileId = null, PostTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null);
 
         /// <summary>
         /// Delete a Tokenized Card
@@ -371,7 +373,7 @@ namespace CyberSource.Api
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="postTokenizedCardDeleteRequest"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PostTokenizedCardDeleteAsyncWithHttpInfo(string tokenizedCardId, string profileId = null, TmsTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> PostTokenizedCardDeleteAsyncWithHttpInfo(string tokenizedCardId, string profileId = null, PostTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null);
         #endregion Asynchronous Operations
     }
 
@@ -408,10 +410,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetCardArtAsset(string instrumentIdentifierId, string tokenProvider, string assetType)
         {
-            logger.Debug("CALLING API \"GetCardArtAsset\" STARTED");
+            logger.LogDebug("CALLING API \"GetCardArtAsset\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2002> localVarResponse = GetCardArtAssetWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
-            logger.Debug("CALLING API \"GetCardArtAsset\" ENDED");
+            logger.LogDebug("CALLING API \"GetCardArtAsset\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -431,19 +433,19 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling NetworkTokensApi->GetCardArtAsset");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling NetworkTokensApi->GetCardArtAsset");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling NetworkTokensApi->GetCardArtAsset");
             }
             // verify the required parameter 'tokenProvider' is set
             if (tokenProvider == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenProvider' when calling NetworkTokensApi->GetCardArtAsset");
+                logger.LogError("ApiException : Missing required parameter 'tokenProvider' when calling NetworkTokensApi->GetCardArtAsset");
                 throw new ApiException(400, "Missing required parameter 'tokenProvider' when calling NetworkTokensApi->GetCardArtAsset");
             }
             // verify the required parameter 'assetType' is set
             if (assetType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'assetType' when calling NetworkTokensApi->GetCardArtAsset");
+                logger.LogError("ApiException : Missing required parameter 'assetType' when calling NetworkTokensApi->GetCardArtAsset");
                 throw new ApiException(400, "Missing required parameter 'assetType' when calling NetworkTokensApi->GetCardArtAsset");
             }
 
@@ -475,19 +477,19 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (tokenProvider != null)
             {
                 localVarPathParams.Add("tokenProvider", ApiClient.ParameterToString(tokenProvider)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (assetType != null)
             {
                 localVarPathParams.Add("assetType", ApiClient.ParameterToString(assetType)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -511,11 +513,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -535,7 +537,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetCardArtAsset", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -555,10 +557,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse2002</returns>
         public async Task<InlineResponse2002> GetCardArtAssetAsync(string instrumentIdentifierId, string tokenProvider, string assetType)
         {
-            logger.Debug("CALLING API \"GetCardArtAssetAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetCardArtAssetAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2002> localVarResponse = await GetCardArtAssetAsyncWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
-            logger.Debug("CALLING API \"GetCardArtAssetAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetCardArtAssetAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -579,19 +581,19 @@ namespace CyberSource.Api
             // verify the required parameter 'instrumentIdentifierId' is set
             if (instrumentIdentifierId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'instrumentIdentifierId' when calling NetworkTokensApi->GetCardArtAsset");
+                logger.LogError("ApiException : Missing required parameter 'instrumentIdentifierId' when calling NetworkTokensApi->GetCardArtAsset");
                 throw new ApiException(400, "Missing required parameter 'instrumentIdentifierId' when calling NetworkTokensApi->GetCardArtAsset");
             }
             // verify the required parameter 'tokenProvider' is set
             if (tokenProvider == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenProvider' when calling NetworkTokensApi->GetCardArtAsset");
+                logger.LogError("ApiException : Missing required parameter 'tokenProvider' when calling NetworkTokensApi->GetCardArtAsset");
                 throw new ApiException(400, "Missing required parameter 'tokenProvider' when calling NetworkTokensApi->GetCardArtAsset");
             }
             // verify the required parameter 'assetType' is set
             if (assetType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'assetType' when calling NetworkTokensApi->GetCardArtAsset");
+                logger.LogError("ApiException : Missing required parameter 'assetType' when calling NetworkTokensApi->GetCardArtAsset");
                 throw new ApiException(400, "Missing required parameter 'assetType' when calling NetworkTokensApi->GetCardArtAsset");
             }
 
@@ -623,19 +625,19 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("instrumentIdentifierId", ApiClient.ParameterToString(instrumentIdentifierId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (tokenProvider != null)
             {
                 localVarPathParams.Add("tokenProvider", ApiClient.ParameterToString(tokenProvider)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (assetType != null)
             {
                 localVarPathParams.Add("assetType", ApiClient.ParameterToString(assetType)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -658,11 +660,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -682,7 +684,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetCardArtAsset", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -700,10 +702,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 GetTokenizedCard(string tokenizedCardId, string profileId = null)
         {
-            logger.Debug("CALLING API \"GetTokenizedCard\" STARTED");
+            logger.LogDebug("CALLING API \"GetTokenizedCard\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2001> localVarResponse = GetTokenizedCardWithHttpInfo(tokenizedCardId, profileId);
-            logger.Debug("CALLING API \"GetTokenizedCard\" ENDED");
+            logger.LogDebug("CALLING API \"GetTokenizedCard\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -722,7 +724,7 @@ namespace CyberSource.Api
             // verify the required parameter 'tokenizedCardId' is set
             if (tokenizedCardId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->GetTokenizedCard");
+                logger.LogError("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->GetTokenizedCard");
                 throw new ApiException(400, "Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->GetTokenizedCard");
             }
 
@@ -754,7 +756,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("tokenizedCardId", ApiClient.ParameterToString(tokenizedCardId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -783,11 +785,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -807,7 +809,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTokenizedCard", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -826,10 +828,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse2001</returns>
         public async Task<InlineResponse2001> GetTokenizedCardAsync(string tokenizedCardId, string profileId = null)
         {
-            logger.Debug("CALLING API \"GetTokenizedCardAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetTokenizedCardAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2001> localVarResponse = await GetTokenizedCardAsyncWithHttpInfo(tokenizedCardId, profileId);
-            logger.Debug("CALLING API \"GetTokenizedCardAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetTokenizedCardAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -849,7 +851,7 @@ namespace CyberSource.Api
             // verify the required parameter 'tokenizedCardId' is set
             if (tokenizedCardId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->GetTokenizedCard");
+                logger.LogError("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->GetTokenizedCard");
                 throw new ApiException(400, "Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->GetTokenizedCard");
             }
 
@@ -881,7 +883,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("tokenizedCardId", ApiClient.ParameterToString(tokenizedCardId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -909,11 +911,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -933,7 +935,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetTokenizedCard", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -952,7 +954,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void PostIssuerLifeCycleSimulation(string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest)
         {
-            logger.Debug("CALLING API \"PostIssuerLifeCycleSimulation\" STARTED");
+            logger.LogDebug("CALLING API \"PostIssuerLifeCycleSimulation\" STARTED");
             this.SetStatusCode(null);
             PostIssuerLifeCycleSimulationWithHttpInfo(profileId, tokenizedCardId, postIssuerLifeCycleSimulationRequest);
         }
@@ -972,19 +974,19 @@ namespace CyberSource.Api
             // verify the required parameter 'profileId' is set
             if (profileId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'profileId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
+                logger.LogError("ApiException : Missing required parameter 'profileId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
                 throw new ApiException(400, "Missing required parameter 'profileId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
             }
             // verify the required parameter 'tokenizedCardId' is set
             if (tokenizedCardId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
+                logger.LogError("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
                 throw new ApiException(400, "Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
             }
             // verify the required parameter 'postIssuerLifeCycleSimulationRequest' is set
             if (postIssuerLifeCycleSimulationRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postIssuerLifeCycleSimulationRequest' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
+                logger.LogError("ApiException : Missing required parameter 'postIssuerLifeCycleSimulationRequest' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
                 throw new ApiException(400, "Missing required parameter 'postIssuerLifeCycleSimulationRequest' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
             }
 
@@ -1016,7 +1018,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("tokenizedCardId", ApiClient.ParameterToString(tokenizedCardId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1035,23 +1037,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "PostIssuerLifeCycleSimulation,PostIssuerLifeCycleSimulationAsync,PostIssuerLifeCycleSimulationWithHttpInfo,PostIssuerLifeCycleSimulationAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostIssuerLifeCycleSimulation,PostIssuerLifeCycleSimulationAsync,PostIssuerLifeCycleSimulationWithHttpInfo,PostIssuerLifeCycleSimulationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1066,7 +1068,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostIssuerLifeCycleSimulation", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1087,7 +1089,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task PostIssuerLifeCycleSimulationAsync(string profileId, string tokenizedCardId, PostIssuerLifeCycleSimulationRequest postIssuerLifeCycleSimulationRequest)
         {
-            logger.Debug("CALLING API \"PostIssuerLifeCycleSimulationAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostIssuerLifeCycleSimulationAsync\" STARTED");
             this.SetStatusCode(null);
             await PostIssuerLifeCycleSimulationAsyncWithHttpInfo(profileId, tokenizedCardId, postIssuerLifeCycleSimulationRequest);
 
@@ -1108,19 +1110,19 @@ namespace CyberSource.Api
             // verify the required parameter 'profileId' is set
             if (profileId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'profileId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
+                logger.LogError("ApiException : Missing required parameter 'profileId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
                 throw new ApiException(400, "Missing required parameter 'profileId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
             }
             // verify the required parameter 'tokenizedCardId' is set
             if (tokenizedCardId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
+                logger.LogError("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
                 throw new ApiException(400, "Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
             }
             // verify the required parameter 'postIssuerLifeCycleSimulationRequest' is set
             if (postIssuerLifeCycleSimulationRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postIssuerLifeCycleSimulationRequest' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
+                logger.LogError("ApiException : Missing required parameter 'postIssuerLifeCycleSimulationRequest' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
                 throw new ApiException(400, "Missing required parameter 'postIssuerLifeCycleSimulationRequest' when calling NetworkTokensApi->PostIssuerLifeCycleSimulation");
             }
 
@@ -1152,7 +1154,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("tokenizedCardId", ApiClient.ParameterToString(tokenizedCardId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1171,23 +1173,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "PostIssuerLifeCycleSimulation,PostIssuerLifeCycleSimulationAsync,PostIssuerLifeCycleSimulationWithHttpInfo,PostIssuerLifeCycleSimulationAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostIssuerLifeCycleSimulation,PostIssuerLifeCycleSimulationAsync,PostIssuerLifeCycleSimulationWithHttpInfo,PostIssuerLifeCycleSimulationAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1202,7 +1204,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostIssuerLifeCycleSimulation", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1222,10 +1224,10 @@ namespace CyberSource.Api
         /// <returns>string</returns>
         public string PostTokenPaymentCredentials(string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostTokenPaymentCredentials\" STARTED");
+            logger.LogDebug("CALLING API \"PostTokenPaymentCredentials\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<string> localVarResponse = PostTokenPaymentCredentialsWithHttpInfo(tokenId, postPaymentCredentialsRequest, profileId);
-            logger.Debug("CALLING API \"PostTokenPaymentCredentials\" ENDED");
+            logger.LogDebug("CALLING API \"PostTokenPaymentCredentials\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1245,13 +1247,13 @@ namespace CyberSource.Api
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentials");
+                logger.LogError("ApiException : Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentials");
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentials");
             }
             // verify the required parameter 'postPaymentCredentialsRequest' is set
             if (postPaymentCredentialsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentials");
+                logger.LogError("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentials");
                 throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentials");
             }
 
@@ -1283,7 +1285,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("tokenId", ApiClient.ParameterToString(tokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1307,18 +1309,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostTokenPaymentCredentials,PostTokenPaymentCredentialsAsync,PostTokenPaymentCredentialsWithHttpInfo,PostTokenPaymentCredentialsAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1333,7 +1335,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostTokenPaymentCredentials", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1353,10 +1355,10 @@ namespace CyberSource.Api
         /// <returns>Task of string</returns>
         public async Task<string> PostTokenPaymentCredentialsAsync(string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostTokenPaymentCredentialsAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<string> localVarResponse = await PostTokenPaymentCredentialsAsyncWithHttpInfo(tokenId, postPaymentCredentialsRequest, profileId);
-            logger.Debug("CALLING API \"PostTokenPaymentCredentialsAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1377,13 +1379,13 @@ namespace CyberSource.Api
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentials");
+                logger.LogError("ApiException : Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentials");
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentials");
             }
             // verify the required parameter 'postPaymentCredentialsRequest' is set
             if (postPaymentCredentialsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentials");
+                logger.LogError("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentials");
                 throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentials");
             }
 
@@ -1415,7 +1417,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("tokenId", ApiClient.ParameterToString(tokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1439,18 +1441,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostTokenPaymentCredentials,PostTokenPaymentCredentialsAsync,PostTokenPaymentCredentialsWithHttpInfo,PostTokenPaymentCredentialsAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1465,7 +1467,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostTokenPaymentCredentials", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1484,10 +1486,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse2011</returns>
         public InlineResponse2011 PostTokenPaymentCredentialsV3(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostTokenPaymentCredentialsV3\" STARTED");
+            logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsV3\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2011> localVarResponse = PostTokenPaymentCredentialsV3WithHttpInfo(tokenId, postPaymentCredentialsRequest, profileId);
-            logger.Debug("CALLING API \"PostTokenPaymentCredentialsV3\" ENDED");
+            logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsV3\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1507,13 +1509,13 @@ namespace CyberSource.Api
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
+                logger.LogError("ApiException : Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
             }
             // verify the required parameter 'postPaymentCredentialsRequest' is set
             if (postPaymentCredentialsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
+                logger.LogError("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
                 throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
             }
 
@@ -1545,7 +1547,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("tokenId", ApiClient.ParameterToString(tokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1569,18 +1571,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostTokenPaymentCredentialsV3,PostTokenPaymentCredentialsV3Async,PostTokenPaymentCredentialsV3WithHttpInfo,PostTokenPaymentCredentialsV3AsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1595,7 +1597,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostTokenPaymentCredentialsV3", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1615,10 +1617,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse2011</returns>
         public async Task<InlineResponse2011> PostTokenPaymentCredentialsV3Async(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostTokenPaymentCredentialsV3Async\" STARTED");
+            logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsV3Async\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2011> localVarResponse = await PostTokenPaymentCredentialsV3AsyncWithHttpInfo(tokenId, postPaymentCredentialsRequest, profileId);
-            logger.Debug("CALLING API \"PostTokenPaymentCredentialsV3Async\" ENDED");
+            logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsV3Async\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1639,13 +1641,13 @@ namespace CyberSource.Api
             // verify the required parameter 'tokenId' is set
             if (tokenId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
+                logger.LogError("ApiException : Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
             }
             // verify the required parameter 'postPaymentCredentialsRequest' is set
             if (postPaymentCredentialsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
+                logger.LogError("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
                 throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
             }
 
@@ -1677,7 +1679,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("tokenId", ApiClient.ParameterToString(tokenId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -1701,18 +1703,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostTokenPaymentCredentialsV3,PostTokenPaymentCredentialsV3Async,PostTokenPaymentCredentialsV3WithHttpInfo,PostTokenPaymentCredentialsV3AsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1727,7 +1729,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostTokenPaymentCredentialsV3", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1745,10 +1747,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 PostTokenizedCard(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostTokenizedCard\" STARTED");
+            logger.LogDebug("CALLING API \"PostTokenizedCard\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2001> localVarResponse = PostTokenizedCardWithHttpInfo(postTokenizedCardRequest, profileId);
-            logger.Debug("CALLING API \"PostTokenizedCard\" ENDED");
+            logger.LogDebug("CALLING API \"PostTokenizedCard\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1767,7 +1769,7 @@ namespace CyberSource.Api
             // verify the required parameter 'postTokenizedCardRequest' is set
             if (postTokenizedCardRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postTokenizedCardRequest' when calling NetworkTokensApi->PostTokenizedCard");
+                logger.LogError("ApiException : Missing required parameter 'postTokenizedCardRequest' when calling NetworkTokensApi->PostTokenizedCard");
                 throw new ApiException(400, "Missing required parameter 'postTokenizedCardRequest' when calling NetworkTokensApi->PostTokenizedCard");
             }
 
@@ -1817,18 +1819,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostTokenizedCard,PostTokenizedCardAsync,PostTokenizedCardWithHttpInfo,PostTokenizedCardAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1843,7 +1845,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostTokenizedCard", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1862,10 +1864,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse2001</returns>
         public async Task<InlineResponse2001> PostTokenizedCardAsync(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"PostTokenizedCardAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostTokenizedCardAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2001> localVarResponse = await PostTokenizedCardAsyncWithHttpInfo(postTokenizedCardRequest, profileId);
-            logger.Debug("CALLING API \"PostTokenizedCardAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PostTokenizedCardAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1885,7 +1887,7 @@ namespace CyberSource.Api
             // verify the required parameter 'postTokenizedCardRequest' is set
             if (postTokenizedCardRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postTokenizedCardRequest' when calling NetworkTokensApi->PostTokenizedCard");
+                logger.LogError("ApiException : Missing required parameter 'postTokenizedCardRequest' when calling NetworkTokensApi->PostTokenizedCard");
                 throw new ApiException(400, "Missing required parameter 'postTokenizedCardRequest' when calling NetworkTokensApi->PostTokenizedCard");
             }
 
@@ -1935,18 +1937,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostTokenizedCard,PostTokenizedCardAsync,PostTokenizedCardWithHttpInfo,PostTokenizedCardAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1961,7 +1963,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostTokenizedCard", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1978,9 +1980,9 @@ namespace CyberSource.Api
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="postTokenizedCardDeleteRequest"> (optional)</param>
         /// <returns></returns>
-        public void PostTokenizedCardDelete(string tokenizedCardId, string profileId = null, TmsTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null)
+        public void PostTokenizedCardDelete(string tokenizedCardId, string profileId = null, PostTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null)
         {
-            logger.Debug("CALLING API \"PostTokenizedCardDelete\" STARTED");
+            logger.LogDebug("CALLING API \"PostTokenizedCardDelete\" STARTED");
             this.SetStatusCode(null);
             PostTokenizedCardDeleteWithHttpInfo(tokenizedCardId, profileId, postTokenizedCardDeleteRequest);
         }
@@ -1993,14 +1995,14 @@ namespace CyberSource.Api
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="postTokenizedCardDeleteRequest"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> PostTokenizedCardDeleteWithHttpInfo(string tokenizedCardId, string profileId = null, TmsTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null)
+        public ApiResponse<Object> PostTokenizedCardDeleteWithHttpInfo(string tokenizedCardId, string profileId = null, PostTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'tokenizedCardId' is set
             if (tokenizedCardId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostTokenizedCardDelete");
+                logger.LogError("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostTokenizedCardDelete");
                 throw new ApiException(400, "Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostTokenizedCardDelete");
             }
 
@@ -2032,7 +2034,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("tokenizedCardId", ApiClient.ParameterToString(tokenizedCardId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -2042,7 +2044,7 @@ namespace CyberSource.Api
             if (postTokenizedCardDeleteRequest != null && postTokenizedCardDeleteRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postTokenizedCardDeleteRequest = (TmsTokenizedCardDeleteRequest)sdkTracker.InsertDeveloperIdTracker(postTokenizedCardDeleteRequest, postTokenizedCardDeleteRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                postTokenizedCardDeleteRequest = (PostTokenizedCardDeleteRequest)sdkTracker.InsertDeveloperIdTracker(postTokenizedCardDeleteRequest, postTokenizedCardDeleteRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
                 localVarPostBody = ApiClient.Serialize(postTokenizedCardDeleteRequest); // http body (model) parameter
             }
             else
@@ -2056,18 +2058,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostTokenizedCardDelete,PostTokenizedCardDeleteAsync,PostTokenizedCardDeleteWithHttpInfo,PostTokenizedCardDeleteAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -2082,7 +2084,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostTokenizedCardDelete", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -2101,9 +2103,9 @@ namespace CyberSource.Api
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="postTokenizedCardDeleteRequest"> (optional)</param>
         /// <returns>Task of void</returns>
-        public async Task PostTokenizedCardDeleteAsync(string tokenizedCardId, string profileId = null, TmsTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null)
+        public async Task PostTokenizedCardDeleteAsync(string tokenizedCardId, string profileId = null, PostTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null)
         {
-            logger.Debug("CALLING API \"PostTokenizedCardDeleteAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostTokenizedCardDeleteAsync\" STARTED");
             this.SetStatusCode(null);
             await PostTokenizedCardDeleteAsyncWithHttpInfo(tokenizedCardId, profileId, postTokenizedCardDeleteRequest);
 
@@ -2117,14 +2119,14 @@ namespace CyberSource.Api
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <param name="postTokenizedCardDeleteRequest"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> PostTokenizedCardDeleteAsyncWithHttpInfo(string tokenizedCardId, string profileId = null, TmsTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null)
+        public async Task<ApiResponse<Object>> PostTokenizedCardDeleteAsyncWithHttpInfo(string tokenizedCardId, string profileId = null, PostTokenizedCardDeleteRequest postTokenizedCardDeleteRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'tokenizedCardId' is set
             if (tokenizedCardId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostTokenizedCardDelete");
+                logger.LogError("ApiException : Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostTokenizedCardDelete");
                 throw new ApiException(400, "Missing required parameter 'tokenizedCardId' when calling NetworkTokensApi->PostTokenizedCardDelete");
             }
 
@@ -2156,7 +2158,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("tokenizedCardId", ApiClient.ParameterToString(tokenizedCardId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (profileId != null)
             {
@@ -2166,7 +2168,7 @@ namespace CyberSource.Api
             if (postTokenizedCardDeleteRequest != null && postTokenizedCardDeleteRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postTokenizedCardDeleteRequest = (TmsTokenizedCardDeleteRequest)sdkTracker.InsertDeveloperIdTracker(postTokenizedCardDeleteRequest, postTokenizedCardDeleteRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                postTokenizedCardDeleteRequest = (PostTokenizedCardDeleteRequest)sdkTracker.InsertDeveloperIdTracker(postTokenizedCardDeleteRequest, postTokenizedCardDeleteRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
                 localVarPostBody = ApiClient.Serialize(postTokenizedCardDeleteRequest); // http body (model) parameter
             }
             else
@@ -2180,18 +2182,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostTokenizedCardDelete,PostTokenizedCardDeleteAsync,PostTokenizedCardDeleteWithHttpInfo,PostTokenizedCardDeleteAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -2206,7 +2208,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostTokenizedCardDelete", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

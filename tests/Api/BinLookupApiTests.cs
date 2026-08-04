@@ -74,7 +74,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CreateBinLookupRequest createBinLookupRequest = null;
             //var response = instance.GetAccountInfo(createBinLookupRequest);
-            //Assert.IsInstanceOf<InlineResponse2013> (response, "response is InlineResponse2013");
+            //Assert.IsInstanceOf<InlineResponse2016> (response, "response is InlineResponse2016");
         }
         
     }

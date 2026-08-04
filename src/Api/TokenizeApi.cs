@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -111,10 +113,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 Tokenize(PostTokenizeRequest postTokenizeRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"Tokenize\" STARTED");
+            logger.LogDebug("CALLING API \"Tokenize\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse200> localVarResponse = TokenizeWithHttpInfo(postTokenizeRequest, profileId);
-            logger.Debug("CALLING API \"Tokenize\" ENDED");
+            logger.LogDebug("CALLING API \"Tokenize\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -133,7 +135,7 @@ namespace CyberSource.Api
             // verify the required parameter 'postTokenizeRequest' is set
             if (postTokenizeRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postTokenizeRequest' when calling TokenizeApi->Tokenize");
+                logger.LogError("ApiException : Missing required parameter 'postTokenizeRequest' when calling TokenizeApi->Tokenize");
                 throw new ApiException(400, "Missing required parameter 'postTokenizeRequest' when calling TokenizeApi->Tokenize");
             }
 
@@ -183,18 +185,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "Tokenize,TokenizeAsync,TokenizeWithHttpInfo,TokenizeAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -209,7 +211,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("Tokenize", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -228,10 +230,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse200</returns>
         public async Task<InlineResponse200> TokenizeAsync(PostTokenizeRequest postTokenizeRequest, string profileId = null)
         {
-            logger.Debug("CALLING API \"TokenizeAsync\" STARTED");
+            logger.LogDebug("CALLING API \"TokenizeAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse200> localVarResponse = await TokenizeAsyncWithHttpInfo(postTokenizeRequest, profileId);
-            logger.Debug("CALLING API \"TokenizeAsync\" ENDED");
+            logger.LogDebug("CALLING API \"TokenizeAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -251,7 +253,7 @@ namespace CyberSource.Api
             // verify the required parameter 'postTokenizeRequest' is set
             if (postTokenizeRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postTokenizeRequest' when calling TokenizeApi->Tokenize");
+                logger.LogError("ApiException : Missing required parameter 'postTokenizeRequest' when calling TokenizeApi->Tokenize");
                 throw new ApiException(400, "Missing required parameter 'postTokenizeRequest' when calling TokenizeApi->Tokenize");
             }
 
@@ -301,18 +303,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "Tokenize,TokenizeAsync,TokenizeWithHttpInfo,TokenizeAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -327,7 +329,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("Tokenize", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

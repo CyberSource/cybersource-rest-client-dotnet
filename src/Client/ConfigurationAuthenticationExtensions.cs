@@ -38,7 +38,8 @@ namespace CyberSource.Client
 
             MerchantCredentialSettingsProcessor processor = new MerchantCredentialSettingsProcessor(
                     new MerchantCredentialSettingsFactory(),
-                    new MerchantCredentialSettingsValidator());
+                    new MerchantCredentialSettingsValidator(),
+                    configuration.MerchantLegacySettings.LoggerFactory);
 
             var newMerchantHttpCredentials = processor.CreateHttpSignatureSettings(configurationDictionary);
 
@@ -75,7 +76,8 @@ namespace CyberSource.Client
 
             MerchantCredentialSettingsProcessor processor = new MerchantCredentialSettingsProcessor(
                     new MerchantCredentialSettingsFactory(),
-                    new MerchantCredentialSettingsValidator());
+                    new MerchantCredentialSettingsValidator(),
+                    configuration.MerchantLegacySettings.LoggerFactory);
 
             var newMerchantJwtCredentials = processor.CreateJwtSettings(configurationDictionary);
 
@@ -112,7 +114,8 @@ namespace CyberSource.Client
 
             MerchantCredentialSettingsProcessor processor = new MerchantCredentialSettingsProcessor(
                     new MerchantCredentialSettingsFactory(),
-                    new MerchantCredentialSettingsValidator());
+                    new MerchantCredentialSettingsValidator(),
+                    configuration.MerchantLegacySettings.LoggerFactory);
 
             var newMerchantOAuthCredentials = processor.CreateOAuthSettings(configurationDictionary);
 
@@ -149,7 +152,8 @@ namespace CyberSource.Client
 
             MerchantCredentialSettingsProcessor processor = new MerchantCredentialSettingsProcessor(
                     new MerchantCredentialSettingsFactory(),
-                    new MerchantCredentialSettingsValidator());
+                    new MerchantCredentialSettingsValidator(),
+                    configuration.MerchantLegacySettings.LoggerFactory);
 
             var newMerchantMutualAuthCredentials = processor.CreateMutualAuthSettings(configurationDictionary);
 

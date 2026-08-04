@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Text.Json;
+using CyberSource.Utilities.Serialization;
+using Microsoft.Extensions.Options;
 
 namespace CyberSource.Client
 {
@@ -87,6 +91,68 @@ namespace CyberSource.Client
         /// When true, SDK telemetry headers (v-c-sdk-telemetry-merchant-id and v-c-sdk-telemetry-mcp) will be sent with API requests.
         /// </summary>
         bool IsSDK { get; }
+
+        /// <summary>
+        /// Gets the JSON serializer options used to serialize request payloads sent to the CyberSource API.
+        /// </summary>
+        JsonSerializerOptions SerializationOptions { get; }
+
+        /// <summary>
+        /// Gets the JSON serializer options used to deserialize response payloads returned from the CyberSource API.
+        /// </summary>
+        JsonSerializerOptions DeserializationOptions { get; }
+
+        /// <summary>
+        /// Gets the ordered list of consumer-supplied post-configure callbacks applied to the
+        /// <see cref="JsonSerializerOptions"/> used for request-payload serialization. Executed
+        /// before the SDK's mandatory serialization invariants so the SDK's invariants always win.
+        /// Never <c>null</c>; empty when no post-configures have been registered.
+        /// </summary>
+        IReadOnlyList<Action<JsonSerializerOptions>> SerializationPostConfigures { get; }
+
+        /// <summary>
+        /// Gets the ordered list of consumer-supplied post-configure callbacks applied to the
+        /// <see cref="JsonSerializerOptions"/> used for response-payload deserialization. Executed
+        /// before the SDK's mandatory deserialization invariants so the SDK's invariants always win.
+        /// Never <c>null</c>; empty when no post-configures have been registered.
+        /// </summary>
+        IReadOnlyList<Action<JsonSerializerOptions>> DeserializationPostConfigures { get; }
+
+        /// <summary>
+        /// Gets the optional <see cref="IOptionsMonitor{TOptions}"/> for the SDK-owned
+        /// <see cref="SdkSerializerOptions"/> wrapper. When non-<c>null</c>, the SDK reads
+        /// <c>CurrentValue.Options</c> at <see cref="CyberSource.Client.ApiClient"/> construction
+        /// time (all consumer and SDK <see cref="IPostConfigureOptions{TOptions}"/> callbacks
+        /// have already run). When <c>null</c>, the SDK falls back to the direct-injection path
+        /// (<see cref="SerializationOptions"/> plus <see cref="SerializationPostConfigures"/>).
+        /// </summary>
+        IOptionsMonitor<SdkSerializerOptions> SerializerOptionsMonitor { get; }
+
+        /// <summary>
+        /// Gets the optional <see cref="IOptionsMonitor{TOptions}"/> for the SDK-owned
+        /// <see cref="SdkDeserializerOptions"/> wrapper. When non-<c>null</c>, the SDK reads
+        /// <c>CurrentValue.Options</c> at <see cref="CyberSource.Client.ApiClient"/> construction
+        /// time. When <c>null</c>, the SDK falls back to the direct-injection path
+        /// (<see cref="DeserializationOptions"/> plus <see cref="DeserializationPostConfigures"/>).
+        /// </summary>
+        IOptionsMonitor<SdkDeserializerOptions> DeserializerOptionsMonitor { get; }
+
+        /// <summary>
+        /// Gets the caller-supplied <see cref="System.Net.Http.HttpClient"/> that RestSharp should use for outgoing requests.
+        /// When <c>null</c>, the SDK either resolves an <see cref="System.Net.Http.IHttpClientFactory"/> if one was supplied via
+        /// <see cref="HttpClientFactory"/>, or falls back to its internally managed and pooled
+        /// <see cref="StandardSocketsHttpHandler"/>-backed client. When non-<c>null</c>, the caller owns the lifetime of the
+        /// <see cref="System.Net.Http.HttpClient"/> (the SDK never disposes it) and is responsible for configuring the handler,
+        /// proxy, client certificates, connection pooling, and timeout on it directly.
+        /// </summary>
+        HttpClient HttpClient { get; }
+
+        /// <summary>
+        /// Gets the caller-supplied <see cref="System.Net.Http.IHttpClientFactory"/> that the SDK will use to obtain an
+        /// <see cref="System.Net.Http.HttpClient"/> per request. Only consulted when <see cref="HttpClient"/> is <c>null</c>.
+        /// The SDK never disposes the resolved client; handler pooling and rotation are the factory's responsibility.
+        /// </summary>
+        IHttpClientFactory HttpClientFactory { get; }
 
         /// <summary>
         /// Gets or sets the web proxy for the request.

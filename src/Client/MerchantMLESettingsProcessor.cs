@@ -1,4 +1,5 @@
 ﻿using AuthenticationSdk.core;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -32,17 +33,20 @@ namespace CyberSource.Client
     {
         private readonly MerchantMLESettingsFactory _factory;
         private readonly MerchantMLESettingsValidator _validator;
+        private readonly ILoggerFactory _loggerFactory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantMLESettingsProcessor"/> class.
         /// </summary>
         /// <param name="factory">The factory responsible for creating merchant MLE settings instances.</param>
         /// <param name="validator">The validator responsible for validating merchant MLE configuration.</param>
+        /// <param name="loggerFactory">The logger factory for creating loggers.</param>
         /// <exception cref="ArgumentNullException">Thrown when factory or validator is null.</exception>
-        public MerchantMLESettingsProcessor(MerchantMLESettingsFactory factory, MerchantMLESettingsValidator validator)
+        public MerchantMLESettingsProcessor(MerchantMLESettingsFactory factory, MerchantMLESettingsValidator validator, ILoggerFactory loggerFactory = null)
         {
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));
+            _loggerFactory = loggerFactory;
         }
 
         /// <summary>
@@ -69,7 +73,7 @@ namespace CyberSource.Client
         {
             if (configurationDictionary == null) throw new ArgumentNullException(nameof(configurationDictionary));
             _validator.ValidateMLESettings(configurationDictionary, mapToControlMLEonAPI, responseMlePrivateKey);
-            var settings = _factory.CreateMLESettings(configurationDictionary, mapToControlMLEonAPI, responseMlePrivateKey);
+            var settings = _factory.CreateMLESettings(configurationDictionary, mapToControlMLEonAPI, responseMlePrivateKey, _loggerFactory);
             return settings;
         }
     }

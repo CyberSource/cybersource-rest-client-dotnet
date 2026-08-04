@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Represents the Issuer LifeCycle Event Simulation for a Tokenized Card. 
     /// </summary>
     [DataContract]
-    public partial class PostIssuerLifeCycleSimulationRequest :  IEquatable<PostIssuerLifeCycleSimulationRequest>, IValidatableObject
+    public partial class PostIssuerLifeCycleSimulationRequest :  ModelExtensions, IEquatable<PostIssuerLifeCycleSimulationRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PostIssuerLifeCycleSimulationRequest" /> class.
@@ -76,6 +77,7 @@ namespace CyberSource.Model
             if (State != null) sb.Append("  State: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PostIssuerLifeCycleSimulationRequest", "state", State.ToString())).Append("\n");
             if (Card != null) sb.Append("  Card: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PostIssuerLifeCycleSimulationRequest", "card", Card.ToString())).Append("\n");
             if (Metadata != null) sb.Append("  Metadata: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PostIssuerLifeCycleSimulationRequest", "metadata", Metadata.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,7 +88,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PostIssuerLifeCycleSimulationRequest", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PostIssuerLifeCycleSimulationRequest", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -111,7 +113,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.State == other.State ||
                     this.State != null &&
@@ -140,12 +146,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.State != null)
                     hash = hash * 59 + this.State.GetHashCode();
                 if (this.Card != null)
                     hash = hash * 59 + this.Card.GetHashCode();
                 if (this.Metadata != null)
                     hash = hash * 59 + this.Metadata.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

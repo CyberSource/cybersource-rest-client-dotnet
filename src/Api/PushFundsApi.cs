@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -136,10 +138,10 @@ namespace CyberSource.Api
         /// <returns>PushFunds201Response</returns>
         public PushFunds201Response CreatePushFundsTransfer(PushFundsRequest pushFundsRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
-            logger.Debug("CALLING API \"CreatePushFundsTransfer\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePushFundsTransfer\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PushFunds201Response> localVarResponse = CreatePushFundsTransferWithHttpInfo(pushFundsRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
-            logger.Debug("CALLING API \"CreatePushFundsTransfer\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePushFundsTransfer\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -163,43 +165,43 @@ namespace CyberSource.Api
             // verify the required parameter 'pushFundsRequest' is set
             if (pushFundsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'pushFundsRequest' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'pushFundsRequest' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'pushFundsRequest' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'vCPermissions' is set
             if (vCPermissions == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCPermissions' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling PushFundsApi->CreatePushFundsTransfer");
             }
 
@@ -274,18 +276,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePushFundsTransfer,CreatePushFundsTransferAsync,CreatePushFundsTransferWithHttpInfo,CreatePushFundsTransferAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -300,7 +302,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePushFundsTransfer", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -324,10 +326,10 @@ namespace CyberSource.Api
         /// <returns>Task of PushFunds201Response</returns>
         public async Task<PushFunds201Response> CreatePushFundsTransferAsync(PushFundsRequest pushFundsRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
-            logger.Debug("CALLING API \"CreatePushFundsTransferAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePushFundsTransferAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PushFunds201Response> localVarResponse = await CreatePushFundsTransferAsyncWithHttpInfo(pushFundsRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
-            logger.Debug("CALLING API \"CreatePushFundsTransferAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePushFundsTransferAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -352,43 +354,43 @@ namespace CyberSource.Api
             // verify the required parameter 'pushFundsRequest' is set
             if (pushFundsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'pushFundsRequest' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'pushFundsRequest' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'pushFundsRequest' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'vCPermissions' is set
             if (vCPermissions == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCPermissions' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PushFundsApi->CreatePushFundsTransfer");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling PushFundsApi->CreatePushFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling PushFundsApi->CreatePushFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling PushFundsApi->CreatePushFundsTransfer");
             }
 
@@ -463,18 +465,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePushFundsTransfer,CreatePushFundsTransferAsync,CreatePushFundsTransferWithHttpInfo,CreatePushFundsTransferAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -489,7 +491,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePushFundsTransfer", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

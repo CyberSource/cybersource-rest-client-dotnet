@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// AccountUpdaterConfigurationsMasterCard
     /// </summary>
     [DataContract]
-    public partial class AccountUpdaterConfigurationsMasterCard :  IEquatable<AccountUpdaterConfigurationsMasterCard>, IValidatableObject
+    public partial class AccountUpdaterConfigurationsMasterCard :  ModelExtensions, IEquatable<AccountUpdaterConfigurationsMasterCard>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountUpdaterConfigurationsMasterCard" /> class.
@@ -82,6 +83,7 @@ namespace CyberSource.Model
             if (MerchantId != null) sb.Append("  MerchantId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("AccountUpdaterConfigurationsMasterCard", "merchantId", MerchantId.ToString())).Append("\n");
             if (InterbankCardAssociationNumber != null) sb.Append("  InterbankCardAssociationNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("AccountUpdaterConfigurationsMasterCard", "interbankCardAssociationNumber", InterbankCardAssociationNumber.ToString())).Append("\n");
             if (Active != null) sb.Append("  Active: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("AccountUpdaterConfigurationsMasterCard", "active", Active.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,7 +94,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("AccountUpdaterConfigurationsMasterCard", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("AccountUpdaterConfigurationsMasterCard", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -117,7 +119,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.MerchantId == other.MerchantId ||
                     this.MerchantId != null &&
@@ -146,12 +152,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.MerchantId != null)
                     hash = hash * 59 + this.MerchantId.GetHashCode();
                 if (this.InterbankCardAssociationNumber != null)
                     hash = hash * 59 + this.InterbankCardAssociationNumber.GetHashCode();
                 if (this.Active != null)
                     hash = hash * 59 + this.Active.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

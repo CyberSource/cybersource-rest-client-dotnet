@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// TssV2TransactionsPost201ResponseEmbeddedProcessingInformation
     /// </summary>
     [DataContract]
-    public partial class TssV2TransactionsPost201ResponseEmbeddedProcessingInformation :  IEquatable<TssV2TransactionsPost201ResponseEmbeddedProcessingInformation>, IValidatableObject
+    public partial class TssV2TransactionsPost201ResponseEmbeddedProcessingInformation :  ModelExtensions, IEquatable<TssV2TransactionsPost201ResponseEmbeddedProcessingInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsPost201ResponseEmbeddedProcessingInformation" /> class.
@@ -89,6 +90,7 @@ namespace CyberSource.Model
             if (BusinessApplicationId != null) sb.Append("  BusinessApplicationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsPost201ResponseEmbeddedProcessingInformation", "businessApplicationId", BusinessApplicationId.ToString())).Append("\n");
             if (CommerceIndicator != null) sb.Append("  CommerceIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsPost201ResponseEmbeddedProcessingInformation", "commerceIndicator", CommerceIndicator.ToString())).Append("\n");
             if (CommerceIndicatorLabel != null) sb.Append("  CommerceIndicatorLabel: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsPost201ResponseEmbeddedProcessingInformation", "commerceIndicatorLabel", CommerceIndicatorLabel.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,7 +101,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TssV2TransactionsPost201ResponseEmbeddedProcessingInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TssV2TransactionsPost201ResponseEmbeddedProcessingInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -124,7 +126,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.PaymentSolution == other.PaymentSolution ||
                     this.PaymentSolution != null &&
@@ -158,6 +164,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.PaymentSolution != null)
                     hash = hash * 59 + this.PaymentSolution.GetHashCode();
                 if (this.BusinessApplicationId != null)
@@ -166,6 +174,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CommerceIndicator.GetHashCode();
                 if (this.CommerceIndicatorLabel != null)
                     hash = hash * 59 + this.CommerceIndicatorLabel.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

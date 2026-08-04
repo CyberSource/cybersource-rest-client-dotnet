@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -36,8 +38,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBinLookupRequest"></param>
-        /// <returns>InlineResponse2013</returns>
-        InlineResponse2013 GetAccountInfo(CreateBinLookupRequest createBinLookupRequest);
+        /// <returns>InlineResponse2016</returns>
+        InlineResponse2016 GetAccountInfo(CreateBinLookupRequest createBinLookupRequest);
 
         /// <summary>
         /// BIN Lookup API
@@ -47,8 +49,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBinLookupRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        ApiResponse<InlineResponse2013> GetAccountInfoWithHttpInfo(CreateBinLookupRequest createBinLookupRequest);
+        /// <returns>ApiResponse of InlineResponse2016</returns>
+        ApiResponse<InlineResponse2016> GetAccountInfoWithHttpInfo(CreateBinLookupRequest createBinLookupRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -59,8 +61,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBinLookupRequest"></param>
-        /// <returns>Task of InlineResponse2013</returns>
-        System.Threading.Tasks.Task<InlineResponse2013> GetAccountInfoAsync(CreateBinLookupRequest createBinLookupRequest);
+        /// <returns>Task of InlineResponse2016</returns>
+        System.Threading.Tasks.Task<InlineResponse2016> GetAccountInfoAsync(CreateBinLookupRequest createBinLookupRequest);
 
         /// <summary>
         /// BIN Lookup API
@@ -70,8 +72,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBinLookupRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> GetAccountInfoAsyncWithHttpInfo(CreateBinLookupRequest createBinLookupRequest);
+        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2016>> GetAccountInfoAsyncWithHttpInfo(CreateBinLookupRequest createBinLookupRequest);
         #endregion Asynchronous Operations
     }
 
@@ -103,14 +105,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBinLookupRequest"></param>
-        /// <returns>InlineResponse2013</returns>
-        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
-        public InlineResponse2013 GetAccountInfo(CreateBinLookupRequest createBinLookupRequest)
+        /// <returns>InlineResponse2016</returns>
+        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder: The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>
+        public InlineResponse2016 GetAccountInfo(CreateBinLookupRequest createBinLookupRequest)
         {
-            logger.Debug("CALLING API \"GetAccountInfo\" STARTED");
+            logger.LogDebug("CALLING API \"GetAccountInfo\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2013> localVarResponse = GetAccountInfoWithHttpInfo(createBinLookupRequest);
-            logger.Debug("CALLING API \"GetAccountInfo\" ENDED");
+            ApiResponse<InlineResponse2016> localVarResponse = GetAccountInfoWithHttpInfo(createBinLookupRequest);
+            logger.LogDebug("CALLING API \"GetAccountInfo\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -120,15 +122,15 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBinLookupRequest"></param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        public ApiResponse< InlineResponse2013 > GetAccountInfoWithHttpInfo(CreateBinLookupRequest createBinLookupRequest)
+        /// <returns>ApiResponse of InlineResponse2016</returns>
+        public ApiResponse< InlineResponse2016 > GetAccountInfoWithHttpInfo(CreateBinLookupRequest createBinLookupRequest)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'createBinLookupRequest' is set
             if (createBinLookupRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createBinLookupRequest' when calling BinLookupApi->GetAccountInfo");
+                logger.LogError("ApiException : Missing required parameter 'createBinLookupRequest' when calling BinLookupApi->GetAccountInfo");
                 throw new ApiException(400, "Missing required parameter 'createBinLookupRequest' when calling BinLookupApi->GetAccountInfo");
             }
 
@@ -173,18 +175,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "GetAccountInfo,GetAccountInfoAsync,GetAccountInfoWithHttpInfo,GetAccountInfoAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -199,14 +201,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetAccountInfo", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2013) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
+                (InlineResponse2016) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016))); // Return statement
         }
 
         /// <summary>
@@ -214,13 +216,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBinLookupRequest"></param>
-        /// <returns>Task of InlineResponse2013</returns>
-        public async Task<InlineResponse2013> GetAccountInfoAsync(CreateBinLookupRequest createBinLookupRequest)
+        /// <returns>Task of InlineResponse2016</returns>
+        public async Task<InlineResponse2016> GetAccountInfoAsync(CreateBinLookupRequest createBinLookupRequest)
         {
-            logger.Debug("CALLING API \"GetAccountInfoAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetAccountInfoAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2013> localVarResponse = await GetAccountInfoAsyncWithHttpInfo(createBinLookupRequest);
-            logger.Debug("CALLING API \"GetAccountInfoAsync\" ENDED");
+            ApiResponse<InlineResponse2016> localVarResponse = await GetAccountInfoAsyncWithHttpInfo(createBinLookupRequest);
+            logger.LogDebug("CALLING API \"GetAccountInfoAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -231,15 +233,15 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createBinLookupRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        public async Task<ApiResponse<InlineResponse2013>> GetAccountInfoAsyncWithHttpInfo(CreateBinLookupRequest createBinLookupRequest)
+        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
+        public async Task<ApiResponse<InlineResponse2016>> GetAccountInfoAsyncWithHttpInfo(CreateBinLookupRequest createBinLookupRequest)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'createBinLookupRequest' is set
             if (createBinLookupRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createBinLookupRequest' when calling BinLookupApi->GetAccountInfo");
+                logger.LogError("ApiException : Missing required parameter 'createBinLookupRequest' when calling BinLookupApi->GetAccountInfo");
                 throw new ApiException(400, "Missing required parameter 'createBinLookupRequest' when calling BinLookupApi->GetAccountInfo");
             }
 
@@ -284,18 +286,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "GetAccountInfo,GetAccountInfoAsync,GetAccountInfoWithHttpInfo,GetAccountInfoAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -310,14 +312,14 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetAccountInfo", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
 
-            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
                 localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2013) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
+                (InlineResponse2016) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016))); // Return statement
         }
     }
 }

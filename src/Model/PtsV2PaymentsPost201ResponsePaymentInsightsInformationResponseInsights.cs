@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights
     /// </summary>
     [DataContract]
-    public partial class PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights :  IEquatable<PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights>, IValidatableObject
+    public partial class PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights :  ModelExtensions, IEquatable<PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights" /> class.
@@ -78,6 +79,7 @@ namespace CyberSource.Model
             if (Category != null) sb.Append("  Category: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights", "category", Category.ToString())).Append("\n");
             if (CategoryCode != null) sb.Append("  CategoryCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights", "categoryCode", CategoryCode.ToString())).Append("\n");
             if (ProcessorRawName != null) sb.Append("  ProcessorRawName: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights", "processorRawName", ProcessorRawName.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,7 +90,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PtsV2PaymentsPost201ResponsePaymentInsightsInformationResponseInsights", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -113,7 +115,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Category == other.Category ||
                     this.Category != null &&
@@ -142,12 +148,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Category != null)
                     hash = hash * 59 + this.Category.GetHashCode();
                 if (this.CategoryCode != null)
                     hash = hash * 59 + this.CategoryCode.GetHashCode();
                 if (this.ProcessorRawName != null)
                     hash = hash * 59 + this.ProcessorRawName.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Riskv1liststypeentriesOrderInformationBillTo
     /// </summary>
     [DataContract]
-    public partial class Riskv1liststypeentriesOrderInformationBillTo :  IEquatable<Riskv1liststypeentriesOrderInformationBillTo>, IValidatableObject
+    public partial class Riskv1liststypeentriesOrderInformationBillTo :  ModelExtensions, IEquatable<Riskv1liststypeentriesOrderInformationBillTo>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1liststypeentriesOrderInformationBillTo" /> class.
@@ -166,6 +167,7 @@ namespace CyberSource.Model
             if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1liststypeentriesOrderInformationBillTo", "phoneNumber", PhoneNumber.ToString())).Append("\n");
             if (Email != null) sb.Append("  Email: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1liststypeentriesOrderInformationBillTo", "email", Email.ToString())).Append("\n");
             if (EmailDomain != null) sb.Append("  EmailDomain: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1liststypeentriesOrderInformationBillTo", "emailDomain", EmailDomain.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -176,7 +178,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Riskv1liststypeentriesOrderInformationBillTo", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Riskv1liststypeentriesOrderInformationBillTo", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -201,7 +203,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Address1 == other.Address1 ||
                     this.Address1 != null &&
@@ -270,6 +276,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Address1 != null)
                     hash = hash * 59 + this.Address1.GetHashCode();
                 if (this.Address2 != null)
@@ -292,6 +300,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Email.GetHashCode();
                 if (this.EmailDomain != null)
                     hash = hash * 59 + this.EmailDomain.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,14 +29,14 @@ namespace CyberSource.Model
     /// TssV2TransactionsGet200ResponseProcessingInformation
     /// </summary>
     [DataContract]
-    public partial class TssV2TransactionsGet200ResponseProcessingInformation :  IEquatable<TssV2TransactionsGet200ResponseProcessingInformation>, IValidatableObject
+    public partial class TssV2TransactionsGet200ResponseProcessingInformation :  ModelExtensions, IEquatable<TssV2TransactionsGet200ResponseProcessingInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseProcessingInformation" /> class.
         /// </summary>
         /// <param name="BinSource">Bin Source File Identifier. Possible values: - itmx - rupay .</param>
         /// <param name="IndustryDataType">Indicates that the transaction includes industry-specific data.  Possible Values: - &#x60;airline&#x60; - &#x60;restaurant&#x60; - &#x60;lodging&#x60; - &#x60;auto_rental&#x60; - &#x60;transit&#x60; - &#x60;healthcare_medical&#x60; - &#x60;healthcare_transit&#x60; - &#x60;transit&#x60;  #### Card Present, Airlines and Auto Rental You must set this field to &#x60;airline&#x60; in order for airline data to be sent to the processor. For example, if this field is not set to &#x60;airline&#x60; or is not included in the request, no airline data is sent to the processor.  You must set this field to &#x60;restaurant&#x60; in order for restaurant data to be sent to the processor. When this field is not set to &#x60;restaurant&#x60; or is not included in the request, no restaurant data is sent to the processor.  You must set this field to &#x60;auto_rental&#x60; in order for auto rental data to be sent to the processor. For example, if this field is not set to &#x60;auto_rental&#x60; or is not included in the request, no auto rental data is sent to the processor.  Restaurant data is supported only on CyberSource through VisaNet. .</param>
-        /// <param name="PaymentSolution">Type of digital payment solution for the transaction. .</param>
+        /// <param name="PaymentSolution">Type of digital payment solution for the transaction.  Note: After the upcoming service update, this field will return the applicable payment solution code for supported digital wallet transactions. .</param>
         /// <param name="CommerceIndicator">Type of transaction. Some payment card companies use this information when determining discount rates.  #### Used by **Authorization** Required payer authentication transactions; otherwise, optional. **Credit** Required for standalone credits on Chase Paymentech solutions; otherwise, optional.  The list of valid values in this field depends on your processor.  #### Ingenico ePayments When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value   #### Card Present You must set this field to &#x60;retail&#x60;. This field is required for a card-present transaction. Note that this should ONLY be used when the cardholder and card are present at the time of the transaction. For all keyed transactions originated from a POS terminal where the cardholder and card are not present, commerceIndicator should be submitted as \&quot;moto\&quot; .</param>
         /// <param name="CommerceIndicatorLabel">Type of transaction. Some payment card companies use this information when determining discount rates.  #### Used by **Authorization** Required payer authentication transactions; otherwise, optional. **Credit** Required for standalone credits on Chase Paymentech solutions; otherwise, optional.  The list of valid values in this field depends on your processor.  #### Ingenico ePayments When you omit this field for Ingenico ePayments, the processor uses the default transaction type they have on file for you instead of the default value   #### Card Present You must set this field to &#x60;retail&#x60;. This field is required for a card-present transaction. Note that this should ONLY be used when the cardholder and card are present at the time of the transaction. For all keyed transactions originated from a POS terminal where the cardholder and card are not present, commerceIndicator should be submitted as &#x60;moto&#x60; .</param>
         /// <param name="BusinessApplicationId">Required for AFT and OCT transactions.  Given below is a list of all the BAI values available. However, the processors may support only few specific BAI values.  - AA : Account-to-account  - BB : Supplier Payments - BI : Bank-Initiated P2P Money Transfer - BP : Non-Card Bill Pay/Bill Pay - CD : Cash Deposit - CP : Credit card Bill Payment - FD : Funds disbursement  - FT : Funds transfer - GD : Government Disbursement - GP : Gambling payout (non-online gambling) - LO : Loyalty credits and rebates - MD : Merchant Settlement - OG : Online Gambling Payout - PD : Payroll and pension disbursement - PP : Person-to-Person or Peer-to-Peer - TU : Top up, prepaid load - WT : Digital wallet  .</param>
@@ -78,9 +79,9 @@ namespace CyberSource.Model
         public string IndustryDataType { get; set; }
 
         /// <summary>
-        /// Type of digital payment solution for the transaction. 
+        /// Type of digital payment solution for the transaction.  Note: After the upcoming service update, this field will return the applicable payment solution code for supported digital wallet transactions. 
         /// </summary>
-        /// <value>Type of digital payment solution for the transaction. </value>
+        /// <value>Type of digital payment solution for the transaction.  Note: After the upcoming service update, this field will return the applicable payment solution code for supported digital wallet transactions. </value>
         [JsonPropertyName("paymentSolution")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string PaymentSolution { get; set; }
@@ -173,6 +174,7 @@ namespace CyberSource.Model
             if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsGet200ResponseProcessingInformation", "reconciliationId", ReconciliationId.ToString())).Append("\n");
             if (JapanPaymentOptions != null) sb.Append("  JapanPaymentOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsGet200ResponseProcessingInformation", "japanPaymentOptions", JapanPaymentOptions.ToString())).Append("\n");
             if (ValidationLevel != null) sb.Append("  ValidationLevel: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsGet200ResponseProcessingInformation", "validationLevel", ValidationLevel.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,7 +185,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TssV2TransactionsGet200ResponseProcessingInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TssV2TransactionsGet200ResponseProcessingInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -208,7 +210,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.BinSource == other.BinSource ||
                     this.BinSource != null &&
@@ -282,6 +288,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.BinSource != null)
                     hash = hash * 59 + this.BinSource.GetHashCode();
                 if (this.IndustryDataType != null)
@@ -306,6 +314,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.JapanPaymentOptions.GetHashCode();
                 if (this.ValidationLevel != null)
                     hash = hash * 59 + this.ValidationLevel.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

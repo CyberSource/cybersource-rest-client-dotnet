@@ -19,73 +19,89 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
 namespace CyberSource.Model
 {
     /// <summary>
-    /// InlineResponse40010
+    /// Error Bean
     /// </summary>
     [DataContract]
-    public partial class InlineResponse40010 :  IEquatable<InlineResponse40010>, IValidatableObject
+    public partial class InlineResponse40010 :  ModelExtensions, IEquatable<InlineResponse40010>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse40010" /> class.
         /// </summary>
-        /// <param name="Status">The status of the submitted request.  Possible values: - BAD_REQUEST.</param>
-        /// <param name="Message">The detail message related to the status and reason listed above..</param>
-        /// <param name="Code">An optional short string which identifies the exact error..</param>
-        /// <param name="Details">An optional array which provides more details of the error..</param>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        public InlineResponse40010(string Status = default(string), string Message = default(string), string Code = default(string), List<InlineResponse40010Details> Details = default(List<InlineResponse40010Details>), string SubmitTimeUtc = default(string))
+        [JsonConstructor]
+        protected InlineResponse40010() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse40010" /> class.
+        /// </summary>
+        /// <param name="Code">Error code (required).</param>
+        /// <param name="Message">Error message (required).</param>
+        /// <param name="LocalizationKey">Localization Key Name.</param>
+        /// <param name="CorrelationId">Correlation Id.</param>
+        /// <param name="Detail">Error Detail.</param>
+        /// <param name="Fields">Error fields List.</param>
+        public InlineResponse40010(string Code = default(string), string Message = default(string), string LocalizationKey = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse40010Fields> Fields = default(List<InlineResponse40010Fields>))
         {
-            this.Status = Status;
-            this.Message = Message;
             this.Code = Code;
-            this.Details = Details;
-            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Message = Message;
+            this.LocalizationKey = LocalizationKey;
+            this.CorrelationId = CorrelationId;
+            this.Detail = Detail;
+            this.Fields = Fields;
         }
         
         /// <summary>
-        /// The status of the submitted request.  Possible values: - BAD_REQUEST
+        /// Error code
         /// </summary>
-        /// <value>The status of the submitted request.  Possible values: - BAD_REQUEST</value>
-        [JsonPropertyName("status")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Status { get; set; }
-
-        /// <summary>
-        /// The detail message related to the status and reason listed above.
-        /// </summary>
-        /// <value>The detail message related to the status and reason listed above.</value>
-        [JsonPropertyName("message")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// An optional short string which identifies the exact error.
-        /// </summary>
-        /// <value>An optional short string which identifies the exact error.</value>
+        /// <value>Error code</value>
         [JsonPropertyName("code")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Code { get; set; }
 
         /// <summary>
-        /// An optional array which provides more details of the error.
+        /// Error message
         /// </summary>
-        /// <value>An optional array which provides more details of the error.</value>
-        [JsonPropertyName("details")]
+        /// <value>Error message</value>
+        [JsonPropertyName("message")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse40010Details> Details { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// Localization Key Name
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [JsonPropertyName("submitTimeUtc")]
+        /// <value>Localization Key Name</value>
+        [JsonPropertyName("localizationKey")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SubmitTimeUtc { get; set; }
+        public string LocalizationKey { get; set; }
+
+        /// <summary>
+        /// Correlation Id
+        /// </summary>
+        /// <value>Correlation Id</value>
+        [JsonPropertyName("correlationId")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string CorrelationId { get; set; }
+
+        /// <summary>
+        /// Error Detail
+        /// </summary>
+        /// <value>Error Detail</value>
+        [JsonPropertyName("detail")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Detail { get; set; }
+
+        /// <summary>
+        /// Error fields List
+        /// </summary>
+        /// <value>Error fields List</value>
+        [JsonPropertyName("fields")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<InlineResponse40010Fields> Fields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -95,11 +111,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse40010 {\n");
-            if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40010", "status", Status.ToString())).Append("\n");
-            if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40010", "message", Message.ToString())).Append("\n");
             if (Code != null) sb.Append("  Code: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40010", "code", Code.ToString())).Append("\n");
-            if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40010", "details", Details.ToString())).Append("\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40010", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
+            if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40010", "message", Message.ToString())).Append("\n");
+            if (LocalizationKey != null) sb.Append("  LocalizationKey: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40010", "localizationKey", LocalizationKey.ToString())).Append("\n");
+            if (CorrelationId != null) sb.Append("  CorrelationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40010", "correlationId", CorrelationId.ToString())).Append("\n");
+            if (Detail != null) sb.Append("  Detail: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40010", "detail", Detail.ToString())).Append("\n");
+            if (Fields != null) sb.Append("  Fields: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse40010", "fields", Fields.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,7 +128,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse40010", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InlineResponse40010", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -135,11 +153,15 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Code == other.Code ||
+                    this.Code != null &&
+                    this.Code.Equals(other.Code)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -147,19 +169,24 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
+                    this.LocalizationKey == other.LocalizationKey ||
+                    this.LocalizationKey != null &&
+                    this.LocalizationKey.Equals(other.LocalizationKey)
                 ) && 
                 (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.CorrelationId == other.CorrelationId ||
+                    this.CorrelationId != null &&
+                    this.CorrelationId.Equals(other.CorrelationId)
                 ) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.Detail == other.Detail ||
+                    this.Detail != null &&
+                    this.Detail.Equals(other.Detail)
+                ) && 
+                (
+                    this.Fields == other.Fields ||
+                    this.Fields != null &&
+                    this.Fields.SequenceEqual(other.Fields)
                 );
         }
 
@@ -174,16 +201,21 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Code != null)
                     hash = hash * 59 + this.Code.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.Message != null)
+                    hash = hash * 59 + this.Message.GetHashCode();
+                if (this.LocalizationKey != null)
+                    hash = hash * 59 + this.LocalizationKey.GetHashCode();
+                if (this.CorrelationId != null)
+                    hash = hash * 59 + this.CorrelationId.GetHashCode();
+                if (this.Detail != null)
+                    hash = hash * 59 + this.Detail.GetHashCode();
+                if (this.Fields != null)
+                    hash = hash * 59 + this.Fields.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

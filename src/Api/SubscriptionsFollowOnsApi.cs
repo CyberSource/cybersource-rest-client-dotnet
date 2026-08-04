@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -153,10 +155,10 @@ namespace CyberSource.Api
         /// <returns>CreateSubscriptionResponse</returns>
         public CreateSubscriptionResponse CreateFollowOnSubscription(string requestId, CreateSubscriptionRequest1 createSubscriptionRequest)
         {
-            logger.Debug("CALLING API \"CreateFollowOnSubscription\" STARTED");
+            logger.LogDebug("CALLING API \"CreateFollowOnSubscription\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<CreateSubscriptionResponse> localVarResponse = CreateFollowOnSubscriptionWithHttpInfo(requestId, createSubscriptionRequest);
-            logger.Debug("CALLING API \"CreateFollowOnSubscription\" ENDED");
+            logger.LogDebug("CALLING API \"CreateFollowOnSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -175,13 +177,13 @@ namespace CyberSource.Api
             // verify the required parameter 'requestId' is set
             if (requestId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
+                logger.LogError("ApiException : Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
                 throw new ApiException(400, "Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
             }
             // verify the required parameter 'createSubscriptionRequest' is set
             if (createSubscriptionRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createSubscriptionRequest' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
+                logger.LogError("ApiException : Missing required parameter 'createSubscriptionRequest' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
                 throw new ApiException(400, "Missing required parameter 'createSubscriptionRequest' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
             }
 
@@ -216,7 +218,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("requestId", ApiClient.ParameterToString(requestId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (createSubscriptionRequest != null && createSubscriptionRequest.GetType() != typeof(byte[]))
             {
@@ -230,23 +232,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreateFollowOnSubscription,CreateFollowOnSubscriptionAsync,CreateFollowOnSubscriptionWithHttpInfo,CreateFollowOnSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateFollowOnSubscription,CreateFollowOnSubscriptionAsync,CreateFollowOnSubscriptionWithHttpInfo,CreateFollowOnSubscriptionAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -261,7 +263,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateFollowOnSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -280,10 +282,10 @@ namespace CyberSource.Api
         /// <returns>Task of CreateSubscriptionResponse</returns>
         public async Task<CreateSubscriptionResponse> CreateFollowOnSubscriptionAsync(string requestId, CreateSubscriptionRequest1 createSubscriptionRequest)
         {
-            logger.Debug("CALLING API \"CreateFollowOnSubscriptionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateFollowOnSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<CreateSubscriptionResponse> localVarResponse = await CreateFollowOnSubscriptionAsyncWithHttpInfo(requestId, createSubscriptionRequest);
-            logger.Debug("CALLING API \"CreateFollowOnSubscriptionAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreateFollowOnSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -303,13 +305,13 @@ namespace CyberSource.Api
             // verify the required parameter 'requestId' is set
             if (requestId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
+                logger.LogError("ApiException : Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
                 throw new ApiException(400, "Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
             }
             // verify the required parameter 'createSubscriptionRequest' is set
             if (createSubscriptionRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createSubscriptionRequest' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
+                logger.LogError("ApiException : Missing required parameter 'createSubscriptionRequest' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
                 throw new ApiException(400, "Missing required parameter 'createSubscriptionRequest' when calling SubscriptionsFollowOnsApi->CreateFollowOnSubscription");
             }
 
@@ -344,7 +346,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("requestId", ApiClient.ParameterToString(requestId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (createSubscriptionRequest != null && createSubscriptionRequest.GetType() != typeof(byte[]))
             {
@@ -358,23 +360,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreateFollowOnSubscription,CreateFollowOnSubscriptionAsync,CreateFollowOnSubscriptionWithHttpInfo,CreateFollowOnSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateFollowOnSubscription,CreateFollowOnSubscriptionAsync,CreateFollowOnSubscriptionWithHttpInfo,CreateFollowOnSubscriptionAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -389,7 +391,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateFollowOnSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -406,10 +408,10 @@ namespace CyberSource.Api
         /// <returns>GetSubscriptionResponse1</returns>
         public GetSubscriptionResponse1 GetFollowOnSubscription(string requestId)
         {
-            logger.Debug("CALLING API \"GetFollowOnSubscription\" STARTED");
+            logger.LogDebug("CALLING API \"GetFollowOnSubscription\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<GetSubscriptionResponse1> localVarResponse = GetFollowOnSubscriptionWithHttpInfo(requestId);
-            logger.Debug("CALLING API \"GetFollowOnSubscription\" ENDED");
+            logger.LogDebug("CALLING API \"GetFollowOnSubscription\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -427,7 +429,7 @@ namespace CyberSource.Api
             // verify the required parameter 'requestId' is set
             if (requestId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->GetFollowOnSubscription");
+                logger.LogError("ApiException : Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->GetFollowOnSubscription");
                 throw new ApiException(400, "Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->GetFollowOnSubscription");
             }
 
@@ -462,7 +464,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("requestId", ApiClient.ParameterToString(requestId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -481,16 +483,16 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "optional";
+            string inboundMLEStatus = "false";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "GetFollowOnSubscription,GetFollowOnSubscriptionAsync,GetFollowOnSubscriptionWithHttpInfo,GetFollowOnSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -510,7 +512,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetFollowOnSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -528,10 +530,10 @@ namespace CyberSource.Api
         /// <returns>Task of GetSubscriptionResponse1</returns>
         public async Task<GetSubscriptionResponse1> GetFollowOnSubscriptionAsync(string requestId)
         {
-            logger.Debug("CALLING API \"GetFollowOnSubscriptionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetFollowOnSubscriptionAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<GetSubscriptionResponse1> localVarResponse = await GetFollowOnSubscriptionAsyncWithHttpInfo(requestId);
-            logger.Debug("CALLING API \"GetFollowOnSubscriptionAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetFollowOnSubscriptionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -550,7 +552,7 @@ namespace CyberSource.Api
             // verify the required parameter 'requestId' is set
             if (requestId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->GetFollowOnSubscription");
+                logger.LogError("ApiException : Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->GetFollowOnSubscription");
                 throw new ApiException(400, "Missing required parameter 'requestId' when calling SubscriptionsFollowOnsApi->GetFollowOnSubscription");
             }
 
@@ -585,7 +587,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("requestId", ApiClient.ParameterToString(requestId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -603,16 +605,16 @@ namespace CyberSource.Api
                 localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
             }
 
-            string inboundMLEStatus = "optional";
+            string inboundMLEStatus = "false";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "GetFollowOnSubscription,GetFollowOnSubscriptionAsync,GetFollowOnSubscriptionWithHttpInfo,GetFollowOnSubscriptionAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -632,7 +634,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetFollowOnSubscription", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

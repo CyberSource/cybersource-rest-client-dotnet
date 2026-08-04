@@ -65,12 +65,28 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Status'
+        /// Test the property 'Id'
         /// </summary>
         [Test]
-        public void StatusTest()
+        public void IdTest()
         {
-            // TODO unit test for the property 'Status'
+            // TODO unit test for the property 'Id'
+        }
+        /// <summary>
+        /// Test the property 'SubmitTimeStampUtc'
+        /// </summary>
+        [Test]
+        public void SubmitTimeStampUtcTest()
+        {
+            // TODO unit test for the property 'SubmitTimeStampUtc'
+        }
+        /// <summary>
+        /// Test the property 'Reason'
+        /// </summary>
+        [Test]
+        public void ReasonTest()
+        {
+            // TODO unit test for the property 'Reason'
         }
         /// <summary>
         /// Test the property 'Message'
@@ -79,22 +95,6 @@ namespace CyberSource.Test
         public void MessageTest()
         {
             // TODO unit test for the property 'Message'
-        }
-        /// <summary>
-        /// Test the property 'Code'
-        /// </summary>
-        [Test]
-        public void CodeTest()
-        {
-            // TODO unit test for the property 'Code'
-        }
-        /// <summary>
-        /// Test the property 'SubmitTimeUtc'
-        /// </summary>
-        [Test]
-        public void SubmitTimeUtcTest()
-        {
-            // TODO unit test for the property 'SubmitTimeUtc'
         }
 
     }

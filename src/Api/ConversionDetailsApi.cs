@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -116,10 +118,10 @@ namespace CyberSource.Api
         /// <returns>ReportingV3ConversionDetailsGet200Response</returns>
         public ReportingV3ConversionDetailsGet200Response GetConversionDetail(DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetConversionDetail\" STARTED");
+            logger.LogDebug("CALLING API \"GetConversionDetail\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ConversionDetailsGet200Response> localVarResponse = GetConversionDetailWithHttpInfo(startTime, endTime, organizationId);
-            logger.Debug("CALLING API \"GetConversionDetail\" ENDED");
+            logger.LogDebug("CALLING API \"GetConversionDetail\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -139,13 +141,13 @@ namespace CyberSource.Api
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling ConversionDetailsApi->GetConversionDetail");
+                logger.LogError("ApiException : Missing required parameter 'startTime' when calling ConversionDetailsApi->GetConversionDetail");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling ConversionDetailsApi->GetConversionDetail");
             }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling ConversionDetailsApi->GetConversionDetail");
+                logger.LogError("ApiException : Missing required parameter 'endTime' when calling ConversionDetailsApi->GetConversionDetail");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling ConversionDetailsApi->GetConversionDetail");
             }
 
@@ -178,19 +180,19 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("startTime", ApiClient.ParameterToString(startTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endTime != null)
             {
                 localVarQueryParams.Add("endTime", ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -214,11 +216,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -238,7 +240,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetConversionDetail", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -258,10 +260,10 @@ namespace CyberSource.Api
         /// <returns>Task of ReportingV3ConversionDetailsGet200Response</returns>
         public async Task<ReportingV3ConversionDetailsGet200Response> GetConversionDetailAsync(DateTime? startTime, DateTime? endTime, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetConversionDetailAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetConversionDetailAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ConversionDetailsGet200Response> localVarResponse = await GetConversionDetailAsyncWithHttpInfo(startTime, endTime, organizationId);
-            logger.Debug("CALLING API \"GetConversionDetailAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetConversionDetailAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -282,13 +284,13 @@ namespace CyberSource.Api
             // verify the required parameter 'startTime' is set
             if (startTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startTime' when calling ConversionDetailsApi->GetConversionDetail");
+                logger.LogError("ApiException : Missing required parameter 'startTime' when calling ConversionDetailsApi->GetConversionDetail");
                 throw new ApiException(400, "Missing required parameter 'startTime' when calling ConversionDetailsApi->GetConversionDetail");
             }
             // verify the required parameter 'endTime' is set
             if (endTime == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endTime' when calling ConversionDetailsApi->GetConversionDetail");
+                logger.LogError("ApiException : Missing required parameter 'endTime' when calling ConversionDetailsApi->GetConversionDetail");
                 throw new ApiException(400, "Missing required parameter 'endTime' when calling ConversionDetailsApi->GetConversionDetail");
             }
 
@@ -321,19 +323,19 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("startTime", ApiClient.ParameterToString(startTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endTime != null)
             {
                 localVarQueryParams.Add("endTime", ApiClient.ParameterToString(endTime)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -356,11 +358,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -380,7 +382,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetConversionDetail", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

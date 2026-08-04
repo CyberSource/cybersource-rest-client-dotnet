@@ -2,7 +2,7 @@
 
 namespace CyberSource.Utilities.Serialization
 {
-    public class CustomContractResolver : JsonNamingPolicy
+    internal class CustomContractResolver : JsonNamingPolicy
     {
         public override string ConvertName(string name)
         {

@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Ptsv2paymentreferencesUserInterface
     /// </summary>
     [DataContract]
-    public partial class Ptsv2paymentreferencesUserInterface :  IEquatable<Ptsv2paymentreferencesUserInterface>, IValidatableObject
+    public partial class Ptsv2paymentreferencesUserInterface :  ModelExtensions, IEquatable<Ptsv2paymentreferencesUserInterface>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ptsv2paymentreferencesUserInterface" /> class.
@@ -77,6 +78,7 @@ namespace CyberSource.Model
             if (BorderRadius != null) sb.Append("  BorderRadius: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentreferencesUserInterface", "borderRadius", BorderRadius.ToString())).Append("\n");
             if (Theme != null) sb.Append("  Theme: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentreferencesUserInterface", "theme", Theme.ToString())).Append("\n");
             if (Color != null) sb.Append("  Color: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentreferencesUserInterface", "color", Color.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,7 +89,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentreferencesUserInterface", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ptsv2paymentreferencesUserInterface", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -112,7 +114,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.BorderRadius == other.BorderRadius ||
                     this.BorderRadius != null &&
@@ -141,12 +147,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.BorderRadius != null)
                     hash = hash * 59 + this.BorderRadius.GetHashCode();
                 if (this.Theme != null)
                     hash = hash * 59 + this.Theme.GetHashCode();
                 if (this.Color != null)
                     hash = hash * 59 + this.Color.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

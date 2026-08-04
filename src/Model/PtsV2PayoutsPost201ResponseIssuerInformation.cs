@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// PtsV2PayoutsPost201ResponseIssuerInformation
     /// </summary>
     [DataContract]
-    public partial class PtsV2PayoutsPost201ResponseIssuerInformation :  IEquatable<PtsV2PayoutsPost201ResponseIssuerInformation>, IValidatableObject
+    public partial class PtsV2PayoutsPost201ResponseIssuerInformation :  ModelExtensions, IEquatable<PtsV2PayoutsPost201ResponseIssuerInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PayoutsPost201ResponseIssuerInformation" /> class.
@@ -221,6 +222,7 @@ namespace CyberSource.Model
             if (OctOnlineGamblingFastFundsDomesticIndicator != null) sb.Append("  OctOnlineGamblingFastFundsDomesticIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PayoutsPost201ResponseIssuerInformation", "octOnlineGamblingFastFundsDomesticIndicator", OctOnlineGamblingFastFundsDomesticIndicator.ToString())).Append("\n");
             if (OctOnlineGamblingFastFundsCrossBorderIndicator != null) sb.Append("  OctOnlineGamblingFastFundsCrossBorderIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PayoutsPost201ResponseIssuerInformation", "octOnlineGamblingFastFundsCrossBorderIndicator", OctOnlineGamblingFastFundsCrossBorderIndicator.ToString())).Append("\n");
             if (ServiceProcessingType != null) sb.Append("  ServiceProcessingType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PayoutsPost201ResponseIssuerInformation", "serviceProcessingType", ServiceProcessingType.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -231,7 +233,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PtsV2PayoutsPost201ResponseIssuerInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PtsV2PayoutsPost201ResponseIssuerInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -256,7 +258,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.OctDomesticParticipantIndicator == other.OctDomesticParticipantIndicator ||
                     this.OctDomesticParticipantIndicator != null &&
@@ -350,6 +356,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.OctDomesticParticipantIndicator != null)
                     hash = hash * 59 + this.OctDomesticParticipantIndicator.GetHashCode();
                 if (this.OctCrossBorderParticipantIndicator != null)
@@ -382,6 +390,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OctOnlineGamblingFastFundsCrossBorderIndicator.GetHashCode();
                 if (this.ServiceProcessingType != null)
                     hash = hash * 59 + this.ServiceProcessingType.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

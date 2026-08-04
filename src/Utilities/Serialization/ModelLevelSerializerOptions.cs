@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace CyberSource.Utilities.Serialization
 {
-    public static class ModelLevelSerializerOptions
+    internal static class ModelLevelSerializerOptions
     {
         /// <summary>
         /// Shared, cached serializer options for model <c>ToJson()</c> diagnostic output.

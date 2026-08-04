@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -277,10 +279,10 @@ namespace CyberSource.Api
         /// <returns>PullFundsRefund201Response</returns>
         public PullFundsRefund201Response CreatePullFundsRefund(PullFundsRefundRequest pullFundsRefundRequest, string id, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
-            logger.Debug("CALLING API \"CreatePullFundsRefund\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePullFundsRefund\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PullFundsRefund201Response> localVarResponse = CreatePullFundsRefundWithHttpInfo(pullFundsRefundRequest, id, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
-            logger.Debug("CALLING API \"CreatePullFundsRefund\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePullFundsRefund\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -305,49 +307,49 @@ namespace CyberSource.Api
             // verify the required parameter 'pullFundsRefundRequest' is set
             if (pullFundsRefundRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'pullFundsRefundRequest' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'pullFundsRefundRequest' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'pullFundsRefundRequest' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'vCPermissions' is set
             if (vCPermissions == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsRefund");
             }
 
@@ -379,7 +381,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (contentType != null)
             {
@@ -423,23 +425,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreatePullFundsRefund,CreatePullFundsRefundAsync,CreatePullFundsRefundWithHttpInfo,CreatePullFundsRefundAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePullFundsRefund,CreatePullFundsRefundAsync,CreatePullFundsRefundWithHttpInfo,CreatePullFundsRefundAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -454,7 +456,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePullFundsRefund", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -479,10 +481,10 @@ namespace CyberSource.Api
         /// <returns>Task of PullFundsRefund201Response</returns>
         public async Task<PullFundsRefund201Response> CreatePullFundsRefundAsync(PullFundsRefundRequest pullFundsRefundRequest, string id, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
-            logger.Debug("CALLING API \"CreatePullFundsRefundAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePullFundsRefundAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PullFundsRefund201Response> localVarResponse = await CreatePullFundsRefundAsyncWithHttpInfo(pullFundsRefundRequest, id, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
-            logger.Debug("CALLING API \"CreatePullFundsRefundAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePullFundsRefundAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -508,49 +510,49 @@ namespace CyberSource.Api
             // verify the required parameter 'pullFundsRefundRequest' is set
             if (pullFundsRefundRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'pullFundsRefundRequest' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'pullFundsRefundRequest' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'pullFundsRefundRequest' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'vCPermissions' is set
             if (vCPermissions == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsRefund");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsRefund");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsRefund");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsRefund");
             }
 
@@ -582,7 +584,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (contentType != null)
             {
@@ -626,23 +628,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreatePullFundsRefund,CreatePullFundsRefundAsync,CreatePullFundsRefundWithHttpInfo,CreatePullFundsRefundAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePullFundsRefund,CreatePullFundsRefundAsync,CreatePullFundsRefundWithHttpInfo,CreatePullFundsRefundAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -657,7 +659,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePullFundsRefund", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -681,10 +683,10 @@ namespace CyberSource.Api
         /// <returns>PullFundsReversal201Response</returns>
         public PullFundsReversal201Response CreatePullFundsReversal(PullFundsReversalRequest pullFundsReversalRequest, string id, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
-            logger.Debug("CALLING API \"CreatePullFundsReversal\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePullFundsReversal\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PullFundsReversal201Response> localVarResponse = CreatePullFundsReversalWithHttpInfo(pullFundsReversalRequest, id, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
-            logger.Debug("CALLING API \"CreatePullFundsReversal\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePullFundsReversal\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -709,49 +711,49 @@ namespace CyberSource.Api
             // verify the required parameter 'pullFundsReversalRequest' is set
             if (pullFundsReversalRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'pullFundsReversalRequest' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'pullFundsReversalRequest' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'pullFundsReversalRequest' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'vCPermissions' is set
             if (vCPermissions == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsReversal");
             }
 
@@ -783,7 +785,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (contentType != null)
             {
@@ -827,23 +829,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreatePullFundsReversal,CreatePullFundsReversalAsync,CreatePullFundsReversalWithHttpInfo,CreatePullFundsReversalAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePullFundsReversal,CreatePullFundsReversalAsync,CreatePullFundsReversalWithHttpInfo,CreatePullFundsReversalAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -858,7 +860,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePullFundsReversal", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -883,10 +885,10 @@ namespace CyberSource.Api
         /// <returns>Task of PullFundsReversal201Response</returns>
         public async Task<PullFundsReversal201Response> CreatePullFundsReversalAsync(PullFundsReversalRequest pullFundsReversalRequest, string id, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
-            logger.Debug("CALLING API \"CreatePullFundsReversalAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePullFundsReversalAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PullFundsReversal201Response> localVarResponse = await CreatePullFundsReversalAsyncWithHttpInfo(pullFundsReversalRequest, id, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
-            logger.Debug("CALLING API \"CreatePullFundsReversalAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePullFundsReversalAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -912,49 +914,49 @@ namespace CyberSource.Api
             // verify the required parameter 'pullFundsReversalRequest' is set
             if (pullFundsReversalRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'pullFundsReversalRequest' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'pullFundsReversalRequest' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'pullFundsReversalRequest' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'id' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'vCPermissions' is set
             if (vCPermissions == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsReversal");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsReversal");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsReversal");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsReversal");
             }
 
@@ -986,7 +988,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (contentType != null)
             {
@@ -1030,23 +1032,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreatePullFundsReversal,CreatePullFundsReversalAsync,CreatePullFundsReversalWithHttpInfo,CreatePullFundsReversalAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePullFundsReversal,CreatePullFundsReversalAsync,CreatePullFundsReversalWithHttpInfo,CreatePullFundsReversalAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1061,7 +1063,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePullFundsReversal", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1084,10 +1086,10 @@ namespace CyberSource.Api
         /// <returns>PullFunds201Response</returns>
         public PullFunds201Response CreatePullFundsTransfer(PullFundsRequest pullFundsRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
-            logger.Debug("CALLING API \"CreatePullFundsTransfer\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePullFundsTransfer\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PullFunds201Response> localVarResponse = CreatePullFundsTransferWithHttpInfo(pullFundsRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
-            logger.Debug("CALLING API \"CreatePullFundsTransfer\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePullFundsTransfer\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1111,43 +1113,43 @@ namespace CyberSource.Api
             // verify the required parameter 'pullFundsRequest' is set
             if (pullFundsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'pullFundsRequest' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'pullFundsRequest' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'pullFundsRequest' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'vCPermissions' is set
             if (vCPermissions == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsTransfer");
             }
 
@@ -1217,23 +1219,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreatePullFundsTransfer,CreatePullFundsTransferAsync,CreatePullFundsTransferWithHttpInfo,CreatePullFundsTransferAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePullFundsTransfer,CreatePullFundsTransferAsync,CreatePullFundsTransferWithHttpInfo,CreatePullFundsTransferAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1248,7 +1250,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePullFundsTransfer", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1272,10 +1274,10 @@ namespace CyberSource.Api
         /// <returns>Task of PullFunds201Response</returns>
         public async Task<PullFunds201Response> CreatePullFundsTransferAsync(PullFundsRequest pullFundsRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
-            logger.Debug("CALLING API \"CreatePullFundsTransferAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreatePullFundsTransferAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PullFunds201Response> localVarResponse = await CreatePullFundsTransferAsyncWithHttpInfo(pullFundsRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
-            logger.Debug("CALLING API \"CreatePullFundsTransferAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreatePullFundsTransferAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1300,43 +1302,43 @@ namespace CyberSource.Api
             // verify the required parameter 'pullFundsRequest' is set
             if (pullFundsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'pullFundsRequest' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'pullFundsRequest' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'pullFundsRequest' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
             {
-                logger.Error("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'contentType' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'xRequestid' is set
             if (xRequestid == null)
             {
-                logger.Error("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'xRequestid' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'vCMerchantId' is set
             if (vCMerchantId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCMerchantId' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'vCPermissions' is set
             if (vCPermissions == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCPermissions' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'vCCorrelationId' is set
             if (vCCorrelationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCCorrelationId' when calling PullFundsApi->CreatePullFundsTransfer");
             }
             // verify the required parameter 'vCOrganizationId' is set
             if (vCOrganizationId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsTransfer");
+                logger.LogError("ApiException : Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsTransfer");
                 throw new ApiException(400, "Missing required parameter 'vCOrganizationId' when calling PullFundsApi->CreatePullFundsTransfer");
             }
 
@@ -1406,23 +1408,23 @@ namespace CyberSource.Api
             }
 
 
-            string inboundMLEStatus = "false";
+            string inboundMLEStatus = "optional";
             if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreatePullFundsTransfer,CreatePullFundsTransferAsync,CreatePullFundsTransferWithHttpInfo,CreatePullFundsTransferAsyncWithHttpInfo"))
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreatePullFundsTransfer,CreatePullFundsTransferAsync,CreatePullFundsTransferWithHttpInfo,CreatePullFundsTransferAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1437,7 +1439,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreatePullFundsTransfer", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

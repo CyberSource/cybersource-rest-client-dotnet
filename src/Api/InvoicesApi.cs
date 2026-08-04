@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -370,10 +372,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesPost201Response</returns>
         public InvoicingV2InvoicesPost201Response CreateInvoice(CreateInvoiceRequest createInvoiceRequest)
         {
-            logger.Debug("CALLING API \"CreateInvoice\" STARTED");
+            logger.LogDebug("CALLING API \"CreateInvoice\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = CreateInvoiceWithHttpInfo(createInvoiceRequest);
-            logger.Debug("CALLING API \"CreateInvoice\" ENDED");
+            logger.LogDebug("CALLING API \"CreateInvoice\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -391,7 +393,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createInvoiceRequest' is set
             if (createInvoiceRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createInvoiceRequest' when calling InvoicesApi->CreateInvoice");
+                logger.LogError("ApiException : Missing required parameter 'createInvoiceRequest' when calling InvoicesApi->CreateInvoice");
                 throw new ApiException(400, "Missing required parameter 'createInvoiceRequest' when calling InvoicesApi->CreateInvoice");
             }
 
@@ -439,18 +441,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateInvoice,CreateInvoiceAsync,CreateInvoiceWithHttpInfo,CreateInvoiceAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -465,7 +467,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateInvoice", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -483,10 +485,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesPost201Response</returns>
         public async Task<InvoicingV2InvoicesPost201Response> CreateInvoiceAsync(CreateInvoiceRequest createInvoiceRequest)
         {
-            logger.Debug("CALLING API \"CreateInvoiceAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateInvoiceAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPost201Response> localVarResponse = await CreateInvoiceAsyncWithHttpInfo(createInvoiceRequest);
-            logger.Debug("CALLING API \"CreateInvoiceAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreateInvoiceAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -505,7 +507,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createInvoiceRequest' is set
             if (createInvoiceRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createInvoiceRequest' when calling InvoicesApi->CreateInvoice");
+                logger.LogError("ApiException : Missing required parameter 'createInvoiceRequest' when calling InvoicesApi->CreateInvoice");
                 throw new ApiException(400, "Missing required parameter 'createInvoiceRequest' when calling InvoicesApi->CreateInvoice");
             }
 
@@ -553,18 +555,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateInvoice,CreateInvoiceAsync,CreateInvoiceWithHttpInfo,CreateInvoiceAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -579,7 +581,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateInvoice", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -598,10 +600,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesAllGet200Response</returns>
         public InvoicingV2InvoicesAllGet200Response GetAllInvoices(int? offset, int? limit, string status = null)
         {
-            logger.Debug("CALLING API \"GetAllInvoices\" STARTED");
+            logger.LogDebug("CALLING API \"GetAllInvoices\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesAllGet200Response> localVarResponse = GetAllInvoicesWithHttpInfo(offset, limit, status);
-            logger.Debug("CALLING API \"GetAllInvoices\" ENDED");
+            logger.LogDebug("CALLING API \"GetAllInvoices\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -621,13 +623,13 @@ namespace CyberSource.Api
             // verify the required parameter 'offset' is set
             if (offset == null)
             {
-                logger.Error("ApiException : Missing required parameter 'offset' when calling InvoicesApi->GetAllInvoices");
+                logger.LogError("ApiException : Missing required parameter 'offset' when calling InvoicesApi->GetAllInvoices");
                 throw new ApiException(400, "Missing required parameter 'offset' when calling InvoicesApi->GetAllInvoices");
             }
             // verify the required parameter 'limit' is set
             if (limit == null)
             {
-                logger.Error("ApiException : Missing required parameter 'limit' when calling InvoicesApi->GetAllInvoices");
+                logger.LogError("ApiException : Missing required parameter 'limit' when calling InvoicesApi->GetAllInvoices");
                 throw new ApiException(400, "Missing required parameter 'limit' when calling InvoicesApi->GetAllInvoices");
             }
 
@@ -662,19 +664,19 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (status != null)
             {
                 localVarQueryParams.Add("status", ApiClient.ParameterToString(status)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -698,11 +700,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -722,7 +724,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetAllInvoices", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -742,10 +744,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesAllGet200Response</returns>
         public async Task<InvoicingV2InvoicesAllGet200Response> GetAllInvoicesAsync(int? offset, int? limit, string status = null)
         {
-            logger.Debug("CALLING API \"GetAllInvoicesAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetAllInvoicesAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesAllGet200Response> localVarResponse = await GetAllInvoicesAsyncWithHttpInfo(offset, limit, status);
-            logger.Debug("CALLING API \"GetAllInvoicesAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetAllInvoicesAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -766,13 +768,13 @@ namespace CyberSource.Api
             // verify the required parameter 'offset' is set
             if (offset == null)
             {
-                logger.Error("ApiException : Missing required parameter 'offset' when calling InvoicesApi->GetAllInvoices");
+                logger.LogError("ApiException : Missing required parameter 'offset' when calling InvoicesApi->GetAllInvoices");
                 throw new ApiException(400, "Missing required parameter 'offset' when calling InvoicesApi->GetAllInvoices");
             }
             // verify the required parameter 'limit' is set
             if (limit == null)
             {
-                logger.Error("ApiException : Missing required parameter 'limit' when calling InvoicesApi->GetAllInvoices");
+                logger.LogError("ApiException : Missing required parameter 'limit' when calling InvoicesApi->GetAllInvoices");
                 throw new ApiException(400, "Missing required parameter 'limit' when calling InvoicesApi->GetAllInvoices");
             }
 
@@ -807,19 +809,19 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("offset", ApiClient.ParameterToString(offset)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (limit != null)
             {
                 localVarQueryParams.Add("limit", ApiClient.ParameterToString(limit)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (status != null)
             {
                 localVarQueryParams.Add("status", ApiClient.ParameterToString(status)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -842,11 +844,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -866,7 +868,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetAllInvoices", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -883,10 +885,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesGet200Response</returns>
         public InvoicingV2InvoicesGet200Response GetInvoice(string id)
         {
-            logger.Debug("CALLING API \"GetInvoice\" STARTED");
+            logger.LogDebug("CALLING API \"GetInvoice\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesGet200Response> localVarResponse = GetInvoiceWithHttpInfo(id);
-            logger.Debug("CALLING API \"GetInvoice\" ENDED");
+            logger.LogDebug("CALLING API \"GetInvoice\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -904,7 +906,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->GetInvoice");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling InvoicesApi->GetInvoice");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->GetInvoice");
             }
 
@@ -939,7 +941,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -963,11 +965,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -987,7 +989,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetInvoice", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1005,10 +1007,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesGet200Response</returns>
         public async Task<InvoicingV2InvoicesGet200Response> GetInvoiceAsync(string id)
         {
-            logger.Debug("CALLING API \"GetInvoiceAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetInvoiceAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesGet200Response> localVarResponse = await GetInvoiceAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"GetInvoiceAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetInvoiceAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1027,7 +1029,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->GetInvoice");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling InvoicesApi->GetInvoice");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->GetInvoice");
             }
 
@@ -1062,7 +1064,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Get == Method.Post)
             {
@@ -1085,11 +1087,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1109,7 +1111,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetInvoice", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1126,10 +1128,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesCancel200Response</returns>
         public InvoicingV2InvoicesCancel200Response PerformCancelAction(string id)
         {
-            logger.Debug("CALLING API \"PerformCancelAction\" STARTED");
+            logger.LogDebug("CALLING API \"PerformCancelAction\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesCancel200Response> localVarResponse = PerformCancelActionWithHttpInfo(id);
-            logger.Debug("CALLING API \"PerformCancelAction\" ENDED");
+            logger.LogDebug("CALLING API \"PerformCancelAction\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1147,7 +1149,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformCancelAction");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformCancelAction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformCancelAction");
             }
 
@@ -1182,7 +1184,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -1206,11 +1208,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1230,7 +1232,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PerformCancelAction", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1248,10 +1250,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesCancel200Response</returns>
         public async Task<InvoicingV2InvoicesCancel200Response> PerformCancelActionAsync(string id)
         {
-            logger.Debug("CALLING API \"PerformCancelActionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PerformCancelActionAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesCancel200Response> localVarResponse = await PerformCancelActionAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"PerformCancelActionAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PerformCancelActionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1270,7 +1272,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformCancelAction");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformCancelAction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformCancelAction");
             }
 
@@ -1305,7 +1307,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -1328,11 +1330,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1352,7 +1354,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PerformCancelAction", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1369,10 +1371,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesPublish200Response</returns>
         public InvoicingV2InvoicesPublish200Response PerformPublishAction(string id)
         {
-            logger.Debug("CALLING API \"PerformPublishAction\" STARTED");
+            logger.LogDebug("CALLING API \"PerformPublishAction\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPublish200Response> localVarResponse = PerformPublishActionWithHttpInfo(id);
-            logger.Debug("CALLING API \"PerformPublishAction\" ENDED");
+            logger.LogDebug("CALLING API \"PerformPublishAction\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1390,7 +1392,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformPublishAction");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformPublishAction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformPublishAction");
             }
 
@@ -1425,7 +1427,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -1449,11 +1451,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1473,7 +1475,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PerformPublishAction", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1491,10 +1493,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesPublish200Response</returns>
         public async Task<InvoicingV2InvoicesPublish200Response> PerformPublishActionAsync(string id)
         {
-            logger.Debug("CALLING API \"PerformPublishActionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PerformPublishActionAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPublish200Response> localVarResponse = await PerformPublishActionAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"PerformPublishActionAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PerformPublishActionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1513,7 +1515,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformPublishAction");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformPublishAction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformPublishAction");
             }
 
@@ -1548,7 +1550,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -1571,11 +1573,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1595,7 +1597,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PerformPublishAction", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1612,10 +1614,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesSend200Response</returns>
         public InvoicingV2InvoicesSend200Response PerformSendAction(string id)
         {
-            logger.Debug("CALLING API \"PerformSendAction\" STARTED");
+            logger.LogDebug("CALLING API \"PerformSendAction\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesSend200Response> localVarResponse = PerformSendActionWithHttpInfo(id);
-            logger.Debug("CALLING API \"PerformSendAction\" ENDED");
+            logger.LogDebug("CALLING API \"PerformSendAction\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1633,7 +1635,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformSendAction");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformSendAction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformSendAction");
             }
 
@@ -1668,7 +1670,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -1692,11 +1694,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1716,7 +1718,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PerformSendAction", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1734,10 +1736,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesSend200Response</returns>
         public async Task<InvoicingV2InvoicesSend200Response> PerformSendActionAsync(string id)
         {
-            logger.Debug("CALLING API \"PerformSendActionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PerformSendActionAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesSend200Response> localVarResponse = await PerformSendActionAsyncWithHttpInfo(id);
-            logger.Debug("CALLING API \"PerformSendActionAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PerformSendActionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -1756,7 +1758,7 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformSendAction");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling InvoicesApi->PerformSendAction");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->PerformSendAction");
             }
 
@@ -1791,7 +1793,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (Method.Post == Method.Post)
             {
@@ -1814,11 +1816,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -1838,7 +1840,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PerformSendAction", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1856,10 +1858,10 @@ namespace CyberSource.Api
         /// <returns>InvoicingV2InvoicesPut200Response</returns>
         public InvoicingV2InvoicesPut200Response UpdateInvoice(string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
-            logger.Debug("CALLING API \"UpdateInvoice\" STARTED");
+            logger.LogDebug("CALLING API \"UpdateInvoice\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPut200Response> localVarResponse = UpdateInvoiceWithHttpInfo(id, updateInvoiceRequest);
-            logger.Debug("CALLING API \"UpdateInvoice\" ENDED");
+            logger.LogDebug("CALLING API \"UpdateInvoice\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -1878,13 +1880,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->UpdateInvoice");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling InvoicesApi->UpdateInvoice");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->UpdateInvoice");
             }
             // verify the required parameter 'updateInvoiceRequest' is set
             if (updateInvoiceRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updateInvoiceRequest' when calling InvoicesApi->UpdateInvoice");
+                logger.LogError("ApiException : Missing required parameter 'updateInvoiceRequest' when calling InvoicesApi->UpdateInvoice");
                 throw new ApiException(400, "Missing required parameter 'updateInvoiceRequest' when calling InvoicesApi->UpdateInvoice");
             }
 
@@ -1919,7 +1921,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (updateInvoiceRequest != null && updateInvoiceRequest.GetType() != typeof(byte[]))
             {
@@ -1938,18 +1940,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "UpdateInvoice,UpdateInvoiceAsync,UpdateInvoiceWithHttpInfo,UpdateInvoiceAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -1964,7 +1966,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("UpdateInvoice", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -1983,10 +1985,10 @@ namespace CyberSource.Api
         /// <returns>Task of InvoicingV2InvoicesPut200Response</returns>
         public async Task<InvoicingV2InvoicesPut200Response> UpdateInvoiceAsync(string id, UpdateInvoiceRequest updateInvoiceRequest)
         {
-            logger.Debug("CALLING API \"UpdateInvoiceAsync\" STARTED");
+            logger.LogDebug("CALLING API \"UpdateInvoiceAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InvoicingV2InvoicesPut200Response> localVarResponse = await UpdateInvoiceAsyncWithHttpInfo(id, updateInvoiceRequest);
-            logger.Debug("CALLING API \"UpdateInvoiceAsync\" ENDED");
+            logger.LogDebug("CALLING API \"UpdateInvoiceAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -2006,13 +2008,13 @@ namespace CyberSource.Api
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling InvoicesApi->UpdateInvoice");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling InvoicesApi->UpdateInvoice");
                 throw new ApiException(400, "Missing required parameter 'id' when calling InvoicesApi->UpdateInvoice");
             }
             // verify the required parameter 'updateInvoiceRequest' is set
             if (updateInvoiceRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'updateInvoiceRequest' when calling InvoicesApi->UpdateInvoice");
+                logger.LogError("ApiException : Missing required parameter 'updateInvoiceRequest' when calling InvoicesApi->UpdateInvoice");
                 throw new ApiException(400, "Missing required parameter 'updateInvoiceRequest' when calling InvoicesApi->UpdateInvoice");
             }
 
@@ -2047,7 +2049,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (updateInvoiceRequest != null && updateInvoiceRequest.GetType() != typeof(byte[]))
             {
@@ -2066,18 +2068,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "UpdateInvoice,UpdateInvoiceAsync,UpdateInvoiceWithHttpInfo,UpdateInvoiceAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -2092,7 +2094,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("UpdateInvoice", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

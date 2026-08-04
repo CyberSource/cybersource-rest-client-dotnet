@@ -73,6 +73,38 @@ namespace CyberSource.Test
             // TODO unit test for the property 'PurchaseNumber'
         }
         /// <summary>
+        /// Test the property 'TransactionReferenceNumber'
+        /// </summary>
+        [Test]
+        public void TransactionReferenceNumberTest()
+        {
+            // TODO unit test for the property 'TransactionReferenceNumber'
+        }
+        /// <summary>
+        /// Test the property 'ExpirationDate'
+        /// </summary>
+        [Test]
+        public void ExpirationDateTest()
+        {
+            // TODO unit test for the property 'ExpirationDate'
+        }
+        /// <summary>
+        /// Test the property 'ExpirationAmount'
+        /// </summary>
+        [Test]
+        public void ExpirationAmountTest()
+        {
+            // TODO unit test for the property 'ExpirationAmount'
+        }
+        /// <summary>
+        /// Test the property 'ExpirationQuantity'
+        /// </summary>
+        [Test]
+        public void ExpirationQuantityTest()
+        {
+            // TODO unit test for the property 'ExpirationQuantity'
+        }
+        /// <summary>
         /// Test the property 'CreatedDate'
         /// </summary>
         [Test]

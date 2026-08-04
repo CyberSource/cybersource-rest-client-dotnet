@@ -16,6 +16,8 @@ using {{packageName}}.Client;
 using AuthenticationSdk.util;
 using {{packageName}}.Utilities.Tracking;
 using {{packageName}}.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace {{packageName}}.{{apiPackage}}
 {
@@ -109,13 +111,13 @@ namespace {{packageName}}.{{apiPackage}}
         /// <exception cref="{{packageName}}.Client.ApiException">Thrown when fails to make API call</exception>
         {{#allParams}}/// <param name="{{paramName}}">{{description}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}</param>
         {{/allParams}}/// <returns>{{#returnType}}{{returnType}}{{/returnType}}</returns>{{#vendorExtensions.x-devcenter-metaData.SDK_ONLY_AddDisclaimer}}
-        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder): The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>{{/vendorExtensions.x-devcenter-metaData.SDK_ONLY_AddDisclaimer}}
+        /// <remarks>DISCLAIMER : Cybersource may allow Customer to access, use, and/or test a Cybersource product or service that may still be in development or has not been market-tested ("Beta Product") solely for the purpose of evaluating the functionality or marketability of the Beta Product (a "Beta Evaluation"). Notwithstanding any language to the contrary, the following terms shall apply with respect to Customer's participation in any Beta Evaluation (and the Beta Product(s)) accessed thereunder: The Parties will enter into a separate form agreement detailing the scope of the Beta Evaluation, requirements, pricing, the length of the beta evaluation period ("Beta Product Form"). Beta Products are not, and may not become, Transaction Services and have not yet been publicly released and are offered for the sole purpose of internal testing and non-commercial evaluation. Customer's use of the Beta Product shall be solely for the purpose of conducting the Beta Evaluation. Customer accepts all risks arising out of the access and use of the Beta Products. Cybersource may, in its sole discretion, at any time, terminate or discontinue the Beta Evaluation. Customer acknowledges and agrees that any Beta Product may still be in development and that Beta Product is provided "AS IS" and may not perform at the level of a commercially available service, may not operate as expected and may be modified prior to release. CYBERSOURCE SHALL NOT BE RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE RELATING TO A BETA PRODUCT OR THE BETA EVALUATION (A) FOR LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY, (B) ANY CLAIM, LOSSES, DAMAGES, OR CAUSE OF ACTION ARISING IN CONNECTION WITH THE BETA PRODUCT; OR (C) FOR ANY INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS.</remarks>{{/vendorExtensions.x-devcenter-metaData.SDK_ONLY_AddDisclaimer}}
         public {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}} {{operationId}}({{#allParams}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
         {
-            logger.Debug("CALLING API \"{{operationId}}\" STARTED");
+            logger.LogDebug("CALLING API \"{{operationId}}\" STARTED");
             this.SetStatusCode(null);
             {{#returnType}}ApiResponse<{{{returnType}}}> localVarResponse = {{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});
-            logger.Debug("CALLING API \"{{operationId}}\" ENDED");
+            logger.LogDebug("CALLING API \"{{operationId}}\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;{{/returnType}}{{^returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});{{/returnType}}
         }
@@ -135,7 +137,7 @@ namespace {{packageName}}.{{apiPackage}}
             // verify the required parameter '{{paramName}}' is set
             if ({{paramName}} == null)
             {
-                logger.Error("ApiException : Missing required parameter '{{paramName}}' when calling {{classname}}->{{operationId}}");
+                logger.LogError("ApiException : Missing required parameter '{{paramName}}' when calling {{classname}}->{{operationId}}");
                 throw new ApiException(400, "Missing required parameter '{{paramName}}' when calling {{classname}}->{{operationId}}");
             }
             {{/required}}
@@ -174,7 +176,7 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 localVarPathParams.Add("{{baseName}}", ApiClient.ParameterToString({{paramName}})); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             {{/pathParams}}
             {{#queryParams}}
@@ -182,7 +184,7 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 localVarQueryParams.Add("{{baseName}}", ApiClient.ParameterToString({{paramName}})); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             {{/queryParams}}
             {{#headerParams}}
@@ -236,11 +238,11 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -248,7 +250,7 @@ namespace {{packageName}}.{{apiPackage}}
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo");
 
             {{#bodyParam}}
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
             {{/bodyParam}}
 
@@ -264,7 +266,7 @@ namespace {{packageName}}.{{apiPackage}}
                 Exception exception = ExceptionFactory("{{operationId}}", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -291,10 +293,10 @@ namespace {{packageName}}.{{apiPackage}}
         {{/allParams}}/// <returns>Task of {{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}void{{/returnType}}</returns>
         {{#returnType}}public async Task<{{{returnType}}}>{{/returnType}}{{^returnType}}public async Task{{/returnType}} {{operationId}}Async({{#allParams}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}})
         {
-            logger.Debug("CALLING API \"{{operationId}}Async\" STARTED");
+            logger.LogDebug("CALLING API \"{{operationId}}Async\" STARTED");
             this.SetStatusCode(null);
             {{#returnType}}ApiResponse<{{{returnType}}}> localVarResponse = await {{operationId}}AsyncWithHttpInfo({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});
-            logger.Debug("CALLING API \"{{operationId}}Async\" ENDED");
+            logger.LogDebug("CALLING API \"{{operationId}}Async\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;{{/returnType}}{{^returnType}}await {{operationId}}AsyncWithHttpInfo({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});{{/returnType}}
 
@@ -315,7 +317,7 @@ namespace {{packageName}}.{{apiPackage}}
             // verify the required parameter '{{paramName}}' is set
             if ({{paramName}} == null)
             {
-                logger.Error("ApiException : Missing required parameter '{{paramName}}' when calling {{classname}}->{{operationId}}");
+                logger.LogError("ApiException : Missing required parameter '{{paramName}}' when calling {{classname}}->{{operationId}}");
                 throw new ApiException(400, "Missing required parameter '{{paramName}}' when calling {{classname}}->{{operationId}}");
             }
             {{/required}}
@@ -354,7 +356,7 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 localVarPathParams.Add("{{baseName}}", ApiClient.ParameterToString({{paramName}})); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             {{/pathParams}}
             {{#queryParams}}
@@ -362,7 +364,7 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 localVarQueryParams.Add("{{baseName}}", ApiClient.ParameterToString({{paramName}})); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             {{/queryParams}}
             {{#headerParams}}
@@ -414,11 +416,11 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -426,7 +428,7 @@ namespace {{packageName}}.{{apiPackage}}
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "{{operationId}},{{operationId}}Async,{{operationId}}WithHttpInfo,{{operationId}}AsyncWithHttpInfo");
 
             {{#bodyParam}}
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
             {{/bodyParam}}
 
@@ -442,7 +444,7 @@ namespace {{packageName}}.{{apiPackage}}
                 Exception exception = ExceptionFactory("{{operationId}}", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

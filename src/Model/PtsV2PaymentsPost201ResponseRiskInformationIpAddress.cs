@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Contains detailed response information about the customer&#39;s IP address.
     /// </summary>
     [DataContract]
-    public partial class PtsV2PaymentsPost201ResponseRiskInformationIpAddress :  IEquatable<PtsV2PaymentsPost201ResponseRiskInformationIpAddress>, IValidatableObject
+    public partial class PtsV2PaymentsPost201ResponseRiskInformationIpAddress :  ModelExtensions, IEquatable<PtsV2PaymentsPost201ResponseRiskInformationIpAddress>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponseRiskInformationIpAddress" /> class.
@@ -122,6 +123,7 @@ namespace CyberSource.Model
             if (RoutingMethod != null) sb.Append("  RoutingMethod: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseRiskInformationIpAddress", "routingMethod", RoutingMethod.ToString())).Append("\n");
             if (Carrier != null) sb.Append("  Carrier: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseRiskInformationIpAddress", "carrier", Carrier.ToString())).Append("\n");
             if (Organization != null) sb.Append("  Organization: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseRiskInformationIpAddress", "organization", Organization.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -132,7 +134,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PtsV2PaymentsPost201ResponseRiskInformationIpAddress", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PtsV2PaymentsPost201ResponseRiskInformationIpAddress", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -157,7 +159,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.AnonymizerStatus == other.AnonymizerStatus ||
                     this.AnonymizerStatus != null &&
@@ -206,6 +212,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.AnonymizerStatus != null)
                     hash = hash * 59 + this.AnonymizerStatus.GetHashCode();
                 if (this.Locality != null)
@@ -220,6 +228,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Carrier.GetHashCode();
                 if (this.Organization != null)
                     hash = hash * 59 + this.Organization.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

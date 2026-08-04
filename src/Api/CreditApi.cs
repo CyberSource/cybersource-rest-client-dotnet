@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -106,10 +108,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2CreditsPost201Response</returns>
         public PtsV2CreditsPost201Response CreateCredit(CreateCreditRequest createCreditRequest)
         {
-            logger.Debug("CALLING API \"CreateCredit\" STARTED");
+            logger.LogDebug("CALLING API \"CreateCredit\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2CreditsPost201Response> localVarResponse = CreateCreditWithHttpInfo(createCreditRequest);
-            logger.Debug("CALLING API \"CreateCredit\" ENDED");
+            logger.LogDebug("CALLING API \"CreateCredit\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -127,7 +129,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createCreditRequest' is set
             if (createCreditRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createCreditRequest' when calling CreditApi->CreateCredit");
+                logger.LogError("ApiException : Missing required parameter 'createCreditRequest' when calling CreditApi->CreateCredit");
                 throw new ApiException(400, "Missing required parameter 'createCreditRequest' when calling CreditApi->CreateCredit");
             }
 
@@ -173,18 +175,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateCredit,CreateCreditAsync,CreateCreditWithHttpInfo,CreateCreditAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -199,7 +201,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateCredit", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -217,10 +219,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2CreditsPost201Response</returns>
         public async Task<PtsV2CreditsPost201Response> CreateCreditAsync(CreateCreditRequest createCreditRequest)
         {
-            logger.Debug("CALLING API \"CreateCreditAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CreateCreditAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2CreditsPost201Response> localVarResponse = await CreateCreditAsyncWithHttpInfo(createCreditRequest);
-            logger.Debug("CALLING API \"CreateCreditAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CreateCreditAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -239,7 +241,7 @@ namespace CyberSource.Api
             // verify the required parameter 'createCreditRequest' is set
             if (createCreditRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'createCreditRequest' when calling CreditApi->CreateCredit");
+                logger.LogError("ApiException : Missing required parameter 'createCreditRequest' when calling CreditApi->CreateCredit");
                 throw new ApiException(400, "Missing required parameter 'createCreditRequest' when calling CreditApi->CreateCredit");
             }
 
@@ -285,18 +287,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateCredit,CreateCreditAsync,CreateCreditWithHttpInfo,CreateCreditAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -311,7 +313,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CreateCredit", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

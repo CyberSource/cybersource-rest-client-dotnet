@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'TransactionReferenceNumber'
+        /// </summary>
+        [Test]
+        public void TransactionReferenceNumberTest()
+        {
+            // TODO unit test for the property 'TransactionReferenceNumber'
+        }
+        /// <summary>
         /// Test the property 'Description'
         /// </summary>
         [Test]

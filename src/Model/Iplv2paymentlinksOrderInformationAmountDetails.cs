@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Contains all of the amount-related fields.
     /// </summary>
     [DataContract]
-    public partial class Iplv2paymentlinksOrderInformationAmountDetails :  IEquatable<Iplv2paymentlinksOrderInformationAmountDetails>, IValidatableObject
+    public partial class Iplv2paymentlinksOrderInformationAmountDetails :  ModelExtensions, IEquatable<Iplv2paymentlinksOrderInformationAmountDetails>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Iplv2paymentlinksOrderInformationAmountDetails" /> class.
@@ -94,6 +95,7 @@ namespace CyberSource.Model
             if (Currency != null) sb.Append("  Currency: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksOrderInformationAmountDetails", "currency", Currency.ToString())).Append("\n");
             if (MaxAmount != null) sb.Append("  MaxAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksOrderInformationAmountDetails", "maxAmount", MaxAmount.ToString())).Append("\n");
             if (MinAmount != null) sb.Append("  MinAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksOrderInformationAmountDetails", "minAmount", MinAmount.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,7 +106,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iplv2paymentlinksOrderInformationAmountDetails", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iplv2paymentlinksOrderInformationAmountDetails", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -129,7 +131,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.TotalAmount == other.TotalAmount ||
                     this.TotalAmount != null &&
@@ -163,6 +169,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.TotalAmount != null)
                     hash = hash * 59 + this.TotalAmount.GetHashCode();
                 if (this.Currency != null)
@@ -171,6 +179,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MaxAmount.GetHashCode();
                 if (this.MinAmount != null)
                     hash = hash * 59 + this.MinAmount.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

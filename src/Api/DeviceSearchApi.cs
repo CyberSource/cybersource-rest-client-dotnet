@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -148,10 +150,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse2009</returns>
         public InlineResponse2009 PostSearchQuery(PostDeviceSearchRequest postDeviceSearchRequest)
         {
-            logger.Debug("CALLING API \"PostSearchQuery\" STARTED");
+            logger.LogDebug("CALLING API \"PostSearchQuery\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2009> localVarResponse = PostSearchQueryWithHttpInfo(postDeviceSearchRequest);
-            logger.Debug("CALLING API \"PostSearchQuery\" ENDED");
+            logger.LogDebug("CALLING API \"PostSearchQuery\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -169,7 +171,7 @@ namespace CyberSource.Api
             // verify the required parameter 'postDeviceSearchRequest' is set
             if (postDeviceSearchRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postDeviceSearchRequest' when calling DeviceSearchApi->PostSearchQuery");
+                logger.LogError("ApiException : Missing required parameter 'postDeviceSearchRequest' when calling DeviceSearchApi->PostSearchQuery");
                 throw new ApiException(400, "Missing required parameter 'postDeviceSearchRequest' when calling DeviceSearchApi->PostSearchQuery");
             }
 
@@ -214,18 +216,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -240,7 +242,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostSearchQuery", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -258,10 +260,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse2009</returns>
         public async Task<InlineResponse2009> PostSearchQueryAsync(PostDeviceSearchRequest postDeviceSearchRequest)
         {
-            logger.Debug("CALLING API \"PostSearchQueryAsync\" STARTED");
+            logger.LogDebug("CALLING API \"PostSearchQueryAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse2009> localVarResponse = await PostSearchQueryAsyncWithHttpInfo(postDeviceSearchRequest);
-            logger.Debug("CALLING API \"PostSearchQueryAsync\" ENDED");
+            logger.LogDebug("CALLING API \"PostSearchQueryAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -280,7 +282,7 @@ namespace CyberSource.Api
             // verify the required parameter 'postDeviceSearchRequest' is set
             if (postDeviceSearchRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postDeviceSearchRequest' when calling DeviceSearchApi->PostSearchQuery");
+                logger.LogError("ApiException : Missing required parameter 'postDeviceSearchRequest' when calling DeviceSearchApi->PostSearchQuery");
                 throw new ApiException(400, "Missing required parameter 'postDeviceSearchRequest' when calling DeviceSearchApi->PostSearchQuery");
             }
 
@@ -325,18 +327,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostSearchQuery,PostSearchQueryAsync,PostSearchQueryWithHttpInfo,PostSearchQueryAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -351,7 +353,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostSearchQuery", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -368,10 +370,10 @@ namespace CyberSource.Api
         /// <returns>InlineResponse20011</returns>
         public InlineResponse20011 PostSearchQueryV3(PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
         {
-            logger.Debug("CALLING API \"PostSearchQueryV3\" STARTED");
+            logger.LogDebug("CALLING API \"PostSearchQueryV3\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20011> localVarResponse = PostSearchQueryV3WithHttpInfo(postDeviceSearchRequestV3);
-            logger.Debug("CALLING API \"PostSearchQueryV3\" ENDED");
+            logger.LogDebug("CALLING API \"PostSearchQueryV3\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -389,7 +391,7 @@ namespace CyberSource.Api
             // verify the required parameter 'postDeviceSearchRequestV3' is set
             if (postDeviceSearchRequestV3 == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postDeviceSearchRequestV3' when calling DeviceSearchApi->PostSearchQueryV3");
+                logger.LogError("ApiException : Missing required parameter 'postDeviceSearchRequestV3' when calling DeviceSearchApi->PostSearchQueryV3");
                 throw new ApiException(400, "Missing required parameter 'postDeviceSearchRequestV3' when calling DeviceSearchApi->PostSearchQueryV3");
             }
 
@@ -434,18 +436,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostSearchQueryV3,PostSearchQueryV3Async,PostSearchQueryV3WithHttpInfo,PostSearchQueryV3AsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -460,7 +462,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostSearchQueryV3", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -478,10 +480,10 @@ namespace CyberSource.Api
         /// <returns>Task of InlineResponse20011</returns>
         public async Task<InlineResponse20011> PostSearchQueryV3Async(PostDeviceSearchRequestV3 postDeviceSearchRequestV3)
         {
-            logger.Debug("CALLING API \"PostSearchQueryV3Async\" STARTED");
+            logger.LogDebug("CALLING API \"PostSearchQueryV3Async\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<InlineResponse20011> localVarResponse = await PostSearchQueryV3AsyncWithHttpInfo(postDeviceSearchRequestV3);
-            logger.Debug("CALLING API \"PostSearchQueryV3Async\" ENDED");
+            logger.LogDebug("CALLING API \"PostSearchQueryV3Async\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -500,7 +502,7 @@ namespace CyberSource.Api
             // verify the required parameter 'postDeviceSearchRequestV3' is set
             if (postDeviceSearchRequestV3 == null)
             {
-                logger.Error("ApiException : Missing required parameter 'postDeviceSearchRequestV3' when calling DeviceSearchApi->PostSearchQueryV3");
+                logger.LogError("ApiException : Missing required parameter 'postDeviceSearchRequestV3' when calling DeviceSearchApi->PostSearchQueryV3");
                 throw new ApiException(400, "Missing required parameter 'postDeviceSearchRequestV3' when calling DeviceSearchApi->PostSearchQueryV3");
             }
 
@@ -545,18 +547,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "PostSearchQueryV3,PostSearchQueryV3Async,PostSearchQueryV3WithHttpInfo,PostSearchQueryV3AsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -571,7 +573,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("PostSearchQueryV3", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

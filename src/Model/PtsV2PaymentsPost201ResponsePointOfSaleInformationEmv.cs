@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv
     /// </summary>
     [DataContract]
-    public partial class PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv :  IEquatable<PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv>, IValidatableObject
+    public partial class PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv :  ModelExtensions, IEquatable<PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv" /> class.
@@ -78,6 +79,7 @@ namespace CyberSource.Model
             if (Tags != null) sb.Append("  Tags: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv", "tags", Tags.ToString())).Append("\n");
             if (ChipValidationType != null) sb.Append("  ChipValidationType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv", "chipValidationType", ChipValidationType.ToString())).Append("\n");
             if (ChipValidationResult != null) sb.Append("  ChipValidationResult: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv", "chipValidationResult", ChipValidationResult.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,7 +90,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PtsV2PaymentsPost201ResponsePointOfSaleInformationEmv", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -113,7 +115,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Tags == other.Tags ||
                     this.Tags != null &&
@@ -142,12 +148,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Tags != null)
                     hash = hash * 59 + this.Tags.GetHashCode();
                 if (this.ChipValidationType != null)
                     hash = hash * 59 + this.ChipValidationType.GetHashCode();
                 if (this.ChipValidationResult != null)
                     hash = hash * 59 + this.ChipValidationResult.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -67,7 +67,7 @@ No authorization required
 
 <a name="parseemvtags"></a>
 # **ParseEmvTags**
-> TssV2PostEmvTags200Response ParseEmvTags (Body body)
+> TssV2PostEmvTags200Response ParseEmvTags (Body2 body)
 
 Parse an EMV String
 
@@ -88,7 +88,7 @@ namespace Example
         public void main()
         {
             var apiInstance = new EMVTagDetailsApi();
-            var body = new Body(); // Body | 
+            var body = new Body2(); // Body2 | 
 
             try
             {
@@ -109,7 +109,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body**](Body.md)|  | 
+ **body** | [**Body2**](Body2.md)|  | 
 
 ### Return type
 

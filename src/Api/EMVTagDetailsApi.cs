@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -56,7 +58,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>TssV2PostEmvTags200Response</returns>
-        TssV2PostEmvTags200Response ParseEmvTags(Body body);
+        TssV2PostEmvTags200Response ParseEmvTags(Body2 body);
 
         /// <summary>
         /// Parse an EMV String
@@ -67,7 +69,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of TssV2PostEmvTags200Response</returns>
-        ApiResponse<TssV2PostEmvTags200Response> ParseEmvTagsWithHttpInfo(Body body);
+        ApiResponse<TssV2PostEmvTags200Response> ParseEmvTagsWithHttpInfo(Body2 body);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -98,7 +100,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of TssV2PostEmvTags200Response</returns>
-        System.Threading.Tasks.Task<TssV2PostEmvTags200Response> ParseEmvTagsAsync(Body body);
+        System.Threading.Tasks.Task<TssV2PostEmvTags200Response> ParseEmvTagsAsync(Body2 body);
 
         /// <summary>
         /// Parse an EMV String
@@ -109,7 +111,7 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse (TssV2PostEmvTags200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TssV2PostEmvTags200Response>> ParseEmvTagsAsyncWithHttpInfo(Body body);
+        System.Threading.Tasks.Task<ApiResponse<TssV2PostEmvTags200Response>> ParseEmvTagsAsyncWithHttpInfo(Body2 body);
         #endregion Asynchronous Operations
     }
 
@@ -143,10 +145,10 @@ namespace CyberSource.Api
         /// <returns>TssV2GetEmvTags200Response</returns>
         public TssV2GetEmvTags200Response GetEmvTags()
         {
-            logger.Debug("CALLING API \"GetEmvTags\" STARTED");
+            logger.LogDebug("CALLING API \"GetEmvTags\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<TssV2GetEmvTags200Response> localVarResponse = GetEmvTagsWithHttpInfo();
-            logger.Debug("CALLING API \"GetEmvTags\" ENDED");
+            logger.LogDebug("CALLING API \"GetEmvTags\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -207,11 +209,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -231,7 +233,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetEmvTags", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -248,10 +250,10 @@ namespace CyberSource.Api
         /// <returns>Task of TssV2GetEmvTags200Response</returns>
         public async Task<TssV2GetEmvTags200Response> GetEmvTagsAsync()
         {
-            logger.Debug("CALLING API \"GetEmvTagsAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetEmvTagsAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<TssV2GetEmvTags200Response> localVarResponse = await GetEmvTagsAsyncWithHttpInfo();
-            logger.Debug("CALLING API \"GetEmvTagsAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetEmvTagsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -312,11 +314,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -336,7 +338,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetEmvTags", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -351,12 +353,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>TssV2PostEmvTags200Response</returns>
-        public TssV2PostEmvTags200Response ParseEmvTags(Body body)
+        public TssV2PostEmvTags200Response ParseEmvTags(Body2 body)
         {
-            logger.Debug("CALLING API \"ParseEmvTags\" STARTED");
+            logger.LogDebug("CALLING API \"ParseEmvTags\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<TssV2PostEmvTags200Response> localVarResponse = ParseEmvTagsWithHttpInfo(body);
-            logger.Debug("CALLING API \"ParseEmvTags\" ENDED");
+            logger.LogDebug("CALLING API \"ParseEmvTags\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -367,14 +369,14 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of TssV2PostEmvTags200Response</returns>
-        public ApiResponse< TssV2PostEmvTags200Response > ParseEmvTagsWithHttpInfo(Body body)
+        public ApiResponse< TssV2PostEmvTags200Response > ParseEmvTagsWithHttpInfo(Body2 body)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'body' is set
             if (body == null)
             {
-                logger.Error("ApiException : Missing required parameter 'body' when calling EMVTagDetailsApi->ParseEmvTags");
+                logger.LogError("ApiException : Missing required parameter 'body' when calling EMVTagDetailsApi->ParseEmvTags");
                 throw new ApiException(400, "Missing required parameter 'body' when calling EMVTagDetailsApi->ParseEmvTags");
             }
 
@@ -405,7 +407,7 @@ namespace CyberSource.Api
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                body = (Body)sdkTracker.InsertDeveloperIdTracker(body, body.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                body = (Body2)sdkTracker.InsertDeveloperIdTracker(body, body.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
                 localVarPostBody = ApiClient.Serialize(body); // http body (model) parameter
             }
             else
@@ -419,18 +421,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "ParseEmvTags,ParseEmvTagsAsync,ParseEmvTagsWithHttpInfo,ParseEmvTagsAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -445,7 +447,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ParseEmvTags", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -461,12 +463,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of TssV2PostEmvTags200Response</returns>
-        public async Task<TssV2PostEmvTags200Response> ParseEmvTagsAsync(Body body)
+        public async Task<TssV2PostEmvTags200Response> ParseEmvTagsAsync(Body2 body)
         {
-            logger.Debug("CALLING API \"ParseEmvTagsAsync\" STARTED");
+            logger.LogDebug("CALLING API \"ParseEmvTagsAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<TssV2PostEmvTags200Response> localVarResponse = await ParseEmvTagsAsyncWithHttpInfo(body);
-            logger.Debug("CALLING API \"ParseEmvTagsAsync\" ENDED");
+            logger.LogDebug("CALLING API \"ParseEmvTagsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -478,14 +480,14 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse (TssV2PostEmvTags200Response)</returns>
-        public async Task<ApiResponse<TssV2PostEmvTags200Response>> ParseEmvTagsAsyncWithHttpInfo(Body body)
+        public async Task<ApiResponse<TssV2PostEmvTags200Response>> ParseEmvTagsAsyncWithHttpInfo(Body2 body)
         {
             LogUtility logUtility = new LogUtility();
 
             // verify the required parameter 'body' is set
             if (body == null)
             {
-                logger.Error("ApiException : Missing required parameter 'body' when calling EMVTagDetailsApi->ParseEmvTags");
+                logger.LogError("ApiException : Missing required parameter 'body' when calling EMVTagDetailsApi->ParseEmvTags");
                 throw new ApiException(400, "Missing required parameter 'body' when calling EMVTagDetailsApi->ParseEmvTags");
             }
 
@@ -516,7 +518,7 @@ namespace CyberSource.Api
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                body = (Body)sdkTracker.InsertDeveloperIdTracker(body, body.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                body = (Body2)sdkTracker.InsertDeveloperIdTracker(body, body.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
                 localVarPostBody = ApiClient.Serialize(body); // http body (model) parameter
             }
             else
@@ -530,18 +532,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "ParseEmvTags,ParseEmvTagsAsync,ParseEmvTagsWithHttpInfo,ParseEmvTagsAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -556,7 +558,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ParseEmvTags", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

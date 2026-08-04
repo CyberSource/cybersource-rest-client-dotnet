@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// PullFunds201ResponseProcessorInformation
     /// </summary>
     [DataContract]
-    public partial class PullFunds201ResponseProcessorInformation :  IEquatable<PullFunds201ResponseProcessorInformation>, IValidatableObject
+    public partial class PullFunds201ResponseProcessorInformation :  ModelExtensions, IEquatable<PullFunds201ResponseProcessorInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PullFunds201ResponseProcessorInformation" /> class.
@@ -161,6 +162,7 @@ namespace CyberSource.Model
             if (Customer != null) sb.Append("  Customer: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PullFunds201ResponseProcessorInformation", "customer", Customer.ToString())).Append("\n");
             if (ElectronicVerificationResults != null) sb.Append("  ElectronicVerificationResults: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PullFunds201ResponseProcessorInformation", "electronicVerificationResults", ElectronicVerificationResults.ToString())).Append("\n");
             if (CardVerification != null) sb.Append("  CardVerification: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PullFunds201ResponseProcessorInformation", "cardVerification", CardVerification.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -171,7 +173,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PullFunds201ResponseProcessorInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PullFunds201ResponseProcessorInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -196,7 +198,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.SystemTraceAuditNumber == other.SystemTraceAuditNumber ||
                     this.SystemTraceAuditNumber != null &&
@@ -265,6 +271,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.SystemTraceAuditNumber != null)
                     hash = hash * 59 + this.SystemTraceAuditNumber.GetHashCode();
                 if (this.ApprovalCode != null)
@@ -287,6 +295,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ElectronicVerificationResults.GetHashCode();
                 if (this.CardVerification != null)
                     hash = hash * 59 + this.CardVerification.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

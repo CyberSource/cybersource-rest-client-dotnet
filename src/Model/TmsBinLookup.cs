@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Bin Information of the PAN provided by BinLookUp Service. This is only retrieved when retrieveBinDetails&#x3D;true is passed as a query parameter. 
     /// </summary>
     [DataContract]
-    public partial class TmsBinLookup :  IEquatable<TmsBinLookup>, IValidatableObject
+    public partial class TmsBinLookup :  ModelExtensions, IEquatable<TmsBinLookup>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TmsBinLookup" /> class.
@@ -65,6 +66,7 @@ namespace CyberSource.Model
             sb.Append("class TmsBinLookup {\n");
             if (PaymentAccountInformation != null) sb.Append("  PaymentAccountInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsBinLookup", "paymentAccountInformation", PaymentAccountInformation.ToString())).Append("\n");
             if (IssuerInformation != null) sb.Append("  IssuerInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsBinLookup", "issuerInformation", IssuerInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,7 +77,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TmsBinLookup", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TmsBinLookup", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -100,7 +102,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.PaymentAccountInformation == other.PaymentAccountInformation ||
                     this.PaymentAccountInformation != null &&
@@ -124,10 +130,13 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.PaymentAccountInformation != null)
                     hash = hash * 59 + this.PaymentAccountInformation.GetHashCode();
                 if (this.IssuerInformation != null)
                     hash = hash * 59 + this.IssuerInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

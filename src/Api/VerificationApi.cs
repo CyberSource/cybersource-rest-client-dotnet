@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -148,10 +150,10 @@ namespace CyberSource.Api
         /// <returns>RiskV1ExportComplianceInquiriesPost201Response</returns>
         public RiskV1ExportComplianceInquiriesPost201Response ValidateExportCompliance(ValidateExportComplianceRequest validateExportComplianceRequest)
         {
-            logger.Debug("CALLING API \"ValidateExportCompliance\" STARTED");
+            logger.LogDebug("CALLING API \"ValidateExportCompliance\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1ExportComplianceInquiriesPost201Response> localVarResponse = ValidateExportComplianceWithHttpInfo(validateExportComplianceRequest);
-            logger.Debug("CALLING API \"ValidateExportCompliance\" ENDED");
+            logger.LogDebug("CALLING API \"ValidateExportCompliance\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -169,7 +171,7 @@ namespace CyberSource.Api
             // verify the required parameter 'validateExportComplianceRequest' is set
             if (validateExportComplianceRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'validateExportComplianceRequest' when calling VerificationApi->ValidateExportCompliance");
+                logger.LogError("ApiException : Missing required parameter 'validateExportComplianceRequest' when calling VerificationApi->ValidateExportCompliance");
                 throw new ApiException(400, "Missing required parameter 'validateExportComplianceRequest' when calling VerificationApi->ValidateExportCompliance");
             }
 
@@ -214,18 +216,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "ValidateExportCompliance,ValidateExportComplianceAsync,ValidateExportComplianceWithHttpInfo,ValidateExportComplianceAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -240,7 +242,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ValidateExportCompliance", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -258,10 +260,10 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1ExportComplianceInquiriesPost201Response</returns>
         public async Task<RiskV1ExportComplianceInquiriesPost201Response> ValidateExportComplianceAsync(ValidateExportComplianceRequest validateExportComplianceRequest)
         {
-            logger.Debug("CALLING API \"ValidateExportComplianceAsync\" STARTED");
+            logger.LogDebug("CALLING API \"ValidateExportComplianceAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1ExportComplianceInquiriesPost201Response> localVarResponse = await ValidateExportComplianceAsyncWithHttpInfo(validateExportComplianceRequest);
-            logger.Debug("CALLING API \"ValidateExportComplianceAsync\" ENDED");
+            logger.LogDebug("CALLING API \"ValidateExportComplianceAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -280,7 +282,7 @@ namespace CyberSource.Api
             // verify the required parameter 'validateExportComplianceRequest' is set
             if (validateExportComplianceRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'validateExportComplianceRequest' when calling VerificationApi->ValidateExportCompliance");
+                logger.LogError("ApiException : Missing required parameter 'validateExportComplianceRequest' when calling VerificationApi->ValidateExportCompliance");
                 throw new ApiException(400, "Missing required parameter 'validateExportComplianceRequest' when calling VerificationApi->ValidateExportCompliance");
             }
 
@@ -325,18 +327,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "ValidateExportCompliance,ValidateExportComplianceAsync,ValidateExportComplianceWithHttpInfo,ValidateExportComplianceAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -351,7 +353,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ValidateExportCompliance", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -368,10 +370,10 @@ namespace CyberSource.Api
         /// <returns>RiskV1AddressVerificationsPost201Response</returns>
         public RiskV1AddressVerificationsPost201Response VerifyCustomerAddress(VerifyCustomerAddressRequest verifyCustomerAddressRequest)
         {
-            logger.Debug("CALLING API \"VerifyCustomerAddress\" STARTED");
+            logger.LogDebug("CALLING API \"VerifyCustomerAddress\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1AddressVerificationsPost201Response> localVarResponse = VerifyCustomerAddressWithHttpInfo(verifyCustomerAddressRequest);
-            logger.Debug("CALLING API \"VerifyCustomerAddress\" ENDED");
+            logger.LogDebug("CALLING API \"VerifyCustomerAddress\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -389,7 +391,7 @@ namespace CyberSource.Api
             // verify the required parameter 'verifyCustomerAddressRequest' is set
             if (verifyCustomerAddressRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'verifyCustomerAddressRequest' when calling VerificationApi->VerifyCustomerAddress");
+                logger.LogError("ApiException : Missing required parameter 'verifyCustomerAddressRequest' when calling VerificationApi->VerifyCustomerAddress");
                 throw new ApiException(400, "Missing required parameter 'verifyCustomerAddressRequest' when calling VerificationApi->VerifyCustomerAddress");
             }
 
@@ -434,18 +436,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VerifyCustomerAddress,VerifyCustomerAddressAsync,VerifyCustomerAddressWithHttpInfo,VerifyCustomerAddressAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -460,7 +462,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VerifyCustomerAddress", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -478,10 +480,10 @@ namespace CyberSource.Api
         /// <returns>Task of RiskV1AddressVerificationsPost201Response</returns>
         public async Task<RiskV1AddressVerificationsPost201Response> VerifyCustomerAddressAsync(VerifyCustomerAddressRequest verifyCustomerAddressRequest)
         {
-            logger.Debug("CALLING API \"VerifyCustomerAddressAsync\" STARTED");
+            logger.LogDebug("CALLING API \"VerifyCustomerAddressAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<RiskV1AddressVerificationsPost201Response> localVarResponse = await VerifyCustomerAddressAsyncWithHttpInfo(verifyCustomerAddressRequest);
-            logger.Debug("CALLING API \"VerifyCustomerAddressAsync\" ENDED");
+            logger.LogDebug("CALLING API \"VerifyCustomerAddressAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -500,7 +502,7 @@ namespace CyberSource.Api
             // verify the required parameter 'verifyCustomerAddressRequest' is set
             if (verifyCustomerAddressRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'verifyCustomerAddressRequest' when calling VerificationApi->VerifyCustomerAddress");
+                logger.LogError("ApiException : Missing required parameter 'verifyCustomerAddressRequest' when calling VerificationApi->VerifyCustomerAddress");
                 throw new ApiException(400, "Missing required parameter 'verifyCustomerAddressRequest' when calling VerificationApi->VerifyCustomerAddress");
             }
 
@@ -545,18 +547,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VerifyCustomerAddress,VerifyCustomerAddressAsync,VerifyCustomerAddressWithHttpInfo,VerifyCustomerAddressAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -571,7 +573,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VerifyCustomerAddress", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

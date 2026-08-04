@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication
     /// </summary>
     [DataContract]
-    public partial class TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication :  IEquatable<TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication>, IValidatableObject
+    public partial class TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication :  ModelExtensions, IEquatable<TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication" /> class.
@@ -100,6 +101,7 @@ namespace CyberSource.Model
             if (TrustedMerchantExemptionIndicator != null) sb.Append("  TrustedMerchantExemptionIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication", "trustedMerchantExemptionIndicator", TrustedMerchantExemptionIndicator.ToString())).Append("\n");
             if (SecureCorporatePaymentIndicator != null) sb.Append("  SecureCorporatePaymentIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication", "secureCorporatePaymentIndicator", SecureCorporatePaymentIndicator.ToString())).Append("\n");
             if (DelegatedAuthenticationExemptionIndicator != null) sb.Append("  DelegatedAuthenticationExemptionIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication", "delegatedAuthenticationExemptionIndicator", DelegatedAuthenticationExemptionIndicator.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,7 +112,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TssV2TransactionsGet200ResponseConsumerAuthenticationInformationStrongAuthentication", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -135,7 +137,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.LowValueExemptionIndicator == other.LowValueExemptionIndicator ||
                     this.LowValueExemptionIndicator != null &&
@@ -174,6 +180,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.LowValueExemptionIndicator != null)
                     hash = hash * 59 + this.LowValueExemptionIndicator.GetHashCode();
                 if (this.RiskAnalysisExemptionIndicator != null)
@@ -184,6 +192,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SecureCorporatePaymentIndicator.GetHashCode();
                 if (this.DelegatedAuthenticationExemptionIndicator != null)
                     hash = hash * 59 + this.DelegatedAuthenticationExemptionIndicator.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

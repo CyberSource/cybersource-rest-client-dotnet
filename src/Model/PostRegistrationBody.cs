@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// PostRegistrationBody
     /// </summary>
     [DataContract]
-    public partial class PostRegistrationBody :  IEquatable<PostRegistrationBody>, IValidatableObject
+    public partial class PostRegistrationBody :  ModelExtensions, IEquatable<PostRegistrationBody>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PostRegistrationBody" /> class.
@@ -100,6 +101,7 @@ namespace CyberSource.Model
             if (OrganizationInformation != null) sb.Append("  OrganizationInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PostRegistrationBody", "organizationInformation", OrganizationInformation.ToString())).Append("\n");
             if (ProductInformation != null) sb.Append("  ProductInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PostRegistrationBody", "productInformation", ProductInformation.ToString())).Append("\n");
             if (DocumentInformation != null) sb.Append("  DocumentInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PostRegistrationBody", "documentInformation", DocumentInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,7 +112,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PostRegistrationBody", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("PostRegistrationBody", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -135,7 +137,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.RegistrationInformation == other.RegistrationInformation ||
                     this.RegistrationInformation != null &&
@@ -174,6 +180,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.RegistrationInformation != null)
                     hash = hash * 59 + this.RegistrationInformation.GetHashCode();
                 if (this.IntegrationInformation != null)
@@ -184,6 +192,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProductInformation.GetHashCode();
                 if (this.DocumentInformation != null)
                     hash = hash * 59 + this.DocumentInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

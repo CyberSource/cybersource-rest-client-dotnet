@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -152,10 +154,10 @@ namespace CyberSource.Api
         /// <returns>VasV2PaymentsPost201Response</returns>
         public VasV2PaymentsPost201Response CalculateTax(TaxRequest taxRequest)
         {
-            logger.Debug("CALLING API \"CalculateTax\" STARTED");
+            logger.LogDebug("CALLING API \"CalculateTax\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<VasV2PaymentsPost201Response> localVarResponse = CalculateTaxWithHttpInfo(taxRequest);
-            logger.Debug("CALLING API \"CalculateTax\" ENDED");
+            logger.LogDebug("CALLING API \"CalculateTax\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -173,7 +175,7 @@ namespace CyberSource.Api
             // verify the required parameter 'taxRequest' is set
             if (taxRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'taxRequest' when calling TaxesApi->CalculateTax");
+                logger.LogError("ApiException : Missing required parameter 'taxRequest' when calling TaxesApi->CalculateTax");
                 throw new ApiException(400, "Missing required parameter 'taxRequest' when calling TaxesApi->CalculateTax");
             }
 
@@ -218,18 +220,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CalculateTax,CalculateTaxAsync,CalculateTaxWithHttpInfo,CalculateTaxAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -244,7 +246,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CalculateTax", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -262,10 +264,10 @@ namespace CyberSource.Api
         /// <returns>Task of VasV2PaymentsPost201Response</returns>
         public async Task<VasV2PaymentsPost201Response> CalculateTaxAsync(TaxRequest taxRequest)
         {
-            logger.Debug("CALLING API \"CalculateTaxAsync\" STARTED");
+            logger.LogDebug("CALLING API \"CalculateTaxAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<VasV2PaymentsPost201Response> localVarResponse = await CalculateTaxAsyncWithHttpInfo(taxRequest);
-            logger.Debug("CALLING API \"CalculateTaxAsync\" ENDED");
+            logger.LogDebug("CALLING API \"CalculateTaxAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -284,7 +286,7 @@ namespace CyberSource.Api
             // verify the required parameter 'taxRequest' is set
             if (taxRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'taxRequest' when calling TaxesApi->CalculateTax");
+                logger.LogError("ApiException : Missing required parameter 'taxRequest' when calling TaxesApi->CalculateTax");
                 throw new ApiException(400, "Missing required parameter 'taxRequest' when calling TaxesApi->CalculateTax");
             }
 
@@ -329,18 +331,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CalculateTax,CalculateTaxAsync,CalculateTaxWithHttpInfo,CalculateTaxAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -355,7 +357,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("CalculateTax", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -373,10 +375,10 @@ namespace CyberSource.Api
         /// <returns>VasV2TaxVoid200Response</returns>
         public VasV2TaxVoid200Response VoidTax(VoidTaxRequest voidTaxRequest, string id)
         {
-            logger.Debug("CALLING API \"VoidTax\" STARTED");
+            logger.LogDebug("CALLING API \"VoidTax\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<VasV2TaxVoid200Response> localVarResponse = VoidTaxWithHttpInfo(voidTaxRequest, id);
-            logger.Debug("CALLING API \"VoidTax\" ENDED");
+            logger.LogDebug("CALLING API \"VoidTax\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -395,13 +397,13 @@ namespace CyberSource.Api
             // verify the required parameter 'voidTaxRequest' is set
             if (voidTaxRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'voidTaxRequest' when calling TaxesApi->VoidTax");
+                logger.LogError("ApiException : Missing required parameter 'voidTaxRequest' when calling TaxesApi->VoidTax");
                 throw new ApiException(400, "Missing required parameter 'voidTaxRequest' when calling TaxesApi->VoidTax");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling TaxesApi->VoidTax");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling TaxesApi->VoidTax");
                 throw new ApiException(400, "Missing required parameter 'id' when calling TaxesApi->VoidTax");
             }
 
@@ -433,7 +435,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (voidTaxRequest != null && voidTaxRequest.GetType() != typeof(byte[]))
             {
@@ -452,18 +454,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VoidTax,VoidTaxAsync,VoidTaxWithHttpInfo,VoidTaxAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -478,7 +480,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VoidTax", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -497,10 +499,10 @@ namespace CyberSource.Api
         /// <returns>Task of VasV2TaxVoid200Response</returns>
         public async Task<VasV2TaxVoid200Response> VoidTaxAsync(VoidTaxRequest voidTaxRequest, string id)
         {
-            logger.Debug("CALLING API \"VoidTaxAsync\" STARTED");
+            logger.LogDebug("CALLING API \"VoidTaxAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<VasV2TaxVoid200Response> localVarResponse = await VoidTaxAsyncWithHttpInfo(voidTaxRequest, id);
-            logger.Debug("CALLING API \"VoidTaxAsync\" ENDED");
+            logger.LogDebug("CALLING API \"VoidTaxAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -520,13 +522,13 @@ namespace CyberSource.Api
             // verify the required parameter 'voidTaxRequest' is set
             if (voidTaxRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'voidTaxRequest' when calling TaxesApi->VoidTax");
+                logger.LogError("ApiException : Missing required parameter 'voidTaxRequest' when calling TaxesApi->VoidTax");
                 throw new ApiException(400, "Missing required parameter 'voidTaxRequest' when calling TaxesApi->VoidTax");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling TaxesApi->VoidTax");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling TaxesApi->VoidTax");
                 throw new ApiException(400, "Missing required parameter 'id' when calling TaxesApi->VoidTax");
             }
 
@@ -558,7 +560,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (voidTaxRequest != null && voidTaxRequest.GetType() != typeof(byte[]))
             {
@@ -577,18 +579,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "VoidTax,VoidTaxAsync,VoidTaxWithHttpInfo,VoidTaxAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -603,7 +605,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("VoidTax", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

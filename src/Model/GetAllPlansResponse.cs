@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// GetAllPlansResponse
     /// </summary>
     [DataContract]
-    public partial class GetAllPlansResponse :  IEquatable<GetAllPlansResponse>, IValidatableObject
+    public partial class GetAllPlansResponse :  ModelExtensions, IEquatable<GetAllPlansResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAllPlansResponse" /> class.
@@ -87,6 +88,7 @@ namespace CyberSource.Model
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GetAllPlansResponse", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
             if (TotalCount != null) sb.Append("  TotalCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GetAllPlansResponse", "totalCount", TotalCount.ToString())).Append("\n");
             if (Plans != null) sb.Append("  Plans: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GetAllPlansResponse", "plans", Plans.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,7 +99,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("GetAllPlansResponse", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("GetAllPlansResponse", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -122,7 +124,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Links == other.Links ||
                     this.Links != null &&
@@ -156,6 +162,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Links != null)
                     hash = hash * 59 + this.Links.GetHashCode();
                 if (this.SubmitTimeUtc != null)
@@ -164,6 +172,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TotalCount.GetHashCode();
                 if (this.Plans != null)
                     hash = hash * 59 + this.Plans.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

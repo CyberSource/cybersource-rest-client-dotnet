@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Line item from the order.
     /// </summary>
     [DataContract]
-    public partial class Iplv2paymentlinksOrderInformationLineItems :  IEquatable<Iplv2paymentlinksOrderInformationLineItems>, IValidatableObject
+    public partial class Iplv2paymentlinksOrderInformationLineItems :  ModelExtensions, IEquatable<Iplv2paymentlinksOrderInformationLineItems>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Iplv2paymentlinksOrderInformationLineItems" /> class.
@@ -43,11 +44,12 @@ namespace CyberSource.Model
         /// <param name="Quantity">Number of units for this order. Must be a non-negative integer.  The default is &#x60;1&#x60;. For an authorization or capture transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;true&#x60; or &#x60;false&#x60;), this field is required when &#x60;orderInformation.lineItems[].productCode&#x60; is not &#x60;default&#x60; or one of the other values related to shipping and/or handling.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes. .</param>
         /// <param name="UnitPrice">Per-item price of the product. This value for this field cannot be negative.  You must include either this field or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request.  You can include a decimal point (.), but you cannot include any other special characters. The value is truncated to the correct number of decimal places.  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either the 1st line item in the order and this field, or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request.  #### Tax Calculation Required field for U.S., Canadian, international and value added taxes.  #### Zero Amount Authorizations If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen.  #### Maximum Field Lengths For GPN and JCN Gateway: Decimal (10) All other processors: Decimal (15) .</param>
         /// <param name="ProductDescription">Brief description of item..</param>
-        /// <param name="DiscountAmount">Discount amount applied to the item. Maximum of 2 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent. Otherwise, a validation error will be returned. .</param>
-        /// <param name="DiscountPercent">Discount rate applied to the item. Maximum of 3 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent; otherwise, a validation error will be returned. Example: 5.25 (&#x3D;5.25%) .</param>
-        /// <param name="TaxAmount">Tax amount applied to the item. This value cannot be negative. Maximum of 2 decimal places. The tax amount and the offer amount must be in the same currency. The tax amount field is additive. If taxAmount is provided but taxRate is not, the taxRate will be calculated. .</param>
-        /// <param name="TaxRate">Tax rate applied to the item. Valid range: 1.001% to 99.999%. Maximum of 3 decimal places. If a taxRate is provided but taxAmount is missing or incorrect, the taxAmount based on the given taxRate will be overwritten. Example: 21.00 (&#x3D;21.00%) .</param>
-        public Iplv2paymentlinksOrderInformationLineItems(string ProductSku = default(string), string ProductName = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string ProductDescription = default(string), string DiscountAmount = default(string), string DiscountPercent = default(string), string TaxAmount = default(string), string TaxRate = default(string))
+        /// <param name="DiscountAmount">Discount amount applied to the item. Maximum of 2 decimal places. You may provide either discountAmount or discountPercent (not both). Example: 0.60 .</param>
+        /// <param name="DiscountPercent">Discount rate applied to the item. Maximum of 3 decimal places. You may provide either discountAmount or discountPercent (not both). If you add discountPercent, a discountAmount will be calculated automatically. Example: 5.00 (&#x3D;5.00%) .</param>
+        /// <param name="TaxAmount">Tax amount applied to the item. This value cannot be negative. Maximum of 2 decimal places. The tax amount and the offer amount must be in the same currency. The tax amount field is additive. If taxAmount is provided but taxRate is not, the taxRate will be calculated. Example: 2.86 .</param>
+        /// <param name="TaxRate">Tax rate applied to the item. Valid range: 1.001% to 99.999%. Maximum of 3 decimal places. If a taxRate is provided but taxAmount is missing or incorrect, the taxAmount based on the given taxRate will be overwritten. Example: 25.00 (&#x3D;25.00%) .</param>
+        /// <param name="TotalAmount">Total amount for the line item after discount and tax, calculated per single unit. Formula: (unitPrice - discountAmount) + taxAmount. This field is calculated automatically and does not need to be provided in the request. Example: 14.31 .</param>
+        public Iplv2paymentlinksOrderInformationLineItems(string ProductSku = default(string), string ProductName = default(string), int? Quantity = default(int?), string UnitPrice = default(string), string ProductDescription = default(string), string DiscountAmount = default(string), string DiscountPercent = default(string), string TaxAmount = default(string), string TaxRate = default(string), string TotalAmount = default(string))
         {
             this.ProductSku = ProductSku;
             this.ProductName = ProductName;
@@ -58,6 +60,7 @@ namespace CyberSource.Model
             this.DiscountPercent = DiscountPercent;
             this.TaxAmount = TaxAmount;
             this.TaxRate = TaxRate;
+            this.TotalAmount = TotalAmount;
         }
         
         /// <summary>
@@ -101,36 +104,44 @@ namespace CyberSource.Model
         public string ProductDescription { get; set; }
 
         /// <summary>
-        /// Discount amount applied to the item. Maximum of 2 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent. Otherwise, a validation error will be returned. 
+        /// Discount amount applied to the item. Maximum of 2 decimal places. You may provide either discountAmount or discountPercent (not both). Example: 0.60 
         /// </summary>
-        /// <value>Discount amount applied to the item. Maximum of 2 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent. Otherwise, a validation error will be returned. </value>
+        /// <value>Discount amount applied to the item. Maximum of 2 decimal places. You may provide either discountAmount or discountPercent (not both). Example: 0.60 </value>
         [JsonPropertyName("discountAmount")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string DiscountAmount { get; set; }
 
         /// <summary>
-        /// Discount rate applied to the item. Maximum of 3 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent; otherwise, a validation error will be returned. Example: 5.25 (&#x3D;5.25%) 
+        /// Discount rate applied to the item. Maximum of 3 decimal places. You may provide either discountAmount or discountPercent (not both). If you add discountPercent, a discountAmount will be calculated automatically. Example: 5.00 (&#x3D;5.00%) 
         /// </summary>
-        /// <value>Discount rate applied to the item. Maximum of 3 decimal places. You may provide either discountAmount or discountPercent (not both). If both are present, their values must be consistent; otherwise, a validation error will be returned. Example: 5.25 (&#x3D;5.25%) </value>
+        /// <value>Discount rate applied to the item. Maximum of 3 decimal places. You may provide either discountAmount or discountPercent (not both). If you add discountPercent, a discountAmount will be calculated automatically. Example: 5.00 (&#x3D;5.00%) </value>
         [JsonPropertyName("discountPercent")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string DiscountPercent { get; set; }
 
         /// <summary>
-        /// Tax amount applied to the item. This value cannot be negative. Maximum of 2 decimal places. The tax amount and the offer amount must be in the same currency. The tax amount field is additive. If taxAmount is provided but taxRate is not, the taxRate will be calculated. 
+        /// Tax amount applied to the item. This value cannot be negative. Maximum of 2 decimal places. The tax amount and the offer amount must be in the same currency. The tax amount field is additive. If taxAmount is provided but taxRate is not, the taxRate will be calculated. Example: 2.86 
         /// </summary>
-        /// <value>Tax amount applied to the item. This value cannot be negative. Maximum of 2 decimal places. The tax amount and the offer amount must be in the same currency. The tax amount field is additive. If taxAmount is provided but taxRate is not, the taxRate will be calculated. </value>
+        /// <value>Tax amount applied to the item. This value cannot be negative. Maximum of 2 decimal places. The tax amount and the offer amount must be in the same currency. The tax amount field is additive. If taxAmount is provided but taxRate is not, the taxRate will be calculated. Example: 2.86 </value>
         [JsonPropertyName("taxAmount")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string TaxAmount { get; set; }
 
         /// <summary>
-        /// Tax rate applied to the item. Valid range: 1.001% to 99.999%. Maximum of 3 decimal places. If a taxRate is provided but taxAmount is missing or incorrect, the taxAmount based on the given taxRate will be overwritten. Example: 21.00 (&#x3D;21.00%) 
+        /// Tax rate applied to the item. Valid range: 1.001% to 99.999%. Maximum of 3 decimal places. If a taxRate is provided but taxAmount is missing or incorrect, the taxAmount based on the given taxRate will be overwritten. Example: 25.00 (&#x3D;25.00%) 
         /// </summary>
-        /// <value>Tax rate applied to the item. Valid range: 1.001% to 99.999%. Maximum of 3 decimal places. If a taxRate is provided but taxAmount is missing or incorrect, the taxAmount based on the given taxRate will be overwritten. Example: 21.00 (&#x3D;21.00%) </value>
+        /// <value>Tax rate applied to the item. Valid range: 1.001% to 99.999%. Maximum of 3 decimal places. If a taxRate is provided but taxAmount is missing or incorrect, the taxAmount based on the given taxRate will be overwritten. Example: 25.00 (&#x3D;25.00%) </value>
         [JsonPropertyName("taxRate")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string TaxRate { get; set; }
+
+        /// <summary>
+        /// Total amount for the line item after discount and tax, calculated per single unit. Formula: (unitPrice - discountAmount) + taxAmount. This field is calculated automatically and does not need to be provided in the request. Example: 14.31 
+        /// </summary>
+        /// <value>Total amount for the line item after discount and tax, calculated per single unit. Formula: (unitPrice - discountAmount) + taxAmount. This field is calculated automatically and does not need to be provided in the request. Example: 14.31 </value>
+        [JsonPropertyName("totalAmount")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string TotalAmount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -149,6 +160,8 @@ namespace CyberSource.Model
             if (DiscountPercent != null) sb.Append("  DiscountPercent: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksOrderInformationLineItems", "discountPercent", DiscountPercent.ToString())).Append("\n");
             if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksOrderInformationLineItems", "taxAmount", TaxAmount.ToString())).Append("\n");
             if (TaxRate != null) sb.Append("  TaxRate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksOrderInformationLineItems", "taxRate", TaxRate.ToString())).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Iplv2paymentlinksOrderInformationLineItems", "totalAmount", TotalAmount.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -159,7 +172,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iplv2paymentlinksOrderInformationLineItems", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Iplv2paymentlinksOrderInformationLineItems", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -184,7 +197,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.ProductSku == other.ProductSku ||
                     this.ProductSku != null &&
@@ -229,6 +246,11 @@ namespace CyberSource.Model
                     this.TaxRate == other.TaxRate ||
                     this.TaxRate != null &&
                     this.TaxRate.Equals(other.TaxRate)
+                ) && 
+                (
+                    this.TotalAmount == other.TotalAmount ||
+                    this.TotalAmount != null &&
+                    this.TotalAmount.Equals(other.TotalAmount)
                 );
         }
 
@@ -243,6 +265,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.ProductSku != null)
                     hash = hash * 59 + this.ProductSku.GetHashCode();
                 if (this.ProductName != null)
@@ -261,6 +285,9 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TaxAmount.GetHashCode();
                 if (this.TaxRate != null)
                     hash = hash * 59 + this.TaxRate.GetHashCode();
+                if (this.TotalAmount != null)
+                    hash = hash * 59 + this.TotalAmount.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

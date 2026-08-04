@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// TmsPointOfSaleInformationEmvTags
     /// </summary>
     [DataContract]
-    public partial class TmsPointOfSaleInformationEmvTags :  IEquatable<TmsPointOfSaleInformationEmvTags>, IValidatableObject
+    public partial class TmsPointOfSaleInformationEmvTags :  ModelExtensions, IEquatable<TmsPointOfSaleInformationEmvTags>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TmsPointOfSaleInformationEmvTags" /> class.
@@ -83,6 +84,7 @@ namespace CyberSource.Model
             if (Tag != null) sb.Append("  Tag: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsPointOfSaleInformationEmvTags", "tag", Tag.ToString())).Append("\n");
             if (Value != null) sb.Append("  Value: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsPointOfSaleInformationEmvTags", "value", Value.ToString())).Append("\n");
             if (Source != null) sb.Append("  Source: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsPointOfSaleInformationEmvTags", "source", Source.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,7 +95,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TmsPointOfSaleInformationEmvTags", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TmsPointOfSaleInformationEmvTags", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -118,7 +120,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Tag == other.Tag ||
                     this.Tag != null &&
@@ -147,12 +153,15 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Tag != null)
                     hash = hash * 59 + this.Tag.GetHashCode();
                 if (this.Value != null)
                     hash = hash * 59 + this.Value.GetHashCode();
                 if (this.Source != null)
                     hash = hash * 59 + this.Source.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

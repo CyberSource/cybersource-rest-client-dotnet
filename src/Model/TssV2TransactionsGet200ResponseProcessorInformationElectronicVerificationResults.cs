@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults
     /// </summary>
     [DataContract]
-    public partial class TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults :  IEquatable<TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults>, IValidatableObject
+    public partial class TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults :  ModelExtensions, IEquatable<TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults" /> class.
@@ -155,6 +156,7 @@ namespace CyberSource.Model
             if (StreetRaw != null) sb.Append("  StreetRaw: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults", "streetRaw", StreetRaw.ToString())).Append("\n");
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults", "postalCode", PostalCode.ToString())).Append("\n");
             if (PostalCodeRaw != null) sb.Append("  PostalCodeRaw: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults", "postalCodeRaw", PostalCodeRaw.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,7 +167,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("TssV2TransactionsGet200ResponseProcessorInformationElectronicVerificationResults", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -190,7 +192,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Email == other.Email ||
                     this.Email != null &&
@@ -254,6 +260,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Email != null)
                     hash = hash * 59 + this.Email.GetHashCode();
                 if (this.EmailRaw != null)
@@ -274,6 +282,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.PostalCodeRaw != null)
                     hash = hash * 59 + this.PostalCodeRaw.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

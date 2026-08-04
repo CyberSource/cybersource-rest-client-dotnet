@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -157,10 +159,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsRefundPost201Response</returns>
         public PtsV2PaymentsRefundPost201Response RefundCapture(RefundCaptureRequest refundCaptureRequest, string id)
         {
-            logger.Debug("CALLING API \"RefundCapture\" STARTED");
+            logger.LogDebug("CALLING API \"RefundCapture\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = RefundCaptureWithHttpInfo(refundCaptureRequest, id);
-            logger.Debug("CALLING API \"RefundCapture\" ENDED");
+            logger.LogDebug("CALLING API \"RefundCapture\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -179,13 +181,13 @@ namespace CyberSource.Api
             // verify the required parameter 'refundCaptureRequest' is set
             if (refundCaptureRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'refundCaptureRequest' when calling RefundApi->RefundCapture");
+                logger.LogError("ApiException : Missing required parameter 'refundCaptureRequest' when calling RefundApi->RefundCapture");
                 throw new ApiException(400, "Missing required parameter 'refundCaptureRequest' when calling RefundApi->RefundCapture");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling RefundApi->RefundCapture");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling RefundApi->RefundCapture");
                 throw new ApiException(400, "Missing required parameter 'id' when calling RefundApi->RefundCapture");
             }
 
@@ -218,7 +220,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (refundCaptureRequest != null && refundCaptureRequest.GetType() != typeof(byte[]))
             {
@@ -237,18 +239,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "RefundCapture,RefundCaptureAsync,RefundCaptureWithHttpInfo,RefundCaptureAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -263,7 +265,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("RefundCapture", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -282,10 +284,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsRefundPost201Response</returns>
         public async Task<PtsV2PaymentsRefundPost201Response> RefundCaptureAsync(RefundCaptureRequest refundCaptureRequest, string id)
         {
-            logger.Debug("CALLING API \"RefundCaptureAsync\" STARTED");
+            logger.LogDebug("CALLING API \"RefundCaptureAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = await RefundCaptureAsyncWithHttpInfo(refundCaptureRequest, id);
-            logger.Debug("CALLING API \"RefundCaptureAsync\" ENDED");
+            logger.LogDebug("CALLING API \"RefundCaptureAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -305,13 +307,13 @@ namespace CyberSource.Api
             // verify the required parameter 'refundCaptureRequest' is set
             if (refundCaptureRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'refundCaptureRequest' when calling RefundApi->RefundCapture");
+                logger.LogError("ApiException : Missing required parameter 'refundCaptureRequest' when calling RefundApi->RefundCapture");
                 throw new ApiException(400, "Missing required parameter 'refundCaptureRequest' when calling RefundApi->RefundCapture");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling RefundApi->RefundCapture");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling RefundApi->RefundCapture");
                 throw new ApiException(400, "Missing required parameter 'id' when calling RefundApi->RefundCapture");
             }
 
@@ -344,7 +346,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (refundCaptureRequest != null && refundCaptureRequest.GetType() != typeof(byte[]))
             {
@@ -363,18 +365,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "RefundCapture,RefundCaptureAsync,RefundCaptureWithHttpInfo,RefundCaptureAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -389,7 +391,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("RefundCapture", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -407,10 +409,10 @@ namespace CyberSource.Api
         /// <returns>PtsV2PaymentsRefundPost201Response</returns>
         public PtsV2PaymentsRefundPost201Response RefundPayment(RefundPaymentRequest refundPaymentRequest, string id)
         {
-            logger.Debug("CALLING API \"RefundPayment\" STARTED");
+            logger.LogDebug("CALLING API \"RefundPayment\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = RefundPaymentWithHttpInfo(refundPaymentRequest, id);
-            logger.Debug("CALLING API \"RefundPayment\" ENDED");
+            logger.LogDebug("CALLING API \"RefundPayment\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -429,13 +431,13 @@ namespace CyberSource.Api
             // verify the required parameter 'refundPaymentRequest' is set
             if (refundPaymentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'refundPaymentRequest' when calling RefundApi->RefundPayment");
+                logger.LogError("ApiException : Missing required parameter 'refundPaymentRequest' when calling RefundApi->RefundPayment");
                 throw new ApiException(400, "Missing required parameter 'refundPaymentRequest' when calling RefundApi->RefundPayment");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling RefundApi->RefundPayment");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling RefundApi->RefundPayment");
                 throw new ApiException(400, "Missing required parameter 'id' when calling RefundApi->RefundPayment");
             }
 
@@ -468,7 +470,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (refundPaymentRequest != null && refundPaymentRequest.GetType() != typeof(byte[]))
             {
@@ -487,18 +489,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "RefundPayment,RefundPaymentAsync,RefundPaymentWithHttpInfo,RefundPaymentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -513,7 +515,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("RefundPayment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -532,10 +534,10 @@ namespace CyberSource.Api
         /// <returns>Task of PtsV2PaymentsRefundPost201Response</returns>
         public async Task<PtsV2PaymentsRefundPost201Response> RefundPaymentAsync(RefundPaymentRequest refundPaymentRequest, string id)
         {
-            logger.Debug("CALLING API \"RefundPaymentAsync\" STARTED");
+            logger.LogDebug("CALLING API \"RefundPaymentAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<PtsV2PaymentsRefundPost201Response> localVarResponse = await RefundPaymentAsyncWithHttpInfo(refundPaymentRequest, id);
-            logger.Debug("CALLING API \"RefundPaymentAsync\" ENDED");
+            logger.LogDebug("CALLING API \"RefundPaymentAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -555,13 +557,13 @@ namespace CyberSource.Api
             // verify the required parameter 'refundPaymentRequest' is set
             if (refundPaymentRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'refundPaymentRequest' when calling RefundApi->RefundPayment");
+                logger.LogError("ApiException : Missing required parameter 'refundPaymentRequest' when calling RefundApi->RefundPayment");
                 throw new ApiException(400, "Missing required parameter 'refundPaymentRequest' when calling RefundApi->RefundPayment");
             }
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                logger.Error("ApiException : Missing required parameter 'id' when calling RefundApi->RefundPayment");
+                logger.LogError("ApiException : Missing required parameter 'id' when calling RefundApi->RefundPayment");
                 throw new ApiException(400, "Missing required parameter 'id' when calling RefundApi->RefundPayment");
             }
 
@@ -594,7 +596,7 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("id", ApiClient.ParameterToString(id)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (refundPaymentRequest != null && refundPaymentRequest.GetType() != typeof(byte[]))
             {
@@ -613,18 +615,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "RefundPayment,RefundPaymentAsync,RefundPaymentWithHttpInfo,RefundPaymentAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -639,7 +641,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("RefundPayment", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

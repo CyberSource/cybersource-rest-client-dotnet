@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Ucv1sessionsDataBuyerInformation
     /// </summary>
     [DataContract]
-    public partial class Ucv1sessionsDataBuyerInformation :  IEquatable<Ucv1sessionsDataBuyerInformation>, IValidatableObject
+    public partial class Ucv1sessionsDataBuyerInformation :  ModelExtensions, IEquatable<Ucv1sessionsDataBuyerInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Ucv1sessionsDataBuyerInformation" /> class.
@@ -99,6 +100,7 @@ namespace CyberSource.Model
             if (CompanyTaxId != null) sb.Append("  CompanyTaxId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsDataBuyerInformation", "companyTaxId", CompanyTaxId.ToString())).Append("\n");
             if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsDataBuyerInformation", "dateOfBirth", DateOfBirth.ToString())).Append("\n");
             if (Language != null) sb.Append("  Language: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsDataBuyerInformation", "language", Language.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,7 +111,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ucv1sessionsDataBuyerInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Ucv1sessionsDataBuyerInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -134,7 +136,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.PersonalIdentification == other.PersonalIdentification ||
                     this.PersonalIdentification != null &&
@@ -173,6 +179,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.PersonalIdentification != null)
                     hash = hash * 59 + this.PersonalIdentification.GetHashCode();
                 if (this.MerchantCustomerId != null)
@@ -183,6 +191,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DateOfBirth.GetHashCode();
                 if (this.Language != null)
                     hash = hash * 59 + this.Language.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

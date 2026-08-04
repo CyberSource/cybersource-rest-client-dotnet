@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -106,10 +108,10 @@ namespace CyberSource.Api
         /// <returns>MppCredentialsResponse200</returns>
         public MppCredentialsResponse200 ProvisionMppCredentials(MppCredentialsRequest mppCredentialsRequest)
         {
-            logger.Debug("CALLING API \"ProvisionMppCredentials\" STARTED");
+            logger.LogDebug("CALLING API \"ProvisionMppCredentials\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<MppCredentialsResponse200> localVarResponse = ProvisionMppCredentialsWithHttpInfo(mppCredentialsRequest);
-            logger.Debug("CALLING API \"ProvisionMppCredentials\" ENDED");
+            logger.LogDebug("CALLING API \"ProvisionMppCredentials\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -127,7 +129,7 @@ namespace CyberSource.Api
             // verify the required parameter 'mppCredentialsRequest' is set
             if (mppCredentialsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'mppCredentialsRequest' when calling CredentialsApi->ProvisionMppCredentials");
+                logger.LogError("ApiException : Missing required parameter 'mppCredentialsRequest' when calling CredentialsApi->ProvisionMppCredentials");
                 throw new ApiException(400, "Missing required parameter 'mppCredentialsRequest' when calling CredentialsApi->ProvisionMppCredentials");
             }
 
@@ -172,18 +174,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "ProvisionMppCredentials,ProvisionMppCredentialsAsync,ProvisionMppCredentialsWithHttpInfo,ProvisionMppCredentialsAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -198,7 +200,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ProvisionMppCredentials", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -216,10 +218,10 @@ namespace CyberSource.Api
         /// <returns>Task of MppCredentialsResponse200</returns>
         public async Task<MppCredentialsResponse200> ProvisionMppCredentialsAsync(MppCredentialsRequest mppCredentialsRequest)
         {
-            logger.Debug("CALLING API \"ProvisionMppCredentialsAsync\" STARTED");
+            logger.LogDebug("CALLING API \"ProvisionMppCredentialsAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<MppCredentialsResponse200> localVarResponse = await ProvisionMppCredentialsAsyncWithHttpInfo(mppCredentialsRequest);
-            logger.Debug("CALLING API \"ProvisionMppCredentialsAsync\" ENDED");
+            logger.LogDebug("CALLING API \"ProvisionMppCredentialsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -238,7 +240,7 @@ namespace CyberSource.Api
             // verify the required parameter 'mppCredentialsRequest' is set
             if (mppCredentialsRequest == null)
             {
-                logger.Error("ApiException : Missing required parameter 'mppCredentialsRequest' when calling CredentialsApi->ProvisionMppCredentials");
+                logger.LogError("ApiException : Missing required parameter 'mppCredentialsRequest' when calling CredentialsApi->ProvisionMppCredentials");
                 throw new ApiException(400, "Missing required parameter 'mppCredentialsRequest' when calling CredentialsApi->ProvisionMppCredentials");
             }
 
@@ -283,18 +285,18 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
 
             bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "ProvisionMppCredentials,ProvisionMppCredentialsAsync,ProvisionMppCredentialsWithHttpInfo,ProvisionMppCredentialsAsyncWithHttpInfo");
 
-            logger.Debug($"HTTP Request Body :\n{logUtility.MaskSensitiveData(localVarPostBody.ToString())}");
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
 
 
             // make the HTTP request
@@ -309,7 +311,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("ProvisionMppCredentials", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

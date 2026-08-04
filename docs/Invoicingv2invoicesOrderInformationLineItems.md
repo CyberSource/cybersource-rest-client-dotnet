@@ -13,5 +13,14 @@ Name | Type | Description | Notes
 **TaxRate** | **string** | Valid range: 1% to 99%, with only whole percentage values accepted; values with additional  decimal places will be truncated  For processor-specific details, see the alternate_tax_amount, vat_rate, vat_tax_rate, local_tax, national_tax, vat_tax_amount or other_tax#_rate field descriptions in the Level II and Level III Processing Using the SCMP API Guide.  | [optional] 
 **TotalAmount** | **string** | Total amount for the item. Normally calculated as the unit price times quantity.  When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the purchase amount total for prepaid gift cards in major units.  Example: 123.45 USD &#x3D; 123  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

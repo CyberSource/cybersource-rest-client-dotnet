@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -167,10 +169,10 @@ namespace CyberSource.Api
         /// <returns>ReportingV3ReportDefinitionsNameGet200Response</returns>
         public ReportingV3ReportDefinitionsNameGet200Response GetResourceInfoByReportDefinition(string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetResourceInfoByReportDefinition\" STARTED");
+            logger.LogDebug("CALLING API \"GetResourceInfoByReportDefinition\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportDefinitionsNameGet200Response> localVarResponse = GetResourceInfoByReportDefinitionWithHttpInfo(reportDefinitionName, subscriptionType, reportMimeType, organizationId);
-            logger.Debug("CALLING API \"GetResourceInfoByReportDefinition\" ENDED");
+            logger.LogDebug("CALLING API \"GetResourceInfoByReportDefinition\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -191,7 +193,7 @@ namespace CyberSource.Api
             // verify the required parameter 'reportDefinitionName' is set
             if (reportDefinitionName == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportDefinitionName' when calling ReportDefinitionsApi->GetResourceInfoByReportDefinition");
+                logger.LogError("ApiException : Missing required parameter 'reportDefinitionName' when calling ReportDefinitionsApi->GetResourceInfoByReportDefinition");
                 throw new ApiException(400, "Missing required parameter 'reportDefinitionName' when calling ReportDefinitionsApi->GetResourceInfoByReportDefinition");
             }
 
@@ -223,25 +225,25 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportDefinitionName", ApiClient.ParameterToString(reportDefinitionName)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (subscriptionType != null)
             {
                 localVarQueryParams.Add("subscriptionType", ApiClient.ParameterToString(subscriptionType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportMimeType != null)
             {
                 localVarQueryParams.Add("reportMimeType", ApiClient.ParameterToString(reportMimeType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -265,11 +267,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -289,7 +291,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetResourceInfoByReportDefinition", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -310,10 +312,10 @@ namespace CyberSource.Api
         /// <returns>Task of ReportingV3ReportDefinitionsNameGet200Response</returns>
         public async Task<ReportingV3ReportDefinitionsNameGet200Response> GetResourceInfoByReportDefinitionAsync(string reportDefinitionName, string subscriptionType = null, string reportMimeType = null, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetResourceInfoByReportDefinitionAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetResourceInfoByReportDefinitionAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportDefinitionsNameGet200Response> localVarResponse = await GetResourceInfoByReportDefinitionAsyncWithHttpInfo(reportDefinitionName, subscriptionType, reportMimeType, organizationId);
-            logger.Debug("CALLING API \"GetResourceInfoByReportDefinitionAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetResourceInfoByReportDefinitionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -335,7 +337,7 @@ namespace CyberSource.Api
             // verify the required parameter 'reportDefinitionName' is set
             if (reportDefinitionName == null)
             {
-                logger.Error("ApiException : Missing required parameter 'reportDefinitionName' when calling ReportDefinitionsApi->GetResourceInfoByReportDefinition");
+                logger.LogError("ApiException : Missing required parameter 'reportDefinitionName' when calling ReportDefinitionsApi->GetResourceInfoByReportDefinition");
                 throw new ApiException(400, "Missing required parameter 'reportDefinitionName' when calling ReportDefinitionsApi->GetResourceInfoByReportDefinition");
             }
 
@@ -367,25 +369,25 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("reportDefinitionName", ApiClient.ParameterToString(reportDefinitionName)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (subscriptionType != null)
             {
                 localVarQueryParams.Add("subscriptionType", ApiClient.ParameterToString(subscriptionType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (reportMimeType != null)
             {
                 localVarQueryParams.Add("reportMimeType", ApiClient.ParameterToString(reportMimeType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -408,11 +410,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -432,7 +434,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetResourceInfoByReportDefinition", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -450,10 +452,10 @@ namespace CyberSource.Api
         /// <returns>ReportingV3ReportDefinitionsGet200Response</returns>
         public ReportingV3ReportDefinitionsGet200Response GetResourceV2Info(string subscriptionType = null, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetResourceV2Info\" STARTED");
+            logger.LogDebug("CALLING API \"GetResourceV2Info\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportDefinitionsGet200Response> localVarResponse = GetResourceV2InfoWithHttpInfo(subscriptionType, organizationId);
-            logger.Debug("CALLING API \"GetResourceV2Info\" ENDED");
+            logger.LogDebug("CALLING API \"GetResourceV2Info\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -498,13 +500,13 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("subscriptionType", ApiClient.ParameterToString(subscriptionType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -528,11 +530,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -552,7 +554,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetResourceV2Info", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -571,10 +573,10 @@ namespace CyberSource.Api
         /// <returns>Task of ReportingV3ReportDefinitionsGet200Response</returns>
         public async Task<ReportingV3ReportDefinitionsGet200Response> GetResourceV2InfoAsync(string subscriptionType = null, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetResourceV2InfoAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetResourceV2InfoAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<ReportingV3ReportDefinitionsGet200Response> localVarResponse = await GetResourceV2InfoAsyncWithHttpInfo(subscriptionType, organizationId);
-            logger.Debug("CALLING API \"GetResourceV2InfoAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetResourceV2InfoAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -620,13 +622,13 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("subscriptionType", ApiClient.ParameterToString(subscriptionType)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -649,11 +651,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -673,7 +675,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetResourceV2Info", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

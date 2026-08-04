@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// GenerateUnifiedCheckoutCaptureContextRequest
     /// </summary>
     [DataContract]
-    public partial class GenerateUnifiedCheckoutCaptureContextRequest :  IEquatable<GenerateUnifiedCheckoutCaptureContextRequest>, IValidatableObject
+    public partial class GenerateUnifiedCheckoutCaptureContextRequest :  ModelExtensions, IEquatable<GenerateUnifiedCheckoutCaptureContextRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerateUnifiedCheckoutCaptureContextRequest" /> class.
@@ -172,6 +173,7 @@ namespace CyberSource.Model
             if (TransientTokenResponseOptions != null) sb.Append("  TransientTokenResponseOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GenerateUnifiedCheckoutCaptureContextRequest", "transientTokenResponseOptions", TransientTokenResponseOptions.ToString())).Append("\n");
             if (Data != null) sb.Append("  Data: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GenerateUnifiedCheckoutCaptureContextRequest", "data", Data.ToString())).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("GenerateUnifiedCheckoutCaptureContextRequest", "orderInformation", OrderInformation.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,7 +184,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("GenerateUnifiedCheckoutCaptureContextRequest", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("GenerateUnifiedCheckoutCaptureContextRequest", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -207,7 +209,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.ClientVersion == other.ClientVersion ||
                     this.ClientVersion != null &&
@@ -281,6 +287,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.ClientVersion != null)
                     hash = hash * 59 + this.ClientVersion.GetHashCode();
                 if (this.TargetOrigins != null)
@@ -305,6 +313,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Data.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

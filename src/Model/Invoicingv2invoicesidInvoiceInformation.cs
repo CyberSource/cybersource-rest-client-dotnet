@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Contains the updatable invoice information.
     /// </summary>
     [DataContract]
-    public partial class Invoicingv2invoicesidInvoiceInformation :  IEquatable<Invoicingv2invoicesidInvoiceInformation>, IValidatableObject
+    public partial class Invoicingv2invoicesidInvoiceInformation :  ModelExtensions, IEquatable<Invoicingv2invoicesidInvoiceInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Invoicingv2invoicesidInvoiceInformation" /> class.
@@ -38,14 +39,16 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Invoicingv2invoicesidInvoiceInformation" /> class.
         /// </summary>
+        /// <param name="TransactionReferenceNumber">The transaction reference number (TRN) is a identifier assigned to each payment transaction that allows merchants, customers, and payment processors to track and reference specific transactions throughout their lifecycle.  When provided, this value is passed to the payment processor as the reconciliation ID for the payment. For invoices this is typically the invoice number, and for purchase or donation links it is typically the link identifier.  Only letters and numbers are allowed; spaces and other special characters are not permitted. .</param>
         /// <param name="Description">The description included in the invoice. (required).</param>
-        /// <param name="DueDate">The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day  (required).</param>
-        /// <param name="ExpirationDate">Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day .</param>
+        /// <param name="DueDate">The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date.  (required).</param>
+        /// <param name="ExpirationDate">Define an expiration date for the link.  The date must be today or in the future.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. .</param>
         /// <param name="SendImmediately">If set to &#x60;true&#x60;, we send the invoice immediately. If set to &#x60;false&#x60;, the invoice remains in draft mode. (default to false).</param>
         /// <param name="AllowPartialPayments">If set to &#x60;true&#x60;, the payer can make a partial invoice payment. (default to false).</param>
         /// <param name="DeliveryMode">If this field is set to &#39;None&#39;, an invoice will be generated with the status &#39;CREATED&#39;, but no email will be dispatched.    Possible values:        - &#x60;None&#x60;   - &#x60;Email&#x60;    .</param>
-        public Invoicingv2invoicesidInvoiceInformation(string Description = default(string), DateTime? DueDate = default(DateTime?), DateTime? ExpirationDate = default(DateTime?), bool? SendImmediately = false, bool? AllowPartialPayments = false, string DeliveryMode = default(string))
+        public Invoicingv2invoicesidInvoiceInformation(string TransactionReferenceNumber = default(string), string Description = default(string), DateTime? DueDate = default(DateTime?), DateTime? ExpirationDate = default(DateTime?), bool? SendImmediately = false, bool? AllowPartialPayments = false, string DeliveryMode = default(string))
         {
+            this.TransactionReferenceNumber = TransactionReferenceNumber;
             this.Description = Description;
             this.DueDate = DueDate;
             this.ExpirationDate = ExpirationDate;
@@ -71,6 +74,14 @@ namespace CyberSource.Model
         }
         
         /// <summary>
+        /// The transaction reference number (TRN) is a identifier assigned to each payment transaction that allows merchants, customers, and payment processors to track and reference specific transactions throughout their lifecycle.  When provided, this value is passed to the payment processor as the reconciliation ID for the payment. For invoices this is typically the invoice number, and for purchase or donation links it is typically the link identifier.  Only letters and numbers are allowed; spaces and other special characters are not permitted. 
+        /// </summary>
+        /// <value>The transaction reference number (TRN) is a identifier assigned to each payment transaction that allows merchants, customers, and payment processors to track and reference specific transactions throughout their lifecycle.  When provided, this value is passed to the payment processor as the reconciliation ID for the payment. For invoices this is typically the invoice number, and for purchase or donation links it is typically the link identifier.  Only letters and numbers are allowed; spaces and other special characters are not permitted. </value>
+        [JsonPropertyName("transactionReferenceNumber")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string TransactionReferenceNumber { get; set; }
+
+        /// <summary>
         /// The description included in the invoice.
         /// </summary>
         /// <value>The description included in the invoice.</value>
@@ -79,18 +90,18 @@ namespace CyberSource.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day 
+        /// The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. 
         /// </summary>
-        /// <value>The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day </value>
+        /// <value>The invoice due date. This field is required for creating an invoice. Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. </value>
         [JsonPropertyName("dueDate")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         [JsonConverter(typeof(SwaggerDateConverter))]
         public DateTime? DueDate { get; set; }
 
         /// <summary>
-        /// Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day 
+        /// Define an expiration date for the link.  The date must be today or in the future.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. 
         /// </summary>
-        /// <value>Define an expiration date for the link.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day </value>
+        /// <value>Define an expiration date for the link.  The date must be today or in the future.  Format: &#x60;YYYY-MM-DD&#x60;, where &#x60;YYYY&#x60; &#x3D; year, &#x60;MM&#x60; &#x3D; month, and &#x60;DD&#x60; &#x3D; day.  The invoice link automatically expires 12 months after the due date. </value>
         [JsonPropertyName("expirationDate")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         [JsonConverter(typeof(SwaggerDateConverter))]
@@ -128,12 +139,14 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Invoicingv2invoicesidInvoiceInformation {\n");
+            if (TransactionReferenceNumber != null) sb.Append("  TransactionReferenceNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoicesidInvoiceInformation", "transactionReferenceNumber", TransactionReferenceNumber.ToString())).Append("\n");
             if (Description != null) sb.Append("  Description: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoicesidInvoiceInformation", "description", Description.ToString())).Append("\n");
             if (DueDate != null) sb.Append("  DueDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoicesidInvoiceInformation", "dueDate", DueDate.ToString())).Append("\n");
             if (ExpirationDate != null) sb.Append("  ExpirationDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoicesidInvoiceInformation", "expirationDate", ExpirationDate.ToString())).Append("\n");
             if (SendImmediately != null) sb.Append("  SendImmediately: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoicesidInvoiceInformation", "sendImmediately", SendImmediately.ToString())).Append("\n");
             if (AllowPartialPayments != null) sb.Append("  AllowPartialPayments: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoicesidInvoiceInformation", "allowPartialPayments", AllowPartialPayments.ToString())).Append("\n");
             if (DeliveryMode != null) sb.Append("  DeliveryMode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Invoicingv2invoicesidInvoiceInformation", "deliveryMode", DeliveryMode.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,7 +157,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Invoicingv2invoicesidInvoiceInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Invoicingv2invoicesidInvoiceInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -169,7 +182,16 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
+                (
+                    this.TransactionReferenceNumber == other.TransactionReferenceNumber ||
+                    this.TransactionReferenceNumber != null &&
+                    this.TransactionReferenceNumber.Equals(other.TransactionReferenceNumber)
+                ) && 
                 (
                     this.Description == other.Description ||
                     this.Description != null &&
@@ -213,6 +235,10 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
+                if (this.TransactionReferenceNumber != null)
+                    hash = hash * 59 + this.TransactionReferenceNumber.GetHashCode();
                 if (this.Description != null)
                     hash = hash * 59 + this.Description.GetHashCode();
                 if (this.DueDate != null)
@@ -225,6 +251,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AllowPartialPayments.GetHashCode();
                 if (this.DeliveryMode != null)
                     hash = hash * 59 + this.DeliveryMode.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

@@ -7,5 +7,14 @@ Name | Type | Description | Notes
 **PaymentCompletionTimeout** | **string** | Period after which an authorization request to the consumer expires due to inactivity. Value in seconds (e.g., 86400 for one day).  | [optional] 
 **ActionList** | **List&lt;string&gt;** | - Use &#x60;CONSUMER_AUTHENTICATION&#x60; to use Payer Authentication along with Decision Manager. For any other value, only Decision Manager will run. - Use &#x60;WATCHLIST_SCREENING&#x60;  when you want to call Watchlist Screening service. - Use &#x60;UPDATE_AGREEMENT&#x60; - Use &#x60;BILLING_AGREEMENT_CREATE&#x60; when Alternative Payment create mandate service is requested - Use &#x60;CANCEL_AGREEMENT&#x60; - Use &#x60;AP_IMPORT_AGREEMENT&#x60; when Alternative Payment import mandate service is requested.  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

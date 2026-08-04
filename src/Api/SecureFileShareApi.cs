@@ -19,6 +19,8 @@ using CyberSource.Model;
 using AuthenticationSdk.util;
 using CyberSource.Utilities.Tracking;
 using CyberSource.Utilities;
+using Microsoft.Extensions.Logging;
+using CyberSource.Utilities.Serialization;
 
 namespace CyberSource.Api
 {
@@ -165,7 +167,7 @@ namespace CyberSource.Api
         /// <returns></returns>
         public void GetFile(string fileId, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetFile\" STARTED");
+            logger.LogDebug("CALLING API \"GetFile\" STARTED");
             this.SetStatusCode(null);
             GetFileWithHttpInfo(fileId, organizationId);
         }
@@ -184,7 +186,7 @@ namespace CyberSource.Api
             // verify the required parameter 'fileId' is set
             if (fileId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'fileId' when calling SecureFileShareApi->GetFile");
+                logger.LogError("ApiException : Missing required parameter 'fileId' when calling SecureFileShareApi->GetFile");
                 throw new ApiException(400, "Missing required parameter 'fileId' when calling SecureFileShareApi->GetFile");
             }
 
@@ -218,13 +220,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("fileId", ApiClient.ParameterToString(fileId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -248,11 +250,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -272,7 +274,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetFile", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -292,7 +294,7 @@ namespace CyberSource.Api
         /// <returns>Task of void</returns>
         public async Task GetFileAsync(string fileId, string organizationId = null)
         {
-            logger.Debug("CALLING API \"GetFileAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetFileAsync\" STARTED");
             this.SetStatusCode(null);
             await GetFileAsyncWithHttpInfo(fileId, organizationId);
 
@@ -312,7 +314,7 @@ namespace CyberSource.Api
             // verify the required parameter 'fileId' is set
             if (fileId == null)
             {
-                logger.Error("ApiException : Missing required parameter 'fileId' when calling SecureFileShareApi->GetFile");
+                logger.LogError("ApiException : Missing required parameter 'fileId' when calling SecureFileShareApi->GetFile");
                 throw new ApiException(400, "Missing required parameter 'fileId' when calling SecureFileShareApi->GetFile");
             }
 
@@ -346,13 +348,13 @@ namespace CyberSource.Api
             {
                 localVarPathParams.Add("fileId", ApiClient.ParameterToString(fileId)); // path parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -375,11 +377,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -399,7 +401,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetFile", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -420,10 +422,10 @@ namespace CyberSource.Api
         /// <returns>V1FileDetailsGet200Response</returns>
         public V1FileDetailsGet200Response GetFileDetail(DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
         {
-            logger.Debug("CALLING API \"GetFileDetail\" STARTED");
+            logger.LogDebug("CALLING API \"GetFileDetail\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<V1FileDetailsGet200Response> localVarResponse = GetFileDetailWithHttpInfo(startDate, endDate, organizationId, name);
-            logger.Debug("CALLING API \"GetFileDetail\" ENDED");
+            logger.LogDebug("CALLING API \"GetFileDetail\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
         }
@@ -444,13 +446,13 @@ namespace CyberSource.Api
             // verify the required parameter 'startDate' is set
             if (startDate == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startDate' when calling SecureFileShareApi->GetFileDetail");
+                logger.LogError("ApiException : Missing required parameter 'startDate' when calling SecureFileShareApi->GetFileDetail");
                 throw new ApiException(400, "Missing required parameter 'startDate' when calling SecureFileShareApi->GetFileDetail");
             }
             // verify the required parameter 'endDate' is set
             if (endDate == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetail");
+                logger.LogError("ApiException : Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetail");
                 throw new ApiException(400, "Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetail");
             }
 
@@ -482,25 +484,25 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("startDate", ApiClient.ParameterToString(startDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endDate != null)
             {
                 localVarQueryParams.Add("endDate", ApiClient.ParameterToString(endDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (name != null)
             {
                 localVarQueryParams.Add("name", ApiClient.ParameterToString(name)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -524,11 +526,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -548,7 +550,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetFileDetail", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }
@@ -569,10 +571,10 @@ namespace CyberSource.Api
         /// <returns>Task of V1FileDetailsGet200Response</returns>
         public async Task<V1FileDetailsGet200Response> GetFileDetailAsync(DateTime? startDate, DateTime? endDate, string organizationId = null, string name = null)
         {
-            logger.Debug("CALLING API \"GetFileDetailAsync\" STARTED");
+            logger.LogDebug("CALLING API \"GetFileDetailAsync\" STARTED");
             this.SetStatusCode(null);
             ApiResponse<V1FileDetailsGet200Response> localVarResponse = await GetFileDetailAsyncWithHttpInfo(startDate, endDate, organizationId, name);
-            logger.Debug("CALLING API \"GetFileDetailAsync\" ENDED");
+            logger.LogDebug("CALLING API \"GetFileDetailAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
 
@@ -594,13 +596,13 @@ namespace CyberSource.Api
             // verify the required parameter 'startDate' is set
             if (startDate == null)
             {
-                logger.Error("ApiException : Missing required parameter 'startDate' when calling SecureFileShareApi->GetFileDetail");
+                logger.LogError("ApiException : Missing required parameter 'startDate' when calling SecureFileShareApi->GetFileDetail");
                 throw new ApiException(400, "Missing required parameter 'startDate' when calling SecureFileShareApi->GetFileDetail");
             }
             // verify the required parameter 'endDate' is set
             if (endDate == null)
             {
-                logger.Error("ApiException : Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetail");
+                logger.LogError("ApiException : Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetail");
                 throw new ApiException(400, "Missing required parameter 'endDate' when calling SecureFileShareApi->GetFileDetail");
             }
 
@@ -632,25 +634,25 @@ namespace CyberSource.Api
             {
                 localVarQueryParams.Add("startDate", ApiClient.ParameterToString(startDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (endDate != null)
             {
                 localVarQueryParams.Add("endDate", ApiClient.ParameterToString(endDate)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (organizationId != null)
             {
                 localVarQueryParams.Add("organizationId", ApiClient.ParameterToString(organizationId)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (name != null)
             {
                 localVarQueryParams.Add("name", ApiClient.ParameterToString(name)); // query parameter
             }
-            logger.Debug($"HTTP Request Body :\n{logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams)}");
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
             if (Method.Get == Method.Post)
             {
@@ -673,11 +675,11 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
                 }
                 catch (Exception e)
                 {
-                    logger.Error("Failed to encrypt request body {}", e.Message, e);
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
                     throw new Exception($"Failed to encrypt request body: {e.Message}", e);
                 }
             }
@@ -697,7 +699,7 @@ namespace CyberSource.Api
                 Exception exception = ExceptionFactory("GetFileDetail", localVarResponse);
                 if (exception != null)
                 {
-                    logger.Error($"Exception : {exception.Message}");
+                    logger.LogError("Exception : {Message}", exception.Message);
                     throw exception;
                 }
             }

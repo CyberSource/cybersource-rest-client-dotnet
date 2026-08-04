@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// InvoicingV2InvoicesCancel200Response
     /// </summary>
     [DataContract]
-    public partial class InvoicingV2InvoicesCancel200Response :  IEquatable<InvoicingV2InvoicesCancel200Response>, IValidatableObject
+    public partial class InvoicingV2InvoicesCancel200Response :  ModelExtensions, IEquatable<InvoicingV2InvoicesCancel200Response>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoicingV2InvoicesCancel200Response" /> class.
@@ -41,7 +42,8 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="InvoiceInformation">InvoiceInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
-        public InvoicingV2InvoicesCancel200Response(InvoicingV2InvoicesAllGet200ResponseLinks Links = default(InvoicingV2InvoicesAllGet200ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), Invoicingv2invoicesCustomerInformation CustomerInformation = default(Invoicingv2invoicesCustomerInformation), Invoicingv2invoicesProcessingInformation ProcessingInformation = default(Invoicingv2invoicesProcessingInformation), InvoicingV2InvoicesPost201ResponseInvoiceInformation InvoiceInformation = default(InvoicingV2InvoicesPost201ResponseInvoiceInformation), InvoicingV2InvoicesPost201ResponseOrderInformation OrderInformation = default(InvoicingV2InvoicesPost201ResponseOrderInformation))
+        /// <param name="MerchantDefinedFieldValuesWithDefinition">MerchantDefinedFieldValuesWithDefinition.</param>
+        public InvoicingV2InvoicesCancel200Response(InvoicingV2InvoicesAllGet200ResponseLinks Links = default(InvoicingV2InvoicesAllGet200ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), Invoicingv2invoicesCustomerInformation CustomerInformation = default(Invoicingv2invoicesCustomerInformation), Invoicingv2invoicesProcessingInformation ProcessingInformation = default(Invoicingv2invoicesProcessingInformation), InvoicingV2InvoicesPost201ResponseInvoiceInformation InvoiceInformation = default(InvoicingV2InvoicesPost201ResponseInvoiceInformation), InvoicingV2InvoicesPost201ResponseOrderInformation OrderInformation = default(InvoicingV2InvoicesPost201ResponseOrderInformation), List<InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition> MerchantDefinedFieldValuesWithDefinition = default(List<InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition>))
         {
             this.Links = Links;
             this.Id = Id;
@@ -51,6 +53,7 @@ namespace CyberSource.Model
             this.ProcessingInformation = ProcessingInformation;
             this.InvoiceInformation = InvoiceInformation;
             this.OrderInformation = OrderInformation;
+            this.MerchantDefinedFieldValuesWithDefinition = MerchantDefinedFieldValuesWithDefinition;
         }
         
         /// <summary>
@@ -113,6 +116,13 @@ namespace CyberSource.Model
         public InvoicingV2InvoicesPost201ResponseOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets MerchantDefinedFieldValuesWithDefinition
+        /// </summary>
+        [JsonPropertyName("merchantDefinedFieldValuesWithDefinition")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition> MerchantDefinedFieldValuesWithDefinition { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -128,6 +138,8 @@ namespace CyberSource.Model
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoicesCancel200Response", "processingInformation", ProcessingInformation.ToString())).Append("\n");
             if (InvoiceInformation != null) sb.Append("  InvoiceInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoicesCancel200Response", "invoiceInformation", InvoiceInformation.ToString())).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoicesCancel200Response", "orderInformation", OrderInformation.ToString())).Append("\n");
+            if (MerchantDefinedFieldValuesWithDefinition != null) sb.Append("  MerchantDefinedFieldValuesWithDefinition: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoicesCancel200Response", "merchantDefinedFieldValuesWithDefinition", MerchantDefinedFieldValuesWithDefinition.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,7 +150,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InvoicingV2InvoicesCancel200Response", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("InvoicingV2InvoicesCancel200Response", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -163,7 +175,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Links == other.Links ||
                     this.Links != null &&
@@ -203,6 +219,11 @@ namespace CyberSource.Model
                     this.OrderInformation == other.OrderInformation ||
                     this.OrderInformation != null &&
                     this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.MerchantDefinedFieldValuesWithDefinition == other.MerchantDefinedFieldValuesWithDefinition ||
+                    this.MerchantDefinedFieldValuesWithDefinition != null &&
+                    this.MerchantDefinedFieldValuesWithDefinition.SequenceEqual(other.MerchantDefinedFieldValuesWithDefinition)
                 );
         }
 
@@ -217,6 +238,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Links != null)
                     hash = hash * 59 + this.Links.GetHashCode();
                 if (this.Id != null)
@@ -233,6 +256,9 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.InvoiceInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.MerchantDefinedFieldValuesWithDefinition != null)
+                    hash = hash * 59 + this.MerchantDefinedFieldValuesWithDefinition.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

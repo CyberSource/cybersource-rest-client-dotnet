@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// Vasv2taxidClientReferenceInformationPartner
     /// </summary>
     [DataContract]
-    public partial class Vasv2taxidClientReferenceInformationPartner :  IEquatable<Vasv2taxidClientReferenceInformationPartner>, IValidatableObject
+    public partial class Vasv2taxidClientReferenceInformationPartner :  ModelExtensions, IEquatable<Vasv2taxidClientReferenceInformationPartner>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Vasv2taxidClientReferenceInformationPartner" /> class.
@@ -67,6 +68,7 @@ namespace CyberSource.Model
             sb.Append("class Vasv2taxidClientReferenceInformationPartner {\n");
             if (SolutionId != null) sb.Append("  SolutionId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Vasv2taxidClientReferenceInformationPartner", "solutionId", SolutionId.ToString())).Append("\n");
             if (DeveloperId != null) sb.Append("  DeveloperId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Vasv2taxidClientReferenceInformationPartner", "developerId", DeveloperId.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +79,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Vasv2taxidClientReferenceInformationPartner", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("Vasv2taxidClientReferenceInformationPartner", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -102,7 +104,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.SolutionId == other.SolutionId ||
                     this.SolutionId != null &&
@@ -126,10 +132,13 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.SolutionId != null)
                     hash = hash * 59 + this.SolutionId.GetHashCode();
                 if (this.DeveloperId != null)
                     hash = hash * 59 + this.DeveloperId.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

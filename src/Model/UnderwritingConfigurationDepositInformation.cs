@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// UnderwritingConfigurationDepositInformation
     /// </summary>
     [DataContract]
-    public partial class UnderwritingConfigurationDepositInformation :  IEquatable<UnderwritingConfigurationDepositInformation>, IValidatableObject
+    public partial class UnderwritingConfigurationDepositInformation :  ModelExtensions, IEquatable<UnderwritingConfigurationDepositInformation>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnderwritingConfigurationDepositInformation" /> class.
@@ -100,6 +101,7 @@ namespace CyberSource.Model
             if (AccountType != null) sb.Append("  AccountType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnderwritingConfigurationDepositInformation", "accountType", AccountType.ToString())).Append("\n");
             if (AccountRoutingNumber != null) sb.Append("  AccountRoutingNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnderwritingConfigurationDepositInformation", "accountRoutingNumber", AccountRoutingNumber.ToString())).Append("\n");
             if (AccountNumber != null) sb.Append("  AccountNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnderwritingConfigurationDepositInformation", "accountNumber", AccountNumber.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,7 +112,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("UnderwritingConfigurationDepositInformation", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("UnderwritingConfigurationDepositInformation", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -135,7 +137,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.BankAccountCountry == other.BankAccountCountry ||
                     this.BankAccountCountry != null &&
@@ -174,6 +180,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.BankAccountCountry != null)
                     hash = hash * 59 + this.BankAccountCountry.GetHashCode();
                 if (this.AccountHolderName != null)
@@ -184,6 +192,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AccountRoutingNumber.GetHashCode();
                 if (this.AccountNumber != null)
                     hash = hash * 59 + this.AccountNumber.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

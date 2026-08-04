@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using CyberSource.Utilities.Extensibility;
 using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 
@@ -28,7 +29,7 @@ namespace CyberSource.Model
     /// ReportingV3NetFundingsGet200ResponseNetFundingSummaries
     /// </summary>
     [DataContract]
-    public partial class ReportingV3NetFundingsGet200ResponseNetFundingSummaries :  IEquatable<ReportingV3NetFundingsGet200ResponseNetFundingSummaries>, IValidatableObject
+    public partial class ReportingV3NetFundingsGet200ResponseNetFundingSummaries :  ModelExtensions, IEquatable<ReportingV3NetFundingsGet200ResponseNetFundingSummaries>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingV3NetFundingsGet200ResponseNetFundingSummaries" /> class.
@@ -127,6 +128,7 @@ namespace CyberSource.Model
             if (FundedCount != null) sb.Append("  FundedCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3NetFundingsGet200ResponseNetFundingSummaries", "fundedCount", FundedCount.ToString())).Append("\n");
             if (FundedAmount != null) sb.Append("  FundedAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3NetFundingsGet200ResponseNetFundingSummaries", "fundedAmount", FundedAmount.ToString())).Append("\n");
             if (CurrencyCode != null) sb.Append("  CurrencyCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("ReportingV3NetFundingsGet200ResponseNetFundingSummaries", "currencyCode", CurrencyCode.ToString())).Append("\n");
+            sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,7 +139,7 @@ namespace CyberSource.Model
         /// <returns>JSON string presentation of the object</returns>
         public string ToJson()
         {
-            return CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ReportingV3NetFundingsGet200ResponseNetFundingSummaries", JsonSerializer.Serialize(this, CyberSource.Utilities.Serialization.ModelLevelSerializerOptions.ToJsonOptions));
+            return Utilities.SensitiveFieldMaskingUtility.MaskSensitiveDataInJson("ReportingV3NetFundingsGet200ResponseNetFundingSummaries", JsonSerializer.Serialize(this, EffectiveSerializerOptions));
         }
 
         /// <summary>
@@ -162,7 +164,11 @@ namespace CyberSource.Model
             if (other == null)
                 return false;
 
-            return 
+            // Value-based equality over the typed (declared) properties AND the hidden
+            // overflow store ([JsonExtensionData]) (design G5). Extra fields are compared by
+            // semantic JSON value-equality (JsonElement has no built-in value equality).
+            // ExtraFieldsEqual leads so models with no declared properties still compare.
+            return ExtraFieldsEqual(other) && 
                 (
                     this.Type == other.Type ||
                     this.Type != null &&
@@ -216,6 +222,8 @@ namespace CyberSource.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                // Value-based hash over declared properties AND the overflow store, kept
+                // consistent with Equals.
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.PaymentSubType != null)
@@ -232,6 +240,7 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FundedAmount.GetHashCode();
                 if (this.CurrencyCode != null)
                     hash = hash * 59 + this.CurrencyCode.GetHashCode();
+                hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }
         }

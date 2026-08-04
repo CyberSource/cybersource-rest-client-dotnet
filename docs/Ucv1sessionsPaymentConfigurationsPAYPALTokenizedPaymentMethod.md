@@ -7,5 +7,14 @@ Name | Type | Description | Notes
 **UsagePattern** | **string** | Indicates how the merchant will primarily use the vaulted payment method. Valid values: - \&quot;IMMEDIATE\&quot;: For on-demand, instant payments. These payments are variable in both amount and frequency and will be used to pay for goods or services before they are rendered to the buyer - \&quot;DEFERRED\&quot;: For post-pay payments; that is, payments for goods or services that have already been rendered to the buyer - \&quot;RECURRING_PREPAID\&quot;: For recurring payments before services are rendered. - \&quot;RECURRING_POSTPAID\&quot;: For recurring payments after services are rendered. - \&quot;THRESHOLD_PREPAID\&quot;: For payments when a pre-defined threshold is reached before services are rendered. - \&quot;THRESHOLD_POSTPAID\&quot;: For payments when a pre-defined threshold is reached after services are rendered.&lt;br&gt;&lt;br&gt;  Required field:&lt;br&gt; This field cannot be configured through the Merchant Experience screens in the Business Center and must be provided on a per‑transaction basis in the uc/v1/sessions API request when using PayPal Vaulting.  | [optional] 
 **AllowMultipleTokens** | **bool?** | Create multiple payment tokens for the same payer, merchant/platform combination. This helps to identify customers distinctly even though they may share the same PayPal account.&lt;br&gt;&lt;br&gt;  Optional field:&lt;br&gt; This field cannot be configured through the Merchant Experience screens in the Business Center and must be provided on a per‑transaction basis in the uc/v1/sessions API request.  | [optional] 
 
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

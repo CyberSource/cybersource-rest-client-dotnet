@@ -7,7 +7,17 @@ Name | Type | Description | Notes
 **AuthIndicator** | **string** | Flag that specifies the purpose of the authorization.  Possible values:  - **0**: Preauthorization  - **1**: Final authorization  To set the default for this field, contact CyberSource Customer Support.  #### Barclays and Elavon The default for Barclays and Elavon is 1 (final authorization). To change the default for this field, contact CyberSource Customer Support.  #### CyberSource through VisaNet When the value for this field is 0, it corresponds to the following data in the TC 33 capture file:  - Record: CP01 TCR0  - Position: 164  - Field: Additional Authorization Indicators When the value for this field is 1, it does not correspond to any data in the TC 33 capture file.  | [optional] 
 **ExtendAuthIndicator** | **string** | Indicates Authorization extension transaction. Extension transaction is used to prolong the settlement period by one additional settlement cycle period.  Possible values: - true: Transaction is an Authorization Extension transaction.  - false: Transaction is not an Authorization Extension transaction.  | [optional] 
 **CardVerificationIndicator** | **bool?** | This API field will indicate whether a card verification check is being performed during the transaction  Possible values:   - &#x60;true&#x60;   - &#x60;false&#x60; (default value)  | [optional] 
+**AftIndicator** | **bool?** | Indicates whether the transaction is an Account Funding Transaction (AFT).  This field is mandatory for Account Funding Transactions (AFT).   Possible values:   - &#x60;true&#x60; (This is an AFT transaction)   - &#x60;false&#x60; (default value) (This is not an AFT transaction)  | [optional] 
 **Initiator** | [**TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptionsInitiator**](TssV2TransactionsGet200ResponseProcessingInformationAuthorizationOptionsInitiator.md) |  | [optional] 
+
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
