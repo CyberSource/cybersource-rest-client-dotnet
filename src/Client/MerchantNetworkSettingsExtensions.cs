@@ -60,8 +60,8 @@ namespace CyberSource.Client
         /// <summary>
         /// Appends a consumer-supplied post-configure callback that will be applied to the
         /// <see cref="JsonSerializerOptions"/> used for response-payload deserialization by
-        /// <see cref="ApiClient.Deserialize(RestSharp.RestResponse, System.Type)"/> AND for the
-        /// extra-field read path in
+        /// <see cref="ApiClient.Deserialize(System.Net.Http.HttpResponseMessage, System.Type)"/>
+        /// AND for the extra-field read path in
         /// <see cref="CyberSource.Utilities.Extensibility.ModelExtensions.GetExtraField{TValue}(string)"/>.
         /// </summary>
         /// <remarks>
@@ -107,7 +107,7 @@ namespace CyberSource.Client
         }
 
         /// <summary>
-        /// Attaches a caller-owned <see cref="HttpClient"/> to the network settings. When set, RestSharp will use this
+        /// Attaches a caller-owned <see cref="HttpClient"/> to the network settings. When set, the SDK will use this
         /// client for all outgoing requests and the SDK will not dispose it. Passing <c>null</c> clears the injection
         /// and restores the SDK-managed HttpClient behavior.
         /// </summary>

@@ -96,6 +96,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ProductCode'
         }
+        /// <summary>
+        /// Test the property 'LanguagePreference'
+        /// </summary>
+        [Test]
+        public void LanguagePreferenceTest()
+        {
+            // TODO unit test for the property 'LanguagePreference'
+        }
 
     }
 

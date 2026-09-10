@@ -72,6 +72,222 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TransactionId'
         }
+        /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Test]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
+        /// Test the property 'StatusReason'
+        /// </summary>
+        [Test]
+        public void StatusReasonTest()
+        {
+            // TODO unit test for the property 'StatusReason'
+        }
+        /// <summary>
+        /// Test the property 'MessageType'
+        /// </summary>
+        [Test]
+        public void MessageTypeTest()
+        {
+            // TODO unit test for the property 'MessageType'
+        }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'Attribute'
+        /// </summary>
+        [Test]
+        public void AttributeTest()
+        {
+            // TODO unit test for the property 'Attribute'
+        }
+        /// <summary>
+        /// Test the property 'Initiator'
+        /// </summary>
+        [Test]
+        public void InitiatorTest()
+        {
+            // TODO unit test for the property 'Initiator'
+        }
+        /// <summary>
+        /// Test the property 'Channel'
+        /// </summary>
+        [Test]
+        public void ChannelTest()
+        {
+            // TODO unit test for the property 'Channel'
+        }
+        /// <summary>
+        /// Test the property 'Timestamp'
+        /// </summary>
+        [Test]
+        public void TimestampTest()
+        {
+            // TODO unit test for the property 'Timestamp'
+        }
+        /// <summary>
+        /// Test the property 'CutoffDateTime'
+        /// </summary>
+        [Test]
+        public void CutoffDateTimeTest()
+        {
+            // TODO unit test for the property 'CutoffDateTime'
+        }
+        /// <summary>
+        /// Test the property 'IsRecurring'
+        /// </summary>
+        [Test]
+        public void IsRecurringTest()
+        {
+            // TODO unit test for the property 'IsRecurring'
+        }
+        /// <summary>
+        /// Test the property 'PreOrder'
+        /// </summary>
+        [Test]
+        public void PreOrderTest()
+        {
+            // TODO unit test for the property 'PreOrder'
+        }
+        /// <summary>
+        /// Test the property 'PreOrderDate'
+        /// </summary>
+        [Test]
+        public void PreOrderDateTest()
+        {
+            // TODO unit test for the property 'PreOrderDate'
+        }
+        /// <summary>
+        /// Test the property 'Reordered'
+        /// </summary>
+        [Test]
+        public void ReorderedTest()
+        {
+            // TODO unit test for the property 'Reordered'
+        }
+        /// <summary>
+        /// Test the property 'DestinationCountry'
+        /// </summary>
+        [Test]
+        public void DestinationCountryTest()
+        {
+            // TODO unit test for the property 'DestinationCountry'
+        }
+        /// <summary>
+        /// Test the property 'DeclinePhase'
+        /// </summary>
+        [Test]
+        public void DeclinePhaseTest()
+        {
+            // TODO unit test for the property 'DeclinePhase'
+        }
+        /// <summary>
+        /// Test the property 'TrustedMerchant'
+        /// </summary>
+        [Test]
+        public void TrustedMerchantTest()
+        {
+            // TODO unit test for the property 'TrustedMerchant'
+        }
+        /// <summary>
+        /// Test the property 'AdditionalFees'
+        /// </summary>
+        [Test]
+        public void AdditionalFeesTest()
+        {
+            // TODO unit test for the property 'AdditionalFees'
+        }
+        /// <summary>
+        /// Test the property 'Amount'
+        /// </summary>
+        [Test]
+        public void AmountTest()
+        {
+            // TODO unit test for the property 'Amount'
+        }
+        /// <summary>
+        /// Test the property 'RecurringDetails'
+        /// </summary>
+        [Test]
+        public void RecurringDetailsTest()
+        {
+            // TODO unit test for the property 'RecurringDetails'
+        }
+        /// <summary>
+        /// Test the property 'Direction'
+        /// </summary>
+        [Test]
+        public void DirectionTest()
+        {
+            // TODO unit test for the property 'Direction'
+        }
+        /// <summary>
+        /// Test the property 'IsChargeback'
+        /// </summary>
+        [Test]
+        public void IsChargebackTest()
+        {
+            // TODO unit test for the property 'IsChargeback'
+        }
+        /// <summary>
+        /// Test the property 'FraudLiability'
+        /// </summary>
+        [Test]
+        public void FraudLiabilityTest()
+        {
+            // TODO unit test for the property 'FraudLiability'
+        }
+        /// <summary>
+        /// Test the property 'OnUsFlag'
+        /// </summary>
+        [Test]
+        public void OnUsFlagTest()
+        {
+            // TODO unit test for the property 'OnUsFlag'
+        }
+        /// <summary>
+        /// Test the property 'NumberOfTransactions'
+        /// </summary>
+        [Test]
+        public void NumberOfTransactionsTest()
+        {
+            // TODO unit test for the property 'NumberOfTransactions'
+        }
+        /// <summary>
+        /// Test the property 'BatchDetails'
+        /// </summary>
+        [Test]
+        public void BatchDetailsTest()
+        {
+            // TODO unit test for the property 'BatchDetails'
+        }
+        /// <summary>
+        /// Test the property 'CheckDetails'
+        /// </summary>
+        [Test]
+        public void CheckDetailsTest()
+        {
+            // TODO unit test for the property 'CheckDetails'
+        }
+        /// <summary>
+        /// Test the property 'Purpose'
+        /// </summary>
+        [Test]
+        public void PurposeTest()
+        {
+            // TODO unit test for the property 'Purpose'
+        }
 
     }
 

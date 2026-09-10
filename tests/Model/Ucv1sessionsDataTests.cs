@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'AggregatorInformation'
         }
         /// <summary>
+        /// Test the property 'AcquirerInformation'
+        /// </summary>
+        [Test]
+        public void AcquirerInformationTest()
+        {
+            // TODO unit test for the property 'AcquirerInformation'
+        }
+        /// <summary>
         /// Test the property 'OrderInformation'
         /// </summary>
         [Test]

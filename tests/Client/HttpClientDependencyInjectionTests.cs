@@ -5,18 +5,17 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using CyberSource.Client;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
-using RestSharp;
 
 namespace cybersource_rest_client_netstandard.Test.Client
 {
     /// <summary>
     /// Verifies dependency injection of <see cref="HttpClient"/> and <see cref="IHttpClientFactory"/>
     /// through <see cref="Configuration"/> / <see cref="MerchantNetworkSettings"/> and the resulting
-    /// end-to-end behavior in <see cref="RestClientFactory"/>. Also asserts backward compatibility:
+    /// end-to-end behavior in <see cref="SdkOwnedHttpClientFactory"/>. Also asserts backward compatibility:
     /// when neither injection is supplied, the SDK's internally cached
-    /// <see cref="System.Net.Http.HttpMessageHandler"/>-backed <see cref="RestClient"/> is returned
-    /// exactly as before.
+    /// <see cref="HttpMessageHandler"/>-backed <see cref="HttpClient"/> is returned exactly as before.
     /// </summary>
     [TestFixture]
     public class HttpClientDependencyInjectionTests
@@ -25,7 +24,7 @@ namespace cybersource_rest_client_netstandard.Test.Client
         public void ClearFactoryCacheForHermeticTests()
         {
             // Ensure cache-invariance and precedence assertions are hermetic across framework legs.
-            RestClientFactory.ClearForTests();
+            SdkOwnedHttpClientFactory.ClearForTests();
         }
 
         #region Fluent extension methods
@@ -117,18 +116,20 @@ namespace cybersource_rest_client_netstandard.Test.Client
                 BaseAddress = new Uri("https://cybersource-test.invalid/")
             };
 
-            var options = new RestClientOptions(new Uri("https://cybersource-test.invalid/"))
+            var options = new HttpTransportOptions
             {
+                BaseUrl = new Uri("https://cybersource-test.invalid/"),
                 Timeout = TimeSpan.FromSeconds(30)
             };
 
             IMerchantNetworkSettings settings = BuildNetworkSettings(httpClient: injectedClient);
 
-            RestClient restClient = RestClientFactory.GetRestClient(settings, options);
+            HttpClient httpClient = SdkOwnedHttpClientFactory.GetHttpClient(settings, options);
 
-            await restClient.ExecuteAsync(new RestRequest("/ping"));
+            await httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, "/ping"));
 
-            Assert.AreEqual(1, recordingHandler.CallCount, "Injected HttpClient was not used by RestSharp for the request.");
+            Assert.AreSame(injectedClient, httpClient, "Injected HttpClient must be returned as-is.");
+            Assert.AreEqual(1, recordingHandler.CallCount, "Injected HttpClient was not used for the request.");
         }
 
         [Test]
@@ -144,20 +145,20 @@ namespace cybersource_rest_client_netstandard.Test.Client
                 ClientToReturn = factoryOwnedClient
             };
 
-            var options = new RestClientOptions(new Uri("https://cybersource-test.invalid/"))
+            var options = new HttpTransportOptions
             {
+                BaseUrl = new Uri("https://cybersource-test.invalid/"),
                 Timeout = TimeSpan.FromSeconds(30)
             };
 
-            IMerchantNetworkSettings settings = BuildNetworkSettings(httpClientFactory: factory, httpClientName: "cybersource");
+            IMerchantNetworkSettings settings = BuildNetworkSettings(httpClientFactory: factory);
 
-            RestClient restClient = RestClientFactory.GetRestClient(settings, options);
+            HttpClient httpClient = SdkOwnedHttpClientFactory.GetHttpClient(settings, options);
 
-            await restClient.ExecuteAsync(new RestRequest("/ping"));
+            await httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, "/ping"));
 
             Assert.AreEqual(1, factory.CreateClientCallCount, "IHttpClientFactory.CreateClient was not invoked.");
-            Assert.AreEqual("cybersource", factory.LastRequestedName, "IHttpClientFactory.CreateClient received the wrong logical name.");
-            Assert.AreEqual(1, recordingHandler.CallCount, "The factory-supplied HttpClient was not used by RestSharp for the request.");
+            Assert.AreEqual(1, recordingHandler.CallCount, "The factory-supplied HttpClient was not used for the request.");
         }
 
         [Test]
@@ -176,73 +177,47 @@ namespace cybersource_rest_client_netstandard.Test.Client
             };
             var factory = new StubHttpClientFactory { ClientToReturn = factoryClient };
 
-            var options = new RestClientOptions(new Uri("https://cybersource-test.invalid/"))
+            var options = new HttpTransportOptions
             {
+                BaseUrl = new Uri("https://cybersource-test.invalid/"),
                 Timeout = TimeSpan.FromSeconds(30)
             };
 
             IMerchantNetworkSettings settings = BuildNetworkSettings(httpClient: directClient, httpClientFactory: factory);
 
-            RestClient restClient = RestClientFactory.GetRestClient(settings, options);
+            HttpClient httpClient = SdkOwnedHttpClientFactory.GetHttpClient(settings, options);
 
-            restClient.ExecuteAsync(new RestRequest("/ping")).GetAwaiter().GetResult();
+            httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, "/ping")).GetAwaiter().GetResult();
 
+            Assert.AreSame(directClient, httpClient, "Direct injected HttpClient should have taken precedence.");
             Assert.AreEqual(1, directHandler.CallCount, "Direct injected HttpClient should have taken precedence.");
             Assert.AreEqual(0, factoryHandler.CallCount, "Injected factory must NOT be consulted when a direct HttpClient is also injected.");
             Assert.AreEqual(0, factory.CreateClientCallCount, "IHttpClientFactory.CreateClient must not be called when a direct HttpClient is injected.");
         }
 
         [Test]
-        public async Task RestClientFactory_DoesNotDisposeInjectedHttpClient_WhenRestClientDisposed()
-        {
-            var recordingHandler = new RecordingHandler();
-            using var injectedClient = new HttpClient(recordingHandler)
-            {
-                BaseAddress = new Uri("https://cybersource-test.invalid/")
-            };
-
-            var options = new RestClientOptions(new Uri("https://cybersource-test.invalid/"))
-            {
-                Timeout = TimeSpan.FromSeconds(30)
-            };
-
-            IMerchantNetworkSettings settings = BuildNetworkSettings(httpClient: injectedClient);
-
-            RestClient restClient = RestClientFactory.GetRestClient(settings, options);
-
-            restClient.Dispose();
-
-            // If the SDK had disposed the injected HttpClient, subsequent use would throw
-            // ObjectDisposedException. This second request through a new RestClient wrapper
-            // proves the injected client remains fully usable after the previous RestClient
-            // wrapper was disposed.
-            RestClient secondWrapper = RestClientFactory.GetRestClient(settings, options);
-
-            await secondWrapper.ExecuteAsync(new RestRequest("/ping"));
-
-            Assert.AreEqual(1, recordingHandler.CallCount);
-        }
-
-        [Test]
-        public void RestClientFactory_DoesNotCacheAcrossCalls_WhenHttpClientInjected()
+        public void RestClientFactory_ReturnsInjectedHttpClient_WithoutWrapping()
         {
             using var injectedClient = new HttpClient(new RecordingHandler())
             {
                 BaseAddress = new Uri("https://cybersource-test.invalid/")
             };
 
-            var options = new RestClientOptions(new Uri("https://cybersource-test.invalid/"))
+            var options = new HttpTransportOptions
             {
+                BaseUrl = new Uri("https://cybersource-test.invalid/"),
                 Timeout = TimeSpan.FromSeconds(30)
             };
 
             IMerchantNetworkSettings settings = BuildNetworkSettings(httpClient: injectedClient);
 
-            RestClient first = RestClientFactory.GetRestClient(settings, options);
-            RestClient second = RestClientFactory.GetRestClient(settings, options);
+            HttpClient first = SdkOwnedHttpClientFactory.GetHttpClient(settings, options);
+            HttpClient second = SdkOwnedHttpClientFactory.GetHttpClient(settings, options);
 
-            Assert.AreNotSame(first, second,
-                "Injected-HttpClient path must not cache RestClient wrappers; caching them would tie their lifetime to the caller-owned HttpClient in a way the SDK cannot manage.");
+            // Injected-HttpClient path returns the caller-owned instance directly on every call —
+            // the SDK never wraps or caches it, so lifetime remains fully caller-controlled.
+            Assert.AreSame(injectedClient, first);
+            Assert.AreSame(first, second);
         }
 
         #endregion RestClientFactory injection paths
@@ -252,35 +227,112 @@ namespace cybersource_rest_client_netstandard.Test.Client
         [Test]
         public void RestClientFactory_UsesCachedSdkOwnedClient_WhenNoHttpClientOrFactoryInjected()
         {
-            var options = new RestClientOptions(new Uri("https://cybersource-cache-key-regression.invalid/"))
+            var options = new HttpTransportOptions
             {
+                BaseUrl = new Uri("https://cybersource-cache-key-regression.invalid/"),
                 Timeout = TimeSpan.FromSeconds(30),
                 UserAgent = "cybs-rest-sdk-dotnet-test"
             };
 
             var settings = new MerchantNetworkSettings(new Dictionary<string, string>());
 
-            RestClient first = RestClientFactory.GetRestClient(settings, options);
-            RestClient second = RestClientFactory.GetRestClient(settings, options);
+            HttpClient first = SdkOwnedHttpClientFactory.GetHttpClient(settings, options);
+            HttpClient second = SdkOwnedHttpClientFactory.GetHttpClient(settings, options);
 
             Assert.AreSame(first, second,
-                "SDK-owned path must reuse the cached RestClient for identical options — this is the pre-existing pooling behavior and must be preserved for consumers that do not inject anything.");
+                "SDK-owned path must reuse the cached HttpClient for identical options — this is the pre-existing pooling behavior and must be preserved for consumers that do not inject anything.");
         }
 
         [Test]
         public void RestClientFactory_ThrowsArgumentNullException_WhenSettingsNullAndNoInjection()
         {
-            var options = new RestClientOptions(new Uri("https://cybersource-arg-null-check.invalid/"))
+            var options = new HttpTransportOptions
             {
+                BaseUrl = new Uri("https://cybersource-arg-null-check.invalid/"),
                 Timeout = TimeSpan.FromSeconds(30)
             };
 
             // With no injected HttpClient/IHttpClientFactory the SDK-owned cached path is taken;
             // that path requires IMerchantNetworkSettings to read pooling parameters.
-            Assert.Throws<ArgumentNullException>(() => RestClientFactory.GetRestClient(null, options));
+            Assert.Throws<ArgumentNullException>(() => SdkOwnedHttpClientFactory.GetHttpClient(null, options));
         }
 
         #endregion Backward compatibility (no injection)
+
+        #region Container-based constructor injection (EnsureHttpClientFactory + pure-DI ctor)
+
+        [Test]
+        public void EnsureHttpClientFactory_RegistersHttpClientFactory()
+        {
+            var services = new Microsoft.Extensions.DependencyInjection.ServiceCollection();
+            services.EnsureHttpClientFactory();
+
+            using var provider = services.BuildServiceProvider();
+
+            Assert.IsNotNull(provider.GetRequiredService<IHttpClientFactory>(),
+                "EnsureHttpClientFactory must make IHttpClientFactory resolvable from the container.");
+        }
+
+        [Test]
+        public void EnsureHttpClientFactory_IsIdempotent()
+        {
+            var services = new Microsoft.Extensions.DependencyInjection.ServiceCollection();
+            services.EnsureHttpClientFactory();
+            services.EnsureHttpClientFactory();
+
+            var count = 0;
+            foreach (var d in services)
+            {
+                if (d.ServiceType == typeof(IHttpClientFactory)) { count++; }
+            }
+
+            Assert.AreEqual(1, count,
+                "EnsureHttpClientFactory must not stack duplicate IHttpClientFactory registrations.");
+        }
+
+        [Test]
+        public void Configuration_ContainerCtor_AppliesInjectedHttpClientFactoryToNetworkSettings()
+        {
+            var services = new Microsoft.Extensions.DependencyInjection.ServiceCollection();
+            services.EnsureHttpClientFactory();
+            using var provider = services.BuildServiceProvider();
+            var factory = provider.GetRequiredService<IHttpClientFactory>();
+
+            var network = new MerchantNetworkSettings(new Dictionary<string, string>());
+
+            var config = new Configuration(
+                merchantCredentialSettings: null,
+                merchantMLESettings: null,
+                merchantNetworkSettings: network,
+                merchantLegacySettings: new MerchantLegacySettings(),
+                serializerOptionsMonitor: null,
+                deserializerOptionsMonitor: null,
+                loggerFactory: null,
+                httpClientFactory: factory);
+
+            Assert.AreSame(factory, config.MerchantNetworkSettings.HttpClientFactory,
+                "Container-injected IHttpClientFactory must flow into MerchantNetworkSettings.");
+        }
+
+        [Test]
+        public void Configuration_ContainerCtor_NullHttpClientFactory_LeavesNetworkSettingsFactoryNull()
+        {
+            var network = new MerchantNetworkSettings(new Dictionary<string, string>());
+
+            var config = new Configuration(
+                merchantCredentialSettings: null,
+                merchantMLESettings: null,
+                merchantNetworkSettings: network,
+                merchantLegacySettings: new MerchantLegacySettings(),
+                serializerOptionsMonitor: null,
+                deserializerOptionsMonitor: null,
+                loggerFactory: null,
+                httpClientFactory: null);
+
+            Assert.IsNull(config.MerchantNetworkSettings.HttpClientFactory);
+        }
+
+        #endregion Container-based constructor injection (EnsureHttpClientFactory + pure-DI ctor)
 
         #region Helpers
 
@@ -304,8 +356,7 @@ namespace cybersource_rest_client_netstandard.Test.Client
 
         private static IMerchantNetworkSettings BuildNetworkSettings(
             HttpClient httpClient = null,
-            IHttpClientFactory httpClientFactory = null,
-            string httpClientName = null)
+            IHttpClientFactory httpClientFactory = null)
         {
             var settings = new MerchantNetworkSettings(new Dictionary<string, string>());
             if (httpClient != null) { settings.AddHttpClient(httpClient); }
@@ -315,7 +366,7 @@ namespace cybersource_rest_client_netstandard.Test.Client
 
         /// <summary>
         /// <see cref="HttpMessageHandler"/> that records how many times it was invoked and returns an empty 200 OK.
-        /// Used to prove that a specific <see cref="HttpClient"/> instance was the one used to execute a RestSharp request.
+        /// Used to prove that a specific <see cref="HttpClient"/> instance was the one used to execute the request.
         /// </summary>
         private sealed class RecordingHandler : HttpMessageHandler
         {

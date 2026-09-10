@@ -65,28 +65,12 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'ClientReferenceInformation'
-        /// </summary>
-        [Test]
-        public void ClientReferenceInformationTest()
-        {
-            // TODO unit test for the property 'ClientReferenceInformation'
-        }
-        /// <summary>
         /// Test the property 'Id'
         /// </summary>
         [Test]
         public void IdTest()
         {
             // TODO unit test for the property 'Id'
-        }
-        /// <summary>
-        /// Test the property 'SubmitTimeUtc'
-        /// </summary>
-        [Test]
-        public void SubmitTimeUtcTest()
-        {
-            // TODO unit test for the property 'SubmitTimeUtc'
         }
         /// <summary>
         /// Test the property 'Status'
@@ -97,28 +81,84 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'ErrorInformation'
+        /// Test the property 'Currency'
         /// </summary>
         [Test]
-        public void ErrorInformationTest()
+        public void CurrencyTest()
         {
-            // TODO unit test for the property 'ErrorInformation'
+            // TODO unit test for the property 'Currency'
         }
         /// <summary>
-        /// Test the property 'OrderInformation'
+        /// Test the property 'LineItems'
         /// </summary>
         [Test]
-        public void OrderInformationTest()
+        public void LineItemsTest()
         {
-            // TODO unit test for the property 'OrderInformation'
+            // TODO unit test for the property 'LineItems'
         }
         /// <summary>
-        /// Test the property 'ProcessorInformation'
+        /// Test the property 'FulfillmentAddress'
         /// </summary>
         [Test]
-        public void ProcessorInformationTest()
+        public void FulfillmentAddressTest()
         {
-            // TODO unit test for the property 'ProcessorInformation'
+            // TODO unit test for the property 'FulfillmentAddress'
+        }
+        /// <summary>
+        /// Test the property 'FulfillmentOptions'
+        /// </summary>
+        [Test]
+        public void FulfillmentOptionsTest()
+        {
+            // TODO unit test for the property 'FulfillmentOptions'
+        }
+        /// <summary>
+        /// Test the property 'FulfillmentOptionId'
+        /// </summary>
+        [Test]
+        public void FulfillmentOptionIdTest()
+        {
+            // TODO unit test for the property 'FulfillmentOptionId'
+        }
+        /// <summary>
+        /// Test the property 'Totals'
+        /// </summary>
+        [Test]
+        public void TotalsTest()
+        {
+            // TODO unit test for the property 'Totals'
+        }
+        /// <summary>
+        /// Test the property 'Buyer'
+        /// </summary>
+        [Test]
+        public void BuyerTest()
+        {
+            // TODO unit test for the property 'Buyer'
+        }
+        /// <summary>
+        /// Test the property 'PaymentProvider'
+        /// </summary>
+        [Test]
+        public void PaymentProviderTest()
+        {
+            // TODO unit test for the property 'PaymentProvider'
+        }
+        /// <summary>
+        /// Test the property 'Messages'
+        /// </summary>
+        [Test]
+        public void MessagesTest()
+        {
+            // TODO unit test for the property 'Messages'
+        }
+        /// <summary>
+        /// Test the property 'Links'
+        /// </summary>
+        [Test]
+        public void LinksTest()
+        {
+            // TODO unit test for the property 'Links'
         }
 
     }

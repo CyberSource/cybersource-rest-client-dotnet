@@ -81,11 +81,12 @@ git checkout ..\src\Api\ApiBase.cs
 git checkout ..\src\Model\AccessTokenResponse.cs
 git checkout ..\src\Model\CreateAccessTokenRequest.cs
 git checkout ..\src\Client\GlobalConfiguration.cs
-git checkout ..\src\Client\RestClientCacheKey.cs
+git checkout ..\src\Client\SdkOwnedHttpClientCacheKey.cs
 git checkout ..\src\Client\SdkHttpMessageHandlerBuilder.cs
 git checkout ..\src\Client\SdkOwnedCacheEntry.cs
-git checkout ..\src\Client\SdkOwnedRestClientCache.cs
+git checkout ..\src\Client\SdkOwnedHttpClientCache.cs
 git checkout ..\src\Client\ServiceCollectionExtensions.cs
+git checkout ..\src\Client\HttpTransportOptions.cs
 git checkout ..\src\Client\IConfiguration.cs
 git checkout ..\src\Client\IMerchantLegacySettings.cs
 git checkout ..\src\Client\IMerchantNetworkSettings.cs
@@ -103,6 +104,6 @@ git checkout ..\src\Client\MerchantMLESettingsValidator.cs
 git checkout ..\src\Client\MerchantRequestSettingsFactory.cs
 git checkout ..\src\Client\MerchantNetworkSettings.cs
 git checkout ..\src\Client\MerchantNetworkSettingsExtensions.cs
-git checkout ..\src\Client\RestClientFactory.cs
+git checkout ..\src\Client\SdkOwnedHttpClientFactory.cs
 
 pause

@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="Reason">The reason of the status.  Possible values: - INVALID_DATA - MISSING_FIELD .</param>
         /// <param name="Message">The detail message related to the status and reason listed above. .</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse4003(string Id = default(string), string SubmitTimeStampUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse2014ErrorInformationDetails> Details = default(List<InlineResponse2014ErrorInformationDetails>))
+        public InlineResponse4003(string Id = default(string), string SubmitTimeStampUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse2013ErrorInformationDetails> Details = default(List<InlineResponse2013ErrorInformationDetails>))
         {
             this.Id = Id;
             this.SubmitTimeStampUtc = SubmitTimeStampUtc;
@@ -95,7 +95,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("details")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse2014ErrorInformationDetails> Details { get; set; }
+        public List<InlineResponse2013ErrorInformationDetails> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

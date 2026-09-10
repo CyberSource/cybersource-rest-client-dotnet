@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="City">Acquirer city..</param>
         /// <param name="State">Acquirer state..</param>
         /// <param name="PostalCode">Acquirer postal code..</param>
-        /// <param name="Country">Acquirer country..</param>
+        /// <param name="Country">Acquirer country used for Payment Facilitator scenarios..</param>
         /// <param name="ServiceProvidername">Contains transfer service provider name..</param>
         public Ucv1sessionsDataAggregatorInformation(string AggregatorId = default(string), string Name = default(string), Ucv1sessionsDataAggregatorInformationSubMerchant SubMerchant = default(Ucv1sessionsDataAggregatorInformationSubMerchant), string StreetAddress = default(string), string City = default(string), string State = default(string), string PostalCode = default(string), string Country = default(string), string ServiceProvidername = default(string))
         {
@@ -112,9 +112,9 @@ namespace CyberSource.Model
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// Acquirer country.
+        /// Acquirer country used for Payment Facilitator scenarios.
         /// </summary>
-        /// <value>Acquirer country.</value>
+        /// <value>Acquirer country used for Payment Facilitator scenarios.</value>
         [JsonPropertyName("country")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Country { get; set; }

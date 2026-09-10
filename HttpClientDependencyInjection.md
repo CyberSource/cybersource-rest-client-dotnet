@@ -2,7 +2,7 @@
 
 # HttpClient Injection in CyberSource REST Client SDK (.NET)
 
-The SDK sends every request through RestSharp, which in turn uses an `HttpClient`.
+The SDK sends every request through an `HttpClient`.
 
 You can now **inject your own `HttpClient` or `IHttpClientFactory`** into the SDK through dependency injection, giving you full control over the underlying transport — handler configuration, proxy, client certificates, connection pooling, and lifetime — and letting the SDK participate in a modern `Microsoft.Extensions.DependencyInjection` HTTP pipeline.
 
@@ -10,7 +10,7 @@ You can now **inject your own `HttpClient` or `IHttpClientFactory`** into the SD
 
 Previously the SDK always built and pooled its own `HttpClient` internally. HTTP transport is now resolved from options the caller can optionally supply:
 
-* You pass an `HttpClient` and/or an `IHttpClientFactory` into the `Configuration` object (or onto `MerchantNetworkSettings`). They are propagated to the `ApiClient`'s RestSharp client.
+* You pass an `HttpClient` and/or an `IHttpClientFactory` into the `Configuration` object (or onto `MerchantNetworkSettings`).
 * If neither is supplied, the SDK falls back to its **internally managed, pooled client**, so **existing behavior is unchanged** unless you opt in.
 * The SDK never disposes a caller-supplied client — you own its lifetime.
 
@@ -110,6 +110,42 @@ public class PaymentService
 ```
 
 This is the recommended approach: `IHttpClientFactory` handles handler pooling and rotation, avoiding both socket exhaustion and stale-DNS issues.
+
+### Full dependency injection with `EnsureHttpClientFactory()`
+
+When you build `Configuration` from resolved container services, register the SDK's HTTP transport dependency with `EnsureHttpClientFactory()` so the container-based constructor can receive an `IHttpClientFactory` through constructor injection — you no longer have to pass it in by hand:
+
+```csharp
+using CyberSource.Client;
+using CyberSource.Utilities.Serialization;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System.Net.Http;
+
+var services = new ServiceCollection();
+
+// Register the SDK serialization + HTTP dependencies.
+services.AddSerialization();
+services.EnsureHttpClientFactory(); // delegates to services.AddHttpClient()
+
+using var provider = services.BuildServiceProvider();
+
+var configuration = new Configuration(
+    merchantCredentialSettings: credentialSettings,
+    merchantMLESettings: mleSettings,
+    merchantNetworkSettings: networkSettings,
+    merchantLegacySettings: legacySettings,
+    serializerOptionsMonitor: provider.GetRequiredService<IOptionsMonitor<SdkSerializerOptions>>(),
+    deserializerOptionsMonitor: provider.GetRequiredService<IOptionsMonitor<SdkDeserializerOptions>>(),
+    loggerFactory: provider.GetService<ILoggerFactory>(),
+    httpClientFactory: provider.GetRequiredService<IHttpClientFactory>());
+```
+
+* `EnsureHttpClientFactory()` delegates to `services.AddHttpClient()`, registering `IHttpClientFactory` and the default typed-client infrastructure.
+* It is **idempotent** — calling it multiple times, or alongside a host that already called `services.AddHttpClient(...)`, does not stack duplicate registrations.
+* The container-injected `IHttpClientFactory` flows into `MerchantNetworkSettings` (Priority 2 in the table above) and is consulted per request. The SDK never disposes the resolved client.
+* A `null` `httpClientFactory` leaves `MerchantNetworkSettings.HttpClientFactory` unset, so the SDK falls back to its internally managed, pooled client.
 
 ## Notes
 

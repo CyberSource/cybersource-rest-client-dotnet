@@ -137,7 +137,7 @@ No authorization required
 
 <a name="postregistration"></a>
 # **PostRegistration**
-> InlineResponse2017 PostRegistration (PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+> InlineResponse2016 PostRegistration (PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
 
 Create a boarding registration
 
@@ -164,7 +164,7 @@ namespace Example
             try
             {
                 // Create a boarding registration
-                InlineResponse2017 result = apiInstance.PostRegistration(postRegistrationBody, vCIdempotencyId);
+                InlineResponse2016 result = apiInstance.PostRegistration(postRegistrationBody, vCIdempotencyId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2017**](InlineResponse2017.md)
+[**InlineResponse2016**](InlineResponse2016.md)
 
 ### Authorization
 

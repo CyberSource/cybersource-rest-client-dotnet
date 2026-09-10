@@ -38,12 +38,14 @@ namespace CyberSource.Model
         /// <param name="Tms">Tms.</param>
         /// <param name="DecisionManager">Configure Unified Checkout to determine whether Decision Manager is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True indicates that device fingerprinting will be executed to add additional information for risk service Setting this value to False (or not provided) indicates that you do not wish to run device fingerprinting and skip decision manager services.&lt;br&gt;&lt;br&gt;  Optional field: This field can be configured through the Merchant Experience screens in the Business Center. The configured value may be overridden on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="ConsumerAuthentication">Configure Unified Checkout to determine whether Consumer Authentication is invoked during service orchestration.  Possible values:   - PASSKEY  - 3DS  - NONE&lt;br&gt;&lt;br&gt;  Setting this value to PASSKEY performs Payer Authentication with an existing Visa Payment Passkey or create a new Passkey (Post a traditional 3DS Authentication) attempt to perform authentication using the Payer Authentication Service.&lt;br&gt; Setting this value to 3DS will attempt to perform authentication using the Payer Authentication Service.&lt;br&gt; Setting this value to NONE indicates that you do not wish to perform authentication using the Payer Authentication Service.&lt;br&gt;&lt;br&gt;  Optional field: This field can be configured through the Merchant Experience screens in the Business Center. The configured value may be overridden on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        public Ucv1sessionsCompleteMandate(string Type = default(string), Ucv1sessionsCompleteMandateTms Tms = default(Ucv1sessionsCompleteMandateTms), bool? DecisionManager = default(bool?), string ConsumerAuthentication = default(string))
+        /// <param name="Suppress">Controls whether the Complete Mandate experience or related processing is suppressed. .</param>
+        public Ucv1sessionsCompleteMandate(string Type = default(string), Ucv1sessionsCompleteMandateTms Tms = default(Ucv1sessionsCompleteMandateTms), bool? DecisionManager = default(bool?), string ConsumerAuthentication = default(string), bool? Suppress = default(bool?))
         {
             this.Type = Type;
             this.Tms = Tms;
             this.DecisionManager = DecisionManager;
             this.ConsumerAuthentication = ConsumerAuthentication;
+            this.Suppress = Suppress;
         }
         
         /// <summary>
@@ -78,6 +80,14 @@ namespace CyberSource.Model
         public string ConsumerAuthentication { get; set; }
 
         /// <summary>
+        /// Controls whether the Complete Mandate experience or related processing is suppressed. 
+        /// </summary>
+        /// <value>Controls whether the Complete Mandate experience or related processing is suppressed. </value>
+        [JsonPropertyName("suppress")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? Suppress { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -89,6 +99,7 @@ namespace CyberSource.Model
             if (Tms != null) sb.Append("  Tms: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsCompleteMandate", "tms", Tms.ToString())).Append("\n");
             if (DecisionManager != null) sb.Append("  DecisionManager: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsCompleteMandate", "decisionManager", DecisionManager.ToString())).Append("\n");
             if (ConsumerAuthentication != null) sb.Append("  ConsumerAuthentication: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsCompleteMandate", "consumerAuthentication", ConsumerAuthentication.ToString())).Append("\n");
+            if (Suppress != null) sb.Append("  Suppress: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsCompleteMandate", "suppress", Suppress.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -149,6 +160,11 @@ namespace CyberSource.Model
                     this.ConsumerAuthentication == other.ConsumerAuthentication ||
                     this.ConsumerAuthentication != null &&
                     this.ConsumerAuthentication.Equals(other.ConsumerAuthentication)
+                ) && 
+                (
+                    this.Suppress == other.Suppress ||
+                    this.Suppress != null &&
+                    this.Suppress.Equals(other.Suppress)
                 );
         }
 
@@ -173,6 +189,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DecisionManager.GetHashCode();
                 if (this.ConsumerAuthentication != null)
                     hash = hash * 59 + this.ConsumerAuthentication.GetHashCode();
+                if (this.Suppress != null)
+                    hash = hash * 59 + this.Suppress.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

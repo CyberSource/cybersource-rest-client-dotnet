@@ -38,12 +38,14 @@ namespace CyberSource.Model
         /// <param name="MessageCategory">The message category&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="AcsWindowSize">The acs window size&lt;br&gt;&lt;br&gt;  Optional field: This field cannot be configured through the Merchant Experience screens in the Business Center, but if required should be provided on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="ProductCode">Specifies the product code, which designates the type of transaction.&lt;br&gt;&lt;br&gt;  Specify one of the following values for this field:  - AIR: Airline purchase  Important Required for American Express SafeKey (U.S.).  - ACC: Accommodation Rental  - ACF: Account funding  - CHA: Check acceptance  - DIG: Digital Goods  - DSP: Cash Dispensing  - GAS: Fuel  - GEN: General Retail  - LUX: Luxury Retail  - PAL: Prepaid activation and load  - PHY: Goods or services purchase  - QCT: Quasi-cash transaction  - REN: Car Rental  - RES: Restaurant  - SVC: Services  - TBD: Other  - TRA: Travel&lt;br&gt;  **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
-        public Ucv1sessionsDataConsumerAuthenticationInformation(string ChallengeCode = default(string), string MessageCategory = default(string), string AcsWindowSize = default(string), string ProductCode = default(string))
+        /// <param name="LanguagePreference">Preferred language to be used for cardholder authentication and challenge experiences (subject to issuer/ACS support). .</param>
+        public Ucv1sessionsDataConsumerAuthenticationInformation(string ChallengeCode = default(string), string MessageCategory = default(string), string AcsWindowSize = default(string), string ProductCode = default(string), string LanguagePreference = default(string))
         {
             this.ChallengeCode = ChallengeCode;
             this.MessageCategory = MessageCategory;
             this.AcsWindowSize = AcsWindowSize;
             this.ProductCode = ProductCode;
+            this.LanguagePreference = LanguagePreference;
         }
         
         /// <summary>
@@ -79,6 +81,14 @@ namespace CyberSource.Model
         public string ProductCode { get; set; }
 
         /// <summary>
+        /// Preferred language to be used for cardholder authentication and challenge experiences (subject to issuer/ACS support). 
+        /// </summary>
+        /// <value>Preferred language to be used for cardholder authentication and challenge experiences (subject to issuer/ACS support). </value>
+        [JsonPropertyName("languagePreference")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string LanguagePreference { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +100,7 @@ namespace CyberSource.Model
             if (MessageCategory != null) sb.Append("  MessageCategory: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsDataConsumerAuthenticationInformation", "messageCategory", MessageCategory.ToString())).Append("\n");
             if (AcsWindowSize != null) sb.Append("  AcsWindowSize: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsDataConsumerAuthenticationInformation", "acsWindowSize", AcsWindowSize.ToString())).Append("\n");
             if (ProductCode != null) sb.Append("  ProductCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsDataConsumerAuthenticationInformation", "productCode", ProductCode.ToString())).Append("\n");
+            if (LanguagePreference != null) sb.Append("  LanguagePreference: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsDataConsumerAuthenticationInformation", "languagePreference", LanguagePreference.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -150,6 +161,11 @@ namespace CyberSource.Model
                     this.ProductCode == other.ProductCode ||
                     this.ProductCode != null &&
                     this.ProductCode.Equals(other.ProductCode)
+                ) && 
+                (
+                    this.LanguagePreference == other.LanguagePreference ||
+                    this.LanguagePreference != null &&
+                    this.LanguagePreference.Equals(other.LanguagePreference)
                 );
         }
 
@@ -174,6 +190,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.AcsWindowSize.GetHashCode();
                 if (this.ProductCode != null)
                     hash = hash * 59 + this.ProductCode.GetHashCode();
+                if (this.LanguagePreference != null)
+                    hash = hash * 59 + this.LanguagePreference.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

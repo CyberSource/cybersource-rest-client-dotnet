@@ -34,89 +34,59 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2014OrderInformationAmountDetails" /> class.
         /// </summary>
-        /// <param name="MarkupRate">The markup between the offer exchange rate and wholesale rates, i.e. the mark up. Expressed as a percentage of 100, e.g. 3.75.  If the markup value is not supplied in the API, and the Acquiring BIN is provided, the markup configured during onboarding will be picked up and applied to the transaction. To override any markup defaults set up on the account, always send a markup value of 0.00 to indicate 0% markup.   Supported by Visa Direct. .</param>
-        /// <param name="ExchangeRate">Exchange rate returned by the card network..</param>
-        /// <param name="OriginalAmount">Amount in your original local pricing currency.  This value cannot be negative. You can include a decimal point (.) in this field to denote the currency exponent, but you cannot include any other special characters.  If needed, CyberSource truncates the amount to the correct number of decimal places. .</param>
-        /// <param name="DestinationAmount">Amount in your destination&#39;s local pricing currency.  This value cannot be negative. You can include a decimal point (.) in this field to denote the currency exponent, but you cannot include any other special characters.  If needed, CyberSource truncates the amount to the correct number of decimal places. .</param>
-        /// <param name="OriginalAmountWithoutMarkup">Original Transaction Amount excluding markup in source currency. This field will be returned in a source-to-destination inquiry response when markup is applicable.  Supported by Visa Direct .</param>
-        /// <param name="SettlementAmount">The transaction amount in settlement currency..</param>
-        /// <param name="SettlementCurrency">The currency in which Visa or Mastercard settles with the acquirer/acquirer.  Use [ISO 4217 3-Alpha Currency Codes](https://developer.cybersource.com/content/dam/docs/cybs/en-us/currency-codes/reference/all/na/currency-codes.pdf). .</param>
-        /// <param name="SettlementExchangeRate">Exchange rate returned by the card network for settlement..</param>
-        public InlineResponse2014OrderInformationAmountDetails(string MarkupRate = default(string), string ExchangeRate = default(string), string OriginalAmount = default(string), string DestinationAmount = default(string), string OriginalAmountWithoutMarkup = default(string), string SettlementAmount = default(string), string SettlementCurrency = default(string), string SettlementExchangeRate = default(string))
+        /// <param name="AuthorizedAmount">Amount that was authorized. .</param>
+        /// <param name="Currency">Currency used for the order. Use the three-character ISO Standard Currency Codes. .</param>
+        /// <param name="ExchangeRate">The rate of conversion of the currency given in the request. .</param>
+        /// <param name="TotalAmount">Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places. .</param>
+        /// <param name="SettlementAmount">This is a multicurrency field. It contains the transaction amount, converted to the currency used to bill the cardholder&#39;s account. .</param>
+        public InlineResponse2014OrderInformationAmountDetails(string AuthorizedAmount = default(string), string Currency = default(string), string ExchangeRate = default(string), string TotalAmount = default(string), string SettlementAmount = default(string))
         {
-            this.MarkupRate = MarkupRate;
+            this.AuthorizedAmount = AuthorizedAmount;
+            this.Currency = Currency;
             this.ExchangeRate = ExchangeRate;
-            this.OriginalAmount = OriginalAmount;
-            this.DestinationAmount = DestinationAmount;
-            this.OriginalAmountWithoutMarkup = OriginalAmountWithoutMarkup;
+            this.TotalAmount = TotalAmount;
             this.SettlementAmount = SettlementAmount;
-            this.SettlementCurrency = SettlementCurrency;
-            this.SettlementExchangeRate = SettlementExchangeRate;
         }
         
         /// <summary>
-        /// The markup between the offer exchange rate and wholesale rates, i.e. the mark up. Expressed as a percentage of 100, e.g. 3.75.  If the markup value is not supplied in the API, and the Acquiring BIN is provided, the markup configured during onboarding will be picked up and applied to the transaction. To override any markup defaults set up on the account, always send a markup value of 0.00 to indicate 0% markup.   Supported by Visa Direct. 
+        /// Amount that was authorized. 
         /// </summary>
-        /// <value>The markup between the offer exchange rate and wholesale rates, i.e. the mark up. Expressed as a percentage of 100, e.g. 3.75.  If the markup value is not supplied in the API, and the Acquiring BIN is provided, the markup configured during onboarding will be picked up and applied to the transaction. To override any markup defaults set up on the account, always send a markup value of 0.00 to indicate 0% markup.   Supported by Visa Direct. </value>
-        [JsonPropertyName("markupRate")]
+        /// <value>Amount that was authorized. </value>
+        [JsonPropertyName("authorizedAmount")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string MarkupRate { get; set; }
+        public string AuthorizedAmount { get; set; }
 
         /// <summary>
-        /// Exchange rate returned by the card network.
+        /// Currency used for the order. Use the three-character ISO Standard Currency Codes. 
         /// </summary>
-        /// <value>Exchange rate returned by the card network.</value>
+        /// <value>Currency used for the order. Use the three-character ISO Standard Currency Codes. </value>
+        [JsonPropertyName("currency")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// The rate of conversion of the currency given in the request. 
+        /// </summary>
+        /// <value>The rate of conversion of the currency given in the request. </value>
         [JsonPropertyName("exchangeRate")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string ExchangeRate { get; set; }
 
         /// <summary>
-        /// Amount in your original local pricing currency.  This value cannot be negative. You can include a decimal point (.) in this field to denote the currency exponent, but you cannot include any other special characters.  If needed, CyberSource truncates the amount to the correct number of decimal places. 
+        /// Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places. 
         /// </summary>
-        /// <value>Amount in your original local pricing currency.  This value cannot be negative. You can include a decimal point (.) in this field to denote the currency exponent, but you cannot include any other special characters.  If needed, CyberSource truncates the amount to the correct number of decimal places. </value>
-        [JsonPropertyName("originalAmount")]
+        /// <value>Grand total for the order. This value cannot be negative. You can include a decimal point (.), but no other special characters. CyberSource truncates the amount to the correct number of decimal places. </value>
+        [JsonPropertyName("totalAmount")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string OriginalAmount { get; set; }
+        public string TotalAmount { get; set; }
 
         /// <summary>
-        /// Amount in your destination&#39;s local pricing currency.  This value cannot be negative. You can include a decimal point (.) in this field to denote the currency exponent, but you cannot include any other special characters.  If needed, CyberSource truncates the amount to the correct number of decimal places. 
+        /// This is a multicurrency field. It contains the transaction amount, converted to the currency used to bill the cardholder&#39;s account. 
         /// </summary>
-        /// <value>Amount in your destination&#39;s local pricing currency.  This value cannot be negative. You can include a decimal point (.) in this field to denote the currency exponent, but you cannot include any other special characters.  If needed, CyberSource truncates the amount to the correct number of decimal places. </value>
-        [JsonPropertyName("destinationAmount")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string DestinationAmount { get; set; }
-
-        /// <summary>
-        /// Original Transaction Amount excluding markup in source currency. This field will be returned in a source-to-destination inquiry response when markup is applicable.  Supported by Visa Direct 
-        /// </summary>
-        /// <value>Original Transaction Amount excluding markup in source currency. This field will be returned in a source-to-destination inquiry response when markup is applicable.  Supported by Visa Direct </value>
-        [JsonPropertyName("originalAmountWithoutMarkup")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string OriginalAmountWithoutMarkup { get; set; }
-
-        /// <summary>
-        /// The transaction amount in settlement currency.
-        /// </summary>
-        /// <value>The transaction amount in settlement currency.</value>
+        /// <value>This is a multicurrency field. It contains the transaction amount, converted to the currency used to bill the cardholder&#39;s account. </value>
         [JsonPropertyName("settlementAmount")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string SettlementAmount { get; set; }
-
-        /// <summary>
-        /// The currency in which Visa or Mastercard settles with the acquirer/acquirer.  Use [ISO 4217 3-Alpha Currency Codes](https://developer.cybersource.com/content/dam/docs/cybs/en-us/currency-codes/reference/all/na/currency-codes.pdf). 
-        /// </summary>
-        /// <value>The currency in which Visa or Mastercard settles with the acquirer/acquirer.  Use [ISO 4217 3-Alpha Currency Codes](https://developer.cybersource.com/content/dam/docs/cybs/en-us/currency-codes/reference/all/na/currency-codes.pdf). </value>
-        [JsonPropertyName("settlementCurrency")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SettlementCurrency { get; set; }
-
-        /// <summary>
-        /// Exchange rate returned by the card network for settlement.
-        /// </summary>
-        /// <value>Exchange rate returned by the card network for settlement.</value>
-        [JsonPropertyName("settlementExchangeRate")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SettlementExchangeRate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -126,14 +96,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2014OrderInformationAmountDetails {\n");
-            if (MarkupRate != null) sb.Append("  MarkupRate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "markupRate", MarkupRate.ToString())).Append("\n");
+            if (AuthorizedAmount != null) sb.Append("  AuthorizedAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "authorizedAmount", AuthorizedAmount.ToString())).Append("\n");
+            if (Currency != null) sb.Append("  Currency: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "currency", Currency.ToString())).Append("\n");
             if (ExchangeRate != null) sb.Append("  ExchangeRate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "exchangeRate", ExchangeRate.ToString())).Append("\n");
-            if (OriginalAmount != null) sb.Append("  OriginalAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "originalAmount", OriginalAmount.ToString())).Append("\n");
-            if (DestinationAmount != null) sb.Append("  DestinationAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "destinationAmount", DestinationAmount.ToString())).Append("\n");
-            if (OriginalAmountWithoutMarkup != null) sb.Append("  OriginalAmountWithoutMarkup: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "originalAmountWithoutMarkup", OriginalAmountWithoutMarkup.ToString())).Append("\n");
+            if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "totalAmount", TotalAmount.ToString())).Append("\n");
             if (SettlementAmount != null) sb.Append("  SettlementAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "settlementAmount", SettlementAmount.ToString())).Append("\n");
-            if (SettlementCurrency != null) sb.Append("  SettlementCurrency: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "settlementCurrency", SettlementCurrency.ToString())).Append("\n");
-            if (SettlementExchangeRate != null) sb.Append("  SettlementExchangeRate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014OrderInformationAmountDetails", "settlementExchangeRate", SettlementExchangeRate.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -176,9 +143,14 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.MarkupRate == other.MarkupRate ||
-                    this.MarkupRate != null &&
-                    this.MarkupRate.Equals(other.MarkupRate)
+                    this.AuthorizedAmount == other.AuthorizedAmount ||
+                    this.AuthorizedAmount != null &&
+                    this.AuthorizedAmount.Equals(other.AuthorizedAmount)
+                ) && 
+                (
+                    this.Currency == other.Currency ||
+                    this.Currency != null &&
+                    this.Currency.Equals(other.Currency)
                 ) && 
                 (
                     this.ExchangeRate == other.ExchangeRate ||
@@ -186,34 +158,14 @@ namespace CyberSource.Model
                     this.ExchangeRate.Equals(other.ExchangeRate)
                 ) && 
                 (
-                    this.OriginalAmount == other.OriginalAmount ||
-                    this.OriginalAmount != null &&
-                    this.OriginalAmount.Equals(other.OriginalAmount)
-                ) && 
-                (
-                    this.DestinationAmount == other.DestinationAmount ||
-                    this.DestinationAmount != null &&
-                    this.DestinationAmount.Equals(other.DestinationAmount)
-                ) && 
-                (
-                    this.OriginalAmountWithoutMarkup == other.OriginalAmountWithoutMarkup ||
-                    this.OriginalAmountWithoutMarkup != null &&
-                    this.OriginalAmountWithoutMarkup.Equals(other.OriginalAmountWithoutMarkup)
+                    this.TotalAmount == other.TotalAmount ||
+                    this.TotalAmount != null &&
+                    this.TotalAmount.Equals(other.TotalAmount)
                 ) && 
                 (
                     this.SettlementAmount == other.SettlementAmount ||
                     this.SettlementAmount != null &&
                     this.SettlementAmount.Equals(other.SettlementAmount)
-                ) && 
-                (
-                    this.SettlementCurrency == other.SettlementCurrency ||
-                    this.SettlementCurrency != null &&
-                    this.SettlementCurrency.Equals(other.SettlementCurrency)
-                ) && 
-                (
-                    this.SettlementExchangeRate == other.SettlementExchangeRate ||
-                    this.SettlementExchangeRate != null &&
-                    this.SettlementExchangeRate.Equals(other.SettlementExchangeRate)
                 );
         }
 
@@ -230,22 +182,16 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.MarkupRate != null)
-                    hash = hash * 59 + this.MarkupRate.GetHashCode();
+                if (this.AuthorizedAmount != null)
+                    hash = hash * 59 + this.AuthorizedAmount.GetHashCode();
+                if (this.Currency != null)
+                    hash = hash * 59 + this.Currency.GetHashCode();
                 if (this.ExchangeRate != null)
                     hash = hash * 59 + this.ExchangeRate.GetHashCode();
-                if (this.OriginalAmount != null)
-                    hash = hash * 59 + this.OriginalAmount.GetHashCode();
-                if (this.DestinationAmount != null)
-                    hash = hash * 59 + this.DestinationAmount.GetHashCode();
-                if (this.OriginalAmountWithoutMarkup != null)
-                    hash = hash * 59 + this.OriginalAmountWithoutMarkup.GetHashCode();
+                if (this.TotalAmount != null)
+                    hash = hash * 59 + this.TotalAmount.GetHashCode();
                 if (this.SettlementAmount != null)
                     hash = hash * 59 + this.SettlementAmount.GetHashCode();
-                if (this.SettlementCurrency != null)
-                    hash = hash * 59 + this.SettlementCurrency.GetHashCode();
-                if (this.SettlementExchangeRate != null)
-                    hash = hash * 59 + this.SettlementExchangeRate.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

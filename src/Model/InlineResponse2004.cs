@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="ReferenceType">ReferenceType.</param>
         /// <param name="ReadOnly">ReadOnly.</param>
         /// <param name="MerchantDefinedDataIndex">MerchantDefinedDataIndex.</param>
-        public InlineResponse2004(long? Id = default(long?), string FieldType = default(string), string Label = default(string), bool? CustomerVisible = default(bool?), int? TextMinLength = default(int?), int? TextMaxLength = default(int?), string PossibleValues = default(string), string TextDefaultValue = default(string), string MerchantId = default(string), string ReferenceType = default(string), bool? ReadOnly = default(bool?), int? MerchantDefinedDataIndex = default(int?))
+        public InlineResponse2004(string Id = default(string), string FieldType = default(string), string Label = default(string), bool? CustomerVisible = default(bool?), int? TextMinLength = default(int?), int? TextMaxLength = default(int?), string PossibleValues = default(string), string TextDefaultValue = default(string), string MerchantId = default(string), string ReferenceType = default(string), bool? ReadOnly = default(bool?), int? MerchantDefinedDataIndex = default(int?))
         {
             this.Id = Id;
             this.FieldType = FieldType;
@@ -67,7 +67,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public long? Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets FieldType

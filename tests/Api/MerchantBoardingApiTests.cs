@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using NUnit.Framework;
 
 using CyberSource.Client;
@@ -101,7 +100,7 @@ namespace CyberSource.Test
             //PostRegistrationBody postRegistrationBody = null;
             //string vCIdempotencyId = null;
             //var response = instance.PostRegistration(postRegistrationBody, vCIdempotencyId);
-            //Assert.IsInstanceOf<InlineResponse2017> (response, "response is InlineResponse2017");
+            //Assert.IsInstanceOf<InlineResponse2016> (response, "response is InlineResponse2016");
         }
         
     }

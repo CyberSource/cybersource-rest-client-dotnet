@@ -10,7 +10,7 @@
 
 
 using System;
-using RestSharp;
+using System.Net.Http;
 
 namespace CyberSource.Client
 {
@@ -20,5 +20,5 @@ namespace CyberSource.Client
     /// <param name="methodName">Method name</param>
     /// <param name="response">Response</param>
     /// <returns>Exceptions</returns>
-    public delegate Exception ExceptionFactory(string methodName, RestResponse response);
+    public delegate Exception ExceptionFactory(string methodName, HttpResponseMessage response);
 }

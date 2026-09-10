@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Product identifier. | [optional] 
-**Name** | **string** | Product display name. | [optional] 
-**Quantity** | **int?** | Number of units. | [optional] 
+**Id** | **string** | The merchant&#39;s product ID or SKU. | [optional] 
+**Title** | **string** | Human-readable product name. | [optional] 
+**Price** | **int?** | Unit price in cents. Example: 2999 &#x3D; $29.99 USD. | [optional] 
 
 ## Extensibility
 

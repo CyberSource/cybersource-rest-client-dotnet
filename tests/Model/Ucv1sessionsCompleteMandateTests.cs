@@ -96,6 +96,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ConsumerAuthentication'
         }
+        /// <summary>
+        /// Test the property 'Suppress'
+        /// </summary>
+        [Test]
+        public void SuppressTest()
+        {
+            // TODO unit test for the property 'Suppress'
+        }
 
     }
 

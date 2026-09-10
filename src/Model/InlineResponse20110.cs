@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// InlineResponse20110
+    /// Egress Asymmetric Key Information Response. 
     /// </summary>
     [DataContract]
     public partial class InlineResponse20110 :  ModelExtensions, IEquatable<InlineResponse20110>, IValidatableObject
@@ -34,98 +34,29 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20110" /> class.
         /// </summary>
-        /// <param name="EventDate">Date that the webhook was delivered.</param>
-        /// <param name="EventType">The event name the webhook was delivered for.</param>
-        /// <param name="OrganizationId">The Organization Identifier..</param>
-        /// <param name="Payloads">Payloads.</param>
-        /// <param name="ProductId">The product the webhook was delivered for.</param>
-        /// <param name="RequestType">Identifies the the type of request.</param>
-        /// <param name="RetryNumber">The number of retry attempts for a given webhook.</param>
-        /// <param name="TransactionTraceId">The identifier for the webhook.</param>
-        /// <param name="WebhookId">The identifier of the subscription.</param>
-        public InlineResponse20110(string EventDate = default(string), string EventType = default(string), string OrganizationId = default(string), InlineResponse20110Payloads Payloads = default(InlineResponse20110Payloads), string ProductId = default(string), string RequestType = default(string), int? RetryNumber = default(int?), string TransactionTraceId = default(string), string WebhookId = default(string))
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
+        /// <param name="Status">The status of the submitted transaction. Possible values:  - ACCEPTED .</param>
+        public InlineResponse20110(string SubmitTimeUtc = default(string), string Status = default(string))
         {
-            this.EventDate = EventDate;
-            this.EventType = EventType;
-            this.OrganizationId = OrganizationId;
-            this.Payloads = Payloads;
-            this.ProductId = ProductId;
-            this.RequestType = RequestType;
-            this.RetryNumber = RetryNumber;
-            this.TransactionTraceId = TransactionTraceId;
-            this.WebhookId = WebhookId;
+            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Status = Status;
         }
         
         /// <summary>
-        /// Date that the webhook was delivered
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
         /// </summary>
-        /// <value>Date that the webhook was delivered</value>
-        [JsonPropertyName("eventDate")]
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
+        [JsonPropertyName("submitTimeUtc")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string EventDate { get; set; }
+        public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The event name the webhook was delivered for
+        /// The status of the submitted transaction. Possible values:  - ACCEPTED 
         /// </summary>
-        /// <value>The event name the webhook was delivered for</value>
-        [JsonPropertyName("eventType")]
+        /// <value>The status of the submitted transaction. Possible values:  - ACCEPTED </value>
+        [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string EventType { get; set; }
-
-        /// <summary>
-        /// The Organization Identifier.
-        /// </summary>
-        /// <value>The Organization Identifier.</value>
-        [JsonPropertyName("organizationId")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string OrganizationId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Payloads
-        /// </summary>
-        [JsonPropertyName("payloads")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse20110Payloads Payloads { get; set; }
-
-        /// <summary>
-        /// The product the webhook was delivered for
-        /// </summary>
-        /// <value>The product the webhook was delivered for</value>
-        [JsonPropertyName("productId")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string ProductId { get; set; }
-
-        /// <summary>
-        /// Identifies the the type of request
-        /// </summary>
-        /// <value>Identifies the the type of request</value>
-        [JsonPropertyName("requestType")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string RequestType { get; set; }
-
-        /// <summary>
-        /// The number of retry attempts for a given webhook
-        /// </summary>
-        /// <value>The number of retry attempts for a given webhook</value>
-        [JsonPropertyName("retryNumber")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? RetryNumber { get; set; }
-
-        /// <summary>
-        /// The identifier for the webhook
-        /// </summary>
-        /// <value>The identifier for the webhook</value>
-        [JsonPropertyName("transactionTraceId")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string TransactionTraceId { get; set; }
-
-        /// <summary>
-        /// The identifier of the subscription
-        /// </summary>
-        /// <value>The identifier of the subscription</value>
-        [JsonPropertyName("webhookId")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string WebhookId { get; set; }
+        public string Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,15 +66,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20110 {\n");
-            if (EventDate != null) sb.Append("  EventDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "eventDate", EventDate.ToString())).Append("\n");
-            if (EventType != null) sb.Append("  EventType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "eventType", EventType.ToString())).Append("\n");
-            if (OrganizationId != null) sb.Append("  OrganizationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "organizationId", OrganizationId.ToString())).Append("\n");
-            if (Payloads != null) sb.Append("  Payloads: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "payloads", Payloads.ToString())).Append("\n");
-            if (ProductId != null) sb.Append("  ProductId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "productId", ProductId.ToString())).Append("\n");
-            if (RequestType != null) sb.Append("  RequestType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "requestType", RequestType.ToString())).Append("\n");
-            if (RetryNumber != null) sb.Append("  RetryNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "retryNumber", RetryNumber.ToString())).Append("\n");
-            if (TransactionTraceId != null) sb.Append("  TransactionTraceId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "transactionTraceId", TransactionTraceId.ToString())).Append("\n");
-            if (WebhookId != null) sb.Append("  WebhookId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "webhookId", WebhookId.ToString())).Append("\n");
+            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20110", "status", Status.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -186,49 +110,14 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.EventDate == other.EventDate ||
-                    this.EventDate != null &&
-                    this.EventDate.Equals(other.EventDate)
+                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
+                    this.SubmitTimeUtc != null &&
+                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
                 ) && 
                 (
-                    this.EventType == other.EventType ||
-                    this.EventType != null &&
-                    this.EventType.Equals(other.EventType)
-                ) && 
-                (
-                    this.OrganizationId == other.OrganizationId ||
-                    this.OrganizationId != null &&
-                    this.OrganizationId.Equals(other.OrganizationId)
-                ) && 
-                (
-                    this.Payloads == other.Payloads ||
-                    this.Payloads != null &&
-                    this.Payloads.Equals(other.Payloads)
-                ) && 
-                (
-                    this.ProductId == other.ProductId ||
-                    this.ProductId != null &&
-                    this.ProductId.Equals(other.ProductId)
-                ) && 
-                (
-                    this.RequestType == other.RequestType ||
-                    this.RequestType != null &&
-                    this.RequestType.Equals(other.RequestType)
-                ) && 
-                (
-                    this.RetryNumber == other.RetryNumber ||
-                    this.RetryNumber != null &&
-                    this.RetryNumber.Equals(other.RetryNumber)
-                ) && 
-                (
-                    this.TransactionTraceId == other.TransactionTraceId ||
-                    this.TransactionTraceId != null &&
-                    this.TransactionTraceId.Equals(other.TransactionTraceId)
-                ) && 
-                (
-                    this.WebhookId == other.WebhookId ||
-                    this.WebhookId != null &&
-                    this.WebhookId.Equals(other.WebhookId)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 );
         }
 
@@ -245,24 +134,10 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.EventDate != null)
-                    hash = hash * 59 + this.EventDate.GetHashCode();
-                if (this.EventType != null)
-                    hash = hash * 59 + this.EventType.GetHashCode();
-                if (this.OrganizationId != null)
-                    hash = hash * 59 + this.OrganizationId.GetHashCode();
-                if (this.Payloads != null)
-                    hash = hash * 59 + this.Payloads.GetHashCode();
-                if (this.ProductId != null)
-                    hash = hash * 59 + this.ProductId.GetHashCode();
-                if (this.RequestType != null)
-                    hash = hash * 59 + this.RequestType.GetHashCode();
-                if (this.RetryNumber != null)
-                    hash = hash * 59 + this.RetryNumber.GetHashCode();
-                if (this.TransactionTraceId != null)
-                    hash = hash * 59 + this.TransactionTraceId.GetHashCode();
-                if (this.WebhookId != null)
-                    hash = hash * 59 + this.WebhookId.GetHashCode();
+                if (this.SubmitTimeUtc != null)
+                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

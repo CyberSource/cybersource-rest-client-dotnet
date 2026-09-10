@@ -65,12 +65,36 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Routing'
+        /// Test the property 'BusinessApplicationId'
         /// </summary>
         [Test]
-        public void RoutingTest()
+        public void BusinessApplicationIdTest()
         {
-            // TODO unit test for the property 'Routing'
+            // TODO unit test for the property 'BusinessApplicationId'
+        }
+        /// <summary>
+        /// Test the property 'CommerceIndicator'
+        /// </summary>
+        [Test]
+        public void CommerceIndicatorTest()
+        {
+            // TODO unit test for the property 'CommerceIndicator'
+        }
+        /// <summary>
+        /// Test the property 'PayoutsOptions'
+        /// </summary>
+        [Test]
+        public void PayoutsOptionsTest()
+        {
+            // TODO unit test for the property 'PayoutsOptions'
+        }
+        /// <summary>
+        /// Test the property 'ReconciliationId'
+        /// </summary>
+        [Test]
+        public void ReconciliationIdTest()
+        {
+            // TODO unit test for the property 'ReconciliationId'
         }
 
     }

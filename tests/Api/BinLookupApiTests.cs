@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using NUnit.Framework;
 
 using CyberSource.Client;
@@ -74,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CreateBinLookupRequest createBinLookupRequest = null;
             //var response = instance.GetAccountInfo(createBinLookupRequest);
-            //Assert.IsInstanceOf<InlineResponse2016> (response, "response is InlineResponse2016");
+            //Assert.IsInstanceOf<InlineResponse2015> (response, "response is InlineResponse2015");
         }
         
     }

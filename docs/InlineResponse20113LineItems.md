@@ -5,11 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | ACG-assigned line item identifier. | [optional] 
 **Item** | [**InlineResponse20113Item**](InlineResponse20113Item.md) |  | [optional] 
-**BaseAmount** | **int?** | Unit price × quantity before discounts, in minor units. | [optional] 
-**Discount** | **int?** | Discount amount for this line item, in minor units. | [optional] 
-**Subtotal** | **int?** | base_amount minus discount, in minor units. | [optional] 
-**Tax** | **int?** | Tax on this line item, in minor units. | [optional] 
-**Total** | **int?** | subtotal plus tax, in minor units. | [optional] 
+**Quantity** | **int?** | Number of units in this line item. Minimum 1. | [optional] 
+**Totals** | [**List&lt;Iccv1checkoutsessionsFulfillmentTotals&gt;**](Iccv1checkoutsessionsFulfillmentTotals.md) | Per-line-item cost breakdown (subtotal, tax, etc.). Amounts in cents. | [optional] 
 
 ## Extensibility
 

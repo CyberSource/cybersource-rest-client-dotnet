@@ -10,10 +10,6 @@
 
 
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using RestSharp;
 
 namespace CyberSource.Client
 {
@@ -33,7 +29,7 @@ namespace CyberSource.Client
         /// </summary>
         /// <value>The base path</value>
         string GetBasePath();
-        
+
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>

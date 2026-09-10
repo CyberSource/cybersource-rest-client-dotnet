@@ -72,7 +72,7 @@ No authorization required
 
 <a name="notificationsubscriptionsv2webhookspost"></a>
 # **NotificationSubscriptionsV2WebhooksPost**
-> InlineResponse2019 NotificationSubscriptionsV2WebhooksPost (CreateWebhook createWebhook = null)
+> InlineResponse2018 NotificationSubscriptionsV2WebhooksPost (CreateWebhook createWebhook = null)
 
 Create a New Webhook Subscription
 
@@ -98,7 +98,7 @@ namespace Example
             try
             {
                 // Create a New Webhook Subscription
-                InlineResponse2019 result = apiInstance.NotificationSubscriptionsV2WebhooksPost(createWebhook);
+                InlineResponse2018 result = apiInstance.NotificationSubscriptionsV2WebhooksPost(createWebhook);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2019**](InlineResponse2019.md)
+[**InlineResponse2018**](InlineResponse2018.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ No authorization required
 
 <a name="savesymegresskey"></a>
 # **SaveSymEgressKey**
-> InlineResponse2018 SaveSymEgressKey (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
+> InlineResponse2017 SaveSymEgressKey (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
 
 Create Webhook Security Keys
 
@@ -162,7 +162,7 @@ namespace Example
             try
             {
                 // Create Webhook Security Keys
-                InlineResponse2018 result = apiInstance.SaveSymEgressKey(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
+                InlineResponse2017 result = apiInstance.SaveSymEgressKey(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2018**](InlineResponse2018.md)
+[**InlineResponse2017**](InlineResponse2017.md)
 
 ### Authorization
 

@@ -1,0 +1,22 @@
+# CyberSource.Model.UnifiedriskTerminal
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Country** | **string** | The country of the terminal in terminalId. 3 letter ISO 3166-1 Alpha-3 country code, such as GBR, AUS or CAN. | [optional] 
+**TerminalId** | **string** | Identification of the terminal or ATM performing the transaction. | [optional] 
+**Type** | **string** | Type of terminal ATMT - ATM  - Automated Teller Machine MPOS - mPOS -  Mobile or tablet used as a Point of Sale terminal OTHN - OtherNational - Other type defined at national level OTHP - OtherPrivate | [optional] 
+**Capabilities** | [**UnifiedriskTerminalCapabilities**](UnifiedriskTerminalCapabilities.md) |  | [optional] 
+**Address** | [**UnifiedriskTerminalAddress**](UnifiedriskTerminalAddress.md) |  | [optional] 
+
+## Extensibility
+
+This model derives from `ExtensibleModel`, so it can round-trip JSON fields that are not (yet) defined as typed properties above:
+
+- `SetExtraField(string jsonName, object value)` &mdash; set a field that is not mapped to a property.
+- `GetExtraField<T>(string jsonName)` / `TryGetExtraField<T>(string jsonName, out T value)` &mdash; read an unmapped field.
+
+Unknown fields received in a response are preserved and re-serialized on the next request. Setting the same field both as a typed property and via `SetExtraField` throws at serialization time (serialize-time conflict guard).
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

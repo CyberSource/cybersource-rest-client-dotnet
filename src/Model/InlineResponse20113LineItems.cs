@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// A single line item in an ACP session response. All amounts in minor units (cents).
+    /// A single product line item in a UCP session response.
     /// </summary>
     [DataContract]
     public partial class InlineResponse20113LineItems :  ModelExtensions, IEquatable<InlineResponse20113LineItems>, IValidatableObject
@@ -36,20 +36,14 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Id">ACG-assigned line item identifier..</param>
         /// <param name="Item">Item.</param>
-        /// <param name="BaseAmount">Unit price × quantity before discounts, in minor units..</param>
-        /// <param name="Discount">Discount amount for this line item, in minor units..</param>
-        /// <param name="Subtotal">base_amount minus discount, in minor units..</param>
-        /// <param name="Tax">Tax on this line item, in minor units..</param>
-        /// <param name="Total">subtotal plus tax, in minor units..</param>
-        public InlineResponse20113LineItems(string Id = default(string), InlineResponse20113Item Item = default(InlineResponse20113Item), int? BaseAmount = default(int?), int? Discount = default(int?), int? Subtotal = default(int?), int? Tax = default(int?), int? Total = default(int?))
+        /// <param name="Quantity">Number of units in this line item. Minimum 1..</param>
+        /// <param name="Totals">Per-line-item cost breakdown (subtotal, tax, etc.). Amounts in cents..</param>
+        public InlineResponse20113LineItems(string Id = default(string), InlineResponse20113Item Item = default(InlineResponse20113Item), int? Quantity = default(int?), List<Iccv1checkoutsessionsFulfillmentTotals> Totals = default(List<Iccv1checkoutsessionsFulfillmentTotals>))
         {
             this.Id = Id;
             this.Item = Item;
-            this.BaseAmount = BaseAmount;
-            this.Discount = Discount;
-            this.Subtotal = Subtotal;
-            this.Tax = Tax;
-            this.Total = Total;
+            this.Quantity = Quantity;
+            this.Totals = Totals;
         }
         
         /// <summary>
@@ -68,44 +62,20 @@ namespace CyberSource.Model
         public InlineResponse20113Item Item { get; set; }
 
         /// <summary>
-        /// Unit price × quantity before discounts, in minor units.
+        /// Number of units in this line item. Minimum 1.
         /// </summary>
-        /// <value>Unit price × quantity before discounts, in minor units.</value>
-        [JsonPropertyName("base_amount")]
+        /// <value>Number of units in this line item. Minimum 1.</value>
+        [JsonPropertyName("quantity")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? BaseAmount { get; set; }
+        public int? Quantity { get; set; }
 
         /// <summary>
-        /// Discount amount for this line item, in minor units.
+        /// Per-line-item cost breakdown (subtotal, tax, etc.). Amounts in cents.
         /// </summary>
-        /// <value>Discount amount for this line item, in minor units.</value>
-        [JsonPropertyName("discount")]
+        /// <value>Per-line-item cost breakdown (subtotal, tax, etc.). Amounts in cents.</value>
+        [JsonPropertyName("totals")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Discount { get; set; }
-
-        /// <summary>
-        /// base_amount minus discount, in minor units.
-        /// </summary>
-        /// <value>base_amount minus discount, in minor units.</value>
-        [JsonPropertyName("subtotal")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Subtotal { get; set; }
-
-        /// <summary>
-        /// Tax on this line item, in minor units.
-        /// </summary>
-        /// <value>Tax on this line item, in minor units.</value>
-        [JsonPropertyName("tax")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Tax { get; set; }
-
-        /// <summary>
-        /// subtotal plus tax, in minor units.
-        /// </summary>
-        /// <value>subtotal plus tax, in minor units.</value>
-        [JsonPropertyName("total")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Total { get; set; }
+        public List<Iccv1checkoutsessionsFulfillmentTotals> Totals { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -117,11 +87,8 @@ namespace CyberSource.Model
             sb.Append("class InlineResponse20113LineItems {\n");
             if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113LineItems", "id", Id.ToString())).Append("\n");
             if (Item != null) sb.Append("  Item: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113LineItems", "item", Item.ToString())).Append("\n");
-            if (BaseAmount != null) sb.Append("  BaseAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113LineItems", "base_amount", BaseAmount.ToString())).Append("\n");
-            if (Discount != null) sb.Append("  Discount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113LineItems", "discount", Discount.ToString())).Append("\n");
-            if (Subtotal != null) sb.Append("  Subtotal: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113LineItems", "subtotal", Subtotal.ToString())).Append("\n");
-            if (Tax != null) sb.Append("  Tax: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113LineItems", "tax", Tax.ToString())).Append("\n");
-            if (Total != null) sb.Append("  Total: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113LineItems", "total", Total.ToString())).Append("\n");
+            if (Quantity != null) sb.Append("  Quantity: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113LineItems", "quantity", Quantity.ToString())).Append("\n");
+            if (Totals != null) sb.Append("  Totals: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113LineItems", "totals", Totals.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -174,29 +141,14 @@ namespace CyberSource.Model
                     this.Item.Equals(other.Item)
                 ) && 
                 (
-                    this.BaseAmount == other.BaseAmount ||
-                    this.BaseAmount != null &&
-                    this.BaseAmount.Equals(other.BaseAmount)
+                    this.Quantity == other.Quantity ||
+                    this.Quantity != null &&
+                    this.Quantity.Equals(other.Quantity)
                 ) && 
                 (
-                    this.Discount == other.Discount ||
-                    this.Discount != null &&
-                    this.Discount.Equals(other.Discount)
-                ) && 
-                (
-                    this.Subtotal == other.Subtotal ||
-                    this.Subtotal != null &&
-                    this.Subtotal.Equals(other.Subtotal)
-                ) && 
-                (
-                    this.Tax == other.Tax ||
-                    this.Tax != null &&
-                    this.Tax.Equals(other.Tax)
-                ) && 
-                (
-                    this.Total == other.Total ||
-                    this.Total != null &&
-                    this.Total.Equals(other.Total)
+                    this.Totals == other.Totals ||
+                    this.Totals != null &&
+                    this.Totals.SequenceEqual(other.Totals)
                 );
         }
 
@@ -217,16 +169,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Item != null)
                     hash = hash * 59 + this.Item.GetHashCode();
-                if (this.BaseAmount != null)
-                    hash = hash * 59 + this.BaseAmount.GetHashCode();
-                if (this.Discount != null)
-                    hash = hash * 59 + this.Discount.GetHashCode();
-                if (this.Subtotal != null)
-                    hash = hash * 59 + this.Subtotal.GetHashCode();
-                if (this.Tax != null)
-                    hash = hash * 59 + this.Tax.GetHashCode();
-                if (this.Total != null)
-                    hash = hash * 59 + this.Total.GetHashCode();
+                if (this.Quantity != null)
+                    hash = hash * 59 + this.Quantity.GetHashCode();
+                if (this.Totals != null)
+                    hash = hash * 59 + this.Totals.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

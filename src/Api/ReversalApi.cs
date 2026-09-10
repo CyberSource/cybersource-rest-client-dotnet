@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using RestSharp;
+using System.Net.Http;
 using CyberSource.Client;
 using CyberSource.Model;
 using AuthenticationSdk.util;
@@ -250,8 +250,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -267,7 +267,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (PtsV2PaymentsReversalsPost201Response) ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response))); // Return statement
         }
 
@@ -376,8 +376,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -393,7 +393,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (PtsV2PaymentsReversalsPost201Response) ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response))); // Return statement
         }
         /// <summary>
@@ -486,8 +486,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -503,7 +503,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (PtsV2PaymentsReversalsPost201Response) ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response))); // Return statement
         }
 
@@ -598,8 +598,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -615,7 +615,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<PtsV2PaymentsReversalsPost201Response>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (PtsV2PaymentsReversalsPost201Response) ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsReversalsPost201Response))); // Return statement
         }
     }

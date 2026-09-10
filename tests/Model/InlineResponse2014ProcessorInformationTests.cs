@@ -65,6 +65,102 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'RejectReasonCode'
+        /// </summary>
+        [Test]
+        public void RejectReasonCodeTest()
+        {
+            // TODO unit test for the property 'RejectReasonCode'
+        }
+        /// <summary>
+        /// Test the property 'RejectReasonText'
+        /// </summary>
+        [Test]
+        public void RejectReasonTextTest()
+        {
+            // TODO unit test for the property 'RejectReasonText'
+        }
+        /// <summary>
+        /// Test the property 'ApprovalCode'
+        /// </summary>
+        [Test]
+        public void ApprovalCodeTest()
+        {
+            // TODO unit test for the property 'ApprovalCode'
+        }
+        /// <summary>
+        /// Test the property 'CardVerification'
+        /// </summary>
+        [Test]
+        public void CardVerificationTest()
+        {
+            // TODO unit test for the property 'CardVerification'
+        }
+        /// <summary>
+        /// Test the property 'ConsumerAuthenticationResponse'
+        /// </summary>
+        [Test]
+        public void ConsumerAuthenticationResponseTest()
+        {
+            // TODO unit test for the property 'ConsumerAuthenticationResponse'
+        }
+        /// <summary>
+        /// Test the property 'FeeProgramDescription'
+        /// </summary>
+        [Test]
+        public void FeeProgramDescriptionTest()
+        {
+            // TODO unit test for the property 'FeeProgramDescription'
+        }
+        /// <summary>
+        /// Test the property 'FeeProgramId'
+        /// </summary>
+        [Test]
+        public void FeeProgramIdTest()
+        {
+            // TODO unit test for the property 'FeeProgramId'
+        }
+        /// <summary>
+        /// Test the property 'Network'
+        /// </summary>
+        [Test]
+        public void NetworkTest()
+        {
+            // TODO unit test for the property 'Network'
+        }
+        /// <summary>
+        /// Test the property 'ProcessingDate'
+        /// </summary>
+        [Test]
+        public void ProcessingDateTest()
+        {
+            // TODO unit test for the property 'ProcessingDate'
+        }
+        /// <summary>
+        /// Test the property 'Processor'
+        /// </summary>
+        [Test]
+        public void ProcessorTest()
+        {
+            // TODO unit test for the property 'Processor'
+        }
+        /// <summary>
+        /// Test the property 'ReasonCodeDetails'
+        /// </summary>
+        [Test]
+        public void ReasonCodeDetailsTest()
+        {
+            // TODO unit test for the property 'ReasonCodeDetails'
+        }
+        /// <summary>
+        /// Test the property 'ReasonCodeValue'
+        /// </summary>
+        [Test]
+        public void ReasonCodeValueTest()
+        {
+            // TODO unit test for the property 'ReasonCodeValue'
+        }
+        /// <summary>
         /// Test the property 'ResponseCode'
         /// </summary>
         [Test]
@@ -79,6 +175,70 @@ namespace CyberSource.Test
         public void ResponseDetailsTest()
         {
             // TODO unit test for the property 'ResponseDetails'
+        }
+        /// <summary>
+        /// Test the property 'ResponseDetailsOriginal'
+        /// </summary>
+        [Test]
+        public void ResponseDetailsOriginalTest()
+        {
+            // TODO unit test for the property 'ResponseDetailsOriginal'
+        }
+        /// <summary>
+        /// Test the property 'RetrievalReferenceNumber'
+        /// </summary>
+        [Test]
+        public void RetrievalReferenceNumberTest()
+        {
+            // TODO unit test for the property 'RetrievalReferenceNumber'
+        }
+        /// <summary>
+        /// Test the property 'SettlementDateTime'
+        /// </summary>
+        [Test]
+        public void SettlementDateTimeTest()
+        {
+            // TODO unit test for the property 'SettlementDateTime'
+        }
+        /// <summary>
+        /// Test the property 'StatusCode'
+        /// </summary>
+        [Test]
+        public void StatusCodeTest()
+        {
+            // TODO unit test for the property 'StatusCode'
+        }
+        /// <summary>
+        /// Test the property 'SystemTraceAuditNumber'
+        /// </summary>
+        [Test]
+        public void SystemTraceAuditNumberTest()
+        {
+            // TODO unit test for the property 'SystemTraceAuditNumber'
+        }
+        /// <summary>
+        /// Test the property 'TransactionDateTime'
+        /// </summary>
+        [Test]
+        public void TransactionDateTimeTest()
+        {
+            // TODO unit test for the property 'TransactionDateTime'
+        }
+        /// <summary>
+        /// Test the property 'TransactionId'
+        /// </summary>
+        [Test]
+        public void TransactionIdTest()
+        {
+            // TODO unit test for the property 'TransactionId'
+        }
+        /// <summary>
+        /// Test the property 'TransactionType'
+        /// </summary>
+        [Test]
+        public void TransactionTypeTest()
+        {
+            // TODO unit test for the property 'TransactionType'
         }
 
     }

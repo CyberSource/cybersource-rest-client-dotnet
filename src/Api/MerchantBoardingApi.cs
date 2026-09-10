@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using RestSharp;
+using System.Net.Http;
 using CyberSource.Client;
 using CyberSource.Model;
 using AuthenticationSdk.util;
@@ -85,8 +85,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>InlineResponse2017</returns>
-        InlineResponse2017 PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>InlineResponse2016</returns>
+        InlineResponse2016 PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
 
         /// <summary>
         /// Create a boarding registration
@@ -97,8 +97,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2017</returns>
-        ApiResponse<InlineResponse2017> PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>ApiResponse of InlineResponse2016</returns>
+        ApiResponse<InlineResponse2016> PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -156,8 +156,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of InlineResponse2017</returns>
-        System.Threading.Tasks.Task<InlineResponse2017> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>Task of InlineResponse2016</returns>
+        System.Threading.Tasks.Task<InlineResponse2016> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
 
         /// <summary>
         /// Create a boarding registration
@@ -168,8 +168,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2017>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2016>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
         #endregion Asynchronous Operations
     }
 
@@ -259,7 +259,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -294,8 +294,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -311,7 +311,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2005>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (InlineResponse2005) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
         }
 
@@ -379,7 +379,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -413,8 +413,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -430,7 +430,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2005>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (InlineResponse2005) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
         }
         /// <summary>
@@ -543,8 +543,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("PATCH"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -560,7 +560,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2005>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (InlineResponse2005) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
         }
 
@@ -675,8 +675,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("PATCH"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -692,7 +692,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse2005>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (InlineResponse2005) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
         }
         /// <summary>
@@ -701,12 +701,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>InlineResponse2017</returns>
-        public InlineResponse2017 PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>InlineResponse2016</returns>
+        public InlineResponse2016 PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
             logger.LogDebug("CALLING API \"PostRegistration\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2017> localVarResponse = PostRegistrationWithHttpInfo(postRegistrationBody, vCIdempotencyId);
+            ApiResponse<InlineResponse2016> localVarResponse = PostRegistrationWithHttpInfo(postRegistrationBody, vCIdempotencyId);
             logger.LogDebug("CALLING API \"PostRegistration\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -718,8 +718,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2017</returns>
-        public ApiResponse< InlineResponse2017 > PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>ApiResponse of InlineResponse2016</returns>
+        public ApiResponse< InlineResponse2016 > PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -791,8 +791,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -807,9 +807,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017))); // Return statement
+            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse2016) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016))); // Return statement
         }
 
         /// <summary>
@@ -818,12 +818,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of InlineResponse2017</returns>
-        public async Task<InlineResponse2017> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>Task of InlineResponse2016</returns>
+        public async Task<InlineResponse2016> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
             logger.LogDebug("CALLING API \"PostRegistrationAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2017> localVarResponse = await PostRegistrationAsyncWithHttpInfo(postRegistrationBody, vCIdempotencyId);
+            ApiResponse<InlineResponse2016> localVarResponse = await PostRegistrationAsyncWithHttpInfo(postRegistrationBody, vCIdempotencyId);
             logger.LogDebug("CALLING API \"PostRegistrationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -836,8 +836,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
-        public async Task<ApiResponse<InlineResponse2017>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
+        public async Task<ApiResponse<InlineResponse2016>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -909,8 +909,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -925,9 +925,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017))); // Return statement
+            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse2016) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016))); // Return statement
         }
     }
 }

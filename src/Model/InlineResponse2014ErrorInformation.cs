@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Details">Details.</param>
         /// <param name="Message">The detail message related to the status and reason listed above. .</param>
-        /// <param name="Reason">The reason of the status.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;SYSTEM_ERROR&#x60; .</param>
+        /// <param name="Reason">Possible reasons for the error.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;SYSTEM_ERROR&#x60; - &#x60;NOT_FOUND&#x60; - &#x60;UNAUTHORIZED&#x60; - &#x60;SYSTEM_TIMEOUT&#x60; - &#x60;PROCESSOR_ERROR&#x60; .</param>
         public InlineResponse2014ErrorInformation(List<InlineResponse2014ErrorInformationDetails> Details = default(List<InlineResponse2014ErrorInformationDetails>), string Message = default(string), string Reason = default(string))
         {
             this.Details = Details;
@@ -60,9 +60,9 @@ namespace CyberSource.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// The reason of the status.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;SYSTEM_ERROR&#x60; 
+        /// Possible reasons for the error.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;SYSTEM_ERROR&#x60; - &#x60;NOT_FOUND&#x60; - &#x60;UNAUTHORIZED&#x60; - &#x60;SYSTEM_TIMEOUT&#x60; - &#x60;PROCESSOR_ERROR&#x60; 
         /// </summary>
-        /// <value>The reason of the status.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;SYSTEM_ERROR&#x60; </value>
+        /// <value>Possible reasons for the error.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;SYSTEM_ERROR&#x60; - &#x60;NOT_FOUND&#x60; - &#x60;UNAUTHORIZED&#x60; - &#x60;SYSTEM_TIMEOUT&#x60; - &#x60;PROCESSOR_ERROR&#x60; </value>
         [JsonPropertyName("reason")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Reason { get; set; }

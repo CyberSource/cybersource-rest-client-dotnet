@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="createqueryapi"></a>
 # **CreateQueryApi**
-> InlineResponse2015 CreateQueryApi (string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
+> InlineResponse2014 CreateQueryApi (string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
 
 Query Transaction Details
 
@@ -44,7 +44,7 @@ namespace Example
             try
             {
                 // Query Transaction Details
-                InlineResponse2015 result = apiInstance.CreateQueryApi(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
+                InlineResponse2014 result = apiInstance.CreateQueryApi(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2015**](InlineResponse2015.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 

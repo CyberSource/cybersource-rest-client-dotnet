@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**MdfValueId** | **string** |  | [optional] 
 **ReferenceType** | **string** |  | [optional] 
 **Label** | **string** |  | [optional] 
 **FieldType** | **string** |  | [optional] 

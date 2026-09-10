@@ -65,12 +65,20 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'MarkupRate'
+        /// Test the property 'AuthorizedAmount'
         /// </summary>
         [Test]
-        public void MarkupRateTest()
+        public void AuthorizedAmountTest()
         {
-            // TODO unit test for the property 'MarkupRate'
+            // TODO unit test for the property 'AuthorizedAmount'
+        }
+        /// <summary>
+        /// Test the property 'Currency'
+        /// </summary>
+        [Test]
+        public void CurrencyTest()
+        {
+            // TODO unit test for the property 'Currency'
         }
         /// <summary>
         /// Test the property 'ExchangeRate'
@@ -81,28 +89,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ExchangeRate'
         }
         /// <summary>
-        /// Test the property 'OriginalAmount'
+        /// Test the property 'TotalAmount'
         /// </summary>
         [Test]
-        public void OriginalAmountTest()
+        public void TotalAmountTest()
         {
-            // TODO unit test for the property 'OriginalAmount'
-        }
-        /// <summary>
-        /// Test the property 'DestinationAmount'
-        /// </summary>
-        [Test]
-        public void DestinationAmountTest()
-        {
-            // TODO unit test for the property 'DestinationAmount'
-        }
-        /// <summary>
-        /// Test the property 'OriginalAmountWithoutMarkup'
-        /// </summary>
-        [Test]
-        public void OriginalAmountWithoutMarkupTest()
-        {
-            // TODO unit test for the property 'OriginalAmountWithoutMarkup'
+            // TODO unit test for the property 'TotalAmount'
         }
         /// <summary>
         /// Test the property 'SettlementAmount'
@@ -111,22 +103,6 @@ namespace CyberSource.Test
         public void SettlementAmountTest()
         {
             // TODO unit test for the property 'SettlementAmount'
-        }
-        /// <summary>
-        /// Test the property 'SettlementCurrency'
-        /// </summary>
-        [Test]
-        public void SettlementCurrencyTest()
-        {
-            // TODO unit test for the property 'SettlementCurrency'
-        }
-        /// <summary>
-        /// Test the property 'SettlementExchangeRate'
-        /// </summary>
-        [Test]
-        public void SettlementExchangeRateTest()
-        {
-            // TODO unit test for the property 'SettlementExchangeRate'
         }
 
     }

@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using RestSharp;
 
 namespace CyberSource.Utilities.CaptureContext
 {
@@ -10,8 +10,10 @@ namespace CyberSource.Utilities.CaptureContext
         // Only allow alphanumeric characters, hyphens, underscores, and periods in kid values
         private static readonly Regex SafeKidPattern = new Regex(@"^[a-zA-Z0-9._\-]+$", RegexOptions.Compiled);
 
+        private static readonly HttpClient HttpClient = new HttpClient();
+
         /// <summary>
-        /// Fetches the public key JSON from the specified endpoint using RestSharp.
+        /// Fetches the public key JSON from the specified endpoint using HttpClient.
         /// </summary>
         /// <param name="kid">The key ID.</param>
         /// <param name="runEnvironment">The environment domain (e.g., "apitest.cybersource.com").</param>
@@ -35,17 +37,19 @@ namespace CyberSource.Utilities.CaptureContext
 
             var url = $"https://{runEnvironment}/flex/v2/public-keys/{kid}";
 
-            var client = new RestClient(url);
-            var request = new RestRequest("", Method.Get);
-
-            var response = await client.ExecuteAsync(request).ConfigureAwait(false);
-
-            if (!response.IsSuccessful)
+            using (var response = await HttpClient.GetAsync(url).ConfigureAwait(false))
             {
-                throw new InvalidOperationException($"Failed to fetch public key. Status: {response.StatusCode}, Error: {response.ErrorMessage}");
-            }
+                var content = response.Content == null
+                    ? string.Empty
+                    : await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-            return response.Content;
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new InvalidOperationException($"Failed to fetch public key. Status: {response.StatusCode}, Error: {content}");
+                }
+
+                return content;
+            }
         }
     }
 }

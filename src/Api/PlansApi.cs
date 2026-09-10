@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using RestSharp;
+using System.Net.Http;
 using CyberSource.Client;
 using CyberSource.Model;
 using AuthenticationSdk.util;
@@ -476,7 +476,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Post == Method.Post)
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -511,8 +511,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -528,7 +528,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (ActivateDeactivatePlanResponse) ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
 
@@ -599,7 +599,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Post == Method.Post)
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -633,8 +633,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -650,7 +650,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (ActivateDeactivatePlanResponse) ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
         /// <summary>
@@ -745,8 +745,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -762,7 +762,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<CreatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (CreatePlanResponse) ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse))); // Return statement
         }
 
@@ -859,8 +859,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -876,7 +876,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<CreatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (CreatePlanResponse) ApiClient.Deserialize(localVarResponse, typeof(CreatePlanResponse))); // Return statement
         }
         /// <summary>
@@ -945,7 +945,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Post == Method.Post)
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -980,8 +980,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -997,7 +997,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (ActivateDeactivatePlanResponse) ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
 
@@ -1068,7 +1068,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Post == Method.Post)
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1102,8 +1102,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1119,7 +1119,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ActivateDeactivatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (ActivateDeactivatePlanResponse) ApiClient.Deserialize(localVarResponse, typeof(ActivateDeactivatePlanResponse))); // Return statement
         }
         /// <summary>
@@ -1188,7 +1188,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Delete == Method.Post)
+            if (new HttpMethod("DELETE") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1223,8 +1223,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("DELETE"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1240,7 +1240,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<DeletePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (DeletePlanResponse) ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse))); // Return statement
         }
 
@@ -1311,7 +1311,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Delete == Method.Post)
+            if (new HttpMethod("DELETE") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1345,8 +1345,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("DELETE"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1362,7 +1362,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<DeletePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (DeletePlanResponse) ApiClient.Deserialize(localVarResponse, typeof(DeletePlanResponse))); // Return statement
         }
         /// <summary>
@@ -1431,7 +1431,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1466,8 +1466,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1483,7 +1483,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetPlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (GetPlanResponse) ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse))); // Return statement
         }
 
@@ -1554,7 +1554,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1588,8 +1588,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1605,7 +1605,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetPlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (GetPlanResponse) ApiClient.Deserialize(localVarResponse, typeof(GetPlanResponse))); // Return statement
         }
         /// <summary>
@@ -1660,7 +1660,7 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1695,8 +1695,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1712,7 +1712,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetPlanCodeResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (GetPlanCodeResponse) ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse))); // Return statement
         }
 
@@ -1769,7 +1769,7 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1803,8 +1803,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1820,7 +1820,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetPlanCodeResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (GetPlanCodeResponse) ApiClient.Deserialize(localVarResponse, typeof(GetPlanCodeResponse))); // Return statement
         }
         /// <summary>
@@ -1915,7 +1915,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1950,8 +1950,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1967,7 +1967,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetAllPlansResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (GetAllPlansResponse) ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse))); // Return statement
         }
 
@@ -2064,7 +2064,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -2098,8 +2098,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2115,7 +2115,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<GetAllPlansResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (GetAllPlansResponse) ApiClient.Deserialize(localVarResponse, typeof(GetAllPlansResponse))); // Return statement
         }
         /// <summary>
@@ -2224,8 +2224,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("PATCH"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2241,7 +2241,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<UpdatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (UpdatePlanResponse) ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse))); // Return statement
         }
 
@@ -2352,8 +2352,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Patch, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("PATCH"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2369,7 +2369,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<UpdatePlanResponse>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (UpdatePlanResponse) ApiClient.Deserialize(localVarResponse, typeof(UpdatePlanResponse))); // Return statement
         }
     }

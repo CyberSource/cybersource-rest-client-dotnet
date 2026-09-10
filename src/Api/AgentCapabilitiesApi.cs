@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using RestSharp;
+using System.Net.Http;
 using CyberSource.Client;
 using CyberSource.Model;
 using AuthenticationSdk.util;
@@ -209,8 +209,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        InlineResponse20113 CreateCheckoutSession(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>InlineResponse20112</returns>
+        InlineResponse20112 CreateCheckoutSession(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Create Checkout Session ACP
@@ -227,8 +227,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        ApiResponse<InlineResponse20113> CreateCheckoutSessionWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>ApiResponse of InlineResponse20112</returns>
+        ApiResponse<InlineResponse20112> CreateCheckoutSessionWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Deactivate a key
         /// </summary>
@@ -333,8 +333,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        InlineResponse20113 GetCheckoutSession(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>InlineResponse20112</returns>
+        InlineResponse20112 GetCheckoutSession(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Get Checkout Session ACP
@@ -352,8 +352,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        ApiResponse<InlineResponse20113> GetCheckoutSessionWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>ApiResponse of InlineResponse20112</returns>
+        ApiResponse<InlineResponse20112> GetCheckoutSessionWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Initiate a purchase intent
         /// </summary>
@@ -452,8 +452,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>InlineResponse20114</returns>
-        InlineResponse20114 UcpCancelCheckout(string sessionId);
+        /// <returns>InlineResponse20113</returns>
+        InlineResponse20113 UcpCancelCheckout(string sessionId);
 
         /// <summary>
         /// Cancel Checkout UCP
@@ -463,8 +463,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>ApiResponse of InlineResponse20114</returns>
-        ApiResponse<InlineResponse20114> UcpCancelCheckoutWithHttpInfo(string sessionId);
+        /// <returns>ApiResponse of InlineResponse20113</returns>
+        ApiResponse<InlineResponse20113> UcpCancelCheckoutWithHttpInfo(string sessionId);
         /// <summary>
         /// Complete Checkout UCP
         /// </summary>
@@ -475,8 +475,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>InlineResponse20114</returns>
-        InlineResponse20114 UcpCompleteCheckout(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
+        /// <returns>InlineResponse20113</returns>
+        InlineResponse20113 UcpCompleteCheckout(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
 
         /// <summary>
         /// Complete Checkout UCP
@@ -488,8 +488,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20114</returns>
-        ApiResponse<InlineResponse20114> UcpCompleteCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
+        /// <returns>ApiResponse of InlineResponse20113</returns>
+        ApiResponse<InlineResponse20113> UcpCompleteCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
         /// <summary>
         /// Create Checkout Session UCP
         /// </summary>
@@ -499,8 +499,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>InlineResponse20114</returns>
-        InlineResponse20114 UcpCreateCheckoutSession(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>InlineResponse20113</returns>
+        InlineResponse20113 UcpCreateCheckoutSession(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
 
         /// <summary>
         /// Create Checkout Session UCP
@@ -511,8 +511,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20114</returns>
-        ApiResponse<InlineResponse20114> UcpCreateCheckoutSessionWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>ApiResponse of InlineResponse20113</returns>
+        ApiResponse<InlineResponse20113> UcpCreateCheckoutSessionWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
         /// <summary>
         /// Get Checkout Session UCP
         /// </summary>
@@ -522,8 +522,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>InlineResponse20114</returns>
-        InlineResponse20114 UcpGetCheckoutSession(string sessionId, Object ucpGetCheckoutSessionRequest);
+        /// <returns>InlineResponse20113</returns>
+        InlineResponse20113 UcpGetCheckoutSession(string sessionId, Object ucpGetCheckoutSessionRequest);
 
         /// <summary>
         /// Get Checkout Session UCP
@@ -534,8 +534,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>ApiResponse of InlineResponse20114</returns>
-        ApiResponse<InlineResponse20114> UcpGetCheckoutSessionWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest);
+        /// <returns>ApiResponse of InlineResponse20113</returns>
+        ApiResponse<InlineResponse20113> UcpGetCheckoutSessionWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest);
         /// <summary>
         /// Update Checkout Session UCP
         /// </summary>
@@ -546,8 +546,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>InlineResponse20114</returns>
-        InlineResponse20114 UcpUpdateCheckoutSession(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>InlineResponse20113</returns>
+        InlineResponse20113 UcpUpdateCheckoutSession(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
 
         /// <summary>
         /// Update Checkout Session UCP
@@ -559,8 +559,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20114</returns>
-        ApiResponse<InlineResponse20114> UcpUpdateCheckoutSessionWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>ApiResponse of InlineResponse20113</returns>
+        ApiResponse<InlineResponse20113> UcpUpdateCheckoutSessionWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
         /// <summary>
         /// Update an agent
         /// </summary>
@@ -625,8 +625,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        InlineResponse20113 UpdateCheckoutSession(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>InlineResponse20112</returns>
+        InlineResponse20112 UpdateCheckoutSession(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Update Checkout Session ACP
@@ -644,8 +644,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        ApiResponse<InlineResponse20113> UpdateCheckoutSessionWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>ApiResponse of InlineResponse20112</returns>
+        ApiResponse<InlineResponse20112> UpdateCheckoutSessionWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Update a purchase intent
         /// </summary>
@@ -850,8 +850,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        System.Threading.Tasks.Task<InlineResponse20113> CreateCheckoutSessionAsync(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of InlineResponse20112</returns>
+        System.Threading.Tasks.Task<InlineResponse20112> CreateCheckoutSessionAsync(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Create Checkout Session ACP
@@ -868,8 +868,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> CreateCheckoutSessionAsyncWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20112>> CreateCheckoutSessionAsyncWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Deactivate a key
         /// </summary>
@@ -974,8 +974,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        System.Threading.Tasks.Task<InlineResponse20113> GetCheckoutSessionAsync(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of InlineResponse20112</returns>
+        System.Threading.Tasks.Task<InlineResponse20112> GetCheckoutSessionAsync(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Get Checkout Session ACP
@@ -993,8 +993,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> GetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20112>> GetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Initiate a purchase intent
         /// </summary>
@@ -1093,8 +1093,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>Task of InlineResponse20114</returns>
-        System.Threading.Tasks.Task<InlineResponse20114> UcpCancelCheckoutAsync(string sessionId);
+        /// <returns>Task of InlineResponse20113</returns>
+        System.Threading.Tasks.Task<InlineResponse20113> UcpCancelCheckoutAsync(string sessionId);
 
         /// <summary>
         /// Cancel Checkout UCP
@@ -1104,8 +1104,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20114)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20114>> UcpCancelCheckoutAsyncWithHttpInfo(string sessionId);
+        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UcpCancelCheckoutAsyncWithHttpInfo(string sessionId);
         /// <summary>
         /// Complete Checkout UCP
         /// </summary>
@@ -1116,8 +1116,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>Task of InlineResponse20114</returns>
-        System.Threading.Tasks.Task<InlineResponse20114> UcpCompleteCheckoutAsync(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
+        /// <returns>Task of InlineResponse20113</returns>
+        System.Threading.Tasks.Task<InlineResponse20113> UcpCompleteCheckoutAsync(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
 
         /// <summary>
         /// Complete Checkout UCP
@@ -1129,8 +1129,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20114)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20114>> UcpCompleteCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
+        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UcpCompleteCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
         /// <summary>
         /// Create Checkout Session UCP
         /// </summary>
@@ -1140,8 +1140,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>Task of InlineResponse20114</returns>
-        System.Threading.Tasks.Task<InlineResponse20114> UcpCreateCheckoutSessionAsync(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>Task of InlineResponse20113</returns>
+        System.Threading.Tasks.Task<InlineResponse20113> UcpCreateCheckoutSessionAsync(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
 
         /// <summary>
         /// Create Checkout Session UCP
@@ -1152,8 +1152,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20114)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20114>> UcpCreateCheckoutSessionAsyncWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UcpCreateCheckoutSessionAsyncWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
         /// <summary>
         /// Get Checkout Session UCP
         /// </summary>
@@ -1163,8 +1163,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>Task of InlineResponse20114</returns>
-        System.Threading.Tasks.Task<InlineResponse20114> UcpGetCheckoutSessionAsync(string sessionId, Object ucpGetCheckoutSessionRequest);
+        /// <returns>Task of InlineResponse20113</returns>
+        System.Threading.Tasks.Task<InlineResponse20113> UcpGetCheckoutSessionAsync(string sessionId, Object ucpGetCheckoutSessionRequest);
 
         /// <summary>
         /// Get Checkout Session UCP
@@ -1175,8 +1175,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20114)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20114>> UcpGetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest);
+        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UcpGetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest);
         /// <summary>
         /// Update Checkout Session UCP
         /// </summary>
@@ -1187,8 +1187,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>Task of InlineResponse20114</returns>
-        System.Threading.Tasks.Task<InlineResponse20114> UcpUpdateCheckoutSessionAsync(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>Task of InlineResponse20113</returns>
+        System.Threading.Tasks.Task<InlineResponse20113> UcpUpdateCheckoutSessionAsync(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
 
         /// <summary>
         /// Update Checkout Session UCP
@@ -1200,8 +1200,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20114)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20114>> UcpUpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UcpUpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
         /// <summary>
         /// Update an agent
         /// </summary>
@@ -1266,8 +1266,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        System.Threading.Tasks.Task<InlineResponse20113> UpdateCheckoutSessionAsync(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of InlineResponse20112</returns>
+        System.Threading.Tasks.Task<InlineResponse20112> UpdateCheckoutSessionAsync(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Update Checkout Session ACP
@@ -1285,8 +1285,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20112>> UpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Update a purchase intent
         /// </summary>
@@ -1413,7 +1413,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Post == Method.Post)
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1448,8 +1448,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1465,7 +1465,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AddAgentKeyResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AddAgentKeyResponse201) ApiClient.Deserialize(localVarResponse, typeof(AddAgentKeyResponse201))); // Return statement
         }
 
@@ -1547,7 +1547,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Post == Method.Post)
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1581,8 +1581,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1598,7 +1598,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AddAgentKeyResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AddAgentKeyResponse201) ApiClient.Deserialize(localVarResponse, typeof(AddAgentKeyResponse201))); // Return statement
         }
         /// <summary>
@@ -1704,8 +1704,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1721,7 +1721,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AddAgentKeyResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AddAgentKeyResponse201) ApiClient.Deserialize(localVarResponse, typeof(AddAgentKeyResponse201))); // Return statement
         }
 
@@ -1829,8 +1829,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1846,7 +1846,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AddAgentKeyResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AddAgentKeyResponse201) ApiClient.Deserialize(localVarResponse, typeof(AddAgentKeyResponse201))); // Return statement
         }
         /// <summary>
@@ -1961,7 +1961,7 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("API-Version", ApiClient.ParameterToString(aPIVersion)); // header parameter
             }
 
-            if (Method.Post == Method.Post)
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -1996,8 +1996,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2013,7 +2013,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse20018>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (InlineResponse20018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20018))); // Return statement
         }
 
@@ -2130,7 +2130,7 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("API-Version", ApiClient.ParameterToString(aPIVersion)); // header parameter
             }
 
-            if (Method.Post == Method.Post)
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -2164,8 +2164,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2181,7 +2181,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse20018>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (InlineResponse20018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20018))); // Return statement
         }
         /// <summary>
@@ -2287,8 +2287,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2304,7 +2304,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticCreatePurchaseIntentResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticCreatePurchaseIntentResponse200) ApiClient.Deserialize(localVarResponse, typeof(AgenticCreatePurchaseIntentResponse200))); // Return statement
         }
 
@@ -2412,8 +2412,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2429,7 +2429,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticCreatePurchaseIntentResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticCreatePurchaseIntentResponse200) ApiClient.Deserialize(localVarResponse, typeof(AgenticCreatePurchaseIntentResponse200))); // Return statement
         }
         /// <summary>
@@ -2584,8 +2584,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2601,7 +2601,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse20017>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (InlineResponse20017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20017))); // Return statement
         }
 
@@ -2758,8 +2758,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2775,7 +2775,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<InlineResponse20017>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (InlineResponse20017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20017))); // Return statement
         }
         /// <summary>
@@ -2881,8 +2881,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -2898,7 +2898,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticConfirmTransactionEventsResponse202>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticConfirmTransactionEventsResponse202) ApiClient.Deserialize(localVarResponse, typeof(AgenticConfirmTransactionEventsResponse202))); // Return statement
         }
 
@@ -3006,8 +3006,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3023,7 +3023,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticConfirmTransactionEventsResponse202>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticConfirmTransactionEventsResponse202) ApiClient.Deserialize(localVarResponse, typeof(AgenticConfirmTransactionEventsResponse202))); // Return statement
         }
         /// <summary>
@@ -3038,12 +3038,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        public InlineResponse20113 CreateCheckoutSession(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>InlineResponse20112</returns>
+        public InlineResponse20112 CreateCheckoutSession(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"CreateCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = CreateCheckoutSessionWithHttpInfo(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<InlineResponse20112> localVarResponse = CreateCheckoutSessionWithHttpInfo(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"CreateCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -3061,8 +3061,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        public ApiResponse< InlineResponse20113 > CreateCheckoutSessionWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>ApiResponse of InlineResponse20112</returns>
+        public ApiResponse< InlineResponse20112 > CreateCheckoutSessionWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -3164,8 +3164,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3180,9 +3180,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
         }
 
         /// <summary>
@@ -3197,12 +3197,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        public async Task<InlineResponse20113> CreateCheckoutSessionAsync(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of InlineResponse20112</returns>
+        public async Task<InlineResponse20112> CreateCheckoutSessionAsync(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"CreateCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = await CreateCheckoutSessionAsyncWithHttpInfo(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<InlineResponse20112> localVarResponse = await CreateCheckoutSessionAsyncWithHttpInfo(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"CreateCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -3221,8 +3221,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        public async Task<ApiResponse<InlineResponse20113>> CreateCheckoutSessionAsyncWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
+        public async Task<ApiResponse<InlineResponse20112>> CreateCheckoutSessionAsyncWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -3324,8 +3324,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3340,9 +3340,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
         }
         /// <summary>
         /// Deactivate a key Deactivate a key (soft delete). Raises 404 if key not found.
@@ -3418,7 +3418,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Delete == Method.Post)
+            if (new HttpMethod("DELETE") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -3453,8 +3453,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("DELETE"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3471,7 +3471,7 @@ namespace CyberSource.Api
 
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 localVarResponse.Content); // Return statement
         }
 
@@ -3550,7 +3550,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Delete == Method.Post)
+            if (new HttpMethod("DELETE") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -3584,8 +3584,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Delete, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("DELETE"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3602,7 +3602,7 @@ namespace CyberSource.Api
 
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 localVarResponse.Content); // Return statement
         }
         /// <summary>
@@ -3694,8 +3694,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3711,7 +3711,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticCardEnrollmentResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticCardEnrollmentResponse200) ApiClient.Deserialize(localVarResponse, typeof(AgenticCardEnrollmentResponse200))); // Return statement
         }
 
@@ -3805,8 +3805,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3822,7 +3822,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticCardEnrollmentResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticCardEnrollmentResponse200) ApiClient.Deserialize(localVarResponse, typeof(AgenticCardEnrollmentResponse200))); // Return statement
         }
         /// <summary>
@@ -3888,7 +3888,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -3923,8 +3923,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -3940,7 +3940,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgentRegistrationResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgentRegistrationResponse201) ApiClient.Deserialize(localVarResponse, typeof(AgentRegistrationResponse201))); // Return statement
         }
 
@@ -4008,7 +4008,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -4042,8 +4042,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4059,7 +4059,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgentRegistrationResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgentRegistrationResponse201) ApiClient.Deserialize(localVarResponse, typeof(AgentRegistrationResponse201))); // Return statement
         }
         /// <summary>
@@ -4139,7 +4139,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -4174,8 +4174,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4191,7 +4191,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AddAgentKeyResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AddAgentKeyResponse201) ApiClient.Deserialize(localVarResponse, typeof(AddAgentKeyResponse201))); // Return statement
         }
 
@@ -4273,7 +4273,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -4307,8 +4307,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4324,7 +4324,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AddAgentKeyResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AddAgentKeyResponse201) ApiClient.Deserialize(localVarResponse, typeof(AddAgentKeyResponse201))); // Return statement
         }
         /// <summary>
@@ -4340,12 +4340,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        public InlineResponse20113 GetCheckoutSession(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>InlineResponse20112</returns>
+        public InlineResponse20112 GetCheckoutSession(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"GetCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = GetCheckoutSessionWithHttpInfo(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<InlineResponse20112> localVarResponse = GetCheckoutSessionWithHttpInfo(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"GetCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -4364,8 +4364,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        public ApiResponse< InlineResponse20113 > GetCheckoutSessionWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>ApiResponse of InlineResponse20112</returns>
+        public ApiResponse< InlineResponse20112 > GetCheckoutSessionWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -4479,8 +4479,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4495,9 +4495,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
         }
 
         /// <summary>
@@ -4513,12 +4513,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        public async Task<InlineResponse20113> GetCheckoutSessionAsync(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of InlineResponse20112</returns>
+        public async Task<InlineResponse20112> GetCheckoutSessionAsync(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"GetCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = await GetCheckoutSessionAsyncWithHttpInfo(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<InlineResponse20112> localVarResponse = await GetCheckoutSessionAsyncWithHttpInfo(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"GetCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -4538,8 +4538,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        public async Task<ApiResponse<InlineResponse20113>> GetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
+        public async Task<ApiResponse<InlineResponse20112>> GetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -4653,8 +4653,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4669,9 +4669,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
         }
         /// <summary>
         /// Initiate a purchase intent Create a new purchase intent (instruction) for an agentic transaction. The agent calls this endpoint after a card has been enrolled to define what the consumer wants to buy. The request includes payment instrument references, device and assurance data, mandates (spending limits, merchant preferences, and product descriptions), and optional buyer information. Return an instructionId (HTTP 200) if the intent is created immediately, or PENDING (HTTP 202) with pendingEvents if cardholder authentication is required. The instructionId returned is used in all subsequent operations - update, cancel, retrieve credentials, and confirm transaction.
@@ -4762,8 +4762,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4779,7 +4779,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticCreatePurchaseIntentResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticCreatePurchaseIntentResponse200) ApiClient.Deserialize(localVarResponse, typeof(AgenticCreatePurchaseIntentResponse200))); // Return statement
         }
 
@@ -4873,8 +4873,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -4890,7 +4890,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticCreatePurchaseIntentResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticCreatePurchaseIntentResponse200) ApiClient.Deserialize(localVarResponse, typeof(AgenticCreatePurchaseIntentResponse200))); // Return statement
         }
         /// <summary>
@@ -4972,7 +4972,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -5007,8 +5007,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5024,7 +5024,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ListAgentKeysResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (ListAgentKeysResponse200) ApiClient.Deserialize(localVarResponse, typeof(ListAgentKeysResponse200))); // Return statement
         }
 
@@ -5108,7 +5108,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarQueryParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -5142,8 +5142,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5159,7 +5159,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<ListAgentKeysResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (ListAgentKeysResponse200) ApiClient.Deserialize(localVarResponse, typeof(ListAgentKeysResponse200))); // Return statement
         }
         /// <summary>
@@ -5251,8 +5251,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5268,7 +5268,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgentRegistrationResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgentRegistrationResponse201) ApiClient.Deserialize(localVarResponse, typeof(AgentRegistrationResponse201))); // Return statement
         }
 
@@ -5362,8 +5362,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5379,7 +5379,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgentRegistrationResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgentRegistrationResponse201) ApiClient.Deserialize(localVarResponse, typeof(AgentRegistrationResponse201))); // Return statement
         }
         /// <summary>
@@ -5485,8 +5485,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5502,7 +5502,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticRetrievePaymentCredentialsResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticRetrievePaymentCredentialsResponse200) ApiClient.Deserialize(localVarResponse, typeof(AgenticRetrievePaymentCredentialsResponse200))); // Return statement
         }
 
@@ -5610,8 +5610,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5627,7 +5627,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticRetrievePaymentCredentialsResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticRetrievePaymentCredentialsResponse200) ApiClient.Deserialize(localVarResponse, typeof(AgenticRetrievePaymentCredentialsResponse200))); // Return statement
         }
         /// <summary>
@@ -5635,12 +5635,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>InlineResponse20114</returns>
-        public InlineResponse20114 UcpCancelCheckout(string sessionId)
+        /// <returns>InlineResponse20113</returns>
+        public InlineResponse20113 UcpCancelCheckout(string sessionId)
         {
             logger.LogDebug("CALLING API \"UcpCancelCheckout\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20114> localVarResponse = UcpCancelCheckoutWithHttpInfo(sessionId);
+            ApiResponse<InlineResponse20113> localVarResponse = UcpCancelCheckoutWithHttpInfo(sessionId);
             logger.LogDebug("CALLING API \"UcpCancelCheckout\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -5651,8 +5651,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>ApiResponse of InlineResponse20114</returns>
-        public ApiResponse< InlineResponse20114 > UcpCancelCheckoutWithHttpInfo(string sessionId)
+        /// <returns>ApiResponse of InlineResponse20113</returns>
+        public ApiResponse< InlineResponse20113 > UcpCancelCheckoutWithHttpInfo(string sessionId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -5693,7 +5693,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Post == Method.Post)
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -5728,8 +5728,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5744,9 +5744,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20114>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20114) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20114))); // Return statement
+            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
         }
 
         /// <summary>
@@ -5754,12 +5754,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>Task of InlineResponse20114</returns>
-        public async Task<InlineResponse20114> UcpCancelCheckoutAsync(string sessionId)
+        /// <returns>Task of InlineResponse20113</returns>
+        public async Task<InlineResponse20113> UcpCancelCheckoutAsync(string sessionId)
         {
             logger.LogDebug("CALLING API \"UcpCancelCheckoutAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20114> localVarResponse = await UcpCancelCheckoutAsyncWithHttpInfo(sessionId);
+            ApiResponse<InlineResponse20113> localVarResponse = await UcpCancelCheckoutAsyncWithHttpInfo(sessionId);
             logger.LogDebug("CALLING API \"UcpCancelCheckoutAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -5771,8 +5771,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20114)</returns>
-        public async Task<ApiResponse<InlineResponse20114>> UcpCancelCheckoutAsyncWithHttpInfo(string sessionId)
+        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
+        public async Task<ApiResponse<InlineResponse20113>> UcpCancelCheckoutAsyncWithHttpInfo(string sessionId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -5813,7 +5813,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Post == Method.Post)
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -5847,8 +5847,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5863,9 +5863,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20114>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20114) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20114))); // Return statement
+            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
         }
         /// <summary>
         /// Complete Checkout UCP **Final step of the UCP checkout flow.**  Finalizes the session and places the order with the merchant. ACG translates the UCP completion request to the merchant&#39;s checkout API.  On success, the session transitions to &#x60;completed&#x60;. An &#x60;order_id&#x60; is not returned in the UCP response — use the ACP Complete endpoint if you need order confirmation details.  **Always use an &#x60;idempotency-key&#x60;** to prevent duplicate orders on network retries. 
@@ -5874,12 +5874,12 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>InlineResponse20114</returns>
-        public InlineResponse20114 UcpCompleteCheckout(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
+        /// <returns>InlineResponse20113</returns>
+        public InlineResponse20113 UcpCompleteCheckout(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
         {
             logger.LogDebug("CALLING API \"UcpCompleteCheckout\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20114> localVarResponse = UcpCompleteCheckoutWithHttpInfo(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
+            ApiResponse<InlineResponse20113> localVarResponse = UcpCompleteCheckoutWithHttpInfo(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
             logger.LogDebug("CALLING API \"UcpCompleteCheckout\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -5892,8 +5892,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20114</returns>
-        public ApiResponse< InlineResponse20114 > UcpCompleteCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
+        /// <returns>ApiResponse of InlineResponse20113</returns>
+        public ApiResponse< InlineResponse20113 > UcpCompleteCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -5971,8 +5971,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -5987,9 +5987,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20114>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20114) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20114))); // Return statement
+            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
         }
 
         /// <summary>
@@ -5999,12 +5999,12 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>Task of InlineResponse20114</returns>
-        public async Task<InlineResponse20114> UcpCompleteCheckoutAsync(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
+        /// <returns>Task of InlineResponse20113</returns>
+        public async Task<InlineResponse20113> UcpCompleteCheckoutAsync(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
         {
             logger.LogDebug("CALLING API \"UcpCompleteCheckoutAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20114> localVarResponse = await UcpCompleteCheckoutAsyncWithHttpInfo(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
+            ApiResponse<InlineResponse20113> localVarResponse = await UcpCompleteCheckoutAsyncWithHttpInfo(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
             logger.LogDebug("CALLING API \"UcpCompleteCheckoutAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -6018,8 +6018,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20114)</returns>
-        public async Task<ApiResponse<InlineResponse20114>> UcpCompleteCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
+        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
+        public async Task<ApiResponse<InlineResponse20113>> UcpCompleteCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -6097,8 +6097,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6113,9 +6113,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20114>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20114) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20114))); // Return statement
+            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
         }
         /// <summary>
         /// Create Checkout Session UCP **Step 1 of the UCP checkout flow.**  Creates a new UCP checkout session using Google&#39;s Universal Commerce Protocol format. ACG translates the UCP request into the internal ACP format, applies merchant pricing, and returns a UCP-format session response with a session &#x60;id&#x60;.  UCP uses &#x60;line_items&#x60; (instead of &#x60;items&#x60;) and lowercase header names (&#x60;idempotency-key&#x60;) per the UCP specification.  **Store the &#x60;id&#x60;** from the response — it is required for all subsequent UCP calls. 
@@ -6123,12 +6123,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>InlineResponse20114</returns>
-        public InlineResponse20114 UcpCreateCheckoutSession(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>InlineResponse20113</returns>
+        public InlineResponse20113 UcpCreateCheckoutSession(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
         {
             logger.LogDebug("CALLING API \"UcpCreateCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20114> localVarResponse = UcpCreateCheckoutSessionWithHttpInfo(ucpCreateCheckoutSessionRequest, idempotencyKey);
+            ApiResponse<InlineResponse20113> localVarResponse = UcpCreateCheckoutSessionWithHttpInfo(ucpCreateCheckoutSessionRequest, idempotencyKey);
             logger.LogDebug("CALLING API \"UcpCreateCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -6140,8 +6140,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20114</returns>
-        public ApiResponse< InlineResponse20114 > UcpCreateCheckoutSessionWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>ApiResponse of InlineResponse20113</returns>
+        public ApiResponse< InlineResponse20113 > UcpCreateCheckoutSessionWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -6213,8 +6213,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6229,9 +6229,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20114>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20114) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20114))); // Return statement
+            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
         }
 
         /// <summary>
@@ -6240,12 +6240,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>Task of InlineResponse20114</returns>
-        public async Task<InlineResponse20114> UcpCreateCheckoutSessionAsync(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>Task of InlineResponse20113</returns>
+        public async Task<InlineResponse20113> UcpCreateCheckoutSessionAsync(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
         {
             logger.LogDebug("CALLING API \"UcpCreateCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20114> localVarResponse = await UcpCreateCheckoutSessionAsyncWithHttpInfo(ucpCreateCheckoutSessionRequest, idempotencyKey);
+            ApiResponse<InlineResponse20113> localVarResponse = await UcpCreateCheckoutSessionAsyncWithHttpInfo(ucpCreateCheckoutSessionRequest, idempotencyKey);
             logger.LogDebug("CALLING API \"UcpCreateCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -6258,8 +6258,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20114)</returns>
-        public async Task<ApiResponse<InlineResponse20114>> UcpCreateCheckoutSessionAsyncWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
+        public async Task<ApiResponse<InlineResponse20113>> UcpCreateCheckoutSessionAsyncWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -6331,8 +6331,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6347,9 +6347,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20114>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20114) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20114))); // Return statement
+            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
         }
         /// <summary>
         /// Get Checkout Session UCP Retrieves the current state of a UCP checkout session.  Use this to verify session status, retrieve updated totals after a fulfillment change, or resume a session after an interruption. 
@@ -6357,12 +6357,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>InlineResponse20114</returns>
-        public InlineResponse20114 UcpGetCheckoutSession(string sessionId, Object ucpGetCheckoutSessionRequest)
+        /// <returns>InlineResponse20113</returns>
+        public InlineResponse20113 UcpGetCheckoutSession(string sessionId, Object ucpGetCheckoutSessionRequest)
         {
             logger.LogDebug("CALLING API \"UcpGetCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20114> localVarResponse = UcpGetCheckoutSessionWithHttpInfo(sessionId, ucpGetCheckoutSessionRequest);
+            ApiResponse<InlineResponse20113> localVarResponse = UcpGetCheckoutSessionWithHttpInfo(sessionId, ucpGetCheckoutSessionRequest);
             logger.LogDebug("CALLING API \"UcpGetCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -6374,8 +6374,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>ApiResponse of InlineResponse20114</returns>
-        public ApiResponse< InlineResponse20114 > UcpGetCheckoutSessionWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest)
+        /// <returns>ApiResponse of InlineResponse20113</returns>
+        public ApiResponse< InlineResponse20113 > UcpGetCheckoutSessionWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -6454,8 +6454,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6470,9 +6470,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20114>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20114) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20114))); // Return statement
+            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
         }
 
         /// <summary>
@@ -6481,12 +6481,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>Task of InlineResponse20114</returns>
-        public async Task<InlineResponse20114> UcpGetCheckoutSessionAsync(string sessionId, Object ucpGetCheckoutSessionRequest)
+        /// <returns>Task of InlineResponse20113</returns>
+        public async Task<InlineResponse20113> UcpGetCheckoutSessionAsync(string sessionId, Object ucpGetCheckoutSessionRequest)
         {
             logger.LogDebug("CALLING API \"UcpGetCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20114> localVarResponse = await UcpGetCheckoutSessionAsyncWithHttpInfo(sessionId, ucpGetCheckoutSessionRequest);
+            ApiResponse<InlineResponse20113> localVarResponse = await UcpGetCheckoutSessionAsyncWithHttpInfo(sessionId, ucpGetCheckoutSessionRequest);
             logger.LogDebug("CALLING API \"UcpGetCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -6499,8 +6499,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20114)</returns>
-        public async Task<ApiResponse<InlineResponse20114>> UcpGetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest)
+        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
+        public async Task<ApiResponse<InlineResponse20113>> UcpGetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -6579,8 +6579,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6595,9 +6595,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20114>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20114) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20114))); // Return statement
+            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
         }
         /// <summary>
         /// Update Checkout Session UCP Modifies an active UCP checkout session and returns the updated session state.  Use this to change line item quantities, update fulfillment address or method, or apply discount codes. Totals are recalculated and returned in the response.  Only the fields you include in the request body are updated. 
@@ -6606,12 +6606,12 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>InlineResponse20114</returns>
-        public InlineResponse20114 UcpUpdateCheckoutSession(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>InlineResponse20113</returns>
+        public InlineResponse20113 UcpUpdateCheckoutSession(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
         {
             logger.LogDebug("CALLING API \"UcpUpdateCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20114> localVarResponse = UcpUpdateCheckoutSessionWithHttpInfo(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
+            ApiResponse<InlineResponse20113> localVarResponse = UcpUpdateCheckoutSessionWithHttpInfo(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
             logger.LogDebug("CALLING API \"UcpUpdateCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -6624,8 +6624,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20114</returns>
-        public ApiResponse< InlineResponse20114 > UcpUpdateCheckoutSessionWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>ApiResponse of InlineResponse20113</returns>
+        public ApiResponse< InlineResponse20113 > UcpUpdateCheckoutSessionWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -6709,8 +6709,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6725,9 +6725,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20114>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20114) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20114))); // Return statement
+            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
         }
 
         /// <summary>
@@ -6737,12 +6737,12 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>Task of InlineResponse20114</returns>
-        public async Task<InlineResponse20114> UcpUpdateCheckoutSessionAsync(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>Task of InlineResponse20113</returns>
+        public async Task<InlineResponse20113> UcpUpdateCheckoutSessionAsync(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
         {
             logger.LogDebug("CALLING API \"UcpUpdateCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20114> localVarResponse = await UcpUpdateCheckoutSessionAsyncWithHttpInfo(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
+            ApiResponse<InlineResponse20113> localVarResponse = await UcpUpdateCheckoutSessionAsyncWithHttpInfo(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
             logger.LogDebug("CALLING API \"UcpUpdateCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -6756,8 +6756,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20114)</returns>
-        public async Task<ApiResponse<InlineResponse20114>> UcpUpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
+        public async Task<ApiResponse<InlineResponse20113>> UcpUpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -6841,8 +6841,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6857,9 +6857,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20114>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20114) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20114))); // Return statement
+            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
         }
         /// <summary>
         /// Update an agent [category 1 — Agent_Capabilities] Update agent information. Updatable fields are name, domain, description, contactEmail, and agentMetadata. Extra fields (e.g. tokenRequestorId, keys) will return 422 Validation Error. Raises 404 if agent not found, 403 if agent is deactivated, 409 if new domain or contactEmail already exists.
@@ -6964,8 +6964,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -6981,7 +6981,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgentRegistrationResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgentRegistrationResponse201) ApiClient.Deserialize(localVarResponse, typeof(AgentRegistrationResponse201))); // Return statement
         }
 
@@ -7089,8 +7089,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7106,7 +7106,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgentRegistrationResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgentRegistrationResponse201) ApiClient.Deserialize(localVarResponse, typeof(AgentRegistrationResponse201))); // Return statement
         }
         /// <summary>
@@ -7226,8 +7226,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7243,7 +7243,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AddAgentKeyResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AddAgentKeyResponse201) ApiClient.Deserialize(localVarResponse, typeof(AddAgentKeyResponse201))); // Return statement
         }
 
@@ -7365,8 +7365,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7382,7 +7382,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AddAgentKeyResponse201>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AddAgentKeyResponse201) ApiClient.Deserialize(localVarResponse, typeof(AddAgentKeyResponse201))); // Return statement
         }
         /// <summary>
@@ -7398,12 +7398,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        public InlineResponse20113 UpdateCheckoutSession(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>InlineResponse20112</returns>
+        public InlineResponse20112 UpdateCheckoutSession(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"UpdateCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = UpdateCheckoutSessionWithHttpInfo(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<InlineResponse20112> localVarResponse = UpdateCheckoutSessionWithHttpInfo(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"UpdateCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -7422,8 +7422,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        public ApiResponse< InlineResponse20113 > UpdateCheckoutSessionWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>ApiResponse of InlineResponse20112</returns>
+        public ApiResponse< InlineResponse20112 > UpdateCheckoutSessionWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -7537,8 +7537,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7553,9 +7553,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
         }
 
         /// <summary>
@@ -7571,12 +7571,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        public async Task<InlineResponse20113> UpdateCheckoutSessionAsync(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of InlineResponse20112</returns>
+        public async Task<InlineResponse20112> UpdateCheckoutSessionAsync(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"UpdateCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = await UpdateCheckoutSessionAsyncWithHttpInfo(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<InlineResponse20112> localVarResponse = await UpdateCheckoutSessionAsyncWithHttpInfo(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"UpdateCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -7596,8 +7596,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        public async Task<ApiResponse<InlineResponse20113>> UpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
+        public async Task<ApiResponse<InlineResponse20112>> UpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -7711,8 +7711,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7727,9 +7727,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
         }
         /// <summary>
         /// Update a purchase intent Update an existing purchase intent (instruction) identified by its instructionId. The agent calls this endpoint when the consumer modifies their order — for example, changing the quantity, updating mandates, switching payment instruments, or changing shipping details. The request body has the same structure as the initiate request. Returns the same instructionId (HTTP 200) on success, or PENDING (HTTP 202) with pendingEvents if additional cardholder authentication is required for the updated intent.
@@ -7834,8 +7834,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7851,7 +7851,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticCreatePurchaseIntentResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticCreatePurchaseIntentResponse200) ApiClient.Deserialize(localVarResponse, typeof(AgenticCreatePurchaseIntentResponse200))); // Return statement
         }
 
@@ -7959,8 +7959,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Put, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("PUT"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -7976,7 +7976,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<AgenticCreatePurchaseIntentResponse200>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (AgenticCreatePurchaseIntentResponse200) ApiClient.Deserialize(localVarResponse, typeof(AgenticCreatePurchaseIntentResponse200))); // Return statement
         }
     }

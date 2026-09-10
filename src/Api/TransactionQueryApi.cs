@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using RestSharp;
+using System.Net.Http;
 using CyberSource.Client;
 using CyberSource.Model;
 using AuthenticationSdk.util;
@@ -47,8 +47,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>InlineResponse2015</returns>
-        InlineResponse2015 CreateQueryApi(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
+        /// <returns>InlineResponse2014</returns>
+        InlineResponse2014 CreateQueryApi(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
 
         /// <summary>
         /// Query Transaction Details
@@ -67,8 +67,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        ApiResponse<InlineResponse2015> CreateQueryApiWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
+        /// <returns>ApiResponse of InlineResponse2014</returns>
+        ApiResponse<InlineResponse2014> CreateQueryApiWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -88,8 +88,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        System.Threading.Tasks.Task<InlineResponse2015> CreateQueryApiAsync(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
+        /// <returns>Task of InlineResponse2014</returns>
+        System.Threading.Tasks.Task<InlineResponse2014> CreateQueryApiAsync(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
 
         /// <summary>
         /// Query Transaction Details
@@ -108,8 +108,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2015>> CreateQueryApiAsyncWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
+        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> CreateQueryApiAsyncWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
         #endregion Asynchronous Operations
     }
 
@@ -150,12 +150,12 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>InlineResponse2015</returns>
-        public InlineResponse2015 CreateQueryApi(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
+        /// <returns>InlineResponse2014</returns>
+        public InlineResponse2014 CreateQueryApi(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
         {
             logger.LogDebug("CALLING API \"CreateQueryApi\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2015> localVarResponse = CreateQueryApiWithHttpInfo(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
+            ApiResponse<InlineResponse2014> localVarResponse = CreateQueryApiWithHttpInfo(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
             logger.LogDebug("CALLING API \"CreateQueryApi\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -175,8 +175,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2015</returns>
-        public ApiResponse< InlineResponse2015 > CreateQueryApiWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
+        /// <returns>ApiResponse of InlineResponse2014</returns>
+        public ApiResponse< InlineResponse2014 > CreateQueryApiWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -333,8 +333,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -349,9 +349,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2015) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015))); // Return statement
+            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse2014) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
         }
 
         /// <summary>
@@ -368,12 +368,12 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>Task of InlineResponse2015</returns>
-        public async Task<InlineResponse2015> CreateQueryApiAsync(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
+        /// <returns>Task of InlineResponse2014</returns>
+        public async Task<InlineResponse2014> CreateQueryApiAsync(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
         {
             logger.LogDebug("CALLING API \"CreateQueryApiAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2015> localVarResponse = await CreateQueryApiAsyncWithHttpInfo(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
+            ApiResponse<InlineResponse2014> localVarResponse = await CreateQueryApiAsyncWithHttpInfo(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
             logger.LogDebug("CALLING API \"CreateQueryApiAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -394,8 +394,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2015)</returns>
-        public async Task<ApiResponse<InlineResponse2015>> CreateQueryApiAsyncWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
+        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
+        public async Task<ApiResponse<InlineResponse2014>> CreateQueryApiAsyncWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -552,8 +552,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -568,9 +568,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2015>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2015) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2015))); // Return statement
+            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse2014) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
         }
     }
 }

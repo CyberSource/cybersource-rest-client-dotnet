@@ -4,8 +4,11 @@ using System.Linq;
 using System.Reflection;
 using CyberSource.Api;
 using CyberSource.Client;
+using CyberSource.Utilities.Serialization;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
 using NUnit.Framework;
 
 namespace cybersource_rest_client_netstandard.Test.Client
@@ -177,6 +180,118 @@ namespace cybersource_rest_client_netstandard.Test.Client
         }
 
         #endregion ApiBase (derived API clients)
+
+        #region Container-based constructor injection (EnsureLoggerFactory + pure-DI ctor)
+
+        [Test]
+        public void EnsureLoggerFactory_RegistersLoggerFactoryFallback_WhenNonePreviouslyRegistered()
+        {
+            var services = new ServiceCollection();
+            services.EnsureLoggerFactory();
+
+            using var provider = services.BuildServiceProvider();
+
+            var resolved = provider.GetRequiredService<ILoggerFactory>();
+            Assert.AreSame(NullLoggerFactory.Instance, resolved);
+        }
+
+        [Test]
+        public void EnsureLoggerFactory_PreservesPreviouslyRegisteredLoggerFactory()
+        {
+            var caller = new RecordingLoggerFactory();
+
+            var services = new ServiceCollection();
+            services.AddSingleton<ILoggerFactory>(caller);
+            services.EnsureLoggerFactory();
+
+            using var provider = services.BuildServiceProvider();
+
+            Assert.AreSame(caller, provider.GetRequiredService<ILoggerFactory>(),
+                "TryAddSingleton must not replace an existing ILoggerFactory registration.");
+        }
+
+        [Test]
+        public void EnsureLoggerFactory_IsIdempotent()
+        {
+            var services = new ServiceCollection();
+            services.EnsureLoggerFactory();
+            services.EnsureLoggerFactory();
+
+            var descriptors = services.Where(d => d.ServiceType == typeof(ILoggerFactory)).ToList();
+            Assert.AreEqual(1, descriptors.Count,
+                "EnsureLoggerFactory must not stack duplicate ILoggerFactory registrations.");
+        }
+
+        [Test]
+        public void Configuration_ContainerCtor_AppliesInjectedLoggerFactoryToLegacyAndNetworkSettings()
+        {
+            var loggerFactory = new RecordingLoggerFactory();
+            var legacy = new MerchantLegacySettings();
+            var network = new MerchantNetworkSettings(new Dictionary<string, string>());
+
+            var config = new Configuration(
+                merchantCredentialSettings: null,
+                merchantMLESettings: null,
+                merchantNetworkSettings: network,
+                merchantLegacySettings: legacy,
+                serializerOptionsMonitor: null,
+                deserializerOptionsMonitor: null,
+                loggerFactory: loggerFactory,
+                httpClientFactory: null);
+
+            Assert.AreSame(loggerFactory, config.MerchantLegacySettings.LoggerFactory,
+                "Container-injected ILoggerFactory must flow into MerchantLegacySettings.");
+            Assert.IsTrue(
+                loggerFactory.CreatedCategories.Any(c => c.Contains(nameof(MerchantNetworkSettings))),
+                "Container-injected ILoggerFactory must be used to create the MerchantNetworkSettings logger.");
+        }
+
+        [Test]
+        public void Configuration_ContainerCtor_FallsBackToNullLoggerFactory_WhenNullInjected()
+        {
+            var legacy = new MerchantLegacySettings { LoggerFactory = new RecordingLoggerFactory() };
+            var network = new MerchantNetworkSettings(new Dictionary<string, string>());
+
+            var config = new Configuration(
+                merchantCredentialSettings: null,
+                merchantMLESettings: null,
+                merchantNetworkSettings: network,
+                merchantLegacySettings: legacy,
+                serializerOptionsMonitor: null,
+                deserializerOptionsMonitor: null,
+                loggerFactory: null,
+                httpClientFactory: null);
+
+            Assert.AreSame(NullLoggerFactory.Instance, config.MerchantLegacySettings.LoggerFactory,
+                "A null ILoggerFactory must fall back to NullLoggerFactory.Instance.");
+        }
+
+        [Test]
+        public void Configuration_ContainerCtor_ResolvesLoggerFactoryFromContainer()
+        {
+            var services = new ServiceCollection();
+            services.AddSerialization();
+            services.EnsureLoggerFactory();
+
+            using var provider = services.BuildServiceProvider();
+
+            var legacy = new MerchantLegacySettings();
+            var network = new MerchantNetworkSettings(new Dictionary<string, string>());
+
+            var config = new Configuration(
+                merchantCredentialSettings: null,
+                merchantMLESettings: null,
+                merchantNetworkSettings: network,
+                merchantLegacySettings: legacy,
+                serializerOptionsMonitor: provider.GetRequiredService<IOptionsMonitor<SdkSerializerOptions>>(),
+                deserializerOptionsMonitor: provider.GetRequiredService<IOptionsMonitor<SdkDeserializerOptions>>(),
+                loggerFactory: provider.GetRequiredService<ILoggerFactory>(),
+                httpClientFactory: null);
+
+            Assert.AreSame(NullLoggerFactory.Instance, config.MerchantLegacySettings.LoggerFactory);
+        }
+
+        #endregion Container-based constructor injection (EnsureLoggerFactory + pure-DI ctor)
 
         #region Helpers
 

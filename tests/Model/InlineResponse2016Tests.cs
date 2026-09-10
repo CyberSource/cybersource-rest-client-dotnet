@@ -89,28 +89,52 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'PaymentAccountInformation'
+        /// Test the property 'RegistrationInformation'
         /// </summary>
         [Test]
-        public void PaymentAccountInformationTest()
+        public void RegistrationInformationTest()
         {
-            // TODO unit test for the property 'PaymentAccountInformation'
+            // TODO unit test for the property 'RegistrationInformation'
         }
         /// <summary>
-        /// Test the property 'IssuerInformation'
+        /// Test the property 'IntegrationInformation'
         /// </summary>
         [Test]
-        public void IssuerInformationTest()
+        public void IntegrationInformationTest()
         {
-            // TODO unit test for the property 'IssuerInformation'
+            // TODO unit test for the property 'IntegrationInformation'
         }
         /// <summary>
-        /// Test the property 'PayoutInformation'
+        /// Test the property 'OrganizationInformation'
         /// </summary>
         [Test]
-        public void PayoutInformationTest()
+        public void OrganizationInformationTest()
         {
-            // TODO unit test for the property 'PayoutInformation'
+            // TODO unit test for the property 'OrganizationInformation'
+        }
+        /// <summary>
+        /// Test the property 'ProductInformationSetups'
+        /// </summary>
+        [Test]
+        public void ProductInformationSetupsTest()
+        {
+            // TODO unit test for the property 'ProductInformationSetups'
+        }
+        /// <summary>
+        /// Test the property 'Message'
+        /// </summary>
+        [Test]
+        public void MessageTest()
+        {
+            // TODO unit test for the property 'Message'
+        }
+        /// <summary>
+        /// Test the property 'Details'
+        /// </summary>
+        [Test]
+        public void DetailsTest()
+        {
+            // TODO unit test for the property 'Details'
         }
 
     }
