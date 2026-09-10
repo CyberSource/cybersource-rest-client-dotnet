@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="Order">Order.</param>
         /// <param name="Messages">Informational or error messages from the merchant backend..</param>
         /// <param name="Links">Related resource links from the merchant (e.g. terms of use, privacy policy)..</param>
-        public InlineResponse20017(string Id = default(string), string Status = default(string), string Currency = default(string), AcpCompleteCheckoutResponseBuyer Buyer = default(AcpCompleteCheckoutResponseBuyer), List<InlineResponse20113LineItems> LineItems = default(List<InlineResponse20113LineItems>), InlineResponse20017FulfillmentAddress FulfillmentAddress = default(InlineResponse20017FulfillmentAddress), List<InlineResponse20113FulfillmentOptions> FulfillmentOptions = default(List<InlineResponse20113FulfillmentOptions>), string FulfillmentOptionId = default(string), List<InlineResponse20113Totals> Totals = default(List<InlineResponse20113Totals>), InlineResponse20017Order Order = default(InlineResponse20017Order), List<InlineResponse20113Messages> Messages = default(List<InlineResponse20113Messages>), List<InlineResponse20113Links> Links = default(List<InlineResponse20113Links>))
+        public InlineResponse20017(string Id = default(string), string Status = default(string), string Currency = default(string), AcpCompleteCheckoutResponseBuyer Buyer = default(AcpCompleteCheckoutResponseBuyer), List<InlineResponse20112LineItems> LineItems = default(List<InlineResponse20112LineItems>), InlineResponse20017FulfillmentAddress FulfillmentAddress = default(InlineResponse20017FulfillmentAddress), List<InlineResponse20112FulfillmentOptions> FulfillmentOptions = default(List<InlineResponse20112FulfillmentOptions>), string FulfillmentOptionId = default(string), List<InlineResponse20112Totals> Totals = default(List<InlineResponse20112Totals>), InlineResponse20017Order Order = default(InlineResponse20017Order), List<InlineResponse20112Messages> Messages = default(List<InlineResponse20112Messages>), List<InlineResponse20112Links> Links = default(List<InlineResponse20112Links>))
         {
             this.Id = Id;
             this.Status = Status;
@@ -99,7 +99,7 @@ namespace CyberSource.Model
         /// <value>Final line items with confirmed pricing.</value>
         [JsonPropertyName("line_items")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20113LineItems> LineItems { get; set; }
+        public List<InlineResponse20112LineItems> LineItems { get; set; }
 
         /// <summary>
         /// Gets or Sets FulfillmentAddress
@@ -113,7 +113,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("fulfillment_options")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20113FulfillmentOptions> FulfillmentOptions { get; set; }
+        public List<InlineResponse20112FulfillmentOptions> FulfillmentOptions { get; set; }
 
         /// <summary>
         /// ID of the selected fulfillment option.
@@ -129,7 +129,7 @@ namespace CyberSource.Model
         /// <value>Final order totals as typed total lines. All amounts in minor units (cents).</value>
         [JsonPropertyName("totals")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20113Totals> Totals { get; set; }
+        public List<InlineResponse20112Totals> Totals { get; set; }
 
         /// <summary>
         /// Gets or Sets Order
@@ -144,7 +144,7 @@ namespace CyberSource.Model
         /// <value>Informational or error messages from the merchant backend.</value>
         [JsonPropertyName("messages")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20113Messages> Messages { get; set; }
+        public List<InlineResponse20112Messages> Messages { get; set; }
 
         /// <summary>
         /// Related resource links from the merchant (e.g. terms of use, privacy policy).
@@ -152,7 +152,7 @@ namespace CyberSource.Model
         /// <value>Related resource links from the merchant (e.g. terms of use, privacy policy).</value>
         [JsonPropertyName("links")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20113Links> Links { get; set; }
+        public List<InlineResponse20112Links> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

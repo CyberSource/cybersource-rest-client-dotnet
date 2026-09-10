@@ -2,6 +2,8 @@ using System;
 using CyberSource.Utilities.Serialization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 
 namespace CyberSource.Client
@@ -66,6 +68,66 @@ namespace CyberSource.Client
             // do not stack duplicates.
             services.TryAddEnumerable(ServiceDescriptor.Singleton<IPostConfigureOptions<SdkSerializerOptions>, SdkSerializerOptionsPostConfigure>());
             services.TryAddEnumerable(ServiceDescriptor.Singleton<IPostConfigureOptions<SdkDeserializerOptions>, SdkDeserializerOptionsPostConfigure>());
+
+            return services;
+        }
+
+        /// <summary>
+        /// Registers the SDK's logging dependency (<see cref="ILoggerFactory"/>) with the container
+        /// so <see cref="Configuration"/> can receive it through container-based constructor
+        /// injection instead of requiring callers to hand it in explicitly.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If the host has already called <c>services.AddLogging(...)</c> (or otherwise registered
+        /// an <see cref="ILoggerFactory"/>), that registration is preserved. When no registration
+        /// exists, a safe fallback of <see cref="NullLoggerFactory.Instance"/> is registered so
+        /// the SDK's constructor-injection path always resolves a non-null factory.
+        /// </para>
+        /// <para>
+        /// This method is idempotent: <see cref="ServiceCollectionDescriptorExtensions.TryAdd(IServiceCollection, ServiceDescriptor)"/>
+        /// filters by service type, so repeated calls do not stack duplicate registrations.
+        /// </para>
+        /// </remarks>
+        /// <param name="services">The service collection to register into.</param>
+        /// <returns>The same <paramref name="services"/> instance for chaining.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="services"/> is <c>null</c>.</exception>
+        public static IServiceCollection EnsureLoggerFactory(this IServiceCollection services)
+        {
+            if (services == null) { throw new ArgumentNullException(nameof(services)); }
+
+            services.TryAddSingleton<ILoggerFactory>(NullLoggerFactory.Instance);
+
+            return services;
+        }
+
+        /// <summary>
+        /// Registers the SDK's HTTP client dependency (<see cref="System.Net.Http.IHttpClientFactory"/>)
+        /// with the container so <see cref="Configuration"/> can receive it through container-based
+        /// constructor injection instead of requiring callers to hand it in explicitly.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This helper delegates to
+        /// <see cref="HttpClientFactoryServiceCollectionExtensions.AddHttpClient(IServiceCollection)"/>,
+        /// which registers <see cref="System.Net.Http.IHttpClientFactory"/> and the default typed-client
+        /// infrastructure. Because <c>AddHttpClient</c> itself uses <c>TryAdd</c>-style registration
+        /// internally, calling this method multiple times, or alongside a host that has already called
+        /// <c>services.AddHttpClient(...)</c>, does not stack duplicate registrations.
+        /// </para>
+        /// <para>
+        /// The SDK never disposes the resolved <see cref="System.Net.Http.HttpClient"/>; handler pooling,
+        /// rotation, and lifetime are the factory's responsibility.
+        /// </para>
+        /// </remarks>
+        /// <param name="services">The service collection to register into.</param>
+        /// <returns>The same <paramref name="services"/> instance for chaining.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="services"/> is <c>null</c>.</exception>
+        public static IServiceCollection EnsureHttpClientFactory(this IServiceCollection services)
+        {
+            if (services == null) { throw new ArgumentNullException(nameof(services)); }
+
+            services.AddHttpClient();
 
             return services;
         }

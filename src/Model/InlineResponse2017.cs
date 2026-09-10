@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// InlineResponse2017
+    /// Egress Key Information Response 
     /// </summary>
     [DataContract]
     public partial class InlineResponse2017 :  ModelExtensions, IEquatable<InlineResponse2017>, IValidatableObject
@@ -34,88 +34,47 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2017" /> class.
         /// </summary>
-        /// <param name="Id">Id.</param>
-        /// <param name="RegistrationInformation">RegistrationInformation.</param>
-        /// <param name="IntegrationInformation">IntegrationInformation.</param>
-        /// <param name="OrganizationInformation">OrganizationInformation.</param>
-        /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
-        /// <param name="Message">Message.</param>
-        /// <param name="Details">Details.</param>
-        public InlineResponse2017(string Id = default(string), InlineResponse2017RegistrationInformation RegistrationInformation = default(InlineResponse2017RegistrationInformation), InlineResponse2017IntegrationInformation IntegrationInformation = default(InlineResponse2017IntegrationInformation), InlineResponse2017OrganizationInformation OrganizationInformation = default(InlineResponse2017OrganizationInformation), List<InlineResponse2017ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2017ProductInformationSetups>), string Message = default(string), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
+        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. .</param>
+        /// <param name="Status">The status of the submitted transaction. Possible values:  - ACCEPTED .</param>
+        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
+        /// <param name="KeyInformation">KeyInformation.</param>
+        public InlineResponse2017(string SubmitTimeUtc = default(string), string Status = default(string), Kmsegressv2keyssymClientReferenceInformation ClientReferenceInformation = default(Kmsegressv2keyssymClientReferenceInformation), InlineResponse2017KeyInformation KeyInformation = default(InlineResponse2017KeyInformation))
         {
-            this.Id = Id;
-            this.RegistrationInformation = RegistrationInformation;
-            this.IntegrationInformation = IntegrationInformation;
-            this.OrganizationInformation = OrganizationInformation;
-            this.ProductInformationSetups = ProductInformationSetups;
-            this.Message = Message;
-            this.Details = Details;
+            this.SubmitTimeUtc = SubmitTimeUtc;
+            this.Status = Status;
+            this.ClientReferenceInformation = ClientReferenceInformation;
+            this.KeyInformation = KeyInformation;
         }
         
         /// <summary>
-        /// Gets or Sets Id
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. 
         /// </summary>
-        [JsonPropertyName("id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
-        /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; Example &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC. </value>
         [JsonPropertyName("submitTimeUtc")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public DateTime? SubmitTimeUtc { get; private set; }
+        public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; 
+        /// The status of the submitted transaction. Possible values:  - ACCEPTED 
         /// </summary>
-        /// <value>The status of Registration request Possible Values:   - &#39;INITIALIZED&#39;   - &#39;RECEIVED&#39;   - &#39;PROCESSING&#39;   - &#39;SUCCESS&#39;   - &#39;FAILURE&#39;   - &#39;PARTIAL&#39; </value>
+        /// <value>The status of the submitted transaction. Possible values:  - ACCEPTED </value>
         [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Status { get; private set; }
+        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets RegistrationInformation
+        /// Gets or Sets ClientReferenceInformation
         /// </summary>
-        [JsonPropertyName("registrationInformation")]
+        [JsonPropertyName("clientReferenceInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2017RegistrationInformation RegistrationInformation { get; set; }
+        public Kmsegressv2keyssymClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
-        /// Gets or Sets IntegrationInformation
+        /// Gets or Sets KeyInformation
         /// </summary>
-        [JsonPropertyName("integrationInformation")]
+        [JsonPropertyName("keyInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2017IntegrationInformation IntegrationInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets OrganizationInformation
-        /// </summary>
-        [JsonPropertyName("organizationInformation")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2017OrganizationInformation OrganizationInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProductInformationSetups
-        /// </summary>
-        [JsonPropertyName("productInformationSetups")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse2017ProductInformationSetups> ProductInformationSetups { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Message
-        /// </summary>
-        [JsonPropertyName("message")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Details
-        /// </summary>
-        [JsonPropertyName("details")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, List<Object>> Details { get; set; }
+        public InlineResponse2017KeyInformation KeyInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -125,15 +84,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2017 {\n");
-            if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "id", Id.ToString())).Append("\n");
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "status", Status.ToString())).Append("\n");
-            if (RegistrationInformation != null) sb.Append("  RegistrationInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "registrationInformation", RegistrationInformation.ToString())).Append("\n");
-            if (IntegrationInformation != null) sb.Append("  IntegrationInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "integrationInformation", IntegrationInformation.ToString())).Append("\n");
-            if (OrganizationInformation != null) sb.Append("  OrganizationInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "organizationInformation", OrganizationInformation.ToString())).Append("\n");
-            if (ProductInformationSetups != null) sb.Append("  ProductInformationSetups: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "productInformationSetups", ProductInformationSetups.ToString())).Append("\n");
-            if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "message", Message.ToString())).Append("\n");
-            if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "details", Details.ToString())).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "clientReferenceInformation", ClientReferenceInformation.ToString())).Append("\n");
+            if (KeyInformation != null) sb.Append("  KeyInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2017", "keyInformation", KeyInformation.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -176,11 +130,6 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
-                ) && 
-                (
                     this.SubmitTimeUtc == other.SubmitTimeUtc ||
                     this.SubmitTimeUtc != null &&
                     this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
@@ -191,34 +140,14 @@ namespace CyberSource.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.RegistrationInformation == other.RegistrationInformation ||
-                    this.RegistrationInformation != null &&
-                    this.RegistrationInformation.Equals(other.RegistrationInformation)
+                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
+                    this.ClientReferenceInformation != null &&
+                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
                 ) && 
                 (
-                    this.IntegrationInformation == other.IntegrationInformation ||
-                    this.IntegrationInformation != null &&
-                    this.IntegrationInformation.Equals(other.IntegrationInformation)
-                ) && 
-                (
-                    this.OrganizationInformation == other.OrganizationInformation ||
-                    this.OrganizationInformation != null &&
-                    this.OrganizationInformation.Equals(other.OrganizationInformation)
-                ) && 
-                (
-                    this.ProductInformationSetups == other.ProductInformationSetups ||
-                    this.ProductInformationSetups != null &&
-                    this.ProductInformationSetups.SequenceEqual(other.ProductInformationSetups)
-                ) && 
-                (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
-                ) && 
-                (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.KeyInformation == other.KeyInformation ||
+                    this.KeyInformation != null &&
+                    this.KeyInformation.Equals(other.KeyInformation)
                 );
         }
 
@@ -235,24 +164,14 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.SubmitTimeUtc != null)
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.RegistrationInformation != null)
-                    hash = hash * 59 + this.RegistrationInformation.GetHashCode();
-                if (this.IntegrationInformation != null)
-                    hash = hash * 59 + this.IntegrationInformation.GetHashCode();
-                if (this.OrganizationInformation != null)
-                    hash = hash * 59 + this.OrganizationInformation.GetHashCode();
-                if (this.ProductInformationSetups != null)
-                    hash = hash * 59 + this.ProductInformationSetups.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
+                if (this.ClientReferenceInformation != null)
+                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
+                if (this.KeyInformation != null)
+                    hash = hash * 59 + this.KeyInformation.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

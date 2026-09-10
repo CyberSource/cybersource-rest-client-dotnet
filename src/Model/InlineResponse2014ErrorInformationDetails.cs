@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="InlineResponse2014ErrorInformationDetails" /> class.
         /// </summary>
         /// <param name="Field">This is the flattened JSON object field name/path that is either missing or invalid. .</param>
-        /// <param name="Reason">Possible reasons for the error.  Possible values: - &#x60;MISSING_FIELD&#x60; - &#x60;INVALID_DATA&#x60; .</param>
+        /// <param name="Reason">Possible reasons for the error.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;SYSTEM_ERROR&#x60; - &#x60;NOT_FOUND&#x60; - &#x60;UNAUTHORIZED&#x60; - &#x60;SYSTEM_TIMEOUT&#x60; - &#x60;PROCESSOR_ERROR&#x60; .</param>
         public InlineResponse2014ErrorInformationDetails(string Field = default(string), string Reason = default(string))
         {
             this.Field = Field;
@@ -51,9 +51,9 @@ namespace CyberSource.Model
         public string Field { get; set; }
 
         /// <summary>
-        /// Possible reasons for the error.  Possible values: - &#x60;MISSING_FIELD&#x60; - &#x60;INVALID_DATA&#x60; 
+        /// Possible reasons for the error.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;SYSTEM_ERROR&#x60; - &#x60;NOT_FOUND&#x60; - &#x60;UNAUTHORIZED&#x60; - &#x60;SYSTEM_TIMEOUT&#x60; - &#x60;PROCESSOR_ERROR&#x60; 
         /// </summary>
-        /// <value>Possible reasons for the error.  Possible values: - &#x60;MISSING_FIELD&#x60; - &#x60;INVALID_DATA&#x60; </value>
+        /// <value>Possible reasons for the error.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;SYSTEM_ERROR&#x60; - &#x60;NOT_FOUND&#x60; - &#x60;UNAUTHORIZED&#x60; - &#x60;SYSTEM_TIMEOUT&#x60; - &#x60;PROCESSOR_ERROR&#x60; </value>
         [JsonPropertyName("reason")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Reason { get; set; }

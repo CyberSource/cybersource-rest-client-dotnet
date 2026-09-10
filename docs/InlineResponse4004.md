@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Status** | **string** | Possible values: - INVALID_REQUEST  | 
 **Reason** | **string** | The reason of the status.  Possible values: - INVALID_DATA - MISSING_FIELD  | [optional] 
 **Message** | **string** | The detail message related to the status and reason listed above.  | [optional] 
-**Details** | [**List&lt;InlineResponse2014ErrorInformationDetails&gt;**](InlineResponse2014ErrorInformationDetails.md) |  | [optional] 
+**Details** | [**List&lt;InlineResponse2013ErrorInformationDetails&gt;**](InlineResponse2013ErrorInformationDetails.md) |  | [optional] 
 
 ## Extensibility
 

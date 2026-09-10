@@ -7,7 +7,7 @@ namespace CyberSource.Utilities.Serialization
 {
     /// <summary>
     /// SDK-owned wrapper around the <see cref="JsonSerializerOptions"/> used for response-payload
-    /// deserialization by <see cref="CyberSource.Client.ApiClient.Deserialize(RestSharp.RestResponse, System.Type)"/>
+    /// deserialization by <see cref="CyberSource.Client.ApiClient.Deserialize(System.Net.Http.HttpResponseMessage, System.Type)"/>
     /// AND for the extra-field read path in <see cref="ModelExtensions.GetExtraField{TValue}(string)"/> and
     /// <see cref="ModelExtensions.TryGetExtraField{TValue}(string, out TValue)"/>.
     /// </summary>

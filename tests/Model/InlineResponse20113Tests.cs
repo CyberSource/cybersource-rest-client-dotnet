@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'Ucp'
+        /// </summary>
+        [Test]
+        public void UcpTest()
+        {
+            // TODO unit test for the property 'Ucp'
+        }
+        /// <summary>
         /// Test the property 'Id'
         /// </summary>
         [Test]
@@ -89,36 +97,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Currency'
         }
         /// <summary>
+        /// Test the property 'Buyer'
+        /// </summary>
+        [Test]
+        public void BuyerTest()
+        {
+            // TODO unit test for the property 'Buyer'
+        }
+        /// <summary>
         /// Test the property 'LineItems'
         /// </summary>
         [Test]
         public void LineItemsTest()
         {
             // TODO unit test for the property 'LineItems'
-        }
-        /// <summary>
-        /// Test the property 'FulfillmentAddress'
-        /// </summary>
-        [Test]
-        public void FulfillmentAddressTest()
-        {
-            // TODO unit test for the property 'FulfillmentAddress'
-        }
-        /// <summary>
-        /// Test the property 'FulfillmentOptions'
-        /// </summary>
-        [Test]
-        public void FulfillmentOptionsTest()
-        {
-            // TODO unit test for the property 'FulfillmentOptions'
-        }
-        /// <summary>
-        /// Test the property 'FulfillmentOptionId'
-        /// </summary>
-        [Test]
-        public void FulfillmentOptionIdTest()
-        {
-            // TODO unit test for the property 'FulfillmentOptionId'
         }
         /// <summary>
         /// Test the property 'Totals'
@@ -129,28 +121,36 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Totals'
         }
         /// <summary>
-        /// Test the property 'Buyer'
+        /// Test the property 'Fulfillment'
         /// </summary>
         [Test]
-        public void BuyerTest()
+        public void FulfillmentTest()
         {
-            // TODO unit test for the property 'Buyer'
+            // TODO unit test for the property 'Fulfillment'
         }
         /// <summary>
-        /// Test the property 'PaymentProvider'
+        /// Test the property 'Payment'
         /// </summary>
         [Test]
-        public void PaymentProviderTest()
+        public void PaymentTest()
         {
-            // TODO unit test for the property 'PaymentProvider'
+            // TODO unit test for the property 'Payment'
         }
         /// <summary>
-        /// Test the property 'Messages'
+        /// Test the property 'Discounts'
         /// </summary>
         [Test]
-        public void MessagesTest()
+        public void DiscountsTest()
         {
-            // TODO unit test for the property 'Messages'
+            // TODO unit test for the property 'Discounts'
+        }
+        /// <summary>
+        /// Test the property 'Order'
+        /// </summary>
+        [Test]
+        public void OrderTest()
+        {
+            // TODO unit test for the property 'Order'
         }
         /// <summary>
         /// Test the property 'Links'

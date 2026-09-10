@@ -72,7 +72,7 @@ namespace CyberSource.Client
         /// <param name="serializationOptions">Optional <see cref="JsonSerializerOptions"/> used to serialize request payloads.</param>
         /// <param name="deserializationOptions">Optional <see cref="JsonSerializerOptions"/> used to deserialize response payloads.</param>
         /// <param name="httpClient">
-        /// Optional caller-owned <see cref="HttpClient"/> used by RestSharp for all outgoing requests. When supplied, the SDK
+        /// Optional caller-owned <see cref="HttpClient"/> used for all outgoing requests. When supplied, the SDK
         /// bypasses its internally cached <see cref="StandardSocketsHttpHandler"/>-backed client and never disposes the
         /// supplied instance. The caller is responsible for configuring its handler, proxy, client certificates, connection
         /// pooling, and timeout. Takes precedence over <paramref name="httpClientFactory"/>.
@@ -191,19 +191,44 @@ namespace CyberSource.Client
         /// <param name="merchantLegacySettings">Pre-configured merchant legacy settings for backward compatibility.</param>
         /// <param name="serializerOptionsMonitor">DI-resolved monitor for <see cref="SdkSerializerOptions"/>.</param>
         /// <param name="deserializerOptionsMonitor">DI-resolved monitor for <see cref="SdkDeserializerOptions"/>. Also used as the source for the PBL-model deserialization track.</param>
+        /// <param name="loggerFactory">
+        /// DI-resolved <see cref="ILoggerFactory"/>. Register the SDK's logging dependency via
+        /// <see cref="ServiceCollectionExtensions.EnsureLoggerFactory(Microsoft.Extensions.DependencyInjection.IServiceCollection)"/>
+        /// so the container can supply this instance through constructor injection. When <c>null</c>,
+        /// falls back to <see cref="NullLoggerFactory.Instance"/>. The resolved factory is applied to
+        /// <paramref name="merchantLegacySettings"/> (when the concrete <see cref="MerchantLegacySettings"/>
+        /// type is supplied) and used to create the logger on <paramref name="merchantNetworkSettings"/>
+        /// (when it implements <see cref="IMutableMerchantNetworkSettings"/>), so downstream SDK
+        /// components inherit the container-configured logging pipeline.
+        /// </param>
+        /// <param name="httpClientFactory">
+        /// DI-resolved <see cref="IHttpClientFactory"/>. Register the SDK's HTTP client dependency via
+        /// <see cref="ServiceCollectionExtensions.EnsureHttpClientFactory(Microsoft.Extensions.DependencyInjection.IServiceCollection)"/>
+        /// (which delegates to <c>services.AddHttpClient()</c>) so the container can supply this
+        /// instance through constructor injection. When non-<c>null</c> and
+        /// <paramref name="merchantNetworkSettings"/> implements <see cref="IMutableMerchantNetworkSettings"/>,
+        /// the factory is applied via <see cref="IMutableMerchantNetworkSettings.SetHttpClientFactory(IHttpClientFactory)"/>
+        /// and takes precedence over the SDK's internally cached HttpClient. The SDK never disposes
+        /// the resolved client; handler pooling and rotation are the factory's responsibility.
+        /// </param>
         public Configuration(IMerchantCredentialSettings merchantCredentialSettings,
                     IMerchantMLESettings merchantMLESettings,
                     IMerchantNetworkSettings merchantNetworkSettings,
                     IMerchantLegacySettings merchantLegacySettings,
                     IOptionsMonitor<SdkSerializerOptions> serializerOptionsMonitor,
-                    IOptionsMonitor<SdkDeserializerOptions> deserializerOptionsMonitor)
+                    IOptionsMonitor<SdkDeserializerOptions> deserializerOptionsMonitor,
+                    ILoggerFactory loggerFactory,
+                    IHttpClientFactory httpClientFactory)
             : this(merchantCredentialSettings, merchantMLESettings, merchantNetworkSettings, merchantLegacySettings)
         {
             if (merchantNetworkSettings is IMutableMerchantNetworkSettings mutable)
             {
                 mutable.SetSerializerOptionsMonitor(serializerOptionsMonitor);
                 mutable.SetDeserializerOptionsMonitor(deserializerOptionsMonitor);
+                mutable.SetHttpClientFactory(httpClientFactory);
             }
+
+            ApplyLoggerFactory(loggerFactory);
         }
         #endregion Constructors
 
@@ -267,7 +292,6 @@ namespace CyberSource.Client
         #endregion Legacy Public Methods
 
         #region Mutation Methods
-
         void IMutableConfiguration.AddMerchantCredentialSettings(IMerchantCredentialSettings merchantCredentialSettings)
         {
             MerchantCredentialSettings = merchantCredentialSettings;
@@ -278,5 +302,27 @@ namespace CyberSource.Client
             MerchantMLESettings = merchantMLESettings;
         }
         #endregion Mutation Methods
+
+        #region Private Methods
+        /// <summary>
+        /// Applies a container-injected <see cref="ILoggerFactory"/> to the merchant settings so the
+        /// SDK's downstream logger creation flows through the DI-configured pipeline. Falls back to
+        /// <see cref="NullLoggerFactory.Instance"/> when no factory is supplied.
+        /// </summary>
+        private void ApplyLoggerFactory(ILoggerFactory loggerFactory)
+        {
+            loggerFactory ??= NullLoggerFactory.Instance;
+
+            if (MerchantLegacySettings is MerchantLegacySettings concreteLegacy)
+            {
+                concreteLegacy.LoggerFactory = loggerFactory;
+            }
+
+            if (MerchantNetworkSettings is IMutableMerchantNetworkSettings mutableNetwork)
+            {
+                mutableNetwork.SetLogger(loggerFactory.CreateLogger<MerchantNetworkSettings>());
+            }
+        }
+        #endregion Private Methods
     }
 }

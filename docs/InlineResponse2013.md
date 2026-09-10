@@ -3,9 +3,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** | **string** | Echoes the unique request identifier submitted in the original label request, enabling end-to-end correlation between request and response. | 
-**SubmitTimeUtc** | **DateTime?** | UTC timestamp indicating when the label submission request was received and processed. | 
-**Results** | [**InlineResponse2013Results**](InlineResponse2013Results.md) |  | 
+**Id** | **string** | A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource.  | [optional] 
+**Status** | **string** | The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60;  | [optional] 
+**SubmitTimeStampUtc** | **string** | Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC.  | [optional] 
+**OrderInformation** | [**InlineResponse2013OrderInformation**](InlineResponse2013OrderInformation.md) |  | [optional] 
+**ErrorInformation** | [**InlineResponse2013ErrorInformation**](InlineResponse2013ErrorInformation.md) |  | [optional] 
+**ProcessorInformation** | [**InlineResponse2013ProcessorInformation**](InlineResponse2013ProcessorInformation.md) |  | [optional] 
+**ProcessingInformation** | [**InlineResponse2013ProcessingInformation**](InlineResponse2013ProcessingInformation.md) |  | [optional] 
 
 ## Extensibility
 

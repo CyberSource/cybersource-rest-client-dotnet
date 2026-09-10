@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Successful label submission response envelope returned for HTTP 201
+    /// InlineResponse2013
     /// </summary>
     [DataContract]
     public partial class InlineResponse2013 :  ModelExtensions, IEquatable<InlineResponse2013>, IValidatableObject
@@ -34,43 +34,75 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2013" /> class.
         /// </summary>
-        [JsonConstructor]
-        protected InlineResponse2013() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2013" /> class.
-        /// </summary>
-        /// <param name="RequestId">Echoes the unique request identifier submitted in the original label request, enabling end-to-end correlation between request and response. (required).</param>
-        /// <param name="SubmitTimeUtc">UTC timestamp indicating when the label submission request was received and processed. (required).</param>
-        /// <param name="Results">Results (required).</param>
-        public InlineResponse2013(string RequestId = default(string), DateTime? SubmitTimeUtc = default(DateTime?), InlineResponse2013Results Results = default(InlineResponse2013Results))
+        /// <param name="Id">A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; .</param>
+        /// <param name="SubmitTimeStampUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
+        /// <param name="OrderInformation">OrderInformation.</param>
+        /// <param name="ErrorInformation">ErrorInformation.</param>
+        /// <param name="ProcessorInformation">ProcessorInformation.</param>
+        /// <param name="ProcessingInformation">ProcessingInformation.</param>
+        public InlineResponse2013(string Id = default(string), string Status = default(string), string SubmitTimeStampUtc = default(string), InlineResponse2013OrderInformation OrderInformation = default(InlineResponse2013OrderInformation), InlineResponse2013ErrorInformation ErrorInformation = default(InlineResponse2013ErrorInformation), InlineResponse2013ProcessorInformation ProcessorInformation = default(InlineResponse2013ProcessorInformation), InlineResponse2013ProcessingInformation ProcessingInformation = default(InlineResponse2013ProcessingInformation))
         {
-            this.RequestId = RequestId;
-            this.SubmitTimeUtc = SubmitTimeUtc;
-            this.Results = Results;
+            this.Id = Id;
+            this.Status = Status;
+            this.SubmitTimeStampUtc = SubmitTimeStampUtc;
+            this.OrderInformation = OrderInformation;
+            this.ErrorInformation = ErrorInformation;
+            this.ProcessorInformation = ProcessorInformation;
+            this.ProcessingInformation = ProcessingInformation;
         }
         
         /// <summary>
-        /// Echoes the unique request identifier submitted in the original label request, enabling end-to-end correlation between request and response.
+        /// A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. 
         /// </summary>
-        /// <value>Echoes the unique request identifier submitted in the original label request, enabling end-to-end correlation between request and response.</value>
-        [JsonPropertyName("requestId")]
+        /// <value>A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. </value>
+        [JsonPropertyName("id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string RequestId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
-        /// UTC timestamp indicating when the label submission request was received and processed.
+        /// The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; 
         /// </summary>
-        /// <value>UTC timestamp indicating when the label submission request was received and processed.</value>
-        [JsonPropertyName("submitTimeUtc")]
+        /// <value>The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; </value>
+        [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public DateTime? SubmitTimeUtc { get; set; }
+        public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets Results
+        /// Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
         /// </summary>
-        [JsonPropertyName("results")]
+        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
+        [JsonPropertyName("submitTimeStampUtc")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2013Results Results { get; set; }
+        public string SubmitTimeStampUtc { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OrderInformation
+        /// </summary>
+        [JsonPropertyName("orderInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse2013OrderInformation OrderInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ErrorInformation
+        /// </summary>
+        [JsonPropertyName("errorInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse2013ErrorInformation ErrorInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessorInformation
+        /// </summary>
+        [JsonPropertyName("processorInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse2013ProcessorInformation ProcessorInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProcessingInformation
+        /// </summary>
+        [JsonPropertyName("processingInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse2013ProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -80,9 +112,13 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2013 {\n");
-            if (RequestId != null) sb.Append("  RequestId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2013", "requestId", RequestId.ToString())).Append("\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2013", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
-            if (Results != null) sb.Append("  Results: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2013", "results", Results.ToString())).Append("\n");
+            if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2013", "id", Id.ToString())).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2013", "status", Status.ToString())).Append("\n");
+            if (SubmitTimeStampUtc != null) sb.Append("  SubmitTimeStampUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2013", "submitTimeStampUtc", SubmitTimeStampUtc.ToString())).Append("\n");
+            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2013", "orderInformation", OrderInformation.ToString())).Append("\n");
+            if (ErrorInformation != null) sb.Append("  ErrorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2013", "errorInformation", ErrorInformation.ToString())).Append("\n");
+            if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2013", "processorInformation", ProcessorInformation.ToString())).Append("\n");
+            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2013", "processingInformation", ProcessingInformation.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -125,19 +161,39 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.RequestId == other.RequestId ||
-                    this.RequestId != null &&
-                    this.RequestId.Equals(other.RequestId)
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Results == other.Results ||
-                    this.Results != null &&
-                    this.Results.Equals(other.Results)
+                    this.SubmitTimeStampUtc == other.SubmitTimeStampUtc ||
+                    this.SubmitTimeStampUtc != null &&
+                    this.SubmitTimeStampUtc.Equals(other.SubmitTimeStampUtc)
+                ) && 
+                (
+                    this.OrderInformation == other.OrderInformation ||
+                    this.OrderInformation != null &&
+                    this.OrderInformation.Equals(other.OrderInformation)
+                ) && 
+                (
+                    this.ErrorInformation == other.ErrorInformation ||
+                    this.ErrorInformation != null &&
+                    this.ErrorInformation.Equals(other.ErrorInformation)
+                ) && 
+                (
+                    this.ProcessorInformation == other.ProcessorInformation ||
+                    this.ProcessorInformation != null &&
+                    this.ProcessorInformation.Equals(other.ProcessorInformation)
+                ) && 
+                (
+                    this.ProcessingInformation == other.ProcessingInformation ||
+                    this.ProcessingInformation != null &&
+                    this.ProcessingInformation.Equals(other.ProcessingInformation)
                 );
         }
 
@@ -154,12 +210,20 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.RequestId != null)
-                    hash = hash * 59 + this.RequestId.GetHashCode();
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.Results != null)
-                    hash = hash * 59 + this.Results.GetHashCode();
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.SubmitTimeStampUtc != null)
+                    hash = hash * 59 + this.SubmitTimeStampUtc.GetHashCode();
+                if (this.OrderInformation != null)
+                    hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.ErrorInformation != null)
+                    hash = hash * 59 + this.ErrorInformation.GetHashCode();
+                if (this.ProcessorInformation != null)
+                    hash = hash * 59 + this.ProcessorInformation.GetHashCode();
+                if (this.ProcessingInformation != null)
+                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

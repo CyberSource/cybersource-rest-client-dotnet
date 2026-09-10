@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Details** | [**List&lt;InlineResponse2014ErrorInformationDetails&gt;**](InlineResponse2014ErrorInformationDetails.md) |  | [optional] 
 **Message** | **string** | The detail message related to the status and reason listed above.  | [optional] 
-**Reason** | **string** | The reason of the status.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;INVALID_MERCHANT_CONFIGURATION&#x60; - &#x60;SYSTEM_ERROR&#x60;  | [optional] 
+**Reason** | **string** | Possible reasons for the error.  Possible values: - &#x60;INVALID_DATA&#x60; - &#x60;SYSTEM_ERROR&#x60; - &#x60;NOT_FOUND&#x60; - &#x60;UNAUTHORIZED&#x60; - &#x60;SYSTEM_TIMEOUT&#x60; - &#x60;PROCESSOR_ERROR&#x60;  | [optional] 
 
 ## Extensibility
 

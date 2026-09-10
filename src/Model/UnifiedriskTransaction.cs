@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Transaction reference identifying which previously assessed transaction this label applies to
+    /// Financial transaction metadata including amounts, status, type, channel, and recurring payment details
     /// </summary>
     [DataContract]
     public partial class UnifiedriskTransaction :  ModelExtensions, IEquatable<UnifiedriskTransaction>, IValidatableObject
@@ -34,24 +34,285 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnifiedriskTransaction" /> class.
         /// </summary>
-        [JsonConstructor]
-        protected UnifiedriskTransaction() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnifiedriskTransaction" /> class.
-        /// </summary>
-        /// <param name="TransactionId">The transaction identifier correlating this label to the original risk assessment request (required).</param>
-        public UnifiedriskTransaction(string TransactionId = default(string))
+        /// <param name="TransactionId">Unique identifier for the transaction being assessed.</param>
+        /// <param name="Status">Transaction status: NEW, APPROVED, DECLINED, REVERSED, FRAUD.</param>
+        /// <param name="StatusReason">Reason code for the transaction status.</param>
+        /// <param name="MessageType">Message type: AUTHORIZATION, INQUIRY, ADVICE, REVERSAL.</param>
+        /// <param name="Type">The type of transaction being processed.</param>
+        /// <param name="Attribute">Transaction attribute: AGGREGATION, CARDLESS_ATM, etc.</param>
+        /// <param name="Initiator">Who initiated transaction: MERCHANT, CUSTOMER.</param>
+        /// <param name="Channel">Channel used: ONLINE, MOBILE, ATM, BRANCH, etc.</param>
+        /// <param name="Timestamp">Local transaction timestamp without timezone.</param>
+        /// <param name="CutoffDateTime">Cutoff date/time for event or journey.</param>
+        /// <param name="IsRecurring">Indicates if this is a recurring transaction.</param>
+        /// <param name="PreOrder">Indicates if this is a pre-order.</param>
+        /// <param name="PreOrderDate">Expected availability date for pre-order.</param>
+        /// <param name="Reordered">Indicates if customer is reordering.</param>
+        /// <param name="DestinationCountry">Destination country for funds.</param>
+        /// <param name="DeclinePhase">Phase where transaction was declined.</param>
+        /// <param name="TrustedMerchant">Indicates if merchant is on trusted list.</param>
+        /// <param name="AdditionalFees">AdditionalFees.</param>
+        /// <param name="Amount">Amount.</param>
+        /// <param name="RecurringDetails">RecurringDetails.</param>
+        /// <param name="Direction">Direction of the transaction flow relative to the customer&#39;s account (e.g., CREDIT for incoming funds, DEBIT for outgoing funds). Determines risk model orientation and velocity tracking.</param>
+        /// <param name="IsChargeback">Indicates whether this transaction represents a chargeback or dispute reversal. True signals a disputed transaction requiring fraud investigation and issuer liability assessment.</param>
+        /// <param name="FraudLiability">Indicates which party bears fraud liability for this transaction (e.g., ISSUER, MERCHANT, ACQUIRER). Liability shifts apply in 3DS-authenticated or EMV chip transactions.</param>
+        /// <param name="OnUsFlag">Indicates whether the transaction is an on-us transaction where the issuing and acquiring institutions are the same entity. On-us transactions may follow different risk rules and processing paths.</param>
+        /// <param name="NumberOfTransactions">Total count of transactions associated with this batch, order, or session. Used for velocity-based risk rules and aggregated fraud monitoring.</param>
+        /// <param name="BatchDetails">BatchDetails.</param>
+        /// <param name="CheckDetails">CheckDetails.</param>
+        /// <param name="Purpose">Business purpose or reason code for this transaction (e.g., PURCH for purchase, SALA for salary, REFND for refund). Used for transaction classification and AML monitoring.</param>
+        public UnifiedriskTransaction(string TransactionId = default(string), string Status = default(string), string StatusReason = default(string), string MessageType = default(string), string Type = default(string), string Attribute = default(string), string Initiator = default(string), string Channel = default(string), DateTime? Timestamp = default(DateTime?), DateTime? CutoffDateTime = default(DateTime?), bool? IsRecurring = default(bool?), bool? PreOrder = default(bool?), DateTime? PreOrderDate = default(DateTime?), bool? Reordered = default(bool?), string DestinationCountry = default(string), string DeclinePhase = default(string), bool? TrustedMerchant = default(bool?), UnifiedriskTransactionAdditionalFees AdditionalFees = default(UnifiedriskTransactionAdditionalFees), UnifiedriskTransactionAmount Amount = default(UnifiedriskTransactionAmount), UnifiedriskTransactionRecurringDetails RecurringDetails = default(UnifiedriskTransactionRecurringDetails), string Direction = default(string), bool? IsChargeback = default(bool?), string FraudLiability = default(string), bool? OnUsFlag = default(bool?), int? NumberOfTransactions = default(int?), UnifiedriskTransactionBatchDetails BatchDetails = default(UnifiedriskTransactionBatchDetails), UnifiedriskTransactionCheckDetails CheckDetails = default(UnifiedriskTransactionCheckDetails), string Purpose = default(string))
         {
             this.TransactionId = TransactionId;
+            this.Status = Status;
+            this.StatusReason = StatusReason;
+            this.MessageType = MessageType;
+            this.Type = Type;
+            this.Attribute = Attribute;
+            this.Initiator = Initiator;
+            this.Channel = Channel;
+            this.Timestamp = Timestamp;
+            this.CutoffDateTime = CutoffDateTime;
+            this.IsRecurring = IsRecurring;
+            this.PreOrder = PreOrder;
+            this.PreOrderDate = PreOrderDate;
+            this.Reordered = Reordered;
+            this.DestinationCountry = DestinationCountry;
+            this.DeclinePhase = DeclinePhase;
+            this.TrustedMerchant = TrustedMerchant;
+            this.AdditionalFees = AdditionalFees;
+            this.Amount = Amount;
+            this.RecurringDetails = RecurringDetails;
+            this.Direction = Direction;
+            this.IsChargeback = IsChargeback;
+            this.FraudLiability = FraudLiability;
+            this.OnUsFlag = OnUsFlag;
+            this.NumberOfTransactions = NumberOfTransactions;
+            this.BatchDetails = BatchDetails;
+            this.CheckDetails = CheckDetails;
+            this.Purpose = Purpose;
         }
         
         /// <summary>
-        /// The transaction identifier correlating this label to the original risk assessment request
+        /// Unique identifier for the transaction being assessed
         /// </summary>
-        /// <value>The transaction identifier correlating this label to the original risk assessment request</value>
+        /// <value>Unique identifier for the transaction being assessed</value>
         [JsonPropertyName("transactionId")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string TransactionId { get; set; }
+
+        /// <summary>
+        /// Transaction status: NEW, APPROVED, DECLINED, REVERSED, FRAUD
+        /// </summary>
+        /// <value>Transaction status: NEW, APPROVED, DECLINED, REVERSED, FRAUD</value>
+        [JsonPropertyName("status")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// Reason code for the transaction status
+        /// </summary>
+        /// <value>Reason code for the transaction status</value>
+        [JsonPropertyName("statusReason")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string StatusReason { get; set; }
+
+        /// <summary>
+        /// Message type: AUTHORIZATION, INQUIRY, ADVICE, REVERSAL
+        /// </summary>
+        /// <value>Message type: AUTHORIZATION, INQUIRY, ADVICE, REVERSAL</value>
+        [JsonPropertyName("messageType")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string MessageType { get; set; }
+
+        /// <summary>
+        /// The type of transaction being processed
+        /// </summary>
+        /// <value>The type of transaction being processed</value>
+        [JsonPropertyName("type")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Transaction attribute: AGGREGATION, CARDLESS_ATM, etc
+        /// </summary>
+        /// <value>Transaction attribute: AGGREGATION, CARDLESS_ATM, etc</value>
+        [JsonPropertyName("attribute")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Attribute { get; set; }
+
+        /// <summary>
+        /// Who initiated transaction: MERCHANT, CUSTOMER
+        /// </summary>
+        /// <value>Who initiated transaction: MERCHANT, CUSTOMER</value>
+        [JsonPropertyName("initiator")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Initiator { get; set; }
+
+        /// <summary>
+        /// Channel used: ONLINE, MOBILE, ATM, BRANCH, etc
+        /// </summary>
+        /// <value>Channel used: ONLINE, MOBILE, ATM, BRANCH, etc</value>
+        [JsonPropertyName("channel")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Channel { get; set; }
+
+        /// <summary>
+        /// Local transaction timestamp without timezone
+        /// </summary>
+        /// <value>Local transaction timestamp without timezone</value>
+        [JsonPropertyName("timestamp")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public DateTime? Timestamp { get; set; }
+
+        /// <summary>
+        /// Cutoff date/time for event or journey
+        /// </summary>
+        /// <value>Cutoff date/time for event or journey</value>
+        [JsonPropertyName("cutoffDateTime")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public DateTime? CutoffDateTime { get; set; }
+
+        /// <summary>
+        /// Indicates if this is a recurring transaction
+        /// </summary>
+        /// <value>Indicates if this is a recurring transaction</value>
+        [JsonPropertyName("isRecurring")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? IsRecurring { get; set; }
+
+        /// <summary>
+        /// Indicates if this is a pre-order
+        /// </summary>
+        /// <value>Indicates if this is a pre-order</value>
+        [JsonPropertyName("preOrder")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? PreOrder { get; set; }
+
+        /// <summary>
+        /// Expected availability date for pre-order
+        /// </summary>
+        /// <value>Expected availability date for pre-order</value>
+        [JsonPropertyName("preOrderDate")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        [JsonConverter(typeof(SwaggerDateConverter))]
+        public DateTime? PreOrderDate { get; set; }
+
+        /// <summary>
+        /// Indicates if customer is reordering
+        /// </summary>
+        /// <value>Indicates if customer is reordering</value>
+        [JsonPropertyName("reordered")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? Reordered { get; set; }
+
+        /// <summary>
+        /// Destination country for funds
+        /// </summary>
+        /// <value>Destination country for funds</value>
+        [JsonPropertyName("destinationCountry")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string DestinationCountry { get; set; }
+
+        /// <summary>
+        /// Phase where transaction was declined
+        /// </summary>
+        /// <value>Phase where transaction was declined</value>
+        [JsonPropertyName("declinePhase")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string DeclinePhase { get; set; }
+
+        /// <summary>
+        /// Indicates if merchant is on trusted list
+        /// </summary>
+        /// <value>Indicates if merchant is on trusted list</value>
+        [JsonPropertyName("trustedMerchant")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? TrustedMerchant { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AdditionalFees
+        /// </summary>
+        [JsonPropertyName("additionalFees")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public UnifiedriskTransactionAdditionalFees AdditionalFees { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Amount
+        /// </summary>
+        [JsonPropertyName("amount")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public UnifiedriskTransactionAmount Amount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecurringDetails
+        /// </summary>
+        [JsonPropertyName("recurringDetails")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public UnifiedriskTransactionRecurringDetails RecurringDetails { get; set; }
+
+        /// <summary>
+        /// Direction of the transaction flow relative to the customer&#39;s account (e.g., CREDIT for incoming funds, DEBIT for outgoing funds). Determines risk model orientation and velocity tracking
+        /// </summary>
+        /// <value>Direction of the transaction flow relative to the customer&#39;s account (e.g., CREDIT for incoming funds, DEBIT for outgoing funds). Determines risk model orientation and velocity tracking</value>
+        [JsonPropertyName("direction")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Direction { get; set; }
+
+        /// <summary>
+        /// Indicates whether this transaction represents a chargeback or dispute reversal. True signals a disputed transaction requiring fraud investigation and issuer liability assessment
+        /// </summary>
+        /// <value>Indicates whether this transaction represents a chargeback or dispute reversal. True signals a disputed transaction requiring fraud investigation and issuer liability assessment</value>
+        [JsonPropertyName("isChargeback")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? IsChargeback { get; set; }
+
+        /// <summary>
+        /// Indicates which party bears fraud liability for this transaction (e.g., ISSUER, MERCHANT, ACQUIRER). Liability shifts apply in 3DS-authenticated or EMV chip transactions
+        /// </summary>
+        /// <value>Indicates which party bears fraud liability for this transaction (e.g., ISSUER, MERCHANT, ACQUIRER). Liability shifts apply in 3DS-authenticated or EMV chip transactions</value>
+        [JsonPropertyName("fraudLiability")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string FraudLiability { get; set; }
+
+        /// <summary>
+        /// Indicates whether the transaction is an on-us transaction where the issuing and acquiring institutions are the same entity. On-us transactions may follow different risk rules and processing paths
+        /// </summary>
+        /// <value>Indicates whether the transaction is an on-us transaction where the issuing and acquiring institutions are the same entity. On-us transactions may follow different risk rules and processing paths</value>
+        [JsonPropertyName("onUsFlag")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? OnUsFlag { get; set; }
+
+        /// <summary>
+        /// Total count of transactions associated with this batch, order, or session. Used for velocity-based risk rules and aggregated fraud monitoring
+        /// </summary>
+        /// <value>Total count of transactions associated with this batch, order, or session. Used for velocity-based risk rules and aggregated fraud monitoring</value>
+        [JsonPropertyName("numberOfTransactions")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public int? NumberOfTransactions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BatchDetails
+        /// </summary>
+        [JsonPropertyName("batchDetails")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public UnifiedriskTransactionBatchDetails BatchDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CheckDetails
+        /// </summary>
+        [JsonPropertyName("checkDetails")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public UnifiedriskTransactionCheckDetails CheckDetails { get; set; }
+
+        /// <summary>
+        /// Business purpose or reason code for this transaction (e.g., PURCH for purchase, SALA for salary, REFND for refund). Used for transaction classification and AML monitoring
+        /// </summary>
+        /// <value>Business purpose or reason code for this transaction (e.g., PURCH for purchase, SALA for salary, REFND for refund). Used for transaction classification and AML monitoring</value>
+        [JsonPropertyName("purpose")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Purpose { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,6 +323,33 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class UnifiedriskTransaction {\n");
             if (TransactionId != null) sb.Append("  TransactionId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "transactionId", TransactionId.ToString())).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "status", Status.ToString())).Append("\n");
+            if (StatusReason != null) sb.Append("  StatusReason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "statusReason", StatusReason.ToString())).Append("\n");
+            if (MessageType != null) sb.Append("  MessageType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "messageType", MessageType.ToString())).Append("\n");
+            if (Type != null) sb.Append("  Type: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "type", Type.ToString())).Append("\n");
+            if (Attribute != null) sb.Append("  Attribute: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "attribute", Attribute.ToString())).Append("\n");
+            if (Initiator != null) sb.Append("  Initiator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "initiator", Initiator.ToString())).Append("\n");
+            if (Channel != null) sb.Append("  Channel: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "channel", Channel.ToString())).Append("\n");
+            if (Timestamp != null) sb.Append("  Timestamp: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "timestamp", Timestamp.ToString())).Append("\n");
+            if (CutoffDateTime != null) sb.Append("  CutoffDateTime: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "cutoffDateTime", CutoffDateTime.ToString())).Append("\n");
+            if (IsRecurring != null) sb.Append("  IsRecurring: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "isRecurring", IsRecurring.ToString())).Append("\n");
+            if (PreOrder != null) sb.Append("  PreOrder: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "preOrder", PreOrder.ToString())).Append("\n");
+            if (PreOrderDate != null) sb.Append("  PreOrderDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "preOrderDate", PreOrderDate.ToString())).Append("\n");
+            if (Reordered != null) sb.Append("  Reordered: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "reordered", Reordered.ToString())).Append("\n");
+            if (DestinationCountry != null) sb.Append("  DestinationCountry: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "destinationCountry", DestinationCountry.ToString())).Append("\n");
+            if (DeclinePhase != null) sb.Append("  DeclinePhase: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "declinePhase", DeclinePhase.ToString())).Append("\n");
+            if (TrustedMerchant != null) sb.Append("  TrustedMerchant: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "trustedMerchant", TrustedMerchant.ToString())).Append("\n");
+            if (AdditionalFees != null) sb.Append("  AdditionalFees: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "additionalFees", AdditionalFees.ToString())).Append("\n");
+            if (Amount != null) sb.Append("  Amount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "amount", Amount.ToString())).Append("\n");
+            if (RecurringDetails != null) sb.Append("  RecurringDetails: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "recurringDetails", RecurringDetails.ToString())).Append("\n");
+            if (Direction != null) sb.Append("  Direction: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "direction", Direction.ToString())).Append("\n");
+            if (IsChargeback != null) sb.Append("  IsChargeback: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "isChargeback", IsChargeback.ToString())).Append("\n");
+            if (FraudLiability != null) sb.Append("  FraudLiability: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "fraudLiability", FraudLiability.ToString())).Append("\n");
+            if (OnUsFlag != null) sb.Append("  OnUsFlag: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "onUsFlag", OnUsFlag.ToString())).Append("\n");
+            if (NumberOfTransactions != null) sb.Append("  NumberOfTransactions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "numberOfTransactions", NumberOfTransactions.ToString())).Append("\n");
+            if (BatchDetails != null) sb.Append("  BatchDetails: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "batchDetails", BatchDetails.ToString())).Append("\n");
+            if (CheckDetails != null) sb.Append("  CheckDetails: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "checkDetails", CheckDetails.ToString())).Append("\n");
+            if (Purpose != null) sb.Append("  Purpose: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("UnifiedriskTransaction", "purpose", Purpose.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -107,6 +395,141 @@ namespace CyberSource.Model
                     this.TransactionId == other.TransactionId ||
                     this.TransactionId != null &&
                     this.TransactionId.Equals(other.TransactionId)
+                ) && 
+                (
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.StatusReason == other.StatusReason ||
+                    this.StatusReason != null &&
+                    this.StatusReason.Equals(other.StatusReason)
+                ) && 
+                (
+                    this.MessageType == other.MessageType ||
+                    this.MessageType != null &&
+                    this.MessageType.Equals(other.MessageType)
+                ) && 
+                (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Attribute == other.Attribute ||
+                    this.Attribute != null &&
+                    this.Attribute.Equals(other.Attribute)
+                ) && 
+                (
+                    this.Initiator == other.Initiator ||
+                    this.Initiator != null &&
+                    this.Initiator.Equals(other.Initiator)
+                ) && 
+                (
+                    this.Channel == other.Channel ||
+                    this.Channel != null &&
+                    this.Channel.Equals(other.Channel)
+                ) && 
+                (
+                    this.Timestamp == other.Timestamp ||
+                    this.Timestamp != null &&
+                    this.Timestamp.Equals(other.Timestamp)
+                ) && 
+                (
+                    this.CutoffDateTime == other.CutoffDateTime ||
+                    this.CutoffDateTime != null &&
+                    this.CutoffDateTime.Equals(other.CutoffDateTime)
+                ) && 
+                (
+                    this.IsRecurring == other.IsRecurring ||
+                    this.IsRecurring != null &&
+                    this.IsRecurring.Equals(other.IsRecurring)
+                ) && 
+                (
+                    this.PreOrder == other.PreOrder ||
+                    this.PreOrder != null &&
+                    this.PreOrder.Equals(other.PreOrder)
+                ) && 
+                (
+                    this.PreOrderDate == other.PreOrderDate ||
+                    this.PreOrderDate != null &&
+                    this.PreOrderDate.Equals(other.PreOrderDate)
+                ) && 
+                (
+                    this.Reordered == other.Reordered ||
+                    this.Reordered != null &&
+                    this.Reordered.Equals(other.Reordered)
+                ) && 
+                (
+                    this.DestinationCountry == other.DestinationCountry ||
+                    this.DestinationCountry != null &&
+                    this.DestinationCountry.Equals(other.DestinationCountry)
+                ) && 
+                (
+                    this.DeclinePhase == other.DeclinePhase ||
+                    this.DeclinePhase != null &&
+                    this.DeclinePhase.Equals(other.DeclinePhase)
+                ) && 
+                (
+                    this.TrustedMerchant == other.TrustedMerchant ||
+                    this.TrustedMerchant != null &&
+                    this.TrustedMerchant.Equals(other.TrustedMerchant)
+                ) && 
+                (
+                    this.AdditionalFees == other.AdditionalFees ||
+                    this.AdditionalFees != null &&
+                    this.AdditionalFees.Equals(other.AdditionalFees)
+                ) && 
+                (
+                    this.Amount == other.Amount ||
+                    this.Amount != null &&
+                    this.Amount.Equals(other.Amount)
+                ) && 
+                (
+                    this.RecurringDetails == other.RecurringDetails ||
+                    this.RecurringDetails != null &&
+                    this.RecurringDetails.Equals(other.RecurringDetails)
+                ) && 
+                (
+                    this.Direction == other.Direction ||
+                    this.Direction != null &&
+                    this.Direction.Equals(other.Direction)
+                ) && 
+                (
+                    this.IsChargeback == other.IsChargeback ||
+                    this.IsChargeback != null &&
+                    this.IsChargeback.Equals(other.IsChargeback)
+                ) && 
+                (
+                    this.FraudLiability == other.FraudLiability ||
+                    this.FraudLiability != null &&
+                    this.FraudLiability.Equals(other.FraudLiability)
+                ) && 
+                (
+                    this.OnUsFlag == other.OnUsFlag ||
+                    this.OnUsFlag != null &&
+                    this.OnUsFlag.Equals(other.OnUsFlag)
+                ) && 
+                (
+                    this.NumberOfTransactions == other.NumberOfTransactions ||
+                    this.NumberOfTransactions != null &&
+                    this.NumberOfTransactions.Equals(other.NumberOfTransactions)
+                ) && 
+                (
+                    this.BatchDetails == other.BatchDetails ||
+                    this.BatchDetails != null &&
+                    this.BatchDetails.Equals(other.BatchDetails)
+                ) && 
+                (
+                    this.CheckDetails == other.CheckDetails ||
+                    this.CheckDetails != null &&
+                    this.CheckDetails.Equals(other.CheckDetails)
+                ) && 
+                (
+                    this.Purpose == other.Purpose ||
+                    this.Purpose != null &&
+                    this.Purpose.Equals(other.Purpose)
                 );
         }
 
@@ -125,6 +548,60 @@ namespace CyberSource.Model
                 // consistent with Equals.
                 if (this.TransactionId != null)
                     hash = hash * 59 + this.TransactionId.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.StatusReason != null)
+                    hash = hash * 59 + this.StatusReason.GetHashCode();
+                if (this.MessageType != null)
+                    hash = hash * 59 + this.MessageType.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Attribute != null)
+                    hash = hash * 59 + this.Attribute.GetHashCode();
+                if (this.Initiator != null)
+                    hash = hash * 59 + this.Initiator.GetHashCode();
+                if (this.Channel != null)
+                    hash = hash * 59 + this.Channel.GetHashCode();
+                if (this.Timestamp != null)
+                    hash = hash * 59 + this.Timestamp.GetHashCode();
+                if (this.CutoffDateTime != null)
+                    hash = hash * 59 + this.CutoffDateTime.GetHashCode();
+                if (this.IsRecurring != null)
+                    hash = hash * 59 + this.IsRecurring.GetHashCode();
+                if (this.PreOrder != null)
+                    hash = hash * 59 + this.PreOrder.GetHashCode();
+                if (this.PreOrderDate != null)
+                    hash = hash * 59 + this.PreOrderDate.GetHashCode();
+                if (this.Reordered != null)
+                    hash = hash * 59 + this.Reordered.GetHashCode();
+                if (this.DestinationCountry != null)
+                    hash = hash * 59 + this.DestinationCountry.GetHashCode();
+                if (this.DeclinePhase != null)
+                    hash = hash * 59 + this.DeclinePhase.GetHashCode();
+                if (this.TrustedMerchant != null)
+                    hash = hash * 59 + this.TrustedMerchant.GetHashCode();
+                if (this.AdditionalFees != null)
+                    hash = hash * 59 + this.AdditionalFees.GetHashCode();
+                if (this.Amount != null)
+                    hash = hash * 59 + this.Amount.GetHashCode();
+                if (this.RecurringDetails != null)
+                    hash = hash * 59 + this.RecurringDetails.GetHashCode();
+                if (this.Direction != null)
+                    hash = hash * 59 + this.Direction.GetHashCode();
+                if (this.IsChargeback != null)
+                    hash = hash * 59 + this.IsChargeback.GetHashCode();
+                if (this.FraudLiability != null)
+                    hash = hash * 59 + this.FraudLiability.GetHashCode();
+                if (this.OnUsFlag != null)
+                    hash = hash * 59 + this.OnUsFlag.GetHashCode();
+                if (this.NumberOfTransactions != null)
+                    hash = hash * 59 + this.NumberOfTransactions.GetHashCode();
+                if (this.BatchDetails != null)
+                    hash = hash * 59 + this.BatchDetails.GetHashCode();
+                if (this.CheckDetails != null)
+                    hash = hash * 59 + this.CheckDetails.GetHashCode();
+                if (this.Purpose != null)
+                    hash = hash * 59 + this.Purpose.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

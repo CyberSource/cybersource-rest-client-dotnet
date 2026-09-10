@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Item detail within an ACP line item response.
+    /// Product details for this line item.
     /// </summary>
     [DataContract]
     public partial class InlineResponse20113Item :  ModelExtensions, IEquatable<InlineResponse20113Item>, IValidatableObject
@@ -34,39 +34,39 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20113Item" /> class.
         /// </summary>
-        /// <param name="Id">Product identifier..</param>
-        /// <param name="Name">Product display name..</param>
-        /// <param name="Quantity">Number of units..</param>
-        public InlineResponse20113Item(string Id = default(string), string Name = default(string), int? Quantity = default(int?))
+        /// <param name="Id">The merchant&#39;s product ID or SKU..</param>
+        /// <param name="Title">Human-readable product name..</param>
+        /// <param name="Price">Unit price in cents. Example: 2999 &#x3D; $29.99 USD..</param>
+        public InlineResponse20113Item(string Id = default(string), string Title = default(string), int? Price = default(int?))
         {
             this.Id = Id;
-            this.Name = Name;
-            this.Quantity = Quantity;
+            this.Title = Title;
+            this.Price = Price;
         }
         
         /// <summary>
-        /// Product identifier.
+        /// The merchant&#39;s product ID or SKU.
         /// </summary>
-        /// <value>Product identifier.</value>
+        /// <value>The merchant&#39;s product ID or SKU.</value>
         [JsonPropertyName("id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Product display name.
+        /// Human-readable product name.
         /// </summary>
-        /// <value>Product display name.</value>
-        [JsonPropertyName("name")]
+        /// <value>Human-readable product name.</value>
+        [JsonPropertyName("title")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
-        /// Number of units.
+        /// Unit price in cents. Example: 2999 &#x3D; $29.99 USD.
         /// </summary>
-        /// <value>Number of units.</value>
-        [JsonPropertyName("quantity")]
+        /// <value>Unit price in cents. Example: 2999 &#x3D; $29.99 USD.</value>
+        [JsonPropertyName("price")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Quantity { get; set; }
+        public int? Price { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,8 +77,8 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20113Item {\n");
             if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113Item", "id", Id.ToString())).Append("\n");
-            if (Name != null) sb.Append("  Name: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113Item", "name", Name.ToString())).Append("\n");
-            if (Quantity != null) sb.Append("  Quantity: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113Item", "quantity", Quantity.ToString())).Append("\n");
+            if (Title != null) sb.Append("  Title: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113Item", "title", Title.ToString())).Append("\n");
+            if (Price != null) sb.Append("  Price: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113Item", "price", Price.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -126,14 +126,14 @@ namespace CyberSource.Model
                     this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Title == other.Title ||
+                    this.Title != null &&
+                    this.Title.Equals(other.Title)
                 ) && 
                 (
-                    this.Quantity == other.Quantity ||
-                    this.Quantity != null &&
-                    this.Quantity.Equals(other.Quantity)
+                    this.Price == other.Price ||
+                    this.Price != null &&
+                    this.Price.Equals(other.Price)
                 );
         }
 
@@ -152,10 +152,10 @@ namespace CyberSource.Model
                 // consistent with Equals.
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
-                if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
-                if (this.Quantity != null)
-                    hash = hash * 59 + this.Quantity.GetHashCode();
+                if (this.Title != null)
+                    hash = hash * 59 + this.Title.GetHashCode();
+                if (this.Price != null)
+                    hash = hash * 59 + this.Price.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

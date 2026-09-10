@@ -1,11 +1,44 @@
-﻿using RestSharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
 namespace CyberSource.Utilities
 {
+    /// <summary>
+    /// Lightweight replacement for RestSharp's FileParameter, used by MultipartHelpers
+    /// and the generated Api classes to describe a file to be sent in a multipart body.
+    /// </summary>
+    public class FileParameter
+    {
+        public string Name { get; set; }
+        public string FileName { get; set; }
+        public string ContentType { get; set; }
+
+        private readonly Func<Stream> _getFile;
+
+        public FileParameter(string name, string fileName, Stream stream, string contentType = null)
+        {
+            Name = name;
+            FileName = fileName;
+            ContentType = contentType;
+            _getFile = () => stream;
+        }
+
+        public FileParameter(string name, string fileName, Func<Stream> getFile, string contentType = null)
+        {
+            Name = name;
+            FileName = fileName;
+            ContentType = contentType;
+            _getFile = getFile;
+        }
+
+        public Stream GetFile()
+        {
+            return _getFile?.Invoke();
+        }
+    }
+
     public static class MultipartHelpers
     {
         public static string[] BuildPostBodyForFiles(Dictionary<string, FileParameter> localVarFileParams)

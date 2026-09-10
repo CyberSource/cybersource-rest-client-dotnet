@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="createfxrates"></a>
 # **CreateFxRates**
-> InlineResponse2014 CreateFxRates (Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
+> InlineResponse2013 CreateFxRates (Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
 
 Retrieve Foreign Exchange Rates
 
@@ -41,7 +41,7 @@ namespace Example
             try
             {
                 // Retrieve Foreign Exchange Rates
-                InlineResponse2014 result = apiInstance.CreateFxRates(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
+                InlineResponse2013 result = apiInstance.CreateFxRates(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
 

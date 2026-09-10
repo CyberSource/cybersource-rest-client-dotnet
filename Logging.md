@@ -68,6 +68,44 @@ public class PaymentService
 }
 ```
 
+### Full dependency injection with `EnsureLoggerFactory()`
+
+When you build `Configuration` from resolved container services, register the SDK's logging dependency with `EnsureLoggerFactory()` so the container-based constructor can receive an `ILoggerFactory` through constructor injection — you no longer have to pass it in by hand:
+
+```csharp
+using CyberSource.Client;
+using CyberSource.Utilities.Serialization;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+
+var services = new ServiceCollection();
+
+// Register your logging providers as usual (Console shown here; use any provider).
+services.AddLogging(builder => builder.SetMinimumLevel(LogLevel.Debug).AddConsole());
+
+// Register the SDK serialization + logging dependencies.
+services.AddSerialization();
+services.EnsureLoggerFactory();
+
+using var provider = services.BuildServiceProvider();
+
+var configuration = new Configuration(
+    merchantCredentialSettings: credentialSettings,
+    merchantMLESettings: mleSettings,
+    merchantNetworkSettings: networkSettings,
+    merchantLegacySettings: legacySettings,
+    serializerOptionsMonitor: provider.GetRequiredService<IOptionsMonitor<SdkSerializerOptions>>(),
+    deserializerOptionsMonitor: provider.GetRequiredService<IOptionsMonitor<SdkDeserializerOptions>>(),
+    loggerFactory: provider.GetRequiredService<ILoggerFactory>(),
+    httpClientFactory: null); // see HttpClientDependencyInjection.md to also inject transport
+```
+
+* `EnsureLoggerFactory()` **preserves** any `ILoggerFactory` you already registered (for example via `AddLogging(...)`). Only when none exists does it register a `NullLoggerFactory.Instance` fallback, so the container-based constructor always resolves a non-null factory.
+* `EnsureLoggerFactory()` is **idempotent** — repeated calls do not stack duplicate registrations.
+* Passing a `null` `loggerFactory` to the constructor falls back to `NullLoggerFactory.Instance`, keeping logging a no-op.
+* The resolved factory is applied to `MerchantLegacySettings` and used to create the `MerchantNetworkSettings` logger, so the entire SDK surface shares the container-configured pipeline.
+
 ## Using NLog as the Provider
 
 NLog is still fully supported — it is now wired in as a standard `Microsoft.Extensions.Logging` provider rather than being configured inside the SDK. Add the `NLog.Extensions.Logging` package, keep your `NLog.config` in your application, and register NLog with the logger factory:

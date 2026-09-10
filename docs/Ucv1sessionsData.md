@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AggregatorInformation** | [**Ucv1sessionsDataAggregatorInformation**](Ucv1sessionsDataAggregatorInformation.md) |  | [optional] 
+**AcquirerInformation** | [**Ucv1sessionsDataAcquirerInformation**](Ucv1sessionsDataAcquirerInformation.md) |  | [optional] 
 **OrderInformation** | [**Ucv1sessionsDataOrderInformation**](Ucv1sessionsDataOrderInformation.md) |  | [optional] 
 **BuyerInformation** | [**Ucv1sessionsDataBuyerInformation**](Ucv1sessionsDataBuyerInformation.md) |  | [optional] 
 **ClientReferenceInformation** | [**Ucv1sessionsDataClientReferenceInformation**](Ucv1sessionsDataClientReferenceInformation.md) |  | [optional] 

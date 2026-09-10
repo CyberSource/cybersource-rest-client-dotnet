@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using NUnit.Framework;
 
 using CyberSource.Client;
@@ -83,7 +82,7 @@ namespace CyberSource.Test
             //int? limit = null;
             //int? offset = null;
             //var response = instance.CreateQueryApi(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
-            //Assert.IsInstanceOf<InlineResponse2015> (response, "response is InlineResponse2015");
+            //Assert.IsInstanceOf<InlineResponse2014> (response, "response is InlineResponse2014");
         }
         
     }

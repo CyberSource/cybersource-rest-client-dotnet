@@ -34,22 +34,27 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2014" /> class.
         /// </summary>
+        [JsonConstructor]
+        protected InlineResponse2014() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse2014" /> class.
+        /// </summary>
         /// <param name="Id">A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. .</param>
-        /// <param name="Status">The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; .</param>
+        /// <param name="Status">The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;SERVER_ERROR&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;DECLINED&#x60;  (required).</param>
         /// <param name="SubmitTimeStampUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="OrderInformation">OrderInformation.</param>
+        /// <param name="Links">Links.</param>
+        /// <param name="Transactions">Transactions.</param>
+        /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
         /// <param name="ErrorInformation">ErrorInformation.</param>
-        /// <param name="ProcessorInformation">ProcessorInformation.</param>
-        /// <param name="ProcessingInformation">ProcessingInformation.</param>
-        public InlineResponse2014(string Id = default(string), string Status = default(string), string SubmitTimeStampUtc = default(string), InlineResponse2014OrderInformation OrderInformation = default(InlineResponse2014OrderInformation), InlineResponse2014ErrorInformation ErrorInformation = default(InlineResponse2014ErrorInformation), InlineResponse2014ProcessorInformation ProcessorInformation = default(InlineResponse2014ProcessorInformation), InlineResponse2014ProcessingInformation ProcessingInformation = default(InlineResponse2014ProcessingInformation))
+        public InlineResponse2014(string Id = default(string), string Status = default(string), string SubmitTimeStampUtc = default(string), InlineResponse2014Links Links = default(InlineResponse2014Links), List<InlineResponse2014Transactions> Transactions = default(List<InlineResponse2014Transactions>), InlineResponse2014ClientReferenceInformation ClientReferenceInformation = default(InlineResponse2014ClientReferenceInformation), InlineResponse2014ErrorInformation ErrorInformation = default(InlineResponse2014ErrorInformation))
         {
             this.Id = Id;
             this.Status = Status;
             this.SubmitTimeStampUtc = SubmitTimeStampUtc;
-            this.OrderInformation = OrderInformation;
+            this.Links = Links;
+            this.Transactions = Transactions;
+            this.ClientReferenceInformation = ClientReferenceInformation;
             this.ErrorInformation = ErrorInformation;
-            this.ProcessorInformation = ProcessorInformation;
-            this.ProcessingInformation = ProcessingInformation;
         }
         
         /// <summary>
@@ -61,9 +66,9 @@ namespace CyberSource.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; 
+        /// The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;SERVER_ERROR&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;DECLINED&#x60; 
         /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;SERVER_ERROR&#x60; </value>
+        /// <value>The status of the submitted transaction.  Possible values: - &#x60;COMPLETED&#x60; - &#x60;SERVER_ERROR&#x60; - &#x60;INVALID_REQUEST&#x60; - &#x60;DECLINED&#x60; </value>
         [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Status { get; set; }
@@ -77,11 +82,25 @@ namespace CyberSource.Model
         public string SubmitTimeStampUtc { get; set; }
 
         /// <summary>
-        /// Gets or Sets OrderInformation
+        /// Gets or Sets Links
         /// </summary>
-        [JsonPropertyName("orderInformation")]
+        [JsonPropertyName("_links")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2014OrderInformation OrderInformation { get; set; }
+        public InlineResponse2014Links Links { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Transactions
+        /// </summary>
+        [JsonPropertyName("transactions")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<InlineResponse2014Transactions> Transactions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ClientReferenceInformation
+        /// </summary>
+        [JsonPropertyName("clientReferenceInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse2014ClientReferenceInformation ClientReferenceInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorInformation
@@ -89,20 +108,6 @@ namespace CyberSource.Model
         [JsonPropertyName("errorInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public InlineResponse2014ErrorInformation ErrorInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProcessorInformation
-        /// </summary>
-        [JsonPropertyName("processorInformation")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2014ProcessorInformation ProcessorInformation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProcessingInformation
-        /// </summary>
-        [JsonPropertyName("processingInformation")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2014ProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -115,10 +120,10 @@ namespace CyberSource.Model
             if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "id", Id.ToString())).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "status", Status.ToString())).Append("\n");
             if (SubmitTimeStampUtc != null) sb.Append("  SubmitTimeStampUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "submitTimeStampUtc", SubmitTimeStampUtc.ToString())).Append("\n");
-            if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "orderInformation", OrderInformation.ToString())).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "_links", Links.ToString())).Append("\n");
+            if (Transactions != null) sb.Append("  Transactions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "transactions", Transactions.ToString())).Append("\n");
+            if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "clientReferenceInformation", ClientReferenceInformation.ToString())).Append("\n");
             if (ErrorInformation != null) sb.Append("  ErrorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "errorInformation", ErrorInformation.ToString())).Append("\n");
-            if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "processorInformation", ProcessorInformation.ToString())).Append("\n");
-            if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014", "processingInformation", ProcessingInformation.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -176,24 +181,24 @@ namespace CyberSource.Model
                     this.SubmitTimeStampUtc.Equals(other.SubmitTimeStampUtc)
                 ) && 
                 (
-                    this.OrderInformation == other.OrderInformation ||
-                    this.OrderInformation != null &&
-                    this.OrderInformation.Equals(other.OrderInformation)
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.Equals(other.Links)
+                ) && 
+                (
+                    this.Transactions == other.Transactions ||
+                    this.Transactions != null &&
+                    this.Transactions.SequenceEqual(other.Transactions)
+                ) && 
+                (
+                    this.ClientReferenceInformation == other.ClientReferenceInformation ||
+                    this.ClientReferenceInformation != null &&
+                    this.ClientReferenceInformation.Equals(other.ClientReferenceInformation)
                 ) && 
                 (
                     this.ErrorInformation == other.ErrorInformation ||
                     this.ErrorInformation != null &&
                     this.ErrorInformation.Equals(other.ErrorInformation)
-                ) && 
-                (
-                    this.ProcessorInformation == other.ProcessorInformation ||
-                    this.ProcessorInformation != null &&
-                    this.ProcessorInformation.Equals(other.ProcessorInformation)
-                ) && 
-                (
-                    this.ProcessingInformation == other.ProcessingInformation ||
-                    this.ProcessingInformation != null &&
-                    this.ProcessingInformation.Equals(other.ProcessingInformation)
                 );
         }
 
@@ -216,14 +221,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.SubmitTimeStampUtc != null)
                     hash = hash * 59 + this.SubmitTimeStampUtc.GetHashCode();
-                if (this.OrderInformation != null)
-                    hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
+                if (this.Transactions != null)
+                    hash = hash * 59 + this.Transactions.GetHashCode();
+                if (this.ClientReferenceInformation != null)
+                    hash = hash * 59 + this.ClientReferenceInformation.GetHashCode();
                 if (this.ErrorInformation != null)
                     hash = hash * 59 + this.ErrorInformation.GetHashCode();
-                if (this.ProcessorInformation != null)
-                    hash = hash * 59 + this.ProcessorInformation.GetHashCode();
-                if (this.ProcessingInformation != null)
-                    hash = hash * 59 + this.ProcessingInformation.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

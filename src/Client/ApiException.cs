@@ -9,7 +9,7 @@
  */
 
 using System;
-using RestSharp;
+using System.Net.Http;
 
 namespace CyberSource.Client
 {
@@ -34,8 +34,8 @@ namespace CyberSource.Client
         /// Gets the underlying HTTP response object that caused this exception.
         /// This provides access to response headers, raw content, status details, and other diagnostic information.
         /// </summary>
-        /// <value>The RestSharp response object, or null if not available.</value>
-        public RestResponse Response { get; private set; }
+        /// <value>The <see cref="HttpResponseMessage"/> that produced this exception, or null if not available.</value>
+        public HttpResponseMessage Response { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiException"/> class.
@@ -73,7 +73,7 @@ namespace CyberSource.Client
         /// <param name="errorContent">Error content.</param>
         /// <param name="response">The underlying HTTP response object.</param>
         /// <param name="innerException">The exception that is the cause of the current exception.</param>
-        public ApiException(int errorCode, string message, dynamic errorContent, RestResponse response, Exception innerException = null) : base(message, innerException)
+        public ApiException(int errorCode, string message, dynamic errorContent, HttpResponseMessage response, Exception innerException = null) : base(message, innerException)
         {
             this.ErrorCode = errorCode;
             this.ErrorContent = errorContent;

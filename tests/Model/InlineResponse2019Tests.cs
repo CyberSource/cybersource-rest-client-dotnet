@@ -65,12 +65,20 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'WebhookId'
+        /// Test the property 'EventDate'
         /// </summary>
         [Test]
-        public void WebhookIdTest()
+        public void EventDateTest()
         {
-            // TODO unit test for the property 'WebhookId'
+            // TODO unit test for the property 'EventDate'
+        }
+        /// <summary>
+        /// Test the property 'EventType'
+        /// </summary>
+        [Test]
+        public void EventTypeTest()
+        {
+            // TODO unit test for the property 'EventType'
         }
         /// <summary>
         /// Test the property 'OrganizationId'
@@ -81,84 +89,52 @@ namespace CyberSource.Test
             // TODO unit test for the property 'OrganizationId'
         }
         /// <summary>
-        /// Test the property 'Products'
+        /// Test the property 'Payloads'
         /// </summary>
         [Test]
-        public void ProductsTest()
+        public void PayloadsTest()
         {
-            // TODO unit test for the property 'Products'
+            // TODO unit test for the property 'Payloads'
         }
         /// <summary>
-        /// Test the property 'WebhookUrl'
+        /// Test the property 'ProductId'
         /// </summary>
         [Test]
-        public void WebhookUrlTest()
+        public void ProductIdTest()
         {
-            // TODO unit test for the property 'WebhookUrl'
+            // TODO unit test for the property 'ProductId'
         }
         /// <summary>
-        /// Test the property 'HealthCheckUrl'
+        /// Test the property 'RequestType'
         /// </summary>
         [Test]
-        public void HealthCheckUrlTest()
+        public void RequestTypeTest()
         {
-            // TODO unit test for the property 'HealthCheckUrl'
+            // TODO unit test for the property 'RequestType'
         }
         /// <summary>
-        /// Test the property 'Status'
+        /// Test the property 'RetryNumber'
         /// </summary>
         [Test]
-        public void StatusTest()
+        public void RetryNumberTest()
         {
-            // TODO unit test for the property 'Status'
+            // TODO unit test for the property 'RetryNumber'
         }
         /// <summary>
-        /// Test the property 'Name'
+        /// Test the property 'TransactionTraceId'
         /// </summary>
         [Test]
-        public void NameTest()
+        public void TransactionTraceIdTest()
         {
-            // TODO unit test for the property 'Name'
+            // TODO unit test for the property 'TransactionTraceId'
         }
         /// <summary>
-        /// Test the property 'Description'
+        /// Test the property 'WebhookId'
         /// </summary>
         [Test]
-        public void DescriptionTest()
+        public void WebhookIdTest()
         {
-            // TODO unit test for the property 'Description'
-        }
-        /// <summary>
-        /// Test the property 'RetryPolicy'
-        /// </summary>
-        [Test]
-        public void RetryPolicyTest()
-        {
-            // TODO unit test for the property 'RetryPolicy'
-        }
-        /// <summary>
-        /// Test the property 'SecurityPolicy'
-        /// </summary>
-        [Test]
-        public void SecurityPolicyTest()
-        {
-            // TODO unit test for the property 'SecurityPolicy'
-        }
-        /// <summary>
-        /// Test the property 'CreatedOn'
-        /// </summary>
-        [Test]
-        public void CreatedOnTest()
-        {
-            // TODO unit test for the property 'CreatedOn'
-        }
-        /// <summary>
-        /// Test the property 'NotificationScope'
-        /// </summary>
-        [Test]
-        public void NotificationScopeTest()
-        {
-            // TODO unit test for the property 'NotificationScope'
+            // TODO unit test for the property 'WebhookId'
         }
 
     }

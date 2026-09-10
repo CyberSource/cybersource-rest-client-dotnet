@@ -128,7 +128,7 @@ namespace CyberSource.Client
         void SetDeserializationOptions(JsonSerializerOptions value);
 
         /// <summary>
-        /// Sets the caller-supplied <see cref="System.Net.Http.HttpClient"/> that RestSharp should use for outgoing requests.
+        /// Sets the caller-supplied <see cref="System.Net.Http.HttpClient"/> used for outgoing requests.
         /// Passing <c>null</c> restores the SDK-managed HttpClient behavior (either via <see cref="IMerchantNetworkSettings.HttpClientFactory"/>
         /// or the internally cached <see cref="StandardSocketsHttpHandler"/>-backed client).
         /// The SDK never disposes the supplied client; its lifetime is entirely owned by the caller.

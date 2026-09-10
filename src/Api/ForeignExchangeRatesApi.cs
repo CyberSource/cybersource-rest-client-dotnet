@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using RestSharp;
+using System.Net.Http;
 using CyberSource.Client;
 using CyberSource.Model;
 using AuthenticationSdk.util;
@@ -44,8 +44,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>InlineResponse2014</returns>
-        InlineResponse2014 CreateFxRates(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
+        /// <returns>InlineResponse2013</returns>
+        InlineResponse2013 CreateFxRates(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
 
         /// <summary>
         /// Retrieve Foreign Exchange Rates
@@ -61,8 +61,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        ApiResponse<InlineResponse2014> CreateFxRatesWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        ApiResponse<InlineResponse2013> CreateFxRatesWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -79,8 +79,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>Task of InlineResponse2014</returns>
-        System.Threading.Tasks.Task<InlineResponse2014> CreateFxRatesAsync(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
+        /// <returns>Task of InlineResponse2013</returns>
+        System.Threading.Tasks.Task<InlineResponse2013> CreateFxRatesAsync(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
 
         /// <summary>
         /// Retrieve Foreign Exchange Rates
@@ -96,8 +96,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> CreateFxRatesAsyncWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateFxRatesAsyncWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
         #endregion Asynchronous Operations
     }
 
@@ -135,12 +135,12 @@ namespace CyberSource.Api
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>InlineResponse2014</returns>
-        public InlineResponse2014 CreateFxRates(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
+        /// <returns>InlineResponse2013</returns>
+        public InlineResponse2013 CreateFxRates(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
             logger.LogDebug("CALLING API \"CreateFxRates\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2014> localVarResponse = CreateFxRatesWithHttpInfo(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
+            ApiResponse<InlineResponse2013> localVarResponse = CreateFxRatesWithHttpInfo(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
             logger.LogDebug("CALLING API \"CreateFxRates\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -157,8 +157,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        public ApiResponse< InlineResponse2014 > CreateFxRatesWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
+        /// <returns>ApiResponse of InlineResponse2013</returns>
+        public ApiResponse< InlineResponse2013 > CreateFxRatesWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -291,8 +291,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -307,9 +307,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2014) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse2013) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
         }
 
         /// <summary>
@@ -323,12 +323,12 @@ namespace CyberSource.Api
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>Task of InlineResponse2014</returns>
-        public async Task<InlineResponse2014> CreateFxRatesAsync(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
+        /// <returns>Task of InlineResponse2013</returns>
+        public async Task<InlineResponse2013> CreateFxRatesAsync(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
             logger.LogDebug("CALLING API \"CreateFxRatesAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2014> localVarResponse = await CreateFxRatesAsyncWithHttpInfo(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
+            ApiResponse<InlineResponse2013> localVarResponse = await CreateFxRatesAsyncWithHttpInfo(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
             logger.LogDebug("CALLING API \"CreateFxRatesAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -346,8 +346,8 @@ namespace CyberSource.Api
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        public async Task<ApiResponse<InlineResponse2014>> CreateFxRatesAsyncWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
+        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
+        public async Task<ApiResponse<InlineResponse2013>> CreateFxRatesAsyncWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -480,8 +480,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -496,9 +496,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2014) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
+            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse2013) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
         }
     }
 }

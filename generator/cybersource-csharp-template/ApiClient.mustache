@@ -1,40 +1,28 @@
 {{>partial_header}}
 using System;
 using System.Collections;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
-using System.Text.Json;
-using System.Text.RegularExpressions;
 using System.IO;
-{{^netStandard}}
-{{^supportsUWP}}
-using System.Web;
-{{/supportsUWP}}
-{{/netStandard}}
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security;
 using System.Security.Cryptography.X509Certificates;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
-{{#netStandard}}
-using RestSharp.Portable;
-using RestSharp.Portable.HttpClient;
-{{/netStandard}}
-{{^netStandard}}
-using RestSharp;
-{{/netStandard}}
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using AuthenticationSdk.core;
 using AuthenticationSdk.util;
 using CyberSource.Utilities;
-using System.Text.Json.Serialization;
-using System.Text.Json.Serialization.Metadata;
-using CyberSource.Utilities.Serialization;
 using CyberSource.Utilities.Extensibility;
-using Microsoft.Extensions.Options;
+using CyberSource.Utilities.Serialization;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace {{packageName}}.Client
 {
@@ -123,10 +111,17 @@ namespace {{packageName}}.Client
         public string AcceptHeader { get; set; }
 
         /// <summary>
-        /// Gets or sets the RestClient.
+        /// Gets or sets the resolved HttpClient (mainly for diagnostics; the SDK still resolves the
+        /// effective HttpClient per call via <see cref="SdkOwnedHttpClientFactory"/>).
         /// </summary>
-        /// <value>An instance of the RestClient</value>
-        public RestClient RestClient { get; set; }
+        /// <value>The resolved HttpClient instance</value>
+        public HttpClient HttpClient { get; set; }
+
+        /// <summary>
+        /// Gets or sets the base URL used by consumers of <see cref="IApiAccessor.GetBasePath"/>.
+        /// </summary>
+        /// <value>The base URL</value>
+        public Uri BaseUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the file name, in which the response to be downloaded.
@@ -180,6 +175,10 @@ namespace {{packageName}}.Client
 
             loggerFactory = _merchantLegacySettings?.LoggerFactory ?? NullLoggerFactory.Instance;
             logger = loggerFactory.CreateLogger<ApiClient>();
+
+            // Precompute the base URL so consumers of GetBasePath() have a stable value without
+            // re-reading the merchant settings on every call.
+            BaseUrl = BuildBaseUrl(_merchantCredentialSettings);
         }
 
         /// <summary>
@@ -198,15 +197,15 @@ namespace {{packageName}}.Client
         /// <summary>
         /// Allows for extending request processing for <see cref="ApiClient"/> generated code.
         /// </summary>
-        /// <param name="request">The RestSharp request object</param>
-        partial void InterceptRequest(RestRequest request); // CHANGED
+        /// <param name="request">The System.Net.Http request object</param>
+        partial void InterceptRequest(HttpRequestMessage request);
 
         /// <summary>
         /// Allows for extending response processing for <see cref="ApiClient"/> generated code.
         /// </summary>
-        /// <param name="request">The RestSharp request object</param>
-        /// <param name="response">The RestSharp response object</param>
-        partial void InterceptResponse(RestRequest request, RestResponse response); // CHANGED
+        /// <param name="request">The System.Net.Http request object</param>
+        /// <param name="response">The System.Net.Http response object</param>
+        partial void InterceptResponse(HttpRequestMessage request, HttpResponseMessage response);
         #endregion Legacy Methods
 
         #region Public Methods
@@ -224,7 +223,7 @@ namespace {{packageName}}.Client
         /// <param name="contentType">Content Type of the request</param>
         /// <returns>Object</returns>
         public object CallApi(
-            string path, Method method, Dictionary<string, string> queryParams, object postBody,
+            string path, HttpMethod method, Dictionary<string, string> queryParams, object postBody,
             Dictionary<string, string> headerParams, Dictionary<string, string> formParams,
             Dictionary<string, FileParameter> fileParams, Dictionary<string, string> pathParams,
             string contentType, bool isResponseMLEForApi = false)
@@ -247,69 +246,80 @@ namespace {{packageName}}.Client
         /// <param name="contentType">Content type.</param>
         /// <param name="isResponseMLEForApi">Indicates if the response is MLE for the API.</param>
         /// <returns>The Task instance.</returns>
-        public async System.Threading.Tasks.Task<object> CallApiAsync(
-            string path, Method method, Dictionary<string, string> queryParams, object postBody,
+        public async Task<object> CallApiAsync(
+            string path, HttpMethod method, Dictionary<string, string> queryParams, object postBody,
             Dictionary<string, string> headerParams, Dictionary<string, string> formParams,
             Dictionary<string, FileParameter> fileParams, Dictionary<string, string> pathParams,
             string contentType, bool isResponseMLEForApi = false)
         {
-            int httpResponseStatusCode;
-            IList<Parameter> httpResponseHeaders = null;
-            string httpResponseData = string.Empty;
-
             LogUtility logUtility = new LogUtility();
 
+            var transportOptions = GetHttpTransportOptions(_merchantNetworkSettings, _merchantCredentialSettings, _merchantLegacySettings.UserAgent, TimeSpan.FromMilliseconds(_merchantNetworkSettings.TimeOut));
+
+            var httpClient = SdkOwnedHttpClientFactory.GetHttpClient(_merchantNetworkSettings, transportOptions);
+            HttpClient = httpClient;
+
             var request = PrepareRequest(
+                httpClient,
                 path, method, queryParams, postBody, headerParams, formParams, fileParams,
-                pathParams, contentType, isResponseMLEForApi);
-
-            var newRestClientOptions = GetRestClientOptions(_merchantNetworkSettings, _merchantCredentialSettings, _merchantLegacySettings.UserAgent, TimeSpan.FromMilliseconds(_merchantNetworkSettings.TimeOut));
-
-            var actualRestClient = RestClientFactory.GetRestClient(
-                _merchantNetworkSettings,
-                newRestClientOptions);
+                pathParams, contentType, transportOptions, isResponseMLEForApi);
 
             // Logging Request Headers
             var headerPrintOutput = new StringBuilder();
-            foreach (var param in request.Parameters)
+            foreach (var header in request.Headers)
             {
-                if (param.Type.ToString().Equals("HttpHeader"))
+                headerPrintOutput.Append($"{header.Key} : {string.Join(", ", header.Value)}\n");
+            }
+            if (request.Content != null)
+            {
+                foreach (var header in request.Content.Headers)
                 {
-                    headerPrintOutput.Append($"{param.Name} : {param.Value}\n");
+                    headerPrintOutput.Append($"{header.Key} : {string.Join(", ", header.Value)}\n");
                 }
             }
 
             logger.LogDebug("HTTP Request Headers :{NewLine}{Message}", Environment.NewLine, logUtility.MaskSensitiveData(headerPrintOutput.ToString()));
 
             InterceptRequest(request);
-            var response = await actualRestClient.Execute{{^netStandard}}Async{{/netStandard}}(request);
+            var response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseContentRead).ConfigureAwait(false);
             InterceptResponse(request, response);
 
+            // Buffer content once and let MLE decryption mutate both the local string and the
+            // response body in place so downstream Deserialize sees the decrypted payload.
+            string content = response.Content != null
+                ? await response.Content.ReadAsStringAsync().ConfigureAwait(false)
+                : string.Empty;
+
             // check if Response MLE is enabled, then decrypt the response content and then deserialize
-            ResponseMleHandler.DecryptMleResponseIfNeeded(response, _merchantCredentialSettings, _merchantMLESettings, loggerFactory);
+            ResponseMleHandler.DecryptMleResponseIfNeeded(response, ref content, _merchantCredentialSettings, _merchantMLESettings, loggerFactory);
 
             // Note: per-request auth headers are now scoped locally inside PrepareRequest
             // (see CallAuthenticationHeaders) to avoid a race condition on the shared
             // _merchantLegacySettings.DefaultHeader dictionary between concurrent calls.
 
             // Logging Response Headers
-            httpResponseStatusCode = (int)response.StatusCode;
-            httpResponseHeaders = response.Headers?.ToList<Parameter>();
-            httpResponseData = response.Content;
+            int httpResponseStatusCode = (int)response.StatusCode;
 
             logger.LogDebug("HTTP Response Status Code: {StatusCode}", httpResponseStatusCode);
 
             var responseHeadersBuilder = new StringBuilder();
-            foreach (var header in httpResponseHeaders)
+            foreach (var header in response.Headers)
             {
-                responseHeadersBuilder.Append($"{header}\n");
+                responseHeadersBuilder.Append($"{header.Key}: {string.Join(", ", header.Value)}\n");
+            }
+            if (response.Content != null)
+            {
+                foreach (var header in response.Content.Headers)
+                {
+                    responseHeadersBuilder.Append($"{header.Key}: {string.Join(", ", header.Value)}\n");
+                }
             }
 
             logger.LogDebug("HTTP Response Headers :{NewLine}{Message}", Environment.NewLine, logUtility.MaskSensitiveData(responseHeadersBuilder.ToString()));
 
-            if (!string.IsNullOrEmpty(httpResponseData))
+            if (!string.IsNullOrEmpty(content))
             {
-                logger.LogDebug("HTTP Response Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(httpResponseData)));
+                logger.LogDebug("HTTP Response Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(content)));
             }
 
             return response;
@@ -323,10 +333,10 @@ namespace {{packageName}}.Client
         /// <returns>FileParameter.</returns>
         public FileParameter ParameterToFile(string name, Stream stream)
         {
-            if (stream is FileStream)
-                return FileParameter.Create(name, ReadAsBytes(stream), Path.GetFileName(((FileStream)stream).Name));
+            if (stream is FileStream fs)
+                return new FileParameter(name, Path.GetFileName(fs.Name), stream);
             else
-                return FileParameter.Create(name, ReadAsBytes(stream), "no_file_name_provided");
+                return new FileParameter(name, "no_file_name_provided", stream);
         }
 
         /// <summary>
@@ -373,76 +383,92 @@ namespace {{packageName}}.Client
         }
 
         /// <summary>
-        /// Deserialize the JSON string into a proper object.
+        /// Deserialize the HTTP response body into a proper object.
         /// </summary>
         /// <param name="response">The HTTP response.</param>
         /// <param name="type">Object type.</param>
         /// <returns>Object representation of the JSON string.</returns>
-        public object Deserialize(RestResponse response, Type type) // CHANGED
+        public object Deserialize(HttpResponseMessage response, Type type)
         {
-            {{^netStandard}}IList<Parameter>{{/netStandard}}{{#netStandard}}IHttpHeaders{{/netStandard}} headers = response.Headers?.ToList<Parameter>();
-
-            if (response == null || string.IsNullOrEmpty(response.Content))
+            if (response == null)
             {
                 return null;
             }
 
             if (type == typeof(byte[])) // return byte array
             {
-                return response.RawBytes;
+                return response.Content != null
+                    ? response.Content.ReadAsByteArrayAsync().GetAwaiter().GetResult()
+                    : Array.Empty<byte>();
             }
 
             if (type == typeof(Stream))
             {
+                byte[] rawBytes = response.Content != null
+                    ? response.Content.ReadAsByteArrayAsync().GetAwaiter().GetResult()
+                    : Array.Empty<byte>();
+
+                var headers = response.Content?.Headers;
                 if (headers != null)
                 {
                     var filePath = string.IsNullOrEmpty(_merchantLegacySettings.TempFolderPath)
                         ? Path.GetTempPath()
                         : _merchantLegacySettings.TempFolderPath;
-                    var regex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$");
+                    var regex = new Regex(@"Content-Disposition.*filename=['""]?([^'""\s]+)['""]?");
                     foreach (var header in headers)
                     {
-                        var match = regex.Match(header.ToString());
-                        if (match.Success)
+                        foreach (var value in header.Value)
                         {
-                            string fileName = filePath + SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
-                            try
+                            var line = $"{header.Key}={value}";
+                            var match = regex.Match(line);
+                            if (match.Success)
                             {
-                                File.WriteAllBytes(fileName, response.RawBytes);
-                                return new FileStream(fileName, FileMode.Open);
-                            }
-                            catch (Exception ex)
-                            {
-                                logger.LogError(ex, "Error writing file '{FileName}'", fileName);
-                                throw new Exception($"Error writing file '{fileName}': {ex.Message}");
+                                string fileName = filePath + SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
+                                try
+                                {
+                                    File.WriteAllBytes(fileName, rawBytes);
+                                    return new FileStream(fileName, FileMode.Open);
+                                }
+                                catch (Exception ex)
+                                {
+                                    logger.LogError(ex, "Error writing file '{FileName}'", fileName);
+                                    throw new Exception($"Error writing file '{fileName}': {ex.Message}");
+                                }
                             }
                         }
                     }
                 }
-                var stream = new MemoryStream(response.RawBytes);
-                return stream;
+                return new MemoryStream(rawBytes);
             }
 
-            if (type == typeof(DateTime?)) // return a datetime object
+            string contentString = response.Content != null
+                ? response.Content.ReadAsStringAsync().GetAwaiter().GetResult()
+                : string.Empty;
+
+            if (string.IsNullOrEmpty(contentString))
             {
-                return DateTime.Parse(response.Content, null, System.Globalization.DateTimeStyles.RoundtripKind);
+                return null;
             }
 
-            if (type == typeof(string) || Nullable.GetUnderlyingType(type) != null) // return primitive type
+            if (type == typeof(DateTime?))
             {
-                return ConvertType(response.Content, type);
+                return DateTime.Parse(contentString, null, System.Globalization.DateTimeStyles.RoundtripKind);
             }
 
-            // at this point, it must be a model (json)
+            if (type == typeof(string) || Nullable.GetUnderlyingType(type) != null)
+            {
+                return ConvertType(contentString, type);
+            }
+
             try
             {
                 if (type == typeof(Model.PblPaymentLinksAllGet200Response))
                 {
-                    return JsonSerializer.Deserialize(response.Content, type, _pblModelDeserializerOptions);
+                    return JsonSerializer.Deserialize(contentString, type, _pblModelDeserializerOptions);
                 }
                 else
                 {
-                    return JsonSerializer.Deserialize(response.Content, type, _deserializationSettings);
+                    return JsonSerializer.Deserialize(contentString, type, _deserializationSettings);
                 }
             }
             catch (Exception e)
@@ -561,9 +587,7 @@ namespace {{packageName}}.Client
         /// Generate Request Authentication Headers using the Authentication SDK and return them
         /// as a new dictionary. This method does NOT mutate any shared state, so it is safe to
         /// call concurrently from multiple threads against the same <see cref="ApiClient"/> /
-        /// configuration instance (fixes AISAST-10819 race condition where the previous
-        /// implementation stored auth headers in the shared
-        /// <c>IMerchantLegacySettings.DefaultHeader</c> dictionary).
+        /// configuration instance.
         /// </summary>
         /// <param name="merchantRequestSettings">Per-request settings (method, target, payload).</param>
         /// <param name="isResponseMLEForApi">Whether the response is expected to be MLE-encrypted.</param>
@@ -797,9 +821,27 @@ namespace {{packageName}}.Client
             return target;
         }
 
+        private static Uri BuildBaseUrl(IMerchantCredentialSettings merchantCredentialSettings)
+        {
+            if (merchantCredentialSettings == null) { return null; }
+
+            if (!string.IsNullOrWhiteSpace(merchantCredentialSettings.IntermediateHost))
+            {
+                if (merchantCredentialSettings.IntermediateHost.StartsWith("http://") || merchantCredentialSettings.IntermediateHost.StartsWith("https://"))
+                {
+                    return new Uri(merchantCredentialSettings.IntermediateHost);
+                }
+                return new Uri("https://" + merchantCredentialSettings.IntermediateHost);
+            }
+
+            return new Uri("https://" + merchantCredentialSettings.HostName);
+        }
+
         /// <summary>
-        /// Creates the RestSharp request object by adding all the parameters and headers to be sent in the HTTP Request.
+        /// Creates the <see cref="HttpRequestMessage"/> populated with path/header/body parameters,
+        /// including per-request authentication headers.
         /// </summary>
+        /// <param name="httpClient">HttpClient instance to use</param>
         /// <param name="path">API Request Path</param>
         /// <param name="method">HTTP Method</param>
         /// <param name="queryParams">Dictionary of query parameters as string keys with string values</param>
@@ -809,67 +851,69 @@ namespace {{packageName}}.Client
         /// <param name="fileParams">Dictionary of file parameters as string keys with FileParameter values</param>
         /// <param name="pathParams">Dictionary of path parameters as string keys with string values</param>
         /// <param name="contentType">Content type of the request payload</param>
+        /// <param name="transportOptions">Options to configure on the HttpClient instance</param>
         /// <param name="isResponseMLEForApi">Boolean value denoting whether the API response is expected to be encrypted by MLE</param>
-        /// <returns>Request</returns>
-        private RestRequest PrepareRequest(
-            string path, Method method, Dictionary<string, string> queryParams, object postBody,
+        /// <returns>HttpRequestMessage</returns>
+        private HttpRequestMessage PrepareRequest(
+            HttpClient httpClient,
+            string path, HttpMethod method, Dictionary<string, string> queryParams, object postBody,
             Dictionary<string, string> headerParams, Dictionary<string, string> formParams,
             Dictionary<string, FileParameter> fileParams, Dictionary<string, string> pathParams,
-            string contentType, bool isResponseMLEForApi = false)
+            string contentType, HttpTransportOptions transportOptions, bool isResponseMLEForApi = false)
         {
-            //1.set in the defaultHeaders of configuration
-
-            // Change to path(Request Target) to be sent to Authentication SDK
-            // Include Query Params in the Request target
-            var firstQueryParam = true;
-            foreach (var param in queryParams)
+            // Path parameter substitution ({name} -> value) — replaces RestSharp ParameterType.UrlSegment.
+            if (pathParams != null)
             {
-                var key = param.Key;
-                var val = param.Value;
-
-                if (!firstQueryParam)
+                foreach (var param in pathParams)
                 {
-                    path = path + "&" + key + "=" + val;
+                    path = path.Replace("{" + param.Key + "}", Uri.EscapeDataString(param.Value ?? string.Empty));
                 }
-                else
+            }
+
+            // Include query params in the request target (also used for auth signing).
+            if (queryParams != null)
+            {
+                var firstQueryParam = true;
+                foreach (var param in queryParams)
                 {
-                    path = path + "?" + key + "=" + val;
+                    var separator = firstQueryParam ? "?" : "&";
+                    path = path + separator + param.Key + "=" + param.Value;
                     firstQueryParam = false;
                 }
             }
 
-            var request = new RestRequest(path, method);
-            {{#netStandard}}
-            // disable RestSharp.Portable built-in serialization
-            request.Serializer = null;
-            {{/netStandard}}
+            // Compose the absolute request URI relative to the resolved base URL. When the injected
+            // HttpClient has a BaseAddress, HttpRequestMessage accepts a relative Uri; otherwise we
+            // build an absolute Uri from transportOptions.BaseUrl.
+            Uri requestUri = BuildRequestUri(httpClient, transportOptions, path);
 
-            // add path parameter, if any
-            foreach (var param in pathParams)
-                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
+            var request = new HttpRequestMessage(method, requestUri);
 
-            // add header parameter, if any
-            // 2. passed to this function
-            foreach (var param in headerParams)
+            // Header params (from generated Api files).
+            if (headerParams != null)
             {
-                if (param.Key == "Authorization")
+                foreach (var param in headerParams)
                 {
-                    request.AddParameter("Authorization", string.Format("Bearer " + param.Value),
-                        ParameterType.HttpHeader);
+                    if (string.Equals(param.Key, "Authorization", StringComparison.OrdinalIgnoreCase))
+                    {
+                        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", param.Value);
+                    }
+                    else
+                    {
+                        request.Headers.TryAddWithoutValidation(param.Key, param.Value);
+                    }
                 }
-                else
-                    request.AddHeader(param.Key, param.Value);
             }
 
             var _requestTarget = Uri.EscapeUriString(path);
-            var _requestMethod = method.ToString();
+            var _requestMethod = method.Method;
             IMerchantRequestSettings _merchantRequestSettings;
 
             // Build per-request authentication headers into a LOCAL dictionary.
             // Do NOT route them through _merchantLegacySettings.DefaultHeader: that field is
             // a shared mutable dictionary on the configuration instance, and using it as a
             // handoff between header-generation and request-construction causes a race
-            // condition under concurrent CallApi/CallApiAsync invocations (AISAST-10819)
+            // condition under concurrent CallApi/CallApiAsync invocations
             // where one request can be signed/authenticated with another request's headers.
             if (postBody == null)
             {
@@ -884,110 +928,100 @@ namespace {{packageName}}.Client
 
             foreach (var param in authenticationHeaders)
             {
-                if (param.Key == "Authorization")
+                if (string.Equals(param.Key, "Authorization", StringComparison.OrdinalIgnoreCase))
                 {
-                    request.AddParameter("Authorization", string.Format("Bearer " + param.Value),
-                        ParameterType.HttpHeader);
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", param.Value);
                 }
                 else
                 {
-                    if (request.Parameters.Any(x => string.Equals(x.Name, param.Key, StringComparison.OrdinalIgnoreCase) && x.Type == ParameterType.HttpHeader))
-                    {
-                        continue;
-                    }
-                    request.AddHeader(param.Key, param.Value);
+                    if (request.Headers.Contains(param.Key)) { continue; }
+                    request.Headers.TryAddWithoutValidation(param.Key, param.Value);
                 }
             }
 
-            // add query parameter, if any
-            // foreach(var param in queryParams)
-            //     request.AddQueryParameter(param.Key, param.Value);
-
-            // add form parameter, if any
-            foreach (var param in formParams)
-                request.AddParameter(param.Key, param.Value);
-
-            // add file parameter, if any
-            //foreach(var param in fileParams)
-            //{
-                {{#netStandard}}
-                //request.AddFile(param.Value);
-                {{/netStandard}}
-                {{^netStandard}}
-                {{^supportsUWP}}
-                //request.AddFile(param.Value.Name, param.Value.FileName, param.Value.ContentType);
-                {{/supportsUWP}}
-                {{#supportsUWP}}
-                //byte[] paramWriter = null;
-                //param.Value.Writer = delegate (Stream stream) { paramWriter = ToByteArray(stream); };
-                //request.AddFile(param.Value.Name, param.Value.FileName, param.Value.ContentType);
-                {{/supportsUWP}}
-                {{/netStandard}}
-            //}
-
-            if (postBody != null) // http body (model or byte[]) parameter
+            // Body handling
+            if (postBody != null)
             {
-                if (postBody.GetType() == typeof(string))
+                if (postBody is string postBodyString)
                 {
                     if (contentType == "application/x-www-form-urlencoded")
                     {
-                        var bodyParams = JsonSerializer.Deserialize<Dictionary<string, string>>((string)postBody);
-                        foreach (KeyValuePair<string, string> param in bodyParams)
-                        {
-                            {{#netStandard}}
-                            request.AddParameter(new Parameter { Value = param.Value, Type = ParameterType.GetOrPost, Name = param.Key });
-                            {{/netStandard}}
-                            {{^netStandard}}
-                            request.AddParameter(param.Key, param.Value, ParameterType.GetOrPost);
-                            {{/netStandard}}
-                        }
+                        var bodyParams = JsonSerializer.Deserialize<Dictionary<string, string>>(postBodyString);
+                        request.Content = new FormUrlEncodedContent(bodyParams);
                     }
-                    else if (contentType.Contains("multipart/form-data"))
+                    else if (contentType != null && contentType.Contains("multipart/form-data"))
                     {
-                        request.AddBody(postBody, "multipart/form-data");
-                        request.AddHeader("Content-Type", contentType); //required to set in case of file params
+                        var multipart = new MultipartFormDataContent();
+                        if (fileParams != null)
+                        {
+                            foreach (var kvp in fileParams)
+                            {
+                                var fp = kvp.Value;
+                                var fileContent = new ByteArrayContent(ReadAsBytes(fp.GetFile()));
+                                if (!string.IsNullOrEmpty(fp.ContentType))
+                                {
+                                    fileContent.Headers.ContentType = new MediaTypeHeaderValue(fp.ContentType);
+                                }
+                                multipart.Add(fileContent, fp.Name, fp.FileName);
+                            }
+                        }
+                        // Also include the raw postBody as a "body" part to preserve prior behavior
+                        // where AddBody(postBody, "multipart/form-data") wrote the serialized payload.
+                        multipart.Add(new StringContent(postBodyString, Encoding.UTF8, "application/json"), "body");
+                        request.Content = multipart;
                     }
                     else
                     {
-                        {{#netStandard}}
-                        // request.AddParameter(new Parameter { Value = postBody, Type = ParameterType.RequestBody, ContentType = "application/json" });
-                        request.AddJsonBody(postBody);
-                        {{/netStandard}}
-                        {{^netStandard}}
-                        // request.AddParameter("application/json", postBody, ParameterType.RequestBody);
-                        request.AddJsonBody(postBody);
-                        {{/netStandard}}
+                        // JSON body (string already serialized by the caller).
+                        request.Content = new StringContent(postBodyString, Encoding.UTF8, "application/json");
                     }
                 }
-                else if (postBody.GetType() == typeof(byte[]))
+                else if (postBody is byte[] postBodyBytes)
                 {
-                    {{#netStandard}}
-                    request.AddParameter(new Parameter { Value = postBody, Type = ParameterType.RequestBody, ContentType = contentType });
-                    {{/netStandard}}
-                    {{^netStandard}}
-                    request.AddParameter(contentType, postBody, ParameterType.RequestBody);
-                    {{/netStandard}}
+                    var byteContent = new ByteArrayContent(postBodyBytes);
+                    if (!string.IsNullOrEmpty(contentType))
+                    {
+                        byteContent.Headers.ContentType = new MediaTypeHeaderValue(contentType);
+                    }
+                    request.Content = byteContent;
                 }
+            }
+
+            // Form parameters (application/x-www-form-urlencoded when there is no explicit body).
+            if (request.Content == null && formParams != null && formParams.Count > 0)
+            {
+                request.Content = new FormUrlEncodedContent(formParams);
             }
 
             return request;
         }
 
+        private static Uri BuildRequestUri(HttpClient httpClient, HttpTransportOptions transportOptions, string path)
+        {
+            var baseAddress = httpClient?.BaseAddress ?? transportOptions?.BaseUrl;
+            if (baseAddress == null)
+            {
+                // Assume caller passed an absolute URL as `path`.
+                return new Uri(path, UriKind.RelativeOrAbsolute);
+            }
+            return new Uri(baseAddress, path);
+        }
+
         /// <summary>
-        /// Gets the RestClientOptions based on the merchant network settings and merchant credential settings,
-        /// including proxy configuration and client certificate configuration if applicable.
+        /// Builds the transport options used to construct or key the SDK-owned <see cref="HttpClient"/>.
         /// </summary>
         /// <param name="merchantNetworkSettings">Object of IMerchantNetworkSettings containing network settings</param>
         /// <param name="merchantCredentialSettings">Object of IMerchantCredentialSettings containing merchant credentials</param>
         /// <param name="userAgent">HTTP User Agent</param>
         /// <param name="timeout">HTTP timeout (milliseconds)</param>
         /// <returns>RestClientOptions</returns>
-        private RestClientOptions GetRestClientOptions(IMerchantNetworkSettings merchantNetworkSettings, IMerchantCredentialSettings merchantCredentialSettings, string userAgent, TimeSpan timeout)
+        private HttpTransportOptions GetHttpTransportOptions(IMerchantNetworkSettings merchantNetworkSettings, IMerchantCredentialSettings merchantCredentialSettings, string userAgent, TimeSpan timeout)
         {
-            RestClientOptions clientOptions = new RestClientOptions();
-
-            clientOptions.UserAgent = userAgent;
-            clientOptions.Timeout = timeout;
+            HttpTransportOptions transportOptions = new HttpTransportOptions
+            {
+                UserAgent = userAgent,
+                Timeout = timeout
+            };
 
             IWebProxy webProxy = null;
 
@@ -1011,7 +1045,7 @@ namespace {{packageName}}.Client
 
             if (webProxy != null)
             {
-                clientOptions.Proxy = webProxy;
+                transportOptions.Proxy = webProxy;
             }
 
             if (Equals(bool.Parse(merchantCredentialSettings.EnableClientCert), true))
@@ -1031,31 +1065,12 @@ namespace {{packageName}}.Client
                 // Importing Certificates
                 var certificate = new X509Certificate2(fileName, clientCertPassword);
                 clientCertPassword.Dispose();
-                clientOptions.ClientCertificates = new X509CertificateCollection { certificate };
+                transportOptions.ClientCertificates = new X509CertificateCollection { certificate };
             }
 
-            if (!string.IsNullOrWhiteSpace(merchantCredentialSettings.IntermediateHost))
-            {
-                //change with intermediate hostname if present
-                //supporting both for http or https for intermediate url
-                if (merchantCredentialSettings.IntermediateHost.StartsWith("http://") || merchantCredentialSettings.IntermediateHost.StartsWith("https://"))
-                {
-                    //RestClient = new RestClient(merchantConfig.IntermediateHost);
-                    clientOptions.BaseUrl = new Uri(merchantCredentialSettings.IntermediateHost);
-                }
-                else
-                {
-                    //RestClient = new RestClient("https://" + merchantConfig.IntermediateHost);
-                    clientOptions.BaseUrl = new Uri("https://" + merchantCredentialSettings.IntermediateHost);
-                }
-            }
-            else
-            {
-                //RestClient = new RestClient("https://" + merchantConfig.HostName);
-                clientOptions.BaseUrl = new Uri("https://" + merchantCredentialSettings.HostName);
-            }
+            transportOptions.BaseUrl = BuildBaseUrl(merchantCredentialSettings);
 
-            return clientOptions;
+            return transportOptions;
         }
         #endregion Private Methods
 

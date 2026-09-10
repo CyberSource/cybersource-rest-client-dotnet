@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="ProductInformationSetups">ProductInformationSetups.</param>
         /// <param name="DocumentInformation">DocumentInformation.</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse2005(Boardingv1registrationsRegistrationInformation RegistrationInformation = default(Boardingv1registrationsRegistrationInformation), InlineResponse2005IntegrationInformation IntegrationInformation = default(InlineResponse2005IntegrationInformation), Boardingv1registrationsOrganizationInformation OrganizationInformation = default(Boardingv1registrationsOrganizationInformation), Boardingv1registrationsProductInformation ProductInformation = default(Boardingv1registrationsProductInformation), List<InlineResponse2017ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2017ProductInformationSetups>), Boardingv1registrationsDocumentInformation DocumentInformation = default(Boardingv1registrationsDocumentInformation), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
+        public InlineResponse2005(Boardingv1registrationsRegistrationInformation RegistrationInformation = default(Boardingv1registrationsRegistrationInformation), InlineResponse2005IntegrationInformation IntegrationInformation = default(InlineResponse2005IntegrationInformation), Boardingv1registrationsOrganizationInformation OrganizationInformation = default(Boardingv1registrationsOrganizationInformation), Boardingv1registrationsProductInformation ProductInformation = default(Boardingv1registrationsProductInformation), List<InlineResponse2016ProductInformationSetups> ProductInformationSetups = default(List<InlineResponse2016ProductInformationSetups>), Boardingv1registrationsDocumentInformation DocumentInformation = default(Boardingv1registrationsDocumentInformation), Dictionary<string, List<Object>> Details = default(Dictionary<string, List<Object>>))
         {
             this.RegistrationInformation = RegistrationInformation;
             this.IntegrationInformation = IntegrationInformation;
@@ -85,7 +85,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("productInformationSetups")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse2017ProductInformationSetups> ProductInformationSetups { get; set; }
+        public List<InlineResponse2016ProductInformationSetups> ProductInformationSetups { get; set; }
 
         /// <summary>
         /// Gets or Sets DocumentInformation

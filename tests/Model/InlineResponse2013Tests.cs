@@ -65,28 +65,60 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'RequestId'
+        /// Test the property 'Id'
         /// </summary>
         [Test]
-        public void RequestIdTest()
+        public void IdTest()
         {
-            // TODO unit test for the property 'RequestId'
+            // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'SubmitTimeUtc'
+        /// Test the property 'Status'
         /// </summary>
         [Test]
-        public void SubmitTimeUtcTest()
+        public void StatusTest()
         {
-            // TODO unit test for the property 'SubmitTimeUtc'
+            // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'Results'
+        /// Test the property 'SubmitTimeStampUtc'
         /// </summary>
         [Test]
-        public void ResultsTest()
+        public void SubmitTimeStampUtcTest()
         {
-            // TODO unit test for the property 'Results'
+            // TODO unit test for the property 'SubmitTimeStampUtc'
+        }
+        /// <summary>
+        /// Test the property 'OrderInformation'
+        /// </summary>
+        [Test]
+        public void OrderInformationTest()
+        {
+            // TODO unit test for the property 'OrderInformation'
+        }
+        /// <summary>
+        /// Test the property 'ErrorInformation'
+        /// </summary>
+        [Test]
+        public void ErrorInformationTest()
+        {
+            // TODO unit test for the property 'ErrorInformation'
+        }
+        /// <summary>
+        /// Test the property 'ProcessorInformation'
+        /// </summary>
+        [Test]
+        public void ProcessorInformationTest()
+        {
+            // TODO unit test for the property 'ProcessorInformation'
+        }
+        /// <summary>
+        /// Test the property 'ProcessingInformation'
+        /// </summary>
+        [Test]
+        public void ProcessingInformationTest()
+        {
+            // TODO unit test for the property 'ProcessingInformation'
         }
 
     }

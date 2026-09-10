@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// InlineResponse20113
+    /// UCP checkout session state. Total amounts are expressed in cents (not micros).
     /// </summary>
     [DataContract]
     public partial class InlineResponse20113 :  ModelExtensions, IEquatable<InlineResponse20113>, IValidatableObject
@@ -34,126 +34,123 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20113" /> class.
         /// </summary>
-        /// <param name="Id">Unique identifier for this checkout session. Required for all subsequent calls (update, complete, cancel). .</param>
-        /// <param name="Status">Current lifecycle state of the session per ACP spec: - &#x60;not_ready_for_payment&#x60; — session is open but not yet ready - &#x60;ready_for_payment&#x60; — session is ready to be completed - &#x60;completed&#x60; — order has been placed; session is immutable - &#x60;canceled&#x60; — session was abandoned; no charge was made   Possible values: - not_ready_for_payment - ready_for_payment - completed - canceled.</param>
-        /// <param name="Currency">ISO 4217 lowercase currency code for this session..</param>
-        /// <param name="LineItems">Line items with merchant-confirmed pricing..</param>
-        /// <param name="FulfillmentAddress">FulfillmentAddress.</param>
-        /// <param name="FulfillmentOptions">Available fulfillment methods with pricing..</param>
-        /// <param name="FulfillmentOptionId">ID of the currently selected fulfillment option..</param>
-        /// <param name="Totals">Order cost breakdown as an array of typed total lines. All amounts in minor units (cents)..</param>
+        /// <param name="Ucp">Ucp.</param>
+        /// <param name="Id">Unique UCP session identifier. Required for all subsequent UCP calls (update, complete, cancel). .</param>
+        /// <param name="Status">Current lifecycle state of the session. - &#x60;active&#x60; — open and modifiable - &#x60;completed&#x60; — order placed, immutable - &#x60;cancelled&#x60; — abandoned, no charge made   Possible values: - active - completed - cancelled.</param>
+        /// <param name="Currency">ISO 4217 currency code for this session (e.g. &#x60;USD&#x60;, &#x60;EUR&#x60;)..</param>
         /// <param name="Buyer">Buyer.</param>
-        /// <param name="PaymentProvider">PaymentProvider.</param>
-        /// <param name="Messages">Informational or error messages from the merchant backend..</param>
-        /// <param name="Links">Related resource links from the merchant (e.g. terms of use, privacy policy, seller shop policies). .</param>
-        public InlineResponse20113(string Id = default(string), string Status = default(string), string Currency = default(string), List<InlineResponse20113LineItems> LineItems = default(List<InlineResponse20113LineItems>), InlineResponse20113FulfillmentAddress FulfillmentAddress = default(InlineResponse20113FulfillmentAddress), List<InlineResponse20113FulfillmentOptions> FulfillmentOptions = default(List<InlineResponse20113FulfillmentOptions>), string FulfillmentOptionId = default(string), List<InlineResponse20113Totals> Totals = default(List<InlineResponse20113Totals>), AcpCheckoutSessionResponseBuyer Buyer = default(AcpCheckoutSessionResponseBuyer), InlineResponse20113PaymentProvider PaymentProvider = default(InlineResponse20113PaymentProvider), List<InlineResponse20113Messages> Messages = default(List<InlineResponse20113Messages>), List<InlineResponse20113Links> Links = default(List<InlineResponse20113Links>))
+        /// <param name="LineItems">Cart line items with merchant-confirmed pricing..</param>
+        /// <param name="Totals">Order cost breakdown. Each entry represents one total type (subtotal, tax, shipping, discount, or grand total). Amounts are in **cents** (not micros). .</param>
+        /// <param name="Fulfillment">Fulfillment.</param>
+        /// <param name="Payment">Payment.</param>
+        /// <param name="Discounts">Discounts.</param>
+        /// <param name="Order">Order.</param>
+        /// <param name="Links">Related resource links (e.g. terms of use, privacy policy)..</param>
+        public InlineResponse20113(InlineResponse20113Ucp Ucp = default(InlineResponse20113Ucp), string Id = default(string), string Status = default(string), string Currency = default(string), UcpCheckoutSessionResponseBuyer Buyer = default(UcpCheckoutSessionResponseBuyer), List<InlineResponse20113LineItems> LineItems = default(List<InlineResponse20113LineItems>), List<Iccv1checkoutsessionsFulfillmentTotals> Totals = default(List<Iccv1checkoutsessionsFulfillmentTotals>), InlineResponse20113Fulfillment Fulfillment = default(InlineResponse20113Fulfillment), InlineResponse20113Payment Payment = default(InlineResponse20113Payment), InlineResponse20113Discounts Discounts = default(InlineResponse20113Discounts), InlineResponse20113Order Order = default(InlineResponse20113Order), List<InlineResponse20112Links> Links = default(List<InlineResponse20112Links>))
         {
+            this.Ucp = Ucp;
             this.Id = Id;
             this.Status = Status;
             this.Currency = Currency;
-            this.LineItems = LineItems;
-            this.FulfillmentAddress = FulfillmentAddress;
-            this.FulfillmentOptions = FulfillmentOptions;
-            this.FulfillmentOptionId = FulfillmentOptionId;
-            this.Totals = Totals;
             this.Buyer = Buyer;
-            this.PaymentProvider = PaymentProvider;
-            this.Messages = Messages;
+            this.LineItems = LineItems;
+            this.Totals = Totals;
+            this.Fulfillment = Fulfillment;
+            this.Payment = Payment;
+            this.Discounts = Discounts;
+            this.Order = Order;
             this.Links = Links;
         }
         
         /// <summary>
-        /// Unique identifier for this checkout session. Required for all subsequent calls (update, complete, cancel). 
+        /// Gets or Sets Ucp
         /// </summary>
-        /// <value>Unique identifier for this checkout session. Required for all subsequent calls (update, complete, cancel). </value>
+        [JsonPropertyName("ucp")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse20113Ucp Ucp { get; set; }
+
+        /// <summary>
+        /// Unique UCP session identifier. Required for all subsequent UCP calls (update, complete, cancel). 
+        /// </summary>
+        /// <value>Unique UCP session identifier. Required for all subsequent UCP calls (update, complete, cancel). </value>
         [JsonPropertyName("id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Current lifecycle state of the session per ACP spec: - &#x60;not_ready_for_payment&#x60; — session is open but not yet ready - &#x60;ready_for_payment&#x60; — session is ready to be completed - &#x60;completed&#x60; — order has been placed; session is immutable - &#x60;canceled&#x60; — session was abandoned; no charge was made   Possible values: - not_ready_for_payment - ready_for_payment - completed - canceled
+        /// Current lifecycle state of the session. - &#x60;active&#x60; — open and modifiable - &#x60;completed&#x60; — order placed, immutable - &#x60;cancelled&#x60; — abandoned, no charge made   Possible values: - active - completed - cancelled
         /// </summary>
-        /// <value>Current lifecycle state of the session per ACP spec: - &#x60;not_ready_for_payment&#x60; — session is open but not yet ready - &#x60;ready_for_payment&#x60; — session is ready to be completed - &#x60;completed&#x60; — order has been placed; session is immutable - &#x60;canceled&#x60; — session was abandoned; no charge was made   Possible values: - not_ready_for_payment - ready_for_payment - completed - canceled</value>
+        /// <value>Current lifecycle state of the session. - &#x60;active&#x60; — open and modifiable - &#x60;completed&#x60; — order placed, immutable - &#x60;cancelled&#x60; — abandoned, no charge made   Possible values: - active - completed - cancelled</value>
         [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Status { get; set; }
 
         /// <summary>
-        /// ISO 4217 lowercase currency code for this session.
+        /// ISO 4217 currency code for this session (e.g. &#x60;USD&#x60;, &#x60;EUR&#x60;).
         /// </summary>
-        /// <value>ISO 4217 lowercase currency code for this session.</value>
+        /// <value>ISO 4217 currency code for this session (e.g. &#x60;USD&#x60;, &#x60;EUR&#x60;).</value>
         [JsonPropertyName("currency")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Currency { get; set; }
-
-        /// <summary>
-        /// Line items with merchant-confirmed pricing.
-        /// </summary>
-        /// <value>Line items with merchant-confirmed pricing.</value>
-        [JsonPropertyName("line_items")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20113LineItems> LineItems { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FulfillmentAddress
-        /// </summary>
-        [JsonPropertyName("fulfillment_address")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse20113FulfillmentAddress FulfillmentAddress { get; set; }
-
-        /// <summary>
-        /// Available fulfillment methods with pricing.
-        /// </summary>
-        /// <value>Available fulfillment methods with pricing.</value>
-        [JsonPropertyName("fulfillment_options")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20113FulfillmentOptions> FulfillmentOptions { get; set; }
-
-        /// <summary>
-        /// ID of the currently selected fulfillment option.
-        /// </summary>
-        /// <value>ID of the currently selected fulfillment option.</value>
-        [JsonPropertyName("fulfillment_option_id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string FulfillmentOptionId { get; set; }
-
-        /// <summary>
-        /// Order cost breakdown as an array of typed total lines. All amounts in minor units (cents).
-        /// </summary>
-        /// <value>Order cost breakdown as an array of typed total lines. All amounts in minor units (cents).</value>
-        [JsonPropertyName("totals")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20113Totals> Totals { get; set; }
 
         /// <summary>
         /// Gets or Sets Buyer
         /// </summary>
         [JsonPropertyName("buyer")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public AcpCheckoutSessionResponseBuyer Buyer { get; set; }
+        public UcpCheckoutSessionResponseBuyer Buyer { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaymentProvider
+        /// Cart line items with merchant-confirmed pricing.
         /// </summary>
-        [JsonPropertyName("payment_provider")]
+        /// <value>Cart line items with merchant-confirmed pricing.</value>
+        [JsonPropertyName("line_items")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse20113PaymentProvider PaymentProvider { get; set; }
+        public List<InlineResponse20113LineItems> LineItems { get; set; }
 
         /// <summary>
-        /// Informational or error messages from the merchant backend.
+        /// Order cost breakdown. Each entry represents one total type (subtotal, tax, shipping, discount, or grand total). Amounts are in **cents** (not micros). 
         /// </summary>
-        /// <value>Informational or error messages from the merchant backend.</value>
-        [JsonPropertyName("messages")]
+        /// <value>Order cost breakdown. Each entry represents one total type (subtotal, tax, shipping, discount, or grand total). Amounts are in **cents** (not micros). </value>
+        [JsonPropertyName("totals")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20113Messages> Messages { get; set; }
+        public List<Iccv1checkoutsessionsFulfillmentTotals> Totals { get; set; }
 
         /// <summary>
-        /// Related resource links from the merchant (e.g. terms of use, privacy policy, seller shop policies). 
+        /// Gets or Sets Fulfillment
         /// </summary>
-        /// <value>Related resource links from the merchant (e.g. terms of use, privacy policy, seller shop policies). </value>
+        [JsonPropertyName("fulfillment")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse20113Fulfillment Fulfillment { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Payment
+        /// </summary>
+        [JsonPropertyName("payment")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse20113Payment Payment { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Discounts
+        /// </summary>
+        [JsonPropertyName("discounts")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse20113Discounts Discounts { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Order
+        /// </summary>
+        [JsonPropertyName("order")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse20113Order Order { get; set; }
+
+        /// <summary>
+        /// Related resource links (e.g. terms of use, privacy policy).
+        /// </summary>
+        /// <value>Related resource links (e.g. terms of use, privacy policy).</value>
         [JsonPropertyName("links")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20113Links> Links { get; set; }
+        public List<InlineResponse20112Links> Links { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -163,17 +160,17 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20113 {\n");
+            if (Ucp != null) sb.Append("  Ucp: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "ucp", Ucp.ToString())).Append("\n");
             if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "id", Id.ToString())).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "status", Status.ToString())).Append("\n");
             if (Currency != null) sb.Append("  Currency: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "currency", Currency.ToString())).Append("\n");
-            if (LineItems != null) sb.Append("  LineItems: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "line_items", LineItems.ToString())).Append("\n");
-            if (FulfillmentAddress != null) sb.Append("  FulfillmentAddress: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "fulfillment_address", FulfillmentAddress.ToString())).Append("\n");
-            if (FulfillmentOptions != null) sb.Append("  FulfillmentOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "fulfillment_options", FulfillmentOptions.ToString())).Append("\n");
-            if (FulfillmentOptionId != null) sb.Append("  FulfillmentOptionId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "fulfillment_option_id", FulfillmentOptionId.ToString())).Append("\n");
-            if (Totals != null) sb.Append("  Totals: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "totals", Totals.ToString())).Append("\n");
             if (Buyer != null) sb.Append("  Buyer: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "buyer", Buyer.ToString())).Append("\n");
-            if (PaymentProvider != null) sb.Append("  PaymentProvider: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "payment_provider", PaymentProvider.ToString())).Append("\n");
-            if (Messages != null) sb.Append("  Messages: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "messages", Messages.ToString())).Append("\n");
+            if (LineItems != null) sb.Append("  LineItems: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "line_items", LineItems.ToString())).Append("\n");
+            if (Totals != null) sb.Append("  Totals: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "totals", Totals.ToString())).Append("\n");
+            if (Fulfillment != null) sb.Append("  Fulfillment: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "fulfillment", Fulfillment.ToString())).Append("\n");
+            if (Payment != null) sb.Append("  Payment: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "payment", Payment.ToString())).Append("\n");
+            if (Discounts != null) sb.Append("  Discounts: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "discounts", Discounts.ToString())).Append("\n");
+            if (Order != null) sb.Append("  Order: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "order", Order.ToString())).Append("\n");
             if (Links != null) sb.Append("  Links: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20113", "links", Links.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
@@ -217,6 +214,11 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
+                    this.Ucp == other.Ucp ||
+                    this.Ucp != null &&
+                    this.Ucp.Equals(other.Ucp)
+                ) && 
+                (
                     this.Id == other.Id ||
                     this.Id != null &&
                     this.Id.Equals(other.Id)
@@ -232,24 +234,14 @@ namespace CyberSource.Model
                     this.Currency.Equals(other.Currency)
                 ) && 
                 (
+                    this.Buyer == other.Buyer ||
+                    this.Buyer != null &&
+                    this.Buyer.Equals(other.Buyer)
+                ) && 
+                (
                     this.LineItems == other.LineItems ||
                     this.LineItems != null &&
                     this.LineItems.SequenceEqual(other.LineItems)
-                ) && 
-                (
-                    this.FulfillmentAddress == other.FulfillmentAddress ||
-                    this.FulfillmentAddress != null &&
-                    this.FulfillmentAddress.Equals(other.FulfillmentAddress)
-                ) && 
-                (
-                    this.FulfillmentOptions == other.FulfillmentOptions ||
-                    this.FulfillmentOptions != null &&
-                    this.FulfillmentOptions.SequenceEqual(other.FulfillmentOptions)
-                ) && 
-                (
-                    this.FulfillmentOptionId == other.FulfillmentOptionId ||
-                    this.FulfillmentOptionId != null &&
-                    this.FulfillmentOptionId.Equals(other.FulfillmentOptionId)
                 ) && 
                 (
                     this.Totals == other.Totals ||
@@ -257,19 +249,24 @@ namespace CyberSource.Model
                     this.Totals.SequenceEqual(other.Totals)
                 ) && 
                 (
-                    this.Buyer == other.Buyer ||
-                    this.Buyer != null &&
-                    this.Buyer.Equals(other.Buyer)
+                    this.Fulfillment == other.Fulfillment ||
+                    this.Fulfillment != null &&
+                    this.Fulfillment.Equals(other.Fulfillment)
                 ) && 
                 (
-                    this.PaymentProvider == other.PaymentProvider ||
-                    this.PaymentProvider != null &&
-                    this.PaymentProvider.Equals(other.PaymentProvider)
+                    this.Payment == other.Payment ||
+                    this.Payment != null &&
+                    this.Payment.Equals(other.Payment)
                 ) && 
                 (
-                    this.Messages == other.Messages ||
-                    this.Messages != null &&
-                    this.Messages.SequenceEqual(other.Messages)
+                    this.Discounts == other.Discounts ||
+                    this.Discounts != null &&
+                    this.Discounts.Equals(other.Discounts)
+                ) && 
+                (
+                    this.Order == other.Order ||
+                    this.Order != null &&
+                    this.Order.Equals(other.Order)
                 ) && 
                 (
                     this.Links == other.Links ||
@@ -291,28 +288,28 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
+                if (this.Ucp != null)
+                    hash = hash * 59 + this.Ucp.GetHashCode();
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Currency != null)
                     hash = hash * 59 + this.Currency.GetHashCode();
-                if (this.LineItems != null)
-                    hash = hash * 59 + this.LineItems.GetHashCode();
-                if (this.FulfillmentAddress != null)
-                    hash = hash * 59 + this.FulfillmentAddress.GetHashCode();
-                if (this.FulfillmentOptions != null)
-                    hash = hash * 59 + this.FulfillmentOptions.GetHashCode();
-                if (this.FulfillmentOptionId != null)
-                    hash = hash * 59 + this.FulfillmentOptionId.GetHashCode();
-                if (this.Totals != null)
-                    hash = hash * 59 + this.Totals.GetHashCode();
                 if (this.Buyer != null)
                     hash = hash * 59 + this.Buyer.GetHashCode();
-                if (this.PaymentProvider != null)
-                    hash = hash * 59 + this.PaymentProvider.GetHashCode();
-                if (this.Messages != null)
-                    hash = hash * 59 + this.Messages.GetHashCode();
+                if (this.LineItems != null)
+                    hash = hash * 59 + this.LineItems.GetHashCode();
+                if (this.Totals != null)
+                    hash = hash * 59 + this.Totals.GetHashCode();
+                if (this.Fulfillment != null)
+                    hash = hash * 59 + this.Fulfillment.GetHashCode();
+                if (this.Payment != null)
+                    hash = hash * 59 + this.Payment.GetHashCode();
+                if (this.Discounts != null)
+                    hash = hash * 59 + this.Discounts.GetHashCode();
+                if (this.Order != null)
+                    hash = hash * 59 + this.Order.GetHashCode();
                 if (this.Links != null)
                     hash = hash * 59 + this.Links.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();

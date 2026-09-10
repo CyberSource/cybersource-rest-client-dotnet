@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using NUnit.Framework;
 
 using CyberSource.Client;
@@ -172,7 +171,7 @@ namespace CyberSource.Test
             //string timestamp = null;
             //string aPIVersion = null;
             //var response = instance.CreateCheckoutSession(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
-            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
+            //Assert.IsInstanceOf<InlineResponse20112> (response, "response is InlineResponse20112");
         }
         
         /// <summary>
@@ -242,7 +241,7 @@ namespace CyberSource.Test
             //string timestamp = null;
             //string aPIVersion = null;
             //var response = instance.GetCheckoutSession(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
-            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
+            //Assert.IsInstanceOf<InlineResponse20112> (response, "response is InlineResponse20112");
         }
         
         /// <summary>
@@ -305,7 +304,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string sessionId = null;
             //var response = instance.UcpCancelCheckout(sessionId);
-            //Assert.IsInstanceOf<InlineResponse20114> (response, "response is InlineResponse20114");
+            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
         }
         
         /// <summary>
@@ -319,7 +318,7 @@ namespace CyberSource.Test
             //string idempotencyKey = null;
             //UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null;
             //var response = instance.UcpCompleteCheckout(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
-            //Assert.IsInstanceOf<InlineResponse20114> (response, "response is InlineResponse20114");
+            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
         }
         
         /// <summary>
@@ -332,7 +331,7 @@ namespace CyberSource.Test
             //UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest = null;
             //string idempotencyKey = null;
             //var response = instance.UcpCreateCheckoutSession(ucpCreateCheckoutSessionRequest, idempotencyKey);
-            //Assert.IsInstanceOf<InlineResponse20114> (response, "response is InlineResponse20114");
+            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
         }
         
         /// <summary>
@@ -345,7 +344,7 @@ namespace CyberSource.Test
             //string sessionId = null;
             //Object ucpGetCheckoutSessionRequest = null;
             //var response = instance.UcpGetCheckoutSession(sessionId, ucpGetCheckoutSessionRequest);
-            //Assert.IsInstanceOf<InlineResponse20114> (response, "response is InlineResponse20114");
+            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
         }
         
         /// <summary>
@@ -359,7 +358,7 @@ namespace CyberSource.Test
             //UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest = null;
             //string idempotencyKey = null;
             //var response = instance.UcpUpdateCheckoutSession(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
-            //Assert.IsInstanceOf<InlineResponse20114> (response, "response is InlineResponse20114");
+            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
         }
         
         /// <summary>
@@ -406,7 +405,7 @@ namespace CyberSource.Test
             //string timestamp = null;
             //string aPIVersion = null;
             //var response = instance.UpdateCheckoutSession(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
-            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
+            //Assert.IsInstanceOf<InlineResponse20112> (response, "response is InlineResponse20112");
         }
         
         /// <summary>

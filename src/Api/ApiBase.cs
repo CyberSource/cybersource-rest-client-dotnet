@@ -52,8 +52,18 @@ namespace CyberSource.Api
         public static readonly ExceptionFactory DefaultExceptionFactory = (methodName, response) =>
         {
             int status = (int)response.StatusCode;
-            if (status >= 400) return new ApiException(status, String.Format("Error calling {0}: {1}", methodName, response.Content), response.Content);
-            if (status == 0) return new ApiException(status, String.Format("Error calling {0}: {1}", methodName, response.ErrorMessage), response.ErrorMessage);
+            if (status >= 400)
+            {
+                string content = response.Content != null
+                    ? response.Content.ReadAsStringAsync().GetAwaiter().GetResult()
+                    : string.Empty;
+                return new ApiException(status, String.Format("Error calling {0}: {1}", methodName, content), content);
+            }
+            if (status == 0)
+            {
+                string reason = response.ReasonPhrase ?? string.Empty;
+                return new ApiException(status, String.Format("Error calling {0}: {1}", methodName, reason), reason);
+            }
             return null;
         };
         #endregion Properties
@@ -94,7 +104,7 @@ namespace CyberSource.Api
         /// <value>The base path</value>
         public string GetBasePath()
         {
-            return ApiClient.RestClient.Options.BaseUrl.ToString();
+            return ApiClient.BaseUrl?.ToString();
         }
 
         /// <summary>

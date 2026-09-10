@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using RestSharp.Portable;
 {{/netStandard}}
 {{^netStandard}}
-using RestSharp;
+using System.Net.Http;
 {{/netStandard}}
 using {{packageName}}.Client;
 {{#hasImport}}using {{packageName}}.{{modelPackage}};
@@ -215,7 +215,7 @@ namespace {{packageName}}.{{apiPackage}}
 
             {{/bodyParam}}
             {{^bodyParam}}
-            if (Method.{{httpMethod}} == Method.POST)
+            if (new HttpMethod("{{httpMethod}}") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -255,8 +255,8 @@ namespace {{packageName}}.{{apiPackage}}
             {{/bodyParam}}
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.{{httpMethod}}, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("{{httpMethod}}"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -273,13 +273,13 @@ namespace {{packageName}}.{{apiPackage}}
 
             {{#returnType}}
             return new ApiResponse<{{{returnType}}}>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 ({{{returnType}}}) ApiClient.Deserialize(localVarResponse, typeof({{#returnContainer}}{{{returnContainer}}}{{/returnContainer}}{{^returnContainer}}{{{returnType}}}{{/returnContainer}}))); // Return statement
             {{/returnType}}
             {{^returnType}}
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 localVarResponse.Content); // Return statement
             {{/returnType}}
         }
@@ -394,7 +394,7 @@ namespace {{packageName}}.{{apiPackage}}
 
             {{/bodyParam}}
             {{^bodyParam}}
-            if (Method.{{httpMethod}} == Method.POST)
+            if (new HttpMethod("{{httpMethod}}") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -433,8 +433,8 @@ namespace {{packageName}}.{{apiPackage}}
             {{/bodyParam}}
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.{{httpMethod}}, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("{{httpMethod}}"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -451,13 +451,13 @@ namespace {{packageName}}.{{apiPackage}}
 
             {{#returnType}}
             return new ApiResponse<{{{returnType}}}>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 ({{{returnType}}}) ApiClient.Deserialize(localVarResponse, typeof({{#returnContainer}}{{{returnContainer}}}{{/returnContainer}}{{^returnContainer}}{{{returnType}}}{{/returnContainer}}))); // Return statement
             {{/returnType}}
             {{^returnType}}
             this.SetStatusCode(localVarStatusCode);
             return new ApiResponse<object>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.{{^netStandard}}Name{{/netStandard}}{{#netStandard}}Key{{/netStandard}}).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 localVarResponse.Content); // Return statement
             {{/returnType}}
         }

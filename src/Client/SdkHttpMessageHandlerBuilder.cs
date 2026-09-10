@@ -1,4 +1,3 @@
-using RestSharp;
 using System;
 using System.Globalization;
 using System.Net;
@@ -10,29 +9,23 @@ namespace CyberSource.Client
 {
     /// <summary>
     /// Builds a fully configured <see cref="StandardSocketsHttpHandler"/> and its wrapping
-    /// <see cref="HttpClient"/> for the SDK-owned transport path. This is a pure builder — it never
-    /// caches, disposes, or shares the returned instances.
+    /// <see cref="HttpClient"/> for the SDK-owned transport path. Pure builder — never caches,
+    /// disposes, or shares the returned instances.
     /// </summary>
-    /// <remarks>
-    /// When <see cref="RestClientOptions.Proxy"/> is <c>null</c>, the resulting handler leaves the
-    /// framework's default proxy behavior in place (system / environment proxy). Callers who want
-    /// "no proxy" must explicitly set <see cref="RestClientOptions.Proxy"/> to a proxy that returns
-    /// the request URI unchanged, or configure the process default accordingly.
-    /// </remarks>
     internal static class SdkHttpMessageHandlerBuilder
     {
         /// <summary>
         /// Constructs a new <see cref="HttpClient"/> backed by a <see cref="StandardSocketsHttpHandler"/>
         /// configured with the supplied pooling parameters and the proxy / client-certificate settings
-        /// carried by <paramref name="restClientOptions"/>.
+        /// carried by <paramref name="transportOptions"/>.
         /// </summary>
         public static HttpClient Build(
-            RestClientOptions restClientOptions,
+            HttpTransportOptions transportOptions,
             int maxConnectionsPerServer,
             int pooledConnectionIdleTimeoutMs,
             int pooledConnectionLifetimeMinutes)
         {
-            if (restClientOptions == null) { throw new ArgumentNullException(nameof(restClientOptions)); }
+            if (transportOptions == null) { throw new ArgumentNullException(nameof(transportOptions)); }
 
             StandardSocketsHttpHandler handler = new StandardSocketsHttpHandler
             {
@@ -41,19 +34,24 @@ namespace CyberSource.Client
                 PooledConnectionLifetime = TimeSpan.FromMinutes(pooledConnectionLifetimeMinutes)
             };
 
-            ApplyProxy(handler, restClientOptions.Proxy);
-            ApplyClientCertificates(handler, restClientOptions.ClientCertificates);
+            ApplyProxy(handler, transportOptions.Proxy);
+            ApplyClientCertificates(handler, transportOptions.ClientCertificates);
 
             HttpClient httpClient = new HttpClient(handler)
             {
-                // RestClientOptions.Timeout is nullable — use Timeout.InfiniteTimeSpan as the documented
-                // fallback so a null value cannot crash the SDK-owned build path (was InvalidOperationException).
-                Timeout = restClientOptions.Timeout ?? Timeout.InfiniteTimeSpan
+                // Timeout is nullable — use Timeout.InfiniteTimeSpan as the documented fallback so a
+                // null value cannot crash the SDK-owned build path.
+                Timeout = transportOptions.Timeout ?? Timeout.InfiniteTimeSpan
             };
 
-            if (!string.IsNullOrWhiteSpace(restClientOptions.UserAgent))
+            if (transportOptions.BaseUrl != null)
             {
-                httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(restClientOptions.UserAgent);
+                httpClient.BaseAddress = transportOptions.BaseUrl;
+            }
+
+            if (!string.IsNullOrWhiteSpace(transportOptions.UserAgent))
+            {
+                httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(transportOptions.UserAgent);
             }
 
             return httpClient;

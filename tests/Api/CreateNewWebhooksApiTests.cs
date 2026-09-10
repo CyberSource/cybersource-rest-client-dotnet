@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using NUnit.Framework;
 
 using CyberSource.Client;
@@ -86,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CreateWebhook createWebhook = null;
             //var response = instance.NotificationSubscriptionsV2WebhooksPost(createWebhook);
-            //Assert.IsInstanceOf<InlineResponse2019> (response, "response is InlineResponse2019");
+            //Assert.IsInstanceOf<InlineResponse2018> (response, "response is InlineResponse2018");
         }
         
         /// <summary>
@@ -101,7 +100,7 @@ namespace CyberSource.Test
             //string vCPermissions = null;
             //SaveSymEgressKey saveSymEgressKey = null;
             //var response = instance.SaveSymEgressKey(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
-            //Assert.IsInstanceOf<InlineResponse2018> (response, "response is InlineResponse2018");
+            //Assert.IsInstanceOf<InlineResponse2017> (response, "response is InlineResponse2017");
         }
         
     }

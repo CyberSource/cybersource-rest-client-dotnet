@@ -35,6 +35,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ucv1sessionsData" /> class.
         /// </summary>
         /// <param name="AggregatorInformation">AggregatorInformation.</param>
+        /// <param name="AcquirerInformation">AcquirerInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="ClientReferenceInformation">ClientReferenceInformation.</param>
@@ -47,9 +48,10 @@ namespace CyberSource.Model
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="InstallmentInformation">InstallmentInformation.</param>
         /// <param name="MerchantDefinedInformation">MerchantDefinedInformation.</param>
-        public Ucv1sessionsData(Ucv1sessionsDataAggregatorInformation AggregatorInformation = default(Ucv1sessionsDataAggregatorInformation), Ucv1sessionsDataOrderInformation OrderInformation = default(Ucv1sessionsDataOrderInformation), Ucv1sessionsDataBuyerInformation BuyerInformation = default(Ucv1sessionsDataBuyerInformation), Ucv1sessionsDataClientReferenceInformation ClientReferenceInformation = default(Ucv1sessionsDataClientReferenceInformation), Ucv1sessionsDataConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ucv1sessionsDataConsumerAuthenticationInformation), Ucv1sessionsDataMerchantInformation MerchantInformation = default(Ucv1sessionsDataMerchantInformation), Ucv1sessionsDataProcessingInformation ProcessingInformation = default(Ucv1sessionsDataProcessingInformation), Ucv1sessionsDataRecipientInformation RecipientInformation = default(Ucv1sessionsDataRecipientInformation), Ucv1sessionsDataSenderInformation SenderInformation = default(Ucv1sessionsDataSenderInformation), Ucv1sessionsDataDeviceInformation DeviceInformation = default(Ucv1sessionsDataDeviceInformation), Ucv1sessionsDataPaymentInformation PaymentInformation = default(Ucv1sessionsDataPaymentInformation), Ucv1sessionsDataInstallmentInformation InstallmentInformation = default(Ucv1sessionsDataInstallmentInformation), List<Ucv1sessionsDataMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ucv1sessionsDataMerchantDefinedInformation>))
+        public Ucv1sessionsData(Ucv1sessionsDataAggregatorInformation AggregatorInformation = default(Ucv1sessionsDataAggregatorInformation), Ucv1sessionsDataAcquirerInformation AcquirerInformation = default(Ucv1sessionsDataAcquirerInformation), Ucv1sessionsDataOrderInformation OrderInformation = default(Ucv1sessionsDataOrderInformation), Ucv1sessionsDataBuyerInformation BuyerInformation = default(Ucv1sessionsDataBuyerInformation), Ucv1sessionsDataClientReferenceInformation ClientReferenceInformation = default(Ucv1sessionsDataClientReferenceInformation), Ucv1sessionsDataConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Ucv1sessionsDataConsumerAuthenticationInformation), Ucv1sessionsDataMerchantInformation MerchantInformation = default(Ucv1sessionsDataMerchantInformation), Ucv1sessionsDataProcessingInformation ProcessingInformation = default(Ucv1sessionsDataProcessingInformation), Ucv1sessionsDataRecipientInformation RecipientInformation = default(Ucv1sessionsDataRecipientInformation), Ucv1sessionsDataSenderInformation SenderInformation = default(Ucv1sessionsDataSenderInformation), Ucv1sessionsDataDeviceInformation DeviceInformation = default(Ucv1sessionsDataDeviceInformation), Ucv1sessionsDataPaymentInformation PaymentInformation = default(Ucv1sessionsDataPaymentInformation), Ucv1sessionsDataInstallmentInformation InstallmentInformation = default(Ucv1sessionsDataInstallmentInformation), List<Ucv1sessionsDataMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ucv1sessionsDataMerchantDefinedInformation>))
         {
             this.AggregatorInformation = AggregatorInformation;
+            this.AcquirerInformation = AcquirerInformation;
             this.OrderInformation = OrderInformation;
             this.BuyerInformation = BuyerInformation;
             this.ClientReferenceInformation = ClientReferenceInformation;
@@ -70,6 +72,13 @@ namespace CyberSource.Model
         [JsonPropertyName("aggregatorInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public Ucv1sessionsDataAggregatorInformation AggregatorInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AcquirerInformation
+        /// </summary>
+        [JsonPropertyName("acquirerInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Ucv1sessionsDataAcquirerInformation AcquirerInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderInformation
@@ -164,6 +173,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ucv1sessionsData {\n");
             if (AggregatorInformation != null) sb.Append("  AggregatorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsData", "aggregatorInformation", AggregatorInformation.ToString())).Append("\n");
+            if (AcquirerInformation != null) sb.Append("  AcquirerInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsData", "acquirerInformation", AcquirerInformation.ToString())).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsData", "orderInformation", OrderInformation.ToString())).Append("\n");
             if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsData", "buyerInformation", BuyerInformation.ToString())).Append("\n");
             if (ClientReferenceInformation != null) sb.Append("  ClientReferenceInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsData", "clientReferenceInformation", ClientReferenceInformation.ToString())).Append("\n");
@@ -221,6 +231,11 @@ namespace CyberSource.Model
                     this.AggregatorInformation == other.AggregatorInformation ||
                     this.AggregatorInformation != null &&
                     this.AggregatorInformation.Equals(other.AggregatorInformation)
+                ) && 
+                (
+                    this.AcquirerInformation == other.AcquirerInformation ||
+                    this.AcquirerInformation != null &&
+                    this.AcquirerInformation.Equals(other.AcquirerInformation)
                 ) && 
                 (
                     this.OrderInformation == other.OrderInformation ||
@@ -299,6 +314,8 @@ namespace CyberSource.Model
                 // consistent with Equals.
                 if (this.AggregatorInformation != null)
                     hash = hash * 59 + this.AggregatorInformation.GetHashCode();
+                if (this.AcquirerInformation != null)
+                    hash = hash * 59 + this.AcquirerInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.BuyerInformation != null)

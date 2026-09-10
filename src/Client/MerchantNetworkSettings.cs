@@ -140,7 +140,7 @@ namespace CyberSource.Client
         public IOptionsMonitor<SdkDeserializerOptions> DeserializerOptionsMonitor { get; internal set; }
 
         /// <summary>
-        /// Gets the caller-supplied <see cref="System.Net.Http.HttpClient"/> that RestSharp should use for outgoing requests.
+        /// Gets the caller-supplied <see cref="System.Net.Http.HttpClient"/> used for outgoing requests.
         /// When non-<c>null</c>, the caller owns its lifetime (the SDK never disposes it) and is responsible for handler,
         /// proxy, client certificate, connection pool, and timeout configuration. When <c>null</c>, the SDK falls back to
         /// <see cref="HttpClientFactory"/> if provided, otherwise to its internally managed

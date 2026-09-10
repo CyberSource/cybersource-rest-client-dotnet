@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using NUnit.Framework;
 
 using CyberSource.Client;
@@ -80,7 +79,7 @@ namespace CyberSource.Test
             //string vCCorrelationId = null;
             //string vCOrganizationId = null;
             //var response = instance.CreateFxRates(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
-            //Assert.IsInstanceOf<InlineResponse2014> (response, "response is InlineResponse2014");
+            //Assert.IsInstanceOf<InlineResponse2013> (response, "response is InlineResponse2013");
         }
         
     }

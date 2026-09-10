@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
+        /// Test the property 'SubmitTimeUtc'
+        /// </summary>
+        [Test]
+        public void SubmitTimeUtcTest()
+        {
+            // TODO unit test for the property 'SubmitTimeUtc'
+        }
+        /// <summary>
         /// Test the property 'Status'
         /// </summary>
         [Test]
@@ -81,44 +89,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'SubmitTimeStampUtc'
+        /// Test the property 'PaymentAccountInformation'
         /// </summary>
         [Test]
-        public void SubmitTimeStampUtcTest()
+        public void PaymentAccountInformationTest()
         {
-            // TODO unit test for the property 'SubmitTimeStampUtc'
+            // TODO unit test for the property 'PaymentAccountInformation'
         }
         /// <summary>
-        /// Test the property 'Links'
+        /// Test the property 'IssuerInformation'
         /// </summary>
         [Test]
-        public void LinksTest()
+        public void IssuerInformationTest()
         {
-            // TODO unit test for the property 'Links'
+            // TODO unit test for the property 'IssuerInformation'
         }
         /// <summary>
-        /// Test the property 'Transactions'
+        /// Test the property 'PayoutInformation'
         /// </summary>
         [Test]
-        public void TransactionsTest()
+        public void PayoutInformationTest()
         {
-            // TODO unit test for the property 'Transactions'
-        }
-        /// <summary>
-        /// Test the property 'ClientReferenceInformation'
-        /// </summary>
-        [Test]
-        public void ClientReferenceInformationTest()
-        {
-            // TODO unit test for the property 'ClientReferenceInformation'
-        }
-        /// <summary>
-        /// Test the property 'ErrorInformation'
-        /// </summary>
-        [Test]
-        public void ErrorInformationTest()
-        {
-            // TODO unit test for the property 'ErrorInformation'
+            // TODO unit test for the property 'PayoutInformation'
         }
 
     }

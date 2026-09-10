@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using NUnit.Framework;
 
 using CyberSource.Client;
@@ -79,7 +78,7 @@ namespace CyberSource.Test
             //string vCOrganizationId = null;
             //OfferRequest offerRequest = null;
             //var response = instance.CreateOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
-            //Assert.IsInstanceOf<InlineResponse20112> (response, "response is InlineResponse20112");
+            //Assert.IsInstanceOf<InlineResponse20111> (response, "response is InlineResponse20111");
         }
         
         /// <summary>

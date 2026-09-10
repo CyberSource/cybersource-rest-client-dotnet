@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'MdfValueId'
+        /// </summary>
+        [Test]
+        public void MdfValueIdTest()
+        {
+            // TODO unit test for the property 'MdfValueId'
+        }
+        /// <summary>
         /// Test the property 'ReferenceType'
         /// </summary>
         [Test]

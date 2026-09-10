@@ -34,6 +34,7 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition" /> class.
         /// </summary>
+        /// <param name="MdfValueId">MdfValueId.</param>
         /// <param name="ReferenceType">ReferenceType.</param>
         /// <param name="Label">Label.</param>
         /// <param name="FieldType">FieldType.</param>
@@ -47,8 +48,9 @@ namespace CyberSource.Model
         /// <param name="Position">Position.</param>
         /// <param name="DefinitionId">DefinitionId.</param>
         /// <param name="MerchantDefinedDataIndex">MerchantDefinedDataIndex.</param>
-        public InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition(string ReferenceType = default(string), string Label = default(string), string FieldType = default(string), bool? CustomerVisible = default(bool?), bool? ReadOnly = default(bool?), int? TextMinLength = default(int?), int? TextMaxLength = default(int?), string TextDefaultValue = default(string), string PossibleValues = default(string), string Value = default(string), int? Position = default(int?), int? DefinitionId = default(int?), int? MerchantDefinedDataIndex = default(int?))
+        public InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition(string MdfValueId = default(string), string ReferenceType = default(string), string Label = default(string), string FieldType = default(string), bool? CustomerVisible = default(bool?), bool? ReadOnly = default(bool?), int? TextMinLength = default(int?), int? TextMaxLength = default(int?), string TextDefaultValue = default(string), string PossibleValues = default(string), string Value = default(string), int? Position = default(int?), int? DefinitionId = default(int?), int? MerchantDefinedDataIndex = default(int?))
         {
+            this.MdfValueId = MdfValueId;
             this.ReferenceType = ReferenceType;
             this.Label = Label;
             this.FieldType = FieldType;
@@ -64,6 +66,13 @@ namespace CyberSource.Model
             this.MerchantDefinedDataIndex = MerchantDefinedDataIndex;
         }
         
+        /// <summary>
+        /// Gets or Sets MdfValueId
+        /// </summary>
+        [JsonPropertyName("mdfValueId")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string MdfValueId { get; set; }
+
         /// <summary>
         /// Gets or Sets ReferenceType
         /// </summary>
@@ -163,6 +172,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition {\n");
+            if (MdfValueId != null) sb.Append("  MdfValueId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition", "mdfValueId", MdfValueId.ToString())).Append("\n");
             if (ReferenceType != null) sb.Append("  ReferenceType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition", "referenceType", ReferenceType.ToString())).Append("\n");
             if (Label != null) sb.Append("  Label: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition", "label", Label.ToString())).Append("\n");
             if (FieldType != null) sb.Append("  FieldType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InvoicingV2InvoicesPost201ResponseMerchantDefinedFieldValuesWithDefinition", "fieldType", FieldType.ToString())).Append("\n");
@@ -217,6 +227,11 @@ namespace CyberSource.Model
             // semantic JSON value-equality (JsonElement has no built-in value equality).
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
+                (
+                    this.MdfValueId == other.MdfValueId ||
+                    this.MdfValueId != null &&
+                    this.MdfValueId.Equals(other.MdfValueId)
+                ) && 
                 (
                     this.ReferenceType == other.ReferenceType ||
                     this.ReferenceType != null &&
@@ -297,6 +312,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
+                if (this.MdfValueId != null)
+                    hash = hash * 59 + this.MdfValueId.GetHashCode();
                 if (this.ReferenceType != null)
                     hash = hash * 59 + this.ReferenceType.GetHashCode();
                 if (this.Label != null)

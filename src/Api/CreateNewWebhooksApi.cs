@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using RestSharp;
+using System.Net.Http;
 using CyberSource.Client;
 using CyberSource.Model;
 using AuthenticationSdk.util;
@@ -59,8 +59,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>InlineResponse2019</returns>
-        InlineResponse2019 NotificationSubscriptionsV2WebhooksPost(CreateWebhook createWebhook = null);
+        /// <returns>InlineResponse2018</returns>
+        InlineResponse2018 NotificationSubscriptionsV2WebhooksPost(CreateWebhook createWebhook = null);
 
         /// <summary>
         /// Create a New Webhook Subscription
@@ -70,8 +70,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2019</returns>
-        ApiResponse<InlineResponse2019> NotificationSubscriptionsV2WebhooksPostWithHttpInfo(CreateWebhook createWebhook = null);
+        /// <returns>ApiResponse of InlineResponse2018</returns>
+        ApiResponse<InlineResponse2018> NotificationSubscriptionsV2WebhooksPostWithHttpInfo(CreateWebhook createWebhook = null);
         /// <summary>
         /// Create Webhook Security Keys
         /// </summary>
@@ -83,8 +83,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>InlineResponse2018</returns>
-        InlineResponse2018 SaveSymEgressKey(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>InlineResponse2017</returns>
+        InlineResponse2017 SaveSymEgressKey(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
 
         /// <summary>
         /// Create Webhook Security Keys
@@ -97,8 +97,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2018</returns>
-        ApiResponse<InlineResponse2018> SaveSymEgressKeyWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>ApiResponse of InlineResponse2017</returns>
+        ApiResponse<InlineResponse2017> SaveSymEgressKeyWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -130,8 +130,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>Task of InlineResponse2019</returns>
-        System.Threading.Tasks.Task<InlineResponse2019> NotificationSubscriptionsV2WebhooksPostAsync(CreateWebhook createWebhook = null);
+        /// <returns>Task of InlineResponse2018</returns>
+        System.Threading.Tasks.Task<InlineResponse2018> NotificationSubscriptionsV2WebhooksPostAsync(CreateWebhook createWebhook = null);
 
         /// <summary>
         /// Create a New Webhook Subscription
@@ -141,8 +141,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2019)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2019>> NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo(CreateWebhook createWebhook = null);
+        /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2018>> NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo(CreateWebhook createWebhook = null);
         /// <summary>
         /// Create Webhook Security Keys
         /// </summary>
@@ -154,8 +154,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of InlineResponse2018</returns>
-        System.Threading.Tasks.Task<InlineResponse2018> SaveSymEgressKeyAsync(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>Task of InlineResponse2017</returns>
+        System.Threading.Tasks.Task<InlineResponse2017> SaveSymEgressKeyAsync(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
 
         /// <summary>
         /// Create Webhook Security Keys
@@ -168,8 +168,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2018>> SaveSymEgressKeyAsyncWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2017>> SaveSymEgressKeyAsyncWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
         #endregion Asynchronous Operations
     }
 
@@ -259,7 +259,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -294,8 +294,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -311,7 +311,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<List<InlineResponse2006>>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (List<InlineResponse2006>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2006>))); // Return statement
         }
 
@@ -379,7 +379,7 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (Method.Get == Method.Post)
+            if (new HttpMethod("GET") == new HttpMethod("POST"))
             {
                 localVarPostBody = "{}";
             }
@@ -413,8 +413,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Get, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("GET"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -430,7 +430,7 @@ namespace CyberSource.Api
             }
 
             return new ApiResponse<List<InlineResponse2006>>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
                 (List<InlineResponse2006>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2006>))); // Return statement
         }
         /// <summary>
@@ -438,12 +438,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>InlineResponse2019</returns>
-        public InlineResponse2019 NotificationSubscriptionsV2WebhooksPost(CreateWebhook createWebhook = null)
+        /// <returns>InlineResponse2018</returns>
+        public InlineResponse2018 NotificationSubscriptionsV2WebhooksPost(CreateWebhook createWebhook = null)
         {
             logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksPost\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2019> localVarResponse = NotificationSubscriptionsV2WebhooksPostWithHttpInfo(createWebhook);
+            ApiResponse<InlineResponse2018> localVarResponse = NotificationSubscriptionsV2WebhooksPostWithHttpInfo(createWebhook);
             logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksPost\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -454,8 +454,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2019</returns>
-        public ApiResponse< InlineResponse2019 > NotificationSubscriptionsV2WebhooksPostWithHttpInfo(CreateWebhook createWebhook = null)
+        /// <returns>ApiResponse of InlineResponse2018</returns>
+        public ApiResponse< InlineResponse2018 > NotificationSubscriptionsV2WebhooksPostWithHttpInfo(CreateWebhook createWebhook = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -516,8 +516,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -532,9 +532,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2019>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2019) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2019))); // Return statement
+            return new ApiResponse<InlineResponse2018>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse2018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2018))); // Return statement
         }
 
         /// <summary>
@@ -542,12 +542,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>Task of InlineResponse2019</returns>
-        public async Task<InlineResponse2019> NotificationSubscriptionsV2WebhooksPostAsync(CreateWebhook createWebhook = null)
+        /// <returns>Task of InlineResponse2018</returns>
+        public async Task<InlineResponse2018> NotificationSubscriptionsV2WebhooksPostAsync(CreateWebhook createWebhook = null)
         {
             logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksPostAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2019> localVarResponse = await NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo(createWebhook);
+            ApiResponse<InlineResponse2018> localVarResponse = await NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo(createWebhook);
             logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksPostAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -559,8 +559,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2019)</returns>
-        public async Task<ApiResponse<InlineResponse2019>> NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo(CreateWebhook createWebhook = null)
+        /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
+        public async Task<ApiResponse<InlineResponse2018>> NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo(CreateWebhook createWebhook = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -621,8 +621,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -637,9 +637,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2019>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2019) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2019))); // Return statement
+            return new ApiResponse<InlineResponse2018>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse2018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2018))); // Return statement
         }
         /// <summary>
         /// Create Webhook Security Keys Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remember to save the key in the API response, so that you can use it to validate messages later. 
@@ -649,12 +649,12 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>InlineResponse2018</returns>
-        public InlineResponse2018 SaveSymEgressKey(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>InlineResponse2017</returns>
+        public InlineResponse2017 SaveSymEgressKey(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             logger.LogDebug("CALLING API \"SaveSymEgressKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2018> localVarResponse = SaveSymEgressKeyWithHttpInfo(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
+            ApiResponse<InlineResponse2017> localVarResponse = SaveSymEgressKeyWithHttpInfo(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
             logger.LogDebug("CALLING API \"SaveSymEgressKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -668,8 +668,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2018</returns>
-        public ApiResponse< InlineResponse2018 > SaveSymEgressKeyWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>ApiResponse of InlineResponse2017</returns>
+        public ApiResponse< InlineResponse2017 > SaveSymEgressKeyWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -745,8 +745,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse) ApiClient.CallApi(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -761,9 +761,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2018>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2018))); // Return statement
+            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse2017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017))); // Return statement
         }
 
         /// <summary>
@@ -774,12 +774,12 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of InlineResponse2018</returns>
-        public async Task<InlineResponse2018> SaveSymEgressKeyAsync(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>Task of InlineResponse2017</returns>
+        public async Task<InlineResponse2017> SaveSymEgressKeyAsync(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             logger.LogDebug("CALLING API \"SaveSymEgressKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2018> localVarResponse = await SaveSymEgressKeyAsyncWithHttpInfo(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
+            ApiResponse<InlineResponse2017> localVarResponse = await SaveSymEgressKeyAsyncWithHttpInfo(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
             logger.LogDebug("CALLING API \"SaveSymEgressKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -794,8 +794,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
-        public async Task<ApiResponse<InlineResponse2018>> SaveSymEgressKeyAsyncWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
+        public async Task<ApiResponse<InlineResponse2017>> SaveSymEgressKeyAsyncWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -871,8 +871,8 @@ namespace CyberSource.Api
 
 
             // make the HTTP request
-            RestResponse localVarResponse = (RestResponse)await ApiClient.CallApiAsync(localVarPath,
-                Method.Post, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -887,9 +887,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2018>(localVarStatusCode,
-                localVarResponse.Headers.GroupBy(h => h.Name).ToDictionary(x => x.Key, x => string.Join(", ", x.Select(h => h.Value.ToString()))),
-                (InlineResponse2018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2018))); // Return statement
+            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (InlineResponse2017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017))); // Return statement
         }
     }
 }

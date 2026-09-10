@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **long?** |  | [optional] 
+**Id** | **string** |  | [optional] 
 **FieldType** | **string** |  | [optional] 
 **Label** | **string** |  | [optional] 
 **CustomerVisible** | **bool?** |  | [optional] 

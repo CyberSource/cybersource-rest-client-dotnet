@@ -34,18 +34,48 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2014ProcessingInformation" /> class.
         /// </summary>
-        /// <param name="Routing">Routing.</param>
-        public InlineResponse2014ProcessingInformation(InlineResponse2014ProcessingInformationRouting Routing = default(InlineResponse2014ProcessingInformationRouting))
+        /// <param name="BusinessApplicationId">Payouts transaction type.  Possible Values: - &#x60;AA&#x60; - Account to account - &#x60;AB&#x60; - Business to Business - &#x60;PP&#x60; - Person to person - &#x60;TU&#x60; - Top-up for enhanced prepaid loads - &#x60;WT&#x60; - Wallet transfer - &#x60;BI&#x60; - Bank Initiated - &#x60;FT&#x60; - Funds Transfer - &#x60;FD&#x60; - Funds Disbursement - &#x60;GD&#x60; - Government Disbursement - &#x60;PD&#x60; - Payroll Disbursement - &#x60;LA&#x60; - Liquid Assets - &#x60;CP&#x60; - Card Bill Payment - &#x60;MP&#x60; - Non-card Bill Payment - &#x60;CD&#x60; - Cash Deposit - &#x60;CI&#x60; - Cash in - &#x60;CO&#x60; - Cash out - &#x60;GP&#x60; - Gambling Payment - &#x60;LO&#x60; - Loyalty and Offers - &#x60;MD&#x60; - Merchant Disbursement - &#x60;MI&#x60; - Merchant Initiated OCT for Faster Refund - &#x60;OG&#x60; - Online Gambling - &#x60;OT&#x60; - Own Account Transfer - &#x60;PS&#x60; - Payment for goods and services - &#x60;RP&#x60; - Request-To-Pay Service .</param>
+        /// <param name="CommerceIndicator">Type of transaction. .</param>
+        /// <param name="PayoutsOptions">PayoutsOptions.</param>
+        /// <param name="ReconciliationId">CyberSource or merchant generated transaction reference number. This is sent to the processor and is echoed back in the response to the merchant. This is This value is used for reconciliation purposes. .</param>
+        public InlineResponse2014ProcessingInformation(string BusinessApplicationId = default(string), string CommerceIndicator = default(string), InlineResponse2014ProcessingInformationPayoutsOptions PayoutsOptions = default(InlineResponse2014ProcessingInformationPayoutsOptions), string ReconciliationId = default(string))
         {
-            this.Routing = Routing;
+            this.BusinessApplicationId = BusinessApplicationId;
+            this.CommerceIndicator = CommerceIndicator;
+            this.PayoutsOptions = PayoutsOptions;
+            this.ReconciliationId = ReconciliationId;
         }
         
         /// <summary>
-        /// Gets or Sets Routing
+        /// Payouts transaction type.  Possible Values: - &#x60;AA&#x60; - Account to account - &#x60;AB&#x60; - Business to Business - &#x60;PP&#x60; - Person to person - &#x60;TU&#x60; - Top-up for enhanced prepaid loads - &#x60;WT&#x60; - Wallet transfer - &#x60;BI&#x60; - Bank Initiated - &#x60;FT&#x60; - Funds Transfer - &#x60;FD&#x60; - Funds Disbursement - &#x60;GD&#x60; - Government Disbursement - &#x60;PD&#x60; - Payroll Disbursement - &#x60;LA&#x60; - Liquid Assets - &#x60;CP&#x60; - Card Bill Payment - &#x60;MP&#x60; - Non-card Bill Payment - &#x60;CD&#x60; - Cash Deposit - &#x60;CI&#x60; - Cash in - &#x60;CO&#x60; - Cash out - &#x60;GP&#x60; - Gambling Payment - &#x60;LO&#x60; - Loyalty and Offers - &#x60;MD&#x60; - Merchant Disbursement - &#x60;MI&#x60; - Merchant Initiated OCT for Faster Refund - &#x60;OG&#x60; - Online Gambling - &#x60;OT&#x60; - Own Account Transfer - &#x60;PS&#x60; - Payment for goods and services - &#x60;RP&#x60; - Request-To-Pay Service 
         /// </summary>
-        [JsonPropertyName("routing")]
+        /// <value>Payouts transaction type.  Possible Values: - &#x60;AA&#x60; - Account to account - &#x60;AB&#x60; - Business to Business - &#x60;PP&#x60; - Person to person - &#x60;TU&#x60; - Top-up for enhanced prepaid loads - &#x60;WT&#x60; - Wallet transfer - &#x60;BI&#x60; - Bank Initiated - &#x60;FT&#x60; - Funds Transfer - &#x60;FD&#x60; - Funds Disbursement - &#x60;GD&#x60; - Government Disbursement - &#x60;PD&#x60; - Payroll Disbursement - &#x60;LA&#x60; - Liquid Assets - &#x60;CP&#x60; - Card Bill Payment - &#x60;MP&#x60; - Non-card Bill Payment - &#x60;CD&#x60; - Cash Deposit - &#x60;CI&#x60; - Cash in - &#x60;CO&#x60; - Cash out - &#x60;GP&#x60; - Gambling Payment - &#x60;LO&#x60; - Loyalty and Offers - &#x60;MD&#x60; - Merchant Disbursement - &#x60;MI&#x60; - Merchant Initiated OCT for Faster Refund - &#x60;OG&#x60; - Online Gambling - &#x60;OT&#x60; - Own Account Transfer - &#x60;PS&#x60; - Payment for goods and services - &#x60;RP&#x60; - Request-To-Pay Service </value>
+        [JsonPropertyName("businessApplicationId")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse2014ProcessingInformationRouting Routing { get; set; }
+        public string BusinessApplicationId { get; set; }
+
+        /// <summary>
+        /// Type of transaction. 
+        /// </summary>
+        /// <value>Type of transaction. </value>
+        [JsonPropertyName("commerceIndicator")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string CommerceIndicator { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PayoutsOptions
+        /// </summary>
+        [JsonPropertyName("payoutsOptions")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public InlineResponse2014ProcessingInformationPayoutsOptions PayoutsOptions { get; set; }
+
+        /// <summary>
+        /// CyberSource or merchant generated transaction reference number. This is sent to the processor and is echoed back in the response to the merchant. This is This value is used for reconciliation purposes. 
+        /// </summary>
+        /// <value>CyberSource or merchant generated transaction reference number. This is sent to the processor and is echoed back in the response to the merchant. This is This value is used for reconciliation purposes. </value>
+        [JsonPropertyName("reconciliationId")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string ReconciliationId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,7 +85,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2014ProcessingInformation {\n");
-            if (Routing != null) sb.Append("  Routing: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014ProcessingInformation", "routing", Routing.ToString())).Append("\n");
+            if (BusinessApplicationId != null) sb.Append("  BusinessApplicationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014ProcessingInformation", "businessApplicationId", BusinessApplicationId.ToString())).Append("\n");
+            if (CommerceIndicator != null) sb.Append("  CommerceIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014ProcessingInformation", "commerceIndicator", CommerceIndicator.ToString())).Append("\n");
+            if (PayoutsOptions != null) sb.Append("  PayoutsOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014ProcessingInformation", "payoutsOptions", PayoutsOptions.ToString())).Append("\n");
+            if (ReconciliationId != null) sb.Append("  ReconciliationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2014ProcessingInformation", "reconciliationId", ReconciliationId.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -98,9 +131,24 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.Routing == other.Routing ||
-                    this.Routing != null &&
-                    this.Routing.Equals(other.Routing)
+                    this.BusinessApplicationId == other.BusinessApplicationId ||
+                    this.BusinessApplicationId != null &&
+                    this.BusinessApplicationId.Equals(other.BusinessApplicationId)
+                ) && 
+                (
+                    this.CommerceIndicator == other.CommerceIndicator ||
+                    this.CommerceIndicator != null &&
+                    this.CommerceIndicator.Equals(other.CommerceIndicator)
+                ) && 
+                (
+                    this.PayoutsOptions == other.PayoutsOptions ||
+                    this.PayoutsOptions != null &&
+                    this.PayoutsOptions.Equals(other.PayoutsOptions)
+                ) && 
+                (
+                    this.ReconciliationId == other.ReconciliationId ||
+                    this.ReconciliationId != null &&
+                    this.ReconciliationId.Equals(other.ReconciliationId)
                 );
         }
 
@@ -117,8 +165,14 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.Routing != null)
-                    hash = hash * 59 + this.Routing.GetHashCode();
+                if (this.BusinessApplicationId != null)
+                    hash = hash * 59 + this.BusinessApplicationId.GetHashCode();
+                if (this.CommerceIndicator != null)
+                    hash = hash * 59 + this.CommerceIndicator.GetHashCode();
+                if (this.PayoutsOptions != null)
+                    hash = hash * 59 + this.PayoutsOptions.GetHashCode();
+                if (this.ReconciliationId != null)
+                    hash = hash * 59 + this.ReconciliationId.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

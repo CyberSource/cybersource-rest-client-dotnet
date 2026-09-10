@@ -65,76 +65,20 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'EventDate'
+        /// Test the property 'SubmitTimeUtc'
         /// </summary>
         [Test]
-        public void EventDateTest()
+        public void SubmitTimeUtcTest()
         {
-            // TODO unit test for the property 'EventDate'
+            // TODO unit test for the property 'SubmitTimeUtc'
         }
         /// <summary>
-        /// Test the property 'EventType'
+        /// Test the property 'Status'
         /// </summary>
         [Test]
-        public void EventTypeTest()
+        public void StatusTest()
         {
-            // TODO unit test for the property 'EventType'
-        }
-        /// <summary>
-        /// Test the property 'OrganizationId'
-        /// </summary>
-        [Test]
-        public void OrganizationIdTest()
-        {
-            // TODO unit test for the property 'OrganizationId'
-        }
-        /// <summary>
-        /// Test the property 'Payloads'
-        /// </summary>
-        [Test]
-        public void PayloadsTest()
-        {
-            // TODO unit test for the property 'Payloads'
-        }
-        /// <summary>
-        /// Test the property 'ProductId'
-        /// </summary>
-        [Test]
-        public void ProductIdTest()
-        {
-            // TODO unit test for the property 'ProductId'
-        }
-        /// <summary>
-        /// Test the property 'RequestType'
-        /// </summary>
-        [Test]
-        public void RequestTypeTest()
-        {
-            // TODO unit test for the property 'RequestType'
-        }
-        /// <summary>
-        /// Test the property 'RetryNumber'
-        /// </summary>
-        [Test]
-        public void RetryNumberTest()
-        {
-            // TODO unit test for the property 'RetryNumber'
-        }
-        /// <summary>
-        /// Test the property 'TransactionTraceId'
-        /// </summary>
-        [Test]
-        public void TransactionTraceIdTest()
-        {
-            // TODO unit test for the property 'TransactionTraceId'
-        }
-        /// <summary>
-        /// Test the property 'WebhookId'
-        /// </summary>
-        [Test]
-        public void WebhookIdTest()
-        {
-            // TODO unit test for the property 'WebhookId'
+            // TODO unit test for the property 'Status'
         }
 
     }

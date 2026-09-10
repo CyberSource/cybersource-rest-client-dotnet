@@ -5,7 +5,7 @@ using System;
 using RestSharp.Portable;
 {{/netStandard}}
 {{^netStandard}}
-using RestSharp;
+using System.Net.Http;
 {{/netStandard}}
 
 namespace {{packageName}}.Client
@@ -16,5 +16,5 @@ namespace {{packageName}}.Client
     /// <param name="methodName">Method name</param>
     /// <param name="response">Response</param>
     /// <returns>Exceptions</returns>
-    {{>visibility}} delegate Exception ExceptionFactory(string methodName, RestResponse response);
+    {{>visibility}} delegate Exception ExceptionFactory(string methodName, HttpResponseMessage response);
 }
