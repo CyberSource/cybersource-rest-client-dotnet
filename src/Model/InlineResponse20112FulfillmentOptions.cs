@@ -34,16 +34,21 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20112FulfillmentOptions" /> class.
         /// </summary>
-        /// <param name="Id">Unique fulfillment option ID. Pass as &#x60;fulfillment_option_id&#x60; to select it..</param>
-        /// <param name="Type">Fulfillment method type.  Possible values: - shipping - digital.</param>
-        /// <param name="Title">Display name for this fulfillment option..</param>
+        [JsonConstructor]
+        protected InlineResponse20112FulfillmentOptions() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse20112FulfillmentOptions" /> class.
+        /// </summary>
+        /// <param name="Id">Unique fulfillment option ID. Pass as &#x60;fulfillment_option_id&#x60; to select it. (required).</param>
+        /// <param name="Type">Fulfillment method type.  Possible values: - shipping - digital (required).</param>
+        /// <param name="Title">Display name for this fulfillment option. (required).</param>
         /// <param name="Subtitle">Additional description (e.g. estimated delivery window)..</param>
         /// <param name="Carrier">Carrier name for shipping options..</param>
         /// <param name="EarliestDeliveryTime">Earliest estimated delivery in RFC 3339 format..</param>
         /// <param name="LatestDeliveryTime">Latest estimated delivery in RFC 3339 format..</param>
-        /// <param name="Subtotal">Shipping cost before tax, in minor units..</param>
-        /// <param name="Tax">Tax on shipping cost, in minor units..</param>
-        /// <param name="Total">Total shipping cost including tax, in minor units..</param>
+        /// <param name="Subtotal">Shipping cost before tax, in minor units. (required).</param>
+        /// <param name="Tax">Tax on shipping cost, in minor units. (required).</param>
+        /// <param name="Total">Total shipping cost including tax, in minor units. (required).</param>
         public InlineResponse20112FulfillmentOptions(string Id = default(string), string Type = default(string), string Title = default(string), string Subtitle = default(string), string Carrier = default(string), DateTime? EarliestDeliveryTime = default(DateTime?), DateTime? LatestDeliveryTime = default(DateTime?), int? Subtotal = default(int?), int? Tax = default(int?), int? Total = default(int?))
         {
             this.Id = Id;

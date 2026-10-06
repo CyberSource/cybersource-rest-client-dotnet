@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **TerminalSerialNumber** | **string** | Terminal serial number assigned by the hardware manufacturer. This value is provided by the client software that is installed on the POS terminal.  This value is not forwarded to the processor. Instead, the value is forwarded to the reporting functionality.  #### Used by **Authorization and Credit** Optional. This field is supported only by client software that is installed on your POS terminals for the following processors: - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - OmniPay Direct - SIX  | [optional] 
 **DeviceId** | **string** | Value created by the client software that uniquely identifies the POS device. CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only for authorizations and credits on these processors: - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - OmniPay Direct - SIX  Optional field. String (32)  | [optional] 
 **Partner** | [**TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner**](TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner.md) |  | [optional] 
-**Emv** | [**Ptsv2paymentsidreversalsPointOfSaleInformationEmv**](Ptsv2paymentsidreversalsPointOfSaleInformationEmv.md) |  | [optional] 
+**Emv** | [**PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformationEmv**](PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformationEmv.md) |  | [optional] 
 
 ## Extensibility
 

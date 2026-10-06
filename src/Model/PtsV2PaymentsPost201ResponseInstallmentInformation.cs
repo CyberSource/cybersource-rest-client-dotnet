@@ -60,7 +60,13 @@ namespace CyberSource.Model
         /// <param name="MaximumTotalCount">Maximum number of installments offered by the issuer for this purchase. The issuer provides this value when the first installment payment is successful. This field is supported for installment payments with Mastercard on CyberSource through VisaNet in all countries except Brazil, Croatia, Georgia, and Greece. The value for this field corresponds to the following data in the TC 33 capture file1: - Record: CP01 TCR5 - Position: 77-78 - Field: Mastercard Maximum Number Of Installments .</param>
         /// <param name="FirstInstallmentAmount">Amount of the first installment payment. The issuer provides this value when the first installment payment is successful. This field is supported for Mastercard installment payments on CyberSource through VisaNet in all countries except Brazil,Croatia, Georgia, and Greece. The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR5 - Position: 23-34 - Field: Amount of Each Installment .</param>
         /// <param name="FirstInstallmentDate">Date of the first installment payment. Format: YYMMDD. When you do not include this field, CyberSource sends a string of six zeros (000000) to the processor.  This field is supported only for Crediario installment payments in Brazil on CyberSource through VisaNet.  The value for this field corresponds to the following data in the TC 33 capture file: - Record: CP01 TCR9 - Position: 42-47 - Field: Date of First Installment .</param>
-        public PtsV2PaymentsPost201ResponseInstallmentInformation(string AdditionalCosts = default(string), string AdditionalCostsPercentage = default(string), string Amount = default(string), string AmountFunded = default(string), string AmountRequestedPercentage = default(string), string AnnualFinancingCost = default(string), string AnnualInterestRate = default(string), string Expenses = default(string), string ExpensesPercentage = default(string), string Fees = default(string), string FeesPercentage = default(string), string Frequency = default(string), string Insurance = default(string), string InsurancePercentage = default(string), string InvoiceData = default(string), string MonthlyInterestRate = default(string), string PlanType = default(string), int? Sequence = default(int?), string Taxes = default(string), string TaxesPercentage = default(string), string TotalAmount = default(string), int? TotalCount = default(int?), string MinimumTotalCount = default(string), string MaximumTotalCount = default(string), string FirstInstallmentAmount = default(string), string FirstInstallmentDate = default(string))
+        /// <param name="GracePeriodDuration">Grace period requested by the customer before the first installment payment is due.  When you include this field in a request, you must also include the grace period duration type field.  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 100-101, Field: Mastercard Grace Period Details.  This field is supported only for Mastercard installment payments in Brazil and Greece. .</param>
+        /// <param name="PaymentType">Payment plan for the installments. This field is supported only for installment payments on Visa Platform Connect, RuPay and SPG-KSA seamless flow.  Possible values for a standing-instruction (SI) merchant-initiated transaction (MIT) with Diners Club or Mastercard in India or with an India-issued card: - 1: SI with a fixed amount. - 2: SI with a maximum amount. - 3: Other kind of SI.  Possible values for a type of Installment transaction for on-soil transaction in Kingdom of Saudi Arabia - 1: Registration or first transaction. - 2: Subsequent transaction.  Possible values for other kinds of installment payments: - 0 (default): Regular installment. This value is not allowed for airline transactions. - 1: Installment payment with down payment. - 2: Installment payment without down payment. This value is supported only for airline transactions. - 3: Installment payment; down payment and boarding fee will follow. This value is supported only for airline transactions. - 4: Down payment only; regular installment payment will follow. - 5: Boarding fee only. This value is supported only for airline transactions. - 6: SI de-registration on RuPay for the payer authentication seamless flow. .</param>
+        /// <param name="AmountType">Valid Values from Issuer - Percentage &#x3D; 999v99 Example P123.12 - Amount &#x3D; 9(10)v99 Example A123.12 .</param>
+        /// <param name="PercentageDiscount">Valid Values from Issuer .</param>
+        /// <param name="InterestIndicator">Indicates if the installment plan has interest.  Possible values: -Y - with interest -N - without interest -NULL - Do not send the field if no information available .</param>
+        /// <param name="FinancingCurrency">Valid Values from Issuer .</param>
+        public PtsV2PaymentsPost201ResponseInstallmentInformation(string AdditionalCosts = default(string), string AdditionalCostsPercentage = default(string), string Amount = default(string), string AmountFunded = default(string), string AmountRequestedPercentage = default(string), string AnnualFinancingCost = default(string), string AnnualInterestRate = default(string), string Expenses = default(string), string ExpensesPercentage = default(string), string Fees = default(string), string FeesPercentage = default(string), string Frequency = default(string), string Insurance = default(string), string InsurancePercentage = default(string), string InvoiceData = default(string), string MonthlyInterestRate = default(string), string PlanType = default(string), int? Sequence = default(int?), string Taxes = default(string), string TaxesPercentage = default(string), string TotalAmount = default(string), int? TotalCount = default(int?), string MinimumTotalCount = default(string), string MaximumTotalCount = default(string), string FirstInstallmentAmount = default(string), string FirstInstallmentDate = default(string), string GracePeriodDuration = default(string), string PaymentType = default(string), string AmountType = default(string), string PercentageDiscount = default(string), string InterestIndicator = default(string), string FinancingCurrency = default(string))
         {
             this.AdditionalCosts = AdditionalCosts;
             this.AdditionalCostsPercentage = AdditionalCostsPercentage;
@@ -88,6 +94,12 @@ namespace CyberSource.Model
             this.MaximumTotalCount = MaximumTotalCount;
             this.FirstInstallmentAmount = FirstInstallmentAmount;
             this.FirstInstallmentDate = FirstInstallmentDate;
+            this.GracePeriodDuration = GracePeriodDuration;
+            this.PaymentType = PaymentType;
+            this.AmountType = AmountType;
+            this.PercentageDiscount = PercentageDiscount;
+            this.InterestIndicator = InterestIndicator;
+            this.FinancingCurrency = FinancingCurrency;
         }
         
         /// <summary>
@@ -299,6 +311,54 @@ namespace CyberSource.Model
         public string FirstInstallmentDate { get; set; }
 
         /// <summary>
+        /// Grace period requested by the customer before the first installment payment is due.  When you include this field in a request, you must also include the grace period duration type field.  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 100-101, Field: Mastercard Grace Period Details.  This field is supported only for Mastercard installment payments in Brazil and Greece. 
+        /// </summary>
+        /// <value>Grace period requested by the customer before the first installment payment is due.  When you include this field in a request, you must also include the grace period duration type field.  The value for this field corresponds to the following data in the TC 33 capture file3: Record: CP01 TCR5, Position: 100-101, Field: Mastercard Grace Period Details.  This field is supported only for Mastercard installment payments in Brazil and Greece. </value>
+        [JsonPropertyName("gracePeriodDuration")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string GracePeriodDuration { get; set; }
+
+        /// <summary>
+        /// Payment plan for the installments. This field is supported only for installment payments on Visa Platform Connect, RuPay and SPG-KSA seamless flow.  Possible values for a standing-instruction (SI) merchant-initiated transaction (MIT) with Diners Club or Mastercard in India or with an India-issued card: - 1: SI with a fixed amount. - 2: SI with a maximum amount. - 3: Other kind of SI.  Possible values for a type of Installment transaction for on-soil transaction in Kingdom of Saudi Arabia - 1: Registration or first transaction. - 2: Subsequent transaction.  Possible values for other kinds of installment payments: - 0 (default): Regular installment. This value is not allowed for airline transactions. - 1: Installment payment with down payment. - 2: Installment payment without down payment. This value is supported only for airline transactions. - 3: Installment payment; down payment and boarding fee will follow. This value is supported only for airline transactions. - 4: Down payment only; regular installment payment will follow. - 5: Boarding fee only. This value is supported only for airline transactions. - 6: SI de-registration on RuPay for the payer authentication seamless flow. 
+        /// </summary>
+        /// <value>Payment plan for the installments. This field is supported only for installment payments on Visa Platform Connect, RuPay and SPG-KSA seamless flow.  Possible values for a standing-instruction (SI) merchant-initiated transaction (MIT) with Diners Club or Mastercard in India or with an India-issued card: - 1: SI with a fixed amount. - 2: SI with a maximum amount. - 3: Other kind of SI.  Possible values for a type of Installment transaction for on-soil transaction in Kingdom of Saudi Arabia - 1: Registration or first transaction. - 2: Subsequent transaction.  Possible values for other kinds of installment payments: - 0 (default): Regular installment. This value is not allowed for airline transactions. - 1: Installment payment with down payment. - 2: Installment payment without down payment. This value is supported only for airline transactions. - 3: Installment payment; down payment and boarding fee will follow. This value is supported only for airline transactions. - 4: Down payment only; regular installment payment will follow. - 5: Boarding fee only. This value is supported only for airline transactions. - 6: SI de-registration on RuPay for the payer authentication seamless flow. </value>
+        [JsonPropertyName("paymentType")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string PaymentType { get; set; }
+
+        /// <summary>
+        /// Valid Values from Issuer - Percentage &#x3D; 999v99 Example P123.12 - Amount &#x3D; 9(10)v99 Example A123.12 
+        /// </summary>
+        /// <value>Valid Values from Issuer - Percentage &#x3D; 999v99 Example P123.12 - Amount &#x3D; 9(10)v99 Example A123.12 </value>
+        [JsonPropertyName("amountType")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string AmountType { get; set; }
+
+        /// <summary>
+        /// Valid Values from Issuer 
+        /// </summary>
+        /// <value>Valid Values from Issuer </value>
+        [JsonPropertyName("percentageDiscount")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string PercentageDiscount { get; set; }
+
+        /// <summary>
+        /// Indicates if the installment plan has interest.  Possible values: -Y - with interest -N - without interest -NULL - Do not send the field if no information available 
+        /// </summary>
+        /// <value>Indicates if the installment plan has interest.  Possible values: -Y - with interest -N - without interest -NULL - Do not send the field if no information available </value>
+        [JsonPropertyName("interestIndicator")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string InterestIndicator { get; set; }
+
+        /// <summary>
+        /// Valid Values from Issuer 
+        /// </summary>
+        /// <value>Valid Values from Issuer </value>
+        [JsonPropertyName("financingCurrency")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string FinancingCurrency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -332,6 +392,12 @@ namespace CyberSource.Model
             if (MaximumTotalCount != null) sb.Append("  MaximumTotalCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseInstallmentInformation", "maximumTotalCount", MaximumTotalCount.ToString())).Append("\n");
             if (FirstInstallmentAmount != null) sb.Append("  FirstInstallmentAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseInstallmentInformation", "firstInstallmentAmount", FirstInstallmentAmount.ToString())).Append("\n");
             if (FirstInstallmentDate != null) sb.Append("  FirstInstallmentDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseInstallmentInformation", "firstInstallmentDate", FirstInstallmentDate.ToString())).Append("\n");
+            if (GracePeriodDuration != null) sb.Append("  GracePeriodDuration: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseInstallmentInformation", "gracePeriodDuration", GracePeriodDuration.ToString())).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseInstallmentInformation", "paymentType", PaymentType.ToString())).Append("\n");
+            if (AmountType != null) sb.Append("  AmountType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseInstallmentInformation", "amountType", AmountType.ToString())).Append("\n");
+            if (PercentageDiscount != null) sb.Append("  PercentageDiscount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseInstallmentInformation", "percentageDiscount", PercentageDiscount.ToString())).Append("\n");
+            if (InterestIndicator != null) sb.Append("  InterestIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseInstallmentInformation", "interestIndicator", InterestIndicator.ToString())).Append("\n");
+            if (FinancingCurrency != null) sb.Append("  FinancingCurrency: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseInstallmentInformation", "financingCurrency", FinancingCurrency.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -502,6 +568,36 @@ namespace CyberSource.Model
                     this.FirstInstallmentDate == other.FirstInstallmentDate ||
                     this.FirstInstallmentDate != null &&
                     this.FirstInstallmentDate.Equals(other.FirstInstallmentDate)
+                ) && 
+                (
+                    this.GracePeriodDuration == other.GracePeriodDuration ||
+                    this.GracePeriodDuration != null &&
+                    this.GracePeriodDuration.Equals(other.GracePeriodDuration)
+                ) && 
+                (
+                    this.PaymentType == other.PaymentType ||
+                    this.PaymentType != null &&
+                    this.PaymentType.Equals(other.PaymentType)
+                ) && 
+                (
+                    this.AmountType == other.AmountType ||
+                    this.AmountType != null &&
+                    this.AmountType.Equals(other.AmountType)
+                ) && 
+                (
+                    this.PercentageDiscount == other.PercentageDiscount ||
+                    this.PercentageDiscount != null &&
+                    this.PercentageDiscount.Equals(other.PercentageDiscount)
+                ) && 
+                (
+                    this.InterestIndicator == other.InterestIndicator ||
+                    this.InterestIndicator != null &&
+                    this.InterestIndicator.Equals(other.InterestIndicator)
+                ) && 
+                (
+                    this.FinancingCurrency == other.FinancingCurrency ||
+                    this.FinancingCurrency != null &&
+                    this.FinancingCurrency.Equals(other.FinancingCurrency)
                 );
         }
 
@@ -570,6 +666,18 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.FirstInstallmentAmount.GetHashCode();
                 if (this.FirstInstallmentDate != null)
                     hash = hash * 59 + this.FirstInstallmentDate.GetHashCode();
+                if (this.GracePeriodDuration != null)
+                    hash = hash * 59 + this.GracePeriodDuration.GetHashCode();
+                if (this.PaymentType != null)
+                    hash = hash * 59 + this.PaymentType.GetHashCode();
+                if (this.AmountType != null)
+                    hash = hash * 59 + this.AmountType.GetHashCode();
+                if (this.PercentageDiscount != null)
+                    hash = hash * 59 + this.PercentageDiscount.GetHashCode();
+                if (this.InterestIndicator != null)
+                    hash = hash * 59 + this.InterestIndicator.GetHashCode();
+                if (this.FinancingCurrency != null)
+                    hash = hash * 59 + this.FinancingCurrency.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

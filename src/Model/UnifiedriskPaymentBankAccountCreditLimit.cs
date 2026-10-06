@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="BaseValue">Value of transaction expressed in the currency defined in the baseCurrency field.    .</param>
         /// <param name="MerchantCurrency">ISO 4217 3-letter code for the merchant&#39;s local currency used to express the credit limit amount (e.g., EUR for EU merchants).</param>
         /// <param name="MerchantValue">Credit limit amount expressed in the merchant&#39;s local currency, used for utilization ratio calculations and cross-currency risk assessment.</param>
-        public UnifiedriskPaymentBankAccountCreditLimit(decimal? Value = default(decimal?), string Currency = default(string), string BaseCurrency = default(string), decimal? BaseValue = default(decimal?), string MerchantCurrency = default(string), decimal? MerchantValue = default(decimal?))
+        public UnifiedriskPaymentBankAccountCreditLimit(string Value = default(string), string Currency = default(string), string BaseCurrency = default(string), string BaseValue = default(string), string MerchantCurrency = default(string), string MerchantValue = default(string))
         {
             this.Value = Value;
             this.Currency = Currency;
@@ -56,7 +56,7 @@ namespace CyberSource.Model
         /// <value>Credit limit on account    </value>
         [JsonPropertyName("value")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Currency of credit limit    
@@ -80,7 +80,7 @@ namespace CyberSource.Model
         /// <value>Value of transaction expressed in the currency defined in the baseCurrency field.    </value>
         [JsonPropertyName("baseValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? BaseValue { get; set; }
+        public string BaseValue { get; set; }
 
         /// <summary>
         /// ISO 4217 3-letter code for the merchant&#39;s local currency used to express the credit limit amount (e.g., EUR for EU merchants)
@@ -96,7 +96,7 @@ namespace CyberSource.Model
         /// <value>Credit limit amount expressed in the merchant&#39;s local currency, used for utilization ratio calculations and cross-currency risk assessment</value>
         [JsonPropertyName("merchantValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? MerchantValue { get; set; }
+        public string MerchantValue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

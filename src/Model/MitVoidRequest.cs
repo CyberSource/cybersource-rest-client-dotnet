@@ -38,12 +38,14 @@ namespace CyberSource.Model
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
-        public MitVoidRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidvoidsPaymentInformation PaymentInformation = default(Ptsv2paymentsidvoidsPaymentInformation), Ptsv2paymentsidvoidsOrderInformation OrderInformation = default(Ptsv2paymentsidvoidsOrderInformation), Ptsv2voidsProcessingInformation ProcessingInformation = default(Ptsv2voidsProcessingInformation))
+        /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
+        public MitVoidRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidvoidsPaymentInformation PaymentInformation = default(Ptsv2paymentsidvoidsPaymentInformation), Ptsv2paymentsidvoidsOrderInformation OrderInformation = default(Ptsv2paymentsidvoidsOrderInformation), Ptsv2voidsProcessingInformation ProcessingInformation = default(Ptsv2voidsProcessingInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
             this.ProcessingInformation = ProcessingInformation;
+            this.PointOfSaleInformation = PointOfSaleInformation;
         }
         
         /// <summary>
@@ -75,6 +77,13 @@ namespace CyberSource.Model
         public Ptsv2voidsProcessingInformation ProcessingInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets PointOfSaleInformation
+        /// </summary>
+        [JsonPropertyName("pointOfSaleInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,6 +95,7 @@ namespace CyberSource.Model
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("MitVoidRequest", "paymentInformation", PaymentInformation.ToString())).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("MitVoidRequest", "orderInformation", OrderInformation.ToString())).Append("\n");
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("MitVoidRequest", "processingInformation", ProcessingInformation.ToString())).Append("\n");
+            if (PointOfSaleInformation != null) sb.Append("  PointOfSaleInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("MitVoidRequest", "pointOfSaleInformation", PointOfSaleInformation.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -146,6 +156,11 @@ namespace CyberSource.Model
                     this.ProcessingInformation == other.ProcessingInformation ||
                     this.ProcessingInformation != null &&
                     this.ProcessingInformation.Equals(other.ProcessingInformation)
+                ) && 
+                (
+                    this.PointOfSaleInformation == other.PointOfSaleInformation ||
+                    this.PointOfSaleInformation != null &&
+                    this.PointOfSaleInformation.Equals(other.PointOfSaleInformation)
                 );
         }
 
@@ -170,6 +185,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
                 if (this.ProcessingInformation != null)
                     hash = hash * 59 + this.ProcessingInformation.GetHashCode();
+                if (this.PointOfSaleInformation != null)
+                    hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

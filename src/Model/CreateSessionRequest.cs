@@ -38,6 +38,7 @@ namespace CyberSource.Model
         /// <param name="ProcessingInformation">ProcessingInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
+        /// <param name="OrderHistory">Array of the buyer&#39;s previous orders. .</param>
         /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
@@ -45,12 +46,13 @@ namespace CyberSource.Model
         /// <param name="MerchantDefinedInformation">The object containing the custom data that the merchant defines. .</param>
         /// <param name="AgreementInformation">AgreementInformation.</param>
         /// <param name="TravelInformation">TravelInformation.</param>
-        public CreateSessionRequest(Ptsv2refreshpaymentstatusidClientReferenceInformation ClientReferenceInformation = default(Ptsv2refreshpaymentstatusidClientReferenceInformation), Ptsv2paymentreferencesProcessingInformation ProcessingInformation = default(Ptsv2paymentreferencesProcessingInformation), Ptsv2paymentreferencesPaymentInformation PaymentInformation = default(Ptsv2paymentreferencesPaymentInformation), Ptsv2paymentreferencesOrderInformation OrderInformation = default(Ptsv2paymentreferencesOrderInformation), Ptsv2paymentreferencesBuyerInformation BuyerInformation = default(Ptsv2paymentreferencesBuyerInformation), Ptsv2paymentreferencesDeviceInformation DeviceInformation = default(Ptsv2paymentreferencesDeviceInformation), Ptsv2paymentreferencesMerchantInformation MerchantInformation = default(Ptsv2paymentreferencesMerchantInformation), Ptsv2paymentreferencesUserInterface UserInterface = default(Ptsv2paymentreferencesUserInterface), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentreferencesAgreementInformation AgreementInformation = default(Ptsv2paymentreferencesAgreementInformation), Ptsv2paymentreferencesTravelInformation TravelInformation = default(Ptsv2paymentreferencesTravelInformation))
+        public CreateSessionRequest(Ptsv2refreshpaymentstatusidClientReferenceInformation ClientReferenceInformation = default(Ptsv2refreshpaymentstatusidClientReferenceInformation), Ptsv2paymentreferencesProcessingInformation ProcessingInformation = default(Ptsv2paymentreferencesProcessingInformation), Ptsv2paymentreferencesPaymentInformation PaymentInformation = default(Ptsv2paymentreferencesPaymentInformation), Ptsv2paymentreferencesOrderInformation OrderInformation = default(Ptsv2paymentreferencesOrderInformation), List<Ptsv2paymentsOrderHistory> OrderHistory = default(List<Ptsv2paymentsOrderHistory>), Ptsv2paymentreferencesBuyerInformation BuyerInformation = default(Ptsv2paymentreferencesBuyerInformation), Ptsv2paymentreferencesDeviceInformation DeviceInformation = default(Ptsv2paymentreferencesDeviceInformation), Ptsv2paymentreferencesMerchantInformation MerchantInformation = default(Ptsv2paymentreferencesMerchantInformation), Ptsv2paymentreferencesUserInterface UserInterface = default(Ptsv2paymentreferencesUserInterface), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), Ptsv2paymentreferencesAgreementInformation AgreementInformation = default(Ptsv2paymentreferencesAgreementInformation), Ptsv2paymentreferencesTravelInformation TravelInformation = default(Ptsv2paymentreferencesTravelInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
+            this.OrderHistory = OrderHistory;
             this.BuyerInformation = BuyerInformation;
             this.DeviceInformation = DeviceInformation;
             this.MerchantInformation = MerchantInformation;
@@ -87,6 +89,14 @@ namespace CyberSource.Model
         [JsonPropertyName("orderInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public Ptsv2paymentreferencesOrderInformation OrderInformation { get; set; }
+
+        /// <summary>
+        /// Array of the buyer&#39;s previous orders. 
+        /// </summary>
+        /// <value>Array of the buyer&#39;s previous orders. </value>
+        [JsonPropertyName("orderHistory")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<Ptsv2paymentsOrderHistory> OrderHistory { get; set; }
 
         /// <summary>
         /// Gets or Sets BuyerInformation
@@ -150,6 +160,7 @@ namespace CyberSource.Model
             if (ProcessingInformation != null) sb.Append("  ProcessingInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateSessionRequest", "processingInformation", ProcessingInformation.ToString())).Append("\n");
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateSessionRequest", "paymentInformation", PaymentInformation.ToString())).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateSessionRequest", "orderInformation", OrderInformation.ToString())).Append("\n");
+            if (OrderHistory != null) sb.Append("  OrderHistory: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateSessionRequest", "orderHistory", OrderHistory.ToString())).Append("\n");
             if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateSessionRequest", "buyerInformation", BuyerInformation.ToString())).Append("\n");
             if (DeviceInformation != null) sb.Append("  DeviceInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateSessionRequest", "deviceInformation", DeviceInformation.ToString())).Append("\n");
             if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateSessionRequest", "merchantInformation", MerchantInformation.ToString())).Append("\n");
@@ -219,6 +230,11 @@ namespace CyberSource.Model
                     this.OrderInformation.Equals(other.OrderInformation)
                 ) && 
                 (
+                    this.OrderHistory == other.OrderHistory ||
+                    this.OrderHistory != null &&
+                    this.OrderHistory.SequenceEqual(other.OrderHistory)
+                ) && 
+                (
                     this.BuyerInformation == other.BuyerInformation ||
                     this.BuyerInformation != null &&
                     this.BuyerInformation.Equals(other.BuyerInformation)
@@ -276,6 +292,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.OrderHistory != null)
+                    hash = hash * 59 + this.OrderHistory.GetHashCode();
                 if (this.BuyerInformation != null)
                     hash = hash * 59 + this.BuyerInformation.GetHashCode();
                 if (this.DeviceInformation != null)

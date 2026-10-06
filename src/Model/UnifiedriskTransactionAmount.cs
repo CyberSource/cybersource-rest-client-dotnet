@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="BaseValue">Amount in base currency.</param>
         /// <param name="MerchantCurrency">ISO 4217 3-letter code for the merchant&#39;s local currency used to express the transaction amount (e.g., EUR for EU merchants). Used for cross-currency risk analysis.</param>
         /// <param name="MerchantValue">Transaction amount expressed in the merchant&#39;s local currency, used for cross-currency comparison and risk threshold evaluation against merchant&#39;s baseline.</param>
-        public UnifiedriskTransactionAmount(decimal? Value = default(decimal?), string Currency = default(string), string BaseCurrency = default(string), decimal? BaseValue = default(decimal?), string MerchantCurrency = default(string), decimal? MerchantValue = default(decimal?))
+        public UnifiedriskTransactionAmount(string Value = default(string), string Currency = default(string), string BaseCurrency = default(string), string BaseValue = default(string), string MerchantCurrency = default(string), string MerchantValue = default(string))
         {
             this.Value = Value;
             this.Currency = Currency;
@@ -56,7 +56,7 @@ namespace CyberSource.Model
         /// <value>Transaction amount in the specified currency</value>
         [JsonPropertyName("value")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// ISO 4217 3-letter currency code
@@ -80,7 +80,7 @@ namespace CyberSource.Model
         /// <value>Amount in base currency</value>
         [JsonPropertyName("baseValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? BaseValue { get; set; }
+        public string BaseValue { get; set; }
 
         /// <summary>
         /// ISO 4217 3-letter code for the merchant&#39;s local currency used to express the transaction amount (e.g., EUR for EU merchants). Used for cross-currency risk analysis
@@ -96,7 +96,7 @@ namespace CyberSource.Model
         /// <value>Transaction amount expressed in the merchant&#39;s local currency, used for cross-currency comparison and risk threshold evaluation against merchant&#39;s baseline</value>
         [JsonPropertyName("merchantValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? MerchantValue { get; set; }
+        public string MerchantValue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

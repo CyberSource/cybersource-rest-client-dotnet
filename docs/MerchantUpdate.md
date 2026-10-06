@@ -4,13 +4,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MerchantName** | **string** | Doing business as (DBA) name | [optional] 
-**MerchantUrl** | **string** | Base merchant URL (must use HTTPS) | [optional] 
-**CryptogramType** | **string** | Authentication cryptogram type  Possible values: - TAVV - DAVV | [optional] 
-**PaymentPayloadType** | **string** | Credential delivery format  Possible values: - ENCRYPTED - UNENCRYPTED | [optional] 
-**AcceptanceRelationships** | **List&lt;string&gt;** | List of acceptance network relationships | [optional] 
-**ProtocolInteractions** | [**List&lt;Iccv1merchantsProtocolInteractions&gt;**](Iccv1merchantsProtocolInteractions.md) | List of protocol configurations | [optional] 
-**WebIntegrations** | [**Iccv1merchantsWebIntegrations**](Iccv1merchantsWebIntegrations.md) |  | [optional] 
-**ApiIntegrations** | [**Iccv1merchantsApiIntegrations**](Iccv1merchantsApiIntegrations.md) |  | [optional] 
+**MerchantUrl** | **string** | Base URL of the merchant&#39;s domain. Must use HTTPS and be unique — raises 409 if already registered. | [optional] 
+**CryptogramType** | **string** | Authentication cryptogram type used for payment credential generation.  Possible values: - TAVV - DAVV | [optional] 
+**PaymentPayloadType** | **string** | Credential delivery format. Set to ***ENCRYPTED*** to enable JWE-encrypted payload delivery — requires an active encryption key. Returns 400 if no active key exists.  Possible values: - ENCRYPTED - UNENCRYPTED | [optional] 
+**AcceptanceRelationships** | **List&lt;string&gt;** | List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;). | [optional] 
+**ProtocolInteractions** | [**List&lt;Iccv1merchantsProtocolInteractions&gt;**](Iccv1merchantsProtocolInteractions.md) | List of protocol interaction configurations defining the merchant&#39;s endpoint for each supported protocol (ucp, acp, x402). | [optional] 
+**WebIntegrations** | [**MerchantRegistrationResponse201WebIntegrations**](MerchantRegistrationResponse201WebIntegrations.md) |  | [optional] 
+**ApiIntegrations** | [**MerchantRegistrationResponse201ApiIntegrations**](MerchantRegistrationResponse201ApiIntegrations.md) |  | [optional] 
 
 ## Extensibility
 

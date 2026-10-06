@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>This reference number serves as a link to the cardholder account and to all transactions for that account. </value>
         [JsonPropertyName("paymentAccountReference")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string PaymentAccountReference { get; private set; }
 

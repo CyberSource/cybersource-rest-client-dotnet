@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Full product record as stored in the ACG catalog. Contains all ingest fields plus server-assigned metadata timestamps. 
+    /// Product record as stored in the ACG catalog. Only the fields listed here are persisted — the full ingest payload (&#x60;ProductInput&#x60;) contains additional fields that are validated and forwarded to protocol backends but are not retained in the catalog store. 
     /// </summary>
     [DataContract]
     public partial class InlineResponse20020Products :  ModelExtensions, IEquatable<InlineResponse20020Products>, IValidatableObject
@@ -34,188 +34,64 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20020Products" /> class.
         /// </summary>
-        /// <param name="Id">The merchant SKU / &#x60;item_id&#x60; as stored in the ACG catalog. Equivalent to the &#x60;item_id&#x60; field submitted during feed ingestion. .</param>
         /// <param name="ItemId">Unique product identifier / SKU..</param>
+        /// <param name="IsEligibleSearch">When &#x60;true&#x60;, product appears in AI agent discovery results..</param>
+        /// <param name="IsEligibleCheckout">When &#x60;true&#x60;, product can be added to a checkout session..</param>
         /// <param name="Title">Product display name..</param>
         /// <param name="Description">Product description..</param>
         /// <param name="Url">URL to the product page on the merchant&#39;s storefront..</param>
         /// <param name="ImageUrl">URL to the primary product image..</param>
-        /// <param name="AdditionalImageUrls">Additional product image URLs..</param>
-        /// <param name="VideoUrl">URL to a product video..</param>
-        /// <param name="Model3dUrl">URL to a 3D model asset..</param>
         /// <param name="ProductCategory">Product category hierarchy (e.g. &#x60;Electronics &gt; Audio &gt; Headphones&#x60;)..</param>
         /// <param name="Brand">Product brand or manufacturer..</param>
-        /// <param name="Gtin">Global Trade Item Number..</param>
-        /// <param name="Mpn">Manufacturer Part Number..</param>
-        /// <param name="Condition">Product condition (e.g. new, used, refurbished)..</param>
         /// <param name="Material">Primary material (relevant for apparel, furniture, etc.)..</param>
         /// <param name="Weight">Product weight including unit..</param>
-        /// <param name="Dimensions">Combined dimension string (e.g. \&quot;10x5x3 cm\&quot;)..</param>
-        /// <param name="Length">Product length. Pair with &#x60;dimensions_unit&#x60; for unit context..</param>
-        /// <param name="Width">Product width. Pair with &#x60;dimensions_unit&#x60; for unit context..</param>
-        /// <param name="Height">Product height. Pair with &#x60;dimensions_unit&#x60; for unit context..</param>
-        /// <param name="DimensionsUnit">Unit for dimension values (e.g. \&quot;cm\&quot;, \&quot;in\&quot;, \&quot;mm\&quot;)..</param>
-        /// <param name="ItemWeightUnit">Unit for weight value (e.g. \&quot;kg\&quot;, \&quot;lb\&quot;, \&quot;oz\&quot;)..</param>
-        /// <param name="AgeGroup">Target age group (e.g. \&quot;adult\&quot;, \&quot;kids\&quot;, \&quot;infant\&quot;)..</param>
-        /// <param name="Color">Primary product color. Used for variant filtering..</param>
-        /// <param name="Size">Product size (e.g. \&quot;M\&quot;, \&quot;42\&quot;, \&quot;XL\&quot;). Used for variant filtering..</param>
-        /// <param name="SizeSystem">Size standard used (e.g. \&quot;US\&quot;, \&quot;EU\&quot;, \&quot;UK\&quot;)..</param>
-        /// <param name="Gender">Target gender (e.g. \&quot;male\&quot;, \&quot;female\&quot;, \&quot;unisex\&quot;)..</param>
-        /// <param name="GroupId">Product variant group identifier..</param>
-        /// <param name="ListingHasVariations">Whether this listing has product variations (e.g. different sizes or colors)..</param>
-        /// <param name="ItemGroupTitle">Display title for the variant group..</param>
-        /// <param name="OfferId">Merchant-assigned offer identifier..</param>
-        /// <param name="VariantDict">VariantDict.</param>
-        /// <param name="CustomVariant1Category">CustomVariant1Category.</param>
-        /// <param name="CustomVariant1Option">CustomVariant1Option.</param>
-        /// <param name="CustomVariant2Category">CustomVariant2Category.</param>
-        /// <param name="CustomVariant2Option">CustomVariant2Option.</param>
-        /// <param name="CustomVariant3Category">CustomVariant3Category.</param>
-        /// <param name="CustomVariant3Option">CustomVariant3Option.</param>
         /// <param name="Price">Product price as a decimal number..</param>
         /// <param name="Currency">ISO 4217 currency code..</param>
-        /// <param name="SalePrice">SalePrice.</param>
-        /// <param name="SalePriceStartDate">SalePriceStartDate.</param>
-        /// <param name="SalePriceEndDate">SalePriceEndDate.</param>
-        /// <param name="UnitPricingMeasure">UnitPricingMeasure.</param>
-        /// <param name="BaseMeasure">BaseMeasure.</param>
-        /// <param name="PricingTrend">PricingTrend.</param>
-        /// <param name="GeoPrice">GeoPrice.</param>
-        /// <param name="GeoAvailability">GeoAvailability.</param>
-        /// <param name="Availability">Current stock status.  Possible values: - in_stock - out_of_stock - preorder - backorder.</param>
-        /// <param name="AvailabilityDate">AvailabilityDate.</param>
-        /// <param name="ExpirationDate">ExpirationDate.</param>
-        /// <param name="SellerName">Merchant or seller display name. Max 70 characters. .</param>
-        /// <param name="SellerUrl">SellerUrl.</param>
-        /// <param name="MarketplaceSeller">MarketplaceSeller.</param>
-        /// <param name="SellerPrivacyPolicy">SellerPrivacyPolicy.</param>
-        /// <param name="SellerTos">SellerTos.</param>
-        /// <param name="ShippingPrice">ShippingPrice.</param>
-        /// <param name="DeliveryEstimate">DeliveryEstimate.</param>
-        /// <param name="PickupMethod">PickupMethod.</param>
-        /// <param name="PickupSla">PickupSla.</param>
-        /// <param name="IsDigital">IsDigital.</param>
-        /// <param name="ReturnPolicy">ReturnPolicy.</param>
-        /// <param name="AcceptsReturns">AcceptsReturns.</param>
-        /// <param name="ReturnDeadlineInDays">ReturnDeadlineInDays.</param>
-        /// <param name="AcceptsExchanges">AcceptsExchanges.</param>
-        /// <param name="IsEligibleSearch">When &#x60;true&#x60;, product appears in AI agent discovery results..</param>
-        /// <param name="IsEligibleCheckout">When &#x60;true&#x60;, product can be added to a checkout session..</param>
-        /// <param name="PopularityScore">PopularityScore.</param>
-        /// <param name="ReturnRate">ReturnRate.</param>
-        /// <param name="Warning">Warning.</param>
-        /// <param name="WarningUrl">WarningUrl.</param>
-        /// <param name="AgeRestriction">AgeRestriction.</param>
-        /// <param name="ReviewCount">ReviewCount.</param>
-        /// <param name="StarRating">StarRating.</param>
-        /// <param name="StoreReviewCount">StoreReviewCount.</param>
-        /// <param name="StoreStarRating">StoreStarRating.</param>
-        /// <param name="RelatedProductId">RelatedProductId.</param>
-        /// <param name="RelationshipType">RelationshipType.</param>
+        /// <param name="Availability">Current stock status.  Possible values: - in_stock - out_of_stock - preorder - pre_order - backorder - unknown.</param>
+        /// <param name="Color">Primary product color..</param>
+        /// <param name="Gender">Target gender (e.g. \&quot;male\&quot;, \&quot;female\&quot;, \&quot;unisex\&quot;)..</param>
+        /// <param name="AgeGroup">Target age group (e.g. \&quot;adult\&quot;, \&quot;kids\&quot;, \&quot;infant\&quot;)..</param>
+        /// <param name="ShippingPrice">Shipping cost string as provided by the merchant..</param>
+        /// <param name="GroupId">Product variant group identifier..</param>
+        /// <param name="ListingHasVariations">Whether this listing has product variations (e.g. different sizes or colors)..</param>
+        /// <param name="SellerName">Merchant or seller display name..</param>
+        /// <param name="SellerUrl">URL to the seller&#39;s storefront..</param>
+        /// <param name="ReturnPolicy">Merchant return policy text..</param>
         /// <param name="TargetCountries">Country codes where this product is available..</param>
         /// <param name="StoreCountry">ISO 3166-1 alpha-2 country code of the merchant&#39;s store..</param>
-        /// <param name="QAndA">QAndA.</param>
-        /// <param name="QandA">QandA.</param>
-        /// <param name="Reviews">Reviews.</param>
         /// <param name="CreatedAt">ISO 8601 timestamp when this product was first ingested..</param>
         /// <param name="UpdatedAt">ISO 8601 timestamp of the most recent update..</param>
-        public InlineResponse20020Products(string Id = default(string), string ItemId = default(string), string Title = default(string), string Description = default(string), string Url = default(string), string ImageUrl = default(string), string AdditionalImageUrls = default(string), string VideoUrl = default(string), string Model3dUrl = default(string), string ProductCategory = default(string), string Brand = default(string), string Gtin = default(string), string Mpn = default(string), string Condition = default(string), string Material = default(string), string Weight = default(string), string Dimensions = default(string), string Length = default(string), string Width = default(string), string Height = default(string), string DimensionsUnit = default(string), string ItemWeightUnit = default(string), string AgeGroup = default(string), string Color = default(string), string Size = default(string), string SizeSystem = default(string), string Gender = default(string), string GroupId = default(string), bool? ListingHasVariations = default(bool?), string ItemGroupTitle = default(string), string OfferId = default(string), Dictionary<string, string> VariantDict = default(Dictionary<string, string>), string CustomVariant1Category = default(string), string CustomVariant1Option = default(string), string CustomVariant2Category = default(string), string CustomVariant2Option = default(string), string CustomVariant3Category = default(string), string CustomVariant3Option = default(string), decimal? Price = default(decimal?), string Currency = default(string), decimal? SalePrice = default(decimal?), DateTime? SalePriceStartDate = default(DateTime?), DateTime? SalePriceEndDate = default(DateTime?), string UnitPricingMeasure = default(string), string BaseMeasure = default(string), string PricingTrend = default(string), string GeoPrice = default(string), string GeoAvailability = default(string), string Availability = default(string), DateTime? AvailabilityDate = default(DateTime?), DateTime? ExpirationDate = default(DateTime?), string SellerName = default(string), string SellerUrl = default(string), string MarketplaceSeller = default(string), string SellerPrivacyPolicy = default(string), string SellerTos = default(string), string ShippingPrice = default(string), DateTime? DeliveryEstimate = default(DateTime?), string PickupMethod = default(string), string PickupSla = default(string), bool? IsDigital = default(bool?), string ReturnPolicy = default(string), bool? AcceptsReturns = default(bool?), int? ReturnDeadlineInDays = default(int?), bool? AcceptsExchanges = default(bool?), bool? IsEligibleSearch = default(bool?), bool? IsEligibleCheckout = default(bool?), decimal? PopularityScore = default(decimal?), string ReturnRate = default(string), string Warning = default(string), string WarningUrl = default(string), int? AgeRestriction = default(int?), int? ReviewCount = default(int?), string StarRating = default(string), int? StoreReviewCount = default(int?), string StoreStarRating = default(string), string RelatedProductId = default(string), string RelationshipType = default(string), List<string> TargetCountries = default(List<string>), string StoreCountry = default(string), List<Dictionary<string, Object>> QAndA = default(List<Dictionary<string, Object>>), List<Dictionary<string, Object>> QandA = default(List<Dictionary<string, Object>>), List<Dictionary<string, Object>> Reviews = default(List<Dictionary<string, Object>>), DateTime? CreatedAt = default(DateTime?), DateTime? UpdatedAt = default(DateTime?))
+        public InlineResponse20020Products(string ItemId = default(string), bool? IsEligibleSearch = default(bool?), bool? IsEligibleCheckout = default(bool?), string Title = default(string), string Description = default(string), string Url = default(string), string ImageUrl = default(string), string ProductCategory = default(string), string Brand = default(string), string Material = default(string), string Weight = default(string), decimal? Price = default(decimal?), string Currency = default(string), string Availability = default(string), string Color = default(string), string Gender = default(string), string AgeGroup = default(string), string ShippingPrice = default(string), string GroupId = default(string), bool? ListingHasVariations = default(bool?), string SellerName = default(string), string SellerUrl = default(string), string ReturnPolicy = default(string), List<string> TargetCountries = default(List<string>), string StoreCountry = default(string), DateTime? CreatedAt = default(DateTime?), DateTime? UpdatedAt = default(DateTime?))
         {
-            this.Id = Id;
             this.ItemId = ItemId;
+            this.IsEligibleSearch = IsEligibleSearch;
+            this.IsEligibleCheckout = IsEligibleCheckout;
             this.Title = Title;
             this.Description = Description;
             this.Url = Url;
             this.ImageUrl = ImageUrl;
-            this.AdditionalImageUrls = AdditionalImageUrls;
-            this.VideoUrl = VideoUrl;
-            this.Model3dUrl = Model3dUrl;
             this.ProductCategory = ProductCategory;
             this.Brand = Brand;
-            this.Gtin = Gtin;
-            this.Mpn = Mpn;
-            this.Condition = Condition;
             this.Material = Material;
             this.Weight = Weight;
-            this.Dimensions = Dimensions;
-            this.Length = Length;
-            this.Width = Width;
-            this.Height = Height;
-            this.DimensionsUnit = DimensionsUnit;
-            this.ItemWeightUnit = ItemWeightUnit;
-            this.AgeGroup = AgeGroup;
-            this.Color = Color;
-            this.Size = Size;
-            this.SizeSystem = SizeSystem;
-            this.Gender = Gender;
-            this.GroupId = GroupId;
-            this.ListingHasVariations = ListingHasVariations;
-            this.ItemGroupTitle = ItemGroupTitle;
-            this.OfferId = OfferId;
-            this.VariantDict = VariantDict;
-            this.CustomVariant1Category = CustomVariant1Category;
-            this.CustomVariant1Option = CustomVariant1Option;
-            this.CustomVariant2Category = CustomVariant2Category;
-            this.CustomVariant2Option = CustomVariant2Option;
-            this.CustomVariant3Category = CustomVariant3Category;
-            this.CustomVariant3Option = CustomVariant3Option;
             this.Price = Price;
             this.Currency = Currency;
-            this.SalePrice = SalePrice;
-            this.SalePriceStartDate = SalePriceStartDate;
-            this.SalePriceEndDate = SalePriceEndDate;
-            this.UnitPricingMeasure = UnitPricingMeasure;
-            this.BaseMeasure = BaseMeasure;
-            this.PricingTrend = PricingTrend;
-            this.GeoPrice = GeoPrice;
-            this.GeoAvailability = GeoAvailability;
             this.Availability = Availability;
-            this.AvailabilityDate = AvailabilityDate;
-            this.ExpirationDate = ExpirationDate;
+            this.Color = Color;
+            this.Gender = Gender;
+            this.AgeGroup = AgeGroup;
+            this.ShippingPrice = ShippingPrice;
+            this.GroupId = GroupId;
+            this.ListingHasVariations = ListingHasVariations;
             this.SellerName = SellerName;
             this.SellerUrl = SellerUrl;
-            this.MarketplaceSeller = MarketplaceSeller;
-            this.SellerPrivacyPolicy = SellerPrivacyPolicy;
-            this.SellerTos = SellerTos;
-            this.ShippingPrice = ShippingPrice;
-            this.DeliveryEstimate = DeliveryEstimate;
-            this.PickupMethod = PickupMethod;
-            this.PickupSla = PickupSla;
-            this.IsDigital = IsDigital;
             this.ReturnPolicy = ReturnPolicy;
-            this.AcceptsReturns = AcceptsReturns;
-            this.ReturnDeadlineInDays = ReturnDeadlineInDays;
-            this.AcceptsExchanges = AcceptsExchanges;
-            this.IsEligibleSearch = IsEligibleSearch;
-            this.IsEligibleCheckout = IsEligibleCheckout;
-            this.PopularityScore = PopularityScore;
-            this.ReturnRate = ReturnRate;
-            this.Warning = Warning;
-            this.WarningUrl = WarningUrl;
-            this.AgeRestriction = AgeRestriction;
-            this.ReviewCount = ReviewCount;
-            this.StarRating = StarRating;
-            this.StoreReviewCount = StoreReviewCount;
-            this.StoreStarRating = StoreStarRating;
-            this.RelatedProductId = RelatedProductId;
-            this.RelationshipType = RelationshipType;
             this.TargetCountries = TargetCountries;
             this.StoreCountry = StoreCountry;
-            this.QAndA = QAndA;
-            this.QandA = QandA;
-            this.Reviews = Reviews;
             this.CreatedAt = CreatedAt;
             this.UpdatedAt = UpdatedAt;
         }
         
-        /// <summary>
-        /// The merchant SKU / &#x60;item_id&#x60; as stored in the ACG catalog. Equivalent to the &#x60;item_id&#x60; field submitted during feed ingestion. 
-        /// </summary>
-        /// <value>The merchant SKU / &#x60;item_id&#x60; as stored in the ACG catalog. Equivalent to the &#x60;item_id&#x60; field submitted during feed ingestion. </value>
-        [JsonPropertyName("id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Id { get; set; }
-
         /// <summary>
         /// Unique product identifier / SKU.
         /// </summary>
@@ -223,6 +99,22 @@ namespace CyberSource.Model
         [JsonPropertyName("item_id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string ItemId { get; set; }
+
+        /// <summary>
+        /// When &#x60;true&#x60;, product appears in AI agent discovery results.
+        /// </summary>
+        /// <value>When &#x60;true&#x60;, product appears in AI agent discovery results.</value>
+        [JsonPropertyName("is_eligible_search")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? IsEligibleSearch { get; set; }
+
+        /// <summary>
+        /// When &#x60;true&#x60;, product can be added to a checkout session.
+        /// </summary>
+        /// <value>When &#x60;true&#x60;, product can be added to a checkout session.</value>
+        [JsonPropertyName("is_eligible_checkout")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? IsEligibleCheckout { get; set; }
 
         /// <summary>
         /// Product display name.
@@ -257,30 +149,6 @@ namespace CyberSource.Model
         public string ImageUrl { get; set; }
 
         /// <summary>
-        /// Additional product image URLs.
-        /// </summary>
-        /// <value>Additional product image URLs.</value>
-        [JsonPropertyName("additional_image_urls")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string AdditionalImageUrls { get; set; }
-
-        /// <summary>
-        /// URL to a product video.
-        /// </summary>
-        /// <value>URL to a product video.</value>
-        [JsonPropertyName("video_url")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string VideoUrl { get; set; }
-
-        /// <summary>
-        /// URL to a 3D model asset.
-        /// </summary>
-        /// <value>URL to a 3D model asset.</value>
-        [JsonPropertyName("model_3d_url")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Model3dUrl { get; set; }
-
-        /// <summary>
         /// Product category hierarchy (e.g. &#x60;Electronics &gt; Audio &gt; Headphones&#x60;).
         /// </summary>
         /// <value>Product category hierarchy (e.g. &#x60;Electronics &gt; Audio &gt; Headphones&#x60;).</value>
@@ -295,30 +163,6 @@ namespace CyberSource.Model
         [JsonPropertyName("brand")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Brand { get; set; }
-
-        /// <summary>
-        /// Global Trade Item Number.
-        /// </summary>
-        /// <value>Global Trade Item Number.</value>
-        [JsonPropertyName("gtin")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Gtin { get; set; }
-
-        /// <summary>
-        /// Manufacturer Part Number.
-        /// </summary>
-        /// <value>Manufacturer Part Number.</value>
-        [JsonPropertyName("mpn")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Mpn { get; set; }
-
-        /// <summary>
-        /// Product condition (e.g. new, used, refurbished).
-        /// </summary>
-        /// <value>Product condition (e.g. new, used, refurbished).</value>
-        [JsonPropertyName("condition")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Condition { get; set; }
 
         /// <summary>
         /// Primary material (relevant for apparel, furniture, etc.).
@@ -337,52 +181,44 @@ namespace CyberSource.Model
         public string Weight { get; set; }
 
         /// <summary>
-        /// Combined dimension string (e.g. \&quot;10x5x3 cm\&quot;).
+        /// Product price as a decimal number.
         /// </summary>
-        /// <value>Combined dimension string (e.g. \&quot;10x5x3 cm\&quot;).</value>
-        [JsonPropertyName("dimensions")]
+        /// <value>Product price as a decimal number.</value>
+        [JsonPropertyName("price")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Dimensions { get; set; }
+        public decimal? Price { get; set; }
 
         /// <summary>
-        /// Product length. Pair with &#x60;dimensions_unit&#x60; for unit context.
+        /// ISO 4217 currency code.
         /// </summary>
-        /// <value>Product length. Pair with &#x60;dimensions_unit&#x60; for unit context.</value>
-        [JsonPropertyName("length")]
+        /// <value>ISO 4217 currency code.</value>
+        [JsonPropertyName("currency")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Length { get; set; }
+        public string Currency { get; set; }
 
         /// <summary>
-        /// Product width. Pair with &#x60;dimensions_unit&#x60; for unit context.
+        /// Current stock status.  Possible values: - in_stock - out_of_stock - preorder - pre_order - backorder - unknown
         /// </summary>
-        /// <value>Product width. Pair with &#x60;dimensions_unit&#x60; for unit context.</value>
-        [JsonPropertyName("width")]
+        /// <value>Current stock status.  Possible values: - in_stock - out_of_stock - preorder - pre_order - backorder - unknown</value>
+        [JsonPropertyName("availability")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Width { get; set; }
+        public string Availability { get; set; }
 
         /// <summary>
-        /// Product height. Pair with &#x60;dimensions_unit&#x60; for unit context.
+        /// Primary product color.
         /// </summary>
-        /// <value>Product height. Pair with &#x60;dimensions_unit&#x60; for unit context.</value>
-        [JsonPropertyName("height")]
+        /// <value>Primary product color.</value>
+        [JsonPropertyName("color")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Height { get; set; }
+        public string Color { get; set; }
 
         /// <summary>
-        /// Unit for dimension values (e.g. \&quot;cm\&quot;, \&quot;in\&quot;, \&quot;mm\&quot;).
+        /// Target gender (e.g. \&quot;male\&quot;, \&quot;female\&quot;, \&quot;unisex\&quot;).
         /// </summary>
-        /// <value>Unit for dimension values (e.g. \&quot;cm\&quot;, \&quot;in\&quot;, \&quot;mm\&quot;).</value>
-        [JsonPropertyName("dimensions_unit")]
+        /// <value>Target gender (e.g. \&quot;male\&quot;, \&quot;female\&quot;, \&quot;unisex\&quot;).</value>
+        [JsonPropertyName("gender")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string DimensionsUnit { get; set; }
-
-        /// <summary>
-        /// Unit for weight value (e.g. \&quot;kg\&quot;, \&quot;lb\&quot;, \&quot;oz\&quot;).
-        /// </summary>
-        /// <value>Unit for weight value (e.g. \&quot;kg\&quot;, \&quot;lb\&quot;, \&quot;oz\&quot;).</value>
-        [JsonPropertyName("item_weight_unit")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string ItemWeightUnit { get; set; }
+        public string Gender { get; set; }
 
         /// <summary>
         /// Target age group (e.g. \&quot;adult\&quot;, \&quot;kids\&quot;, \&quot;infant\&quot;).
@@ -393,36 +229,12 @@ namespace CyberSource.Model
         public string AgeGroup { get; set; }
 
         /// <summary>
-        /// Primary product color. Used for variant filtering.
+        /// Shipping cost string as provided by the merchant.
         /// </summary>
-        /// <value>Primary product color. Used for variant filtering.</value>
-        [JsonPropertyName("color")]
+        /// <value>Shipping cost string as provided by the merchant.</value>
+        [JsonPropertyName("shipping_price")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Color { get; set; }
-
-        /// <summary>
-        /// Product size (e.g. \&quot;M\&quot;, \&quot;42\&quot;, \&quot;XL\&quot;). Used for variant filtering.
-        /// </summary>
-        /// <value>Product size (e.g. \&quot;M\&quot;, \&quot;42\&quot;, \&quot;XL\&quot;). Used for variant filtering.</value>
-        [JsonPropertyName("size")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Size { get; set; }
-
-        /// <summary>
-        /// Size standard used (e.g. \&quot;US\&quot;, \&quot;EU\&quot;, \&quot;UK\&quot;).
-        /// </summary>
-        /// <value>Size standard used (e.g. \&quot;US\&quot;, \&quot;EU\&quot;, \&quot;UK\&quot;).</value>
-        [JsonPropertyName("size_system")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SizeSystem { get; set; }
-
-        /// <summary>
-        /// Target gender (e.g. \&quot;male\&quot;, \&quot;female\&quot;, \&quot;unisex\&quot;).
-        /// </summary>
-        /// <value>Target gender (e.g. \&quot;male\&quot;, \&quot;female\&quot;, \&quot;unisex\&quot;).</value>
-        [JsonPropertyName("gender")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Gender { get; set; }
+        public string ShippingPrice { get; set; }
 
         /// <summary>
         /// Product variant group identifier.
@@ -441,360 +253,28 @@ namespace CyberSource.Model
         public bool? ListingHasVariations { get; set; }
 
         /// <summary>
-        /// Display title for the variant group.
+        /// Merchant or seller display name.
         /// </summary>
-        /// <value>Display title for the variant group.</value>
-        [JsonPropertyName("item_group_title")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string ItemGroupTitle { get; set; }
-
-        /// <summary>
-        /// Merchant-assigned offer identifier.
-        /// </summary>
-        /// <value>Merchant-assigned offer identifier.</value>
-        [JsonPropertyName("offer_id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string OfferId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets VariantDict
-        /// </summary>
-        [JsonPropertyName("variant_dict")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, string> VariantDict { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CustomVariant1Category
-        /// </summary>
-        [JsonPropertyName("custom_variant1_category")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string CustomVariant1Category { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CustomVariant1Option
-        /// </summary>
-        [JsonPropertyName("custom_variant1_option")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string CustomVariant1Option { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CustomVariant2Category
-        /// </summary>
-        [JsonPropertyName("custom_variant2_category")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string CustomVariant2Category { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CustomVariant2Option
-        /// </summary>
-        [JsonPropertyName("custom_variant2_option")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string CustomVariant2Option { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CustomVariant3Category
-        /// </summary>
-        [JsonPropertyName("custom_variant3_category")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string CustomVariant3Category { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CustomVariant3Option
-        /// </summary>
-        [JsonPropertyName("custom_variant3_option")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string CustomVariant3Option { get; set; }
-
-        /// <summary>
-        /// Product price as a decimal number.
-        /// </summary>
-        /// <value>Product price as a decimal number.</value>
-        [JsonPropertyName("price")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? Price { get; set; }
-
-        /// <summary>
-        /// ISO 4217 currency code.
-        /// </summary>
-        /// <value>ISO 4217 currency code.</value>
-        [JsonPropertyName("currency")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Currency { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SalePrice
-        /// </summary>
-        [JsonPropertyName("sale_price")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? SalePrice { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SalePriceStartDate
-        /// </summary>
-        [JsonPropertyName("sale_price_start_date")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        [JsonConverter(typeof(SwaggerDateConverter))]
-        public DateTime? SalePriceStartDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SalePriceEndDate
-        /// </summary>
-        [JsonPropertyName("sale_price_end_date")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        [JsonConverter(typeof(SwaggerDateConverter))]
-        public DateTime? SalePriceEndDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UnitPricingMeasure
-        /// </summary>
-        [JsonPropertyName("unit_pricing_measure")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string UnitPricingMeasure { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BaseMeasure
-        /// </summary>
-        [JsonPropertyName("base_measure")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string BaseMeasure { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PricingTrend
-        /// </summary>
-        [JsonPropertyName("pricing_trend")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string PricingTrend { get; set; }
-
-        /// <summary>
-        /// Gets or Sets GeoPrice
-        /// </summary>
-        [JsonPropertyName("geo_price")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string GeoPrice { get; set; }
-
-        /// <summary>
-        /// Gets or Sets GeoAvailability
-        /// </summary>
-        [JsonPropertyName("geo_availability")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string GeoAvailability { get; set; }
-
-        /// <summary>
-        /// Current stock status.  Possible values: - in_stock - out_of_stock - preorder - backorder
-        /// </summary>
-        /// <value>Current stock status.  Possible values: - in_stock - out_of_stock - preorder - backorder</value>
-        [JsonPropertyName("availability")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Availability { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AvailabilityDate
-        /// </summary>
-        [JsonPropertyName("availability_date")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        [JsonConverter(typeof(SwaggerDateConverter))]
-        public DateTime? AvailabilityDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ExpirationDate
-        /// </summary>
-        [JsonPropertyName("expiration_date")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        [JsonConverter(typeof(SwaggerDateConverter))]
-        public DateTime? ExpirationDate { get; set; }
-
-        /// <summary>
-        /// Merchant or seller display name. Max 70 characters. 
-        /// </summary>
-        /// <value>Merchant or seller display name. Max 70 characters. </value>
-        [JsonPropertyName("seller_name")]
+        /// <value>Merchant or seller display name.</value>
+        [JsonPropertyName("sellerName")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string SellerName { get; set; }
 
         /// <summary>
-        /// Gets or Sets SellerUrl
+        /// URL to the seller&#39;s storefront.
         /// </summary>
+        /// <value>URL to the seller&#39;s storefront.</value>
         [JsonPropertyName("seller_url")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string SellerUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets MarketplaceSeller
+        /// Merchant return policy text.
         /// </summary>
-        [JsonPropertyName("marketplace_seller")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string MarketplaceSeller { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SellerPrivacyPolicy
-        /// </summary>
-        [JsonPropertyName("seller_privacy_policy")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SellerPrivacyPolicy { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SellerTos
-        /// </summary>
-        [JsonPropertyName("seller_tos")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SellerTos { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ShippingPrice
-        /// </summary>
-        [JsonPropertyName("shipping_price")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string ShippingPrice { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DeliveryEstimate
-        /// </summary>
-        [JsonPropertyName("delivery_estimate")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        [JsonConverter(typeof(SwaggerDateConverter))]
-        public DateTime? DeliveryEstimate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PickupMethod
-        /// </summary>
-        [JsonPropertyName("pickup_method")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string PickupMethod { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PickupSla
-        /// </summary>
-        [JsonPropertyName("pickup_sla")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string PickupSla { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsDigital
-        /// </summary>
-        [JsonPropertyName("is_digital")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public bool? IsDigital { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ReturnPolicy
-        /// </summary>
+        /// <value>Merchant return policy text.</value>
         [JsonPropertyName("return_policy")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string ReturnPolicy { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AcceptsReturns
-        /// </summary>
-        [JsonPropertyName("accepts_returns")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public bool? AcceptsReturns { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ReturnDeadlineInDays
-        /// </summary>
-        [JsonPropertyName("return_deadline_in_days")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? ReturnDeadlineInDays { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AcceptsExchanges
-        /// </summary>
-        [JsonPropertyName("accepts_exchanges")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public bool? AcceptsExchanges { get; set; }
-
-        /// <summary>
-        /// When &#x60;true&#x60;, product appears in AI agent discovery results.
-        /// </summary>
-        /// <value>When &#x60;true&#x60;, product appears in AI agent discovery results.</value>
-        [JsonPropertyName("is_eligible_search")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public bool? IsEligibleSearch { get; set; }
-
-        /// <summary>
-        /// When &#x60;true&#x60;, product can be added to a checkout session.
-        /// </summary>
-        /// <value>When &#x60;true&#x60;, product can be added to a checkout session.</value>
-        [JsonPropertyName("is_eligible_checkout")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public bool? IsEligibleCheckout { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PopularityScore
-        /// </summary>
-        [JsonPropertyName("popularity_score")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? PopularityScore { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ReturnRate
-        /// </summary>
-        [JsonPropertyName("return_rate")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string ReturnRate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Warning
-        /// </summary>
-        [JsonPropertyName("warning")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Warning { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WarningUrl
-        /// </summary>
-        [JsonPropertyName("warning_url")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string WarningUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AgeRestriction
-        /// </summary>
-        [JsonPropertyName("age_restriction")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? AgeRestriction { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ReviewCount
-        /// </summary>
-        [JsonPropertyName("review_count")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? ReviewCount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets StarRating
-        /// </summary>
-        [JsonPropertyName("star_rating")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string StarRating { get; set; }
-
-        /// <summary>
-        /// Gets or Sets StoreReviewCount
-        /// </summary>
-        [JsonPropertyName("store_review_count")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? StoreReviewCount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets StoreStarRating
-        /// </summary>
-        [JsonPropertyName("store_star_rating")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string StoreStarRating { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RelatedProductId
-        /// </summary>
-        [JsonPropertyName("related_product_id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string RelatedProductId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RelationshipType
-        /// </summary>
-        [JsonPropertyName("relationship_type")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string RelationshipType { get; set; }
 
         /// <summary>
         /// Country codes where this product is available.
@@ -813,31 +293,10 @@ namespace CyberSource.Model
         public string StoreCountry { get; set; }
 
         /// <summary>
-        /// Gets or Sets QAndA
-        /// </summary>
-        [JsonPropertyName("q_and_a")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<Dictionary<string, Object>> QAndA { get; set; }
-
-        /// <summary>
-        /// Gets or Sets QandA
-        /// </summary>
-        [JsonPropertyName("qandA")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<Dictionary<string, Object>> QandA { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Reviews
-        /// </summary>
-        [JsonPropertyName("reviews")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<Dictionary<string, Object>> Reviews { get; set; }
-
-        /// <summary>
         /// ISO 8601 timestamp when this product was first ingested.
         /// </summary>
         /// <value>ISO 8601 timestamp when this product was first ingested.</value>
-        [JsonPropertyName("created_at")]
+        [JsonPropertyName("createdAt")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public DateTime? CreatedAt { get; set; }
 
@@ -845,7 +304,7 @@ namespace CyberSource.Model
         /// ISO 8601 timestamp of the most recent update.
         /// </summary>
         /// <value>ISO 8601 timestamp of the most recent update.</value>
-        [JsonPropertyName("updated_at")]
+        [JsonPropertyName("updatedAt")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public DateTime? UpdatedAt { get; set; }
 
@@ -857,91 +316,33 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20020Products {\n");
-            if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "id", Id.ToString())).Append("\n");
             if (ItemId != null) sb.Append("  ItemId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "item_id", ItemId.ToString())).Append("\n");
+            if (IsEligibleSearch != null) sb.Append("  IsEligibleSearch: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "is_eligible_search", IsEligibleSearch.ToString())).Append("\n");
+            if (IsEligibleCheckout != null) sb.Append("  IsEligibleCheckout: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "is_eligible_checkout", IsEligibleCheckout.ToString())).Append("\n");
             if (Title != null) sb.Append("  Title: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "title", Title.ToString())).Append("\n");
             if (Description != null) sb.Append("  Description: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "description", Description.ToString())).Append("\n");
             if (Url != null) sb.Append("  Url: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "url", Url.ToString())).Append("\n");
             if (ImageUrl != null) sb.Append("  ImageUrl: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "image_url", ImageUrl.ToString())).Append("\n");
-            if (AdditionalImageUrls != null) sb.Append("  AdditionalImageUrls: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "additional_image_urls", AdditionalImageUrls.ToString())).Append("\n");
-            if (VideoUrl != null) sb.Append("  VideoUrl: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "video_url", VideoUrl.ToString())).Append("\n");
-            if (Model3dUrl != null) sb.Append("  Model3dUrl: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "model_3d_url", Model3dUrl.ToString())).Append("\n");
             if (ProductCategory != null) sb.Append("  ProductCategory: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "product_category", ProductCategory.ToString())).Append("\n");
             if (Brand != null) sb.Append("  Brand: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "brand", Brand.ToString())).Append("\n");
-            if (Gtin != null) sb.Append("  Gtin: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "gtin", Gtin.ToString())).Append("\n");
-            if (Mpn != null) sb.Append("  Mpn: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "mpn", Mpn.ToString())).Append("\n");
-            if (Condition != null) sb.Append("  Condition: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "condition", Condition.ToString())).Append("\n");
             if (Material != null) sb.Append("  Material: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "material", Material.ToString())).Append("\n");
             if (Weight != null) sb.Append("  Weight: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "weight", Weight.ToString())).Append("\n");
-            if (Dimensions != null) sb.Append("  Dimensions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "dimensions", Dimensions.ToString())).Append("\n");
-            if (Length != null) sb.Append("  Length: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "length", Length.ToString())).Append("\n");
-            if (Width != null) sb.Append("  Width: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "width", Width.ToString())).Append("\n");
-            if (Height != null) sb.Append("  Height: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "height", Height.ToString())).Append("\n");
-            if (DimensionsUnit != null) sb.Append("  DimensionsUnit: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "dimensions_unit", DimensionsUnit.ToString())).Append("\n");
-            if (ItemWeightUnit != null) sb.Append("  ItemWeightUnit: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "item_weight_unit", ItemWeightUnit.ToString())).Append("\n");
-            if (AgeGroup != null) sb.Append("  AgeGroup: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "age_group", AgeGroup.ToString())).Append("\n");
-            if (Color != null) sb.Append("  Color: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "color", Color.ToString())).Append("\n");
-            if (Size != null) sb.Append("  Size: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "size", Size.ToString())).Append("\n");
-            if (SizeSystem != null) sb.Append("  SizeSystem: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "size_system", SizeSystem.ToString())).Append("\n");
-            if (Gender != null) sb.Append("  Gender: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "gender", Gender.ToString())).Append("\n");
-            if (GroupId != null) sb.Append("  GroupId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "group_id", GroupId.ToString())).Append("\n");
-            if (ListingHasVariations != null) sb.Append("  ListingHasVariations: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "listing_has_variations", ListingHasVariations.ToString())).Append("\n");
-            if (ItemGroupTitle != null) sb.Append("  ItemGroupTitle: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "item_group_title", ItemGroupTitle.ToString())).Append("\n");
-            if (OfferId != null) sb.Append("  OfferId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "offer_id", OfferId.ToString())).Append("\n");
-            if (VariantDict != null) sb.Append("  VariantDict: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "variant_dict", VariantDict.ToString())).Append("\n");
-            if (CustomVariant1Category != null) sb.Append("  CustomVariant1Category: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "custom_variant1_category", CustomVariant1Category.ToString())).Append("\n");
-            if (CustomVariant1Option != null) sb.Append("  CustomVariant1Option: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "custom_variant1_option", CustomVariant1Option.ToString())).Append("\n");
-            if (CustomVariant2Category != null) sb.Append("  CustomVariant2Category: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "custom_variant2_category", CustomVariant2Category.ToString())).Append("\n");
-            if (CustomVariant2Option != null) sb.Append("  CustomVariant2Option: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "custom_variant2_option", CustomVariant2Option.ToString())).Append("\n");
-            if (CustomVariant3Category != null) sb.Append("  CustomVariant3Category: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "custom_variant3_category", CustomVariant3Category.ToString())).Append("\n");
-            if (CustomVariant3Option != null) sb.Append("  CustomVariant3Option: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "custom_variant3_option", CustomVariant3Option.ToString())).Append("\n");
             if (Price != null) sb.Append("  Price: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "price", Price.ToString())).Append("\n");
             if (Currency != null) sb.Append("  Currency: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "currency", Currency.ToString())).Append("\n");
-            if (SalePrice != null) sb.Append("  SalePrice: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "sale_price", SalePrice.ToString())).Append("\n");
-            if (SalePriceStartDate != null) sb.Append("  SalePriceStartDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "sale_price_start_date", SalePriceStartDate.ToString())).Append("\n");
-            if (SalePriceEndDate != null) sb.Append("  SalePriceEndDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "sale_price_end_date", SalePriceEndDate.ToString())).Append("\n");
-            if (UnitPricingMeasure != null) sb.Append("  UnitPricingMeasure: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "unit_pricing_measure", UnitPricingMeasure.ToString())).Append("\n");
-            if (BaseMeasure != null) sb.Append("  BaseMeasure: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "base_measure", BaseMeasure.ToString())).Append("\n");
-            if (PricingTrend != null) sb.Append("  PricingTrend: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "pricing_trend", PricingTrend.ToString())).Append("\n");
-            if (GeoPrice != null) sb.Append("  GeoPrice: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "geo_price", GeoPrice.ToString())).Append("\n");
-            if (GeoAvailability != null) sb.Append("  GeoAvailability: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "geo_availability", GeoAvailability.ToString())).Append("\n");
             if (Availability != null) sb.Append("  Availability: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "availability", Availability.ToString())).Append("\n");
-            if (AvailabilityDate != null) sb.Append("  AvailabilityDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "availability_date", AvailabilityDate.ToString())).Append("\n");
-            if (ExpirationDate != null) sb.Append("  ExpirationDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "expiration_date", ExpirationDate.ToString())).Append("\n");
-            if (SellerName != null) sb.Append("  SellerName: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "seller_name", SellerName.ToString())).Append("\n");
-            if (SellerUrl != null) sb.Append("  SellerUrl: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "seller_url", SellerUrl.ToString())).Append("\n");
-            if (MarketplaceSeller != null) sb.Append("  MarketplaceSeller: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "marketplace_seller", MarketplaceSeller.ToString())).Append("\n");
-            if (SellerPrivacyPolicy != null) sb.Append("  SellerPrivacyPolicy: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "seller_privacy_policy", SellerPrivacyPolicy.ToString())).Append("\n");
-            if (SellerTos != null) sb.Append("  SellerTos: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "seller_tos", SellerTos.ToString())).Append("\n");
+            if (Color != null) sb.Append("  Color: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "color", Color.ToString())).Append("\n");
+            if (Gender != null) sb.Append("  Gender: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "gender", Gender.ToString())).Append("\n");
+            if (AgeGroup != null) sb.Append("  AgeGroup: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "age_group", AgeGroup.ToString())).Append("\n");
             if (ShippingPrice != null) sb.Append("  ShippingPrice: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "shipping_price", ShippingPrice.ToString())).Append("\n");
-            if (DeliveryEstimate != null) sb.Append("  DeliveryEstimate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "delivery_estimate", DeliveryEstimate.ToString())).Append("\n");
-            if (PickupMethod != null) sb.Append("  PickupMethod: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "pickup_method", PickupMethod.ToString())).Append("\n");
-            if (PickupSla != null) sb.Append("  PickupSla: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "pickup_sla", PickupSla.ToString())).Append("\n");
-            if (IsDigital != null) sb.Append("  IsDigital: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "is_digital", IsDigital.ToString())).Append("\n");
+            if (GroupId != null) sb.Append("  GroupId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "group_id", GroupId.ToString())).Append("\n");
+            if (ListingHasVariations != null) sb.Append("  ListingHasVariations: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "listing_has_variations", ListingHasVariations.ToString())).Append("\n");
+            if (SellerName != null) sb.Append("  SellerName: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "sellerName", SellerName.ToString())).Append("\n");
+            if (SellerUrl != null) sb.Append("  SellerUrl: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "seller_url", SellerUrl.ToString())).Append("\n");
             if (ReturnPolicy != null) sb.Append("  ReturnPolicy: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "return_policy", ReturnPolicy.ToString())).Append("\n");
-            if (AcceptsReturns != null) sb.Append("  AcceptsReturns: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "accepts_returns", AcceptsReturns.ToString())).Append("\n");
-            if (ReturnDeadlineInDays != null) sb.Append("  ReturnDeadlineInDays: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "return_deadline_in_days", ReturnDeadlineInDays.ToString())).Append("\n");
-            if (AcceptsExchanges != null) sb.Append("  AcceptsExchanges: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "accepts_exchanges", AcceptsExchanges.ToString())).Append("\n");
-            if (IsEligibleSearch != null) sb.Append("  IsEligibleSearch: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "is_eligible_search", IsEligibleSearch.ToString())).Append("\n");
-            if (IsEligibleCheckout != null) sb.Append("  IsEligibleCheckout: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "is_eligible_checkout", IsEligibleCheckout.ToString())).Append("\n");
-            if (PopularityScore != null) sb.Append("  PopularityScore: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "popularity_score", PopularityScore.ToString())).Append("\n");
-            if (ReturnRate != null) sb.Append("  ReturnRate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "return_rate", ReturnRate.ToString())).Append("\n");
-            if (Warning != null) sb.Append("  Warning: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "warning", Warning.ToString())).Append("\n");
-            if (WarningUrl != null) sb.Append("  WarningUrl: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "warning_url", WarningUrl.ToString())).Append("\n");
-            if (AgeRestriction != null) sb.Append("  AgeRestriction: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "age_restriction", AgeRestriction.ToString())).Append("\n");
-            if (ReviewCount != null) sb.Append("  ReviewCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "review_count", ReviewCount.ToString())).Append("\n");
-            if (StarRating != null) sb.Append("  StarRating: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "star_rating", StarRating.ToString())).Append("\n");
-            if (StoreReviewCount != null) sb.Append("  StoreReviewCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "store_review_count", StoreReviewCount.ToString())).Append("\n");
-            if (StoreStarRating != null) sb.Append("  StoreStarRating: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "store_star_rating", StoreStarRating.ToString())).Append("\n");
-            if (RelatedProductId != null) sb.Append("  RelatedProductId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "related_product_id", RelatedProductId.ToString())).Append("\n");
-            if (RelationshipType != null) sb.Append("  RelationshipType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "relationship_type", RelationshipType.ToString())).Append("\n");
             if (TargetCountries != null) sb.Append("  TargetCountries: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "target_countries", TargetCountries.ToString())).Append("\n");
             if (StoreCountry != null) sb.Append("  StoreCountry: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "store_country", StoreCountry.ToString())).Append("\n");
-            if (QAndA != null) sb.Append("  QAndA: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "q_and_a", QAndA.ToString())).Append("\n");
-            if (QandA != null) sb.Append("  QandA: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "qandA", QandA.ToString())).Append("\n");
-            if (Reviews != null) sb.Append("  Reviews: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "reviews", Reviews.ToString())).Append("\n");
-            if (CreatedAt != null) sb.Append("  CreatedAt: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "created_at", CreatedAt.ToString())).Append("\n");
-            if (UpdatedAt != null) sb.Append("  UpdatedAt: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "updated_at", UpdatedAt.ToString())).Append("\n");
+            if (CreatedAt != null) sb.Append("  CreatedAt: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "createdAt", CreatedAt.ToString())).Append("\n");
+            if (UpdatedAt != null) sb.Append("  UpdatedAt: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20020Products", "updatedAt", UpdatedAt.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -984,14 +385,19 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
-                ) && 
-                (
                     this.ItemId == other.ItemId ||
                     this.ItemId != null &&
                     this.ItemId.Equals(other.ItemId)
+                ) && 
+                (
+                    this.IsEligibleSearch == other.IsEligibleSearch ||
+                    this.IsEligibleSearch != null &&
+                    this.IsEligibleSearch.Equals(other.IsEligibleSearch)
+                ) && 
+                (
+                    this.IsEligibleCheckout == other.IsEligibleCheckout ||
+                    this.IsEligibleCheckout != null &&
+                    this.IsEligibleCheckout.Equals(other.IsEligibleCheckout)
                 ) && 
                 (
                     this.Title == other.Title ||
@@ -1014,21 +420,6 @@ namespace CyberSource.Model
                     this.ImageUrl.Equals(other.ImageUrl)
                 ) && 
                 (
-                    this.AdditionalImageUrls == other.AdditionalImageUrls ||
-                    this.AdditionalImageUrls != null &&
-                    this.AdditionalImageUrls.Equals(other.AdditionalImageUrls)
-                ) && 
-                (
-                    this.VideoUrl == other.VideoUrl ||
-                    this.VideoUrl != null &&
-                    this.VideoUrl.Equals(other.VideoUrl)
-                ) && 
-                (
-                    this.Model3dUrl == other.Model3dUrl ||
-                    this.Model3dUrl != null &&
-                    this.Model3dUrl.Equals(other.Model3dUrl)
-                ) && 
-                (
                     this.ProductCategory == other.ProductCategory ||
                     this.ProductCategory != null &&
                     this.ProductCategory.Equals(other.ProductCategory)
@@ -1037,21 +428,6 @@ namespace CyberSource.Model
                     this.Brand == other.Brand ||
                     this.Brand != null &&
                     this.Brand.Equals(other.Brand)
-                ) && 
-                (
-                    this.Gtin == other.Gtin ||
-                    this.Gtin != null &&
-                    this.Gtin.Equals(other.Gtin)
-                ) && 
-                (
-                    this.Mpn == other.Mpn ||
-                    this.Mpn != null &&
-                    this.Mpn.Equals(other.Mpn)
-                ) && 
-                (
-                    this.Condition == other.Condition ||
-                    this.Condition != null &&
-                    this.Condition.Equals(other.Condition)
                 ) && 
                 (
                     this.Material == other.Material ||
@@ -1064,39 +440,19 @@ namespace CyberSource.Model
                     this.Weight.Equals(other.Weight)
                 ) && 
                 (
-                    this.Dimensions == other.Dimensions ||
-                    this.Dimensions != null &&
-                    this.Dimensions.Equals(other.Dimensions)
+                    this.Price == other.Price ||
+                    this.Price != null &&
+                    this.Price.Equals(other.Price)
                 ) && 
                 (
-                    this.Length == other.Length ||
-                    this.Length != null &&
-                    this.Length.Equals(other.Length)
+                    this.Currency == other.Currency ||
+                    this.Currency != null &&
+                    this.Currency.Equals(other.Currency)
                 ) && 
                 (
-                    this.Width == other.Width ||
-                    this.Width != null &&
-                    this.Width.Equals(other.Width)
-                ) && 
-                (
-                    this.Height == other.Height ||
-                    this.Height != null &&
-                    this.Height.Equals(other.Height)
-                ) && 
-                (
-                    this.DimensionsUnit == other.DimensionsUnit ||
-                    this.DimensionsUnit != null &&
-                    this.DimensionsUnit.Equals(other.DimensionsUnit)
-                ) && 
-                (
-                    this.ItemWeightUnit == other.ItemWeightUnit ||
-                    this.ItemWeightUnit != null &&
-                    this.ItemWeightUnit.Equals(other.ItemWeightUnit)
-                ) && 
-                (
-                    this.AgeGroup == other.AgeGroup ||
-                    this.AgeGroup != null &&
-                    this.AgeGroup.Equals(other.AgeGroup)
+                    this.Availability == other.Availability ||
+                    this.Availability != null &&
+                    this.Availability.Equals(other.Availability)
                 ) && 
                 (
                     this.Color == other.Color ||
@@ -1104,19 +460,19 @@ namespace CyberSource.Model
                     this.Color.Equals(other.Color)
                 ) && 
                 (
-                    this.Size == other.Size ||
-                    this.Size != null &&
-                    this.Size.Equals(other.Size)
-                ) && 
-                (
-                    this.SizeSystem == other.SizeSystem ||
-                    this.SizeSystem != null &&
-                    this.SizeSystem.Equals(other.SizeSystem)
-                ) && 
-                (
                     this.Gender == other.Gender ||
                     this.Gender != null &&
                     this.Gender.Equals(other.Gender)
+                ) && 
+                (
+                    this.AgeGroup == other.AgeGroup ||
+                    this.AgeGroup != null &&
+                    this.AgeGroup.Equals(other.AgeGroup)
+                ) && 
+                (
+                    this.ShippingPrice == other.ShippingPrice ||
+                    this.ShippingPrice != null &&
+                    this.ShippingPrice.Equals(other.ShippingPrice)
                 ) && 
                 (
                     this.GroupId == other.GroupId ||
@@ -1129,116 +485,6 @@ namespace CyberSource.Model
                     this.ListingHasVariations.Equals(other.ListingHasVariations)
                 ) && 
                 (
-                    this.ItemGroupTitle == other.ItemGroupTitle ||
-                    this.ItemGroupTitle != null &&
-                    this.ItemGroupTitle.Equals(other.ItemGroupTitle)
-                ) && 
-                (
-                    this.OfferId == other.OfferId ||
-                    this.OfferId != null &&
-                    this.OfferId.Equals(other.OfferId)
-                ) && 
-                (
-                    this.VariantDict == other.VariantDict ||
-                    this.VariantDict != null &&
-                    this.VariantDict.SequenceEqual(other.VariantDict)
-                ) && 
-                (
-                    this.CustomVariant1Category == other.CustomVariant1Category ||
-                    this.CustomVariant1Category != null &&
-                    this.CustomVariant1Category.Equals(other.CustomVariant1Category)
-                ) && 
-                (
-                    this.CustomVariant1Option == other.CustomVariant1Option ||
-                    this.CustomVariant1Option != null &&
-                    this.CustomVariant1Option.Equals(other.CustomVariant1Option)
-                ) && 
-                (
-                    this.CustomVariant2Category == other.CustomVariant2Category ||
-                    this.CustomVariant2Category != null &&
-                    this.CustomVariant2Category.Equals(other.CustomVariant2Category)
-                ) && 
-                (
-                    this.CustomVariant2Option == other.CustomVariant2Option ||
-                    this.CustomVariant2Option != null &&
-                    this.CustomVariant2Option.Equals(other.CustomVariant2Option)
-                ) && 
-                (
-                    this.CustomVariant3Category == other.CustomVariant3Category ||
-                    this.CustomVariant3Category != null &&
-                    this.CustomVariant3Category.Equals(other.CustomVariant3Category)
-                ) && 
-                (
-                    this.CustomVariant3Option == other.CustomVariant3Option ||
-                    this.CustomVariant3Option != null &&
-                    this.CustomVariant3Option.Equals(other.CustomVariant3Option)
-                ) && 
-                (
-                    this.Price == other.Price ||
-                    this.Price != null &&
-                    this.Price.Equals(other.Price)
-                ) && 
-                (
-                    this.Currency == other.Currency ||
-                    this.Currency != null &&
-                    this.Currency.Equals(other.Currency)
-                ) && 
-                (
-                    this.SalePrice == other.SalePrice ||
-                    this.SalePrice != null &&
-                    this.SalePrice.Equals(other.SalePrice)
-                ) && 
-                (
-                    this.SalePriceStartDate == other.SalePriceStartDate ||
-                    this.SalePriceStartDate != null &&
-                    this.SalePriceStartDate.Equals(other.SalePriceStartDate)
-                ) && 
-                (
-                    this.SalePriceEndDate == other.SalePriceEndDate ||
-                    this.SalePriceEndDate != null &&
-                    this.SalePriceEndDate.Equals(other.SalePriceEndDate)
-                ) && 
-                (
-                    this.UnitPricingMeasure == other.UnitPricingMeasure ||
-                    this.UnitPricingMeasure != null &&
-                    this.UnitPricingMeasure.Equals(other.UnitPricingMeasure)
-                ) && 
-                (
-                    this.BaseMeasure == other.BaseMeasure ||
-                    this.BaseMeasure != null &&
-                    this.BaseMeasure.Equals(other.BaseMeasure)
-                ) && 
-                (
-                    this.PricingTrend == other.PricingTrend ||
-                    this.PricingTrend != null &&
-                    this.PricingTrend.Equals(other.PricingTrend)
-                ) && 
-                (
-                    this.GeoPrice == other.GeoPrice ||
-                    this.GeoPrice != null &&
-                    this.GeoPrice.Equals(other.GeoPrice)
-                ) && 
-                (
-                    this.GeoAvailability == other.GeoAvailability ||
-                    this.GeoAvailability != null &&
-                    this.GeoAvailability.Equals(other.GeoAvailability)
-                ) && 
-                (
-                    this.Availability == other.Availability ||
-                    this.Availability != null &&
-                    this.Availability.Equals(other.Availability)
-                ) && 
-                (
-                    this.AvailabilityDate == other.AvailabilityDate ||
-                    this.AvailabilityDate != null &&
-                    this.AvailabilityDate.Equals(other.AvailabilityDate)
-                ) && 
-                (
-                    this.ExpirationDate == other.ExpirationDate ||
-                    this.ExpirationDate != null &&
-                    this.ExpirationDate.Equals(other.ExpirationDate)
-                ) && 
-                (
                     this.SellerName == other.SellerName ||
                     this.SellerName != null &&
                     this.SellerName.Equals(other.SellerName)
@@ -1249,129 +495,9 @@ namespace CyberSource.Model
                     this.SellerUrl.Equals(other.SellerUrl)
                 ) && 
                 (
-                    this.MarketplaceSeller == other.MarketplaceSeller ||
-                    this.MarketplaceSeller != null &&
-                    this.MarketplaceSeller.Equals(other.MarketplaceSeller)
-                ) && 
-                (
-                    this.SellerPrivacyPolicy == other.SellerPrivacyPolicy ||
-                    this.SellerPrivacyPolicy != null &&
-                    this.SellerPrivacyPolicy.Equals(other.SellerPrivacyPolicy)
-                ) && 
-                (
-                    this.SellerTos == other.SellerTos ||
-                    this.SellerTos != null &&
-                    this.SellerTos.Equals(other.SellerTos)
-                ) && 
-                (
-                    this.ShippingPrice == other.ShippingPrice ||
-                    this.ShippingPrice != null &&
-                    this.ShippingPrice.Equals(other.ShippingPrice)
-                ) && 
-                (
-                    this.DeliveryEstimate == other.DeliveryEstimate ||
-                    this.DeliveryEstimate != null &&
-                    this.DeliveryEstimate.Equals(other.DeliveryEstimate)
-                ) && 
-                (
-                    this.PickupMethod == other.PickupMethod ||
-                    this.PickupMethod != null &&
-                    this.PickupMethod.Equals(other.PickupMethod)
-                ) && 
-                (
-                    this.PickupSla == other.PickupSla ||
-                    this.PickupSla != null &&
-                    this.PickupSla.Equals(other.PickupSla)
-                ) && 
-                (
-                    this.IsDigital == other.IsDigital ||
-                    this.IsDigital != null &&
-                    this.IsDigital.Equals(other.IsDigital)
-                ) && 
-                (
                     this.ReturnPolicy == other.ReturnPolicy ||
                     this.ReturnPolicy != null &&
                     this.ReturnPolicy.Equals(other.ReturnPolicy)
-                ) && 
-                (
-                    this.AcceptsReturns == other.AcceptsReturns ||
-                    this.AcceptsReturns != null &&
-                    this.AcceptsReturns.Equals(other.AcceptsReturns)
-                ) && 
-                (
-                    this.ReturnDeadlineInDays == other.ReturnDeadlineInDays ||
-                    this.ReturnDeadlineInDays != null &&
-                    this.ReturnDeadlineInDays.Equals(other.ReturnDeadlineInDays)
-                ) && 
-                (
-                    this.AcceptsExchanges == other.AcceptsExchanges ||
-                    this.AcceptsExchanges != null &&
-                    this.AcceptsExchanges.Equals(other.AcceptsExchanges)
-                ) && 
-                (
-                    this.IsEligibleSearch == other.IsEligibleSearch ||
-                    this.IsEligibleSearch != null &&
-                    this.IsEligibleSearch.Equals(other.IsEligibleSearch)
-                ) && 
-                (
-                    this.IsEligibleCheckout == other.IsEligibleCheckout ||
-                    this.IsEligibleCheckout != null &&
-                    this.IsEligibleCheckout.Equals(other.IsEligibleCheckout)
-                ) && 
-                (
-                    this.PopularityScore == other.PopularityScore ||
-                    this.PopularityScore != null &&
-                    this.PopularityScore.Equals(other.PopularityScore)
-                ) && 
-                (
-                    this.ReturnRate == other.ReturnRate ||
-                    this.ReturnRate != null &&
-                    this.ReturnRate.Equals(other.ReturnRate)
-                ) && 
-                (
-                    this.Warning == other.Warning ||
-                    this.Warning != null &&
-                    this.Warning.Equals(other.Warning)
-                ) && 
-                (
-                    this.WarningUrl == other.WarningUrl ||
-                    this.WarningUrl != null &&
-                    this.WarningUrl.Equals(other.WarningUrl)
-                ) && 
-                (
-                    this.AgeRestriction == other.AgeRestriction ||
-                    this.AgeRestriction != null &&
-                    this.AgeRestriction.Equals(other.AgeRestriction)
-                ) && 
-                (
-                    this.ReviewCount == other.ReviewCount ||
-                    this.ReviewCount != null &&
-                    this.ReviewCount.Equals(other.ReviewCount)
-                ) && 
-                (
-                    this.StarRating == other.StarRating ||
-                    this.StarRating != null &&
-                    this.StarRating.Equals(other.StarRating)
-                ) && 
-                (
-                    this.StoreReviewCount == other.StoreReviewCount ||
-                    this.StoreReviewCount != null &&
-                    this.StoreReviewCount.Equals(other.StoreReviewCount)
-                ) && 
-                (
-                    this.StoreStarRating == other.StoreStarRating ||
-                    this.StoreStarRating != null &&
-                    this.StoreStarRating.Equals(other.StoreStarRating)
-                ) && 
-                (
-                    this.RelatedProductId == other.RelatedProductId ||
-                    this.RelatedProductId != null &&
-                    this.RelatedProductId.Equals(other.RelatedProductId)
-                ) && 
-                (
-                    this.RelationshipType == other.RelationshipType ||
-                    this.RelationshipType != null &&
-                    this.RelationshipType.Equals(other.RelationshipType)
                 ) && 
                 (
                     this.TargetCountries == other.TargetCountries ||
@@ -1382,21 +508,6 @@ namespace CyberSource.Model
                     this.StoreCountry == other.StoreCountry ||
                     this.StoreCountry != null &&
                     this.StoreCountry.Equals(other.StoreCountry)
-                ) && 
-                (
-                    this.QAndA == other.QAndA ||
-                    this.QAndA != null &&
-                    this.QAndA.SequenceEqual(other.QAndA)
-                ) && 
-                (
-                    this.QandA == other.QandA ||
-                    this.QandA != null &&
-                    this.QandA.SequenceEqual(other.QandA)
-                ) && 
-                (
-                    this.Reviews == other.Reviews ||
-                    this.Reviews != null &&
-                    this.Reviews.SequenceEqual(other.Reviews)
                 ) && 
                 (
                     this.CreatedAt == other.CreatedAt ||
@@ -1423,10 +534,12 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.ItemId != null)
                     hash = hash * 59 + this.ItemId.GetHashCode();
+                if (this.IsEligibleSearch != null)
+                    hash = hash * 59 + this.IsEligibleSearch.GetHashCode();
+                if (this.IsEligibleCheckout != null)
+                    hash = hash * 59 + this.IsEligibleCheckout.GetHashCode();
                 if (this.Title != null)
                     hash = hash * 59 + this.Title.GetHashCode();
                 if (this.Description != null)
@@ -1435,160 +548,42 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Url.GetHashCode();
                 if (this.ImageUrl != null)
                     hash = hash * 59 + this.ImageUrl.GetHashCode();
-                if (this.AdditionalImageUrls != null)
-                    hash = hash * 59 + this.AdditionalImageUrls.GetHashCode();
-                if (this.VideoUrl != null)
-                    hash = hash * 59 + this.VideoUrl.GetHashCode();
-                if (this.Model3dUrl != null)
-                    hash = hash * 59 + this.Model3dUrl.GetHashCode();
                 if (this.ProductCategory != null)
                     hash = hash * 59 + this.ProductCategory.GetHashCode();
                 if (this.Brand != null)
                     hash = hash * 59 + this.Brand.GetHashCode();
-                if (this.Gtin != null)
-                    hash = hash * 59 + this.Gtin.GetHashCode();
-                if (this.Mpn != null)
-                    hash = hash * 59 + this.Mpn.GetHashCode();
-                if (this.Condition != null)
-                    hash = hash * 59 + this.Condition.GetHashCode();
                 if (this.Material != null)
                     hash = hash * 59 + this.Material.GetHashCode();
                 if (this.Weight != null)
                     hash = hash * 59 + this.Weight.GetHashCode();
-                if (this.Dimensions != null)
-                    hash = hash * 59 + this.Dimensions.GetHashCode();
-                if (this.Length != null)
-                    hash = hash * 59 + this.Length.GetHashCode();
-                if (this.Width != null)
-                    hash = hash * 59 + this.Width.GetHashCode();
-                if (this.Height != null)
-                    hash = hash * 59 + this.Height.GetHashCode();
-                if (this.DimensionsUnit != null)
-                    hash = hash * 59 + this.DimensionsUnit.GetHashCode();
-                if (this.ItemWeightUnit != null)
-                    hash = hash * 59 + this.ItemWeightUnit.GetHashCode();
-                if (this.AgeGroup != null)
-                    hash = hash * 59 + this.AgeGroup.GetHashCode();
-                if (this.Color != null)
-                    hash = hash * 59 + this.Color.GetHashCode();
-                if (this.Size != null)
-                    hash = hash * 59 + this.Size.GetHashCode();
-                if (this.SizeSystem != null)
-                    hash = hash * 59 + this.SizeSystem.GetHashCode();
-                if (this.Gender != null)
-                    hash = hash * 59 + this.Gender.GetHashCode();
-                if (this.GroupId != null)
-                    hash = hash * 59 + this.GroupId.GetHashCode();
-                if (this.ListingHasVariations != null)
-                    hash = hash * 59 + this.ListingHasVariations.GetHashCode();
-                if (this.ItemGroupTitle != null)
-                    hash = hash * 59 + this.ItemGroupTitle.GetHashCode();
-                if (this.OfferId != null)
-                    hash = hash * 59 + this.OfferId.GetHashCode();
-                if (this.VariantDict != null)
-                    hash = hash * 59 + this.VariantDict.GetHashCode();
-                if (this.CustomVariant1Category != null)
-                    hash = hash * 59 + this.CustomVariant1Category.GetHashCode();
-                if (this.CustomVariant1Option != null)
-                    hash = hash * 59 + this.CustomVariant1Option.GetHashCode();
-                if (this.CustomVariant2Category != null)
-                    hash = hash * 59 + this.CustomVariant2Category.GetHashCode();
-                if (this.CustomVariant2Option != null)
-                    hash = hash * 59 + this.CustomVariant2Option.GetHashCode();
-                if (this.CustomVariant3Category != null)
-                    hash = hash * 59 + this.CustomVariant3Category.GetHashCode();
-                if (this.CustomVariant3Option != null)
-                    hash = hash * 59 + this.CustomVariant3Option.GetHashCode();
                 if (this.Price != null)
                     hash = hash * 59 + this.Price.GetHashCode();
                 if (this.Currency != null)
                     hash = hash * 59 + this.Currency.GetHashCode();
-                if (this.SalePrice != null)
-                    hash = hash * 59 + this.SalePrice.GetHashCode();
-                if (this.SalePriceStartDate != null)
-                    hash = hash * 59 + this.SalePriceStartDate.GetHashCode();
-                if (this.SalePriceEndDate != null)
-                    hash = hash * 59 + this.SalePriceEndDate.GetHashCode();
-                if (this.UnitPricingMeasure != null)
-                    hash = hash * 59 + this.UnitPricingMeasure.GetHashCode();
-                if (this.BaseMeasure != null)
-                    hash = hash * 59 + this.BaseMeasure.GetHashCode();
-                if (this.PricingTrend != null)
-                    hash = hash * 59 + this.PricingTrend.GetHashCode();
-                if (this.GeoPrice != null)
-                    hash = hash * 59 + this.GeoPrice.GetHashCode();
-                if (this.GeoAvailability != null)
-                    hash = hash * 59 + this.GeoAvailability.GetHashCode();
                 if (this.Availability != null)
                     hash = hash * 59 + this.Availability.GetHashCode();
-                if (this.AvailabilityDate != null)
-                    hash = hash * 59 + this.AvailabilityDate.GetHashCode();
-                if (this.ExpirationDate != null)
-                    hash = hash * 59 + this.ExpirationDate.GetHashCode();
+                if (this.Color != null)
+                    hash = hash * 59 + this.Color.GetHashCode();
+                if (this.Gender != null)
+                    hash = hash * 59 + this.Gender.GetHashCode();
+                if (this.AgeGroup != null)
+                    hash = hash * 59 + this.AgeGroup.GetHashCode();
+                if (this.ShippingPrice != null)
+                    hash = hash * 59 + this.ShippingPrice.GetHashCode();
+                if (this.GroupId != null)
+                    hash = hash * 59 + this.GroupId.GetHashCode();
+                if (this.ListingHasVariations != null)
+                    hash = hash * 59 + this.ListingHasVariations.GetHashCode();
                 if (this.SellerName != null)
                     hash = hash * 59 + this.SellerName.GetHashCode();
                 if (this.SellerUrl != null)
                     hash = hash * 59 + this.SellerUrl.GetHashCode();
-                if (this.MarketplaceSeller != null)
-                    hash = hash * 59 + this.MarketplaceSeller.GetHashCode();
-                if (this.SellerPrivacyPolicy != null)
-                    hash = hash * 59 + this.SellerPrivacyPolicy.GetHashCode();
-                if (this.SellerTos != null)
-                    hash = hash * 59 + this.SellerTos.GetHashCode();
-                if (this.ShippingPrice != null)
-                    hash = hash * 59 + this.ShippingPrice.GetHashCode();
-                if (this.DeliveryEstimate != null)
-                    hash = hash * 59 + this.DeliveryEstimate.GetHashCode();
-                if (this.PickupMethod != null)
-                    hash = hash * 59 + this.PickupMethod.GetHashCode();
-                if (this.PickupSla != null)
-                    hash = hash * 59 + this.PickupSla.GetHashCode();
-                if (this.IsDigital != null)
-                    hash = hash * 59 + this.IsDigital.GetHashCode();
                 if (this.ReturnPolicy != null)
                     hash = hash * 59 + this.ReturnPolicy.GetHashCode();
-                if (this.AcceptsReturns != null)
-                    hash = hash * 59 + this.AcceptsReturns.GetHashCode();
-                if (this.ReturnDeadlineInDays != null)
-                    hash = hash * 59 + this.ReturnDeadlineInDays.GetHashCode();
-                if (this.AcceptsExchanges != null)
-                    hash = hash * 59 + this.AcceptsExchanges.GetHashCode();
-                if (this.IsEligibleSearch != null)
-                    hash = hash * 59 + this.IsEligibleSearch.GetHashCode();
-                if (this.IsEligibleCheckout != null)
-                    hash = hash * 59 + this.IsEligibleCheckout.GetHashCode();
-                if (this.PopularityScore != null)
-                    hash = hash * 59 + this.PopularityScore.GetHashCode();
-                if (this.ReturnRate != null)
-                    hash = hash * 59 + this.ReturnRate.GetHashCode();
-                if (this.Warning != null)
-                    hash = hash * 59 + this.Warning.GetHashCode();
-                if (this.WarningUrl != null)
-                    hash = hash * 59 + this.WarningUrl.GetHashCode();
-                if (this.AgeRestriction != null)
-                    hash = hash * 59 + this.AgeRestriction.GetHashCode();
-                if (this.ReviewCount != null)
-                    hash = hash * 59 + this.ReviewCount.GetHashCode();
-                if (this.StarRating != null)
-                    hash = hash * 59 + this.StarRating.GetHashCode();
-                if (this.StoreReviewCount != null)
-                    hash = hash * 59 + this.StoreReviewCount.GetHashCode();
-                if (this.StoreStarRating != null)
-                    hash = hash * 59 + this.StoreStarRating.GetHashCode();
-                if (this.RelatedProductId != null)
-                    hash = hash * 59 + this.RelatedProductId.GetHashCode();
-                if (this.RelationshipType != null)
-                    hash = hash * 59 + this.RelationshipType.GetHashCode();
                 if (this.TargetCountries != null)
                     hash = hash * 59 + this.TargetCountries.GetHashCode();
                 if (this.StoreCountry != null)
                     hash = hash * 59 + this.StoreCountry.GetHashCode();
-                if (this.QAndA != null)
-                    hash = hash * 59 + this.QAndA.GetHashCode();
-                if (this.QandA != null)
-                    hash = hash * 59 + this.QandA.GetHashCode();
-                if (this.Reviews != null)
-                    hash = hash * 59 + this.Reviews.GetHashCode();
                 if (this.CreatedAt != null)
                     hash = hash * 59 + this.CreatedAt.GetHashCode();
                 if (this.UpdatedAt != null)

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **MerchantInformation** | [**Ptsv2intentsMerchantInformation**](Ptsv2intentsMerchantInformation.md) |  | [optional] 
 **PaymentInformation** | [**Ptsv2intentsPaymentInformation**](Ptsv2intentsPaymentInformation.md) |  | [optional] 
 **OrderInformation** | [**Ptsv2intentsOrderInformation**](Ptsv2intentsOrderInformation.md) |  | [optional] 
+**BuyerInformation** | [**Ptsv2intentsBuyerInformation**](Ptsv2intentsBuyerInformation.md) |  | [optional] 
 **SenderInformation** | [**Ptsv2intentsSenderInformation**](Ptsv2intentsSenderInformation.md) |  | [optional] 
 **EventInformation** | [**Ptsv2intentsEventInformation**](Ptsv2intentsEventInformation.md) |  | [optional] 
 **TravelInformation** | [**Ptsv2intentsTravelInformation**](Ptsv2intentsTravelInformation.md) |  | [optional] 

@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The name of the field that caused the error.</value>
         [JsonPropertyName("name")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Name { get; private set; }
 
@@ -52,6 +53,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The location of the field that caused the error.</value>
         [JsonPropertyName("location")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Location { get; private set; }
 

@@ -272,6 +272,54 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'FirstInstallmentDate'
         }
+        /// <summary>
+        /// Test the property 'GracePeriodDuration'
+        /// </summary>
+        [Test]
+        public void GracePeriodDurationTest()
+        {
+            // TODO unit test for the property 'GracePeriodDuration'
+        }
+        /// <summary>
+        /// Test the property 'PaymentType'
+        /// </summary>
+        [Test]
+        public void PaymentTypeTest()
+        {
+            // TODO unit test for the property 'PaymentType'
+        }
+        /// <summary>
+        /// Test the property 'AmountType'
+        /// </summary>
+        [Test]
+        public void AmountTypeTest()
+        {
+            // TODO unit test for the property 'AmountType'
+        }
+        /// <summary>
+        /// Test the property 'PercentageDiscount'
+        /// </summary>
+        [Test]
+        public void PercentageDiscountTest()
+        {
+            // TODO unit test for the property 'PercentageDiscount'
+        }
+        /// <summary>
+        /// Test the property 'InterestIndicator'
+        /// </summary>
+        [Test]
+        public void InterestIndicatorTest()
+        {
+            // TODO unit test for the property 'InterestIndicator'
+        }
+        /// <summary>
+        /// Test the property 'FinancingCurrency'
+        /// </summary>
+        [Test]
+        public void FinancingCurrencyTest()
+        {
+            // TODO unit test for the property 'FinancingCurrency'
+        }
 
     }
 

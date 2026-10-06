@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Protocol** | **string** | Protocol type  Possible values: - ucp - acp - x402 | 
 **Url** | **string** | Protocol endpoint URL (must use HTTPS) | 
 **DocumentationUrl** | **string** | Optional documentation URL (must use HTTPS) | [optional] 
-**Metadata** | **Dictionary&lt;string, string&gt;** | Optional metadata (max 10KB) | [optional] 
+**Metadata** | **Dictionary&lt;string, Object&gt;** | Optional metadata (max 10KB) | [optional] 
 
 ## Extensibility
 

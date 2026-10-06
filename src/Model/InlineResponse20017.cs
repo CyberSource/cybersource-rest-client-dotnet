@@ -34,18 +34,23 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20017" /> class.
         /// </summary>
-        /// <param name="Id">The checkout session identifier..</param>
-        /// <param name="Status">Will always be &#x60;completed&#x60; on a successful response.  Possible values: - completed.</param>
-        /// <param name="Currency">ISO 4217 lowercase currency code..</param>
-        /// <param name="Buyer">Buyer.</param>
-        /// <param name="LineItems">Final line items with confirmed pricing..</param>
+        [JsonConstructor]
+        protected InlineResponse20017() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse20017" /> class.
+        /// </summary>
+        /// <param name="Id">The checkout session identifier. (required).</param>
+        /// <param name="Status">Will always be &#x60;completed&#x60; on a successful response.  Possible values: - completed (required).</param>
+        /// <param name="Currency">ISO 4217 lowercase currency code. (required).</param>
+        /// <param name="Buyer">Buyer (required).</param>
+        /// <param name="LineItems">Final line items with confirmed pricing. (required).</param>
         /// <param name="FulfillmentAddress">FulfillmentAddress.</param>
-        /// <param name="FulfillmentOptions">FulfillmentOptions.</param>
-        /// <param name="FulfillmentOptionId">ID of the selected fulfillment option..</param>
-        /// <param name="Totals">Final order totals as typed total lines. All amounts in minor units (cents)..</param>
-        /// <param name="Order">Order.</param>
-        /// <param name="Messages">Informational or error messages from the merchant backend..</param>
-        /// <param name="Links">Related resource links from the merchant (e.g. terms of use, privacy policy)..</param>
+        /// <param name="FulfillmentOptions">FulfillmentOptions (required).</param>
+        /// <param name="FulfillmentOptionId">ID of the selected fulfillment option. (required).</param>
+        /// <param name="Totals">Final order totals as typed total lines. All amounts in minor units (cents). (required).</param>
+        /// <param name="Order">Order (required).</param>
+        /// <param name="Messages">Informational or error messages from the merchant backend. (required).</param>
+        /// <param name="Links">Related resource links from the merchant (e.g. terms of use, privacy policy). (required).</param>
         public InlineResponse20017(string Id = default(string), string Status = default(string), string Currency = default(string), AcpCompleteCheckoutResponseBuyer Buyer = default(AcpCompleteCheckoutResponseBuyer), List<InlineResponse20112LineItems> LineItems = default(List<InlineResponse20112LineItems>), InlineResponse20017FulfillmentAddress FulfillmentAddress = default(InlineResponse20017FulfillmentAddress), List<InlineResponse20112FulfillmentOptions> FulfillmentOptions = default(List<InlineResponse20112FulfillmentOptions>), string FulfillmentOptionId = default(string), List<InlineResponse20112Totals> Totals = default(List<InlineResponse20112Totals>), InlineResponse20017Order Order = default(InlineResponse20017Order), List<InlineResponse20112Messages> Messages = default(List<InlineResponse20112Messages>), List<InlineResponse20112Links> Links = default(List<InlineResponse20112Links>))
         {
             this.Id = Id;

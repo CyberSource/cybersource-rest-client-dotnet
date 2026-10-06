@@ -82,7 +82,8 @@ namespace CyberSource.Model
         /// <param name="MerchantRiskPrediction">Mastercard is introducing the Merchant Risk Predict Service in the middle East/Africa Region. A newly launched service comprised of seven independent artificial intelligence (AI)-powered scores intended to augment existing merchant risk management practices. .</param>
         /// <param name="Network">Network.</param>
         /// <param name="CedpVerifiedIndicator">Merchant Commercial Enhanced Data Program (CEDP) verified indicator received in authorization response messages for U.S. domestic transactions containing a credential for the commercial credit products.  This field flows in ISO field 34, DSID 02 tag DA, in AN, EBCDIC format.  Possible values: - &#x60;Y&#x60;: Merchant CEDP verified  This field is for internal processing only (TC33A usage) and is not sent back to the merchant.  #### Used by **Authorization Response** Response field only. .</param>
-        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ResponseSourceCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), string SequenceNumber = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), ProcessorInformationSellerProtection SellerProtection = default(ProcessorInformationSellerProtection), string TransactionExpiryDate = default(string), string CustomUrl = default(string), string SchemeAssignedId = default(string), string DeviceUrl = default(string), string DisbursementMode = default(string), string UpdateTimeUtc = default(string), string ExpirationTimeUtc = default(string), string OrderId = default(string), string OrderStatus = default(string), string MerchantRiskPrediction = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), string CedpVerifiedIndicator = default(string))
+        /// <param name="TransactionLinkIdentifier">Transaction Link Identifier (TLID). Links all messages within a transaction lifecycle for Mastercard transactions. Received from Mastercard in the authorization response and automatically replayed for lifecycle transactions (reversals, follow-on credits, authorization refresh).  #### PIN Debit Also returned for PIN Debit purchase, credit, and reversal transactions. For PIN Debit (Visa Gateway) flows, this value is mapped to Visa Field 111 (DSI 07, Tag C0). .</param>
+        public PtsV2PaymentsPost201ResponseProcessorInformation(string AuthIndicator = default(string), string ApprovalCode = default(string), string CardReferenceData = default(string), string TransactionId = default(string), string NetworkTransactionId = default(string), string ResponseCode = default(string), string ResponseCodeSource = default(string), string ResponseDetails = default(string), string ResponseCategoryCode = default(string), string ResponseSourceCode = default(string), string ForwardedAcquirerCode = default(string), string SettlementDate = default(string), string SequenceNumber = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAvs Avs = default(PtsV2PaymentsPost201ResponseProcessorInformationAvs), PtsV2PaymentsPost201ResponseProcessorInformationCardVerification CardVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationCardVerification), PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsPost201ResponseProcessorInformationMerchantAdvice), PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults ElectronicVerificationResults = default(PtsV2PaymentsPost201ResponseProcessorInformationElectronicVerificationResults), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), PtsV2PaymentsPost201ResponseProcessorInformationCustomer Customer = default(PtsV2PaymentsPost201ResponseProcessorInformationCustomer), PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse ConsumerAuthenticationResponse = default(PtsV2PaymentsPost201ResponseProcessorInformationConsumerAuthenticationResponse), string SystemTraceAuditNumber = default(string), string PaymentAccountReferenceNumber = default(string), string TransactionIntegrityCode = default(string), string AmexVerbalAuthReferenceNumber = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string MasterCardAuthenticationType = default(string), string Name = default(string), PtsV2PaymentsPost201ResponseProcessorInformationRouting Routing = default(PtsV2PaymentsPost201ResponseProcessorInformationRouting), string MerchantNumber = default(string), string RetrievalReferenceNumber = default(string), string PaymentUrl = default(string), string CompleteUrl = default(string), string Signature = default(string), string PublicKey = default(string), ProcessorInformationSellerProtection SellerProtection = default(ProcessorInformationSellerProtection), string TransactionExpiryDate = default(string), string CustomUrl = default(string), string SchemeAssignedId = default(string), string DeviceUrl = default(string), string DisbursementMode = default(string), string UpdateTimeUtc = default(string), string ExpirationTimeUtc = default(string), string OrderId = default(string), string OrderStatus = default(string), string MerchantRiskPrediction = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), string CedpVerifiedIndicator = default(string), string TransactionLinkIdentifier = default(string))
         {
             this.AuthIndicator = AuthIndicator;
             this.ApprovalCode = ApprovalCode;
@@ -132,6 +133,7 @@ namespace CyberSource.Model
             this.MerchantRiskPrediction = MerchantRiskPrediction;
             this.Network = Network;
             this.CedpVerifiedIndicator = CedpVerifiedIndicator;
+            this.TransactionLinkIdentifier = TransactionLinkIdentifier;
         }
         
         /// <summary>
@@ -507,6 +509,14 @@ namespace CyberSource.Model
         public string CedpVerifiedIndicator { get; set; }
 
         /// <summary>
+        /// Transaction Link Identifier (TLID). Links all messages within a transaction lifecycle for Mastercard transactions. Received from Mastercard in the authorization response and automatically replayed for lifecycle transactions (reversals, follow-on credits, authorization refresh).  #### PIN Debit Also returned for PIN Debit purchase, credit, and reversal transactions. For PIN Debit (Visa Gateway) flows, this value is mapped to Visa Field 111 (DSI 07, Tag C0). 
+        /// </summary>
+        /// <value>Transaction Link Identifier (TLID). Links all messages within a transaction lifecycle for Mastercard transactions. Received from Mastercard in the authorization response and automatically replayed for lifecycle transactions (reversals, follow-on credits, authorization refresh).  #### PIN Debit Also returned for PIN Debit purchase, credit, and reversal transactions. For PIN Debit (Visa Gateway) flows, this value is mapped to Visa Field 111 (DSI 07, Tag C0). </value>
+        [JsonPropertyName("transactionLinkIdentifier")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string TransactionLinkIdentifier { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -562,6 +572,7 @@ namespace CyberSource.Model
             if (MerchantRiskPrediction != null) sb.Append("  MerchantRiskPrediction: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseProcessorInformation", "merchantRiskPrediction", MerchantRiskPrediction.ToString())).Append("\n");
             if (Network != null) sb.Append("  Network: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseProcessorInformation", "network", Network.ToString())).Append("\n");
             if (CedpVerifiedIndicator != null) sb.Append("  CedpVerifiedIndicator: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseProcessorInformation", "cedpVerifiedIndicator", CedpVerifiedIndicator.ToString())).Append("\n");
+            if (TransactionLinkIdentifier != null) sb.Append("  TransactionLinkIdentifier: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseProcessorInformation", "transactionLinkIdentifier", TransactionLinkIdentifier.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -842,6 +853,11 @@ namespace CyberSource.Model
                     this.CedpVerifiedIndicator == other.CedpVerifiedIndicator ||
                     this.CedpVerifiedIndicator != null &&
                     this.CedpVerifiedIndicator.Equals(other.CedpVerifiedIndicator)
+                ) && 
+                (
+                    this.TransactionLinkIdentifier == other.TransactionLinkIdentifier ||
+                    this.TransactionLinkIdentifier != null &&
+                    this.TransactionLinkIdentifier.Equals(other.TransactionLinkIdentifier)
                 );
         }
 
@@ -954,6 +970,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Network.GetHashCode();
                 if (this.CedpVerifiedIndicator != null)
                     hash = hash * 59 + this.CedpVerifiedIndicator.GetHashCode();
+                if (this.TransactionLinkIdentifier != null)
+                    hash = hash * 59 + this.TransactionLinkIdentifier.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

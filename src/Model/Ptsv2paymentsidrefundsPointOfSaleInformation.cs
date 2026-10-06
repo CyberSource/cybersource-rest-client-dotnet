@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Emv">Emv.</param>
         /// <param name="TerminalCategory">Indicates the type of terminal.   Possible values: - &#x60;AFD&#x60;: Automated Fuel Dispenser .</param>
-        public Ptsv2paymentsidrefundsPointOfSaleInformation(Ptsv2paymentsidcapturesPointOfSaleInformationEmv Emv = default(Ptsv2paymentsidcapturesPointOfSaleInformationEmv), string TerminalCategory = default(string))
+        public Ptsv2paymentsidrefundsPointOfSaleInformation(Ptsv2paymentsidrefundsPointOfSaleInformationEmv Emv = default(Ptsv2paymentsidrefundsPointOfSaleInformationEmv), string TerminalCategory = default(string))
         {
             this.Emv = Emv;
             this.TerminalCategory = TerminalCategory;
@@ -47,7 +47,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("emv")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Ptsv2paymentsidcapturesPointOfSaleInformationEmv Emv { get; set; }
+        public Ptsv2paymentsidrefundsPointOfSaleInformationEmv Emv { get; set; }
 
         /// <summary>
         /// Indicates the type of terminal.   Possible values: - &#x60;AFD&#x60;: Automated Fuel Dispenser 

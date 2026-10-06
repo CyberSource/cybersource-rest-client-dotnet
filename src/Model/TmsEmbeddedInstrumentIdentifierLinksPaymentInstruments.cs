@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Link to the Instrument Identifiers Payment Instruments. </value>
         [JsonPropertyName("href")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Href { get; private set; }
 

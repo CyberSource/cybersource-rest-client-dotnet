@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="MerchantCurrency">The merchant&#39;s local or preferred currency for expressing the security amount, expressed as an ISO 4217 3-letter currency code.</param>
         /// <param name="MerchantValue">The security deposit or holdback amount expressed in the merchant&#39;s local currency, in minor units.</param>
         /// <param name="Value">The security deposit or holdback amount in the transaction currency, in minor units (e.g., cents).</param>
-        public UnifiedriskAcquirerMerchantAccountSecurityAmount(string BaseCurrency = default(string), int? BaseValue = default(int?), string Currency = default(string), string MerchantCurrency = default(string), int? MerchantValue = default(int?), int? Value = default(int?))
+        public UnifiedriskAcquirerMerchantAccountSecurityAmount(string BaseCurrency = default(string), string BaseValue = default(string), string Currency = default(string), string MerchantCurrency = default(string), string MerchantValue = default(string), string Value = default(string))
         {
             this.BaseCurrency = BaseCurrency;
             this.BaseValue = BaseValue;
@@ -64,7 +64,7 @@ namespace CyberSource.Model
         /// <value>The monetary value of the security deposit or holdback amount expressed in the base currency, typically in minor units (e.g., cents)</value>
         [JsonPropertyName("baseValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? BaseValue { get; set; }
+        public string BaseValue { get; set; }
 
         /// <summary>
         /// The transaction currency in which the security amount is collected or held, expressed as an ISO 4217 3-letter currency code
@@ -88,7 +88,7 @@ namespace CyberSource.Model
         /// <value>The security deposit or holdback amount expressed in the merchant&#39;s local currency, in minor units</value>
         [JsonPropertyName("merchantValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? MerchantValue { get; set; }
+        public string MerchantValue { get; set; }
 
         /// <summary>
         /// The security deposit or holdback amount in the transaction currency, in minor units (e.g., cents)
@@ -96,7 +96,7 @@ namespace CyberSource.Model
         /// <value>The security deposit or holdback amount in the transaction currency, in minor units (e.g., cents)</value>
         [JsonPropertyName("value")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

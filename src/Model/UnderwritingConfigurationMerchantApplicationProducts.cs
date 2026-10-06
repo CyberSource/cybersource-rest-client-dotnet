@@ -68,6 +68,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Product status [] </value>
         [JsonPropertyName("status")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Status { get; private set; }
 

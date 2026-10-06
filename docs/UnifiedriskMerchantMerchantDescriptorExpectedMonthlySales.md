@@ -5,11 +5,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExpectedMonthlySales** | **Object** | Nested container for expected monthly sales data | [optional] 
 **BaseCurrency** | **string** | ISO 4217 3-letter code for the base reference currency for monthly sales | [optional] 
-**BaseValue** | **int?** | Expected monthly sales value in the base currency, in minor units | [optional] 
+**BaseValue** | **string** | Expected monthly sales value in the base currency, in minor units | [optional] 
 **Currency** | **string** | ISO 4217 3-letter currency code for the expected monthly sales amount | [optional] 
 **MerchantCurrency** | **string** | ISO 4217 3-letter code for the merchant&#39;s local currency for monthly sales | [optional] 
-**MerchantValue** | **int?** | Expected monthly sales in the merchant&#39;s local currency, in minor units | [optional] 
-**Value** | **int?** | Expected monthly sales amount in the specified currency, in minor units | [optional] 
+**MerchantValue** | **string** | Expected monthly sales in the merchant&#39;s local currency, in minor units | [optional] 
+**Value** | **string** | Expected monthly sales amount in the specified currency, in minor units | [optional] 
 **ExpectedMonthlyVolume** | **int?** | Expected number of transactions per month for velocity monitoring and anomaly detection | [optional] 
 
 ## Extensibility

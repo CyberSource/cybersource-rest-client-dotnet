@@ -51,6 +51,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Card foreground color. </value>
         [JsonPropertyName("foregroundColor")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string ForegroundColor { get; private set; }
 
@@ -59,6 +60,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Card background color. </value>
         [JsonPropertyName("backgroundColor")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string BackgroundColor { get; private set; }
 
@@ -67,6 +69,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Card label color. </value>
         [JsonPropertyName("labelColor")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string LabelColor { get; private set; }
 

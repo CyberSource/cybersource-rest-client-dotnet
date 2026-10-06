@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="TerminalCapability">POS terminal&#39;s capability. Possible values:   - &#x60;1&#x60;: Terminal has a magnetic stripe reader only.  - &#x60;2&#x60;: Terminal has a magnetic stripe reader and manual entry capability.  - &#x60;3&#x60;: Terminal has manual entry capability only.  - &#x60;4&#x60;: Terminal can read chip cards.  - &#x60;5&#x60;: Terminal can read contactless chip cards; cannot use contact to read chip cards.  For an EMV transaction, the value of this field must be &#x60;4&#x60; or &#x60;5&#x60;.  #### PIN debit Required for PIN debit purchase and PIN debit credit request.  #### Used by **Authorization** Required for the following processors: - American Express Direct - Chase Paymentech Solutions - Credit Mutuel-CIC - FDC Nashville Global - FDMS Nashville - OmniPay Direct - SIX - Worldpay VAP  Optional for the following processors: - CyberSource through VisaNet - GPN - GPX - JCN Gateway - RBS WorldPay Atlanta - TSYS Acquiring Solutions .</param>
         /// <param name="CardholderVerificationMethodUsed">Method that was used to verify the cardholder&#39;s identity. Possible values:    - &#x60;0&#x60;: No verification   - &#x60;1&#x60;: Signature   - &#x60;2&#x60;: PIN   - &#x60;3&#x60;: Cardholder device CVM   - &#x60;4&#x60;: Biometric   - &#x60;5&#x60;: OTP .</param>
         /// <param name="Emv">Emv.</param>
-        public TssV2TransactionsGet200ResponsePointOfSaleInformation(string TerminalId = default(string), string EntryMode = default(string), int? TerminalCapability = default(int?), int? CardholderVerificationMethodUsed = default(int?), Ptsv2paymentsidreversalsPointOfSaleInformationEmv Emv = default(Ptsv2paymentsidreversalsPointOfSaleInformationEmv))
+        public TssV2TransactionsGet200ResponsePointOfSaleInformation(string TerminalId = default(string), string EntryMode = default(string), int? TerminalCapability = default(int?), int? CardholderVerificationMethodUsed = default(int?), PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformationEmv Emv = default(PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformationEmv))
         {
             this.TerminalId = TerminalId;
             this.EntryMode = EntryMode;
@@ -85,7 +85,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("emv")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Ptsv2paymentsidreversalsPointOfSaleInformationEmv Emv { get; set; }
+        public PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformationEmv Emv { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

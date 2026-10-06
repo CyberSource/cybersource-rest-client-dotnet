@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **IssuerInformation** | [**Ptsv2paymentsIssuerInformation**](Ptsv2paymentsIssuerInformation.md) |  | [optional] 
 **PaymentInformation** | [**Ptsv2paymentsPaymentInformation**](Ptsv2paymentsPaymentInformation.md) |  | [optional] 
 **OrderInformation** | [**Ptsv2paymentsOrderInformation**](Ptsv2paymentsOrderInformation.md) |  | [optional] 
+**OrderHistory** | [**List&lt;Ptsv2paymentsOrderHistory&gt;**](Ptsv2paymentsOrderHistory.md) | Array of the buyer&#39;s previous orders.  | [optional] 
 **BuyerInformation** | [**Ptsv2paymentsBuyerInformation**](Ptsv2paymentsBuyerInformation.md) |  | [optional] 
 **SenderInformation** | [**Ptsv2paymentsSenderInformation**](Ptsv2paymentsSenderInformation.md) |  | [optional] 
 **RecipientInformation** | [**Ptsv2paymentsRecipientInformation**](Ptsv2paymentsRecipientInformation.md) |  | [optional] 

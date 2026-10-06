@@ -54,9 +54,10 @@ namespace CyberSource.Model
         /// <param name="ReceivablesManager">ReceivablesManager.</param>
         /// <param name="ServiceFee">ServiceFee.</param>
         /// <param name="BatchUpload">BatchUpload.</param>
+        /// <param name="PaymentEvents">PaymentEvents.</param>
         /// <param name="TransactGuard">TransactGuard.</param>
         /// <param name="Microform">Microform.</param>
-        public PaymentsConfigurationSetup(PaymentsConfigurationSetupCardProcessing CardProcessing = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupAlternativePaymentMethods AlternativePaymentMethods = default(PaymentsConfigurationSetupAlternativePaymentMethods), PaymentsConfigurationSetupCardProcessing CardPresentConnect = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing ECheck = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing PayerAuthentication = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments DigitalPayments = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupCardProcessing SecureAcceptance = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing VirtualTerminal = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing CurrencyConversion = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments Tax = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments CustomerInvoicing = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupCardProcessing RecurringBilling = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing CybsReadyTerminal = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments PaymentOrchestration = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupCardProcessing Payouts = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments PayByLink = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments UnifiedCheckout = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments ReceivablesManager = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupCardProcessing ServiceFee = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments BatchUpload = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments TransactGuard = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupCardProcessing Microform = default(PaymentsConfigurationSetupCardProcessing))
+        public PaymentsConfigurationSetup(PaymentsConfigurationSetupCardProcessing CardProcessing = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupAlternativePaymentMethods AlternativePaymentMethods = default(PaymentsConfigurationSetupAlternativePaymentMethods), PaymentsConfigurationSetupCardProcessing CardPresentConnect = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing ECheck = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing PayerAuthentication = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments DigitalPayments = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupCardProcessing SecureAcceptance = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing VirtualTerminal = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing CurrencyConversion = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments Tax = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments CustomerInvoicing = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupCardProcessing RecurringBilling = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing CybsReadyTerminal = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments PaymentOrchestration = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupCardProcessing Payouts = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments PayByLink = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments UnifiedCheckout = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments ReceivablesManager = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupCardProcessing ServiceFee = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments BatchUpload = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments PaymentEvents = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments TransactGuard = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupCardProcessing Microform = default(PaymentsConfigurationSetupCardProcessing))
         {
             this.CardProcessing = CardProcessing;
             this.AlternativePaymentMethods = AlternativePaymentMethods;
@@ -78,6 +79,7 @@ namespace CyberSource.Model
             this.ReceivablesManager = ReceivablesManager;
             this.ServiceFee = ServiceFee;
             this.BatchUpload = BatchUpload;
+            this.PaymentEvents = PaymentEvents;
             this.TransactGuard = TransactGuard;
             this.Microform = Microform;
         }
@@ -223,6 +225,13 @@ namespace CyberSource.Model
         public PaymentsConfigurationSetupDigitalPayments BatchUpload { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentEvents
+        /// </summary>
+        [JsonPropertyName("paymentEvents")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public PaymentsConfigurationSetupDigitalPayments PaymentEvents { get; set; }
+
+        /// <summary>
         /// Gets or Sets TransactGuard
         /// </summary>
         [JsonPropertyName("transactGuard")]
@@ -264,6 +273,7 @@ namespace CyberSource.Model
             if (ReceivablesManager != null) sb.Append("  ReceivablesManager: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsConfigurationSetup", "receivablesManager", ReceivablesManager.ToString())).Append("\n");
             if (ServiceFee != null) sb.Append("  ServiceFee: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsConfigurationSetup", "serviceFee", ServiceFee.ToString())).Append("\n");
             if (BatchUpload != null) sb.Append("  BatchUpload: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsConfigurationSetup", "batchUpload", BatchUpload.ToString())).Append("\n");
+            if (PaymentEvents != null) sb.Append("  PaymentEvents: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsConfigurationSetup", "paymentEvents", PaymentEvents.ToString())).Append("\n");
             if (TransactGuard != null) sb.Append("  TransactGuard: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsConfigurationSetup", "transactGuard", TransactGuard.ToString())).Append("\n");
             if (Microform != null) sb.Append("  Microform: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsConfigurationSetup", "microform", Microform.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
@@ -408,6 +418,11 @@ namespace CyberSource.Model
                     this.BatchUpload.Equals(other.BatchUpload)
                 ) && 
                 (
+                    this.PaymentEvents == other.PaymentEvents ||
+                    this.PaymentEvents != null &&
+                    this.PaymentEvents.Equals(other.PaymentEvents)
+                ) && 
+                (
                     this.TransactGuard == other.TransactGuard ||
                     this.TransactGuard != null &&
                     this.TransactGuard.Equals(other.TransactGuard)
@@ -472,6 +487,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ServiceFee.GetHashCode();
                 if (this.BatchUpload != null)
                     hash = hash * 59 + this.BatchUpload.GetHashCode();
+                if (this.PaymentEvents != null)
+                    hash = hash * 59 + this.PaymentEvents.GetHashCode();
                 if (this.TransactGuard != null)
                     hash = hash * 59 + this.TransactGuard.GetHashCode();
                 if (this.Microform != null)

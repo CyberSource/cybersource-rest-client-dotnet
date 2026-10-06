@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="BaseValue">Additional fees in base currency.</param>
         /// <param name="MerchantCurrency">ISO 4217 3-letter code for the merchant&#39;s local currency used to express the additional fees amount (e.g., EUR for EU merchants).</param>
         /// <param name="MerchantValue">Additional fees amount expressed in the merchant&#39;s local currency, used for cross-currency fee reconciliation.</param>
-        public UnifiedriskTransactionAdditionalFees(decimal? Value = default(decimal?), string Currency = default(string), string BaseCurrency = default(string), decimal? BaseValue = default(decimal?), string MerchantCurrency = default(string), string MerchantValue = default(string))
+        public UnifiedriskTransactionAdditionalFees(string Value = default(string), string Currency = default(string), string BaseCurrency = default(string), string BaseValue = default(string), string MerchantCurrency = default(string), string MerchantValue = default(string))
         {
             this.Value = Value;
             this.Currency = Currency;
@@ -56,7 +56,7 @@ namespace CyberSource.Model
         /// <value>Additional fees amount</value>
         [JsonPropertyName("value")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Currency for additional fees
@@ -80,7 +80,7 @@ namespace CyberSource.Model
         /// <value>Additional fees in base currency</value>
         [JsonPropertyName("baseValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? BaseValue { get; set; }
+        public string BaseValue { get; set; }
 
         /// <summary>
         /// ISO 4217 3-letter code for the merchant&#39;s local currency used to express the additional fees amount (e.g., EUR for EU merchants)

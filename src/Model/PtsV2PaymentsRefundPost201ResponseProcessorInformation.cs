@@ -46,7 +46,8 @@ namespace CyberSource.Model
         /// <param name="UpdateTimeUtc">The date and time when the transaction was last updated, in Internet date and time format. .</param>
         /// <param name="Network">Network.</param>
         /// <param name="MerchantAdvice">MerchantAdvice.</param>
-        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), string ResponseSourceCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), string NetworkTransactionId = default(string), string SettlementDate = default(string), string UpdateTimeUtc = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice))
+        /// <param name="TransactionLinkIdentifier">Transaction Link Identifier (TLID). Links all messages within a transaction lifecycle for Mastercard transactions. Received from Mastercard in the authorization response and automatically replayed for lifecycle transactions (reversals, follow-on credits, authorization refresh).  #### PIN Debit Also returned for PIN Debit purchase, credit, and reversal transactions. For PIN Debit (Visa Gateway) flows, this value is mapped to Visa Field 111 (DSI 07, Tag C0). .</param>
+        public PtsV2PaymentsRefundPost201ResponseProcessorInformation(string ApprovalCode = default(string), string TransactionId = default(string), string ForwardedAcquirerCode = default(string), string MerchantNumber = default(string), string ResponseCode = default(string), string ResponseSourceCode = default(string), PtsV2PaymentsPost201ResponseProcessorInformationAchVerification AchVerification = default(PtsV2PaymentsPost201ResponseProcessorInformationAchVerification), string NetworkTransactionId = default(string), string SettlementDate = default(string), string UpdateTimeUtc = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice = default(PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice), string TransactionLinkIdentifier = default(string))
         {
             this.ApprovalCode = ApprovalCode;
             this.TransactionId = TransactionId;
@@ -60,6 +61,7 @@ namespace CyberSource.Model
             this.UpdateTimeUtc = UpdateTimeUtc;
             this.Network = Network;
             this.MerchantAdvice = MerchantAdvice;
+            this.TransactionLinkIdentifier = TransactionLinkIdentifier;
         }
         
         /// <summary>
@@ -156,6 +158,14 @@ namespace CyberSource.Model
         public PtsV2PaymentsRefundPost201ResponseProcessorInformationMerchantAdvice MerchantAdvice { get; set; }
 
         /// <summary>
+        /// Transaction Link Identifier (TLID). Links all messages within a transaction lifecycle for Mastercard transactions. Received from Mastercard in the authorization response and automatically replayed for lifecycle transactions (reversals, follow-on credits, authorization refresh).  #### PIN Debit Also returned for PIN Debit purchase, credit, and reversal transactions. For PIN Debit (Visa Gateway) flows, this value is mapped to Visa Field 111 (DSI 07, Tag C0). 
+        /// </summary>
+        /// <value>Transaction Link Identifier (TLID). Links all messages within a transaction lifecycle for Mastercard transactions. Received from Mastercard in the authorization response and automatically replayed for lifecycle transactions (reversals, follow-on credits, authorization refresh).  #### PIN Debit Also returned for PIN Debit purchase, credit, and reversal transactions. For PIN Debit (Visa Gateway) flows, this value is mapped to Visa Field 111 (DSI 07, Tag C0). </value>
+        [JsonPropertyName("transactionLinkIdentifier")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string TransactionLinkIdentifier { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -175,6 +185,7 @@ namespace CyberSource.Model
             if (UpdateTimeUtc != null) sb.Append("  UpdateTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsRefundPost201ResponseProcessorInformation", "updateTimeUtc", UpdateTimeUtc.ToString())).Append("\n");
             if (Network != null) sb.Append("  Network: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsRefundPost201ResponseProcessorInformation", "network", Network.ToString())).Append("\n");
             if (MerchantAdvice != null) sb.Append("  MerchantAdvice: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsRefundPost201ResponseProcessorInformation", "merchantAdvice", MerchantAdvice.ToString())).Append("\n");
+            if (TransactionLinkIdentifier != null) sb.Append("  TransactionLinkIdentifier: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsRefundPost201ResponseProcessorInformation", "transactionLinkIdentifier", TransactionLinkIdentifier.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -275,6 +286,11 @@ namespace CyberSource.Model
                     this.MerchantAdvice == other.MerchantAdvice ||
                     this.MerchantAdvice != null &&
                     this.MerchantAdvice.Equals(other.MerchantAdvice)
+                ) && 
+                (
+                    this.TransactionLinkIdentifier == other.TransactionLinkIdentifier ||
+                    this.TransactionLinkIdentifier != null &&
+                    this.TransactionLinkIdentifier.Equals(other.TransactionLinkIdentifier)
                 );
         }
 
@@ -315,6 +331,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Network.GetHashCode();
                 if (this.MerchantAdvice != null)
                     hash = hash * 59 + this.MerchantAdvice.GetHashCode();
+                if (this.TransactionLinkIdentifier != null)
+                    hash = hash * 59 + this.TransactionLinkIdentifier.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'JobId'
+        /// </summary>
+        [Test]
+        public void JobIdTest()
+        {
+            // TODO unit test for the property 'JobId'
+        }
+        /// <summary>
         /// Test the property 'Status'
         /// </summary>
         [Test]
@@ -73,84 +81,20 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'FeedId'
+        /// Test the property 'Processing'
         /// </summary>
         [Test]
-        public void FeedIdTest()
+        public void ProcessingTest()
         {
-            // TODO unit test for the property 'FeedId'
+            // TODO unit test for the property 'Processing'
         }
         /// <summary>
-        /// Test the property 'TotalSubmitted'
+        /// Test the property 'Syndication'
         /// </summary>
         [Test]
-        public void TotalSubmittedTest()
+        public void SyndicationTest()
         {
-            // TODO unit test for the property 'TotalSubmitted'
-        }
-        /// <summary>
-        /// Test the property 'SuccessCount'
-        /// </summary>
-        [Test]
-        public void SuccessCountTest()
-        {
-            // TODO unit test for the property 'SuccessCount'
-        }
-        /// <summary>
-        /// Test the property 'FailedCount'
-        /// </summary>
-        [Test]
-        public void FailedCountTest()
-        {
-            // TODO unit test for the property 'FailedCount'
-        }
-        /// <summary>
-        /// Test the property 'Errors'
-        /// </summary>
-        [Test]
-        public void ErrorsTest()
-        {
-            // TODO unit test for the property 'Errors'
-        }
-        /// <summary>
-        /// Test the property 'IngestedAt'
-        /// </summary>
-        [Test]
-        public void IngestedAtTest()
-        {
-            // TODO unit test for the property 'IngestedAt'
-        }
-        /// <summary>
-        /// Test the property 'ForwardedToAgent'
-        /// </summary>
-        [Test]
-        public void ForwardedToAgentTest()
-        {
-            // TODO unit test for the property 'ForwardedToAgent'
-        }
-        /// <summary>
-        /// Test the property 'AgentEndpoint'
-        /// </summary>
-        [Test]
-        public void AgentEndpointTest()
-        {
-            // TODO unit test for the property 'AgentEndpoint'
-        }
-        /// <summary>
-        /// Test the property 'ForwardedToUcpAgent'
-        /// </summary>
-        [Test]
-        public void ForwardedToUcpAgentTest()
-        {
-            // TODO unit test for the property 'ForwardedToUcpAgent'
-        }
-        /// <summary>
-        /// Test the property 'GoogleMerchant'
-        /// </summary>
-        [Test]
-        public void GoogleMerchantTest()
-        {
-            // TODO unit test for the property 'GoogleMerchant'
+            // TODO unit test for the property 'Syndication'
         }
 
     }

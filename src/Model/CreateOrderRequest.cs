@@ -39,17 +39,19 @@ namespace CyberSource.Model
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="PaymentInformation">PaymentInformation.</param>
         /// <param name="OrderInformation">OrderInformation.</param>
+        /// <param name="BuyerInformation">BuyerInformation.</param>
         /// <param name="SenderInformation">SenderInformation.</param>
         /// <param name="EventInformation">EventInformation.</param>
         /// <param name="TravelInformation">TravelInformation.</param>
         /// <param name="RecipientInformation">RecipientInformation.</param>
-        public CreateOrderRequest(Ptsv2intentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2intentsClientReferenceInformation), Ptsv2intentsProcessingInformation ProcessingInformation = default(Ptsv2intentsProcessingInformation), Ptsv2intentsMerchantInformation MerchantInformation = default(Ptsv2intentsMerchantInformation), Ptsv2intentsPaymentInformation PaymentInformation = default(Ptsv2intentsPaymentInformation), Ptsv2intentsOrderInformation OrderInformation = default(Ptsv2intentsOrderInformation), Ptsv2intentsSenderInformation SenderInformation = default(Ptsv2intentsSenderInformation), Ptsv2intentsEventInformation EventInformation = default(Ptsv2intentsEventInformation), Ptsv2intentsTravelInformation TravelInformation = default(Ptsv2intentsTravelInformation), Ptsv2intentsRecipientInformation RecipientInformation = default(Ptsv2intentsRecipientInformation))
+        public CreateOrderRequest(Ptsv2intentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2intentsClientReferenceInformation), Ptsv2intentsProcessingInformation ProcessingInformation = default(Ptsv2intentsProcessingInformation), Ptsv2intentsMerchantInformation MerchantInformation = default(Ptsv2intentsMerchantInformation), Ptsv2intentsPaymentInformation PaymentInformation = default(Ptsv2intentsPaymentInformation), Ptsv2intentsOrderInformation OrderInformation = default(Ptsv2intentsOrderInformation), Ptsv2intentsBuyerInformation BuyerInformation = default(Ptsv2intentsBuyerInformation), Ptsv2intentsSenderInformation SenderInformation = default(Ptsv2intentsSenderInformation), Ptsv2intentsEventInformation EventInformation = default(Ptsv2intentsEventInformation), Ptsv2intentsTravelInformation TravelInformation = default(Ptsv2intentsTravelInformation), Ptsv2intentsRecipientInformation RecipientInformation = default(Ptsv2intentsRecipientInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessingInformation = ProcessingInformation;
             this.MerchantInformation = MerchantInformation;
             this.PaymentInformation = PaymentInformation;
             this.OrderInformation = OrderInformation;
+            this.BuyerInformation = BuyerInformation;
             this.SenderInformation = SenderInformation;
             this.EventInformation = EventInformation;
             this.TravelInformation = TravelInformation;
@@ -92,6 +94,13 @@ namespace CyberSource.Model
         public Ptsv2intentsOrderInformation OrderInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets BuyerInformation
+        /// </summary>
+        [JsonPropertyName("buyerInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Ptsv2intentsBuyerInformation BuyerInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets SenderInformation
         /// </summary>
         [JsonPropertyName("senderInformation")]
@@ -132,6 +141,7 @@ namespace CyberSource.Model
             if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateOrderRequest", "merchantInformation", MerchantInformation.ToString())).Append("\n");
             if (PaymentInformation != null) sb.Append("  PaymentInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateOrderRequest", "paymentInformation", PaymentInformation.ToString())).Append("\n");
             if (OrderInformation != null) sb.Append("  OrderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateOrderRequest", "orderInformation", OrderInformation.ToString())).Append("\n");
+            if (BuyerInformation != null) sb.Append("  BuyerInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateOrderRequest", "buyerInformation", BuyerInformation.ToString())).Append("\n");
             if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateOrderRequest", "senderInformation", SenderInformation.ToString())).Append("\n");
             if (EventInformation != null) sb.Append("  EventInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateOrderRequest", "eventInformation", EventInformation.ToString())).Append("\n");
             if (TravelInformation != null) sb.Append("  TravelInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateOrderRequest", "travelInformation", TravelInformation.ToString())).Append("\n");
@@ -203,6 +213,11 @@ namespace CyberSource.Model
                     this.OrderInformation.Equals(other.OrderInformation)
                 ) && 
                 (
+                    this.BuyerInformation == other.BuyerInformation ||
+                    this.BuyerInformation != null &&
+                    this.BuyerInformation.Equals(other.BuyerInformation)
+                ) && 
+                (
                     this.SenderInformation == other.SenderInformation ||
                     this.SenderInformation != null &&
                     this.SenderInformation.Equals(other.SenderInformation)
@@ -247,6 +262,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PaymentInformation.GetHashCode();
                 if (this.OrderInformation != null)
                     hash = hash * 59 + this.OrderInformation.GetHashCode();
+                if (this.BuyerInformation != null)
+                    hash = hash * 59 + this.BuyerInformation.GetHashCode();
                 if (this.SenderInformation != null)
                     hash = hash * 59 + this.SenderInformation.GetHashCode();
                 if (this.EventInformation != null)

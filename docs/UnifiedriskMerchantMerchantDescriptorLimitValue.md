@@ -4,11 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BaseCurrency** | **string** | ISO 4217 3-letter code for the base reference currency of the limit value | [optional] 
-**BaseValue** | **int?** | Financial limit amount in the base currency, in minor units | [optional] 
+**BaseValue** | **string** | Financial limit amount in the base currency, in minor units | [optional] 
 **Currency** | **string** | ISO 4217 3-letter currency code in which the limit value is expressed | [optional] 
 **MerchantCurrency** | **string** | ISO 4217 3-letter code for the merchant&#39;s local currency for the limit value | [optional] 
-**MerchantValue** | **int?** | Financial limit in the merchant&#39;s local currency, in minor units | [optional] 
-**Value** | **int?** | Limit value amount in the specified currency, in minor units | [optional] 
+**MerchantValue** | **string** | Financial limit in the merchant&#39;s local currency, in minor units | [optional] 
+**Value** | **string** | Limit value amount in the specified currency, in minor units | [optional] 
 **ExpectedMonthlyVolume** | **int?** | Expected monthly transaction volume used alongside limit value to set composite risk thresholds | [optional] 
 
 ## Extensibility

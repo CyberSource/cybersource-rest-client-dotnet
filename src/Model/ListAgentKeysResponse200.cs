@@ -40,8 +40,8 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="ListAgentKeysResponse200" /> class.
         /// </summary>
         /// <param name="AgentId">Agent identifier (64-char SHA-256 hash) (required).</param>
-        /// <param name="AgentName">Agent name (required).</param>
-        /// <param name="Keys">List of keys (without agentId/agentName/agentType since they are at parent level) (required).</param>
+        /// <param name="AgentName">Display name of the agent (required).</param>
+        /// <param name="Keys">Paginated list of public keys belonging to this agent (agentId/agentName/agentType omitted — available at the parent level) (required).</param>
         /// <param name="Pagination">Pagination (required).</param>
         public ListAgentKeysResponse200(string AgentId = default(string), string AgentName = default(string), List<AgentRegistrationResponse201Keys> Keys = default(List<AgentRegistrationResponse201Keys>), ListAgentKeysResponse200Pagination Pagination = default(ListAgentKeysResponse200Pagination))
         {
@@ -60,17 +60,17 @@ namespace CyberSource.Model
         public string AgentId { get; set; }
 
         /// <summary>
-        /// Agent name
+        /// Display name of the agent
         /// </summary>
-        /// <value>Agent name</value>
+        /// <value>Display name of the agent</value>
         [JsonPropertyName("agentName")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string AgentName { get; set; }
 
         /// <summary>
-        /// List of keys (without agentId/agentName/agentType since they are at parent level)
+        /// Paginated list of public keys belonging to this agent (agentId/agentName/agentType omitted — available at the parent level)
         /// </summary>
-        /// <value>List of keys (without agentId/agentName/agentType since they are at parent level)</value>
+        /// <value>Paginated list of public keys belonging to this agent (agentId/agentName/agentType omitted — available at the parent level)</value>
         [JsonPropertyName("keys")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<AgentRegistrationResponse201Keys> Keys { get; set; }

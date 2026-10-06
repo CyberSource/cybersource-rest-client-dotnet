@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2intentsidMerchantInformation" /> class.
         /// </summary>
         /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
-        public Ptsv2intentsidMerchantInformation(Ptsv2intentsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2intentsMerchantInformationMerchantDescriptor))
+        public Ptsv2intentsidMerchantInformation(Ptsv2intentsidMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ptsv2intentsidMerchantInformationMerchantDescriptor))
         {
             this.MerchantDescriptor = MerchantDescriptor;
         }
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("merchantDescriptor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Ptsv2intentsMerchantInformationMerchantDescriptor MerchantDescriptor { get; set; }
+        public Ptsv2intentsidMerchantInformationMerchantDescriptor MerchantDescriptor { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

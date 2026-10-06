@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Common** | [**BoardingPayoutsConfigurationsCommon**](BoardingPayoutsConfigurationsCommon.md) |  | [optional] 
-**Processors** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
+**Processors** | [**Dictionary&lt;string, BoardingPayoutsConfigurationsProcessors&gt;**](BoardingPayoutsConfigurationsProcessors.md) |  | [optional] 
 
 ## Extensibility
 

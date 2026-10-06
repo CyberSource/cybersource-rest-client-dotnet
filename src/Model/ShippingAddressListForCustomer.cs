@@ -54,6 +54,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The offset parameter supplied in the request.</value>
         [JsonPropertyName("offset")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public int? Offset { get; private set; }
 
@@ -62,6 +63,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The limit parameter supplied in the request.</value>
         [JsonPropertyName("limit")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public int? Limit { get; private set; }
 
@@ -70,6 +72,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The number of Shipping Addresses returned in the array.</value>
         [JsonPropertyName("count")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public int? Count { get; private set; }
 
@@ -78,6 +81,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The total number of Shipping Addresses associated with the Customer.</value>
         [JsonPropertyName("total")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public int? Total { get; private set; }
 

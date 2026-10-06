@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **ProcessorInformation** | [**PtsV2PaymentsReversalsPost201ResponseProcessorInformation**](PtsV2PaymentsReversalsPost201ResponseProcessorInformation.md) |  | [optional] 
 **IssuerInformation** | [**PtsV2PaymentsReversalsPost201ResponseIssuerInformation**](PtsV2PaymentsReversalsPost201ResponseIssuerInformation.md) |  | [optional] 
 **AuthorizationInformation** | [**PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation**](PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation.md) |  | [optional] 
-**PointOfSaleInformation** | [**Ptsv2paymentsidreversalsPointOfSaleInformation**](Ptsv2paymentsidreversalsPointOfSaleInformation.md) |  | [optional] 
+**PointOfSaleInformation** | [**PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformation**](PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformation.md) |  | [optional] 
 
 ## Extensibility
 

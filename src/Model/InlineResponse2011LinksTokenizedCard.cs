@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Link to the Tokenized Card. Present when a network token is available. </value>
         [JsonPropertyName("href")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Href { get; private set; }
 

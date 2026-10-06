@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Bank application name. </value>
         [JsonPropertyName("name")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Name { get; private set; }
 
@@ -52,6 +53,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Bank application address. (e.g. com.mybank.app) </value>
         [JsonPropertyName("address")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Address { get; private set; }
 

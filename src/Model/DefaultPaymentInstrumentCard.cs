@@ -115,6 +115,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Hash value representing the card. </value>
         [JsonPropertyName("hash")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Hash { get; private set; }
 

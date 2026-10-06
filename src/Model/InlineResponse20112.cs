@@ -34,18 +34,23 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20112" /> class.
         /// </summary>
-        /// <param name="Id">Unique identifier for this checkout session. Required for all subsequent calls (update, complete, cancel). .</param>
-        /// <param name="Status">Current lifecycle state of the session per ACP spec: - &#x60;not_ready_for_payment&#x60; — session is open but not yet ready - &#x60;ready_for_payment&#x60; — session is ready to be completed - &#x60;completed&#x60; — order has been placed; session is immutable - &#x60;canceled&#x60; — session was abandoned; no charge was made   Possible values: - not_ready_for_payment - ready_for_payment - completed - canceled.</param>
-        /// <param name="Currency">ISO 4217 lowercase currency code for this session..</param>
-        /// <param name="LineItems">Line items with merchant-confirmed pricing..</param>
+        [JsonConstructor]
+        protected InlineResponse20112() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse20112" /> class.
+        /// </summary>
+        /// <param name="Id">Unique identifier for this checkout session. Required for all subsequent calls (update, complete, cancel).  (required).</param>
+        /// <param name="Status">Current lifecycle state of the session per ACP spec: - &#x60;not_ready_for_payment&#x60; — session is open but not yet ready - &#x60;ready_for_payment&#x60; — session is ready to be completed - &#x60;completed&#x60; — order has been placed; session is immutable - &#x60;canceled&#x60; — session was abandoned; no charge was made   Possible values: - not_ready_for_payment - ready_for_payment - completed - canceled (required).</param>
+        /// <param name="Currency">ISO 4217 lowercase currency code for this session. (required).</param>
+        /// <param name="LineItems">Line items with merchant-confirmed pricing. (required).</param>
         /// <param name="FulfillmentAddress">FulfillmentAddress.</param>
-        /// <param name="FulfillmentOptions">Available fulfillment methods with pricing..</param>
+        /// <param name="FulfillmentOptions">Available fulfillment methods with pricing. (required).</param>
         /// <param name="FulfillmentOptionId">ID of the currently selected fulfillment option..</param>
-        /// <param name="Totals">Order cost breakdown as an array of typed total lines. All amounts in minor units (cents)..</param>
+        /// <param name="Totals">Order cost breakdown as an array of typed total lines. All amounts in minor units (cents). (required).</param>
         /// <param name="Buyer">Buyer.</param>
         /// <param name="PaymentProvider">PaymentProvider.</param>
-        /// <param name="Messages">Informational or error messages from the merchant backend..</param>
-        /// <param name="Links">Related resource links from the merchant (e.g. terms of use, privacy policy, seller shop policies). .</param>
+        /// <param name="Messages">Informational or error messages from the merchant backend. (required).</param>
+        /// <param name="Links">Related resource links from the merchant (e.g. terms of use, privacy policy, seller shop policies).  (required).</param>
         public InlineResponse20112(string Id = default(string), string Status = default(string), string Currency = default(string), List<InlineResponse20112LineItems> LineItems = default(List<InlineResponse20112LineItems>), InlineResponse20112FulfillmentAddress FulfillmentAddress = default(InlineResponse20112FulfillmentAddress), List<InlineResponse20112FulfillmentOptions> FulfillmentOptions = default(List<InlineResponse20112FulfillmentOptions>), string FulfillmentOptionId = default(string), List<InlineResponse20112Totals> Totals = default(List<InlineResponse20112Totals>), AcpCheckoutSessionResponseBuyer Buyer = default(AcpCheckoutSessionResponseBuyer), InlineResponse20112PaymentProvider PaymentProvider = default(InlineResponse20112PaymentProvider), List<InlineResponse20112Messages> Messages = default(List<InlineResponse20112Messages>), List<InlineResponse20112Links> Links = default(List<InlineResponse20112Links>))
         {
             this.Id = Id;

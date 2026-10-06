@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Result of a product feed ingestion request.
+    /// Processing and syndication status of a product feed job.
     /// </summary>
     [DataContract]
     public partial class InlineResponse20019 :  ModelExtensions, IEquatable<InlineResponse20019>, IValidatableObject
@@ -34,118 +34,48 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20019" /> class.
         /// </summary>
-        /// <param name="Status">Overall ingestion result: - &#x60;success&#x60; — all products were validated and saved - &#x60;partial_success&#x60; — some products failed validation; &#x60;errors&#x60; lists the failures - &#x60;failed&#x60; — no products were saved; check &#x60;errors&#x60; for details   Possible values: - success - partial_success - failed.</param>
-        /// <param name="FeedId">Unique identifier for this feed ingestion job. Use this with the Syndication Status endpoint to monitor the asynchronous protocol sync progress (e.g. to Google Merchant Center). .</param>
-        /// <param name="TotalSubmitted">Total number of product records in the submitted feed..</param>
-        /// <param name="SuccessCount">Number of products that passed validation and were saved to the catalog..</param>
-        /// <param name="FailedCount">Number of products that failed validation and were not saved..</param>
-        /// <param name="Errors">Per-product validation errors for products that failed ingestion. Each entry identifies the product, the specific field that failed, and the reason. &#x60;null&#x60; when &#x60;failed_count&#x60; is zero. .</param>
-        /// <param name="IngestedAt">ISO 8601 timestamp when the ingestion completed..</param>
-        /// <param name="ForwardedToAgent">Indicates whether the ingested products were scheduled for syndication to the configured AI agent endpoint. Set to &#x60;true&#x60; when at least one product was successfully saved. Note: syndication is asynchronous — this field confirms the dispatch was initiated, not that the agent received the data. .</param>
-        /// <param name="AgentEndpoint">The AI agent endpoint URL that the products were forwarded to. Present when &#x60;forwarded_to_agent&#x60; is &#x60;true&#x60;. .</param>
-        /// <param name="ForwardedToUcpAgent">Indicates whether the ingested products were scheduled for syndication to the UCP (Unified Commerce Platform) agent. Set to &#x60;true&#x60; when UCP syndication is enabled and at least one product was successfully saved. .</param>
-        /// <param name="GoogleMerchant">GoogleMerchant.</param>
-        public InlineResponse20019(string Status = default(string), string FeedId = default(string), int? TotalSubmitted = default(int?), int? SuccessCount = default(int?), int? FailedCount = default(int?), List<InlineResponse20019Errors> Errors = default(List<InlineResponse20019Errors>), DateTime? IngestedAt = default(DateTime?), bool? ForwardedToAgent = default(bool?), string AgentEndpoint = default(string), bool? ForwardedToUcpAgent = default(bool?), InlineResponse20019GoogleMerchant GoogleMerchant = default(InlineResponse20019GoogleMerchant))
+        /// <param name="JobId">Unique identifier of the feed submission job..</param>
+        /// <param name="Status">Overall status of the feed job.  Possible values: - PENDING - PROCESSING - COMPLETED - FAILED.</param>
+        /// <param name="Processing">Processing.</param>
+        /// <param name="Syndication">Per-protocol syndication status, keyed by lowercase protocol name (e.g. &#x60;acp&#x60;, &#x60;ucp&#x60;). .</param>
+        public InlineResponse20019(string JobId = default(string), string Status = default(string), InlineResponse20019Processing Processing = default(InlineResponse20019Processing), Dictionary<string, InlineResponse20019Syndication> Syndication = default(Dictionary<string, InlineResponse20019Syndication>))
         {
+            this.JobId = JobId;
             this.Status = Status;
-            this.FeedId = FeedId;
-            this.TotalSubmitted = TotalSubmitted;
-            this.SuccessCount = SuccessCount;
-            this.FailedCount = FailedCount;
-            this.Errors = Errors;
-            this.IngestedAt = IngestedAt;
-            this.ForwardedToAgent = ForwardedToAgent;
-            this.AgentEndpoint = AgentEndpoint;
-            this.ForwardedToUcpAgent = ForwardedToUcpAgent;
-            this.GoogleMerchant = GoogleMerchant;
+            this.Processing = Processing;
+            this.Syndication = Syndication;
         }
         
         /// <summary>
-        /// Overall ingestion result: - &#x60;success&#x60; — all products were validated and saved - &#x60;partial_success&#x60; — some products failed validation; &#x60;errors&#x60; lists the failures - &#x60;failed&#x60; — no products were saved; check &#x60;errors&#x60; for details   Possible values: - success - partial_success - failed
+        /// Unique identifier of the feed submission job.
         /// </summary>
-        /// <value>Overall ingestion result: - &#x60;success&#x60; — all products were validated and saved - &#x60;partial_success&#x60; — some products failed validation; &#x60;errors&#x60; lists the failures - &#x60;failed&#x60; — no products were saved; check &#x60;errors&#x60; for details   Possible values: - success - partial_success - failed</value>
+        /// <value>Unique identifier of the feed submission job.</value>
+        [JsonPropertyName("jobId")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string JobId { get; set; }
+
+        /// <summary>
+        /// Overall status of the feed job.  Possible values: - PENDING - PROCESSING - COMPLETED - FAILED
+        /// </summary>
+        /// <value>Overall status of the feed job.  Possible values: - PENDING - PROCESSING - COMPLETED - FAILED</value>
         [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Status { get; set; }
 
         /// <summary>
-        /// Unique identifier for this feed ingestion job. Use this with the Syndication Status endpoint to monitor the asynchronous protocol sync progress (e.g. to Google Merchant Center). 
+        /// Gets or Sets Processing
         /// </summary>
-        /// <value>Unique identifier for this feed ingestion job. Use this with the Syndication Status endpoint to monitor the asynchronous protocol sync progress (e.g. to Google Merchant Center). </value>
-        [JsonPropertyName("feed_id")]
+        [JsonPropertyName("processing")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string FeedId { get; set; }
+        public InlineResponse20019Processing Processing { get; set; }
 
         /// <summary>
-        /// Total number of product records in the submitted feed.
+        /// Per-protocol syndication status, keyed by lowercase protocol name (e.g. &#x60;acp&#x60;, &#x60;ucp&#x60;). 
         /// </summary>
-        /// <value>Total number of product records in the submitted feed.</value>
-        [JsonPropertyName("total_submitted")]
+        /// <value>Per-protocol syndication status, keyed by lowercase protocol name (e.g. &#x60;acp&#x60;, &#x60;ucp&#x60;). </value>
+        [JsonPropertyName("syndication")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? TotalSubmitted { get; set; }
-
-        /// <summary>
-        /// Number of products that passed validation and were saved to the catalog.
-        /// </summary>
-        /// <value>Number of products that passed validation and were saved to the catalog.</value>
-        [JsonPropertyName("success_count")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? SuccessCount { get; set; }
-
-        /// <summary>
-        /// Number of products that failed validation and were not saved.
-        /// </summary>
-        /// <value>Number of products that failed validation and were not saved.</value>
-        [JsonPropertyName("failed_count")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? FailedCount { get; set; }
-
-        /// <summary>
-        /// Per-product validation errors for products that failed ingestion. Each entry identifies the product, the specific field that failed, and the reason. &#x60;null&#x60; when &#x60;failed_count&#x60; is zero. 
-        /// </summary>
-        /// <value>Per-product validation errors for products that failed ingestion. Each entry identifies the product, the specific field that failed, and the reason. &#x60;null&#x60; when &#x60;failed_count&#x60; is zero. </value>
-        [JsonPropertyName("errors")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse20019Errors> Errors { get; set; }
-
-        /// <summary>
-        /// ISO 8601 timestamp when the ingestion completed.
-        /// </summary>
-        /// <value>ISO 8601 timestamp when the ingestion completed.</value>
-        [JsonPropertyName("ingested_at")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public DateTime? IngestedAt { get; set; }
-
-        /// <summary>
-        /// Indicates whether the ingested products were scheduled for syndication to the configured AI agent endpoint. Set to &#x60;true&#x60; when at least one product was successfully saved. Note: syndication is asynchronous — this field confirms the dispatch was initiated, not that the agent received the data. 
-        /// </summary>
-        /// <value>Indicates whether the ingested products were scheduled for syndication to the configured AI agent endpoint. Set to &#x60;true&#x60; when at least one product was successfully saved. Note: syndication is asynchronous — this field confirms the dispatch was initiated, not that the agent received the data. </value>
-        [JsonPropertyName("forwarded_to_agent")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public bool? ForwardedToAgent { get; set; }
-
-        /// <summary>
-        /// The AI agent endpoint URL that the products were forwarded to. Present when &#x60;forwarded_to_agent&#x60; is &#x60;true&#x60;. 
-        /// </summary>
-        /// <value>The AI agent endpoint URL that the products were forwarded to. Present when &#x60;forwarded_to_agent&#x60; is &#x60;true&#x60;. </value>
-        [JsonPropertyName("agent_endpoint")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string AgentEndpoint { get; set; }
-
-        /// <summary>
-        /// Indicates whether the ingested products were scheduled for syndication to the UCP (Unified Commerce Platform) agent. Set to &#x60;true&#x60; when UCP syndication is enabled and at least one product was successfully saved. 
-        /// </summary>
-        /// <value>Indicates whether the ingested products were scheduled for syndication to the UCP (Unified Commerce Platform) agent. Set to &#x60;true&#x60; when UCP syndication is enabled and at least one product was successfully saved. </value>
-        [JsonPropertyName("forwarded_to_ucp_agent")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public bool? ForwardedToUcpAgent { get; set; }
-
-        /// <summary>
-        /// Gets or Sets GoogleMerchant
-        /// </summary>
-        [JsonPropertyName("google_merchant")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public InlineResponse20019GoogleMerchant GoogleMerchant { get; set; }
+        public Dictionary<string, InlineResponse20019Syndication> Syndication { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -155,17 +85,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20019 {\n");
+            if (JobId != null) sb.Append("  JobId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "jobId", JobId.ToString())).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "status", Status.ToString())).Append("\n");
-            if (FeedId != null) sb.Append("  FeedId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "feed_id", FeedId.ToString())).Append("\n");
-            if (TotalSubmitted != null) sb.Append("  TotalSubmitted: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "total_submitted", TotalSubmitted.ToString())).Append("\n");
-            if (SuccessCount != null) sb.Append("  SuccessCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "success_count", SuccessCount.ToString())).Append("\n");
-            if (FailedCount != null) sb.Append("  FailedCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "failed_count", FailedCount.ToString())).Append("\n");
-            if (Errors != null) sb.Append("  Errors: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "errors", Errors.ToString())).Append("\n");
-            if (IngestedAt != null) sb.Append("  IngestedAt: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "ingested_at", IngestedAt.ToString())).Append("\n");
-            if (ForwardedToAgent != null) sb.Append("  ForwardedToAgent: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "forwarded_to_agent", ForwardedToAgent.ToString())).Append("\n");
-            if (AgentEndpoint != null) sb.Append("  AgentEndpoint: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "agent_endpoint", AgentEndpoint.ToString())).Append("\n");
-            if (ForwardedToUcpAgent != null) sb.Append("  ForwardedToUcpAgent: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "forwarded_to_ucp_agent", ForwardedToUcpAgent.ToString())).Append("\n");
-            if (GoogleMerchant != null) sb.Append("  GoogleMerchant: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "google_merchant", GoogleMerchant.ToString())).Append("\n");
+            if (Processing != null) sb.Append("  Processing: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "processing", Processing.ToString())).Append("\n");
+            if (Syndication != null) sb.Append("  Syndication: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse20019", "syndication", Syndication.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -208,59 +131,24 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
+                    this.JobId == other.JobId ||
+                    this.JobId != null &&
+                    this.JobId.Equals(other.JobId)
+                ) && 
+                (
                     this.Status == other.Status ||
                     this.Status != null &&
                     this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.FeedId == other.FeedId ||
-                    this.FeedId != null &&
-                    this.FeedId.Equals(other.FeedId)
+                    this.Processing == other.Processing ||
+                    this.Processing != null &&
+                    this.Processing.Equals(other.Processing)
                 ) && 
                 (
-                    this.TotalSubmitted == other.TotalSubmitted ||
-                    this.TotalSubmitted != null &&
-                    this.TotalSubmitted.Equals(other.TotalSubmitted)
-                ) && 
-                (
-                    this.SuccessCount == other.SuccessCount ||
-                    this.SuccessCount != null &&
-                    this.SuccessCount.Equals(other.SuccessCount)
-                ) && 
-                (
-                    this.FailedCount == other.FailedCount ||
-                    this.FailedCount != null &&
-                    this.FailedCount.Equals(other.FailedCount)
-                ) && 
-                (
-                    this.Errors == other.Errors ||
-                    this.Errors != null &&
-                    this.Errors.SequenceEqual(other.Errors)
-                ) && 
-                (
-                    this.IngestedAt == other.IngestedAt ||
-                    this.IngestedAt != null &&
-                    this.IngestedAt.Equals(other.IngestedAt)
-                ) && 
-                (
-                    this.ForwardedToAgent == other.ForwardedToAgent ||
-                    this.ForwardedToAgent != null &&
-                    this.ForwardedToAgent.Equals(other.ForwardedToAgent)
-                ) && 
-                (
-                    this.AgentEndpoint == other.AgentEndpoint ||
-                    this.AgentEndpoint != null &&
-                    this.AgentEndpoint.Equals(other.AgentEndpoint)
-                ) && 
-                (
-                    this.ForwardedToUcpAgent == other.ForwardedToUcpAgent ||
-                    this.ForwardedToUcpAgent != null &&
-                    this.ForwardedToUcpAgent.Equals(other.ForwardedToUcpAgent)
-                ) && 
-                (
-                    this.GoogleMerchant == other.GoogleMerchant ||
-                    this.GoogleMerchant != null &&
-                    this.GoogleMerchant.Equals(other.GoogleMerchant)
+                    this.Syndication == other.Syndication ||
+                    this.Syndication != null &&
+                    this.Syndication.SequenceEqual(other.Syndication)
                 );
         }
 
@@ -277,28 +165,14 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
+                if (this.JobId != null)
+                    hash = hash * 59 + this.JobId.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.FeedId != null)
-                    hash = hash * 59 + this.FeedId.GetHashCode();
-                if (this.TotalSubmitted != null)
-                    hash = hash * 59 + this.TotalSubmitted.GetHashCode();
-                if (this.SuccessCount != null)
-                    hash = hash * 59 + this.SuccessCount.GetHashCode();
-                if (this.FailedCount != null)
-                    hash = hash * 59 + this.FailedCount.GetHashCode();
-                if (this.Errors != null)
-                    hash = hash * 59 + this.Errors.GetHashCode();
-                if (this.IngestedAt != null)
-                    hash = hash * 59 + this.IngestedAt.GetHashCode();
-                if (this.ForwardedToAgent != null)
-                    hash = hash * 59 + this.ForwardedToAgent.GetHashCode();
-                if (this.AgentEndpoint != null)
-                    hash = hash * 59 + this.AgentEndpoint.GetHashCode();
-                if (this.ForwardedToUcpAgent != null)
-                    hash = hash * 59 + this.ForwardedToUcpAgent.GetHashCode();
-                if (this.GoogleMerchant != null)
-                    hash = hash * 59 + this.GoogleMerchant.GetHashCode();
+                if (this.Processing != null)
+                    hash = hash * 59 + this.Processing.GetHashCode();
+                if (this.Syndication != null)
+                    hash = hash * 59 + this.Syndication.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

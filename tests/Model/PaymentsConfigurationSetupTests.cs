@@ -225,6 +225,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'BatchUpload'
         }
         /// <summary>
+        /// Test the property 'PaymentEvents'
+        /// </summary>
+        [Test]
+        public void PaymentEventsTest()
+        {
+            // TODO unit test for the property 'PaymentEvents'
+        }
+        /// <summary>
         /// Test the property 'TransactGuard'
         /// </summary>
         [Test]

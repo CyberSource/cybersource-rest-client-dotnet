@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="MerchantValue">Expected annual sales in the merchant&#39;s local currency, in minor units.</param>
         /// <param name="Value">Expected annual sales amount in the specified currency, in minor units.</param>
         /// <param name="ExpectedAnnualVolume">Expected number of transactions per year, used alongside sales value for per-transaction risk profiling.</param>
-        public UnifiedriskMerchantMerchantDescriptorExpectedAnnualSales(Object ExpectedAnnualSales = default(Object), string BaseCurrency = default(string), int? BaseValue = default(int?), string Currency = default(string), string MerchantCurrency = default(string), int? MerchantValue = default(int?), int? Value = default(int?), int? ExpectedAnnualVolume = default(int?))
+        public UnifiedriskMerchantMerchantDescriptorExpectedAnnualSales(Object ExpectedAnnualSales = default(Object), string BaseCurrency = default(string), string BaseValue = default(string), string Currency = default(string), string MerchantCurrency = default(string), string MerchantValue = default(string), string Value = default(string), int? ExpectedAnnualVolume = default(int?))
         {
             this.ExpectedAnnualSales = ExpectedAnnualSales;
             this.BaseCurrency = BaseCurrency;
@@ -76,7 +76,7 @@ namespace CyberSource.Model
         /// <value>Expected annual sales value in the base currency, in minor units</value>
         [JsonPropertyName("baseValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? BaseValue { get; set; }
+        public string BaseValue { get; set; }
 
         /// <summary>
         /// ISO 4217 3-letter currency code for the expected annual sales amount
@@ -100,7 +100,7 @@ namespace CyberSource.Model
         /// <value>Expected annual sales in the merchant&#39;s local currency, in minor units</value>
         [JsonPropertyName("merchantValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? MerchantValue { get; set; }
+        public string MerchantValue { get; set; }
 
         /// <summary>
         /// Expected annual sales amount in the specified currency, in minor units
@@ -108,7 +108,7 @@ namespace CyberSource.Model
         /// <value>Expected annual sales amount in the specified currency, in minor units</value>
         [JsonPropertyName("value")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Expected number of transactions per year, used alongside sales value for per-transaction risk profiling

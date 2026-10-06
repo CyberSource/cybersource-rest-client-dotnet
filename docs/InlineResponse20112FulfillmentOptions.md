@@ -3,16 +3,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique fulfillment option ID. Pass as &#x60;fulfillment_option_id&#x60; to select it. | [optional] 
-**Type** | **string** | Fulfillment method type.  Possible values: - shipping - digital | [optional] 
-**Title** | **string** | Display name for this fulfillment option. | [optional] 
+**Id** | **string** | Unique fulfillment option ID. Pass as &#x60;fulfillment_option_id&#x60; to select it. | 
+**Type** | **string** | Fulfillment method type.  Possible values: - shipping - digital | 
+**Title** | **string** | Display name for this fulfillment option. | 
 **Subtitle** | **string** | Additional description (e.g. estimated delivery window). | [optional] 
 **Carrier** | **string** | Carrier name for shipping options. | [optional] 
 **EarliestDeliveryTime** | **DateTime?** | Earliest estimated delivery in RFC 3339 format. | [optional] 
 **LatestDeliveryTime** | **DateTime?** | Latest estimated delivery in RFC 3339 format. | [optional] 
-**Subtotal** | **int?** | Shipping cost before tax, in minor units. | [optional] 
-**Tax** | **int?** | Tax on shipping cost, in minor units. | [optional] 
-**Total** | **int?** | Total shipping cost including tax, in minor units. | [optional] 
+**Subtotal** | **int?** | Shipping cost before tax, in minor units. | 
+**Tax** | **int?** | Tax on shipping cost, in minor units. | 
+**Total** | **int?** | Total shipping cost including tax, in minor units. | 
 
 ## Extensibility
 

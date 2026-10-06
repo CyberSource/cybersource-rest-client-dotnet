@@ -37,11 +37,13 @@ namespace CyberSource.Model
         /// <param name="FraudManagementEssentials">FraudManagementEssentials.</param>
         /// <param name="DecisionManager">DecisionManager.</param>
         /// <param name="EnhancedAuthentication">EnhancedAuthentication.</param>
-        public InlineResponse2016SetupsRisk(PaymentsConfigurationSetupCardProcessing FraudManagementEssentials = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing DecisionManager = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing EnhancedAuthentication = default(PaymentsConfigurationSetupCardProcessing))
+        /// <param name="Vpri">Vpri.</param>
+        public InlineResponse2016SetupsRisk(PaymentsConfigurationSetupCardProcessing FraudManagementEssentials = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing DecisionManager = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupCardProcessing EnhancedAuthentication = default(PaymentsConfigurationSetupCardProcessing), PaymentsConfigurationSetupDigitalPayments Vpri = default(PaymentsConfigurationSetupDigitalPayments))
         {
             this.FraudManagementEssentials = FraudManagementEssentials;
             this.DecisionManager = DecisionManager;
             this.EnhancedAuthentication = EnhancedAuthentication;
+            this.Vpri = Vpri;
         }
         
         /// <summary>
@@ -66,6 +68,13 @@ namespace CyberSource.Model
         public PaymentsConfigurationSetupCardProcessing EnhancedAuthentication { get; set; }
 
         /// <summary>
+        /// Gets or Sets Vpri
+        /// </summary>
+        [JsonPropertyName("vpri")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public PaymentsConfigurationSetupDigitalPayments Vpri { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +85,7 @@ namespace CyberSource.Model
             if (FraudManagementEssentials != null) sb.Append("  FraudManagementEssentials: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2016SetupsRisk", "fraudManagementEssentials", FraudManagementEssentials.ToString())).Append("\n");
             if (DecisionManager != null) sb.Append("  DecisionManager: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2016SetupsRisk", "decisionManager", DecisionManager.ToString())).Append("\n");
             if (EnhancedAuthentication != null) sb.Append("  EnhancedAuthentication: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2016SetupsRisk", "enhancedAuthentication", EnhancedAuthentication.ToString())).Append("\n");
+            if (Vpri != null) sb.Append("  Vpri: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2016SetupsRisk", "vpri", Vpri.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -131,6 +141,11 @@ namespace CyberSource.Model
                     this.EnhancedAuthentication == other.EnhancedAuthentication ||
                     this.EnhancedAuthentication != null &&
                     this.EnhancedAuthentication.Equals(other.EnhancedAuthentication)
+                ) && 
+                (
+                    this.Vpri == other.Vpri ||
+                    this.Vpri != null &&
+                    this.Vpri.Equals(other.Vpri)
                 );
         }
 
@@ -153,6 +168,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DecisionManager.GetHashCode();
                 if (this.EnhancedAuthentication != null)
                     hash = hash * 59 + this.EnhancedAuthentication.GetHashCode();
+                if (this.Vpri != null)
+                    hash = hash * 59 + this.Vpri.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

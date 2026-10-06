@@ -160,6 +160,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'MerchantAdvice'
         }
+        /// <summary>
+        /// Test the property 'TransactionLinkIdentifier'
+        /// </summary>
+        [Test]
+        public void TransactionLinkIdentifierTest()
+        {
+            // TODO unit test for the property 'TransactionLinkIdentifier'
+        }
 
     }
 

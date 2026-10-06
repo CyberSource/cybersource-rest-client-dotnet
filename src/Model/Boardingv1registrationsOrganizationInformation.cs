@@ -86,6 +86,7 @@ namespace CyberSource.Model
         /// Gets or Sets ChildOrganizations
         /// </summary>
         [JsonPropertyName("childOrganizations")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<string> ChildOrganizations { get; private set; }
 

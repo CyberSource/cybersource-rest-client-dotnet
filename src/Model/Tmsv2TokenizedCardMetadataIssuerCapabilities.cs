@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Indicates if the issuer supports device binding. </value>
         [JsonPropertyName("deviceBindingSupported")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? DeviceBindingSupported { get; private set; }
 
@@ -52,6 +53,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Indicates if the issuer participates in step-up authentication that requires cardholder verification. </value>
         [JsonPropertyName("cardholderVerificationSupported")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? CardholderVerificationSupported { get; private set; }
 
@@ -60,6 +62,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Indicates if the issuer supports trusted beneficiary enrollment. e.g allowing cardholders to designate trusted merchants or payment recipients that can be exempt from step-up authentication. </value>
         [JsonPropertyName("trustedBeneficiaryEnrollmentSupported")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? TrustedBeneficiaryEnrollmentSupported { get; private set; }
 
@@ -68,6 +71,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Indicates if the issuer supports delegated authentication. e.g allowing approved thrird parties to perform authentication on behalf of the issuer. </value>
         [JsonPropertyName("delegatedAuthenticationSupported")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? DelegatedAuthenticationSupported { get; private set; }
 
@@ -76,6 +80,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Indicates if the issuer supports on-behalf-of device binding. e.g allowing approved third parties to perform device binding on behalf of the issuer. </value>
         [JsonPropertyName("oboDeviceBindingSupported")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? OboDeviceBindingSupported { get; private set; }
 
@@ -84,6 +89,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Indicates if the issuer supports receiving token lifecycle management notifications. e.g receiving updates on changes to the token&#39;s status or attributes. </value>
         [JsonPropertyName("tokenLcmNotificationsSupported")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? TokenLcmNotificationsSupported { get; private set; }
 
@@ -92,6 +98,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Indicates if the issuer supports receiving PAN lifecycle management notifications. e.g receiving updates on changes to the underlying card&#39;s status or attributes. </value>
         [JsonPropertyName("fpanLcmNotificationsSupported")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? FpanLcmNotificationsSupported { get; private set; }
 

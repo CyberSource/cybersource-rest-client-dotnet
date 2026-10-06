@@ -21,11 +21,17 @@ namespace CyberSource.Utilities.Serialization
                 return json;
             }
 
-            using JsonDocument document = JsonDocument.Parse(json);
+            try
+            {
+                using JsonDocument document = JsonDocument.Parse(json);
 
-            string prettyJson = JsonSerializer.Serialize(document.RootElement, _options);
+                string prettyJson = JsonSerializer.Serialize(document.RootElement, _options);
 
-            return prettyJson;
+                return prettyJson;
+            } catch (JsonException)
+            {
+                return json;
+            }
         }
     }
 }

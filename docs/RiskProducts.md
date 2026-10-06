@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **DecisionManager** | [**RiskProductsDecisionManager**](RiskProductsDecisionManager.md) |  | [optional] 
 **PortfolioRiskControls** | [**RiskProductsPortfolioRiskControls**](RiskProductsPortfolioRiskControls.md) |  | [optional] 
 **EnhancedAuthentication** | [**PaymentsProductsPayerAuthentication**](PaymentsProductsPayerAuthentication.md) |  | [optional] 
+**Vpri** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 
 ## Extensibility
 

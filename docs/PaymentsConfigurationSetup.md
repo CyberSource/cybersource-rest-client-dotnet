@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **ReceivablesManager** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
 **ServiceFee** | [**PaymentsConfigurationSetupCardProcessing**](PaymentsConfigurationSetupCardProcessing.md) |  | [optional] 
 **BatchUpload** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
+**PaymentEvents** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
 **TransactGuard** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
 **Microform** | [**PaymentsConfigurationSetupCardProcessing**](PaymentsConfigurationSetupCardProcessing.md) |  | [optional] 
 

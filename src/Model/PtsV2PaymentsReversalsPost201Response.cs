@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// <param name="IssuerInformation">IssuerInformation.</param>
         /// <param name="AuthorizationInformation">AuthorizationInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
-        public PtsV2PaymentsReversalsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails ReversalAmountDetails = default(PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails), PtsV2PaymentsReversalsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsReversalsPost201ResponseProcessorInformation), PtsV2PaymentsReversalsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PaymentsReversalsPost201ResponseIssuerInformation), PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation AuthorizationInformation = default(PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation))
+        public PtsV2PaymentsReversalsPost201Response(PtsV2IncrementalAuthorizationPatch201ResponseLinks Links = default(PtsV2IncrementalAuthorizationPatch201ResponseLinks), string Id = default(string), string SubmitTimeUtc = default(string), string Status = default(string), string ReconciliationId = default(string), PtsV2PaymentsPost201ResponseClientReferenceInformation ClientReferenceInformation = default(PtsV2PaymentsPost201ResponseClientReferenceInformation), PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails ReversalAmountDetails = default(PtsV2PaymentsReversalsPost201ResponseReversalAmountDetails), PtsV2PaymentsReversalsPost201ResponseProcessorInformation ProcessorInformation = default(PtsV2PaymentsReversalsPost201ResponseProcessorInformation), PtsV2PaymentsReversalsPost201ResponseIssuerInformation IssuerInformation = default(PtsV2PaymentsReversalsPost201ResponseIssuerInformation), PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation AuthorizationInformation = default(PtsV2PaymentsReversalsPost201ResponseAuthorizationInformation), PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformation PointOfSaleInformation = default(PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformation))
         {
             this.Links = Links;
             this.Id = Id;
@@ -139,7 +139,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("pointOfSaleInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation { get; set; }
+        public PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

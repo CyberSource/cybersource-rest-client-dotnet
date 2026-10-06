@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The type of error.  Possible Values:   - invalidHeaders   - missingHeaders   - invalidFields   - missingFields   - unsupportedPaymentMethodModification   - invalidCombination </value>
         [JsonPropertyName("type")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Type { get; private set; }
 
@@ -52,6 +53,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The detailed message related to the type.</value>
         [JsonPropertyName("message")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Message { get; private set; }
 
@@ -59,6 +61,7 @@ namespace CyberSource.Model
         /// Gets or Sets Details
         /// </summary>
         [JsonPropertyName("details")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<InlineResponse400Details> Details { get; private set; }
 

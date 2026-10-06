@@ -42,7 +42,8 @@ namespace CyberSource.Model
         /// <param name="UnitPrice">Per-item price of the product. This value for this field cannot be negative.  You must include either this field or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request.  You can include a decimal point (.), but you cannot include any other special characters. The value is truncated to the correct number of decimal places.  #### DCC with a Third-Party Provider Set this field to the converted amount that was returned by the DCC provider. You must include either the 1st line item in the order and this field, or the request-level field &#x60;orderInformation.amountDetails.totalAmount&#x60; in your request.  #### Tax Calculation Required field for U.S., Canadian, international and value added taxes.  #### Zero Amount Authorizations If your processor supports zero amount authorizations, you can set this field to 0 for the authorization to check if the card is lost or stolen.  #### Maximum Field Lengths For GPN and JCN Gateway: Decimal (10) All other processors: Decimal (15) .</param>
         /// <param name="TotalAmount">Total amount for the item. Normally calculated as the unit price times quantity.  When &#x60;orderInformation.lineItems[].productCode&#x60; is \&quot;gift_card\&quot;, this is the purchase amount total for prepaid gift cards in major units.  Example: 123.45 USD &#x3D; 123 .</param>
         /// <param name="TaxAmount">Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  Optional field.  #### Airlines processing Tax portion of the order amount. This value cannot exceed 99999999999999 (fourteen 9s). Format: English characters only. Optional request field for a line item.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes.  Note if you send this field in your tax request, the value in the field will override the tax engine .</param>
-        public Ptsv2intentsOrderInformationLineItems(string ProductName = default(string), string ProductDescription = default(string), string ProductSku = default(string), int? Quantity = default(int?), string TypeOfSupply = default(string), string UnitPrice = default(string), string TotalAmount = default(string), string TaxAmount = default(string))
+        /// <param name="ShippingPreference">Controls shipping behavior during checkout. Use &#x60;NO_SHIPPING&#x60; for digital goods, &#x60;SET_PROVIDED_ADDRESS&#x60; when &#x60;orderInformation.shipTo&#x60; is provided, and &#x60;GET_FROM_FILE&#x60; to use the buyer&#39;s saved address.   Possible values: - NO_SHIPPING - SET_PROVIDED_ADDRESS - GET_FROM_FILE.</param>
+        public Ptsv2intentsOrderInformationLineItems(string ProductName = default(string), string ProductDescription = default(string), string ProductSku = default(string), int? Quantity = default(int?), string TypeOfSupply = default(string), string UnitPrice = default(string), string TotalAmount = default(string), string TaxAmount = default(string), string ShippingPreference = default(string))
         {
             this.ProductName = ProductName;
             this.ProductDescription = ProductDescription;
@@ -52,6 +53,7 @@ namespace CyberSource.Model
             this.UnitPrice = UnitPrice;
             this.TotalAmount = TotalAmount;
             this.TaxAmount = TaxAmount;
+            this.ShippingPreference = ShippingPreference;
         }
         
         /// <summary>
@@ -119,6 +121,14 @@ namespace CyberSource.Model
         public string TaxAmount { get; set; }
 
         /// <summary>
+        /// Controls shipping behavior during checkout. Use &#x60;NO_SHIPPING&#x60; for digital goods, &#x60;SET_PROVIDED_ADDRESS&#x60; when &#x60;orderInformation.shipTo&#x60; is provided, and &#x60;GET_FROM_FILE&#x60; to use the buyer&#39;s saved address.   Possible values: - NO_SHIPPING - SET_PROVIDED_ADDRESS - GET_FROM_FILE
+        /// </summary>
+        /// <value>Controls shipping behavior during checkout. Use &#x60;NO_SHIPPING&#x60; for digital goods, &#x60;SET_PROVIDED_ADDRESS&#x60; when &#x60;orderInformation.shipTo&#x60; is provided, and &#x60;GET_FROM_FILE&#x60; to use the buyer&#39;s saved address.   Possible values: - NO_SHIPPING - SET_PROVIDED_ADDRESS - GET_FROM_FILE</value>
+        [JsonPropertyName("shippingPreference")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string ShippingPreference { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -134,6 +144,7 @@ namespace CyberSource.Model
             if (UnitPrice != null) sb.Append("  UnitPrice: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2intentsOrderInformationLineItems", "unitPrice", UnitPrice.ToString())).Append("\n");
             if (TotalAmount != null) sb.Append("  TotalAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2intentsOrderInformationLineItems", "totalAmount", TotalAmount.ToString())).Append("\n");
             if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2intentsOrderInformationLineItems", "taxAmount", TaxAmount.ToString())).Append("\n");
+            if (ShippingPreference != null) sb.Append("  ShippingPreference: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2intentsOrderInformationLineItems", "shippingPreference", ShippingPreference.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -214,6 +225,11 @@ namespace CyberSource.Model
                     this.TaxAmount == other.TaxAmount ||
                     this.TaxAmount != null &&
                     this.TaxAmount.Equals(other.TaxAmount)
+                ) && 
+                (
+                    this.ShippingPreference == other.ShippingPreference ||
+                    this.ShippingPreference != null &&
+                    this.ShippingPreference.Equals(other.ShippingPreference)
                 );
         }
 
@@ -246,6 +262,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TotalAmount.GetHashCode();
                 if (this.TaxAmount != null)
                     hash = hash * 59 + this.TaxAmount.GetHashCode();
+                if (this.ShippingPreference != null)
+                    hash = hash * 59 + this.ShippingPreference.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

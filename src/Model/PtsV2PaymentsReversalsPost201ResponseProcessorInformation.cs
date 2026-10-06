@@ -44,7 +44,8 @@ namespace CyberSource.Model
         /// <param name="ResponseDetails">This field might contain information about a decline. .</param>
         /// <param name="ProviderResponse">Processor response to the API request. .</param>
         /// <param name="Network">Network.</param>
-        public PtsV2PaymentsReversalsPost201ResponseProcessorInformation(string TransactionId = default(string), string ResponseCode = default(string), string NetworkTransactionId = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string ResponseDetails = default(string), string ProviderResponse = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork))
+        /// <param name="TransactionLinkIdentifier">Transaction Link Identifier (TLID). Links all messages within a transaction lifecycle for Mastercard transactions. Received from Mastercard in the authorization response and automatically replayed for lifecycle transactions (reversals, follow-on credits, authorization refresh).  #### PIN Debit Also returned for PIN Debit purchase, credit, and reversal transactions. For PIN Debit (Visa Gateway) flows, this value is mapped to Visa Field 111 (DSI 07, Tag C0). .</param>
+        public PtsV2PaymentsReversalsPost201ResponseProcessorInformation(string TransactionId = default(string), string ResponseCode = default(string), string NetworkTransactionId = default(string), string ResponseCategoryCode = default(string), string ForwardedAcquirerCode = default(string), string MasterCardServiceCode = default(string), string MasterCardServiceReplyCode = default(string), string ResponseDetails = default(string), string ProviderResponse = default(string), Ptsv2paymentsProcessorInformationReversalNetwork Network = default(Ptsv2paymentsProcessorInformationReversalNetwork), string TransactionLinkIdentifier = default(string))
         {
             this.TransactionId = TransactionId;
             this.ResponseCode = ResponseCode;
@@ -56,6 +57,7 @@ namespace CyberSource.Model
             this.ResponseDetails = ResponseDetails;
             this.ProviderResponse = ProviderResponse;
             this.Network = Network;
+            this.TransactionLinkIdentifier = TransactionLinkIdentifier;
         }
         
         /// <summary>
@@ -138,6 +140,14 @@ namespace CyberSource.Model
         public Ptsv2paymentsProcessorInformationReversalNetwork Network { get; set; }
 
         /// <summary>
+        /// Transaction Link Identifier (TLID). Links all messages within a transaction lifecycle for Mastercard transactions. Received from Mastercard in the authorization response and automatically replayed for lifecycle transactions (reversals, follow-on credits, authorization refresh).  #### PIN Debit Also returned for PIN Debit purchase, credit, and reversal transactions. For PIN Debit (Visa Gateway) flows, this value is mapped to Visa Field 111 (DSI 07, Tag C0). 
+        /// </summary>
+        /// <value>Transaction Link Identifier (TLID). Links all messages within a transaction lifecycle for Mastercard transactions. Received from Mastercard in the authorization response and automatically replayed for lifecycle transactions (reversals, follow-on credits, authorization refresh).  #### PIN Debit Also returned for PIN Debit purchase, credit, and reversal transactions. For PIN Debit (Visa Gateway) flows, this value is mapped to Visa Field 111 (DSI 07, Tag C0). </value>
+        [JsonPropertyName("transactionLinkIdentifier")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string TransactionLinkIdentifier { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -155,6 +165,7 @@ namespace CyberSource.Model
             if (ResponseDetails != null) sb.Append("  ResponseDetails: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsReversalsPost201ResponseProcessorInformation", "responseDetails", ResponseDetails.ToString())).Append("\n");
             if (ProviderResponse != null) sb.Append("  ProviderResponse: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsReversalsPost201ResponseProcessorInformation", "providerResponse", ProviderResponse.ToString())).Append("\n");
             if (Network != null) sb.Append("  Network: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsReversalsPost201ResponseProcessorInformation", "network", Network.ToString())).Append("\n");
+            if (TransactionLinkIdentifier != null) sb.Append("  TransactionLinkIdentifier: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsReversalsPost201ResponseProcessorInformation", "transactionLinkIdentifier", TransactionLinkIdentifier.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -245,6 +256,11 @@ namespace CyberSource.Model
                     this.Network == other.Network ||
                     this.Network != null &&
                     this.Network.Equals(other.Network)
+                ) && 
+                (
+                    this.TransactionLinkIdentifier == other.TransactionLinkIdentifier ||
+                    this.TransactionLinkIdentifier != null &&
+                    this.TransactionLinkIdentifier.Equals(other.TransactionLinkIdentifier)
                 );
         }
 
@@ -281,6 +297,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProviderResponse.GetHashCode();
                 if (this.Network != null)
                     hash = hash * 59 + this.Network.GetHashCode();
+                if (this.TransactionLinkIdentifier != null)
+                    hash = hash * 59 + this.TransactionLinkIdentifier.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

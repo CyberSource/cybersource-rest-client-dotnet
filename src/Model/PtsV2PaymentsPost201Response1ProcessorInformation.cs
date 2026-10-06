@@ -41,8 +41,9 @@ namespace CyberSource.Model
         /// <param name="ResponseDetails">This field might contain information about a decline. .</param>
         /// <param name="ResponseCode">This field is set to the value of response code returned by the processor. .</param>
         /// <param name="SellerProtection">SellerProtection.</param>
+        /// <param name="PaymentUrl">Direct the customer to this URL to complete the payment..</param>
         /// <param name="Avs">Avs.</param>
-        public PtsV2PaymentsPost201Response1ProcessorInformation(string TransactionId = default(string), string TradeNumber = default(string), string RawResponse = default(string), string RawResponseLocal = default(string), string ResponseDetails = default(string), string ResponseCode = default(string), ProcessorInformationSellerProtection SellerProtection = default(ProcessorInformationSellerProtection), PtsV2PaymentsPost201Response1ProcessorInformationAvs Avs = default(PtsV2PaymentsPost201Response1ProcessorInformationAvs))
+        public PtsV2PaymentsPost201Response1ProcessorInformation(string TransactionId = default(string), string TradeNumber = default(string), string RawResponse = default(string), string RawResponseLocal = default(string), string ResponseDetails = default(string), string ResponseCode = default(string), ProcessorInformationSellerProtection SellerProtection = default(ProcessorInformationSellerProtection), string PaymentUrl = default(string), PtsV2PaymentsPost201Response1ProcessorInformationAvs Avs = default(PtsV2PaymentsPost201Response1ProcessorInformationAvs))
         {
             this.TransactionId = TransactionId;
             this.TradeNumber = TradeNumber;
@@ -51,6 +52,7 @@ namespace CyberSource.Model
             this.ResponseDetails = ResponseDetails;
             this.ResponseCode = ResponseCode;
             this.SellerProtection = SellerProtection;
+            this.PaymentUrl = PaymentUrl;
             this.Avs = Avs;
         }
         
@@ -110,6 +112,14 @@ namespace CyberSource.Model
         public ProcessorInformationSellerProtection SellerProtection { get; set; }
 
         /// <summary>
+        /// Direct the customer to this URL to complete the payment.
+        /// </summary>
+        /// <value>Direct the customer to this URL to complete the payment.</value>
+        [JsonPropertyName("paymentUrl")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string PaymentUrl { get; set; }
+
+        /// <summary>
         /// Gets or Sets Avs
         /// </summary>
         [JsonPropertyName("avs")]
@@ -131,6 +141,7 @@ namespace CyberSource.Model
             if (ResponseDetails != null) sb.Append("  ResponseDetails: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1ProcessorInformation", "responseDetails", ResponseDetails.ToString())).Append("\n");
             if (ResponseCode != null) sb.Append("  ResponseCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1ProcessorInformation", "responseCode", ResponseCode.ToString())).Append("\n");
             if (SellerProtection != null) sb.Append("  SellerProtection: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1ProcessorInformation", "sellerProtection", SellerProtection.ToString())).Append("\n");
+            if (PaymentUrl != null) sb.Append("  PaymentUrl: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1ProcessorInformation", "paymentUrl", PaymentUrl.ToString())).Append("\n");
             if (Avs != null) sb.Append("  Avs: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1ProcessorInformation", "avs", Avs.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
@@ -209,6 +220,11 @@ namespace CyberSource.Model
                     this.SellerProtection.Equals(other.SellerProtection)
                 ) && 
                 (
+                    this.PaymentUrl == other.PaymentUrl ||
+                    this.PaymentUrl != null &&
+                    this.PaymentUrl.Equals(other.PaymentUrl)
+                ) && 
+                (
                     this.Avs == other.Avs ||
                     this.Avs != null &&
                     this.Avs.Equals(other.Avs)
@@ -242,6 +258,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ResponseCode.GetHashCode();
                 if (this.SellerProtection != null)
                     hash = hash * 59 + this.SellerProtection.GetHashCode();
+                if (this.PaymentUrl != null)
+                    hash = hash * 59 + this.PaymentUrl.GetHashCode();
                 if (this.Avs != null)
                     hash = hash * 59 + this.Avs.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();

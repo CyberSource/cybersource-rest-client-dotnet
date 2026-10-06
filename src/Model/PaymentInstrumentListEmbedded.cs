@@ -43,6 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets PaymentInstruments
         /// </summary>
         [JsonPropertyName("paymentInstruments")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<PaymentInstrument> PaymentInstruments { get; private set; }
 

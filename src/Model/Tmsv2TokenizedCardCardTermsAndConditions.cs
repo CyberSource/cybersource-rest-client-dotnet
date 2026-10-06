@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Issuer Card Terms and Conditions url.</value>
         [JsonPropertyName("url")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Url { get; private set; }
 

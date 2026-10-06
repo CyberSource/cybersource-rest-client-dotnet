@@ -34,12 +34,12 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentUpdate" /> class.
         /// </summary>
-        /// <param name="Name">Agent name.</param>
-        /// <param name="Domain">Agent domain URL.</param>
-        /// <param name="Description">Agent description.</param>
-        /// <param name="ContactEmail">Contact email.</param>
-        /// <param name="AgentMetadata">Optional metadata (e.g., framework, version).</param>
-        public AgentUpdate(string Name = default(string), string Domain = default(string), string Description = default(string), string ContactEmail = default(string), Dictionary<string, string> AgentMetadata = default(Dictionary<string, string>))
+        /// <param name="Name">Display name for the agent.</param>
+        /// <param name="Domain">Fully-qualified HTTPS URL of the agent&#39;s home domain. Must be unique — raises 409 if already registered..</param>
+        /// <param name="Description">Description of the agent&#39;s purpose or capabilities.</param>
+        /// <param name="ContactEmail">Contact email for the team or individual responsible for this agent.</param>
+        /// <param name="AgentMetadata">Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB..</param>
+        public AgentUpdate(string Name = default(string), string Domain = default(string), string Description = default(string), string ContactEmail = default(string), Object AgentMetadata = default(Object))
         {
             this.Name = Name;
             this.Domain = Domain;
@@ -49,44 +49,44 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Agent name
+        /// Display name for the agent
         /// </summary>
-        /// <value>Agent name</value>
+        /// <value>Display name for the agent</value>
         [JsonPropertyName("name")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Agent domain URL
+        /// Fully-qualified HTTPS URL of the agent&#39;s home domain. Must be unique — raises 409 if already registered.
         /// </summary>
-        /// <value>Agent domain URL</value>
+        /// <value>Fully-qualified HTTPS URL of the agent&#39;s home domain. Must be unique — raises 409 if already registered.</value>
         [JsonPropertyName("domain")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Domain { get; set; }
 
         /// <summary>
-        /// Agent description
+        /// Description of the agent&#39;s purpose or capabilities
         /// </summary>
-        /// <value>Agent description</value>
+        /// <value>Description of the agent&#39;s purpose or capabilities</value>
         [JsonPropertyName("description")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Contact email
+        /// Contact email for the team or individual responsible for this agent
         /// </summary>
-        /// <value>Contact email</value>
+        /// <value>Contact email for the team or individual responsible for this agent</value>
         [JsonPropertyName("contactEmail")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string ContactEmail { get; set; }
 
         /// <summary>
-        /// Optional metadata (e.g., framework, version)
+        /// Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB.
         /// </summary>
-        /// <value>Optional metadata (e.g., framework, version)</value>
+        /// <value>Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB.</value>
         [JsonPropertyName("agentMetadata")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, string> AgentMetadata { get; set; }
+        public Object AgentMetadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -165,7 +165,7 @@ namespace CyberSource.Model
                 (
                     this.AgentMetadata == other.AgentMetadata ||
                     this.AgentMetadata != null &&
-                    this.AgentMetadata.SequenceEqual(other.AgentMetadata)
+                    this.AgentMetadata.Equals(other.AgentMetadata)
                 );
         }
 

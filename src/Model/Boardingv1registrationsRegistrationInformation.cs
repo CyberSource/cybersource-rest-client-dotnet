@@ -50,6 +50,7 @@ namespace CyberSource.Model
         /// Gets or Sets BoardingRegistrationId
         /// </summary>
         [JsonPropertyName("boardingRegistrationId")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string BoardingRegistrationId { get; private set; }
 
@@ -58,6 +59,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
         [JsonPropertyName("submitTimeUtc")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public DateTime? SubmitTimeUtc { get; private set; }
 
@@ -66,6 +68,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The status of Registration request Possible Values:   - &#39;PROCESSING&#39;: This status is for Registrations that are still in Progress, you can get the latest status by calling the GET endpoint using the Registration Id   - &#39;SUCCESS&#39;: This status is for Registrations that were successfull on every step of the on boarding process.   - &#39;FAILURE&#39;: This status is for Registrations that fail before the Organization was created; please refer to the details section in the reponse for more information.   - &#39;PARTIAL&#39;: This status is for Registrations that created the Organization successfully but fail in at least on step while configuring it; please refer to the details section in the response for more information. </value>
         [JsonPropertyName("status")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Status { get; private set; }
 

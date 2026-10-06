@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The creator of the Payment Instrument. </value>
         [JsonPropertyName("creator")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Creator { get; private set; }
 
