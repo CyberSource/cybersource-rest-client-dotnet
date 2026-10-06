@@ -121,6 +121,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'SellerProtection'
         }
         /// <summary>
+        /// Test the property 'PaymentUrl'
+        /// </summary>
+        [Test]
+        public void PaymentUrlTest()
+        {
+            // TODO unit test for the property 'PaymentUrl'
+        }
+        /// <summary>
         /// Test the property 'Avs'
         /// </summary>
         [Test]

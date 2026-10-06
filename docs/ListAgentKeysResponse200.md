@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AgentId** | **string** | Agent identifier (64-char SHA-256 hash) | 
-**AgentName** | **string** | Agent name | 
-**Keys** | [**List&lt;AgentRegistrationResponse201Keys&gt;**](AgentRegistrationResponse201Keys.md) | List of keys (without agentId/agentName/agentType since they are at parent level) | 
+**AgentName** | **string** | Display name of the agent | 
+**Keys** | [**List&lt;AgentRegistrationResponse201Keys&gt;**](AgentRegistrationResponse201Keys.md) | Paginated list of public keys belonging to this agent (agentId/agentName/agentType omitted — available at the parent level) | 
 **Pagination** | [**ListAgentKeysResponse200Pagination**](ListAgentKeysResponse200Pagination.md) |  | 
 
 ## Extensibility

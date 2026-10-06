@@ -45,6 +45,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Issuer name. </value>
         [JsonPropertyName("name")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Name { get; private set; }
 
@@ -53,6 +54,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Short description of the card. </value>
         [JsonPropertyName("shortDescription")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string ShortDescription { get; private set; }
 
@@ -61,6 +63,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Long description of the card. </value>
         [JsonPropertyName("longDescription")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string LongDescription { get; private set; }
 
@@ -69,6 +72,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Issuer customer service email address. </value>
         [JsonPropertyName("email")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Email { get; private set; }
 
@@ -77,6 +81,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Issuer customer service phone number. </value>
         [JsonPropertyName("phoneNumber")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string PhoneNumber { get; private set; }
 
@@ -85,6 +90,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Issuer customer service url. </value>
         [JsonPropertyName("url")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Url { get; private set; }
 
@@ -93,6 +99,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Issuer privacy policy url. </value>
         [JsonPropertyName("privacyPolicyUrl")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string PrivacyPolicyUrl { get; private set; }
 
@@ -107,6 +114,7 @@ namespace CyberSource.Model
         /// Gets or Sets BankApplications
         /// </summary>
         [JsonPropertyName("bankApplications")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<Tmsv2TokenizedCardMetadataIssuerBankApplications> BankApplications { get; private set; }
 

@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="MerchantValue">Financial limit in the merchant&#39;s local currency, in minor units.</param>
         /// <param name="Value">Limit value amount in the specified currency, in minor units.</param>
         /// <param name="ExpectedMonthlyVolume">Expected monthly transaction volume used alongside limit value to set composite risk thresholds.</param>
-        public UnifiedriskMerchantMerchantDescriptorLimitValue(string BaseCurrency = default(string), int? BaseValue = default(int?), string Currency = default(string), string MerchantCurrency = default(string), int? MerchantValue = default(int?), int? Value = default(int?), int? ExpectedMonthlyVolume = default(int?))
+        public UnifiedriskMerchantMerchantDescriptorLimitValue(string BaseCurrency = default(string), string BaseValue = default(string), string Currency = default(string), string MerchantCurrency = default(string), string MerchantValue = default(string), string Value = default(string), int? ExpectedMonthlyVolume = default(int?))
         {
             this.BaseCurrency = BaseCurrency;
             this.BaseValue = BaseValue;
@@ -66,7 +66,7 @@ namespace CyberSource.Model
         /// <value>Financial limit amount in the base currency, in minor units</value>
         [JsonPropertyName("baseValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? BaseValue { get; set; }
+        public string BaseValue { get; set; }
 
         /// <summary>
         /// ISO 4217 3-letter currency code in which the limit value is expressed
@@ -90,7 +90,7 @@ namespace CyberSource.Model
         /// <value>Financial limit in the merchant&#39;s local currency, in minor units</value>
         [JsonPropertyName("merchantValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? MerchantValue { get; set; }
+        public string MerchantValue { get; set; }
 
         /// <summary>
         /// Limit value amount in the specified currency, in minor units
@@ -98,7 +98,7 @@ namespace CyberSource.Model
         /// <value>Limit value amount in the specified currency, in minor units</value>
         [JsonPropertyName("value")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Expected monthly transaction volume used alongside limit value to set composite risk thresholds

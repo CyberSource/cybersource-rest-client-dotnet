@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Common">Common.</param>
         /// <param name="Processors">Processors.</param>
-        public BoardingPayoutsConfigurations(BoardingPayoutsConfigurationsCommon Common = default(BoardingPayoutsConfigurationsCommon), Dictionary<string, Object> Processors = default(Dictionary<string, Object>))
+        public BoardingPayoutsConfigurations(BoardingPayoutsConfigurationsCommon Common = default(BoardingPayoutsConfigurationsCommon), Dictionary<string, BoardingPayoutsConfigurationsProcessors> Processors = default(Dictionary<string, BoardingPayoutsConfigurationsProcessors>))
         {
             this.Common = Common;
             this.Processors = Processors;
@@ -54,7 +54,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("processors")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, Object> Processors { get; set; }
+        public Dictionary<string, BoardingPayoutsConfigurationsProcessors> Processors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

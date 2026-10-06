@@ -46,6 +46,7 @@ namespace CyberSource.Model
         /// Gets or Sets BoardingPackageId
         /// </summary>
         [JsonPropertyName("boardingPackageId")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string BoardingPackageId { get; private set; }
 

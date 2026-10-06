@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Web-based integration configuration for a merchant checkout flow.
+    /// Web-based checkout integration configuration for browser or app-based agent interactions.
     /// </summary>
     [DataContract]
     public partial class Iccv1merchantsWebIntegrations :  ModelExtensions, IEquatable<Iccv1merchantsWebIntegrations>, IValidatableObject
@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="IntegrationSpec">URL for integration specification (required).</param>
         /// <param name="Url">Base web page to checkout for agents (must use HTTPS) (required).</param>
         /// <param name="Metadata">Optional metadata (max 10KB).</param>
-        public Iccv1merchantsWebIntegrations(string IntegrationSpec = default(string), string Url = default(string), Dictionary<string, string> Metadata = default(Dictionary<string, string>))
+        public Iccv1merchantsWebIntegrations(string IntegrationSpec = default(string), string Url = default(string), Dictionary<string, Object> Metadata = default(Dictionary<string, Object>))
         {
             this.IntegrationSpec = IntegrationSpec;
             this.Url = Url;
@@ -71,7 +71,7 @@ namespace CyberSource.Model
         /// <value>Optional metadata (max 10KB)</value>
         [JsonPropertyName("metadata")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, string> Metadata { get; set; }
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

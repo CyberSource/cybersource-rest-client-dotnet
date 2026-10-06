@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="MerchantValue">Expected monthly sales in the merchant&#39;s local currency, in minor units.</param>
         /// <param name="Value">Expected monthly sales amount in the specified currency, in minor units.</param>
         /// <param name="ExpectedMonthlyVolume">Expected number of transactions per month for velocity monitoring and anomaly detection.</param>
-        public UnifiedriskMerchantMerchantDescriptorExpectedMonthlySales(Object ExpectedMonthlySales = default(Object), string BaseCurrency = default(string), int? BaseValue = default(int?), string Currency = default(string), string MerchantCurrency = default(string), int? MerchantValue = default(int?), int? Value = default(int?), int? ExpectedMonthlyVolume = default(int?))
+        public UnifiedriskMerchantMerchantDescriptorExpectedMonthlySales(Object ExpectedMonthlySales = default(Object), string BaseCurrency = default(string), string BaseValue = default(string), string Currency = default(string), string MerchantCurrency = default(string), string MerchantValue = default(string), string Value = default(string), int? ExpectedMonthlyVolume = default(int?))
         {
             this.ExpectedMonthlySales = ExpectedMonthlySales;
             this.BaseCurrency = BaseCurrency;
@@ -76,7 +76,7 @@ namespace CyberSource.Model
         /// <value>Expected monthly sales value in the base currency, in minor units</value>
         [JsonPropertyName("baseValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? BaseValue { get; set; }
+        public string BaseValue { get; set; }
 
         /// <summary>
         /// ISO 4217 3-letter currency code for the expected monthly sales amount
@@ -100,7 +100,7 @@ namespace CyberSource.Model
         /// <value>Expected monthly sales in the merchant&#39;s local currency, in minor units</value>
         [JsonPropertyName("merchantValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? MerchantValue { get; set; }
+        public string MerchantValue { get; set; }
 
         /// <summary>
         /// Expected monthly sales amount in the specified currency, in minor units
@@ -108,7 +108,7 @@ namespace CyberSource.Model
         /// <value>Expected monthly sales amount in the specified currency, in minor units</value>
         [JsonPropertyName("value")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Expected number of transactions per month for velocity monitoring and anomaly detection

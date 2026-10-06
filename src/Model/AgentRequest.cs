@@ -39,14 +39,14 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentRequest" /> class.
         /// </summary>
-        /// <param name="Name">Agent name (required).</param>
-        /// <param name="Domain">Agent domain URL (required).</param>
-        /// <param name="Description">Agent description (required).</param>
-        /// <param name="ContactEmail">Contact email (required).</param>
-        /// <param name="TokenRequestorId">Unique token requestor identifier (required).</param>
-        /// <param name="AgentMetadata">Optional metadata (e.g., framework, version).</param>
-        /// <param name="Keys">Optional list of keys to create with the agent.</param>
-        public AgentRequest(string Name = default(string), string Domain = default(string), string Description = default(string), string ContactEmail = default(string), string TokenRequestorId = default(string), Dictionary<string, string> AgentMetadata = default(Dictionary<string, string>), List<Iccv1agentsKeys> Keys = default(List<Iccv1agentsKeys>))
+        /// <param name="Name">Display name for the agent (required).</param>
+        /// <param name="Domain">Fully-qualified HTTPS URL of the agent&#39;s home domain. Must be unique — registration raises 409 if it already exists. (required).</param>
+        /// <param name="Description">Description of the agent&#39;s purpose or capabilities (required).</param>
+        /// <param name="ContactEmail">Contact email for the team or individual responsible for this agent (required).</param>
+        /// <param name="TokenRequestorId">Token Requestor ID (TRID) assigned by Visa (required).</param>
+        /// <param name="AgentMetadata">Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB..</param>
+        /// <param name="Keys">Optional array of public keys to register alongside the agent. Keys are created in ***deactivated*** state and must be activated separately via POST /agents/{agentId}/keys/{keyId}/activate. .</param>
+        public AgentRequest(string Name = default(string), string Domain = default(string), string Description = default(string), string ContactEmail = default(string), string TokenRequestorId = default(string), Object AgentMetadata = default(Object), List<Iccv1agentsKeys> Keys = default(List<Iccv1agentsKeys>))
         {
             this.Name = Name;
             this.Domain = Domain;
@@ -58,57 +58,57 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Agent name
+        /// Display name for the agent
         /// </summary>
-        /// <value>Agent name</value>
+        /// <value>Display name for the agent</value>
         [JsonPropertyName("name")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Agent domain URL
+        /// Fully-qualified HTTPS URL of the agent&#39;s home domain. Must be unique — registration raises 409 if it already exists.
         /// </summary>
-        /// <value>Agent domain URL</value>
+        /// <value>Fully-qualified HTTPS URL of the agent&#39;s home domain. Must be unique — registration raises 409 if it already exists.</value>
         [JsonPropertyName("domain")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Domain { get; set; }
 
         /// <summary>
-        /// Agent description
+        /// Description of the agent&#39;s purpose or capabilities
         /// </summary>
-        /// <value>Agent description</value>
+        /// <value>Description of the agent&#39;s purpose or capabilities</value>
         [JsonPropertyName("description")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Contact email
+        /// Contact email for the team or individual responsible for this agent
         /// </summary>
-        /// <value>Contact email</value>
+        /// <value>Contact email for the team or individual responsible for this agent</value>
         [JsonPropertyName("contactEmail")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string ContactEmail { get; set; }
 
         /// <summary>
-        /// Unique token requestor identifier
+        /// Token Requestor ID (TRID) assigned by Visa
         /// </summary>
-        /// <value>Unique token requestor identifier</value>
+        /// <value>Token Requestor ID (TRID) assigned by Visa</value>
         [JsonPropertyName("tokenRequestorId")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string TokenRequestorId { get; set; }
 
         /// <summary>
-        /// Optional metadata (e.g., framework, version)
+        /// Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB.
         /// </summary>
-        /// <value>Optional metadata (e.g., framework, version)</value>
+        /// <value>Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB.</value>
         [JsonPropertyName("agentMetadata")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, string> AgentMetadata { get; set; }
+        public Object AgentMetadata { get; set; }
 
         /// <summary>
-        /// Optional list of keys to create with the agent
+        /// Optional array of public keys to register alongside the agent. Keys are created in ***deactivated*** state and must be activated separately via POST /agents/{agentId}/keys/{keyId}/activate. 
         /// </summary>
-        /// <value>Optional list of keys to create with the agent</value>
+        /// <value>Optional array of public keys to register alongside the agent. Keys are created in ***deactivated*** state and must be activated separately via POST /agents/{agentId}/keys/{keyId}/activate. </value>
         [JsonPropertyName("keys")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<Iccv1agentsKeys> Keys { get; set; }
@@ -197,7 +197,7 @@ namespace CyberSource.Model
                 (
                     this.AgentMetadata == other.AgentMetadata ||
                     this.AgentMetadata != null &&
-                    this.AgentMetadata.SequenceEqual(other.AgentMetadata)
+                    this.AgentMetadata.Equals(other.AgentMetadata)
                 ) && 
                 (
                     this.Keys == other.Keys ||

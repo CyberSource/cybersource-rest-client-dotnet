@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **FraudManagementEssentials** | [**PaymentsConfigurationSetupCardProcessing**](PaymentsConfigurationSetupCardProcessing.md) |  | [optional] 
 **DecisionManager** | [**PaymentsConfigurationSetupCardProcessing**](PaymentsConfigurationSetupCardProcessing.md) |  | [optional] 
 **EnhancedAuthentication** | [**PaymentsConfigurationSetupCardProcessing**](PaymentsConfigurationSetupCardProcessing.md) |  | [optional] 
+**Vpri** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
 
 ## Extensibility
 

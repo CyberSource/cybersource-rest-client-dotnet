@@ -4,17 +4,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique agent identifier (64-char SHA-256 hash of domain + email + tokenRequestorId) | 
-**Name** | **string** | Agent name | 
-**Domain** | **string** | Agent domain URL | 
-**Description** | **string** | Agent description | [optional] 
-**ContactEmail** | **string** | Contact email | [optional] 
-**TokenRequestorId** | **string** | Unique token requestor identifier | 
-**AgentType** | **string** | Agent classification: &#39;trusted&#39; (commercially onboarded) or &#39;known&#39; (open-source/unverified)  Possible values: - trusted - known | 
-**AgentMetadata** | **Dictionary&lt;string, string&gt;** | Additional agent metadata | [optional] 
-**IsActive** | **bool?** | Whether the agent is active | 
-**CreatedAt** | **DateTime?** | Creation timestamp | 
-**UpdatedAt** | **DateTime?** | Last update timestamp | 
-**Keys** | [**List&lt;AgentRegistrationResponse201Keys&gt;**](AgentRegistrationResponse201Keys.md) | List of keys associated with the agent | [optional] 
+**Name** | **string** | Display name for the agent | 
+**Domain** | **string** | Fully-qualified HTTPS URL of the agent&#39;s home domain | 
+**Description** | **string** | Description of the agent&#39;s purpose or capabilities | [optional] 
+**ContactEmail** | **string** | Contact email for the team or individual responsible for this agent | [optional] 
+**TokenRequestorId** | **string** | Token Requestor ID (TRID) assigned by Visa, shared with the parent trusted agent for OSAs | 
+**AgentType** | **string** | Agent classification: &#39;trusted&#39; (commercially onboarded via Visa) or &#39;known&#39; (open-source/community agent, unverified)  Possible values: - trusted - known | 
+**AgentMetadata** | **Object** | Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB. | [optional] 
+**IsActive** | **bool?** | Whether the agent is currently active. Deactivated agents cannot add or activate keys. | 
+**CreatedAt** | **DateTime?** | ISO 8601 UTC timestamp when the agent was registered | 
+**UpdatedAt** | **DateTime?** | ISO 8601 UTC timestamp when the agent was last updated | 
+**Keys** | [**List&lt;AgentRegistrationResponse201Keys&gt;**](AgentRegistrationResponse201Keys.md) | List of public keys associated with the agent (both active and deactivated) | [optional] 
 
 ## Extensibility
 

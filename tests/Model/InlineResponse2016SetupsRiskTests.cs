@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'EnhancedAuthentication'
         }
+        /// <summary>
+        /// Test the property 'Vpri'
+        /// </summary>
+        [Test]
+        public void VpriTest()
+        {
+            // TODO unit test for the property 'Vpri'
+        }
 
     }
 

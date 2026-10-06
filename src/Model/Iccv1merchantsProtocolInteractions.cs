@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// <param name="Url">Protocol endpoint URL (must use HTTPS) (required).</param>
         /// <param name="DocumentationUrl">Optional documentation URL (must use HTTPS).</param>
         /// <param name="Metadata">Optional metadata (max 10KB).</param>
-        public Iccv1merchantsProtocolInteractions(string Protocol = default(string), string Url = default(string), string DocumentationUrl = default(string), Dictionary<string, string> Metadata = default(Dictionary<string, string>))
+        public Iccv1merchantsProtocolInteractions(string Protocol = default(string), string Url = default(string), string DocumentationUrl = default(string), Dictionary<string, Object> Metadata = default(Dictionary<string, Object>))
         {
             this.Protocol = Protocol;
             this.Url = Url;
@@ -81,7 +81,7 @@ namespace CyberSource.Model
         /// <value>Optional metadata (max 10KB)</value>
         [JsonPropertyName("metadata")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, string> Metadata { get; set; }
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

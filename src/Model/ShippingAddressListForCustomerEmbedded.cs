@@ -43,6 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets ShippingAddresses
         /// </summary>
         [JsonPropertyName("shippingAddresses")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<DefaultShippingAddress> ShippingAddresses { get; private set; }
 

@@ -34,16 +34,55 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PtsV2PaymentsPost201Response1OrderInformation" /> class.
         /// </summary>
+        /// <param name="ReferenceId">Merchant-generated order reference or tracking number for the payment. .</param>
+        /// <param name="Description">Description of the order, as provided by the merchant in the original request. .</param>
+        /// <param name="CustomId">Merchant-defined custom identifier for the order. .</param>
+        /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
         /// <param name="BillTo">BillTo.</param>
         /// <param name="ShipTo">ShipTo.</param>
         /// <param name="AmountDetails">AmountDetails.</param>
-        public PtsV2PaymentsPost201Response1OrderInformation(PtsV2PaymentsPost201Response1OrderInformationBillTo BillTo = default(PtsV2PaymentsPost201Response1OrderInformationBillTo), PtsV2PaymentsPost201Response1OrderInformationShipTo ShipTo = default(PtsV2PaymentsPost201Response1OrderInformationShipTo), PtsV2PaymentsPost201Response1OrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201Response1OrderInformationAmountDetails))
+        public PtsV2PaymentsPost201Response1OrderInformation(string ReferenceId = default(string), string Description = default(string), string CustomId = default(string), PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor MerchantDescriptor = default(PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor), PtsV2PaymentsPost201Response1OrderInformationBillTo BillTo = default(PtsV2PaymentsPost201Response1OrderInformationBillTo), PtsV2PaymentsPost201Response1OrderInformationShipTo ShipTo = default(PtsV2PaymentsPost201Response1OrderInformationShipTo), PtsV2PaymentsPost201Response1OrderInformationAmountDetails AmountDetails = default(PtsV2PaymentsPost201Response1OrderInformationAmountDetails))
         {
+            this.ReferenceId = ReferenceId;
+            this.Description = Description;
+            this.CustomId = CustomId;
+            this.MerchantDescriptor = MerchantDescriptor;
             this.BillTo = BillTo;
             this.ShipTo = ShipTo;
             this.AmountDetails = AmountDetails;
         }
         
+        /// <summary>
+        /// Merchant-generated order reference or tracking number for the payment. 
+        /// </summary>
+        /// <value>Merchant-generated order reference or tracking number for the payment. </value>
+        [JsonPropertyName("referenceId")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string ReferenceId { get; set; }
+
+        /// <summary>
+        /// Description of the order, as provided by the merchant in the original request. 
+        /// </summary>
+        /// <value>Description of the order, as provided by the merchant in the original request. </value>
+        [JsonPropertyName("description")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Merchant-defined custom identifier for the order. 
+        /// </summary>
+        /// <value>Merchant-defined custom identifier for the order. </value>
+        [JsonPropertyName("customId")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string CustomId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MerchantDescriptor
+        /// </summary>
+        [JsonPropertyName("merchantDescriptor")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor MerchantDescriptor { get; set; }
+
         /// <summary>
         /// Gets or Sets BillTo
         /// </summary>
@@ -73,6 +112,10 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PtsV2PaymentsPost201Response1OrderInformation {\n");
+            if (ReferenceId != null) sb.Append("  ReferenceId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1OrderInformation", "referenceId", ReferenceId.ToString())).Append("\n");
+            if (Description != null) sb.Append("  Description: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1OrderInformation", "description", Description.ToString())).Append("\n");
+            if (CustomId != null) sb.Append("  CustomId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1OrderInformation", "customId", CustomId.ToString())).Append("\n");
+            if (MerchantDescriptor != null) sb.Append("  MerchantDescriptor: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1OrderInformation", "merchantDescriptor", MerchantDescriptor.ToString())).Append("\n");
             if (BillTo != null) sb.Append("  BillTo: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1OrderInformation", "billTo", BillTo.ToString())).Append("\n");
             if (ShipTo != null) sb.Append("  ShipTo: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1OrderInformation", "shipTo", ShipTo.ToString())).Append("\n");
             if (AmountDetails != null) sb.Append("  AmountDetails: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201Response1OrderInformation", "amountDetails", AmountDetails.ToString())).Append("\n");
@@ -118,6 +161,26 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
+                    this.ReferenceId == other.ReferenceId ||
+                    this.ReferenceId != null &&
+                    this.ReferenceId.Equals(other.ReferenceId)
+                ) && 
+                (
+                    this.Description == other.Description ||
+                    this.Description != null &&
+                    this.Description.Equals(other.Description)
+                ) && 
+                (
+                    this.CustomId == other.CustomId ||
+                    this.CustomId != null &&
+                    this.CustomId.Equals(other.CustomId)
+                ) && 
+                (
+                    this.MerchantDescriptor == other.MerchantDescriptor ||
+                    this.MerchantDescriptor != null &&
+                    this.MerchantDescriptor.Equals(other.MerchantDescriptor)
+                ) && 
+                (
                     this.BillTo == other.BillTo ||
                     this.BillTo != null &&
                     this.BillTo.Equals(other.BillTo)
@@ -147,6 +210,14 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
+                if (this.ReferenceId != null)
+                    hash = hash * 59 + this.ReferenceId.GetHashCode();
+                if (this.Description != null)
+                    hash = hash * 59 + this.Description.GetHashCode();
+                if (this.CustomId != null)
+                    hash = hash * 59 + this.CustomId.GetHashCode();
+                if (this.MerchantDescriptor != null)
+                    hash = hash * 59 + this.MerchantDescriptor.GetHashCode();
                 if (this.BillTo != null)
                     hash = hash * 59 + this.BillTo.GetHashCode();
                 if (this.ShipTo != null)

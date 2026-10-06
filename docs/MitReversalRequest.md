@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ReversalInformation** | [**Ptsv2paymentsidreversalsReversalInformation**](Ptsv2paymentsidreversalsReversalInformation.md) |  | [optional] 
 **ProcessingInformation** | [**Ptsv2paymentsidreversalsProcessingInformation**](Ptsv2paymentsidreversalsProcessingInformation.md) |  | [optional] 
 **OrderInformation** | [**Ptsv2paymentsidreversalsOrderInformation**](Ptsv2paymentsidreversalsOrderInformation.md) |  | [optional] 
-**PointOfSaleInformation** | [**Ptsv2paymentsidreversalsPointOfSaleInformation**](Ptsv2paymentsidreversalsPointOfSaleInformation.md) |  | [optional] 
+**PointOfSaleInformation** | [**Ptsv2paymentsPointOfSaleInformation**](Ptsv2paymentsPointOfSaleInformation.md) |  | [optional] 
 **DeviceInformation** | [**Ptsv2paymentsidreversalsDeviceInformation**](Ptsv2paymentsidreversalsDeviceInformation.md) |  | [optional] 
 **ProcessorInformation** | [**Ptsv2reversalsProcessorInformation**](Ptsv2reversalsProcessorInformation.md) |  | [optional] 
 

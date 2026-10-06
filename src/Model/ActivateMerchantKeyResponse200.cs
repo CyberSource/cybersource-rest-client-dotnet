@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// <param name="KeyName">Unique name for the key (required).</param>
         /// <param name="EncryptionKey">Base64-encoded public key (required).</param>
         /// <param name="Algorithm">JWE key wrap algorithm  Possible values: - RSA-OAEP - RSA-OAEP-256 - RSA-OAEP-384 - RSA-OAEP-512 (required).</param>
-        /// <param name="EncryptionType">JWE content encryption algorithm  Possible values: - A256GCM - A128GCM - C20P - A256CBC-HS512 - A128CBC-HS256 - A256CCM - A128CCM (required).</param>
+        /// <param name="EncryptionType">JWE content encryption algorithm  Possible values: - A256GCM - A128GCM - C20P - A256CBC_HS512 - A128CBC_HS256 - A256CCM - A128CCM (required).</param>
         /// <param name="ExpirationDate">Key expiration date in UTC (required).</param>
         /// <param name="Status">Key lifecycle status  Possible values: - active - deactivated - expired (required).</param>
         /// <param name="CreatedAt">Creation timestamp (required).</param>
@@ -114,9 +114,9 @@ namespace CyberSource.Model
         public string Algorithm { get; set; }
 
         /// <summary>
-        /// JWE content encryption algorithm  Possible values: - A256GCM - A128GCM - C20P - A256CBC-HS512 - A128CBC-HS256 - A256CCM - A128CCM
+        /// JWE content encryption algorithm  Possible values: - A256GCM - A128GCM - C20P - A256CBC_HS512 - A128CBC_HS256 - A256CCM - A128CCM
         /// </summary>
-        /// <value>JWE content encryption algorithm  Possible values: - A256GCM - A128GCM - C20P - A256CBC-HS512 - A128CBC-HS256 - A256CCM - A128CCM</value>
+        /// <value>JWE content encryption algorithm  Possible values: - A256GCM - A128GCM - C20P - A256CBC_HS512 - A128CBC_HS256 - A256CCM - A128CCM</value>
         [JsonPropertyName("encryptionType")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string EncryptionType { get; set; }

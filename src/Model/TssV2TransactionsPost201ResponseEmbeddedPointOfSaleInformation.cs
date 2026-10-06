@@ -39,7 +39,7 @@ namespace CyberSource.Model
         /// <param name="DeviceId">Value created by the client software that uniquely identifies the POS device. CyberSource does not forward this value to the processor. Instead, the value is forwarded to the CyberSource reporting functionality.  This field is supported only for authorizations and credits on these processors: - American Express Direct - Credit Mutuel-CIC - FDC Nashville Global - OmniPay Direct - SIX  Optional field. String (32) .</param>
         /// <param name="Partner">Partner.</param>
         /// <param name="Emv">Emv.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string DeviceId = default(string), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner Partner = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner), Ptsv2paymentsidreversalsPointOfSaleInformationEmv Emv = default(Ptsv2paymentsidreversalsPointOfSaleInformationEmv))
+        public TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation(string TerminalId = default(string), string TerminalSerialNumber = default(string), string DeviceId = default(string), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner Partner = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformationPartner), PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformationEmv Emv = default(PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformationEmv))
         {
             this.TerminalId = TerminalId;
             this.TerminalSerialNumber = TerminalSerialNumber;
@@ -84,7 +84,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("emv")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Ptsv2paymentsidreversalsPointOfSaleInformationEmv Emv { get; set; }
+        public PtsV2PaymentsReversalsPost201ResponsePointOfSaleInformationEmv Emv { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

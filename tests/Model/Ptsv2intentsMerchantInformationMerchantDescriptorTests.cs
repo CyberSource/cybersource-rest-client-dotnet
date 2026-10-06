@@ -73,6 +73,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Name'
         }
         /// <summary>
+        /// Test the property 'Value'
+        /// </summary>
+        [Test]
+        public void ValueTest()
+        {
+            // TODO unit test for the property 'Value'
+        }
+        /// <summary>
         /// Test the property 'Email'
         /// </summary>
         [Test]

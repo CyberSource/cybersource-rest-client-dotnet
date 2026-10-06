@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **BankAccountValidation** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
 **Flexapi** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
 **Webhooks** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
+**SmarterRetry** | [**PaymentsConfigurationSetupDigitalPayments**](PaymentsConfigurationSetupDigitalPayments.md) |  | [optional] 
 
 ## Extensibility
 

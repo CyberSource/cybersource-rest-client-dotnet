@@ -40,14 +40,14 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="MerchantRequest" /> class.
         /// </summary>
         /// <param name="MerchantName">Doing business as (DBA) name (required).</param>
-        /// <param name="MerchantUrl">Base merchant URL (must use HTTPS) (required).</param>
-        /// <param name="Vmid">Visa Merchant ID — unique identifier.</param>
-        /// <param name="Indicator">Transaction processing type  Possible values: - TAP - ACG - BOTH (required).</param>
-        /// <param name="CryptogramType">Authentication cryptogram type (defaults to DAVV)  Possible values: - TAVV - DAVV.</param>
-        /// <param name="PaymentPayloadType">Credential delivery format (defaults to UNENCRYPTED)  Possible values: - ENCRYPTED - UNENCRYPTED.</param>
+        /// <param name="MerchantUrl">Base URL of the merchant&#39;s domain. Must use HTTPS and be unique across all registrations. (required).</param>
+        /// <param name="Vmid">Visa Merchant ID (VMID). Must be unique — raises 409 if already in use..</param>
+        /// <param name="Indicator">Transaction processing indicator:  - ***TAP*** — Trusted Agent Protocol  - ***ACG*** — Agentic Checkout Gateway  - ***BOTH*** — supports both TAP and ACG   Possible values: - TAP - ACG - BOTH (required).</param>
+        /// <param name="CryptogramType">Authentication cryptogram type used for payment credential generation. Defaults to ***DAVV*** if not provided.  Possible values: - TAVV - DAVV.</param>
+        /// <param name="PaymentPayloadType">Credential delivery format. Set to ***ENCRYPTED*** to enable JWE-encrypted payload delivery — requires an &#x60;encryptionKey&#x60;. Defaults to ***UNENCRYPTED***.  Possible values: - ENCRYPTED - UNENCRYPTED.</param>
         /// <param name="EncryptionKey">EncryptionKey.</param>
-        /// <param name="AcceptanceRelationships">List of acceptance network relationships.</param>
-        /// <param name="ProtocolInteractions">List of protocol configurations (ucp, acp, x402) with HTTPS URLs.</param>
+        /// <param name="AcceptanceRelationships">List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;)..</param>
+        /// <param name="ProtocolInteractions">List of protocol interaction configurations defining the merchant&#39;s endpoint for each supported protocol (ucp, acp, x402)..</param>
         /// <param name="WebIntegrations">WebIntegrations.</param>
         /// <param name="ApiIntegrations">ApiIntegrations.</param>
         public MerchantRequest(string MerchantName = default(string), string MerchantUrl = default(string), string Vmid = default(string), string Indicator = default(string), string CryptogramType = default(string), string PaymentPayloadType = default(string), Iccv1merchantsEncryptionKey EncryptionKey = default(Iccv1merchantsEncryptionKey), List<string> AcceptanceRelationships = default(List<string>), List<Iccv1merchantsProtocolInteractions> ProtocolInteractions = default(List<Iccv1merchantsProtocolInteractions>), Iccv1merchantsWebIntegrations WebIntegrations = default(Iccv1merchantsWebIntegrations), Iccv1merchantsApiIntegrations ApiIntegrations = default(Iccv1merchantsApiIntegrations))
@@ -74,41 +74,41 @@ namespace CyberSource.Model
         public string MerchantName { get; set; }
 
         /// <summary>
-        /// Base merchant URL (must use HTTPS)
+        /// Base URL of the merchant&#39;s domain. Must use HTTPS and be unique across all registrations.
         /// </summary>
-        /// <value>Base merchant URL (must use HTTPS)</value>
+        /// <value>Base URL of the merchant&#39;s domain. Must use HTTPS and be unique across all registrations.</value>
         [JsonPropertyName("merchantUrl")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string MerchantUrl { get; set; }
 
         /// <summary>
-        /// Visa Merchant ID — unique identifier
+        /// Visa Merchant ID (VMID). Must be unique — raises 409 if already in use.
         /// </summary>
-        /// <value>Visa Merchant ID — unique identifier</value>
+        /// <value>Visa Merchant ID (VMID). Must be unique — raises 409 if already in use.</value>
         [JsonPropertyName("vmid")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Vmid { get; set; }
 
         /// <summary>
-        /// Transaction processing type  Possible values: - TAP - ACG - BOTH
+        /// Transaction processing indicator:  - ***TAP*** — Trusted Agent Protocol  - ***ACG*** — Agentic Checkout Gateway  - ***BOTH*** — supports both TAP and ACG   Possible values: - TAP - ACG - BOTH
         /// </summary>
-        /// <value>Transaction processing type  Possible values: - TAP - ACG - BOTH</value>
+        /// <value>Transaction processing indicator:  - ***TAP*** — Trusted Agent Protocol  - ***ACG*** — Agentic Checkout Gateway  - ***BOTH*** — supports both TAP and ACG   Possible values: - TAP - ACG - BOTH</value>
         [JsonPropertyName("indicator")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Indicator { get; set; }
 
         /// <summary>
-        /// Authentication cryptogram type (defaults to DAVV)  Possible values: - TAVV - DAVV
+        /// Authentication cryptogram type used for payment credential generation. Defaults to ***DAVV*** if not provided.  Possible values: - TAVV - DAVV
         /// </summary>
-        /// <value>Authentication cryptogram type (defaults to DAVV)  Possible values: - TAVV - DAVV</value>
+        /// <value>Authentication cryptogram type used for payment credential generation. Defaults to ***DAVV*** if not provided.  Possible values: - TAVV - DAVV</value>
         [JsonPropertyName("cryptogramType")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string CryptogramType { get; set; }
 
         /// <summary>
-        /// Credential delivery format (defaults to UNENCRYPTED)  Possible values: - ENCRYPTED - UNENCRYPTED
+        /// Credential delivery format. Set to ***ENCRYPTED*** to enable JWE-encrypted payload delivery — requires an &#x60;encryptionKey&#x60;. Defaults to ***UNENCRYPTED***.  Possible values: - ENCRYPTED - UNENCRYPTED
         /// </summary>
-        /// <value>Credential delivery format (defaults to UNENCRYPTED)  Possible values: - ENCRYPTED - UNENCRYPTED</value>
+        /// <value>Credential delivery format. Set to ***ENCRYPTED*** to enable JWE-encrypted payload delivery — requires an &#x60;encryptionKey&#x60;. Defaults to ***UNENCRYPTED***.  Possible values: - ENCRYPTED - UNENCRYPTED</value>
         [JsonPropertyName("paymentPayloadType")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string PaymentPayloadType { get; set; }
@@ -121,17 +121,17 @@ namespace CyberSource.Model
         public Iccv1merchantsEncryptionKey EncryptionKey { get; set; }
 
         /// <summary>
-        /// List of acceptance network relationships
+        /// List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;).
         /// </summary>
-        /// <value>List of acceptance network relationships</value>
+        /// <value>List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;).</value>
         [JsonPropertyName("acceptanceRelationships")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<string> AcceptanceRelationships { get; set; }
 
         /// <summary>
-        /// List of protocol configurations (ucp, acp, x402) with HTTPS URLs
+        /// List of protocol interaction configurations defining the merchant&#39;s endpoint for each supported protocol (ucp, acp, x402).
         /// </summary>
-        /// <value>List of protocol configurations (ucp, acp, x402) with HTTPS URLs</value>
+        /// <value>List of protocol interaction configurations defining the merchant&#39;s endpoint for each supported protocol (ucp, acp, x402).</value>
         [JsonPropertyName("protocolInteractions")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<Iccv1merchantsProtocolInteractions> ProtocolInteractions { get; set; }

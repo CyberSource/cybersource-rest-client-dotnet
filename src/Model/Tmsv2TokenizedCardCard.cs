@@ -85,6 +85,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The customer&#39;s latest payment card number suffix. </value>
         [JsonPropertyName("suffix")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Suffix { get; private set; }
 
@@ -93,6 +94,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Card issuance date. XML date format: YYYY-MM-DD.</value>
         [JsonPropertyName("issueDate")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         [JsonConverter(typeof(SwaggerDateConverter))]
         public DateTime? IssueDate { get; private set; }
@@ -102,6 +104,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Card activation date. XML date format: YYYY-MM-DD</value>
         [JsonPropertyName("activationDate")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         [JsonConverter(typeof(SwaggerDateConverter))]
         public DateTime? ActivationDate { get; private set; }
@@ -111,6 +114,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Indicates if the expiration date is printed on the card.</value>
         [JsonPropertyName("expirationPrinted")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? ExpirationPrinted { get; private set; }
 
@@ -119,6 +123,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Indicates if the Card Verification Number is printed on the card.</value>
         [JsonPropertyName("securityCodePrinted")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? SecurityCodePrinted { get; private set; }
 

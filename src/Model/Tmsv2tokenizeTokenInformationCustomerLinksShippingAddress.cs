@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Link to the Customers Shipping Addresses. </value>
         [JsonPropertyName("href")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Href { get; private set; }
 

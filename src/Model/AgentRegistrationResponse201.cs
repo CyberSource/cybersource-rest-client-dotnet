@@ -40,18 +40,18 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="AgentRegistrationResponse201" /> class.
         /// </summary>
         /// <param name="Id">Unique agent identifier (64-char SHA-256 hash of domain + email + tokenRequestorId) (required).</param>
-        /// <param name="Name">Agent name (required).</param>
-        /// <param name="Domain">Agent domain URL (required).</param>
-        /// <param name="Description">Agent description.</param>
-        /// <param name="ContactEmail">Contact email.</param>
-        /// <param name="TokenRequestorId">Unique token requestor identifier (required).</param>
-        /// <param name="AgentType">Agent classification: &#39;trusted&#39; (commercially onboarded) or &#39;known&#39; (open-source/unverified)  Possible values: - trusted - known (required).</param>
-        /// <param name="AgentMetadata">Additional agent metadata.</param>
-        /// <param name="IsActive">Whether the agent is active (required).</param>
-        /// <param name="CreatedAt">Creation timestamp (required).</param>
-        /// <param name="UpdatedAt">Last update timestamp (required).</param>
-        /// <param name="Keys">List of keys associated with the agent.</param>
-        public AgentRegistrationResponse201(string Id = default(string), string Name = default(string), string Domain = default(string), string Description = default(string), string ContactEmail = default(string), string TokenRequestorId = default(string), string AgentType = default(string), Dictionary<string, string> AgentMetadata = default(Dictionary<string, string>), bool? IsActive = default(bool?), DateTime? CreatedAt = default(DateTime?), DateTime? UpdatedAt = default(DateTime?), List<AgentRegistrationResponse201Keys> Keys = default(List<AgentRegistrationResponse201Keys>))
+        /// <param name="Name">Display name for the agent (required).</param>
+        /// <param name="Domain">Fully-qualified HTTPS URL of the agent&#39;s home domain (required).</param>
+        /// <param name="Description">Description of the agent&#39;s purpose or capabilities.</param>
+        /// <param name="ContactEmail">Contact email for the team or individual responsible for this agent.</param>
+        /// <param name="TokenRequestorId">Token Requestor ID (TRID) assigned by Visa, shared with the parent trusted agent for OSAs (required).</param>
+        /// <param name="AgentType">Agent classification: &#39;trusted&#39; (commercially onboarded via Visa) or &#39;known&#39; (open-source/community agent, unverified)  Possible values: - trusted - known (required).</param>
+        /// <param name="AgentMetadata">Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB..</param>
+        /// <param name="IsActive">Whether the agent is currently active. Deactivated agents cannot add or activate keys. (required).</param>
+        /// <param name="CreatedAt">ISO 8601 UTC timestamp when the agent was registered (required).</param>
+        /// <param name="UpdatedAt">ISO 8601 UTC timestamp when the agent was last updated (required).</param>
+        /// <param name="Keys">List of public keys associated with the agent (both active and deactivated).</param>
+        public AgentRegistrationResponse201(string Id = default(string), string Name = default(string), string Domain = default(string), string Description = default(string), string ContactEmail = default(string), string TokenRequestorId = default(string), string AgentType = default(string), Object AgentMetadata = default(Object), bool? IsActive = default(bool?), DateTime? CreatedAt = default(DateTime?), DateTime? UpdatedAt = default(DateTime?), List<AgentRegistrationResponse201Keys> Keys = default(List<AgentRegistrationResponse201Keys>))
         {
             this.Id = Id;
             this.Name = Name;
@@ -76,89 +76,89 @@ namespace CyberSource.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Agent name
+        /// Display name for the agent
         /// </summary>
-        /// <value>Agent name</value>
+        /// <value>Display name for the agent</value>
         [JsonPropertyName("name")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Agent domain URL
+        /// Fully-qualified HTTPS URL of the agent&#39;s home domain
         /// </summary>
-        /// <value>Agent domain URL</value>
+        /// <value>Fully-qualified HTTPS URL of the agent&#39;s home domain</value>
         [JsonPropertyName("domain")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Domain { get; set; }
 
         /// <summary>
-        /// Agent description
+        /// Description of the agent&#39;s purpose or capabilities
         /// </summary>
-        /// <value>Agent description</value>
+        /// <value>Description of the agent&#39;s purpose or capabilities</value>
         [JsonPropertyName("description")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Contact email
+        /// Contact email for the team or individual responsible for this agent
         /// </summary>
-        /// <value>Contact email</value>
+        /// <value>Contact email for the team or individual responsible for this agent</value>
         [JsonPropertyName("contactEmail")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string ContactEmail { get; set; }
 
         /// <summary>
-        /// Unique token requestor identifier
+        /// Token Requestor ID (TRID) assigned by Visa, shared with the parent trusted agent for OSAs
         /// </summary>
-        /// <value>Unique token requestor identifier</value>
+        /// <value>Token Requestor ID (TRID) assigned by Visa, shared with the parent trusted agent for OSAs</value>
         [JsonPropertyName("tokenRequestorId")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string TokenRequestorId { get; set; }
 
         /// <summary>
-        /// Agent classification: &#39;trusted&#39; (commercially onboarded) or &#39;known&#39; (open-source/unverified)  Possible values: - trusted - known
+        /// Agent classification: &#39;trusted&#39; (commercially onboarded via Visa) or &#39;known&#39; (open-source/community agent, unverified)  Possible values: - trusted - known
         /// </summary>
-        /// <value>Agent classification: &#39;trusted&#39; (commercially onboarded) or &#39;known&#39; (open-source/unverified)  Possible values: - trusted - known</value>
+        /// <value>Agent classification: &#39;trusted&#39; (commercially onboarded via Visa) or &#39;known&#39; (open-source/community agent, unverified)  Possible values: - trusted - known</value>
         [JsonPropertyName("agentType")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string AgentType { get; set; }
 
         /// <summary>
-        /// Additional agent metadata
+        /// Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB.
         /// </summary>
-        /// <value>Additional agent metadata</value>
+        /// <value>Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB.</value>
         [JsonPropertyName("agentMetadata")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, string> AgentMetadata { get; set; }
+        public Object AgentMetadata { get; set; }
 
         /// <summary>
-        /// Whether the agent is active
+        /// Whether the agent is currently active. Deactivated agents cannot add or activate keys.
         /// </summary>
-        /// <value>Whether the agent is active</value>
+        /// <value>Whether the agent is currently active. Deactivated agents cannot add or activate keys.</value>
         [JsonPropertyName("isActive")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? IsActive { get; set; }
 
         /// <summary>
-        /// Creation timestamp
+        /// ISO 8601 UTC timestamp when the agent was registered
         /// </summary>
-        /// <value>Creation timestamp</value>
+        /// <value>ISO 8601 UTC timestamp when the agent was registered</value>
         [JsonPropertyName("createdAt")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        /// Last update timestamp
+        /// ISO 8601 UTC timestamp when the agent was last updated
         /// </summary>
-        /// <value>Last update timestamp</value>
+        /// <value>ISO 8601 UTC timestamp when the agent was last updated</value>
         [JsonPropertyName("updatedAt")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public DateTime? UpdatedAt { get; set; }
 
         /// <summary>
-        /// List of keys associated with the agent
+        /// List of public keys associated with the agent (both active and deactivated)
         /// </summary>
-        /// <value>List of keys associated with the agent</value>
+        /// <value>List of public keys associated with the agent (both active and deactivated)</value>
         [JsonPropertyName("keys")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<AgentRegistrationResponse201Keys> Keys { get; set; }
@@ -262,7 +262,7 @@ namespace CyberSource.Model
                 (
                     this.AgentMetadata == other.AgentMetadata ||
                     this.AgentMetadata != null &&
-                    this.AgentMetadata.SequenceEqual(other.AgentMetadata)
+                    this.AgentMetadata.Equals(other.AgentMetadata)
                 ) && 
                 (
                     this.IsActive == other.IsActive ||

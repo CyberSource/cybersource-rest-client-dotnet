@@ -3,6 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ReferenceId** | **string** | Merchant-generated order reference or tracking number for the payment.  | [optional] 
+**Description** | **string** | Description of the order, as provided by the merchant in the original request.  | [optional] 
+**CustomId** | **string** | Merchant-defined custom identifier for the order.  | [optional] 
+**MerchantDescriptor** | [**PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor**](PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor.md) |  | [optional] 
 **BillTo** | [**PtsV2PaymentsPost201Response1OrderInformationBillTo**](PtsV2PaymentsPost201Response1OrderInformationBillTo.md) |  | [optional] 
 **ShipTo** | [**PtsV2PaymentsPost201Response1OrderInformationShipTo**](PtsV2PaymentsPost201Response1OrderInformationShipTo.md) |  | [optional] 
 **AmountDetails** | [**PtsV2PaymentsPost201Response1OrderInformationAmountDetails**](PtsV2PaymentsPost201Response1OrderInformationAmountDetails.md) |  | [optional] 

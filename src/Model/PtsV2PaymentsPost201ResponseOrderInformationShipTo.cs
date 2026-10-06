@@ -42,8 +42,9 @@ namespace CyberSource.Model
         /// <param name="AdministrativeArea">State or province of shipping address. This is a State, Province, and Territory Codes for the United States and Canada. .</param>
         /// <param name="PostalCode">Postal code of the shipping address. Consists of 5 to 9 digits. .</param>
         /// <param name="Country">Country of shipping address. This is a two-character ISO Standard Country Codes. .</param>
+        /// <param name="Email">Email address of the shipping recipient. .</param>
         /// <param name="PhoneNumber">Phone number of the recipient. .</param>
-        public PtsV2PaymentsPost201ResponseOrderInformationShipTo(string Firstname = default(string), string Lastname = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string PhoneNumber = default(string))
+        public PtsV2PaymentsPost201ResponseOrderInformationShipTo(string Firstname = default(string), string Lastname = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string Country = default(string), string Email = default(string), string PhoneNumber = default(string))
         {
             this.Firstname = Firstname;
             this.Lastname = Lastname;
@@ -53,6 +54,7 @@ namespace CyberSource.Model
             this.AdministrativeArea = AdministrativeArea;
             this.PostalCode = PostalCode;
             this.Country = Country;
+            this.Email = Email;
             this.PhoneNumber = PhoneNumber;
         }
         
@@ -121,6 +123,14 @@ namespace CyberSource.Model
         public string Country { get; set; }
 
         /// <summary>
+        /// Email address of the shipping recipient. 
+        /// </summary>
+        /// <value>Email address of the shipping recipient. </value>
+        [JsonPropertyName("email")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Email { get; set; }
+
+        /// <summary>
         /// Phone number of the recipient. 
         /// </summary>
         /// <value>Phone number of the recipient. </value>
@@ -144,6 +154,7 @@ namespace CyberSource.Model
             if (AdministrativeArea != null) sb.Append("  AdministrativeArea: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseOrderInformationShipTo", "administrativeArea", AdministrativeArea.ToString())).Append("\n");
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseOrderInformationShipTo", "postalCode", PostalCode.ToString())).Append("\n");
             if (Country != null) sb.Append("  Country: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseOrderInformationShipTo", "country", Country.ToString())).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseOrderInformationShipTo", "email", Email.ToString())).Append("\n");
             if (PhoneNumber != null) sb.Append("  PhoneNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PtsV2PaymentsPost201ResponseOrderInformationShipTo", "phoneNumber", PhoneNumber.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
@@ -227,6 +238,11 @@ namespace CyberSource.Model
                     this.Country.Equals(other.Country)
                 ) && 
                 (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
+                ) && 
+                (
                     this.PhoneNumber == other.PhoneNumber ||
                     this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(other.PhoneNumber)
@@ -262,6 +278,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.Country != null)
                     hash = hash * 59 + this.Country.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();

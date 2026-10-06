@@ -104,6 +104,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Webhooks'
         }
+        /// <summary>
+        /// Test the property 'SmarterRetry'
+        /// </summary>
+        [Test]
+        public void SmarterRetryTest()
+        {
+            // TODO unit test for the property 'SmarterRetry'
+        }
 
     }
 

@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PtsV2PayoutsPost201ResponseMerchantInformation" /> class.
         /// </summary>
         /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
-        public PtsV2PayoutsPost201ResponseMerchantInformation(PtsV2PayoutsPost201ResponseMerchantInformationMerchantDescriptor MerchantDescriptor = default(PtsV2PayoutsPost201ResponseMerchantInformationMerchantDescriptor))
+        public PtsV2PayoutsPost201ResponseMerchantInformation(PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor MerchantDescriptor = default(PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor))
         {
             this.MerchantDescriptor = MerchantDescriptor;
         }
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("merchantDescriptor")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PtsV2PayoutsPost201ResponseMerchantInformationMerchantDescriptor MerchantDescriptor { get; set; }
+        public PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor MerchantDescriptor { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

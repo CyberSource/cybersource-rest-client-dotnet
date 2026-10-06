@@ -17,11 +17,11 @@ rd /s /q ..\tests\Api
 rd /s /q ..\tests\Model
 
 setlocal enabledelayedexpansion
-python replaceFieldNamesForPaths.py -i cybersource-rest-spec.json -o cybersource-rest-spec-netstandard.json > replaceFieldLogs.log
+python replaceFieldNamesForPaths.py -i cybersource-rest-spec.json -o cybersource-rest-spec-dotnet.json > replaceFieldLogs.log
 del replaceFieldLogs.log
 endlocal
 
-java -jar swagger-codegen-cli-2.4.38.jar generate -t cybersource-csharp-template -i cybersource-rest-spec-netstandard.json -l csharp -o ..\ -c cybersource-csharp-config.json
+%JAVA_17_BIN% -jar swagger-codegen-cli-2.4.38.jar generate -t cybersource-csharp-template -i cybersource-rest-spec-dotnet.json -l csharp -o ../ -c cybersource-csharp-config.json
 
 powershell -Command "Get-ChildItem '..\src\CyberSource\Api\*.cs' -Recurse | ForEach-Object { (Get-Content $_).Replace('Method.POST','Method.Post').Replace('Method.GET','Method.Get').Replace('Method.PATCH','Method.Patch').Replace('Method.DELETE','Method.Delete').Replace('Method.PUT','Method.Put') | Set-Content $_ }"
 

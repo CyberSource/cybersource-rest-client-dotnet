@@ -34,17 +34,22 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20018" /> class.
         /// </summary>
-        /// <param name="Id">The checkout session identifier..</param>
-        /// <param name="Status">Will always be &#x60;canceled&#x60; on a successful response.  Possible values: - canceled.</param>
-        /// <param name="Currency">ISO 4217 lowercase currency code..</param>
+        [JsonConstructor]
+        protected InlineResponse20018() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse20018" /> class.
+        /// </summary>
+        /// <param name="Id">The checkout session identifier. (required).</param>
+        /// <param name="Status">Will always be &#x60;canceled&#x60; on a successful response.  Possible values: - canceled (required).</param>
+        /// <param name="Currency">ISO 4217 lowercase currency code. (required).</param>
         /// <param name="Buyer">Buyer.</param>
-        /// <param name="LineItems">Line items with merchant-confirmed pricing..</param>
+        /// <param name="LineItems">Line items with merchant-confirmed pricing. (required).</param>
         /// <param name="FulfillmentAddress">FulfillmentAddress.</param>
-        /// <param name="FulfillmentOptions">Available fulfillment methods with pricing..</param>
+        /// <param name="FulfillmentOptions">Available fulfillment methods with pricing. (required).</param>
         /// <param name="FulfillmentOptionId">ID of the currently selected fulfillment option..</param>
-        /// <param name="Totals">Order cost breakdown as typed total lines. All amounts in minor units (cents)..</param>
-        /// <param name="Messages">Informational or error messages from the merchant backend..</param>
-        /// <param name="Links">Related resource links from the merchant (e.g. terms of use, privacy policy)..</param>
+        /// <param name="Totals">Order cost breakdown as typed total lines. All amounts in minor units (cents). (required).</param>
+        /// <param name="Messages">Informational or error messages from the merchant backend. (required).</param>
+        /// <param name="Links">Related resource links from the merchant (e.g. terms of use, privacy policy). (required).</param>
         public InlineResponse20018(string Id = default(string), string Status = default(string), string Currency = default(string), AcpCheckoutSessionResponseBuyer Buyer = default(AcpCheckoutSessionResponseBuyer), List<InlineResponse20112LineItems> LineItems = default(List<InlineResponse20112LineItems>), InlineResponse20017FulfillmentAddress FulfillmentAddress = default(InlineResponse20017FulfillmentAddress), List<InlineResponse20112FulfillmentOptions> FulfillmentOptions = default(List<InlineResponse20112FulfillmentOptions>), string FulfillmentOptionId = default(string), List<InlineResponse20112Totals> Totals = default(List<InlineResponse20112Totals>), List<InlineResponse20112Messages> Messages = default(List<InlineResponse20112Messages>), List<InlineResponse20112Links> Links = default(List<InlineResponse20112Links>))
         {
             this.Id = Id;

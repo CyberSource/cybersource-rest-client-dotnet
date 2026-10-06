@@ -5,16 +5,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique merchant identifier (UUID) | 
 **MerchantName** | **string** | Doing business as (DBA) name | 
-**MerchantUrl** | **string** | Base merchant URL | 
-**Vmid** | **string** | Visa Merchant ID | [optional] 
-**CryptogramType** | **string** | Authentication cryptogram type  Possible values: - TAVV - DAVV | [optional] 
-**PaymentPayloadType** | **string** | Credential delivery format  Possible values: - ENCRYPTED - UNENCRYPTED | [optional] 
-**Indicator** | **string** | Transaction processing type  Possible values: - TAP - ACG - BOTH | 
-**MerchantMetadata** | **Object** | Additional merchant metadata | [optional] 
-**AcceptanceRelationships** | **List&lt;string&gt;** | List of acceptance network relationships | [optional] 
-**ProtocolInteractions** | [**List&lt;Iccv1merchantsProtocolInteractions&gt;**](Iccv1merchantsProtocolInteractions.md) | List of protocol interaction configurations (ucp, acp, x402) | [optional] 
-**WebIntegrations** | [**Iccv1merchantsWebIntegrations**](Iccv1merchantsWebIntegrations.md) |  | [optional] 
-**ApiIntegrations** | [**Iccv1merchantsApiIntegrations**](Iccv1merchantsApiIntegrations.md) |  | [optional] 
+**MerchantUrl** | **string** | Fully-qualified HTTPS URL of the merchant&#39;s domain | 
+**Vmid** | **string** | Visa Merchant ID (VMID) — unique identifier assigned by Visa | [optional] 
+**CryptogramType** | **string** | Authentication cryptogram type used for payment credential generation: &#39;TAVV&#39; (Token Authentication Verification Value) or &#39;DAVV&#39; (Device Authentication Verification Value)  Possible values: - TAVV - DAVV | [optional] 
+**PaymentPayloadType** | **string** | Credential delivery format: &#39;ENCRYPTED&#39; (JWE-wrapped, requires an active encryption key) or &#39;UNENCRYPTED&#39;  Possible values: - ENCRYPTED - UNENCRYPTED | [optional] 
+**Indicator** | **string** | Transaction processing indicator: &#39;TAP&#39; (Trusted Agent Protocol), &#39;ACG&#39; (Agentic Checkout Gateway), or &#39;BOTH&#39;  Possible values: - TAP - ACG - BOTH | 
+**MerchantMetadata** | **Object** | Free-form metadata object for additional merchant context | [optional] 
+**AcceptanceRelationships** | **List&lt;string&gt;** | List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;) | [optional] 
+**ProtocolInteractions** | [**List&lt;Iccv1merchantsProtocolInteractions&gt;**](Iccv1merchantsProtocolInteractions.md) | List of protocol endpoint configurations defining how agents interact with this merchant (ucp, acp, x402) | [optional] 
+**WebIntegrations** | [**MerchantRegistrationResponse201WebIntegrations**](MerchantRegistrationResponse201WebIntegrations.md) |  | [optional] 
+**ApiIntegrations** | [**MerchantRegistrationResponse201ApiIntegrations**](MerchantRegistrationResponse201ApiIntegrations.md) |  | [optional] 
 **IsActive** | **bool?** | Whether the merchant is active | 
 **CreatedAt** | **DateTime?** | Creation timestamp | 
 **UpdatedAt** | **DateTime?** | Last update timestamp | 

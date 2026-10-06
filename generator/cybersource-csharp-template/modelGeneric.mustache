@@ -77,7 +77,8 @@ this.{{name}} = {{name}};
         /// {{^description}}Gets or Sets {{{name}}}{{/description}}{{#description}}{{description}}{{/description}}
         /// </summary>{{#description}}
         /// <value>{{description}}</value>{{/description}}
-        [JsonPropertyName("{{baseName}}")]
+        [JsonPropertyName("{{baseName}}")]{{#isReadOnly}}
+        [JsonInclude]{{/isReadOnly}}
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]{{#isDate}}
         [JsonConverter(typeof(SwaggerDateConverter))]{{/isDate}}
         public {{{datatype}}} {{name}} { get; {{#isReadOnly}}private {{/isReadOnly}}set; }

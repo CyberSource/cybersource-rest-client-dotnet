@@ -35,10 +35,12 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ptsv2intentsMerchantInformationMerchantDescriptor" /> class.
         /// </summary>
         /// <param name="Name">Your merchant name.  **Note** For Paymentech processor using Cybersource Payouts, the maximum data length is 22.  #### PIN debit Your business name. This name is displayed on the cardholder&#39;s statement. When you include more than one consecutive space, extra spaces are removed.  When you do not include this value in your PIN debit request, the merchant name from your account is used. **Important** This value must consist of English characters.  Optional field for PIN debit credit or PIN debit purchase requests.  #### Airline processing Your merchant name. This name is displayed on the cardholder&#39;s statement. When you include more than one consecutive space, extra spaces are removed.  **Note** Some airline fee programs may require the original ticket number (ticket identifier) or the ancillary service description in positions 13 through 23 of this field.  **Important** This value must consist of English characters.  Required for captures and credits. .</param>
+        /// <param name="Value">Value of the merchant descriptor shown to the buyer for this order. .</param>
         /// <param name="Email">Email address of the merchant..</param>
-        public Ptsv2intentsMerchantInformationMerchantDescriptor(string Name = default(string), string Email = default(string))
+        public Ptsv2intentsMerchantInformationMerchantDescriptor(string Name = default(string), string Value = default(string), string Email = default(string))
         {
             this.Name = Name;
+            this.Value = Value;
             this.Email = Email;
         }
         
@@ -49,6 +51,14 @@ namespace CyberSource.Model
         [JsonPropertyName("name")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Value of the merchant descriptor shown to the buyer for this order. 
+        /// </summary>
+        /// <value>Value of the merchant descriptor shown to the buyer for this order. </value>
+        [JsonPropertyName("value")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Value { get; set; }
 
         /// <summary>
         /// Email address of the merchant.
@@ -67,6 +77,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ptsv2intentsMerchantInformationMerchantDescriptor {\n");
             if (Name != null) sb.Append("  Name: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2intentsMerchantInformationMerchantDescriptor", "name", Name.ToString())).Append("\n");
+            if (Value != null) sb.Append("  Value: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2intentsMerchantInformationMerchantDescriptor", "value", Value.ToString())).Append("\n");
             if (Email != null) sb.Append("  Email: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2intentsMerchantInformationMerchantDescriptor", "email", Email.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
@@ -115,6 +126,11 @@ namespace CyberSource.Model
                     this.Name.Equals(other.Name)
                 ) && 
                 (
+                    this.Value == other.Value ||
+                    this.Value != null &&
+                    this.Value.Equals(other.Value)
+                ) && 
+                (
                     this.Email == other.Email ||
                     this.Email != null &&
                     this.Email.Equals(other.Email)
@@ -136,6 +152,8 @@ namespace CyberSource.Model
                 // consistent with Equals.
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
+                if (this.Value != null)
+                    hash = hash * 59 + this.Value.GetHashCode();
                 if (this.Email != null)
                     hash = hash * 59 + this.Email.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();

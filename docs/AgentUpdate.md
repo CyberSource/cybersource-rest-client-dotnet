@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Agent name | [optional] 
-**Domain** | **string** | Agent domain URL | [optional] 
-**Description** | **string** | Agent description | [optional] 
-**ContactEmail** | **string** | Contact email | [optional] 
-**AgentMetadata** | **Dictionary&lt;string, string&gt;** | Optional metadata (e.g., framework, version) | [optional] 
+**Name** | **string** | Display name for the agent | [optional] 
+**Domain** | **string** | Fully-qualified HTTPS URL of the agent&#39;s home domain. Must be unique — raises 409 if already registered. | [optional] 
+**Description** | **string** | Description of the agent&#39;s purpose or capabilities | [optional] 
+**ContactEmail** | **string** | Contact email for the team or individual responsible for this agent | [optional] 
+**AgentMetadata** | **Object** | Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB. | [optional] 
 
 ## Extensibility
 

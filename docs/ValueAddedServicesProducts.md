@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **BankAccountValidation** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 **Flexapi** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 **Webhooks** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
+**SmarterRetry** | [**PaymentsProductsTax**](PaymentsProductsTax.md) |  | [optional] 
 
 ## Extensibility
 

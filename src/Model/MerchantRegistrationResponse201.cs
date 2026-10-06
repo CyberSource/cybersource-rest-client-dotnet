@@ -41,21 +41,21 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Id">Unique merchant identifier (UUID) (required).</param>
         /// <param name="MerchantName">Doing business as (DBA) name (required).</param>
-        /// <param name="MerchantUrl">Base merchant URL (required).</param>
-        /// <param name="Vmid">Visa Merchant ID.</param>
-        /// <param name="CryptogramType">Authentication cryptogram type  Possible values: - TAVV - DAVV.</param>
-        /// <param name="PaymentPayloadType">Credential delivery format  Possible values: - ENCRYPTED - UNENCRYPTED.</param>
-        /// <param name="Indicator">Transaction processing type  Possible values: - TAP - ACG - BOTH (required).</param>
-        /// <param name="MerchantMetadata">Additional merchant metadata.</param>
-        /// <param name="AcceptanceRelationships">List of acceptance network relationships.</param>
-        /// <param name="ProtocolInteractions">List of protocol interaction configurations (ucp, acp, x402).</param>
+        /// <param name="MerchantUrl">Fully-qualified HTTPS URL of the merchant&#39;s domain (required).</param>
+        /// <param name="Vmid">Visa Merchant ID (VMID) — unique identifier assigned by Visa.</param>
+        /// <param name="CryptogramType">Authentication cryptogram type used for payment credential generation: &#39;TAVV&#39; (Token Authentication Verification Value) or &#39;DAVV&#39; (Device Authentication Verification Value)  Possible values: - TAVV - DAVV.</param>
+        /// <param name="PaymentPayloadType">Credential delivery format: &#39;ENCRYPTED&#39; (JWE-wrapped, requires an active encryption key) or &#39;UNENCRYPTED&#39;  Possible values: - ENCRYPTED - UNENCRYPTED.</param>
+        /// <param name="Indicator">Transaction processing indicator: &#39;TAP&#39; (Trusted Agent Protocol), &#39;ACG&#39; (Agentic Checkout Gateway), or &#39;BOTH&#39;  Possible values: - TAP - ACG - BOTH (required).</param>
+        /// <param name="MerchantMetadata">Free-form metadata object for additional merchant context.</param>
+        /// <param name="AcceptanceRelationships">List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;).</param>
+        /// <param name="ProtocolInteractions">List of protocol endpoint configurations defining how agents interact with this merchant (ucp, acp, x402).</param>
         /// <param name="WebIntegrations">WebIntegrations.</param>
         /// <param name="ApiIntegrations">ApiIntegrations.</param>
         /// <param name="IsActive">Whether the merchant is active (required).</param>
         /// <param name="CreatedAt">Creation timestamp (required).</param>
         /// <param name="UpdatedAt">Last update timestamp (required).</param>
         /// <param name="Keys">List of encryption keys associated with the merchant.</param>
-        public MerchantRegistrationResponse201(string Id = default(string), string MerchantName = default(string), string MerchantUrl = default(string), string Vmid = default(string), string CryptogramType = default(string), string PaymentPayloadType = default(string), string Indicator = default(string), Object MerchantMetadata = default(Object), List<string> AcceptanceRelationships = default(List<string>), List<Iccv1merchantsProtocolInteractions> ProtocolInteractions = default(List<Iccv1merchantsProtocolInteractions>), Iccv1merchantsWebIntegrations WebIntegrations = default(Iccv1merchantsWebIntegrations), Iccv1merchantsApiIntegrations ApiIntegrations = default(Iccv1merchantsApiIntegrations), bool? IsActive = default(bool?), DateTime? CreatedAt = default(DateTime?), DateTime? UpdatedAt = default(DateTime?), List<MerchantRegistrationResponse201Keys> Keys = default(List<MerchantRegistrationResponse201Keys>))
+        public MerchantRegistrationResponse201(string Id = default(string), string MerchantName = default(string), string MerchantUrl = default(string), string Vmid = default(string), string CryptogramType = default(string), string PaymentPayloadType = default(string), string Indicator = default(string), Object MerchantMetadata = default(Object), List<string> AcceptanceRelationships = default(List<string>), List<Iccv1merchantsProtocolInteractions> ProtocolInteractions = default(List<Iccv1merchantsProtocolInteractions>), MerchantRegistrationResponse201WebIntegrations WebIntegrations = default(MerchantRegistrationResponse201WebIntegrations), MerchantRegistrationResponse201ApiIntegrations ApiIntegrations = default(MerchantRegistrationResponse201ApiIntegrations), bool? IsActive = default(bool?), DateTime? CreatedAt = default(DateTime?), DateTime? UpdatedAt = default(DateTime?), List<MerchantRegistrationResponse201Keys> Keys = default(List<MerchantRegistrationResponse201Keys>))
         {
             this.Id = Id;
             this.MerchantName = MerchantName;
@@ -92,65 +92,65 @@ namespace CyberSource.Model
         public string MerchantName { get; set; }
 
         /// <summary>
-        /// Base merchant URL
+        /// Fully-qualified HTTPS URL of the merchant&#39;s domain
         /// </summary>
-        /// <value>Base merchant URL</value>
+        /// <value>Fully-qualified HTTPS URL of the merchant&#39;s domain</value>
         [JsonPropertyName("merchantUrl")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string MerchantUrl { get; set; }
 
         /// <summary>
-        /// Visa Merchant ID
+        /// Visa Merchant ID (VMID) — unique identifier assigned by Visa
         /// </summary>
-        /// <value>Visa Merchant ID</value>
+        /// <value>Visa Merchant ID (VMID) — unique identifier assigned by Visa</value>
         [JsonPropertyName("vmid")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Vmid { get; set; }
 
         /// <summary>
-        /// Authentication cryptogram type  Possible values: - TAVV - DAVV
+        /// Authentication cryptogram type used for payment credential generation: &#39;TAVV&#39; (Token Authentication Verification Value) or &#39;DAVV&#39; (Device Authentication Verification Value)  Possible values: - TAVV - DAVV
         /// </summary>
-        /// <value>Authentication cryptogram type  Possible values: - TAVV - DAVV</value>
+        /// <value>Authentication cryptogram type used for payment credential generation: &#39;TAVV&#39; (Token Authentication Verification Value) or &#39;DAVV&#39; (Device Authentication Verification Value)  Possible values: - TAVV - DAVV</value>
         [JsonPropertyName("cryptogramType")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string CryptogramType { get; set; }
 
         /// <summary>
-        /// Credential delivery format  Possible values: - ENCRYPTED - UNENCRYPTED
+        /// Credential delivery format: &#39;ENCRYPTED&#39; (JWE-wrapped, requires an active encryption key) or &#39;UNENCRYPTED&#39;  Possible values: - ENCRYPTED - UNENCRYPTED
         /// </summary>
-        /// <value>Credential delivery format  Possible values: - ENCRYPTED - UNENCRYPTED</value>
+        /// <value>Credential delivery format: &#39;ENCRYPTED&#39; (JWE-wrapped, requires an active encryption key) or &#39;UNENCRYPTED&#39;  Possible values: - ENCRYPTED - UNENCRYPTED</value>
         [JsonPropertyName("paymentPayloadType")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string PaymentPayloadType { get; set; }
 
         /// <summary>
-        /// Transaction processing type  Possible values: - TAP - ACG - BOTH
+        /// Transaction processing indicator: &#39;TAP&#39; (Trusted Agent Protocol), &#39;ACG&#39; (Agentic Checkout Gateway), or &#39;BOTH&#39;  Possible values: - TAP - ACG - BOTH
         /// </summary>
-        /// <value>Transaction processing type  Possible values: - TAP - ACG - BOTH</value>
+        /// <value>Transaction processing indicator: &#39;TAP&#39; (Trusted Agent Protocol), &#39;ACG&#39; (Agentic Checkout Gateway), or &#39;BOTH&#39;  Possible values: - TAP - ACG - BOTH</value>
         [JsonPropertyName("indicator")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Indicator { get; set; }
 
         /// <summary>
-        /// Additional merchant metadata
+        /// Free-form metadata object for additional merchant context
         /// </summary>
-        /// <value>Additional merchant metadata</value>
+        /// <value>Free-form metadata object for additional merchant context</value>
         [JsonPropertyName("merchantMetadata")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public Object MerchantMetadata { get; set; }
 
         /// <summary>
-        /// List of acceptance network relationships
+        /// List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;)
         /// </summary>
-        /// <value>List of acceptance network relationships</value>
+        /// <value>List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;)</value>
         [JsonPropertyName("acceptanceRelationships")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<string> AcceptanceRelationships { get; set; }
 
         /// <summary>
-        /// List of protocol interaction configurations (ucp, acp, x402)
+        /// List of protocol endpoint configurations defining how agents interact with this merchant (ucp, acp, x402)
         /// </summary>
-        /// <value>List of protocol interaction configurations (ucp, acp, x402)</value>
+        /// <value>List of protocol endpoint configurations defining how agents interact with this merchant (ucp, acp, x402)</value>
         [JsonPropertyName("protocolInteractions")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<Iccv1merchantsProtocolInteractions> ProtocolInteractions { get; set; }
@@ -160,14 +160,14 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("webIntegrations")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Iccv1merchantsWebIntegrations WebIntegrations { get; set; }
+        public MerchantRegistrationResponse201WebIntegrations WebIntegrations { get; set; }
 
         /// <summary>
         /// Gets or Sets ApiIntegrations
         /// </summary>
         [JsonPropertyName("apiIntegrations")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Iccv1merchantsApiIntegrations ApiIntegrations { get; set; }
+        public MerchantRegistrationResponse201ApiIntegrations ApiIntegrations { get; set; }
 
         /// <summary>
         /// Whether the merchant is active

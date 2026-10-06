@@ -88,6 +88,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TerminalId'
         }
+        /// <summary>
+        /// Test the property 'FreeText'
+        /// </summary>
+        [Test]
+        public void FreeTextTest()
+        {
+            // TODO unit test for the property 'FreeText'
+        }
 
     }
 

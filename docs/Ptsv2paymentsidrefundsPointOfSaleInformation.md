@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Emv** | [**Ptsv2paymentsidcapturesPointOfSaleInformationEmv**](Ptsv2paymentsidcapturesPointOfSaleInformationEmv.md) |  | [optional] 
+**Emv** | [**Ptsv2paymentsidrefundsPointOfSaleInformationEmv**](Ptsv2paymentsidrefundsPointOfSaleInformationEmv.md) |  | [optional] 
 **TerminalCategory** | **string** | Indicates the type of terminal.   Possible values: - &#x60;AFD&#x60;: Automated Fuel Dispenser  | [optional] 
 
 ## Extensibility

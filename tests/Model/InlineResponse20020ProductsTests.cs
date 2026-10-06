@@ -65,20 +65,28 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'Id'
-        /// </summary>
-        [Test]
-        public void IdTest()
-        {
-            // TODO unit test for the property 'Id'
-        }
-        /// <summary>
         /// Test the property 'ItemId'
         /// </summary>
         [Test]
         public void ItemIdTest()
         {
             // TODO unit test for the property 'ItemId'
+        }
+        /// <summary>
+        /// Test the property 'IsEligibleSearch'
+        /// </summary>
+        [Test]
+        public void IsEligibleSearchTest()
+        {
+            // TODO unit test for the property 'IsEligibleSearch'
+        }
+        /// <summary>
+        /// Test the property 'IsEligibleCheckout'
+        /// </summary>
+        [Test]
+        public void IsEligibleCheckoutTest()
+        {
+            // TODO unit test for the property 'IsEligibleCheckout'
         }
         /// <summary>
         /// Test the property 'Title'
@@ -113,30 +121,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ImageUrl'
         }
         /// <summary>
-        /// Test the property 'AdditionalImageUrls'
-        /// </summary>
-        [Test]
-        public void AdditionalImageUrlsTest()
-        {
-            // TODO unit test for the property 'AdditionalImageUrls'
-        }
-        /// <summary>
-        /// Test the property 'VideoUrl'
-        /// </summary>
-        [Test]
-        public void VideoUrlTest()
-        {
-            // TODO unit test for the property 'VideoUrl'
-        }
-        /// <summary>
-        /// Test the property 'Model3dUrl'
-        /// </summary>
-        [Test]
-        public void Model3dUrlTest()
-        {
-            // TODO unit test for the property 'Model3dUrl'
-        }
-        /// <summary>
         /// Test the property 'ProductCategory'
         /// </summary>
         [Test]
@@ -151,30 +135,6 @@ namespace CyberSource.Test
         public void BrandTest()
         {
             // TODO unit test for the property 'Brand'
-        }
-        /// <summary>
-        /// Test the property 'Gtin'
-        /// </summary>
-        [Test]
-        public void GtinTest()
-        {
-            // TODO unit test for the property 'Gtin'
-        }
-        /// <summary>
-        /// Test the property 'Mpn'
-        /// </summary>
-        [Test]
-        public void MpnTest()
-        {
-            // TODO unit test for the property 'Mpn'
-        }
-        /// <summary>
-        /// Test the property 'Condition'
-        /// </summary>
-        [Test]
-        public void ConditionTest()
-        {
-            // TODO unit test for the property 'Condition'
         }
         /// <summary>
         /// Test the property 'Material'
@@ -193,60 +153,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Weight'
         }
         /// <summary>
-        /// Test the property 'Dimensions'
+        /// Test the property 'Price'
         /// </summary>
         [Test]
-        public void DimensionsTest()
+        public void PriceTest()
         {
-            // TODO unit test for the property 'Dimensions'
+            // TODO unit test for the property 'Price'
         }
         /// <summary>
-        /// Test the property 'Length'
+        /// Test the property 'Currency'
         /// </summary>
         [Test]
-        public void LengthTest()
+        public void CurrencyTest()
         {
-            // TODO unit test for the property 'Length'
+            // TODO unit test for the property 'Currency'
         }
         /// <summary>
-        /// Test the property 'Width'
+        /// Test the property 'Availability'
         /// </summary>
         [Test]
-        public void WidthTest()
+        public void AvailabilityTest()
         {
-            // TODO unit test for the property 'Width'
-        }
-        /// <summary>
-        /// Test the property 'Height'
-        /// </summary>
-        [Test]
-        public void HeightTest()
-        {
-            // TODO unit test for the property 'Height'
-        }
-        /// <summary>
-        /// Test the property 'DimensionsUnit'
-        /// </summary>
-        [Test]
-        public void DimensionsUnitTest()
-        {
-            // TODO unit test for the property 'DimensionsUnit'
-        }
-        /// <summary>
-        /// Test the property 'ItemWeightUnit'
-        /// </summary>
-        [Test]
-        public void ItemWeightUnitTest()
-        {
-            // TODO unit test for the property 'ItemWeightUnit'
-        }
-        /// <summary>
-        /// Test the property 'AgeGroup'
-        /// </summary>
-        [Test]
-        public void AgeGroupTest()
-        {
-            // TODO unit test for the property 'AgeGroup'
+            // TODO unit test for the property 'Availability'
         }
         /// <summary>
         /// Test the property 'Color'
@@ -257,28 +185,28 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Color'
         }
         /// <summary>
-        /// Test the property 'Size'
-        /// </summary>
-        [Test]
-        public void SizeTest()
-        {
-            // TODO unit test for the property 'Size'
-        }
-        /// <summary>
-        /// Test the property 'SizeSystem'
-        /// </summary>
-        [Test]
-        public void SizeSystemTest()
-        {
-            // TODO unit test for the property 'SizeSystem'
-        }
-        /// <summary>
         /// Test the property 'Gender'
         /// </summary>
         [Test]
         public void GenderTest()
         {
             // TODO unit test for the property 'Gender'
+        }
+        /// <summary>
+        /// Test the property 'AgeGroup'
+        /// </summary>
+        [Test]
+        public void AgeGroupTest()
+        {
+            // TODO unit test for the property 'AgeGroup'
+        }
+        /// <summary>
+        /// Test the property 'ShippingPrice'
+        /// </summary>
+        [Test]
+        public void ShippingPriceTest()
+        {
+            // TODO unit test for the property 'ShippingPrice'
         }
         /// <summary>
         /// Test the property 'GroupId'
@@ -297,182 +225,6 @@ namespace CyberSource.Test
             // TODO unit test for the property 'ListingHasVariations'
         }
         /// <summary>
-        /// Test the property 'ItemGroupTitle'
-        /// </summary>
-        [Test]
-        public void ItemGroupTitleTest()
-        {
-            // TODO unit test for the property 'ItemGroupTitle'
-        }
-        /// <summary>
-        /// Test the property 'OfferId'
-        /// </summary>
-        [Test]
-        public void OfferIdTest()
-        {
-            // TODO unit test for the property 'OfferId'
-        }
-        /// <summary>
-        /// Test the property 'VariantDict'
-        /// </summary>
-        [Test]
-        public void VariantDictTest()
-        {
-            // TODO unit test for the property 'VariantDict'
-        }
-        /// <summary>
-        /// Test the property 'CustomVariant1Category'
-        /// </summary>
-        [Test]
-        public void CustomVariant1CategoryTest()
-        {
-            // TODO unit test for the property 'CustomVariant1Category'
-        }
-        /// <summary>
-        /// Test the property 'CustomVariant1Option'
-        /// </summary>
-        [Test]
-        public void CustomVariant1OptionTest()
-        {
-            // TODO unit test for the property 'CustomVariant1Option'
-        }
-        /// <summary>
-        /// Test the property 'CustomVariant2Category'
-        /// </summary>
-        [Test]
-        public void CustomVariant2CategoryTest()
-        {
-            // TODO unit test for the property 'CustomVariant2Category'
-        }
-        /// <summary>
-        /// Test the property 'CustomVariant2Option'
-        /// </summary>
-        [Test]
-        public void CustomVariant2OptionTest()
-        {
-            // TODO unit test for the property 'CustomVariant2Option'
-        }
-        /// <summary>
-        /// Test the property 'CustomVariant3Category'
-        /// </summary>
-        [Test]
-        public void CustomVariant3CategoryTest()
-        {
-            // TODO unit test for the property 'CustomVariant3Category'
-        }
-        /// <summary>
-        /// Test the property 'CustomVariant3Option'
-        /// </summary>
-        [Test]
-        public void CustomVariant3OptionTest()
-        {
-            // TODO unit test for the property 'CustomVariant3Option'
-        }
-        /// <summary>
-        /// Test the property 'Price'
-        /// </summary>
-        [Test]
-        public void PriceTest()
-        {
-            // TODO unit test for the property 'Price'
-        }
-        /// <summary>
-        /// Test the property 'Currency'
-        /// </summary>
-        [Test]
-        public void CurrencyTest()
-        {
-            // TODO unit test for the property 'Currency'
-        }
-        /// <summary>
-        /// Test the property 'SalePrice'
-        /// </summary>
-        [Test]
-        public void SalePriceTest()
-        {
-            // TODO unit test for the property 'SalePrice'
-        }
-        /// <summary>
-        /// Test the property 'SalePriceStartDate'
-        /// </summary>
-        [Test]
-        public void SalePriceStartDateTest()
-        {
-            // TODO unit test for the property 'SalePriceStartDate'
-        }
-        /// <summary>
-        /// Test the property 'SalePriceEndDate'
-        /// </summary>
-        [Test]
-        public void SalePriceEndDateTest()
-        {
-            // TODO unit test for the property 'SalePriceEndDate'
-        }
-        /// <summary>
-        /// Test the property 'UnitPricingMeasure'
-        /// </summary>
-        [Test]
-        public void UnitPricingMeasureTest()
-        {
-            // TODO unit test for the property 'UnitPricingMeasure'
-        }
-        /// <summary>
-        /// Test the property 'BaseMeasure'
-        /// </summary>
-        [Test]
-        public void BaseMeasureTest()
-        {
-            // TODO unit test for the property 'BaseMeasure'
-        }
-        /// <summary>
-        /// Test the property 'PricingTrend'
-        /// </summary>
-        [Test]
-        public void PricingTrendTest()
-        {
-            // TODO unit test for the property 'PricingTrend'
-        }
-        /// <summary>
-        /// Test the property 'GeoPrice'
-        /// </summary>
-        [Test]
-        public void GeoPriceTest()
-        {
-            // TODO unit test for the property 'GeoPrice'
-        }
-        /// <summary>
-        /// Test the property 'GeoAvailability'
-        /// </summary>
-        [Test]
-        public void GeoAvailabilityTest()
-        {
-            // TODO unit test for the property 'GeoAvailability'
-        }
-        /// <summary>
-        /// Test the property 'Availability'
-        /// </summary>
-        [Test]
-        public void AvailabilityTest()
-        {
-            // TODO unit test for the property 'Availability'
-        }
-        /// <summary>
-        /// Test the property 'AvailabilityDate'
-        /// </summary>
-        [Test]
-        public void AvailabilityDateTest()
-        {
-            // TODO unit test for the property 'AvailabilityDate'
-        }
-        /// <summary>
-        /// Test the property 'ExpirationDate'
-        /// </summary>
-        [Test]
-        public void ExpirationDateTest()
-        {
-            // TODO unit test for the property 'ExpirationDate'
-        }
-        /// <summary>
         /// Test the property 'SellerName'
         /// </summary>
         [Test]
@@ -489,204 +241,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'SellerUrl'
         }
         /// <summary>
-        /// Test the property 'MarketplaceSeller'
-        /// </summary>
-        [Test]
-        public void MarketplaceSellerTest()
-        {
-            // TODO unit test for the property 'MarketplaceSeller'
-        }
-        /// <summary>
-        /// Test the property 'SellerPrivacyPolicy'
-        /// </summary>
-        [Test]
-        public void SellerPrivacyPolicyTest()
-        {
-            // TODO unit test for the property 'SellerPrivacyPolicy'
-        }
-        /// <summary>
-        /// Test the property 'SellerTos'
-        /// </summary>
-        [Test]
-        public void SellerTosTest()
-        {
-            // TODO unit test for the property 'SellerTos'
-        }
-        /// <summary>
-        /// Test the property 'ShippingPrice'
-        /// </summary>
-        [Test]
-        public void ShippingPriceTest()
-        {
-            // TODO unit test for the property 'ShippingPrice'
-        }
-        /// <summary>
-        /// Test the property 'DeliveryEstimate'
-        /// </summary>
-        [Test]
-        public void DeliveryEstimateTest()
-        {
-            // TODO unit test for the property 'DeliveryEstimate'
-        }
-        /// <summary>
-        /// Test the property 'PickupMethod'
-        /// </summary>
-        [Test]
-        public void PickupMethodTest()
-        {
-            // TODO unit test for the property 'PickupMethod'
-        }
-        /// <summary>
-        /// Test the property 'PickupSla'
-        /// </summary>
-        [Test]
-        public void PickupSlaTest()
-        {
-            // TODO unit test for the property 'PickupSla'
-        }
-        /// <summary>
-        /// Test the property 'IsDigital'
-        /// </summary>
-        [Test]
-        public void IsDigitalTest()
-        {
-            // TODO unit test for the property 'IsDigital'
-        }
-        /// <summary>
         /// Test the property 'ReturnPolicy'
         /// </summary>
         [Test]
         public void ReturnPolicyTest()
         {
             // TODO unit test for the property 'ReturnPolicy'
-        }
-        /// <summary>
-        /// Test the property 'AcceptsReturns'
-        /// </summary>
-        [Test]
-        public void AcceptsReturnsTest()
-        {
-            // TODO unit test for the property 'AcceptsReturns'
-        }
-        /// <summary>
-        /// Test the property 'ReturnDeadlineInDays'
-        /// </summary>
-        [Test]
-        public void ReturnDeadlineInDaysTest()
-        {
-            // TODO unit test for the property 'ReturnDeadlineInDays'
-        }
-        /// <summary>
-        /// Test the property 'AcceptsExchanges'
-        /// </summary>
-        [Test]
-        public void AcceptsExchangesTest()
-        {
-            // TODO unit test for the property 'AcceptsExchanges'
-        }
-        /// <summary>
-        /// Test the property 'IsEligibleSearch'
-        /// </summary>
-        [Test]
-        public void IsEligibleSearchTest()
-        {
-            // TODO unit test for the property 'IsEligibleSearch'
-        }
-        /// <summary>
-        /// Test the property 'IsEligibleCheckout'
-        /// </summary>
-        [Test]
-        public void IsEligibleCheckoutTest()
-        {
-            // TODO unit test for the property 'IsEligibleCheckout'
-        }
-        /// <summary>
-        /// Test the property 'PopularityScore'
-        /// </summary>
-        [Test]
-        public void PopularityScoreTest()
-        {
-            // TODO unit test for the property 'PopularityScore'
-        }
-        /// <summary>
-        /// Test the property 'ReturnRate'
-        /// </summary>
-        [Test]
-        public void ReturnRateTest()
-        {
-            // TODO unit test for the property 'ReturnRate'
-        }
-        /// <summary>
-        /// Test the property 'Warning'
-        /// </summary>
-        [Test]
-        public void WarningTest()
-        {
-            // TODO unit test for the property 'Warning'
-        }
-        /// <summary>
-        /// Test the property 'WarningUrl'
-        /// </summary>
-        [Test]
-        public void WarningUrlTest()
-        {
-            // TODO unit test for the property 'WarningUrl'
-        }
-        /// <summary>
-        /// Test the property 'AgeRestriction'
-        /// </summary>
-        [Test]
-        public void AgeRestrictionTest()
-        {
-            // TODO unit test for the property 'AgeRestriction'
-        }
-        /// <summary>
-        /// Test the property 'ReviewCount'
-        /// </summary>
-        [Test]
-        public void ReviewCountTest()
-        {
-            // TODO unit test for the property 'ReviewCount'
-        }
-        /// <summary>
-        /// Test the property 'StarRating'
-        /// </summary>
-        [Test]
-        public void StarRatingTest()
-        {
-            // TODO unit test for the property 'StarRating'
-        }
-        /// <summary>
-        /// Test the property 'StoreReviewCount'
-        /// </summary>
-        [Test]
-        public void StoreReviewCountTest()
-        {
-            // TODO unit test for the property 'StoreReviewCount'
-        }
-        /// <summary>
-        /// Test the property 'StoreStarRating'
-        /// </summary>
-        [Test]
-        public void StoreStarRatingTest()
-        {
-            // TODO unit test for the property 'StoreStarRating'
-        }
-        /// <summary>
-        /// Test the property 'RelatedProductId'
-        /// </summary>
-        [Test]
-        public void RelatedProductIdTest()
-        {
-            // TODO unit test for the property 'RelatedProductId'
-        }
-        /// <summary>
-        /// Test the property 'RelationshipType'
-        /// </summary>
-        [Test]
-        public void RelationshipTypeTest()
-        {
-            // TODO unit test for the property 'RelationshipType'
         }
         /// <summary>
         /// Test the property 'TargetCountries'
@@ -703,30 +263,6 @@ namespace CyberSource.Test
         public void StoreCountryTest()
         {
             // TODO unit test for the property 'StoreCountry'
-        }
-        /// <summary>
-        /// Test the property 'QAndA'
-        /// </summary>
-        [Test]
-        public void QAndATest()
-        {
-            // TODO unit test for the property 'QAndA'
-        }
-        /// <summary>
-        /// Test the property 'QandA'
-        /// </summary>
-        [Test]
-        public void QandATest()
-        {
-            // TODO unit test for the property 'QandA'
-        }
-        /// <summary>
-        /// Test the property 'Reviews'
-        /// </summary>
-        [Test]
-        public void ReviewsTest()
-        {
-            // TODO unit test for the property 'Reviews'
         }
         /// <summary>
         /// Test the property 'CreatedAt'

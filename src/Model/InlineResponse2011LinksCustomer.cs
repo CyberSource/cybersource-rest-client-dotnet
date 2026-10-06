@@ -44,6 +44,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Link to the Customer. Present when requesting payment credentials for a TMS customer token. </value>
         [JsonPropertyName("href")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Href { get; private set; }
 

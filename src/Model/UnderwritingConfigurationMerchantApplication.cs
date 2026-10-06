@@ -55,6 +55,7 @@ namespace CyberSource.Model
         /// Gets or Sets ApplicationId
         /// </summary>
         [JsonPropertyName("applicationId")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string ApplicationId { get; private set; }
 
@@ -62,6 +63,7 @@ namespace CyberSource.Model
         /// Gets or Sets ApplicationStatus
         /// </summary>
         [JsonPropertyName("applicationStatus")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string ApplicationStatus { get; private set; }
 

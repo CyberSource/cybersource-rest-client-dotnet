@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
-        public MitReversalRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidreversalsReversalInformation ReversalInformation = default(Ptsv2paymentsidreversalsReversalInformation), Ptsv2paymentsidreversalsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidreversalsProcessingInformation), Ptsv2paymentsidreversalsOrderInformation OrderInformation = default(Ptsv2paymentsidreversalsOrderInformation), Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsidreversalsPointOfSaleInformation), Ptsv2paymentsidreversalsDeviceInformation DeviceInformation = default(Ptsv2paymentsidreversalsDeviceInformation), Ptsv2reversalsProcessorInformation ProcessorInformation = default(Ptsv2reversalsProcessorInformation))
+        public MitReversalRequest(Ptsv2paymentsClientReferenceInformation ClientReferenceInformation = default(Ptsv2paymentsClientReferenceInformation), Ptsv2paymentsidreversalsReversalInformation ReversalInformation = default(Ptsv2paymentsidreversalsReversalInformation), Ptsv2paymentsidreversalsProcessingInformation ProcessingInformation = default(Ptsv2paymentsidreversalsProcessingInformation), Ptsv2paymentsidreversalsOrderInformation OrderInformation = default(Ptsv2paymentsidreversalsOrderInformation), Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation = default(Ptsv2paymentsPointOfSaleInformation), Ptsv2paymentsidreversalsDeviceInformation DeviceInformation = default(Ptsv2paymentsidreversalsDeviceInformation), Ptsv2reversalsProcessorInformation ProcessorInformation = default(Ptsv2reversalsProcessorInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ReversalInformation = ReversalInformation;
@@ -85,7 +85,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("pointOfSaleInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Ptsv2paymentsidreversalsPointOfSaleInformation PointOfSaleInformation { get; set; }
+        public Ptsv2paymentsPointOfSaleInformation PointOfSaleInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets DeviceInformation

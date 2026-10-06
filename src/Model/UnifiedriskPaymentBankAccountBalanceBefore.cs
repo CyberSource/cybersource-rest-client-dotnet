@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="BaseValue">Balance in base currency    .</param>
         /// <param name="MerchantCurrency">ISO 4217 3-letter code for the merchant&#39;s local currency used to express the pre-transaction account balance (e.g., EUR for EU merchants).</param>
         /// <param name="MerchantValue">Pre-transaction account balance expressed in the merchant&#39;s local currency, used for cross-currency balance comparison and risk analysis.</param>
-        public UnifiedriskPaymentBankAccountBalanceBefore(decimal? Value = default(decimal?), string Currency = default(string), string BaseCurrency = default(string), decimal? BaseValue = default(decimal?), string MerchantCurrency = default(string), string MerchantValue = default(string))
+        public UnifiedriskPaymentBankAccountBalanceBefore(string Value = default(string), string Currency = default(string), string BaseCurrency = default(string), string BaseValue = default(string), string MerchantCurrency = default(string), string MerchantValue = default(string))
         {
             this.Value = Value;
             this.Currency = Currency;
@@ -56,7 +56,7 @@ namespace CyberSource.Model
         /// <value>Account balance before transaction    </value>
         [JsonPropertyName("value")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Currency of balance    
@@ -80,7 +80,7 @@ namespace CyberSource.Model
         /// <value>Balance in base currency    </value>
         [JsonPropertyName("baseValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public decimal? BaseValue { get; set; }
+        public string BaseValue { get; set; }
 
         /// <summary>
         /// ISO 4217 3-letter code for the merchant&#39;s local currency used to express the pre-transaction account balance (e.g., EUR for EU merchants)

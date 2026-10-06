@@ -55,9 +55,10 @@ namespace CyberSource.Model
         /// <param name="ReceivablesManager">ReceivablesManager.</param>
         /// <param name="ServiceFee">ServiceFee.</param>
         /// <param name="BatchUpload">BatchUpload.</param>
+        /// <param name="PaymentEvents">PaymentEvents.</param>
         /// <param name="TransactGuard">TransactGuard.</param>
         /// <param name="Microform">Microform.</param>
-        public PaymentsProducts(PaymentsProductsCardProcessing CardProcessing = default(PaymentsProductsCardProcessing), PaymentsProductsAlternativePaymentMethods AlternativePaymentMethods = default(PaymentsProductsAlternativePaymentMethods), PaymentsProductsCardPresentConnect CardPresentConnect = default(PaymentsProductsCardPresentConnect), PaymentsProductsCybsReadyTerminal CybsReadyTerminal = default(PaymentsProductsCybsReadyTerminal), PaymentsProductsECheck ECheck = default(PaymentsProductsECheck), PaymentsProductsPayerAuthentication PayerAuthentication = default(PaymentsProductsPayerAuthentication), PaymentsProductsDigitalPayments DigitalPayments = default(PaymentsProductsDigitalPayments), PaymentsProductsSecureAcceptance SecureAcceptance = default(PaymentsProductsSecureAcceptance), PaymentsProductsVirtualTerminal VirtualTerminal = default(PaymentsProductsVirtualTerminal), PaymentsProductsCurrencyConversion CurrencyConversion = default(PaymentsProductsCurrencyConversion), PaymentsProductsTax Tax = default(PaymentsProductsTax), PaymentsProductsTax CustomerInvoicing = default(PaymentsProductsTax), PaymentsProductsTax RecurringBilling = default(PaymentsProductsTax), PaymentsProductsTax PaymentOrchestration = default(PaymentsProductsTax), PaymentsProductsPayouts Payouts = default(PaymentsProductsPayouts), PaymentsProductsDifferentialFee DifferentialFee = default(PaymentsProductsDifferentialFee), PaymentsProductsTax PayByLink = default(PaymentsProductsTax), PaymentsProductsUnifiedCheckout UnifiedCheckout = default(PaymentsProductsUnifiedCheckout), PaymentsProductsTax ReceivablesManager = default(PaymentsProductsTax), PaymentsProductsServiceFee ServiceFee = default(PaymentsProductsServiceFee), PaymentsProductsTax BatchUpload = default(PaymentsProductsTax), PaymentsProductsTax TransactGuard = default(PaymentsProductsTax), PaymentsProductsMicroform Microform = default(PaymentsProductsMicroform))
+        public PaymentsProducts(PaymentsProductsCardProcessing CardProcessing = default(PaymentsProductsCardProcessing), PaymentsProductsAlternativePaymentMethods AlternativePaymentMethods = default(PaymentsProductsAlternativePaymentMethods), PaymentsProductsCardPresentConnect CardPresentConnect = default(PaymentsProductsCardPresentConnect), PaymentsProductsCybsReadyTerminal CybsReadyTerminal = default(PaymentsProductsCybsReadyTerminal), PaymentsProductsECheck ECheck = default(PaymentsProductsECheck), PaymentsProductsPayerAuthentication PayerAuthentication = default(PaymentsProductsPayerAuthentication), PaymentsProductsDigitalPayments DigitalPayments = default(PaymentsProductsDigitalPayments), PaymentsProductsSecureAcceptance SecureAcceptance = default(PaymentsProductsSecureAcceptance), PaymentsProductsVirtualTerminal VirtualTerminal = default(PaymentsProductsVirtualTerminal), PaymentsProductsCurrencyConversion CurrencyConversion = default(PaymentsProductsCurrencyConversion), PaymentsProductsTax Tax = default(PaymentsProductsTax), PaymentsProductsTax CustomerInvoicing = default(PaymentsProductsTax), PaymentsProductsTax RecurringBilling = default(PaymentsProductsTax), PaymentsProductsTax PaymentOrchestration = default(PaymentsProductsTax), PaymentsProductsPayouts Payouts = default(PaymentsProductsPayouts), PaymentsProductsDifferentialFee DifferentialFee = default(PaymentsProductsDifferentialFee), PaymentsProductsTax PayByLink = default(PaymentsProductsTax), PaymentsProductsUnifiedCheckout UnifiedCheckout = default(PaymentsProductsUnifiedCheckout), PaymentsProductsTax ReceivablesManager = default(PaymentsProductsTax), PaymentsProductsServiceFee ServiceFee = default(PaymentsProductsServiceFee), PaymentsProductsTax BatchUpload = default(PaymentsProductsTax), PaymentsProductsTax PaymentEvents = default(PaymentsProductsTax), PaymentsProductsTax TransactGuard = default(PaymentsProductsTax), PaymentsProductsMicroform Microform = default(PaymentsProductsMicroform))
         {
             this.CardProcessing = CardProcessing;
             this.AlternativePaymentMethods = AlternativePaymentMethods;
@@ -80,6 +81,7 @@ namespace CyberSource.Model
             this.ReceivablesManager = ReceivablesManager;
             this.ServiceFee = ServiceFee;
             this.BatchUpload = BatchUpload;
+            this.PaymentEvents = PaymentEvents;
             this.TransactGuard = TransactGuard;
             this.Microform = Microform;
         }
@@ -232,6 +234,13 @@ namespace CyberSource.Model
         public PaymentsProductsTax BatchUpload { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentEvents
+        /// </summary>
+        [JsonPropertyName("paymentEvents")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public PaymentsProductsTax PaymentEvents { get; set; }
+
+        /// <summary>
         /// Gets or Sets TransactGuard
         /// </summary>
         [JsonPropertyName("transactGuard")]
@@ -274,6 +283,7 @@ namespace CyberSource.Model
             if (ReceivablesManager != null) sb.Append("  ReceivablesManager: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsProducts", "receivablesManager", ReceivablesManager.ToString())).Append("\n");
             if (ServiceFee != null) sb.Append("  ServiceFee: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsProducts", "serviceFee", ServiceFee.ToString())).Append("\n");
             if (BatchUpload != null) sb.Append("  BatchUpload: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsProducts", "batchUpload", BatchUpload.ToString())).Append("\n");
+            if (PaymentEvents != null) sb.Append("  PaymentEvents: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsProducts", "paymentEvents", PaymentEvents.ToString())).Append("\n");
             if (TransactGuard != null) sb.Append("  TransactGuard: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsProducts", "transactGuard", TransactGuard.ToString())).Append("\n");
             if (Microform != null) sb.Append("  Microform: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("PaymentsProducts", "microform", Microform.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
@@ -423,6 +433,11 @@ namespace CyberSource.Model
                     this.BatchUpload.Equals(other.BatchUpload)
                 ) && 
                 (
+                    this.PaymentEvents == other.PaymentEvents ||
+                    this.PaymentEvents != null &&
+                    this.PaymentEvents.Equals(other.PaymentEvents)
+                ) && 
+                (
                     this.TransactGuard == other.TransactGuard ||
                     this.TransactGuard != null &&
                     this.TransactGuard.Equals(other.TransactGuard)
@@ -489,6 +504,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ServiceFee.GetHashCode();
                 if (this.BatchUpload != null)
                     hash = hash * 59 + this.BatchUpload.GetHashCode();
+                if (this.PaymentEvents != null)
+                    hash = hash * 59 + this.PaymentEvents.GetHashCode();
                 if (this.TransactGuard != null)
                     hash = hash * 59 + this.TransactGuard.GetHashCode();
                 if (this.Microform != null)

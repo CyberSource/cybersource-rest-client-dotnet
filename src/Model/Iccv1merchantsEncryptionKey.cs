@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// Request object for adding a new encryption key for a merchant.
+    /// Public encryption key used to wrap payment credentials when &#x60;paymentPayloadType&#x60; is ***ENCRYPTED***. Not required for UNENCRYPTED delivery.
     /// </summary>
     [DataContract]
     public partial class Iccv1merchantsEncryptionKey :  ModelExtensions, IEquatable<Iccv1merchantsEncryptionKey>, IValidatableObject
@@ -39,11 +39,11 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Iccv1merchantsEncryptionKey" /> class.
         /// </summary>
-        /// <param name="KeyName">Unique name for the key (required).</param>
-        /// <param name="EncryptionKey">Base64-encoded public key (JWE key wrap public key) (required).</param>
-        /// <param name="Algorithm">JWE key wrap algorithm  Possible values: - RSA-OAEP - RSA-OAEP-256 - RSA-OAEP-384 - RSA-OAEP-512.</param>
-        /// <param name="EncryptionType">JWE content encryption algorithm (defaults to A256GCM)  Possible values: - A256GCM - A128GCM - C20P - A256CBC-HS512 - A128CBC-HS256 - A256CCM - A128CCM.</param>
-        /// <param name="ExpirationDate">Key expiration date in UTC (defaults to 14 days from now if not provided).</param>
+        /// <param name="KeyName">Unique  name for this encryption key within the merchant. (required).</param>
+        /// <param name="EncryptionKey">Base64-encoded public key used for JWE key wrapping. Supported formats are PEM (PKCS#8 or PKCS#1) and JWK. (required).</param>
+        /// <param name="Algorithm">JWE key wrap algorithm used to encrypt the content encryption key:  - ***RSA-OAEP*** — RSA-OAEP with SHA-1  - ***RSA-OAEP-256*** — RSA-OAEP with SHA-256  - ***RSA-OAEP-384*** — RSA-OAEP with SHA-384  - ***RSA-OAEP-512*** — RSA-OAEP with SHA-512   Possible values: - RSA-OAEP - RSA-OAEP-256 - RSA-OAEP-384 - RSA-OAEP-512.</param>
+        /// <param name="EncryptionType">JWE content encryption algorithm used to encrypt the payment payload. Defaults to ***A256GCM*** if not provided.  Possible values: - A256GCM - A128GCM - C20P - A256CBC_HS512 - A128CBC_HS256 - A256CCM - A128CCM.</param>
+        /// <param name="ExpirationDate">Key expiration date-time in UTC. Defaults to 14 days from registration if omitted..</param>
         public Iccv1merchantsEncryptionKey(string KeyName = default(string), string EncryptionKey = default(string), string Algorithm = default(string), string EncryptionType = default(string), DateTime? ExpirationDate = default(DateTime?))
         {
             this.KeyName = KeyName;
@@ -54,41 +54,41 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// Unique name for the key
+        /// Unique  name for this encryption key within the merchant.
         /// </summary>
-        /// <value>Unique name for the key</value>
+        /// <value>Unique  name for this encryption key within the merchant.</value>
         [JsonPropertyName("keyName")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string KeyName { get; set; }
 
         /// <summary>
-        /// Base64-encoded public key (JWE key wrap public key)
+        /// Base64-encoded public key used for JWE key wrapping. Supported formats are PEM (PKCS#8 or PKCS#1) and JWK.
         /// </summary>
-        /// <value>Base64-encoded public key (JWE key wrap public key)</value>
+        /// <value>Base64-encoded public key used for JWE key wrapping. Supported formats are PEM (PKCS#8 or PKCS#1) and JWK.</value>
         [JsonPropertyName("encryptionKey")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string EncryptionKey { get; set; }
 
         /// <summary>
-        /// JWE key wrap algorithm  Possible values: - RSA-OAEP - RSA-OAEP-256 - RSA-OAEP-384 - RSA-OAEP-512
+        /// JWE key wrap algorithm used to encrypt the content encryption key:  - ***RSA-OAEP*** — RSA-OAEP with SHA-1  - ***RSA-OAEP-256*** — RSA-OAEP with SHA-256  - ***RSA-OAEP-384*** — RSA-OAEP with SHA-384  - ***RSA-OAEP-512*** — RSA-OAEP with SHA-512   Possible values: - RSA-OAEP - RSA-OAEP-256 - RSA-OAEP-384 - RSA-OAEP-512
         /// </summary>
-        /// <value>JWE key wrap algorithm  Possible values: - RSA-OAEP - RSA-OAEP-256 - RSA-OAEP-384 - RSA-OAEP-512</value>
+        /// <value>JWE key wrap algorithm used to encrypt the content encryption key:  - ***RSA-OAEP*** — RSA-OAEP with SHA-1  - ***RSA-OAEP-256*** — RSA-OAEP with SHA-256  - ***RSA-OAEP-384*** — RSA-OAEP with SHA-384  - ***RSA-OAEP-512*** — RSA-OAEP with SHA-512   Possible values: - RSA-OAEP - RSA-OAEP-256 - RSA-OAEP-384 - RSA-OAEP-512</value>
         [JsonPropertyName("algorithm")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Algorithm { get; set; }
 
         /// <summary>
-        /// JWE content encryption algorithm (defaults to A256GCM)  Possible values: - A256GCM - A128GCM - C20P - A256CBC-HS512 - A128CBC-HS256 - A256CCM - A128CCM
+        /// JWE content encryption algorithm used to encrypt the payment payload. Defaults to ***A256GCM*** if not provided.  Possible values: - A256GCM - A128GCM - C20P - A256CBC_HS512 - A128CBC_HS256 - A256CCM - A128CCM
         /// </summary>
-        /// <value>JWE content encryption algorithm (defaults to A256GCM)  Possible values: - A256GCM - A128GCM - C20P - A256CBC-HS512 - A128CBC-HS256 - A256CCM - A128CCM</value>
+        /// <value>JWE content encryption algorithm used to encrypt the payment payload. Defaults to ***A256GCM*** if not provided.  Possible values: - A256GCM - A128GCM - C20P - A256CBC_HS512 - A128CBC_HS256 - A256CCM - A128CCM</value>
         [JsonPropertyName("encryptionType")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string EncryptionType { get; set; }
 
         /// <summary>
-        /// Key expiration date in UTC (defaults to 14 days from now if not provided)
+        /// Key expiration date-time in UTC. Defaults to 14 days from registration if omitted.
         /// </summary>
-        /// <value>Key expiration date in UTC (defaults to 14 days from now if not provided)</value>
+        /// <value>Key expiration date-time in UTC. Defaults to 14 days from registration if omitted.</value>
         [JsonPropertyName("expirationDate")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public DateTime? ExpirationDate { get; set; }

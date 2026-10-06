@@ -349,9 +349,10 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 .swagger-codegen
-/cybersource-rest-client-netstandard/cybersource-rest-client-netstandard/.swagger-codegen-ignore
-/cybersource-rest-client-netstandard/cybersource-rest-client-netstandard/.travis.yml
-/cybersource-rest-client-netstandard/cybersource-rest-client-netstandard/build.bat
-/cybersource-rest-client-netstandard/cybersource-rest-client-netstandard/build.sh
-/cybersource-rest-client-netstandard/cybersource-rest-client-netstandard/git_push.sh
-/cybersource-rest-client-netstandard/cybersource-rest-client-netstandard/mono_nunit_test.sh
+.swagger-codegen-ignore
+.swagger-codegen/VERSION
+.travis.yml
+build.bat
+git_push.sh
+mono_nunit_test.sh
+.vs/

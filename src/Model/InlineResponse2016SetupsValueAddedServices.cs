@@ -39,13 +39,15 @@ namespace CyberSource.Model
         /// <param name="BankAccountValidation">BankAccountValidation.</param>
         /// <param name="Flexapi">Flexapi.</param>
         /// <param name="Webhooks">Webhooks.</param>
-        public InlineResponse2016SetupsValueAddedServices(PaymentsConfigurationSetupDigitalPayments Reporting = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments TransactionSearch = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments BankAccountValidation = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments Flexapi = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments Webhooks = default(PaymentsConfigurationSetupDigitalPayments))
+        /// <param name="SmarterRetry">SmarterRetry.</param>
+        public InlineResponse2016SetupsValueAddedServices(PaymentsConfigurationSetupDigitalPayments Reporting = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments TransactionSearch = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments BankAccountValidation = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments Flexapi = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments Webhooks = default(PaymentsConfigurationSetupDigitalPayments), PaymentsConfigurationSetupDigitalPayments SmarterRetry = default(PaymentsConfigurationSetupDigitalPayments))
         {
             this.Reporting = Reporting;
             this.TransactionSearch = TransactionSearch;
             this.BankAccountValidation = BankAccountValidation;
             this.Flexapi = Flexapi;
             this.Webhooks = Webhooks;
+            this.SmarterRetry = SmarterRetry;
         }
         
         /// <summary>
@@ -84,6 +86,13 @@ namespace CyberSource.Model
         public PaymentsConfigurationSetupDigitalPayments Webhooks { get; set; }
 
         /// <summary>
+        /// Gets or Sets SmarterRetry
+        /// </summary>
+        [JsonPropertyName("smarterRetry")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public PaymentsConfigurationSetupDigitalPayments SmarterRetry { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,6 +105,7 @@ namespace CyberSource.Model
             if (BankAccountValidation != null) sb.Append("  BankAccountValidation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2016SetupsValueAddedServices", "bankAccountValidation", BankAccountValidation.ToString())).Append("\n");
             if (Flexapi != null) sb.Append("  Flexapi: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2016SetupsValueAddedServices", "flexapi", Flexapi.ToString())).Append("\n");
             if (Webhooks != null) sb.Append("  Webhooks: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2016SetupsValueAddedServices", "webhooks", Webhooks.ToString())).Append("\n");
+            if (SmarterRetry != null) sb.Append("  SmarterRetry: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse2016SetupsValueAddedServices", "smarterRetry", SmarterRetry.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -161,6 +171,11 @@ namespace CyberSource.Model
                     this.Webhooks == other.Webhooks ||
                     this.Webhooks != null &&
                     this.Webhooks.Equals(other.Webhooks)
+                ) && 
+                (
+                    this.SmarterRetry == other.SmarterRetry ||
+                    this.SmarterRetry != null &&
+                    this.SmarterRetry.Equals(other.SmarterRetry)
                 );
         }
 
@@ -187,6 +202,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Flexapi.GetHashCode();
                 if (this.Webhooks != null)
                     hash = hash * 59 + this.Webhooks.GetHashCode();
+                if (this.SmarterRetry != null)
+                    hash = hash * 59 + this.SmarterRetry.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

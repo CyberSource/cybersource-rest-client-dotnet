@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IntegrationSpec** | **string** | URL for integration specification | 
 **Url** | **string** | Base web page to checkout for agents (must use HTTPS) | 
-**Metadata** | **Dictionary&lt;string, string&gt;** | Optional metadata (max 10KB) | [optional] 
+**Metadata** | **Dictionary&lt;string, Object&gt;** | Optional metadata (max 10KB) | [optional] 
 
 ## Extensibility
 

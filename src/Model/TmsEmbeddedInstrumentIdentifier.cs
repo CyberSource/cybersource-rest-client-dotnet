@@ -86,6 +86,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>The type.  Possible Values: - instrumentIdentifier </value>
         [JsonPropertyName("object")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Object { get; private set; }
 
@@ -94,6 +95,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <value>Issuers state for the card number. Possible Values: - ACTIVE - CLOSED : The account has been closed. </value>
         [JsonPropertyName("state")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string State { get; private set; }
 

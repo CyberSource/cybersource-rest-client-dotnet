@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MerchantDescriptor** | [**PtsV2PayoutsPost201ResponseMerchantInformationMerchantDescriptor**](PtsV2PayoutsPost201ResponseMerchantInformationMerchantDescriptor.md) |  | [optional] 
+**MerchantDescriptor** | [**PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor**](PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor.md) |  | [optional] 
 
 ## Extensibility
 

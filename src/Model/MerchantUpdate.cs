@@ -35,14 +35,14 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="MerchantUpdate" /> class.
         /// </summary>
         /// <param name="MerchantName">Doing business as (DBA) name.</param>
-        /// <param name="MerchantUrl">Base merchant URL (must use HTTPS).</param>
-        /// <param name="CryptogramType">Authentication cryptogram type  Possible values: - TAVV - DAVV.</param>
-        /// <param name="PaymentPayloadType">Credential delivery format  Possible values: - ENCRYPTED - UNENCRYPTED.</param>
-        /// <param name="AcceptanceRelationships">List of acceptance network relationships.</param>
-        /// <param name="ProtocolInteractions">List of protocol configurations.</param>
+        /// <param name="MerchantUrl">Base URL of the merchant&#39;s domain. Must use HTTPS and be unique — raises 409 if already registered..</param>
+        /// <param name="CryptogramType">Authentication cryptogram type used for payment credential generation.  Possible values: - TAVV - DAVV.</param>
+        /// <param name="PaymentPayloadType">Credential delivery format. Set to ***ENCRYPTED*** to enable JWE-encrypted payload delivery — requires an active encryption key. Returns 400 if no active key exists.  Possible values: - ENCRYPTED - UNENCRYPTED.</param>
+        /// <param name="AcceptanceRelationships">List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;)..</param>
+        /// <param name="ProtocolInteractions">List of protocol interaction configurations defining the merchant&#39;s endpoint for each supported protocol (ucp, acp, x402)..</param>
         /// <param name="WebIntegrations">WebIntegrations.</param>
         /// <param name="ApiIntegrations">ApiIntegrations.</param>
-        public MerchantUpdate(string MerchantName = default(string), string MerchantUrl = default(string), string CryptogramType = default(string), string PaymentPayloadType = default(string), List<string> AcceptanceRelationships = default(List<string>), List<Iccv1merchantsProtocolInteractions> ProtocolInteractions = default(List<Iccv1merchantsProtocolInteractions>), Iccv1merchantsWebIntegrations WebIntegrations = default(Iccv1merchantsWebIntegrations), Iccv1merchantsApiIntegrations ApiIntegrations = default(Iccv1merchantsApiIntegrations))
+        public MerchantUpdate(string MerchantName = default(string), string MerchantUrl = default(string), string CryptogramType = default(string), string PaymentPayloadType = default(string), List<string> AcceptanceRelationships = default(List<string>), List<Iccv1merchantsProtocolInteractions> ProtocolInteractions = default(List<Iccv1merchantsProtocolInteractions>), MerchantRegistrationResponse201WebIntegrations WebIntegrations = default(MerchantRegistrationResponse201WebIntegrations), MerchantRegistrationResponse201ApiIntegrations ApiIntegrations = default(MerchantRegistrationResponse201ApiIntegrations))
         {
             this.MerchantName = MerchantName;
             this.MerchantUrl = MerchantUrl;
@@ -63,41 +63,41 @@ namespace CyberSource.Model
         public string MerchantName { get; set; }
 
         /// <summary>
-        /// Base merchant URL (must use HTTPS)
+        /// Base URL of the merchant&#39;s domain. Must use HTTPS and be unique — raises 409 if already registered.
         /// </summary>
-        /// <value>Base merchant URL (must use HTTPS)</value>
+        /// <value>Base URL of the merchant&#39;s domain. Must use HTTPS and be unique — raises 409 if already registered.</value>
         [JsonPropertyName("merchantUrl")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string MerchantUrl { get; set; }
 
         /// <summary>
-        /// Authentication cryptogram type  Possible values: - TAVV - DAVV
+        /// Authentication cryptogram type used for payment credential generation.  Possible values: - TAVV - DAVV
         /// </summary>
-        /// <value>Authentication cryptogram type  Possible values: - TAVV - DAVV</value>
+        /// <value>Authentication cryptogram type used for payment credential generation.  Possible values: - TAVV - DAVV</value>
         [JsonPropertyName("cryptogramType")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string CryptogramType { get; set; }
 
         /// <summary>
-        /// Credential delivery format  Possible values: - ENCRYPTED - UNENCRYPTED
+        /// Credential delivery format. Set to ***ENCRYPTED*** to enable JWE-encrypted payload delivery — requires an active encryption key. Returns 400 if no active key exists.  Possible values: - ENCRYPTED - UNENCRYPTED
         /// </summary>
-        /// <value>Credential delivery format  Possible values: - ENCRYPTED - UNENCRYPTED</value>
+        /// <value>Credential delivery format. Set to ***ENCRYPTED*** to enable JWE-encrypted payload delivery — requires an active encryption key. Returns 400 if no active key exists.  Possible values: - ENCRYPTED - UNENCRYPTED</value>
         [JsonPropertyName("paymentPayloadType")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string PaymentPayloadType { get; set; }
 
         /// <summary>
-        /// List of acceptance network relationships
+        /// List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;).
         /// </summary>
-        /// <value>List of acceptance network relationships</value>
+        /// <value>List of payment network acceptance relationships (e.g., \&quot;Visa\&quot;).</value>
         [JsonPropertyName("acceptanceRelationships")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<string> AcceptanceRelationships { get; set; }
 
         /// <summary>
-        /// List of protocol configurations
+        /// List of protocol interaction configurations defining the merchant&#39;s endpoint for each supported protocol (ucp, acp, x402).
         /// </summary>
-        /// <value>List of protocol configurations</value>
+        /// <value>List of protocol interaction configurations defining the merchant&#39;s endpoint for each supported protocol (ucp, acp, x402).</value>
         [JsonPropertyName("protocolInteractions")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<Iccv1merchantsProtocolInteractions> ProtocolInteractions { get; set; }
@@ -107,14 +107,14 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("webIntegrations")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Iccv1merchantsWebIntegrations WebIntegrations { get; set; }
+        public MerchantRegistrationResponse201WebIntegrations WebIntegrations { get; set; }
 
         /// <summary>
         /// Gets or Sets ApiIntegrations
         /// </summary>
         [JsonPropertyName("apiIntegrations")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Iccv1merchantsApiIntegrations ApiIntegrations { get; set; }
+        public MerchantRegistrationResponse201ApiIntegrations ApiIntegrations { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

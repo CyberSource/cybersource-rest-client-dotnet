@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="MerchantCurrency">ISO 4217 3-letter code for the merchant&#39;s local currency used for expressing the average ticket size.</param>
         /// <param name="MerchantValue">Expected average transaction value expressed in the merchant&#39;s local currency, in minor units.</param>
         /// <param name="Value">Expected average transaction value in the transaction currency, in minor units (e.g., cents).</param>
-        public UnifiedriskMerchantMerchantDescriptorExpectedAverageTicketSize(string BaseCurrency = default(string), int? BaseValue = default(int?), string Currency = default(string), string MerchantCurrency = default(string), int? MerchantValue = default(int?), int? Value = default(int?))
+        public UnifiedriskMerchantMerchantDescriptorExpectedAverageTicketSize(string BaseCurrency = default(string), string BaseValue = default(string), string Currency = default(string), string MerchantCurrency = default(string), string MerchantValue = default(string), string Value = default(string))
         {
             this.BaseCurrency = BaseCurrency;
             this.BaseValue = BaseValue;
@@ -64,7 +64,7 @@ namespace CyberSource.Model
         /// <value>Expected average transaction value in the base currency, expressed in minor units (e.g., cents)</value>
         [JsonPropertyName("baseValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? BaseValue { get; set; }
+        public string BaseValue { get; set; }
 
         /// <summary>
         /// ISO 4217 3-letter transaction currency code in which the average ticket size is denominated
@@ -88,7 +88,7 @@ namespace CyberSource.Model
         /// <value>Expected average transaction value expressed in the merchant&#39;s local currency, in minor units</value>
         [JsonPropertyName("merchantValue")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? MerchantValue { get; set; }
+        public string MerchantValue { get; set; }
 
         /// <summary>
         /// Expected average transaction value in the transaction currency, in minor units (e.g., cents)
@@ -96,7 +96,7 @@ namespace CyberSource.Model
         /// <value>Expected average transaction value in the transaction currency, in minor units (e.g., cents)</value>
         [JsonPropertyName("value")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

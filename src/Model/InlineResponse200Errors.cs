@@ -62,6 +62,7 @@ namespace CyberSource.Model
         /// Gets or Sets Details
         /// </summary>
         [JsonPropertyName("details")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<InlineResponse200Details> Details { get; private set; }
 

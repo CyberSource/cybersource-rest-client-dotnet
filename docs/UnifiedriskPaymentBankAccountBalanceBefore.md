@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **decimal?** | Account balance before transaction     | [optional] 
+**Value** | **string** | Account balance before transaction     | [optional] 
 **Currency** | **string** | Currency of balance     | [optional] 
 **BaseCurrency** | **string** | Base currency for balance     | [optional] 
-**BaseValue** | **decimal?** | Balance in base currency     | [optional] 
+**BaseValue** | **string** | Balance in base currency     | [optional] 
 **MerchantCurrency** | **string** | ISO 4217 3-letter code for the merchant&#39;s local currency used to express the pre-transaction account balance (e.g., EUR for EU merchants) | [optional] 
 **MerchantValue** | **string** | Pre-transaction account balance expressed in the merchant&#39;s local currency, used for cross-currency balance comparison and risk analysis | [optional] 
 

@@ -43,6 +43,7 @@ namespace CyberSource.Model
         /// Gets or Sets Errors
         /// </summary>
         [JsonPropertyName("errors")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<InlineResponse424Errors> Errors { get; private set; }
 

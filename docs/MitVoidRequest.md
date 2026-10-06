@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **PaymentInformation** | [**Ptsv2paymentsidvoidsPaymentInformation**](Ptsv2paymentsidvoidsPaymentInformation.md) |  | [optional] 
 **OrderInformation** | [**Ptsv2paymentsidvoidsOrderInformation**](Ptsv2paymentsidvoidsOrderInformation.md) |  | [optional] 
 **ProcessingInformation** | [**Ptsv2voidsProcessingInformation**](Ptsv2voidsProcessingInformation.md) |  | [optional] 
+**PointOfSaleInformation** | [**Ptsv2paymentsPointOfSaleInformation**](Ptsv2paymentsPointOfSaleInformation.md) |  | [optional] 
 
 ## Extensibility
 
