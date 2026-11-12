@@ -3,11 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CorrelationId** | **string** |  | [optional] 
-**Details** | [**List&lt;InlineResponse4001Details&gt;**](InlineResponse4001Details.md) |  | [optional] 
-**InformationLink** | **string** |  | [optional] 
-**Message** | **string** |  | 
-**Reason** | **string** | Possible values: - INVALID_APIKEY - INVALID_SHIPPING_INPUT_PARAMS - CAPTURE_CONTEXT_INVALID - CAPTURE_CONTEXT_EXPIRED - SDK_XHR_ERROR - UNIFIEDPAYMENTS_VALIDATION_PARAMS - UNIFIEDPAYMENTS_VALIDATION_FIELDS - UNIFIEDPAYMENT_PAYMENT_PARAMITERS - CREATE_TOKEN_TIMEOUT - CREATE_TOKEN_XHR_ERROR - SHOW_LOAD_CONTAINER_SELECTOR - SHOW_LOAD_INVALID_CONTAINER - SHOW_TOKEN_TIMEOUT - SHOW_TOKEN_XHR_ERROR - SHOW_PAYMENT_TIMEOUT | 
+**Code** | **string** | Error code | 
+**Message** | **string** | Error message | 
+**LocalizationKey** | **string** | Localization Key Name | [optional] 
+**CorrelationId** | **string** | Correlation Id | [optional] 
+**Detail** | **string** | Error Detail | [optional] 
+**Fields** | [**List&lt;InlineResponse4001Fields&gt;**](InlineResponse4001Fields.md) | Error fields List | [optional] 
 
 ## Extensibility
 

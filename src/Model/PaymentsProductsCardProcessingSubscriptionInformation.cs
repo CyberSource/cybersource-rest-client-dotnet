@@ -37,7 +37,7 @@ namespace CyberSource.Model
         /// <param name="Enabled">Enabled.</param>
         /// <param name="SelfServiceability">Indicates if the organization can enable this product using self service.  Possible values: - SELF_SERVICEABLE - NOT_SELF_SERVICEABLE - SELF_SERVICE_ONLY (default to &quot;NOT_SELF_SERVICEABLE&quot;).</param>
         /// <param name="Features">This is a map. The allowed keys are below. Value should be an object containing a sole boolean property - enabled. &lt;table&gt;    &lt;tr&gt;       &lt;td&gt;cardPresent&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;       &lt;td&gt;cardNotPresent&lt;/td&gt;    &lt;/tr&gt; &lt;/table&gt; .</param>
-        public PaymentsProductsCardProcessingSubscriptionInformation(bool? Enabled = default(bool?), string SelfServiceability = "NOT_SELF_SERVICEABLE", Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures> Features = default(Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures>))
+        public PaymentsProductsCardProcessingSubscriptionInformation(bool? Enabled = default(bool?), string SelfServiceability = "NOT_SELF_SERVICEABLE", Dictionary<string, CardProessingFeatureSubscriptionItem> Features = default(Dictionary<string, CardProessingFeatureSubscriptionItem>))
         {
             this.Enabled = Enabled;
             // use default value if no "SelfServiceability" provided
@@ -73,7 +73,7 @@ namespace CyberSource.Model
         /// <value>This is a map. The allowed keys are below. Value should be an object containing a sole boolean property - enabled. &lt;table&gt;    &lt;tr&gt;       &lt;td&gt;cardPresent&lt;/td&gt;    &lt;/tr&gt;    &lt;tr&gt;       &lt;td&gt;cardNotPresent&lt;/td&gt;    &lt;/tr&gt; &lt;/table&gt; </value>
         [JsonPropertyName("features")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, PaymentsProductsCardProcessingSubscriptionInformationFeatures> Features { get; set; }
+        public Dictionary<string, CardProessingFeatureSubscriptionItem> Features { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

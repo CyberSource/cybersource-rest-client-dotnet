@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="ucpcancelcheckout"></a>
 # **UcpCancelCheckout**
-> InlineResponse20113 UcpCancelCheckout (string sessionId)
+> UcpCheckoutSessionResponse UcpCancelCheckout (string sessionId)
 
 Cancel Checkout UCP
 
@@ -39,7 +39,7 @@ namespace Example
             try
             {
                 // Cancel Checkout UCP
-                InlineResponse20113 result = apiInstance.UcpCancelCheckout(sessionId);
+                UcpCheckoutSessionResponse result = apiInstance.UcpCancelCheckout(sessionId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20113**](InlineResponse20113.md)
+[**UcpCheckoutSessionResponse**](UcpCheckoutSessionResponse.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ No authorization required
 
 <a name="ucpcompletecheckout"></a>
 # **UcpCompleteCheckout**
-> InlineResponse20113 UcpCompleteCheckout (string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
+> UcpCheckoutSessionResponse UcpCompleteCheckout (string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
 
 Complete Checkout UCP
 
@@ -102,7 +102,7 @@ namespace Example
             try
             {
                 // Complete Checkout UCP
-                InlineResponse20113 result = apiInstance.UcpCompleteCheckout(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
+                UcpCheckoutSessionResponse result = apiInstance.UcpCompleteCheckout(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20113**](InlineResponse20113.md)
+[**UcpCheckoutSessionResponse**](UcpCheckoutSessionResponse.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ No authorization required
 
 <a name="ucpcreatecheckoutsession"></a>
 # **UcpCreateCheckoutSession**
-> InlineResponse20113 UcpCreateCheckoutSession (UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
+> UcpCheckoutSessionResponse UcpCreateCheckoutSession (UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
 
 Create Checkout Session UCP
 
@@ -166,7 +166,7 @@ namespace Example
             try
             {
                 // Create Checkout Session UCP
-                InlineResponse20113 result = apiInstance.UcpCreateCheckoutSession(ucpCreateCheckoutSessionRequest, idempotencyKey);
+                UcpCheckoutSessionResponse result = apiInstance.UcpCreateCheckoutSession(ucpCreateCheckoutSessionRequest, idempotencyKey);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20113**](InlineResponse20113.md)
+[**UcpCheckoutSessionResponse**](UcpCheckoutSessionResponse.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ No authorization required
 
 <a name="ucpgetcheckoutsession"></a>
 # **UcpGetCheckoutSession**
-> InlineResponse20113 UcpGetCheckoutSession (string sessionId, Object ucpGetCheckoutSessionRequest)
+> UcpCheckoutSessionResponse UcpGetCheckoutSession (string sessionId, Object ucpGetCheckoutSessionRequest)
 
 Get Checkout Session UCP
 
@@ -229,7 +229,7 @@ namespace Example
             try
             {
                 // Get Checkout Session UCP
-                InlineResponse20113 result = apiInstance.UcpGetCheckoutSession(sessionId, ucpGetCheckoutSessionRequest);
+                UcpCheckoutSessionResponse result = apiInstance.UcpGetCheckoutSession(sessionId, ucpGetCheckoutSessionRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20113**](InlineResponse20113.md)
+[**UcpCheckoutSessionResponse**](UcpCheckoutSessionResponse.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ No authorization required
 
 <a name="ucpupdatecheckoutsession"></a>
 # **UcpUpdateCheckoutSession**
-> InlineResponse20113 UcpUpdateCheckoutSession (string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
+> UcpCheckoutSessionResponse UcpUpdateCheckoutSession (string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
 
 Update Checkout Session UCP
 
@@ -293,7 +293,7 @@ namespace Example
             try
             {
                 // Update Checkout Session UCP
-                InlineResponse20113 result = apiInstance.UcpUpdateCheckoutSession(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
+                UcpCheckoutSessionResponse result = apiInstance.UcpUpdateCheckoutSession(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20113**](InlineResponse20113.md)
+[**UcpCheckoutSessionResponse**](UcpCheckoutSessionResponse.md)
 
 ### Authorization
 

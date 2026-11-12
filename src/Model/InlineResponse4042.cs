@@ -34,14 +34,12 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4042" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">The time the response was submitted.</param>
-        /// <param name="Status">The status code of the response.</param>
-        /// <param name="Reason">The reason for the response.</param>
-        /// <param name="Message">The message of the response.</param>
-        /// <param name="Details">The details of the validation error.</param>
-        public InlineResponse4042(string SubmitTimeUtc = default(string), int? Status = default(int?), string Reason = default(string), string Message = default(string), List<InlineResponse4042Details> Details = default(List<InlineResponse4042Details>))
+        /// <param name="Status">The http status description of the submitted request..</param>
+        /// <param name="Reason">Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; .</param>
+        /// <param name="Message">Descriptive message for the error..</param>
+        /// <param name="Details">Details.</param>
+        public InlineResponse4042(string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse4002Details> Details = default(List<InlineResponse4002Details>))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
             this.Reason = Reason;
             this.Message = Message;
@@ -49,44 +47,44 @@ namespace CyberSource.Model
         }
         
         /// <summary>
-        /// The time the response was submitted
+        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
         /// </summary>
-        /// <value>The time the response was submitted</value>
+        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
         [JsonPropertyName("submitTimeUtc")]
+        [JsonInclude]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SubmitTimeUtc { get; set; }
+        public DateTime? SubmitTimeUtc { get; private set; }
 
         /// <summary>
-        /// The status code of the response
+        /// The http status description of the submitted request.
         /// </summary>
-        /// <value>The status code of the response</value>
+        /// <value>The http status description of the submitted request.</value>
         [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public int? Status { get; set; }
+        public string Status { get; set; }
 
         /// <summary>
-        /// The reason for the response
+        /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; 
         /// </summary>
-        /// <value>The reason for the response</value>
+        /// <value>Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; </value>
         [JsonPropertyName("reason")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Reason { get; set; }
 
         /// <summary>
-        /// The message of the response
+        /// Descriptive message for the error.
         /// </summary>
-        /// <value>The message of the response</value>
+        /// <value>Descriptive message for the error.</value>
         [JsonPropertyName("message")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Message { get; set; }
 
         /// <summary>
-        /// The details of the validation error
+        /// Gets or Sets Details
         /// </summary>
-        /// <value>The details of the validation error</value>
         [JsonPropertyName("details")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse4042Details> Details { get; set; }
+        public List<InlineResponse4002Details> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

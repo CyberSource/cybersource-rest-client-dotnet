@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="Payment">Payment.</param>
         /// <param name="Fulfillment">Fulfillment.</param>
         /// <param name="Discounts">Discounts.</param>
-        public UcpUpdateCheckoutSessionRequest(string Id = default(string), List<Iccv1checkoutsessionsLineItems> LineItems = default(List<Iccv1checkoutsessionsLineItems>), UcpUpdateCheckoutSessionBuyer Buyer = default(UcpUpdateCheckoutSessionBuyer), string Currency = default(string), Iccv1checkoutsessionssessionIdPayment Payment = default(Iccv1checkoutsessionssessionIdPayment), Iccv1checkoutsessionssessionIdFulfillment Fulfillment = default(Iccv1checkoutsessionssessionIdFulfillment), Iccv1checkoutsessionssessionIdDiscounts Discounts = default(Iccv1checkoutsessionssessionIdDiscounts))
+        public UcpUpdateCheckoutSessionRequest(string Id = default(string), List<Iccv1checkoutsessionsLineItems> LineItems = default(List<Iccv1checkoutsessionsLineItems>), UcpUpdateCheckoutSessionBuyer Buyer = default(UcpUpdateCheckoutSessionBuyer), string Currency = default(string), Iccv1UpdateCheckoutsessionsPayment Payment = default(Iccv1UpdateCheckoutsessionsPayment), Iccv1UpdateCheckoutSessionsFulfillment Fulfillment = default(Iccv1UpdateCheckoutSessionsFulfillment), Iccv1UpdateCheckoutSessionsDiscounts Discounts = default(Iccv1UpdateCheckoutSessionsDiscounts))
         {
             this.Id = Id;
             this.LineItems = LineItems;
@@ -88,21 +88,21 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("payment")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Iccv1checkoutsessionssessionIdPayment Payment { get; set; }
+        public Iccv1UpdateCheckoutsessionsPayment Payment { get; set; }
 
         /// <summary>
         /// Gets or Sets Fulfillment
         /// </summary>
         [JsonPropertyName("fulfillment")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Iccv1checkoutsessionssessionIdFulfillment Fulfillment { get; set; }
+        public Iccv1UpdateCheckoutSessionsFulfillment Fulfillment { get; set; }
 
         /// <summary>
         /// Gets or Sets Discounts
         /// </summary>
         [JsonPropertyName("discounts")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Iccv1checkoutsessionssessionIdDiscounts Discounts { get; set; }
+        public Iccv1UpdateCheckoutSessionsDiscounts Discounts { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

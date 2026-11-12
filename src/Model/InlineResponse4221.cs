@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="Reason">Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;INVALID_DATA&#39; .</param>
         /// <param name="Message">Descriptive message for the error..</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse4221(string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse40011Details> Details = default(List<InlineResponse40011Details>))
+        public InlineResponse4221(string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse4002Details> Details = default(List<InlineResponse4002Details>))
         {
             this.Status = Status;
             this.Reason = Reason;
@@ -84,7 +84,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("details")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse40011Details> Details { get; set; }
+        public List<InlineResponse4002Details> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

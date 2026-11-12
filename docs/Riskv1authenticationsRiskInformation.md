@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BuyerHistory** | [**Ptsv2paymentsRiskInformationBuyerHistory**](Ptsv2paymentsRiskInformationBuyerHistory.md) |  | [optional] 
+**BuyerHistory** | [**Riskv1decisionsRiskInformationBuyerHistory**](Riskv1decisionsRiskInformationBuyerHistory.md) |  | [optional] 
 
 ## Extensibility
 

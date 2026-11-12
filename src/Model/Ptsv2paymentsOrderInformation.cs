@@ -40,6 +40,7 @@ namespace CyberSource.Model
         /// <param name="ShipTo">ShipTo.</param>
         /// <param name="LineItems">LineItems.</param>
         /// <param name="InvoiceDetails">InvoiceDetails.</param>
+        /// <param name="Vouchers">Vouchers.</param>
         /// <param name="ShippingDetails">ShippingDetails.</param>
         /// <param name="DigitalCurrency">DigitalCurrency.</param>
         /// <param name="ReturnsAccepted">This is only needed when you are requesting both payment and DM service at same time.  Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. .</param>
@@ -49,7 +50,7 @@ namespace CyberSource.Model
         /// <param name="PreOrderDate">Expected date that a pre-ordered purchase will be available. Format: YYYYMMDD .</param>
         /// <param name="Reordered">Indicates whether the cardholder is reordering previously purchased merchandise. This field can contain one of these values: - false: First time ordered - true: Reordered .</param>
         /// <param name="TotalOffersCount">Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 .</param>
-        public Ptsv2paymentsOrderInformation(string ExtensionDays = default(string), Ptsv2paymentsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsOrderInformationAmountDetails), Ptsv2paymentsOrderInformationBillTo BillTo = default(Ptsv2paymentsOrderInformationBillTo), Ptsv2paymentsOrderInformationShipTo ShipTo = default(Ptsv2paymentsOrderInformationShipTo), List<Ptsv2paymentsOrderInformationLineItems> LineItems = default(List<Ptsv2paymentsOrderInformationLineItems>), Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsOrderInformationInvoiceDetails), Ptsv2paymentsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsOrderInformationShippingDetails), Ptsv2paymentsOrderInformationDigitalCurrency DigitalCurrency = default(Ptsv2paymentsOrderInformationDigitalCurrency), bool? ReturnsAccepted = default(bool?), string IsCryptocurrencyPurchase = default(string), string CutoffDateTime = default(string), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), string TotalOffersCount = default(string))
+        public Ptsv2paymentsOrderInformation(string ExtensionDays = default(string), Ptsv2paymentsOrderInformationAmountDetails AmountDetails = default(Ptsv2paymentsOrderInformationAmountDetails), Ptsv2paymentsOrderInformationBillTo BillTo = default(Ptsv2paymentsOrderInformationBillTo), Ptsv2paymentsOrderInformationShipTo ShipTo = default(Ptsv2paymentsOrderInformationShipTo), List<Ptsv2paymentsOrderInformationLineItemsExtended> LineItems = default(List<Ptsv2paymentsOrderInformationLineItemsExtended>), Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails = default(Ptsv2paymentsOrderInformationInvoiceDetails), List<Ptsv2paymentsOrderInformationVouchers> Vouchers = default(List<Ptsv2paymentsOrderInformationVouchers>), Ptsv2paymentsOrderInformationShippingDetails ShippingDetails = default(Ptsv2paymentsOrderInformationShippingDetails), Ptsv2paymentsOrderInformationDigitalCurrency DigitalCurrency = default(Ptsv2paymentsOrderInformationDigitalCurrency), bool? ReturnsAccepted = default(bool?), string IsCryptocurrencyPurchase = default(string), string CutoffDateTime = default(string), string PreOrder = default(string), string PreOrderDate = default(string), bool? Reordered = default(bool?), string TotalOffersCount = default(string))
         {
             this.ExtensionDays = ExtensionDays;
             this.AmountDetails = AmountDetails;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             this.ShipTo = ShipTo;
             this.LineItems = LineItems;
             this.InvoiceDetails = InvoiceDetails;
+            this.Vouchers = Vouchers;
             this.ShippingDetails = ShippingDetails;
             this.DigitalCurrency = DigitalCurrency;
             this.ReturnsAccepted = ReturnsAccepted;
@@ -102,7 +104,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("lineItems")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<Ptsv2paymentsOrderInformationLineItems> LineItems { get; set; }
+        public List<Ptsv2paymentsOrderInformationLineItemsExtended> LineItems { get; set; }
 
         /// <summary>
         /// Gets or Sets InvoiceDetails
@@ -110,6 +112,13 @@ namespace CyberSource.Model
         [JsonPropertyName("invoiceDetails")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public Ptsv2paymentsOrderInformationInvoiceDetails InvoiceDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Vouchers
+        /// </summary>
+        [JsonPropertyName("vouchers")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<Ptsv2paymentsOrderInformationVouchers> Vouchers { get; set; }
 
         /// <summary>
         /// Gets or Sets ShippingDetails
@@ -195,6 +204,7 @@ namespace CyberSource.Model
             if (ShipTo != null) sb.Append("  ShipTo: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformation", "shipTo", ShipTo.ToString())).Append("\n");
             if (LineItems != null) sb.Append("  LineItems: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformation", "lineItems", LineItems.ToString())).Append("\n");
             if (InvoiceDetails != null) sb.Append("  InvoiceDetails: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformation", "invoiceDetails", InvoiceDetails.ToString())).Append("\n");
+            if (Vouchers != null) sb.Append("  Vouchers: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformation", "vouchers", Vouchers.ToString())).Append("\n");
             if (ShippingDetails != null) sb.Append("  ShippingDetails: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformation", "shippingDetails", ShippingDetails.ToString())).Append("\n");
             if (DigitalCurrency != null) sb.Append("  DigitalCurrency: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformation", "digitalCurrency", DigitalCurrency.ToString())).Append("\n");
             if (ReturnsAccepted != null) sb.Append("  ReturnsAccepted: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformation", "returnsAccepted", ReturnsAccepted.ToString())).Append("\n");
@@ -276,6 +286,11 @@ namespace CyberSource.Model
                     this.InvoiceDetails.Equals(other.InvoiceDetails)
                 ) && 
                 (
+                    this.Vouchers == other.Vouchers ||
+                    this.Vouchers != null &&
+                    this.Vouchers.SequenceEqual(other.Vouchers)
+                ) && 
+                (
                     this.ShippingDetails == other.ShippingDetails ||
                     this.ShippingDetails != null &&
                     this.ShippingDetails.Equals(other.ShippingDetails)
@@ -347,6 +362,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.LineItems.GetHashCode();
                 if (this.InvoiceDetails != null)
                     hash = hash * 59 + this.InvoiceDetails.GetHashCode();
+                if (this.Vouchers != null)
+                    hash = hash * 59 + this.Vouchers.GetHashCode();
                 if (this.ShippingDetails != null)
                     hash = hash * 59 + this.ShippingDetails.GetHashCode();
                 if (this.DigitalCurrency != null)

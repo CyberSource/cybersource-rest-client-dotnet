@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="Buyer">Buyer.</param>
         /// <param name="FulfillmentAddress">FulfillmentAddress.</param>
         /// <param name="FulfillmentOptionId">Optional. ID of the selected fulfillment option from &#x60;fulfillment_options&#x60; in the session response..</param>
-        public AcpUpdateCheckoutSessionRequest(List<Iccv1checkoutSessionsItems> Items = default(List<Iccv1checkoutSessionsItems>), AcpUpdateCheckoutSessionBuyer Buyer = default(AcpUpdateCheckoutSessionBuyer), Iccv1checkoutSessionssessionIdFulfillmentAddress FulfillmentAddress = default(Iccv1checkoutSessionssessionIdFulfillmentAddress), string FulfillmentOptionId = default(string))
+        public AcpUpdateCheckoutSessionRequest(List<Iccv1checkoutSessionsItems> Items = default(List<Iccv1checkoutSessionsItems>), AcpUpdateCheckoutSessionBuyer Buyer = default(AcpUpdateCheckoutSessionBuyer), Iccv1UpdateCheckoutSessionsFulfillmentAddress FulfillmentAddress = default(Iccv1UpdateCheckoutSessionsFulfillmentAddress), string FulfillmentOptionId = default(string))
         {
             this.Items = Items;
             this.Buyer = Buyer;
@@ -66,7 +66,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("fulfillment_address")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Iccv1checkoutSessionssessionIdFulfillmentAddress FulfillmentAddress { get; set; }
+        public Iccv1UpdateCheckoutSessionsFulfillmentAddress FulfillmentAddress { get; set; }
 
         /// <summary>
         /// Optional. ID of the selected fulfillment option from &#x60;fulfillment_options&#x60; in the session response.

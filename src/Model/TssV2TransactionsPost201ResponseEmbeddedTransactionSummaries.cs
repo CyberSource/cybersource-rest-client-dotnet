@@ -53,8 +53,9 @@ namespace CyberSource.Model
         /// <param name="ProcessorInformation">ProcessorInformation.</param>
         /// <param name="PointOfSaleInformation">PointOfSaleInformation.</param>
         /// <param name="RiskInformation">RiskInformation.</param>
+        /// <param name="TravelInformation">TravelInformation.</param>
         /// <param name="Links">Links.</param>
-        public TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries(string Id = default(string), string SubmitTimeUtc = default(string), string MerchantId = default(string), string Status = default(string), TssV2TransactionsPost201ResponseEmbeddedApplicationInformation ApplicationInformation = default(TssV2TransactionsPost201ResponseEmbeddedApplicationInformation), PtsV2CreateOrderPost201ResponseBuyerInformation BuyerInformation = default(PtsV2CreateOrderPost201ResponseBuyerInformation), TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation), TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation), Riskv1authenticationresultsDeviceInformation DeviceInformation = default(Riskv1authenticationresultsDeviceInformation), TssV2TransactionsPost201ResponseEmbeddedErrorInformation ErrorInformation = default(TssV2TransactionsPost201ResponseEmbeddedErrorInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsPost201ResponseEmbeddedMerchantInformation MerchantInformation = default(TssV2TransactionsPost201ResponseEmbeddedMerchantInformation), TssV2TransactionsPost201ResponseEmbeddedOrderInformation OrderInformation = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformation), TssV2TransactionsPost201ResponseEmbeddedPaymentInformation PaymentInformation = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformation), TssV2TransactionsPost201ResponseEmbeddedProcessingInformation ProcessingInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessingInformation), TssV2TransactionsPost201ResponseEmbeddedProcessorInformation ProcessorInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessorInformation), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation), TssV2TransactionsPost201ResponseEmbeddedRiskInformation RiskInformation = default(TssV2TransactionsPost201ResponseEmbeddedRiskInformation), TssV2TransactionsPost201ResponseEmbeddedLinks Links = default(TssV2TransactionsPost201ResponseEmbeddedLinks))
+        public TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries(string Id = default(string), string SubmitTimeUtc = default(string), string MerchantId = default(string), string Status = default(string), TssV2TransactionsPost201ResponseEmbeddedApplicationInformation ApplicationInformation = default(TssV2TransactionsPost201ResponseEmbeddedApplicationInformation), PtsV2CreateOrderPost201ResponseBuyerInformation BuyerInformation = default(PtsV2CreateOrderPost201ResponseBuyerInformation), TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation ClientReferenceInformation = default(TssV2TransactionsPost201ResponseEmbeddedClientReferenceInformation), TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(TssV2TransactionsPost201ResponseEmbeddedConsumerAuthenticationInformation), Riskv1authenticationresultsDeviceInformation DeviceInformation = default(Riskv1authenticationresultsDeviceInformation), TssV2TransactionsPost201ResponseEmbeddedErrorInformation ErrorInformation = default(TssV2TransactionsPost201ResponseEmbeddedErrorInformation), TssV2TransactionsGet200ResponseFraudMarkingInformation FraudMarkingInformation = default(TssV2TransactionsGet200ResponseFraudMarkingInformation), List<Ptsv2paymentsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Ptsv2paymentsMerchantDefinedInformation>), TssV2TransactionsPost201ResponseEmbeddedMerchantInformation MerchantInformation = default(TssV2TransactionsPost201ResponseEmbeddedMerchantInformation), TssV2TransactionsPost201ResponseEmbeddedOrderInformation OrderInformation = default(TssV2TransactionsPost201ResponseEmbeddedOrderInformation), TssV2TransactionsPost201ResponseEmbeddedPaymentInformation PaymentInformation = default(TssV2TransactionsPost201ResponseEmbeddedPaymentInformation), TssV2TransactionsPost201ResponseEmbeddedProcessingInformation ProcessingInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessingInformation), TssV2TransactionsPost201ResponseEmbeddedProcessorInformation ProcessorInformation = default(TssV2TransactionsPost201ResponseEmbeddedProcessorInformation), TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation PointOfSaleInformation = default(TssV2TransactionsPost201ResponseEmbeddedPointOfSaleInformation), TssV2TransactionsPost201ResponseEmbeddedRiskInformation RiskInformation = default(TssV2TransactionsPost201ResponseEmbeddedRiskInformation), TssV2TransactionsGet200ResponseTravelInformation TravelInformation = default(TssV2TransactionsGet200ResponseTravelInformation), TssV2TransactionsPost201ResponseEmbeddedLinks Links = default(TssV2TransactionsPost201ResponseEmbeddedLinks))
         {
             this.Id = Id;
             this.SubmitTimeUtc = SubmitTimeUtc;
@@ -75,6 +76,7 @@ namespace CyberSource.Model
             this.ProcessorInformation = ProcessorInformation;
             this.PointOfSaleInformation = PointOfSaleInformation;
             this.RiskInformation = RiskInformation;
+            this.TravelInformation = TravelInformation;
             this.Links = Links;
         }
         
@@ -217,6 +219,13 @@ namespace CyberSource.Model
         public TssV2TransactionsPost201ResponseEmbeddedRiskInformation RiskInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets TravelInformation
+        /// </summary>
+        [JsonPropertyName("travelInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public TssV2TransactionsGet200ResponseTravelInformation TravelInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets Links
         /// </summary>
         [JsonPropertyName("_links")]
@@ -250,6 +259,7 @@ namespace CyberSource.Model
             if (ProcessorInformation != null) sb.Append("  ProcessorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries", "processorInformation", ProcessorInformation.ToString())).Append("\n");
             if (PointOfSaleInformation != null) sb.Append("  PointOfSaleInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries", "pointOfSaleInformation", PointOfSaleInformation.ToString())).Append("\n");
             if (RiskInformation != null) sb.Append("  RiskInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries", "riskInformation", RiskInformation.ToString())).Append("\n");
+            if (TravelInformation != null) sb.Append("  TravelInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries", "travelInformation", TravelInformation.ToString())).Append("\n");
             if (Links != null) sb.Append("  Links: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TssV2TransactionsPost201ResponseEmbeddedTransactionSummaries", "_links", Links.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
@@ -388,6 +398,11 @@ namespace CyberSource.Model
                     this.RiskInformation.Equals(other.RiskInformation)
                 ) && 
                 (
+                    this.TravelInformation == other.TravelInformation ||
+                    this.TravelInformation != null &&
+                    this.TravelInformation.Equals(other.TravelInformation)
+                ) && 
+                (
                     this.Links == other.Links ||
                     this.Links != null &&
                     this.Links.Equals(other.Links)
@@ -445,6 +460,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PointOfSaleInformation.GetHashCode();
                 if (this.RiskInformation != null)
                     hash = hash * 59 + this.RiskInformation.GetHashCode();
+                if (this.TravelInformation != null)
+                    hash = hash * 59 + this.TravelInformation.GetHashCode();
                 if (this.Links != null)
                     hash = hash * 59 + this.Links.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();

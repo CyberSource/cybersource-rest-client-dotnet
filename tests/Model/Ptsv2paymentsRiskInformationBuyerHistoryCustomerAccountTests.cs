@@ -112,6 +112,54 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'PasswordChangeDate'
         }
+        /// <summary>
+        /// Test the property 'PreviousLogin'
+        /// </summary>
+        [Test]
+        public void PreviousLoginTest()
+        {
+            // TODO unit test for the property 'PreviousLogin'
+        }
+        /// <summary>
+        /// Test the property 'PreviousOrder'
+        /// </summary>
+        [Test]
+        public void PreviousOrderTest()
+        {
+            // TODO unit test for the property 'PreviousOrder'
+        }
+        /// <summary>
+        /// Test the property 'PaymentMethodsCount'
+        /// </summary>
+        [Test]
+        public void PaymentMethodsCountTest()
+        {
+            // TODO unit test for the property 'PaymentMethodsCount'
+        }
+        /// <summary>
+        /// Test the property 'TotalOrdersCount'
+        /// </summary>
+        [Test]
+        public void TotalOrdersCountTest()
+        {
+            // TODO unit test for the property 'TotalOrdersCount'
+        }
+        /// <summary>
+        /// Test the property 'ProofOfIdReceived'
+        /// </summary>
+        [Test]
+        public void ProofOfIdReceivedTest()
+        {
+            // TODO unit test for the property 'ProofOfIdReceived'
+        }
+        /// <summary>
+        /// Test the property 'LastEmailChangeDate'
+        /// </summary>
+        [Test]
+        public void LastEmailChangeDateTest()
+        {
+            // TODO unit test for the property 'LastEmailChangeDate'
+        }
 
     }
 

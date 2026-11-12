@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AggregatorId** | **string** | Value that identifies you as a payment aggregator. Get this value from the processor.    #### CyberSource through VisaNet The value for this field corresponds to the following data in the TC 33 capture file5: - Record: CP01 TCR6 - Position: 95-105 - Field: Payment Facilitator ID    This field is supported for Visa, Mastercard and Discover Transactions.    **FDC Compass**\\ This value must consist of uppercase characters.  | [optional] 
-**Name** | **string** | Your payment aggregator business name.    **American Express Direct**\\ The maximum length of the aggregator name depends on the length of the sub-merchant name. The combined length for both values must not exceed 36 characters.\\    #### CyberSource through VisaNet With American Express, the maximum length of the aggregator name depends on the length of the sub-merchant name. The combined length for both values must not exceed 36 characters. The value for this field does not map to the TC 33 capture file5.    **FDC Compass**\\ This value must consist of uppercase characters.  | [optional] 
+**AggregatorId** | **string** | Value that identifies you as a payment aggregator. Get this value from the processor.  | [optional] 
+**Name** | **string** | Your payment aggregator business name.  **American Express Direct**\\ The maximum length of the aggregator name depends on the length of the sub-merchant name. The combined length for both values must not exceed 36 characters.\\  | [optional] 
 **SubMerchant** | [**Ucv1sessionsDataAggregatorInformationSubMerchant**](Ucv1sessionsDataAggregatorInformationSubMerchant.md) |  | [optional] 
 **StreetAddress** | **string** | Acquirer street name. | [optional] 
 **City** | **string** | Acquirer city. | [optional] 

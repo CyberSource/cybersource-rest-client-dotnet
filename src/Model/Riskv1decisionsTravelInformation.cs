@@ -41,7 +41,8 @@ namespace CyberSource.Model
         /// <param name="Legs">Legs.</param>
         /// <param name="NumberOfPassengers">Number of passengers for whom the ticket was issued. If you do not include this field in your request, CyberSource uses a default value of 1. Required for American Express SafeKey (U.S.) for travel-related requests. .</param>
         /// <param name="Passengers">Passengers.</param>
-        public Riskv1decisionsTravelInformation(string ActualFinalDestination = default(string), string CompleteRoute = default(string), string DepartureTime = default(string), string JourneyType = default(string), List<Riskv1decisionsTravelInformationLegs> Legs = default(List<Riskv1decisionsTravelInformationLegs>), int? NumberOfPassengers = default(int?), List<Riskv1decisionsTravelInformationPassengers> Passengers = default(List<Riskv1decisionsTravelInformationPassengers>))
+        /// <param name="Lodging">Lodging.</param>
+        public Riskv1decisionsTravelInformation(string ActualFinalDestination = default(string), string CompleteRoute = default(string), string DepartureTime = default(string), string JourneyType = default(string), List<Riskv1decisionsBundledTravelInformationLegs> Legs = default(List<Riskv1decisionsBundledTravelInformationLegs>), int? NumberOfPassengers = default(int?), List<Riskv1decisionsTravelInformationPassengers> Passengers = default(List<Riskv1decisionsTravelInformationPassengers>), Riskv1decisionsTravelInformationLodging Lodging = default(Riskv1decisionsTravelInformationLodging))
         {
             this.ActualFinalDestination = ActualFinalDestination;
             this.CompleteRoute = CompleteRoute;
@@ -50,6 +51,7 @@ namespace CyberSource.Model
             this.Legs = Legs;
             this.NumberOfPassengers = NumberOfPassengers;
             this.Passengers = Passengers;
+            this.Lodging = Lodging;
         }
         
         /// <summary>
@@ -89,7 +91,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("legs")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<Riskv1decisionsTravelInformationLegs> Legs { get; set; }
+        public List<Riskv1decisionsBundledTravelInformationLegs> Legs { get; set; }
 
         /// <summary>
         /// Number of passengers for whom the ticket was issued. If you do not include this field in your request, CyberSource uses a default value of 1. Required for American Express SafeKey (U.S.) for travel-related requests. 
@@ -107,6 +109,13 @@ namespace CyberSource.Model
         public List<Riskv1decisionsTravelInformationPassengers> Passengers { get; set; }
 
         /// <summary>
+        /// Gets or Sets Lodging
+        /// </summary>
+        [JsonPropertyName("lodging")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Riskv1decisionsTravelInformationLodging Lodging { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -121,6 +130,7 @@ namespace CyberSource.Model
             if (Legs != null) sb.Append("  Legs: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsTravelInformation", "legs", Legs.ToString())).Append("\n");
             if (NumberOfPassengers != null) sb.Append("  NumberOfPassengers: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsTravelInformation", "numberOfPassengers", NumberOfPassengers.ToString())).Append("\n");
             if (Passengers != null) sb.Append("  Passengers: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsTravelInformation", "passengers", Passengers.ToString())).Append("\n");
+            if (Lodging != null) sb.Append("  Lodging: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsTravelInformation", "lodging", Lodging.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -196,6 +206,11 @@ namespace CyberSource.Model
                     this.Passengers == other.Passengers ||
                     this.Passengers != null &&
                     this.Passengers.SequenceEqual(other.Passengers)
+                ) && 
+                (
+                    this.Lodging == other.Lodging ||
+                    this.Lodging != null &&
+                    this.Lodging.Equals(other.Lodging)
                 );
         }
 
@@ -226,6 +241,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.NumberOfPassengers.GetHashCode();
                 if (this.Passengers != null)
                     hash = hash * 59 + this.Passengers.GetHashCode();
+                if (this.Lodging != null)
+                    hash = hash * 59 + this.Lodging.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

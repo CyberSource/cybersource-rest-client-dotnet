@@ -3,12 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Links** | [**PaymentInstrumentListLinks**](PaymentInstrumentListLinks.md) |  | [optional] 
+**Links** | [**InstrumentIdentifierPaymentInstrumentListLinks**](InstrumentIdentifierPaymentInstrumentListLinks.md) |  | [optional] 
 **Offset** | **int?** | The offset parameter supplied in the request. | [optional] 
 **Limit** | **int?** | The limit parameter supplied in the request. | [optional] 
 **Count** | **int?** | The number of Payment Instruments returned in the array. | [optional] 
 **Total** | **int?** | The total number of Payment Instruments associated with the Customer or Instrument Identifier. | [optional] 
-**Embedded** | [**PaymentInstrumentListEmbedded**](PaymentInstrumentListEmbedded.md) |  | [optional] 
+**Embedded** | [**InstrumentIdentifierPaymentInstrumentListEmbedded**](InstrumentIdentifierPaymentInstrumentListEmbedded.md) |  | [optional] 
 
 ## Extensibility
 

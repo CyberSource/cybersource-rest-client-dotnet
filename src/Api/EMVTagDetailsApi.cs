@@ -56,9 +56,9 @@ namespace CyberSource.Api
         /// Pass an EMV Tag-Length-Value (TLV) string for parsing.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="parseEmvTagsRequest"></param>
         /// <returns>TssV2PostEmvTags200Response</returns>
-        TssV2PostEmvTags200Response ParseEmvTags(Body2 body);
+        TssV2PostEmvTags200Response ParseEmvTags(ParseEmvTagsRequest parseEmvTagsRequest);
 
         /// <summary>
         /// Parse an EMV String
@@ -67,9 +67,9 @@ namespace CyberSource.Api
         /// Pass an EMV Tag-Length-Value (TLV) string for parsing.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="parseEmvTagsRequest"></param>
         /// <returns>ApiResponse of TssV2PostEmvTags200Response</returns>
-        ApiResponse<TssV2PostEmvTags200Response> ParseEmvTagsWithHttpInfo(Body2 body);
+        ApiResponse<TssV2PostEmvTags200Response> ParseEmvTagsWithHttpInfo(ParseEmvTagsRequest parseEmvTagsRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -98,9 +98,9 @@ namespace CyberSource.Api
         /// Pass an EMV Tag-Length-Value (TLV) string for parsing.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="parseEmvTagsRequest"></param>
         /// <returns>Task of TssV2PostEmvTags200Response</returns>
-        System.Threading.Tasks.Task<TssV2PostEmvTags200Response> ParseEmvTagsAsync(Body2 body);
+        System.Threading.Tasks.Task<TssV2PostEmvTags200Response> ParseEmvTagsAsync(ParseEmvTagsRequest parseEmvTagsRequest);
 
         /// <summary>
         /// Parse an EMV String
@@ -109,9 +109,9 @@ namespace CyberSource.Api
         /// Pass an EMV Tag-Length-Value (TLV) string for parsing.
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="parseEmvTagsRequest"></param>
         /// <returns>Task of ApiResponse (TssV2PostEmvTags200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TssV2PostEmvTags200Response>> ParseEmvTagsAsyncWithHttpInfo(Body2 body);
+        System.Threading.Tasks.Task<ApiResponse<TssV2PostEmvTags200Response>> ParseEmvTagsAsyncWithHttpInfo(ParseEmvTagsRequest parseEmvTagsRequest);
         #endregion Asynchronous Operations
     }
 
@@ -209,7 +209,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -314,7 +314,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -351,13 +351,13 @@ namespace CyberSource.Api
         /// Parse an EMV String Pass an EMV Tag-Length-Value (TLV) string for parsing.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="parseEmvTagsRequest"></param>
         /// <returns>TssV2PostEmvTags200Response</returns>
-        public TssV2PostEmvTags200Response ParseEmvTags(Body2 body)
+        public TssV2PostEmvTags200Response ParseEmvTags(ParseEmvTagsRequest parseEmvTagsRequest)
         {
             logger.LogDebug("CALLING API \"ParseEmvTags\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TssV2PostEmvTags200Response> localVarResponse = ParseEmvTagsWithHttpInfo(body);
+            ApiResponse<TssV2PostEmvTags200Response> localVarResponse = ParseEmvTagsWithHttpInfo(parseEmvTagsRequest);
             logger.LogDebug("CALLING API \"ParseEmvTags\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -367,17 +367,17 @@ namespace CyberSource.Api
         /// Parse an EMV String Pass an EMV Tag-Length-Value (TLV) string for parsing.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="parseEmvTagsRequest"></param>
         /// <returns>ApiResponse of TssV2PostEmvTags200Response</returns>
-        public ApiResponse< TssV2PostEmvTags200Response > ParseEmvTagsWithHttpInfo(Body2 body)
+        public ApiResponse< TssV2PostEmvTags200Response > ParseEmvTagsWithHttpInfo(ParseEmvTagsRequest parseEmvTagsRequest)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'parseEmvTagsRequest' is set
+            if (parseEmvTagsRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'body' when calling EMVTagDetailsApi->ParseEmvTags");
-                throw new ApiException(400, "Missing required parameter 'body' when calling EMVTagDetailsApi->ParseEmvTags");
+                logger.LogError("ApiException : Missing required parameter 'parseEmvTagsRequest' when calling EMVTagDetailsApi->ParseEmvTags");
+                throw new ApiException(400, "Missing required parameter 'parseEmvTagsRequest' when calling EMVTagDetailsApi->ParseEmvTags");
             }
 
             var localVarPath = $"/tss/v2/transactions/emvTagDetails";
@@ -404,15 +404,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (parseEmvTagsRequest != null && parseEmvTagsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                body = (Body2)sdkTracker.InsertDeveloperIdTracker(body, body.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(body); // http body (model) parameter
+                parseEmvTagsRequest = (ParseEmvTagsRequest)sdkTracker.InsertDeveloperIdTracker(parseEmvTagsRequest, parseEmvTagsRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(parseEmvTagsRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = parseEmvTagsRequest; // byte array
             }
 
 
@@ -421,7 +421,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -461,13 +461,13 @@ namespace CyberSource.Api
         /// Parse an EMV String Pass an EMV Tag-Length-Value (TLV) string for parsing.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="parseEmvTagsRequest"></param>
         /// <returns>Task of TssV2PostEmvTags200Response</returns>
-        public async Task<TssV2PostEmvTags200Response> ParseEmvTagsAsync(Body2 body)
+        public async Task<TssV2PostEmvTags200Response> ParseEmvTagsAsync(ParseEmvTagsRequest parseEmvTagsRequest)
         {
             logger.LogDebug("CALLING API \"ParseEmvTagsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<TssV2PostEmvTags200Response> localVarResponse = await ParseEmvTagsAsyncWithHttpInfo(body);
+            ApiResponse<TssV2PostEmvTags200Response> localVarResponse = await ParseEmvTagsAsyncWithHttpInfo(parseEmvTagsRequest);
             logger.LogDebug("CALLING API \"ParseEmvTagsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -478,17 +478,17 @@ namespace CyberSource.Api
         /// Parse an EMV String Pass an EMV Tag-Length-Value (TLV) string for parsing.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="parseEmvTagsRequest"></param>
         /// <returns>Task of ApiResponse (TssV2PostEmvTags200Response)</returns>
-        public async Task<ApiResponse<TssV2PostEmvTags200Response>> ParseEmvTagsAsyncWithHttpInfo(Body2 body)
+        public async Task<ApiResponse<TssV2PostEmvTags200Response>> ParseEmvTagsAsyncWithHttpInfo(ParseEmvTagsRequest parseEmvTagsRequest)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'parseEmvTagsRequest' is set
+            if (parseEmvTagsRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'body' when calling EMVTagDetailsApi->ParseEmvTags");
-                throw new ApiException(400, "Missing required parameter 'body' when calling EMVTagDetailsApi->ParseEmvTags");
+                logger.LogError("ApiException : Missing required parameter 'parseEmvTagsRequest' when calling EMVTagDetailsApi->ParseEmvTags");
+                throw new ApiException(400, "Missing required parameter 'parseEmvTagsRequest' when calling EMVTagDetailsApi->ParseEmvTags");
             }
 
             var localVarPath = $"/tss/v2/transactions/emvTagDetails";
@@ -515,15 +515,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (parseEmvTagsRequest != null && parseEmvTagsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                body = (Body2)sdkTracker.InsertDeveloperIdTracker(body, body.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(body); // http body (model) parameter
+                parseEmvTagsRequest = (ParseEmvTagsRequest)sdkTracker.InsertDeveloperIdTracker(parseEmvTagsRequest, parseEmvTagsRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(parseEmvTagsRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = parseEmvTagsRequest; // byte array
             }
 
 
@@ -532,7 +532,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {

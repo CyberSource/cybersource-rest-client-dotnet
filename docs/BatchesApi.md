@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getbatchreport"></a>
 # **GetBatchReport**
-> InlineResponse20014 GetBatchReport (string batchId)
+> BatchReportResponse GetBatchReport (string batchId)
 
 Retrieve a Batch Report
 
@@ -38,7 +38,7 @@ namespace Example
             try
             {
                 // Retrieve a Batch Report
-                InlineResponse20014 result = apiInstance.GetBatchReport(batchId);
+                BatchReportResponse result = apiInstance.GetBatchReport(batchId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**BatchReportResponse**](BatchReportResponse.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ No authorization required
 
 <a name="getbatchstatus"></a>
 # **GetBatchStatus**
-> InlineResponse20013 GetBatchStatus (string batchId)
+> BatchStatusResponse GetBatchStatus (string batchId)
 
 Retrieve a Batch Status
 
@@ -99,7 +99,7 @@ namespace Example
             try
             {
                 // Retrieve a Batch Status
-                InlineResponse20013 result = apiInstance.GetBatchStatus(batchId);
+                BatchStatusResponse result = apiInstance.GetBatchStatus(batchId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**BatchStatusResponse**](BatchStatusResponse.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ No authorization required
 
 <a name="getbatcheslist"></a>
 # **GetBatchesList**
-> InlineResponse20012 GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
+> BatchesListResponse GetBatchesList (long? offset = null, long? limit = null, string fromDate = null, string toDate = null)
 
 List Batches
 
@@ -163,7 +163,7 @@ namespace Example
             try
             {
                 // List Batches
-                InlineResponse20012 result = apiInstance.GetBatchesList(offset, limit, fromDate, toDate);
+                BatchesListResponse result = apiInstance.GetBatchesList(offset, limit, fromDate, toDate);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**BatchesListResponse**](BatchesListResponse.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ No authorization required
 
 <a name="postbatch"></a>
 # **PostBatch**
-> InlineResponse202 PostBatch (Body body)
+> BatchCreateResponse PostBatch (PostBatchRequest postBatchRequest)
 
 Create a Batch
 
@@ -222,12 +222,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new BatchesApi();
-            var body = new Body(); // Body | 
+            var postBatchRequest = new PostBatchRequest(); // PostBatchRequest | 
 
             try
             {
                 // Create a Batch
-                InlineResponse202 result = apiInstance.PostBatch(body);
+                BatchCreateResponse result = apiInstance.PostBatch(postBatchRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -243,11 +243,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body**](Body.md)|  | 
+ **postBatchRequest** | [**PostBatchRequest**](PostBatchRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse202**](InlineResponse202.md)
+[**BatchCreateResponse**](BatchCreateResponse.md)
 
 ### Authorization
 

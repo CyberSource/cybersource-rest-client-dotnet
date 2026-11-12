@@ -34,47 +34,26 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4043" /> class.
         /// </summary>
-        /// <param name="Status">The http status description of the submitted request..</param>
-        /// <param name="Reason">Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; .</param>
-        /// <param name="Message">Descriptive message for the error..</param>
+        /// <param name="Reason">Reason.</param>
+        /// <param name="Message">Message.</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse4043(string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse40011Details> Details = default(List<InlineResponse40011Details>))
+        public InlineResponse4043(string Reason = default(string), string Message = default(string), List<InlineResponse4043Details> Details = default(List<InlineResponse4043Details>))
         {
-            this.Status = Status;
             this.Reason = Reason;
             this.Message = Message;
             this.Details = Details;
         }
         
         /// <summary>
-        /// Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// Gets or Sets Reason
         /// </summary>
-        /// <value>Time of request in UTC. &#x60;Format: YYYY-MM-DDThh:mm:ssZ&#x60;  Example 2016-08-11T22:47:57Z equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [JsonPropertyName("submitTimeUtc")]
-        [JsonInclude]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public DateTime? SubmitTimeUtc { get; private set; }
-
-        /// <summary>
-        /// The http status description of the submitted request.
-        /// </summary>
-        /// <value>The http status description of the submitted request.</value>
-        [JsonPropertyName("status")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Status { get; set; }
-
-        /// <summary>
-        /// Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; 
-        /// </summary>
-        /// <value>Documented reason codes. Client should be able to use the key for generating their own error message Possible Values:   - &#39;RESOURCE_NOT_FOUND&#39; </value>
         [JsonPropertyName("reason")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Reason { get; set; }
 
         /// <summary>
-        /// Descriptive message for the error.
+        /// Gets or Sets Message
         /// </summary>
-        /// <value>Descriptive message for the error.</value>
         [JsonPropertyName("message")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Message { get; set; }
@@ -84,7 +63,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("details")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse40011Details> Details { get; set; }
+        public List<InlineResponse4043Details> Details { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -94,8 +73,6 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4043 {\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4043", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
-            if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4043", "status", Status.ToString())).Append("\n");
             if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4043", "reason", Reason.ToString())).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4043", "message", Message.ToString())).Append("\n");
             if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4043", "details", Details.ToString())).Append("\n");
@@ -141,16 +118,6 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
-                ) && 
-                (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
-                ) && 
-                (
                     this.Reason == other.Reason ||
                     this.Reason != null &&
                     this.Reason.Equals(other.Reason)
@@ -180,10 +147,6 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Reason != null)
                     hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)

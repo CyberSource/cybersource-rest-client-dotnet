@@ -74,7 +74,7 @@ namespace CyberSource.Test
             //PostTokenizeRequest postTokenizeRequest = null;
             //string profileId = null;
             //var response = instance.Tokenize(postTokenizeRequest, profileId);
-            //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
+            //Assert.IsInstanceOf<PostTokenizeResponse> (response, "response is PostTokenizeResponse");
         }
         
     }

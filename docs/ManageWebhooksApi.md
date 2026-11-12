@@ -7,10 +7,10 @@ Method | HTTP request | Description
 [**DeleteWebhookSubscription**](ManageWebhooksApi.md#deletewebhooksubscription) | **DELETE** /notification-subscriptions/v2/webhooks/{webhookId} | Delete a Webhook Subscription
 [**GetWebhookSubscriptionById**](ManageWebhooksApi.md#getwebhooksubscriptionbyid) | **GET** /notification-subscriptions/v2/webhooks/{webhookId} | Get Details On a Single Webhook
 [**GetWebhookSubscriptionsByOrg**](ManageWebhooksApi.md#getwebhooksubscriptionsbyorg) | **GET** /notification-subscriptions/v2/webhooks | Get Details On All Created Webhooks
-[**NotificationSubscriptionsV1WebhooksWebhookIdPost**](ManageWebhooksApi.md#notificationsubscriptionsv1webhookswebhookidpost) | **POST** /notification-subscriptions/v1/webhooks/{webhookId} | Test a Webhook Configuration
-[**NotificationSubscriptionsV2WebhooksWebhookIdPatch**](ManageWebhooksApi.md#notificationsubscriptionsv2webhookswebhookidpatch) | **PATCH** /notification-subscriptions/v2/webhooks/{webhookId} | Update a Webhook Subscription
 [**NotificationSubscriptionsV2WebhooksWebhookIdStatusPut**](ManageWebhooksApi.md#notificationsubscriptionsv2webhookswebhookidstatusput) | **PUT** /notification-subscriptions/v2/webhooks/{webhookId}/status | Update a Webhook Status
 [**SaveAsymEgressKey**](ManageWebhooksApi.md#saveasymegresskey) | **POST** /kms/egress/v2/keys-asym | Message Level Encryption
+[**TestWebhookSubscription**](ManageWebhooksApi.md#testwebhooksubscription) | **POST** /notification-subscriptions/v1/webhooks/{webhookId} | Test a Webhook Configuration
+[**UpdateWebhookSubscription**](ManageWebhooksApi.md#updatewebhooksubscription) | **PATCH** /notification-subscriptions/v2/webhooks/{webhookId} | Update a Webhook Subscription
 
 
 <a name="deletewebhooksubscription"></a>
@@ -75,7 +75,7 @@ No authorization required
 
 <a name="getwebhooksubscriptionbyid"></a>
 # **GetWebhookSubscriptionById**
-> InlineResponse2018 GetWebhookSubscriptionById (string webhookId)
+> CreateWebhookSubscriptionResponse GetWebhookSubscriptionById (string webhookId)
 
 Get Details On a Single Webhook
 
@@ -101,7 +101,7 @@ namespace Example
             try
             {
                 // Get Details On a Single Webhook
-                InlineResponse2018 result = apiInstance.GetWebhookSubscriptionById(webhookId);
+                CreateWebhookSubscriptionResponse result = apiInstance.GetWebhookSubscriptionById(webhookId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2018**](InlineResponse2018.md)
+[**CreateWebhookSubscriptionResponse**](CreateWebhookSubscriptionResponse.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 
 <a name="getwebhooksubscriptionsbyorg"></a>
 # **GetWebhookSubscriptionsByOrg**
-> List<InlineResponse2007> GetWebhookSubscriptionsByOrg (string organizationId, string productId = null, string eventType = null)
+> List<WebhookSubscription> GetWebhookSubscriptionsByOrg (string organizationId, string productId = null, string eventType = null)
 
 Get Details On All Created Webhooks
 
@@ -164,7 +164,7 @@ namespace Example
             try
             {
                 // Get Details On All Created Webhooks
-                List&lt;InlineResponse2007&gt; result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
+                List&lt;WebhookSubscription&gt; result = apiInstance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -186,131 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2007>**](InlineResponse2007.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="notificationsubscriptionsv1webhookswebhookidpost"></a>
-# **NotificationSubscriptionsV1WebhooksWebhookIdPost**
-> InlineResponse2019 NotificationSubscriptionsV1WebhooksWebhookIdPost (string webhookId)
-
-Test a Webhook Configuration
-
-Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user's subscription.   It will contain sample values for the product & eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class NotificationSubscriptionsV1WebhooksWebhookIdPostExample
-    {
-        public void main()
-        {
-            var apiInstance = new ManageWebhooksApi();
-            var webhookId = webhookId_example;  // string | The Webhook Identifier.
-
-            try
-            {
-                // Test a Webhook Configuration
-                InlineResponse2019 result = apiInstance.NotificationSubscriptionsV1WebhooksWebhookIdPost(webhookId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ManageWebhooksApi.NotificationSubscriptionsV1WebhooksWebhookIdPost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookId** | **string**| The Webhook Identifier. | 
-
-### Return type
-
-[**InlineResponse2019**](InlineResponse2019.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="notificationsubscriptionsv2webhookswebhookidpatch"></a>
-# **NotificationSubscriptionsV2WebhooksWebhookIdPatch**
-> InlineResponse2008 NotificationSubscriptionsV2WebhooksWebhookIdPatch (string webhookId, UpdateWebhook updateWebhook = null)
-
-Update a Webhook Subscription
-
-Update a Webhook Subscription.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class NotificationSubscriptionsV2WebhooksWebhookIdPatchExample
-    {
-        public void main()
-        {
-            var apiInstance = new ManageWebhooksApi();
-            var webhookId = webhookId_example;  // string | The Webhook Identifier.
-            var updateWebhook = new UpdateWebhook(); // UpdateWebhook | The webhook payload or changes to apply. (optional) 
-
-            try
-            {
-                // Update a Webhook Subscription
-                InlineResponse2008 result = apiInstance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ManageWebhooksApi.NotificationSubscriptionsV2WebhooksWebhookIdPatch: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookId** | **string**| The Webhook Identifier. | 
- **updateWebhook** | [**UpdateWebhook**](UpdateWebhook.md)| The webhook payload or changes to apply. | [optional] 
-
-### Return type
-
-[**InlineResponse2008**](InlineResponse2008.md)
+[**List<WebhookSubscription>**](WebhookSubscription.md)
 
 ### Authorization
 
@@ -387,7 +263,7 @@ No authorization required
 
 <a name="saveasymegresskey"></a>
 # **SaveAsymEgressKey**
-> InlineResponse20110 SaveAsymEgressKey (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
+> SaveAsymEgressKeyResponse SaveAsymEgressKey (SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
 
 Message Level Encryption
 
@@ -416,7 +292,7 @@ namespace Example
             try
             {
                 // Message Level Encryption
-                InlineResponse20110 result = apiInstance.SaveAsymEgressKey(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
+                SaveAsymEgressKeyResponse result = apiInstance.SaveAsymEgressKey(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -439,7 +315,131 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20110**](InlineResponse20110.md)
+[**SaveAsymEgressKeyResponse**](SaveAsymEgressKeyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="testwebhooksubscription"></a>
+# **TestWebhookSubscription**
+> TestWebhookSubscriptionResponse TestWebhookSubscription (string webhookId)
+
+Test a Webhook Configuration
+
+Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user's subscription.   It will contain sample values for the product & eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class TestWebhookSubscriptionExample
+    {
+        public void main()
+        {
+            var apiInstance = new ManageWebhooksApi();
+            var webhookId = webhookId_example;  // string | The Webhook Identifier.
+
+            try
+            {
+                // Test a Webhook Configuration
+                TestWebhookSubscriptionResponse result = apiInstance.TestWebhookSubscription(webhookId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ManageWebhooksApi.TestWebhookSubscription: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhookId** | **string**| The Webhook Identifier. | 
+
+### Return type
+
+[**TestWebhookSubscriptionResponse**](TestWebhookSubscriptionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatewebhooksubscription"></a>
+# **UpdateWebhookSubscription**
+> UpdateWebhookSubscriptionResponse UpdateWebhookSubscription (string webhookId, UpdateWebhook updateWebhook = null)
+
+Update a Webhook Subscription
+
+Update a Webhook Subscription.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class UpdateWebhookSubscriptionExample
+    {
+        public void main()
+        {
+            var apiInstance = new ManageWebhooksApi();
+            var webhookId = webhookId_example;  // string | The Webhook Identifier.
+            var updateWebhook = new UpdateWebhook(); // UpdateWebhook | The webhook payload or changes to apply. (optional) 
+
+            try
+            {
+                // Update a Webhook Subscription
+                UpdateWebhookSubscriptionResponse result = apiInstance.UpdateWebhookSubscription(webhookId, updateWebhook);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ManageWebhooksApi.UpdateWebhookSubscription: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhookId** | **string**| The Webhook Identifier. | 
+ **updateWebhook** | [**UpdateWebhook**](UpdateWebhook.md)| The webhook payload or changes to apply. | [optional] 
+
+### Return type
+
+[**UpdateWebhookSubscriptionResponse**](UpdateWebhookSubscriptionResponse.md)
 
 ### Authorization
 

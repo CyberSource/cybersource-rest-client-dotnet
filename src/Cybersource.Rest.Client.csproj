@@ -47,7 +47,7 @@
     <NoWarn>$(NoWarn);NUnit2005;</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CyberSource.Authentication" Version="1.0.2" />
+    <PackageReference Include="CyberSource.Authentication" Version="1.0.3" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />

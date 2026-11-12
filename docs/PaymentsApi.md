@@ -138,7 +138,7 @@ No authorization required
 
 <a name="createsessionrequest"></a>
 # **CreateSessionRequest**
-> PtsV2PaymentsPost201Response2 CreateSessionRequest (CreateSessionReq createSessionReq)
+> CreateSessionResponse CreateSessionRequest (CreateSessionReq createSessionReq)
 
 Create Alternative Payments Sessions Request
 
@@ -164,7 +164,7 @@ namespace Example
             try
             {
                 // Create Alternative Payments Sessions Request
-                PtsV2PaymentsPost201Response2 result = apiInstance.CreateSessionRequest(createSessionReq);
+                CreateSessionResponse result = apiInstance.CreateSessionRequest(createSessionReq);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PtsV2PaymentsPost201Response2**](PtsV2PaymentsPost201Response2.md)
+[**CreateSessionResponse**](CreateSessionResponse.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ No authorization required
 
 <a name="refreshpaymentstatus"></a>
 # **RefreshPaymentStatus**
-> PtsV2PaymentsPost201Response1 RefreshPaymentStatus (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
+> RefreshPaymentStatusResponse RefreshPaymentStatus (string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
 
 Check a Payment Status
 
@@ -289,7 +289,7 @@ namespace Example
             try
             {
                 // Check a Payment Status
-                PtsV2PaymentsPost201Response1 result = apiInstance.RefreshPaymentStatus(id, refreshPaymentStatusRequest);
+                RefreshPaymentStatusResponse result = apiInstance.RefreshPaymentStatus(id, refreshPaymentStatusRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PtsV2PaymentsPost201Response1**](PtsV2PaymentsPost201Response1.md)
+[**RefreshPaymentStatusResponse**](RefreshPaymentStatusResponse.md)
 
 ### Authorization
 
@@ -325,7 +325,7 @@ No authorization required
 
 <a name="updatesessionrequest"></a>
 # **UpdateSessionRequest**
-> PtsV2PaymentsPost201Response2 UpdateSessionRequest (CreateSessionRequest createSessionRequest, string id)
+> CreateSessionResponse UpdateSessionRequest (CreateSessionRequest createSessionRequest, string id)
 
 Update Alternative Payments Sessions Request
 
@@ -352,7 +352,7 @@ namespace Example
             try
             {
                 // Update Alternative Payments Sessions Request
-                PtsV2PaymentsPost201Response2 result = apiInstance.UpdateSessionRequest(createSessionRequest, id);
+                CreateSessionResponse result = apiInstance.UpdateSessionRequest(createSessionRequest, id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PtsV2PaymentsPost201Response2**](PtsV2PaymentsPost201Response2.md)
+[**CreateSessionResponse**](CreateSessionResponse.md)
 
 ### Authorization
 

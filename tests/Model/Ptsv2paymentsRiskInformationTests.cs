@@ -96,6 +96,38 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AuxiliaryData'
         }
+        /// <summary>
+        /// Test the property 'Store'
+        /// </summary>
+        [Test]
+        public void StoreTest()
+        {
+            // TODO unit test for the property 'Store'
+        }
+        /// <summary>
+        /// Test the property 'AuthenticationType'
+        /// </summary>
+        [Test]
+        public void AuthenticationTypeTest()
+        {
+            // TODO unit test for the property 'AuthenticationType'
+        }
+        /// <summary>
+        /// Test the property 'PickupDays'
+        /// </summary>
+        [Test]
+        public void PickupDaysTest()
+        {
+            // TODO unit test for the property 'PickupDays'
+        }
+        /// <summary>
+        /// Test the property 'ExternalScore'
+        /// </summary>
+        [Test]
+        public void ExternalScoreTest()
+        {
+            // TODO unit test for the property 'ExternalScore'
+        }
 
     }
 

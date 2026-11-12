@@ -85,8 +85,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string merchantId = null;
-            //KeyRequest1 keyRequest = null;
-            //var response = instance.AddMerchantKey(merchantId, keyRequest);
+            //AddMerchantKeyRequest addMerchantKeyRequest = null;
+            //var response = instance.AddMerchantKey(merchantId, addMerchantKeyRequest);
             //Assert.IsInstanceOf<ActivateMerchantKeyResponse200> (response, "response is ActivateMerchantKeyResponse200");
         }
         
@@ -162,8 +162,8 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string merchantId = null;
             //string keyId = null;
-            //KeyUpdate1 keyUpdate = null;
-            //var response = instance.UpdateMerchantKey(merchantId, keyId, keyUpdate);
+            //UpdateMerchantKeyRequest updateMerchantKeyRequest = null;
+            //var response = instance.UpdateMerchantKey(merchantId, keyId, updateMerchantKeyRequest);
             //Assert.IsInstanceOf<ActivateMerchantKeyResponse200> (response, "response is ActivateMerchantKeyResponse200");
         }
         

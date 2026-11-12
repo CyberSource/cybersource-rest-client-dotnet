@@ -38,8 +38,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>InlineResponse20113</returns>
-        InlineResponse20113 UcpCancelCheckout(string sessionId);
+        /// <returns>UcpCheckoutSessionResponse</returns>
+        UcpCheckoutSessionResponse UcpCancelCheckout(string sessionId);
 
         /// <summary>
         /// Cancel Checkout UCP
@@ -49,8 +49,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        ApiResponse<InlineResponse20113> UcpCancelCheckoutWithHttpInfo(string sessionId);
+        /// <returns>ApiResponse of UcpCheckoutSessionResponse</returns>
+        ApiResponse<UcpCheckoutSessionResponse> UcpCancelCheckoutWithHttpInfo(string sessionId);
         /// <summary>
         /// Complete Checkout UCP
         /// </summary>
@@ -61,8 +61,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        InlineResponse20113 UcpCompleteCheckout(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
+        /// <returns>UcpCheckoutSessionResponse</returns>
+        UcpCheckoutSessionResponse UcpCompleteCheckout(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
 
         /// <summary>
         /// Complete Checkout UCP
@@ -74,8 +74,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        ApiResponse<InlineResponse20113> UcpCompleteCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
+        /// <returns>ApiResponse of UcpCheckoutSessionResponse</returns>
+        ApiResponse<UcpCheckoutSessionResponse> UcpCompleteCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
         /// <summary>
         /// Create Checkout Session UCP
         /// </summary>
@@ -85,8 +85,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        InlineResponse20113 UcpCreateCheckoutSession(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>UcpCheckoutSessionResponse</returns>
+        UcpCheckoutSessionResponse UcpCreateCheckoutSession(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
 
         /// <summary>
         /// Create Checkout Session UCP
@@ -97,8 +97,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        ApiResponse<InlineResponse20113> UcpCreateCheckoutSessionWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>ApiResponse of UcpCheckoutSessionResponse</returns>
+        ApiResponse<UcpCheckoutSessionResponse> UcpCreateCheckoutSessionWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
         /// <summary>
         /// Get Checkout Session UCP
         /// </summary>
@@ -108,8 +108,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>InlineResponse20113</returns>
-        InlineResponse20113 UcpGetCheckoutSession(string sessionId, Object ucpGetCheckoutSessionRequest);
+        /// <returns>UcpCheckoutSessionResponse</returns>
+        UcpCheckoutSessionResponse UcpGetCheckoutSession(string sessionId, Object ucpGetCheckoutSessionRequest);
 
         /// <summary>
         /// Get Checkout Session UCP
@@ -120,8 +120,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        ApiResponse<InlineResponse20113> UcpGetCheckoutSessionWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest);
+        /// <returns>ApiResponse of UcpCheckoutSessionResponse</returns>
+        ApiResponse<UcpCheckoutSessionResponse> UcpGetCheckoutSessionWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest);
         /// <summary>
         /// Update Checkout Session UCP
         /// </summary>
@@ -132,8 +132,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        InlineResponse20113 UcpUpdateCheckoutSession(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>UcpCheckoutSessionResponse</returns>
+        UcpCheckoutSessionResponse UcpUpdateCheckoutSession(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
 
         /// <summary>
         /// Update Checkout Session UCP
@@ -145,8 +145,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        ApiResponse<InlineResponse20113> UcpUpdateCheckoutSessionWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>ApiResponse of UcpCheckoutSessionResponse</returns>
+        ApiResponse<UcpCheckoutSessionResponse> UcpUpdateCheckoutSessionWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -157,8 +157,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        System.Threading.Tasks.Task<InlineResponse20113> UcpCancelCheckoutAsync(string sessionId);
+        /// <returns>Task of UcpCheckoutSessionResponse</returns>
+        System.Threading.Tasks.Task<UcpCheckoutSessionResponse> UcpCancelCheckoutAsync(string sessionId);
 
         /// <summary>
         /// Cancel Checkout UCP
@@ -168,8 +168,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UcpCancelCheckoutAsyncWithHttpInfo(string sessionId);
+        /// <returns>Task of ApiResponse (UcpCheckoutSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UcpCheckoutSessionResponse>> UcpCancelCheckoutAsyncWithHttpInfo(string sessionId);
         /// <summary>
         /// Complete Checkout UCP
         /// </summary>
@@ -180,8 +180,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        System.Threading.Tasks.Task<InlineResponse20113> UcpCompleteCheckoutAsync(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
+        /// <returns>Task of UcpCheckoutSessionResponse</returns>
+        System.Threading.Tasks.Task<UcpCheckoutSessionResponse> UcpCompleteCheckoutAsync(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
 
         /// <summary>
         /// Complete Checkout UCP
@@ -193,8 +193,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UcpCompleteCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
+        /// <returns>Task of ApiResponse (UcpCheckoutSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UcpCheckoutSessionResponse>> UcpCompleteCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null);
         /// <summary>
         /// Create Checkout Session UCP
         /// </summary>
@@ -204,8 +204,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        System.Threading.Tasks.Task<InlineResponse20113> UcpCreateCheckoutSessionAsync(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>Task of UcpCheckoutSessionResponse</returns>
+        System.Threading.Tasks.Task<UcpCheckoutSessionResponse> UcpCreateCheckoutSessionAsync(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
 
         /// <summary>
         /// Create Checkout Session UCP
@@ -216,8 +216,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UcpCreateCheckoutSessionAsyncWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>Task of ApiResponse (UcpCheckoutSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UcpCheckoutSessionResponse>> UcpCreateCheckoutSessionAsyncWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null);
         /// <summary>
         /// Get Checkout Session UCP
         /// </summary>
@@ -227,8 +227,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        System.Threading.Tasks.Task<InlineResponse20113> UcpGetCheckoutSessionAsync(string sessionId, Object ucpGetCheckoutSessionRequest);
+        /// <returns>Task of UcpCheckoutSessionResponse</returns>
+        System.Threading.Tasks.Task<UcpCheckoutSessionResponse> UcpGetCheckoutSessionAsync(string sessionId, Object ucpGetCheckoutSessionRequest);
 
         /// <summary>
         /// Get Checkout Session UCP
@@ -239,8 +239,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UcpGetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest);
+        /// <returns>Task of ApiResponse (UcpCheckoutSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UcpCheckoutSessionResponse>> UcpGetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest);
         /// <summary>
         /// Update Checkout Session UCP
         /// </summary>
@@ -251,8 +251,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        System.Threading.Tasks.Task<InlineResponse20113> UcpUpdateCheckoutSessionAsync(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>Task of UcpCheckoutSessionResponse</returns>
+        System.Threading.Tasks.Task<UcpCheckoutSessionResponse> UcpUpdateCheckoutSessionAsync(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
 
         /// <summary>
         /// Update Checkout Session UCP
@@ -264,8 +264,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20113>> UcpUpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
+        /// <returns>Task of ApiResponse (UcpCheckoutSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UcpCheckoutSessionResponse>> UcpUpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null);
         #endregion Asynchronous Operations
     }
 
@@ -297,12 +297,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>InlineResponse20113</returns>
-        public InlineResponse20113 UcpCancelCheckout(string sessionId)
+        /// <returns>UcpCheckoutSessionResponse</returns>
+        public UcpCheckoutSessionResponse UcpCancelCheckout(string sessionId)
         {
             logger.LogDebug("CALLING API \"UcpCancelCheckout\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = UcpCancelCheckoutWithHttpInfo(sessionId);
+            ApiResponse<UcpCheckoutSessionResponse> localVarResponse = UcpCancelCheckoutWithHttpInfo(sessionId);
             logger.LogDebug("CALLING API \"UcpCancelCheckout\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -313,8 +313,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        public ApiResponse< InlineResponse20113 > UcpCancelCheckoutWithHttpInfo(string sessionId)
+        /// <returns>ApiResponse of UcpCheckoutSessionResponse</returns>
+        public ApiResponse< UcpCheckoutSessionResponse > UcpCancelCheckoutWithHttpInfo(string sessionId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -377,7 +377,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -406,9 +406,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+            return new ApiResponse<UcpCheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+                (UcpCheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(UcpCheckoutSessionResponse))); // Return statement
         }
 
         /// <summary>
@@ -416,12 +416,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        public async Task<InlineResponse20113> UcpCancelCheckoutAsync(string sessionId)
+        /// <returns>Task of UcpCheckoutSessionResponse</returns>
+        public async Task<UcpCheckoutSessionResponse> UcpCancelCheckoutAsync(string sessionId)
         {
             logger.LogDebug("CALLING API \"UcpCancelCheckoutAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = await UcpCancelCheckoutAsyncWithHttpInfo(sessionId);
+            ApiResponse<UcpCheckoutSessionResponse> localVarResponse = await UcpCancelCheckoutAsyncWithHttpInfo(sessionId);
             logger.LogDebug("CALLING API \"UcpCancelCheckoutAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -433,8 +433,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to cancel.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        public async Task<ApiResponse<InlineResponse20113>> UcpCancelCheckoutAsyncWithHttpInfo(string sessionId)
+        /// <returns>Task of ApiResponse (UcpCheckoutSessionResponse)</returns>
+        public async Task<ApiResponse<UcpCheckoutSessionResponse>> UcpCancelCheckoutAsyncWithHttpInfo(string sessionId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -496,7 +496,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -525,9 +525,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+            return new ApiResponse<UcpCheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+                (UcpCheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(UcpCheckoutSessionResponse))); // Return statement
         }
         /// <summary>
         /// Complete Checkout UCP **Final step of the UCP checkout flow.**  Finalizes the session and places the order with the merchant. ACG translates the UCP completion request to the merchant&#39;s checkout API.  On success, the session transitions to &#x60;completed&#x60;. An &#x60;order_id&#x60; is not returned in the UCP response — use the ACP Complete endpoint if you need order confirmation details.  **Always use an &#x60;idempotency-key&#x60;** to prevent duplicate orders on network retries. 
@@ -536,12 +536,12 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        public InlineResponse20113 UcpCompleteCheckout(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
+        /// <returns>UcpCheckoutSessionResponse</returns>
+        public UcpCheckoutSessionResponse UcpCompleteCheckout(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
         {
             logger.LogDebug("CALLING API \"UcpCompleteCheckout\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = UcpCompleteCheckoutWithHttpInfo(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
+            ApiResponse<UcpCheckoutSessionResponse> localVarResponse = UcpCompleteCheckoutWithHttpInfo(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
             logger.LogDebug("CALLING API \"UcpCompleteCheckout\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -554,8 +554,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        public ApiResponse< InlineResponse20113 > UcpCompleteCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
+        /// <returns>ApiResponse of UcpCheckoutSessionResponse</returns>
+        public ApiResponse< UcpCheckoutSessionResponse > UcpCompleteCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -618,7 +618,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -649,9 +649,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+            return new ApiResponse<UcpCheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+                (UcpCheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(UcpCheckoutSessionResponse))); // Return statement
         }
 
         /// <summary>
@@ -661,12 +661,12 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        public async Task<InlineResponse20113> UcpCompleteCheckoutAsync(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
+        /// <returns>Task of UcpCheckoutSessionResponse</returns>
+        public async Task<UcpCheckoutSessionResponse> UcpCompleteCheckoutAsync(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
         {
             logger.LogDebug("CALLING API \"UcpCompleteCheckoutAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = await UcpCompleteCheckoutAsyncWithHttpInfo(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
+            ApiResponse<UcpCheckoutSessionResponse> localVarResponse = await UcpCompleteCheckoutAsyncWithHttpInfo(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
             logger.LogDebug("CALLING API \"UcpCompleteCheckoutAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -680,8 +680,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to complete.</param>
         /// <param name="idempotencyKey">**Strongly recommended.** A unique key that ensures this order is placed exactly once on retries. Lowercase per UCP spec.  (optional)</param>
         /// <param name="ucpCompleteCheckoutRequest">UCP completion payload containing payment instrument and optional risk signals. If payment context was already provided in the Create or Update call, the body can be omitted. Risk signals are logged for fraud analysis and are not forwarded to the merchant.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        public async Task<ApiResponse<InlineResponse20113>> UcpCompleteCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
+        /// <returns>Task of ApiResponse (UcpCheckoutSessionResponse)</returns>
+        public async Task<ApiResponse<UcpCheckoutSessionResponse>> UcpCompleteCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -744,7 +744,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -775,9 +775,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+            return new ApiResponse<UcpCheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+                (UcpCheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(UcpCheckoutSessionResponse))); // Return statement
         }
         /// <summary>
         /// Create Checkout Session UCP **Step 1 of the UCP checkout flow.**  Creates a new UCP checkout session using Google&#39;s Universal Commerce Protocol format. ACG translates the UCP request into the internal ACP format, applies merchant pricing, and returns a UCP-format session response with a session &#x60;id&#x60;.  UCP uses &#x60;line_items&#x60; (instead of &#x60;items&#x60;) and lowercase header names (&#x60;idempotency-key&#x60;) per the UCP specification.  **Store the &#x60;id&#x60;** from the response — it is required for all subsequent UCP calls. 
@@ -785,12 +785,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        public InlineResponse20113 UcpCreateCheckoutSession(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>UcpCheckoutSessionResponse</returns>
+        public UcpCheckoutSessionResponse UcpCreateCheckoutSession(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
         {
             logger.LogDebug("CALLING API \"UcpCreateCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = UcpCreateCheckoutSessionWithHttpInfo(ucpCreateCheckoutSessionRequest, idempotencyKey);
+            ApiResponse<UcpCheckoutSessionResponse> localVarResponse = UcpCreateCheckoutSessionWithHttpInfo(ucpCreateCheckoutSessionRequest, idempotencyKey);
             logger.LogDebug("CALLING API \"UcpCreateCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -802,8 +802,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        public ApiResponse< InlineResponse20113 > UcpCreateCheckoutSessionWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>ApiResponse of UcpCheckoutSessionResponse</returns>
+        public ApiResponse< UcpCheckoutSessionResponse > UcpCreateCheckoutSessionWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -860,7 +860,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -891,9 +891,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+            return new ApiResponse<UcpCheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+                (UcpCheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(UcpCheckoutSessionResponse))); // Return statement
         }
 
         /// <summary>
@@ -902,12 +902,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        public async Task<InlineResponse20113> UcpCreateCheckoutSessionAsync(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>Task of UcpCheckoutSessionResponse</returns>
+        public async Task<UcpCheckoutSessionResponse> UcpCreateCheckoutSessionAsync(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
         {
             logger.LogDebug("CALLING API \"UcpCreateCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = await UcpCreateCheckoutSessionAsyncWithHttpInfo(ucpCreateCheckoutSessionRequest, idempotencyKey);
+            ApiResponse<UcpCheckoutSessionResponse> localVarResponse = await UcpCreateCheckoutSessionAsyncWithHttpInfo(ucpCreateCheckoutSessionRequest, idempotencyKey);
             logger.LogDebug("CALLING API \"UcpCreateCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -920,8 +920,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ucpCreateCheckoutSessionRequest">UCP checkout session creation payload containing line items, buyer details, currency, and optional payment, fulfillment, and discount information. </param>
         /// <param name="idempotencyKey">Client-generated unique key (UUID recommended) to ensure this request is processed exactly once. Lowercase per UCP specification.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        public async Task<ApiResponse<InlineResponse20113>> UcpCreateCheckoutSessionAsyncWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>Task of ApiResponse (UcpCheckoutSessionResponse)</returns>
+        public async Task<ApiResponse<UcpCheckoutSessionResponse>> UcpCreateCheckoutSessionAsyncWithHttpInfo(UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest, string idempotencyKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -978,7 +978,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1009,9 +1009,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+            return new ApiResponse<UcpCheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+                (UcpCheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(UcpCheckoutSessionResponse))); // Return statement
         }
         /// <summary>
         /// Get Checkout Session UCP Retrieves the current state of a UCP checkout session.  Use this to verify session status, retrieve updated totals after a fulfillment change, or resume a session after an interruption. 
@@ -1019,12 +1019,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>InlineResponse20113</returns>
-        public InlineResponse20113 UcpGetCheckoutSession(string sessionId, Object ucpGetCheckoutSessionRequest)
+        /// <returns>UcpCheckoutSessionResponse</returns>
+        public UcpCheckoutSessionResponse UcpGetCheckoutSession(string sessionId, Object ucpGetCheckoutSessionRequest)
         {
             logger.LogDebug("CALLING API \"UcpGetCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = UcpGetCheckoutSessionWithHttpInfo(sessionId, ucpGetCheckoutSessionRequest);
+            ApiResponse<UcpCheckoutSessionResponse> localVarResponse = UcpGetCheckoutSessionWithHttpInfo(sessionId, ucpGetCheckoutSessionRequest);
             logger.LogDebug("CALLING API \"UcpGetCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1036,8 +1036,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        public ApiResponse< InlineResponse20113 > UcpGetCheckoutSessionWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest)
+        /// <returns>ApiResponse of UcpCheckoutSessionResponse</returns>
+        public ApiResponse< UcpCheckoutSessionResponse > UcpGetCheckoutSessionWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1101,7 +1101,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1132,9 +1132,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+            return new ApiResponse<UcpCheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+                (UcpCheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(UcpCheckoutSessionResponse))); // Return statement
         }
 
         /// <summary>
@@ -1143,12 +1143,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        public async Task<InlineResponse20113> UcpGetCheckoutSessionAsync(string sessionId, Object ucpGetCheckoutSessionRequest)
+        /// <returns>Task of UcpCheckoutSessionResponse</returns>
+        public async Task<UcpCheckoutSessionResponse> UcpGetCheckoutSessionAsync(string sessionId, Object ucpGetCheckoutSessionRequest)
         {
             logger.LogDebug("CALLING API \"UcpGetCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = await UcpGetCheckoutSessionAsyncWithHttpInfo(sessionId, ucpGetCheckoutSessionRequest);
+            ApiResponse<UcpCheckoutSessionResponse> localVarResponse = await UcpGetCheckoutSessionAsyncWithHttpInfo(sessionId, ucpGetCheckoutSessionRequest);
             logger.LogDebug("CALLING API \"UcpGetCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1161,8 +1161,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId">The unique identifier of the UCP checkout session to retrieve. Obtained from the &#x60;id&#x60; field in the Create Session response. </param>
         /// <param name="ucpGetCheckoutSessionRequest">Empty request body.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        public async Task<ApiResponse<InlineResponse20113>> UcpGetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest)
+        /// <returns>Task of ApiResponse (UcpCheckoutSessionResponse)</returns>
+        public async Task<ApiResponse<UcpCheckoutSessionResponse>> UcpGetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object ucpGetCheckoutSessionRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1226,7 +1226,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1257,9 +1257,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+            return new ApiResponse<UcpCheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+                (UcpCheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(UcpCheckoutSessionResponse))); // Return statement
         }
         /// <summary>
         /// Update Checkout Session UCP Modifies an active UCP checkout session and returns the updated session state.  Use this to change line item quantities, update fulfillment address or method, or apply discount codes. Totals are recalculated and returned in the response.  Only the fields you include in the request body are updated. 
@@ -1268,12 +1268,12 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>InlineResponse20113</returns>
-        public InlineResponse20113 UcpUpdateCheckoutSession(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>UcpCheckoutSessionResponse</returns>
+        public UcpCheckoutSessionResponse UcpUpdateCheckoutSession(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
         {
             logger.LogDebug("CALLING API \"UcpUpdateCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = UcpUpdateCheckoutSessionWithHttpInfo(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
+            ApiResponse<UcpCheckoutSessionResponse> localVarResponse = UcpUpdateCheckoutSessionWithHttpInfo(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
             logger.LogDebug("CALLING API \"UcpUpdateCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1286,8 +1286,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20113</returns>
-        public ApiResponse< InlineResponse20113 > UcpUpdateCheckoutSessionWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>ApiResponse of UcpCheckoutSessionResponse</returns>
+        public ApiResponse< UcpCheckoutSessionResponse > UcpUpdateCheckoutSessionWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1356,7 +1356,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1387,9 +1387,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+            return new ApiResponse<UcpCheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+                (UcpCheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(UcpCheckoutSessionResponse))); // Return statement
         }
 
         /// <summary>
@@ -1399,12 +1399,12 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>Task of InlineResponse20113</returns>
-        public async Task<InlineResponse20113> UcpUpdateCheckoutSessionAsync(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>Task of UcpCheckoutSessionResponse</returns>
+        public async Task<UcpCheckoutSessionResponse> UcpUpdateCheckoutSessionAsync(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
         {
             logger.LogDebug("CALLING API \"UcpUpdateCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20113> localVarResponse = await UcpUpdateCheckoutSessionAsyncWithHttpInfo(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
+            ApiResponse<UcpCheckoutSessionResponse> localVarResponse = await UcpUpdateCheckoutSessionAsyncWithHttpInfo(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
             logger.LogDebug("CALLING API \"UcpUpdateCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1418,8 +1418,8 @@ namespace CyberSource.Api
         /// <param name="sessionId">The unique identifier of the UCP checkout session to update.</param>
         /// <param name="ucpUpdateCheckoutSessionRequest">UCP session update payload. All fields are optional — only fields you include will be applied. </param>
         /// <param name="idempotencyKey">Client-generated unique key for idempotency. Lowercase per UCP spec. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20113)</returns>
-        public async Task<ApiResponse<InlineResponse20113>> UcpUpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
+        /// <returns>Task of ApiResponse (UcpCheckoutSessionResponse)</returns>
+        public async Task<ApiResponse<UcpCheckoutSessionResponse>> UcpUpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest, string idempotencyKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1488,7 +1488,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1519,9 +1519,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20113>(localVarStatusCode,
+            return new ApiResponse<UcpCheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20113) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20113))); // Return statement
+                (UcpCheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(UcpCheckoutSessionResponse))); // Return statement
         }
     }
 }

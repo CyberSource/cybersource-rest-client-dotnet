@@ -74,7 +74,7 @@ No authorization required
 
 <a name="billingagreementsintimation"></a>
 # **BillingAgreementsIntimation**
-> PtsV2CreditsPost201Response1 BillingAgreementsIntimation (IntimateBillingAgreement intimateBillingAgreement, string id)
+> IntimateBillingAgreementResponse BillingAgreementsIntimation (IntimateBillingAgreement intimateBillingAgreement, string id)
 
 Standing Instruction intimation
 
@@ -101,7 +101,7 @@ namespace Example
             try
             {
                 // Standing Instruction intimation
-                PtsV2CreditsPost201Response1 result = apiInstance.BillingAgreementsIntimation(intimateBillingAgreement, id);
+                IntimateBillingAgreementResponse result = apiInstance.BillingAgreementsIntimation(intimateBillingAgreement, id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PtsV2CreditsPost201Response1**](PtsV2CreditsPost201Response1.md)
+[**IntimateBillingAgreementResponse**](IntimateBillingAgreementResponse.md)
 
 ### Authorization
 

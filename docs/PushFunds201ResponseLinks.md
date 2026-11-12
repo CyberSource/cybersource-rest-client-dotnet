@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Self** | [**PushFunds201ResponseLinksSelf**](PushFunds201ResponseLinksSelf.md) |  | [optional] 
-**Customer** | [**PushFunds201ResponseLinksCustomer**](PushFunds201ResponseLinksCustomer.md) |  | [optional] 
-**PaymentInstrument** | [**PushFunds201ResponseLinksPaymentInstrument**](PushFunds201ResponseLinksPaymentInstrument.md) |  | [optional] 
-**InstrumentIdentifier** | [**PushFunds201ResponseLinksInstrumentIdentifier**](PushFunds201ResponseLinksInstrumentIdentifier.md) |  | [optional] 
+**Self** | [**PtsV2PaymentsPost201ResponseLinksSelf1**](PtsV2PaymentsPost201ResponseLinksSelf1.md) |  | [optional] 
+**Customer** | [**PtsV2PaymentsPost201ResponseLinksSelf2**](PtsV2PaymentsPost201ResponseLinksSelf2.md) |  | [optional] 
+**PaymentInstrument** | [**PtsV2PaymentsPost201ResponseLinksSelf3**](PtsV2PaymentsPost201ResponseLinksSelf3.md) |  | [optional] 
+**InstrumentIdentifier** | [**PtsV2PaymentsPost201ResponseLinksSelf4**](PtsV2PaymentsPost201ResponseLinksSelf4.md) |  | [optional] 
 
 ## Extensibility
 

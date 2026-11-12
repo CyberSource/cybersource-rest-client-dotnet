@@ -41,7 +41,7 @@ namespace CyberSource.Model
         /// <param name="ShippingDiscountAmount">Shipping discount amount for the transaction.  .</param>
         /// <param name="TaxAmount">Total tax amount.  .</param>
         /// <param name="InsuranceAmount">Amount being charged for the insurance fee.  .</param>
-        /// <param name="DutyAmount">Amount being charged as duty amount.             .</param>
+        /// <param name="DutyAmount">Amount being charged as duty amount. .</param>
         public Ptsv2intentsOrderInformationAmountDetails(string TotalAmount = default(string), string Currency = default(string), string DiscountAmount = default(string), string ShippingAmount = default(string), string ShippingDiscountAmount = default(string), string TaxAmount = default(string), string InsuranceAmount = default(string), string DutyAmount = default(string))
         {
             this.TotalAmount = TotalAmount;
@@ -111,9 +111,9 @@ namespace CyberSource.Model
         public string InsuranceAmount { get; set; }
 
         /// <summary>
-        /// Amount being charged as duty amount.             
+        /// Amount being charged as duty amount. 
         /// </summary>
-        /// <value>Amount being charged as duty amount.             </value>
+        /// <value>Amount being charged as duty amount. </value>
         [JsonPropertyName("dutyAmount")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string DutyAmount { get; set; }

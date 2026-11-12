@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Enabled** | **bool?** |  | [optional] 
-**Currencies** | [**Dictionary&lt;string, CardProcessingConfigCommonCurrencies&gt;**](CardProcessingConfigCommonCurrencies.md) | Three-character [ISO 4217 ALPHA-3 Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf) | [optional] 
+**Currencies** | [**Dictionary&lt;string, CurrencyConfiguration&gt;**](CurrencyConfiguration.md) | Three-character [ISO 4217 ALPHA-3 Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf) | [optional] 
 
 ## Extensibility
 

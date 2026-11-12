@@ -216,6 +216,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Method'
         }
+        /// <summary>
+        /// Test the property 'CarrierName'
+        /// </summary>
+        [Test]
+        public void CarrierNameTest()
+        {
+            // TODO unit test for the property 'CarrierName'
+        }
 
     }
 

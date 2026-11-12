@@ -42,7 +42,7 @@ namespace CyberSource.Model
         /// <param name="ProtocolInteractions">List of protocol interaction configurations defining the merchant&#39;s endpoint for each supported protocol (ucp, acp, x402)..</param>
         /// <param name="WebIntegrations">WebIntegrations.</param>
         /// <param name="ApiIntegrations">ApiIntegrations.</param>
-        public MerchantUpdate(string MerchantName = default(string), string MerchantUrl = default(string), string CryptogramType = default(string), string PaymentPayloadType = default(string), List<string> AcceptanceRelationships = default(List<string>), List<Iccv1merchantsProtocolInteractions> ProtocolInteractions = default(List<Iccv1merchantsProtocolInteractions>), MerchantRegistrationResponse201WebIntegrations WebIntegrations = default(MerchantRegistrationResponse201WebIntegrations), MerchantRegistrationResponse201ApiIntegrations ApiIntegrations = default(MerchantRegistrationResponse201ApiIntegrations))
+        public MerchantUpdate(string MerchantName = default(string), string MerchantUrl = default(string), string CryptogramType = default(string), string PaymentPayloadType = default(string), List<string> AcceptanceRelationships = default(List<string>), List<Iccv1merchantsProtocolInteractions> ProtocolInteractions = default(List<Iccv1merchantsProtocolInteractions>), Iccv1merchantsWebIntegrations WebIntegrations = default(Iccv1merchantsWebIntegrations), Iccv1merchantsApiIntegrations ApiIntegrations = default(Iccv1merchantsApiIntegrations))
         {
             this.MerchantName = MerchantName;
             this.MerchantUrl = MerchantUrl;
@@ -107,14 +107,14 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("webIntegrations")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public MerchantRegistrationResponse201WebIntegrations WebIntegrations { get; set; }
+        public Iccv1merchantsWebIntegrations WebIntegrations { get; set; }
 
         /// <summary>
         /// Gets or Sets ApiIntegrations
         /// </summary>
         [JsonPropertyName("apiIntegrations")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public MerchantRegistrationResponse201ApiIntegrations ApiIntegrations { get; set; }
+        public Iccv1merchantsApiIntegrations ApiIntegrations { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

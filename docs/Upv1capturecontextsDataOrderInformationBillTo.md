@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **NameSuffix** | **string** | Customer&#39;s name suffix.  | [optional] 
 **Title** | **string** | Title.  | [optional] 
 **PhoneNumber** | **string** | Customer&#39;s phone number.  | [optional] 
-**PhoneType** | **string** | Customer&#39;s phone number type.  #### For Payouts: This field may be sent only for FDC Compass.  Possible Values: * day * home * night * work  | [optional] 
+**PhoneType** | **string** | Customer&#39;s phone number type.  Possible Values: * day * home * night * work  | [optional] 
 
 ## Extensibility
 

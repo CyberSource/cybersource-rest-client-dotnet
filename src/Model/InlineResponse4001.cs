@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// InlineResponse4001
+    /// Error Bean
     /// </summary>
     [DataContract]
     public partial class InlineResponse4001 :  ModelExtensions, IEquatable<InlineResponse4001>, IValidatableObject
@@ -39,55 +39,69 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4001" /> class.
         /// </summary>
-        /// <param name="CorrelationId">CorrelationId.</param>
-        /// <param name="Details">Details.</param>
-        /// <param name="InformationLink">InformationLink.</param>
-        /// <param name="Message">Message (required).</param>
-        /// <param name="Reason">Possible values: - INVALID_APIKEY - INVALID_SHIPPING_INPUT_PARAMS - CAPTURE_CONTEXT_INVALID - CAPTURE_CONTEXT_EXPIRED - SDK_XHR_ERROR - UNIFIEDPAYMENTS_VALIDATION_PARAMS - UNIFIEDPAYMENTS_VALIDATION_FIELDS - UNIFIEDPAYMENT_PAYMENT_PARAMITERS - CREATE_TOKEN_TIMEOUT - CREATE_TOKEN_XHR_ERROR - SHOW_LOAD_CONTAINER_SELECTOR - SHOW_LOAD_INVALID_CONTAINER - SHOW_TOKEN_TIMEOUT - SHOW_TOKEN_XHR_ERROR - SHOW_PAYMENT_TIMEOUT (required).</param>
-        public InlineResponse4001(string CorrelationId = default(string), List<InlineResponse4001Details> Details = default(List<InlineResponse4001Details>), string InformationLink = default(string), string Message = default(string), string Reason = default(string))
+        /// <param name="Code">Error code (required).</param>
+        /// <param name="Message">Error message (required).</param>
+        /// <param name="LocalizationKey">Localization Key Name.</param>
+        /// <param name="CorrelationId">Correlation Id.</param>
+        /// <param name="Detail">Error Detail.</param>
+        /// <param name="Fields">Error fields List.</param>
+        public InlineResponse4001(string Code = default(string), string Message = default(string), string LocalizationKey = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse4001Fields> Fields = default(List<InlineResponse4001Fields>))
         {
-            this.CorrelationId = CorrelationId;
-            this.Details = Details;
-            this.InformationLink = InformationLink;
+            this.Code = Code;
             this.Message = Message;
-            this.Reason = Reason;
+            this.LocalizationKey = LocalizationKey;
+            this.CorrelationId = CorrelationId;
+            this.Detail = Detail;
+            this.Fields = Fields;
         }
         
         /// <summary>
-        /// Gets or Sets CorrelationId
+        /// Error code
         /// </summary>
-        [JsonPropertyName("correlationId")]
+        /// <value>Error code</value>
+        [JsonPropertyName("code")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string CorrelationId { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Details
+        /// Error message
         /// </summary>
-        [JsonPropertyName("details")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse4001Details> Details { get; set; }
-
-        /// <summary>
-        /// Gets or Sets InformationLink
-        /// </summary>
-        [JsonPropertyName("informationLink")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string InformationLink { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Message
-        /// </summary>
+        /// <value>Error message</value>
         [JsonPropertyName("message")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Possible values: - INVALID_APIKEY - INVALID_SHIPPING_INPUT_PARAMS - CAPTURE_CONTEXT_INVALID - CAPTURE_CONTEXT_EXPIRED - SDK_XHR_ERROR - UNIFIEDPAYMENTS_VALIDATION_PARAMS - UNIFIEDPAYMENTS_VALIDATION_FIELDS - UNIFIEDPAYMENT_PAYMENT_PARAMITERS - CREATE_TOKEN_TIMEOUT - CREATE_TOKEN_XHR_ERROR - SHOW_LOAD_CONTAINER_SELECTOR - SHOW_LOAD_INVALID_CONTAINER - SHOW_TOKEN_TIMEOUT - SHOW_TOKEN_XHR_ERROR - SHOW_PAYMENT_TIMEOUT
+        /// Localization Key Name
         /// </summary>
-        /// <value>Possible values: - INVALID_APIKEY - INVALID_SHIPPING_INPUT_PARAMS - CAPTURE_CONTEXT_INVALID - CAPTURE_CONTEXT_EXPIRED - SDK_XHR_ERROR - UNIFIEDPAYMENTS_VALIDATION_PARAMS - UNIFIEDPAYMENTS_VALIDATION_FIELDS - UNIFIEDPAYMENT_PAYMENT_PARAMITERS - CREATE_TOKEN_TIMEOUT - CREATE_TOKEN_XHR_ERROR - SHOW_LOAD_CONTAINER_SELECTOR - SHOW_LOAD_INVALID_CONTAINER - SHOW_TOKEN_TIMEOUT - SHOW_TOKEN_XHR_ERROR - SHOW_PAYMENT_TIMEOUT</value>
-        [JsonPropertyName("reason")]
+        /// <value>Localization Key Name</value>
+        [JsonPropertyName("localizationKey")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Reason { get; set; }
+        public string LocalizationKey { get; set; }
+
+        /// <summary>
+        /// Correlation Id
+        /// </summary>
+        /// <value>Correlation Id</value>
+        [JsonPropertyName("correlationId")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string CorrelationId { get; set; }
+
+        /// <summary>
+        /// Error Detail
+        /// </summary>
+        /// <value>Error Detail</value>
+        [JsonPropertyName("detail")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Detail { get; set; }
+
+        /// <summary>
+        /// Error fields List
+        /// </summary>
+        /// <value>Error fields List</value>
+        [JsonPropertyName("fields")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<InlineResponse4001Fields> Fields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,11 +111,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4001 {\n");
-            if (CorrelationId != null) sb.Append("  CorrelationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4001", "correlationId", CorrelationId.ToString())).Append("\n");
-            if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4001", "details", Details.ToString())).Append("\n");
-            if (InformationLink != null) sb.Append("  InformationLink: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4001", "informationLink", InformationLink.ToString())).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4001", "code", Code.ToString())).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4001", "message", Message.ToString())).Append("\n");
-            if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4001", "reason", Reason.ToString())).Append("\n");
+            if (LocalizationKey != null) sb.Append("  LocalizationKey: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4001", "localizationKey", LocalizationKey.ToString())).Append("\n");
+            if (CorrelationId != null) sb.Append("  CorrelationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4001", "correlationId", CorrelationId.ToString())).Append("\n");
+            if (Detail != null) sb.Append("  Detail: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4001", "detail", Detail.ToString())).Append("\n");
+            if (Fields != null) sb.Append("  Fields: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4001", "fields", Fields.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -144,19 +159,9 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.CorrelationId == other.CorrelationId ||
-                    this.CorrelationId != null &&
-                    this.CorrelationId.Equals(other.CorrelationId)
-                ) && 
-                (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
-                ) && 
-                (
-                    this.InformationLink == other.InformationLink ||
-                    this.InformationLink != null &&
-                    this.InformationLink.Equals(other.InformationLink)
+                    this.Code == other.Code ||
+                    this.Code != null &&
+                    this.Code.Equals(other.Code)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -164,9 +169,24 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.LocalizationKey == other.LocalizationKey ||
+                    this.LocalizationKey != null &&
+                    this.LocalizationKey.Equals(other.LocalizationKey)
+                ) && 
+                (
+                    this.CorrelationId == other.CorrelationId ||
+                    this.CorrelationId != null &&
+                    this.CorrelationId.Equals(other.CorrelationId)
+                ) && 
+                (
+                    this.Detail == other.Detail ||
+                    this.Detail != null &&
+                    this.Detail.Equals(other.Detail)
+                ) && 
+                (
+                    this.Fields == other.Fields ||
+                    this.Fields != null &&
+                    this.Fields.SequenceEqual(other.Fields)
                 );
         }
 
@@ -183,16 +203,18 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.CorrelationId != null)
-                    hash = hash * 59 + this.CorrelationId.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
-                if (this.InformationLink != null)
-                    hash = hash * 59 + this.InformationLink.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
-                if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
+                if (this.LocalizationKey != null)
+                    hash = hash * 59 + this.LocalizationKey.GetHashCode();
+                if (this.CorrelationId != null)
+                    hash = hash * 59 + this.CorrelationId.GetHashCode();
+                if (this.Detail != null)
+                    hash = hash * 59 + this.Detail.GetHashCode();
+                if (this.Fields != null)
+                    hash = hash * 59 + this.Fields.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="createoffer"></a>
 # **CreateOffer**
-> InlineResponse20111 CreateOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
+> CreateOfferResponse CreateOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, OfferRequest offerRequest)
 
 Create an Offer
 
@@ -41,7 +41,7 @@ namespace Example
             try
             {
                 // Create an Offer
-                InlineResponse20111 result = apiInstance.CreateOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
+                CreateOfferResponse result = apiInstance.CreateOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20111**](InlineResponse20111.md)
+[**CreateOfferResponse**](CreateOfferResponse.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ No authorization required
 
 <a name="getoffer"></a>
 # **GetOffer**
-> InlineResponse20016 GetOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, string id)
+> GetOfferResponse GetOffer (string contentType, string xRequestid, string vCMerchantId, string vCCorrelationId, string vCOrganizationId, string id)
 
 Retrieve an Offer
 
@@ -112,7 +112,7 @@ namespace Example
             try
             {
                 // Retrieve an Offer
-                InlineResponse20016 result = apiInstance.GetOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
+                GetOfferResponse result = apiInstance.GetOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**GetOfferResponse**](GetOfferResponse.md)
 
 ### Authorization
 

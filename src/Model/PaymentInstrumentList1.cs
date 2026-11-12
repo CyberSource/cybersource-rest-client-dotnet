@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Links">Links.</param>
         /// <param name="Embedded">Embedded.</param>
-        public PaymentInstrumentList1(PaymentInstrumentListLinks Links = default(PaymentInstrumentListLinks), PaymentInstrumentList1Embedded Embedded = default(PaymentInstrumentList1Embedded))
+        public PaymentInstrumentList1(InstrumentIdentifierPaymentInstrumentListLinks Links = default(InstrumentIdentifierPaymentInstrumentListLinks), InstrumentIdentifierPaymentInstrumentListEmbedded1 Embedded = default(InstrumentIdentifierPaymentInstrumentListEmbedded1))
         {
             this.Links = Links;
             this.Embedded = Embedded;
@@ -47,7 +47,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("_links")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PaymentInstrumentListLinks Links { get; set; }
+        public InstrumentIdentifierPaymentInstrumentListLinks Links { get; set; }
 
         /// <summary>
         /// The offset parameter supplied in the request.
@@ -90,7 +90,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("_embedded")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PaymentInstrumentList1Embedded Embedded { get; set; }
+        public InstrumentIdentifierPaymentInstrumentListEmbedded1 Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

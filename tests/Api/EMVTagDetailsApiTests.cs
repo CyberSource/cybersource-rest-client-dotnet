@@ -82,8 +82,8 @@ namespace CyberSource.Test
         public void ParseEmvTagsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Body2 body = null;
-            //var response = instance.ParseEmvTags(body);
+            //ParseEmvTagsRequest parseEmvTagsRequest = null;
+            //var response = instance.ParseEmvTags(parseEmvTagsRequest);
             //Assert.IsInstanceOf<TssV2PostEmvTags200Response> (response, "response is TssV2PostEmvTags200Response");
         }
         

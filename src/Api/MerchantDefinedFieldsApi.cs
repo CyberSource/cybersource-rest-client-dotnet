@@ -39,8 +39,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
         /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        List<InlineResponse2004> CreateMerchantDefinedFieldDefinition(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest);
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        List<MerchantDefinedFieldWithIdResponse> CreateMerchantDefinedFieldDefinition(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest);
 
         /// <summary>
         /// Create merchant defined field for a given reference type
@@ -51,8 +51,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
         /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        ApiResponse<List<InlineResponse2004>> CreateMerchantDefinedFieldDefinitionWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest);
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        ApiResponse<List<MerchantDefinedFieldWithIdResponse>> CreateMerchantDefinedFieldDefinitionWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest);
         /// <summary>
         /// Create a PayByLink merchant defined field for a given reference type
         /// </summary>
@@ -61,9 +61,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which the merchant defined field is to be created. Available values are Purchase and Donation</param>
-        /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        List<InlineResponse2004> CreatePblMerchantDefinedFieldDefinition(string referenceType, MerchantDefinedFieldDefinitionRequest1 merchantDefinedFieldDefinitionRequest);
+        /// <param name="pblMerchantDefinedFieldDefinitionRequest"></param>
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        List<MerchantDefinedFieldWithIdResponse> CreatePblMerchantDefinedFieldDefinition(string referenceType, PblMerchantDefinedFieldDefinitionRequest pblMerchantDefinedFieldDefinitionRequest);
 
         /// <summary>
         /// Create a PayByLink merchant defined field for a given reference type
@@ -73,9 +73,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which the merchant defined field is to be created. Available values are Purchase and Donation</param>
-        /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        ApiResponse<List<InlineResponse2004>> CreatePblMerchantDefinedFieldDefinitionWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest1 merchantDefinedFieldDefinitionRequest);
+        /// <param name="pblMerchantDefinedFieldDefinitionRequest"></param>
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        ApiResponse<List<MerchantDefinedFieldWithIdResponse>> CreatePblMerchantDefinedFieldDefinitionWithHttpInfo(string referenceType, PblMerchantDefinedFieldDefinitionRequest pblMerchantDefinedFieldDefinitionRequest);
         /// <summary>
         /// Delete a MerchantDefinedField by ID
         /// </summary>
@@ -130,8 +130,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        List<InlineResponse2004> GetMerchantDefinedFieldsDefinitions(string referenceType);
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        List<MerchantDefinedFieldWithIdResponse> GetMerchantDefinedFieldsDefinitions(string referenceType);
 
         /// <summary>
         /// Get all merchant defined fields for a given reference type
@@ -141,8 +141,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        ApiResponse<List<InlineResponse2004>> GetMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType);
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        ApiResponse<List<MerchantDefinedFieldWithIdResponse>> GetMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType);
         /// <summary>
         /// Get all PayByLink merchant defined fields for a given reference type
         /// </summary>
@@ -151,8 +151,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Purchase, Donation and PayByLink. PayByLink returns the merchant defined fields for both Purchase and Donation combined.</param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        List<InlineResponse2004> GetPblMerchantDefinedFieldsDefinitions(string referenceType);
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        List<MerchantDefinedFieldWithIdResponse> GetPblMerchantDefinedFieldsDefinitions(string referenceType);
 
         /// <summary>
         /// Get all PayByLink merchant defined fields for a given reference type
@@ -162,8 +162,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Purchase, Donation and PayByLink. PayByLink returns the merchant defined fields for both Purchase and Donation combined.</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        ApiResponse<List<InlineResponse2004>> GetPblMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType);
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        ApiResponse<List<MerchantDefinedFieldWithIdResponse>> GetPblMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType);
         /// <summary>
         /// Update a MerchantDefinedField by ID
         /// </summary>
@@ -173,9 +173,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        List<InlineResponse2004> PutMerchantDefinedFieldsDefinitions(string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore);
+        /// <param name="updateMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        List<MerchantDefinedFieldWithIdResponse> PutMerchantDefinedFieldsDefinitions(string referenceType, long? id, UpdateMerchantDefinedFieldCoreByIdRequest updateMerchantDefinedFieldCoreByIdRequest);
 
         /// <summary>
         /// Update a MerchantDefinedField by ID
@@ -186,9 +186,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        ApiResponse<List<InlineResponse2004>> PutMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore);
+        /// <param name="updateMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        ApiResponse<List<MerchantDefinedFieldWithIdResponse>> PutMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType, long? id, UpdateMerchantDefinedFieldCoreByIdRequest updateMerchantDefinedFieldCoreByIdRequest);
         /// <summary>
         /// Update a PayByLink MerchantDefinedField by ID
         /// </summary>
@@ -198,9 +198,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        List<InlineResponse2004> PutPblMerchantDefinedFieldsDefinitions(string referenceType, long? id, MerchantDefinedFieldCore1 merchantDefinedFieldCore);
+        /// <param name="updatePblMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        List<MerchantDefinedFieldWithIdResponse> PutPblMerchantDefinedFieldsDefinitions(string referenceType, long? id, UpdatePblMerchantDefinedFieldCoreByIdRequest updatePblMerchantDefinedFieldCoreByIdRequest);
 
         /// <summary>
         /// Update a PayByLink MerchantDefinedField by ID
@@ -211,9 +211,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        ApiResponse<List<InlineResponse2004>> PutPblMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType, long? id, MerchantDefinedFieldCore1 merchantDefinedFieldCore);
+        /// <param name="updatePblMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        ApiResponse<List<MerchantDefinedFieldWithIdResponse>> PutPblMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType, long? id, UpdatePblMerchantDefinedFieldCoreByIdRequest updatePblMerchantDefinedFieldCoreByIdRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -225,8 +225,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
         /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2004>> CreateMerchantDefinedFieldDefinitionAsync(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest);
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        System.Threading.Tasks.Task<List<MerchantDefinedFieldWithIdResponse>> CreateMerchantDefinedFieldDefinitionAsync(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest);
 
         /// <summary>
         /// Create merchant defined field for a given reference type
@@ -237,8 +237,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
         /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> CreateMerchantDefinedFieldDefinitionAsyncWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest);
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> CreateMerchantDefinedFieldDefinitionAsyncWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest);
         /// <summary>
         /// Create a PayByLink merchant defined field for a given reference type
         /// </summary>
@@ -247,9 +247,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which the merchant defined field is to be created. Available values are Purchase and Donation</param>
-        /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2004>> CreatePblMerchantDefinedFieldDefinitionAsync(string referenceType, MerchantDefinedFieldDefinitionRequest1 merchantDefinedFieldDefinitionRequest);
+        /// <param name="pblMerchantDefinedFieldDefinitionRequest"></param>
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        System.Threading.Tasks.Task<List<MerchantDefinedFieldWithIdResponse>> CreatePblMerchantDefinedFieldDefinitionAsync(string referenceType, PblMerchantDefinedFieldDefinitionRequest pblMerchantDefinedFieldDefinitionRequest);
 
         /// <summary>
         /// Create a PayByLink merchant defined field for a given reference type
@@ -259,9 +259,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which the merchant defined field is to be created. Available values are Purchase and Donation</param>
-        /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> CreatePblMerchantDefinedFieldDefinitionAsyncWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest1 merchantDefinedFieldDefinitionRequest);
+        /// <param name="pblMerchantDefinedFieldDefinitionRequest"></param>
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> CreatePblMerchantDefinedFieldDefinitionAsyncWithHttpInfo(string referenceType, PblMerchantDefinedFieldDefinitionRequest pblMerchantDefinedFieldDefinitionRequest);
         /// <summary>
         /// Delete a MerchantDefinedField by ID
         /// </summary>
@@ -316,8 +316,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2004>> GetMerchantDefinedFieldsDefinitionsAsync(string referenceType);
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        System.Threading.Tasks.Task<List<MerchantDefinedFieldWithIdResponse>> GetMerchantDefinedFieldsDefinitionsAsync(string referenceType);
 
         /// <summary>
         /// Get all merchant defined fields for a given reference type
@@ -327,8 +327,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> GetMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType);
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> GetMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType);
         /// <summary>
         /// Get all PayByLink merchant defined fields for a given reference type
         /// </summary>
@@ -337,8 +337,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Purchase, Donation and PayByLink. PayByLink returns the merchant defined fields for both Purchase and Donation combined.</param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2004>> GetPblMerchantDefinedFieldsDefinitionsAsync(string referenceType);
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        System.Threading.Tasks.Task<List<MerchantDefinedFieldWithIdResponse>> GetPblMerchantDefinedFieldsDefinitionsAsync(string referenceType);
 
         /// <summary>
         /// Get all PayByLink merchant defined fields for a given reference type
@@ -348,8 +348,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Purchase, Donation and PayByLink. PayByLink returns the merchant defined fields for both Purchase and Donation combined.</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> GetPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType);
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> GetPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType);
         /// <summary>
         /// Update a MerchantDefinedField by ID
         /// </summary>
@@ -359,9 +359,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2004>> PutMerchantDefinedFieldsDefinitionsAsync(string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore);
+        /// <param name="updateMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        System.Threading.Tasks.Task<List<MerchantDefinedFieldWithIdResponse>> PutMerchantDefinedFieldsDefinitionsAsync(string referenceType, long? id, UpdateMerchantDefinedFieldCoreByIdRequest updateMerchantDefinedFieldCoreByIdRequest);
 
         /// <summary>
         /// Update a MerchantDefinedField by ID
@@ -372,9 +372,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> PutMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore);
+        /// <param name="updateMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> PutMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType, long? id, UpdateMerchantDefinedFieldCoreByIdRequest updateMerchantDefinedFieldCoreByIdRequest);
         /// <summary>
         /// Update a PayByLink MerchantDefinedField by ID
         /// </summary>
@@ -384,9 +384,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2004>> PutPblMerchantDefinedFieldsDefinitionsAsync(string referenceType, long? id, MerchantDefinedFieldCore1 merchantDefinedFieldCore);
+        /// <param name="updatePblMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        System.Threading.Tasks.Task<List<MerchantDefinedFieldWithIdResponse>> PutPblMerchantDefinedFieldsDefinitionsAsync(string referenceType, long? id, UpdatePblMerchantDefinedFieldCoreByIdRequest updatePblMerchantDefinedFieldCoreByIdRequest);
 
         /// <summary>
         /// Update a PayByLink MerchantDefinedField by ID
@@ -397,9 +397,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2004>>> PutPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType, long? id, MerchantDefinedFieldCore1 merchantDefinedFieldCore);
+        /// <param name="updatePblMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> PutPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType, long? id, UpdatePblMerchantDefinedFieldCoreByIdRequest updatePblMerchantDefinedFieldCoreByIdRequest);
         #endregion Asynchronous Operations
     }
 
@@ -432,12 +432,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
         /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        public List<InlineResponse2004> CreateMerchantDefinedFieldDefinition(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public List<MerchantDefinedFieldWithIdResponse> CreateMerchantDefinedFieldDefinition(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
         {
             logger.LogDebug("CALLING API \"CreateMerchantDefinedFieldDefinition\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = CreateMerchantDefinedFieldDefinitionWithHttpInfo(referenceType, merchantDefinedFieldDefinitionRequest);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = CreateMerchantDefinedFieldDefinitionWithHttpInfo(referenceType, merchantDefinedFieldDefinitionRequest);
             logger.LogDebug("CALLING API \"CreateMerchantDefinedFieldDefinition\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -449,8 +449,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
         /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        public ApiResponse< List<InlineResponse2004> > CreateMerchantDefinedFieldDefinitionWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public ApiResponse< List<MerchantDefinedFieldWithIdResponse> > CreateMerchantDefinedFieldDefinitionWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -514,7 +514,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -545,9 +545,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
 
         /// <summary>
@@ -556,12 +556,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
         /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        public async Task<List<InlineResponse2004>> CreateMerchantDefinedFieldDefinitionAsync(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public async Task<List<MerchantDefinedFieldWithIdResponse>> CreateMerchantDefinedFieldDefinitionAsync(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
         {
             logger.LogDebug("CALLING API \"CreateMerchantDefinedFieldDefinitionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = await CreateMerchantDefinedFieldDefinitionAsyncWithHttpInfo(referenceType, merchantDefinedFieldDefinitionRequest);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = await CreateMerchantDefinedFieldDefinitionAsyncWithHttpInfo(referenceType, merchantDefinedFieldDefinitionRequest);
             logger.LogDebug("CALLING API \"CreateMerchantDefinedFieldDefinitionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -574,8 +574,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
         /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        public async Task<ApiResponse<List<InlineResponse2004>>> CreateMerchantDefinedFieldDefinitionAsyncWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        public async Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> CreateMerchantDefinedFieldDefinitionAsyncWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -639,7 +639,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -670,22 +670,22 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
         /// <summary>
         /// Create a PayByLink merchant defined field for a given reference type Creates a merchant defined field for the given reference type (&#x60;Purchase&#x60; or &#x60;Donation&#x60;). The field type is independent of the reference type: both &#x60;Purchase&#x60; and &#x60;Donation&#x60; support both &#x60;Text&#x60; and &#x60;Select&#x60; fields. Set &#x60;fieldType&#x60; to &#x60;Text&#x60; or &#x60;Select&#x60; accordingly. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which the merchant defined field is to be created. Available values are Purchase and Donation</param>
-        /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        public List<InlineResponse2004> CreatePblMerchantDefinedFieldDefinition(string referenceType, MerchantDefinedFieldDefinitionRequest1 merchantDefinedFieldDefinitionRequest)
+        /// <param name="pblMerchantDefinedFieldDefinitionRequest"></param>
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public List<MerchantDefinedFieldWithIdResponse> CreatePblMerchantDefinedFieldDefinition(string referenceType, PblMerchantDefinedFieldDefinitionRequest pblMerchantDefinedFieldDefinitionRequest)
         {
             logger.LogDebug("CALLING API \"CreatePblMerchantDefinedFieldDefinition\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = CreatePblMerchantDefinedFieldDefinitionWithHttpInfo(referenceType, merchantDefinedFieldDefinitionRequest);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = CreatePblMerchantDefinedFieldDefinitionWithHttpInfo(referenceType, pblMerchantDefinedFieldDefinitionRequest);
             logger.LogDebug("CALLING API \"CreatePblMerchantDefinedFieldDefinition\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -696,9 +696,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which the merchant defined field is to be created. Available values are Purchase and Donation</param>
-        /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        public ApiResponse< List<InlineResponse2004> > CreatePblMerchantDefinedFieldDefinitionWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest1 merchantDefinedFieldDefinitionRequest)
+        /// <param name="pblMerchantDefinedFieldDefinitionRequest"></param>
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public ApiResponse< List<MerchantDefinedFieldWithIdResponse> > CreatePblMerchantDefinedFieldDefinitionWithHttpInfo(string referenceType, PblMerchantDefinedFieldDefinitionRequest pblMerchantDefinedFieldDefinitionRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -708,11 +708,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'referenceType' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
                 throw new ApiException(400, "Missing required parameter 'referenceType' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
             }
-            // verify the required parameter 'merchantDefinedFieldDefinitionRequest' is set
-            if (merchantDefinedFieldDefinitionRequest == null)
+            // verify the required parameter 'pblMerchantDefinedFieldDefinitionRequest' is set
+            if (pblMerchantDefinedFieldDefinitionRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'merchantDefinedFieldDefinitionRequest' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
-                throw new ApiException(400, "Missing required parameter 'merchantDefinedFieldDefinitionRequest' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
+                logger.LogError("ApiException : Missing required parameter 'pblMerchantDefinedFieldDefinitionRequest' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
+                throw new ApiException(400, "Missing required parameter 'pblMerchantDefinedFieldDefinitionRequest' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
             }
 
             var localVarPath = $"/ipl/v2/{referenceType}/merchantDefinedFields";
@@ -745,15 +745,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (merchantDefinedFieldDefinitionRequest != null && merchantDefinedFieldDefinitionRequest.GetType() != typeof(byte[]))
+            if (pblMerchantDefinedFieldDefinitionRequest != null && pblMerchantDefinedFieldDefinitionRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                merchantDefinedFieldDefinitionRequest = (MerchantDefinedFieldDefinitionRequest1)sdkTracker.InsertDeveloperIdTracker(merchantDefinedFieldDefinitionRequest, merchantDefinedFieldDefinitionRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(merchantDefinedFieldDefinitionRequest); // http body (model) parameter
+                pblMerchantDefinedFieldDefinitionRequest = (PblMerchantDefinedFieldDefinitionRequest)sdkTracker.InsertDeveloperIdTracker(pblMerchantDefinedFieldDefinitionRequest, pblMerchantDefinedFieldDefinitionRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(pblMerchantDefinedFieldDefinitionRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = merchantDefinedFieldDefinitionRequest; // byte array
+                localVarPostBody = pblMerchantDefinedFieldDefinitionRequest; // byte array
             }
 
 
@@ -762,7 +762,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -793,9 +793,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
 
         /// <summary>
@@ -803,13 +803,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which the merchant defined field is to be created. Available values are Purchase and Donation</param>
-        /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        public async Task<List<InlineResponse2004>> CreatePblMerchantDefinedFieldDefinitionAsync(string referenceType, MerchantDefinedFieldDefinitionRequest1 merchantDefinedFieldDefinitionRequest)
+        /// <param name="pblMerchantDefinedFieldDefinitionRequest"></param>
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public async Task<List<MerchantDefinedFieldWithIdResponse>> CreatePblMerchantDefinedFieldDefinitionAsync(string referenceType, PblMerchantDefinedFieldDefinitionRequest pblMerchantDefinedFieldDefinitionRequest)
         {
             logger.LogDebug("CALLING API \"CreatePblMerchantDefinedFieldDefinitionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = await CreatePblMerchantDefinedFieldDefinitionAsyncWithHttpInfo(referenceType, merchantDefinedFieldDefinitionRequest);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = await CreatePblMerchantDefinedFieldDefinitionAsyncWithHttpInfo(referenceType, pblMerchantDefinedFieldDefinitionRequest);
             logger.LogDebug("CALLING API \"CreatePblMerchantDefinedFieldDefinitionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -821,9 +821,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which the merchant defined field is to be created. Available values are Purchase and Donation</param>
-        /// <param name="merchantDefinedFieldDefinitionRequest"></param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        public async Task<ApiResponse<List<InlineResponse2004>>> CreatePblMerchantDefinedFieldDefinitionAsyncWithHttpInfo(string referenceType, MerchantDefinedFieldDefinitionRequest1 merchantDefinedFieldDefinitionRequest)
+        /// <param name="pblMerchantDefinedFieldDefinitionRequest"></param>
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        public async Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> CreatePblMerchantDefinedFieldDefinitionAsyncWithHttpInfo(string referenceType, PblMerchantDefinedFieldDefinitionRequest pblMerchantDefinedFieldDefinitionRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -833,11 +833,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'referenceType' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
                 throw new ApiException(400, "Missing required parameter 'referenceType' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
             }
-            // verify the required parameter 'merchantDefinedFieldDefinitionRequest' is set
-            if (merchantDefinedFieldDefinitionRequest == null)
+            // verify the required parameter 'pblMerchantDefinedFieldDefinitionRequest' is set
+            if (pblMerchantDefinedFieldDefinitionRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'merchantDefinedFieldDefinitionRequest' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
-                throw new ApiException(400, "Missing required parameter 'merchantDefinedFieldDefinitionRequest' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
+                logger.LogError("ApiException : Missing required parameter 'pblMerchantDefinedFieldDefinitionRequest' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
+                throw new ApiException(400, "Missing required parameter 'pblMerchantDefinedFieldDefinitionRequest' when calling MerchantDefinedFieldsApi->CreatePblMerchantDefinedFieldDefinition");
             }
 
             var localVarPath = $"/ipl/v2/{referenceType}/merchantDefinedFields";
@@ -870,15 +870,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (merchantDefinedFieldDefinitionRequest != null && merchantDefinedFieldDefinitionRequest.GetType() != typeof(byte[]))
+            if (pblMerchantDefinedFieldDefinitionRequest != null && pblMerchantDefinedFieldDefinitionRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                merchantDefinedFieldDefinitionRequest = (MerchantDefinedFieldDefinitionRequest1)sdkTracker.InsertDeveloperIdTracker(merchantDefinedFieldDefinitionRequest, merchantDefinedFieldDefinitionRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(merchantDefinedFieldDefinitionRequest); // http body (model) parameter
+                pblMerchantDefinedFieldDefinitionRequest = (PblMerchantDefinedFieldDefinitionRequest)sdkTracker.InsertDeveloperIdTracker(pblMerchantDefinedFieldDefinitionRequest, pblMerchantDefinedFieldDefinitionRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(pblMerchantDefinedFieldDefinitionRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = merchantDefinedFieldDefinitionRequest; // byte array
+                localVarPostBody = pblMerchantDefinedFieldDefinitionRequest; // byte array
             }
 
 
@@ -887,7 +887,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -918,9 +918,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
         /// <summary>
         /// Delete a MerchantDefinedField by ID 
@@ -1018,7 +1018,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1149,7 +1149,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1279,7 +1279,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1410,7 +1410,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1449,12 +1449,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        public List<InlineResponse2004> GetMerchantDefinedFieldsDefinitions(string referenceType)
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public List<MerchantDefinedFieldWithIdResponse> GetMerchantDefinedFieldsDefinitions(string referenceType)
         {
             logger.LogDebug("CALLING API \"GetMerchantDefinedFieldsDefinitions\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = GetMerchantDefinedFieldsDefinitionsWithHttpInfo(referenceType);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = GetMerchantDefinedFieldsDefinitionsWithHttpInfo(referenceType);
             logger.LogDebug("CALLING API \"GetMerchantDefinedFieldsDefinitions\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1465,8 +1465,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        public ApiResponse< List<InlineResponse2004> > GetMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType)
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public ApiResponse< List<MerchantDefinedFieldWithIdResponse> > GetMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1529,7 +1529,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1558,9 +1558,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
 
         /// <summary>
@@ -1568,12 +1568,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        public async Task<List<InlineResponse2004>> GetMerchantDefinedFieldsDefinitionsAsync(string referenceType)
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public async Task<List<MerchantDefinedFieldWithIdResponse>> GetMerchantDefinedFieldsDefinitionsAsync(string referenceType)
         {
             logger.LogDebug("CALLING API \"GetMerchantDefinedFieldsDefinitionsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = await GetMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(referenceType);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = await GetMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(referenceType);
             logger.LogDebug("CALLING API \"GetMerchantDefinedFieldsDefinitionsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1585,8 +1585,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Invoice, Purchase, Donation</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        public async Task<ApiResponse<List<InlineResponse2004>>> GetMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType)
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        public async Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> GetMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1648,7 +1648,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1677,21 +1677,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
         /// <summary>
         /// Get all PayByLink merchant defined fields for a given reference type 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Purchase, Donation and PayByLink. PayByLink returns the merchant defined fields for both Purchase and Donation combined.</param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        public List<InlineResponse2004> GetPblMerchantDefinedFieldsDefinitions(string referenceType)
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public List<MerchantDefinedFieldWithIdResponse> GetPblMerchantDefinedFieldsDefinitions(string referenceType)
         {
             logger.LogDebug("CALLING API \"GetPblMerchantDefinedFieldsDefinitions\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = GetPblMerchantDefinedFieldsDefinitionsWithHttpInfo(referenceType);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = GetPblMerchantDefinedFieldsDefinitionsWithHttpInfo(referenceType);
             logger.LogDebug("CALLING API \"GetPblMerchantDefinedFieldsDefinitions\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1702,8 +1702,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Purchase, Donation and PayByLink. PayByLink returns the merchant defined fields for both Purchase and Donation combined.</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        public ApiResponse< List<InlineResponse2004> > GetPblMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType)
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public ApiResponse< List<MerchantDefinedFieldWithIdResponse> > GetPblMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1766,7 +1766,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1795,9 +1795,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
 
         /// <summary>
@@ -1805,12 +1805,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Purchase, Donation and PayByLink. PayByLink returns the merchant defined fields for both Purchase and Donation combined.</param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        public async Task<List<InlineResponse2004>> GetPblMerchantDefinedFieldsDefinitionsAsync(string referenceType)
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public async Task<List<MerchantDefinedFieldWithIdResponse>> GetPblMerchantDefinedFieldsDefinitionsAsync(string referenceType)
         {
             logger.LogDebug("CALLING API \"GetPblMerchantDefinedFieldsDefinitionsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = await GetPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(referenceType);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = await GetPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(referenceType);
             logger.LogDebug("CALLING API \"GetPblMerchantDefinedFieldsDefinitionsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1822,8 +1822,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType">The reference type for which merchant defined fields are to be fetched. Available values are Purchase, Donation and PayByLink. PayByLink returns the merchant defined fields for both Purchase and Donation combined.</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        public async Task<ApiResponse<List<InlineResponse2004>>> GetPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType)
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        public async Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> GetPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1885,7 +1885,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1914,9 +1914,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
         /// <summary>
         /// Update a MerchantDefinedField by ID 
@@ -1924,13 +1924,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        public List<InlineResponse2004> PutMerchantDefinedFieldsDefinitions(string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore)
+        /// <param name="updateMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public List<MerchantDefinedFieldWithIdResponse> PutMerchantDefinedFieldsDefinitions(string referenceType, long? id, UpdateMerchantDefinedFieldCoreByIdRequest updateMerchantDefinedFieldCoreByIdRequest)
         {
             logger.LogDebug("CALLING API \"PutMerchantDefinedFieldsDefinitions\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = PutMerchantDefinedFieldsDefinitionsWithHttpInfo(referenceType, id, merchantDefinedFieldCore);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = PutMerchantDefinedFieldsDefinitionsWithHttpInfo(referenceType, id, updateMerchantDefinedFieldCoreByIdRequest);
             logger.LogDebug("CALLING API \"PutMerchantDefinedFieldsDefinitions\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1942,9 +1942,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        public ApiResponse< List<InlineResponse2004> > PutMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore)
+        /// <param name="updateMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public ApiResponse< List<MerchantDefinedFieldWithIdResponse> > PutMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType, long? id, UpdateMerchantDefinedFieldCoreByIdRequest updateMerchantDefinedFieldCoreByIdRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1960,11 +1960,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'id' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
                 throw new ApiException(400, "Missing required parameter 'id' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
             }
-            // verify the required parameter 'merchantDefinedFieldCore' is set
-            if (merchantDefinedFieldCore == null)
+            // verify the required parameter 'updateMerchantDefinedFieldCoreByIdRequest' is set
+            if (updateMerchantDefinedFieldCoreByIdRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'merchantDefinedFieldCore' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
-                throw new ApiException(400, "Missing required parameter 'merchantDefinedFieldCore' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
+                logger.LogError("ApiException : Missing required parameter 'updateMerchantDefinedFieldCoreByIdRequest' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
+                throw new ApiException(400, "Missing required parameter 'updateMerchantDefinedFieldCoreByIdRequest' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
             }
 
             var localVarPath = $"/invoicing/v2/{referenceType}/merchantDefinedFields/{id}";
@@ -2003,15 +2003,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (merchantDefinedFieldCore != null && merchantDefinedFieldCore.GetType() != typeof(byte[]))
+            if (updateMerchantDefinedFieldCoreByIdRequest != null && updateMerchantDefinedFieldCoreByIdRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                merchantDefinedFieldCore = (MerchantDefinedFieldCore)sdkTracker.InsertDeveloperIdTracker(merchantDefinedFieldCore, merchantDefinedFieldCore.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(merchantDefinedFieldCore); // http body (model) parameter
+                updateMerchantDefinedFieldCoreByIdRequest = (UpdateMerchantDefinedFieldCoreByIdRequest)sdkTracker.InsertDeveloperIdTracker(updateMerchantDefinedFieldCoreByIdRequest, updateMerchantDefinedFieldCoreByIdRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(updateMerchantDefinedFieldCoreByIdRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = merchantDefinedFieldCore; // byte array
+                localVarPostBody = updateMerchantDefinedFieldCoreByIdRequest; // byte array
             }
 
 
@@ -2020,7 +2020,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2051,9 +2051,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
 
         /// <summary>
@@ -2062,13 +2062,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        public async Task<List<InlineResponse2004>> PutMerchantDefinedFieldsDefinitionsAsync(string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore)
+        /// <param name="updateMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public async Task<List<MerchantDefinedFieldWithIdResponse>> PutMerchantDefinedFieldsDefinitionsAsync(string referenceType, long? id, UpdateMerchantDefinedFieldCoreByIdRequest updateMerchantDefinedFieldCoreByIdRequest)
         {
             logger.LogDebug("CALLING API \"PutMerchantDefinedFieldsDefinitionsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = await PutMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(referenceType, id, merchantDefinedFieldCore);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = await PutMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(referenceType, id, updateMerchantDefinedFieldCoreByIdRequest);
             logger.LogDebug("CALLING API \"PutMerchantDefinedFieldsDefinitionsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2081,9 +2081,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        public async Task<ApiResponse<List<InlineResponse2004>>> PutMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore)
+        /// <param name="updateMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        public async Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> PutMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType, long? id, UpdateMerchantDefinedFieldCoreByIdRequest updateMerchantDefinedFieldCoreByIdRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2099,11 +2099,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'id' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
                 throw new ApiException(400, "Missing required parameter 'id' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
             }
-            // verify the required parameter 'merchantDefinedFieldCore' is set
-            if (merchantDefinedFieldCore == null)
+            // verify the required parameter 'updateMerchantDefinedFieldCoreByIdRequest' is set
+            if (updateMerchantDefinedFieldCoreByIdRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'merchantDefinedFieldCore' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
-                throw new ApiException(400, "Missing required parameter 'merchantDefinedFieldCore' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
+                logger.LogError("ApiException : Missing required parameter 'updateMerchantDefinedFieldCoreByIdRequest' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
+                throw new ApiException(400, "Missing required parameter 'updateMerchantDefinedFieldCoreByIdRequest' when calling MerchantDefinedFieldsApi->PutMerchantDefinedFieldsDefinitions");
             }
 
             var localVarPath = $"/invoicing/v2/{referenceType}/merchantDefinedFields/{id}";
@@ -2142,15 +2142,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (merchantDefinedFieldCore != null && merchantDefinedFieldCore.GetType() != typeof(byte[]))
+            if (updateMerchantDefinedFieldCoreByIdRequest != null && updateMerchantDefinedFieldCoreByIdRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                merchantDefinedFieldCore = (MerchantDefinedFieldCore)sdkTracker.InsertDeveloperIdTracker(merchantDefinedFieldCore, merchantDefinedFieldCore.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(merchantDefinedFieldCore); // http body (model) parameter
+                updateMerchantDefinedFieldCoreByIdRequest = (UpdateMerchantDefinedFieldCoreByIdRequest)sdkTracker.InsertDeveloperIdTracker(updateMerchantDefinedFieldCoreByIdRequest, updateMerchantDefinedFieldCoreByIdRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(updateMerchantDefinedFieldCoreByIdRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = merchantDefinedFieldCore; // byte array
+                localVarPostBody = updateMerchantDefinedFieldCoreByIdRequest; // byte array
             }
 
 
@@ -2159,7 +2159,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2190,9 +2190,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
         /// <summary>
         /// Update a PayByLink MerchantDefinedField by ID 
@@ -2200,13 +2200,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>List&lt;InlineResponse2004&gt;</returns>
-        public List<InlineResponse2004> PutPblMerchantDefinedFieldsDefinitions(string referenceType, long? id, MerchantDefinedFieldCore1 merchantDefinedFieldCore)
+        /// <param name="updatePblMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public List<MerchantDefinedFieldWithIdResponse> PutPblMerchantDefinedFieldsDefinitions(string referenceType, long? id, UpdatePblMerchantDefinedFieldCoreByIdRequest updatePblMerchantDefinedFieldCoreByIdRequest)
         {
             logger.LogDebug("CALLING API \"PutPblMerchantDefinedFieldsDefinitions\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = PutPblMerchantDefinedFieldsDefinitionsWithHttpInfo(referenceType, id, merchantDefinedFieldCore);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = PutPblMerchantDefinedFieldsDefinitionsWithHttpInfo(referenceType, id, updatePblMerchantDefinedFieldCoreByIdRequest);
             logger.LogDebug("CALLING API \"PutPblMerchantDefinedFieldsDefinitions\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2218,9 +2218,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2004&gt;</returns>
-        public ApiResponse< List<InlineResponse2004> > PutPblMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType, long? id, MerchantDefinedFieldCore1 merchantDefinedFieldCore)
+        /// <param name="updatePblMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>ApiResponse of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public ApiResponse< List<MerchantDefinedFieldWithIdResponse> > PutPblMerchantDefinedFieldsDefinitionsWithHttpInfo(string referenceType, long? id, UpdatePblMerchantDefinedFieldCoreByIdRequest updatePblMerchantDefinedFieldCoreByIdRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2236,11 +2236,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'id' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
                 throw new ApiException(400, "Missing required parameter 'id' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
             }
-            // verify the required parameter 'merchantDefinedFieldCore' is set
-            if (merchantDefinedFieldCore == null)
+            // verify the required parameter 'updatePblMerchantDefinedFieldCoreByIdRequest' is set
+            if (updatePblMerchantDefinedFieldCoreByIdRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'merchantDefinedFieldCore' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
-                throw new ApiException(400, "Missing required parameter 'merchantDefinedFieldCore' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
+                logger.LogError("ApiException : Missing required parameter 'updatePblMerchantDefinedFieldCoreByIdRequest' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
+                throw new ApiException(400, "Missing required parameter 'updatePblMerchantDefinedFieldCoreByIdRequest' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
             }
 
             var localVarPath = $"/ipl/v2/{referenceType}/merchantDefinedFields/{id}";
@@ -2279,15 +2279,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (merchantDefinedFieldCore != null && merchantDefinedFieldCore.GetType() != typeof(byte[]))
+            if (updatePblMerchantDefinedFieldCoreByIdRequest != null && updatePblMerchantDefinedFieldCoreByIdRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                merchantDefinedFieldCore = (MerchantDefinedFieldCore1)sdkTracker.InsertDeveloperIdTracker(merchantDefinedFieldCore, merchantDefinedFieldCore.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(merchantDefinedFieldCore); // http body (model) parameter
+                updatePblMerchantDefinedFieldCoreByIdRequest = (UpdatePblMerchantDefinedFieldCoreByIdRequest)sdkTracker.InsertDeveloperIdTracker(updatePblMerchantDefinedFieldCoreByIdRequest, updatePblMerchantDefinedFieldCoreByIdRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(updatePblMerchantDefinedFieldCoreByIdRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = merchantDefinedFieldCore; // byte array
+                localVarPostBody = updatePblMerchantDefinedFieldCoreByIdRequest; // byte array
             }
 
 
@@ -2296,7 +2296,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2327,9 +2327,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
 
         /// <summary>
@@ -2338,13 +2338,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>Task of List&lt;InlineResponse2004&gt;</returns>
-        public async Task<List<InlineResponse2004>> PutPblMerchantDefinedFieldsDefinitionsAsync(string referenceType, long? id, MerchantDefinedFieldCore1 merchantDefinedFieldCore)
+        /// <param name="updatePblMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>Task of List&lt;MerchantDefinedFieldWithIdResponse&gt;</returns>
+        public async Task<List<MerchantDefinedFieldWithIdResponse>> PutPblMerchantDefinedFieldsDefinitionsAsync(string referenceType, long? id, UpdatePblMerchantDefinedFieldCoreByIdRequest updatePblMerchantDefinedFieldCoreByIdRequest)
         {
             logger.LogDebug("CALLING API \"PutPblMerchantDefinedFieldsDefinitionsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2004>> localVarResponse = await PutPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(referenceType, id, merchantDefinedFieldCore);
+            ApiResponse<List<MerchantDefinedFieldWithIdResponse>> localVarResponse = await PutPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(referenceType, id, updatePblMerchantDefinedFieldCoreByIdRequest);
             logger.LogDebug("CALLING API \"PutPblMerchantDefinedFieldsDefinitionsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2357,9 +2357,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="referenceType"></param>
         /// <param name="id"></param>
-        /// <param name="merchantDefinedFieldCore"></param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2004&gt;)</returns>
-        public async Task<ApiResponse<List<InlineResponse2004>>> PutPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType, long? id, MerchantDefinedFieldCore1 merchantDefinedFieldCore)
+        /// <param name="updatePblMerchantDefinedFieldCoreByIdRequest"></param>
+        /// <returns>Task of ApiResponse (List&lt;MerchantDefinedFieldWithIdResponse&gt;)</returns>
+        public async Task<ApiResponse<List<MerchantDefinedFieldWithIdResponse>>> PutPblMerchantDefinedFieldsDefinitionsAsyncWithHttpInfo(string referenceType, long? id, UpdatePblMerchantDefinedFieldCoreByIdRequest updatePblMerchantDefinedFieldCoreByIdRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2375,11 +2375,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'id' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
                 throw new ApiException(400, "Missing required parameter 'id' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
             }
-            // verify the required parameter 'merchantDefinedFieldCore' is set
-            if (merchantDefinedFieldCore == null)
+            // verify the required parameter 'updatePblMerchantDefinedFieldCoreByIdRequest' is set
+            if (updatePblMerchantDefinedFieldCoreByIdRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'merchantDefinedFieldCore' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
-                throw new ApiException(400, "Missing required parameter 'merchantDefinedFieldCore' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
+                logger.LogError("ApiException : Missing required parameter 'updatePblMerchantDefinedFieldCoreByIdRequest' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
+                throw new ApiException(400, "Missing required parameter 'updatePblMerchantDefinedFieldCoreByIdRequest' when calling MerchantDefinedFieldsApi->PutPblMerchantDefinedFieldsDefinitions");
             }
 
             var localVarPath = $"/ipl/v2/{referenceType}/merchantDefinedFields/{id}";
@@ -2418,15 +2418,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (merchantDefinedFieldCore != null && merchantDefinedFieldCore.GetType() != typeof(byte[]))
+            if (updatePblMerchantDefinedFieldCoreByIdRequest != null && updatePblMerchantDefinedFieldCoreByIdRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                merchantDefinedFieldCore = (MerchantDefinedFieldCore1)sdkTracker.InsertDeveloperIdTracker(merchantDefinedFieldCore, merchantDefinedFieldCore.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(merchantDefinedFieldCore); // http body (model) parameter
+                updatePblMerchantDefinedFieldCoreByIdRequest = (UpdatePblMerchantDefinedFieldCoreByIdRequest)sdkTracker.InsertDeveloperIdTracker(updatePblMerchantDefinedFieldCoreByIdRequest, updatePblMerchantDefinedFieldCoreByIdRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(updatePblMerchantDefinedFieldCoreByIdRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = merchantDefinedFieldCore; // byte array
+                localVarPostBody = updatePblMerchantDefinedFieldCoreByIdRequest; // byte array
             }
 
 
@@ -2435,7 +2435,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2466,9 +2466,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2004>>(localVarStatusCode,
+            return new ApiResponse<List<MerchantDefinedFieldWithIdResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2004>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2004>))); // Return statement
+                (List<MerchantDefinedFieldWithIdResponse>) ApiClient.Deserialize(localVarResponse, typeof(List<MerchantDefinedFieldWithIdResponse>))); // Return statement
         }
     }
 }

@@ -61,9 +61,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addAgentKeyRequest">Key creation request</param>
         /// <returns>AddAgentKeyResponse201</returns>
-        AddAgentKeyResponse201 AddAgentKey(string agentId, KeyRequest keyRequest);
+        AddAgentKeyResponse201 AddAgentKey(string agentId, AddAgentKeyRequest addAgentKeyRequest);
 
         /// <summary>
         /// Add a key to an agent
@@ -73,9 +73,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addAgentKeyRequest">Key creation request</param>
         /// <returns>ApiResponse of AddAgentKeyResponse201</returns>
-        ApiResponse<AddAgentKeyResponse201> AddAgentKeyWithHttpInfo(string agentId, KeyRequest keyRequest);
+        ApiResponse<AddAgentKeyResponse201> AddAgentKeyWithHttpInfo(string agentId, AddAgentKeyRequest addAgentKeyRequest);
         /// <summary>
         /// Get an agent
         /// </summary>
@@ -198,9 +198,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
         /// <param name="keyId">Unique key identifier</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateAgentKeyRequest">Key update request</param>
         /// <returns>AddAgentKeyResponse201</returns>
-        AddAgentKeyResponse201 UpdateAgentKey(string agentId, string keyId, KeyUpdate keyUpdate);
+        AddAgentKeyResponse201 UpdateAgentKey(string agentId, string keyId, UpdateAgentKeyRequest updateAgentKeyRequest);
 
         /// <summary>
         /// Update a key
@@ -211,9 +211,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
         /// <param name="keyId">Unique key identifier</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateAgentKeyRequest">Key update request</param>
         /// <returns>ApiResponse of AddAgentKeyResponse201</returns>
-        ApiResponse<AddAgentKeyResponse201> UpdateAgentKeyWithHttpInfo(string agentId, string keyId, KeyUpdate keyUpdate);
+        ApiResponse<AddAgentKeyResponse201> UpdateAgentKeyWithHttpInfo(string agentId, string keyId, UpdateAgentKeyRequest updateAgentKeyRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -247,9 +247,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addAgentKeyRequest">Key creation request</param>
         /// <returns>Task of AddAgentKeyResponse201</returns>
-        System.Threading.Tasks.Task<AddAgentKeyResponse201> AddAgentKeyAsync(string agentId, KeyRequest keyRequest);
+        System.Threading.Tasks.Task<AddAgentKeyResponse201> AddAgentKeyAsync(string agentId, AddAgentKeyRequest addAgentKeyRequest);
 
         /// <summary>
         /// Add a key to an agent
@@ -259,9 +259,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addAgentKeyRequest">Key creation request</param>
         /// <returns>Task of ApiResponse (AddAgentKeyResponse201)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AddAgentKeyResponse201>> AddAgentKeyAsyncWithHttpInfo(string agentId, KeyRequest keyRequest);
+        System.Threading.Tasks.Task<ApiResponse<AddAgentKeyResponse201>> AddAgentKeyAsyncWithHttpInfo(string agentId, AddAgentKeyRequest addAgentKeyRequest);
         /// <summary>
         /// Get an agent
         /// </summary>
@@ -384,9 +384,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
         /// <param name="keyId">Unique key identifier</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateAgentKeyRequest">Key update request</param>
         /// <returns>Task of AddAgentKeyResponse201</returns>
-        System.Threading.Tasks.Task<AddAgentKeyResponse201> UpdateAgentKeyAsync(string agentId, string keyId, KeyUpdate keyUpdate);
+        System.Threading.Tasks.Task<AddAgentKeyResponse201> UpdateAgentKeyAsync(string agentId, string keyId, UpdateAgentKeyRequest updateAgentKeyRequest);
 
         /// <summary>
         /// Update a key
@@ -397,9 +397,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
         /// <param name="keyId">Unique key identifier</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateAgentKeyRequest">Key update request</param>
         /// <returns>Task of ApiResponse (AddAgentKeyResponse201)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AddAgentKeyResponse201>> UpdateAgentKeyAsyncWithHttpInfo(string agentId, string keyId, KeyUpdate keyUpdate);
+        System.Threading.Tasks.Task<ApiResponse<AddAgentKeyResponse201>> UpdateAgentKeyAsyncWithHttpInfo(string agentId, string keyId, UpdateAgentKeyRequest updateAgentKeyRequest);
         #endregion Asynchronous Operations
     }
 
@@ -525,7 +525,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -658,7 +658,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -696,13 +696,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addAgentKeyRequest">Key creation request</param>
         /// <returns>AddAgentKeyResponse201</returns>
-        public AddAgentKeyResponse201 AddAgentKey(string agentId, KeyRequest keyRequest)
+        public AddAgentKeyResponse201 AddAgentKey(string agentId, AddAgentKeyRequest addAgentKeyRequest)
         {
             logger.LogDebug("CALLING API \"AddAgentKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<AddAgentKeyResponse201> localVarResponse = AddAgentKeyWithHttpInfo(agentId, keyRequest);
+            ApiResponse<AddAgentKeyResponse201> localVarResponse = AddAgentKeyWithHttpInfo(agentId, addAgentKeyRequest);
             logger.LogDebug("CALLING API \"AddAgentKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -713,9 +713,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addAgentKeyRequest">Key creation request</param>
         /// <returns>ApiResponse of AddAgentKeyResponse201</returns>
-        public ApiResponse< AddAgentKeyResponse201 > AddAgentKeyWithHttpInfo(string agentId, KeyRequest keyRequest)
+        public ApiResponse< AddAgentKeyResponse201 > AddAgentKeyWithHttpInfo(string agentId, AddAgentKeyRequest addAgentKeyRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -725,11 +725,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'agentId' when calling AgentRegistrationApi->AddAgentKey");
                 throw new ApiException(400, "Missing required parameter 'agentId' when calling AgentRegistrationApi->AddAgentKey");
             }
-            // verify the required parameter 'keyRequest' is set
-            if (keyRequest == null)
+            // verify the required parameter 'addAgentKeyRequest' is set
+            if (addAgentKeyRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'keyRequest' when calling AgentRegistrationApi->AddAgentKey");
-                throw new ApiException(400, "Missing required parameter 'keyRequest' when calling AgentRegistrationApi->AddAgentKey");
+                logger.LogError("ApiException : Missing required parameter 'addAgentKeyRequest' when calling AgentRegistrationApi->AddAgentKey");
+                throw new ApiException(400, "Missing required parameter 'addAgentKeyRequest' when calling AgentRegistrationApi->AddAgentKey");
             }
 
             var localVarPath = $"/icc/v1/agents/{agentId}/keys";
@@ -762,15 +762,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (keyRequest != null && keyRequest.GetType() != typeof(byte[]))
+            if (addAgentKeyRequest != null && addAgentKeyRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                keyRequest = (KeyRequest)sdkTracker.InsertDeveloperIdTracker(keyRequest, keyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(keyRequest); // http body (model) parameter
+                addAgentKeyRequest = (AddAgentKeyRequest)sdkTracker.InsertDeveloperIdTracker(addAgentKeyRequest, addAgentKeyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(addAgentKeyRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = keyRequest; // byte array
+                localVarPostBody = addAgentKeyRequest; // byte array
             }
 
 
@@ -779,7 +779,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -820,13 +820,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addAgentKeyRequest">Key creation request</param>
         /// <returns>Task of AddAgentKeyResponse201</returns>
-        public async Task<AddAgentKeyResponse201> AddAgentKeyAsync(string agentId, KeyRequest keyRequest)
+        public async Task<AddAgentKeyResponse201> AddAgentKeyAsync(string agentId, AddAgentKeyRequest addAgentKeyRequest)
         {
             logger.LogDebug("CALLING API \"AddAgentKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<AddAgentKeyResponse201> localVarResponse = await AddAgentKeyAsyncWithHttpInfo(agentId, keyRequest);
+            ApiResponse<AddAgentKeyResponse201> localVarResponse = await AddAgentKeyAsyncWithHttpInfo(agentId, addAgentKeyRequest);
             logger.LogDebug("CALLING API \"AddAgentKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -838,9 +838,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addAgentKeyRequest">Key creation request</param>
         /// <returns>Task of ApiResponse (AddAgentKeyResponse201)</returns>
-        public async Task<ApiResponse<AddAgentKeyResponse201>> AddAgentKeyAsyncWithHttpInfo(string agentId, KeyRequest keyRequest)
+        public async Task<ApiResponse<AddAgentKeyResponse201>> AddAgentKeyAsyncWithHttpInfo(string agentId, AddAgentKeyRequest addAgentKeyRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -850,11 +850,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'agentId' when calling AgentRegistrationApi->AddAgentKey");
                 throw new ApiException(400, "Missing required parameter 'agentId' when calling AgentRegistrationApi->AddAgentKey");
             }
-            // verify the required parameter 'keyRequest' is set
-            if (keyRequest == null)
+            // verify the required parameter 'addAgentKeyRequest' is set
+            if (addAgentKeyRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'keyRequest' when calling AgentRegistrationApi->AddAgentKey");
-                throw new ApiException(400, "Missing required parameter 'keyRequest' when calling AgentRegistrationApi->AddAgentKey");
+                logger.LogError("ApiException : Missing required parameter 'addAgentKeyRequest' when calling AgentRegistrationApi->AddAgentKey");
+                throw new ApiException(400, "Missing required parameter 'addAgentKeyRequest' when calling AgentRegistrationApi->AddAgentKey");
             }
 
             var localVarPath = $"/icc/v1/agents/{agentId}/keys";
@@ -887,15 +887,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (keyRequest != null && keyRequest.GetType() != typeof(byte[]))
+            if (addAgentKeyRequest != null && addAgentKeyRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                keyRequest = (KeyRequest)sdkTracker.InsertDeveloperIdTracker(keyRequest, keyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(keyRequest); // http body (model) parameter
+                addAgentKeyRequest = (AddAgentKeyRequest)sdkTracker.InsertDeveloperIdTracker(addAgentKeyRequest, addAgentKeyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(addAgentKeyRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = keyRequest; // byte array
+                localVarPostBody = addAgentKeyRequest; // byte array
             }
 
 
@@ -904,7 +904,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1024,7 +1024,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1143,7 +1143,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1275,7 +1275,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1408,7 +1408,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1542,7 +1542,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1677,7 +1677,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1784,7 +1784,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1895,7 +1895,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2018,7 +2018,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2143,7 +2143,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2184,13 +2184,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
         /// <param name="keyId">Unique key identifier</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateAgentKeyRequest">Key update request</param>
         /// <returns>AddAgentKeyResponse201</returns>
-        public AddAgentKeyResponse201 UpdateAgentKey(string agentId, string keyId, KeyUpdate keyUpdate)
+        public AddAgentKeyResponse201 UpdateAgentKey(string agentId, string keyId, UpdateAgentKeyRequest updateAgentKeyRequest)
         {
             logger.LogDebug("CALLING API \"UpdateAgentKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<AddAgentKeyResponse201> localVarResponse = UpdateAgentKeyWithHttpInfo(agentId, keyId, keyUpdate);
+            ApiResponse<AddAgentKeyResponse201> localVarResponse = UpdateAgentKeyWithHttpInfo(agentId, keyId, updateAgentKeyRequest);
             logger.LogDebug("CALLING API \"UpdateAgentKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2202,9 +2202,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
         /// <param name="keyId">Unique key identifier</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateAgentKeyRequest">Key update request</param>
         /// <returns>ApiResponse of AddAgentKeyResponse201</returns>
-        public ApiResponse< AddAgentKeyResponse201 > UpdateAgentKeyWithHttpInfo(string agentId, string keyId, KeyUpdate keyUpdate)
+        public ApiResponse< AddAgentKeyResponse201 > UpdateAgentKeyWithHttpInfo(string agentId, string keyId, UpdateAgentKeyRequest updateAgentKeyRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2220,11 +2220,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'keyId' when calling AgentRegistrationApi->UpdateAgentKey");
                 throw new ApiException(400, "Missing required parameter 'keyId' when calling AgentRegistrationApi->UpdateAgentKey");
             }
-            // verify the required parameter 'keyUpdate' is set
-            if (keyUpdate == null)
+            // verify the required parameter 'updateAgentKeyRequest' is set
+            if (updateAgentKeyRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'keyUpdate' when calling AgentRegistrationApi->UpdateAgentKey");
-                throw new ApiException(400, "Missing required parameter 'keyUpdate' when calling AgentRegistrationApi->UpdateAgentKey");
+                logger.LogError("ApiException : Missing required parameter 'updateAgentKeyRequest' when calling AgentRegistrationApi->UpdateAgentKey");
+                throw new ApiException(400, "Missing required parameter 'updateAgentKeyRequest' when calling AgentRegistrationApi->UpdateAgentKey");
             }
 
             var localVarPath = $"/icc/v1/agents/{agentId}/keys/{keyId}";
@@ -2263,15 +2263,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (keyUpdate != null && keyUpdate.GetType() != typeof(byte[]))
+            if (updateAgentKeyRequest != null && updateAgentKeyRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                keyUpdate = (KeyUpdate)sdkTracker.InsertDeveloperIdTracker(keyUpdate, keyUpdate.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(keyUpdate); // http body (model) parameter
+                updateAgentKeyRequest = (UpdateAgentKeyRequest)sdkTracker.InsertDeveloperIdTracker(updateAgentKeyRequest, updateAgentKeyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(updateAgentKeyRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = keyUpdate; // byte array
+                localVarPostBody = updateAgentKeyRequest; // byte array
             }
 
 
@@ -2280,7 +2280,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2322,13 +2322,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
         /// <param name="keyId">Unique key identifier</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateAgentKeyRequest">Key update request</param>
         /// <returns>Task of AddAgentKeyResponse201</returns>
-        public async Task<AddAgentKeyResponse201> UpdateAgentKeyAsync(string agentId, string keyId, KeyUpdate keyUpdate)
+        public async Task<AddAgentKeyResponse201> UpdateAgentKeyAsync(string agentId, string keyId, UpdateAgentKeyRequest updateAgentKeyRequest)
         {
             logger.LogDebug("CALLING API \"UpdateAgentKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<AddAgentKeyResponse201> localVarResponse = await UpdateAgentKeyAsyncWithHttpInfo(agentId, keyId, keyUpdate);
+            ApiResponse<AddAgentKeyResponse201> localVarResponse = await UpdateAgentKeyAsyncWithHttpInfo(agentId, keyId, updateAgentKeyRequest);
             logger.LogDebug("CALLING API \"UpdateAgentKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2341,9 +2341,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentId">Unique agent identifier</param>
         /// <param name="keyId">Unique key identifier</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateAgentKeyRequest">Key update request</param>
         /// <returns>Task of ApiResponse (AddAgentKeyResponse201)</returns>
-        public async Task<ApiResponse<AddAgentKeyResponse201>> UpdateAgentKeyAsyncWithHttpInfo(string agentId, string keyId, KeyUpdate keyUpdate)
+        public async Task<ApiResponse<AddAgentKeyResponse201>> UpdateAgentKeyAsyncWithHttpInfo(string agentId, string keyId, UpdateAgentKeyRequest updateAgentKeyRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2359,11 +2359,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'keyId' when calling AgentRegistrationApi->UpdateAgentKey");
                 throw new ApiException(400, "Missing required parameter 'keyId' when calling AgentRegistrationApi->UpdateAgentKey");
             }
-            // verify the required parameter 'keyUpdate' is set
-            if (keyUpdate == null)
+            // verify the required parameter 'updateAgentKeyRequest' is set
+            if (updateAgentKeyRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'keyUpdate' when calling AgentRegistrationApi->UpdateAgentKey");
-                throw new ApiException(400, "Missing required parameter 'keyUpdate' when calling AgentRegistrationApi->UpdateAgentKey");
+                logger.LogError("ApiException : Missing required parameter 'updateAgentKeyRequest' when calling AgentRegistrationApi->UpdateAgentKey");
+                throw new ApiException(400, "Missing required parameter 'updateAgentKeyRequest' when calling AgentRegistrationApi->UpdateAgentKey");
             }
 
             var localVarPath = $"/icc/v1/agents/{agentId}/keys/{keyId}";
@@ -2402,15 +2402,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (keyUpdate != null && keyUpdate.GetType() != typeof(byte[]))
+            if (updateAgentKeyRequest != null && updateAgentKeyRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                keyUpdate = (KeyUpdate)sdkTracker.InsertDeveloperIdTracker(keyUpdate, keyUpdate.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(keyUpdate); // http body (model) parameter
+                updateAgentKeyRequest = (UpdateAgentKeyRequest)sdkTracker.InsertDeveloperIdTracker(updateAgentKeyRequest, updateAgentKeyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(updateAgentKeyRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = keyUpdate; // byte array
+                localVarPostBody = updateAgentKeyRequest; // byte array
             }
 
 
@@ -2419,7 +2419,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {

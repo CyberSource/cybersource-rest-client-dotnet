@@ -104,6 +104,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'Method'
         }
+        /// <summary>
+        /// Test the property 'PaymentType'
+        /// </summary>
+        [Test]
+        public void PaymentTypeTest()
+        {
+            // TODO unit test for the property 'PaymentType'
+        }
+        /// <summary>
+        /// Test the property 'PaymentAccountReference'
+        /// </summary>
+        [Test]
+        public void PaymentAccountReferenceTest()
+        {
+            // TODO unit test for the property 'PaymentAccountReference'
+        }
 
     }
 

@@ -3,12 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Self** | [**PullFunds201ResponseLinksSelf**](PullFunds201ResponseLinksSelf.md) |  | [optional] 
-**Reversal** | [**PullFunds201ResponseLinksReversal**](PullFunds201ResponseLinksReversal.md) |  | [optional] 
-**Refund** | [**PullFunds201ResponseLinksRefund**](PullFunds201ResponseLinksRefund.md) |  | [optional] 
-**Customer** | [**PullFunds201ResponseLinksCustomer**](PullFunds201ResponseLinksCustomer.md) |  | [optional] 
-**PaymentInstrument** | [**PullFunds201ResponseLinksPaymentInstrument**](PullFunds201ResponseLinksPaymentInstrument.md) |  | [optional] 
-**InstrumentIdentifier** | [**PullFunds201ResponseLinksInstrumentIdentifier**](PullFunds201ResponseLinksInstrumentIdentifier.md) |  | [optional] 
+**Self** | [**PtsV2PaymentsPost201ResponseLinksSelf5**](PtsV2PaymentsPost201ResponseLinksSelf5.md) |  | [optional] 
+**Reversal** | [**PtsV2PaymentsPost201ResponseLinksSelf6**](PtsV2PaymentsPost201ResponseLinksSelf6.md) |  | [optional] 
+**Refund** | [**PtsV2PaymentsPost201ResponseLinksSelf7**](PtsV2PaymentsPost201ResponseLinksSelf7.md) |  | [optional] 
+**Customer** | [**PtsV2PaymentsPost201ResponseLinksSelf8**](PtsV2PaymentsPost201ResponseLinksSelf8.md) |  | [optional] 
+**PaymentInstrument** | [**PtsV2PaymentsPost201ResponseLinksSelf9**](PtsV2PaymentsPost201ResponseLinksSelf9.md) |  | [optional] 
+**InstrumentIdentifier** | [**PtsV2PaymentsPost201ResponseLinksSelf10**](PtsV2PaymentsPost201ResponseLinksSelf10.md) |  | [optional] 
 
 ## Extensibility
 

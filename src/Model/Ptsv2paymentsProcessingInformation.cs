@@ -83,7 +83,9 @@ namespace CyberSource.Model
         /// <param name="DestinationType">Identifies the destination/purpose of the cash-in:  • 04: M2M (Same ownership, same portfolio/arrangement) • 05: P2P (For another holder, same wallet/arrangement) • 06: Transfer to another arrangement (same ownership) • 07: Transfer to another arrangement (other ownership) • 08: Transfer to stored value digital wallet. .</param>
         /// <param name="ProgramIndicators">ProgramIndicators.</param>
         /// <param name="InquiryType">Type of inquiry for Zero dollar transactions. Mastercard is introducing Mastercard One Credential, a single, digitally connected credential that offers cardholders the ability to access multiple payment methods.   This field is used for Product Status Inquiry (PSI), Account Status Inquiry with Product Status Inquiry (ASI with PSI), and Account Status Inquiry with Product Status Inquiry and Probability Indicator.  This field is supported for Zero dollar transactions only.  Possible values: - &#x60;01&#x60;: Product status inquiry - &#x60;02&#x60;: Account status inquiry with product status inquiry - &#x60;03&#x60;: Account status Inquiry with Product Status Inquiry and Probability Indicator  #### Used by **Authorization (Zero dollar transactions)** Optional field. .</param>
-        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), ProcessingInfoAuthorizationOptions AuthorizationOptions = default(ProcessingInfoAuthorizationOptions), Ptsv2paymentsProcessingInformationCardVerification CardVerification = default(Ptsv2paymentsProcessingInformationCardVerification), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), string MerchantVerificationValue = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), int? Timeout = default(int?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string), string EnablerId = default(string), string ProcessingInstruction = default(string), string TransactionTypeIndicator = default(string), string PurposeOfPayment = default(string), string LanguageCode = default(string), string OriginalPaymentId = default(string), string AmexIndirectModelType = default(string), decimal? WalletTransactionIntent = default(decimal?), decimal? DestinationType = default(decimal?), Ptsv2paymentsProcessingInformationProgramIndicators ProgramIndicators = default(Ptsv2paymentsProcessingInformationProgramIndicators), string InquiryType = default(string))
+        /// <param name="PreAuthStatus">Outcome of a pre-authorization process. Used when processing payment outside of CyberSource and sent to Decision Manager post-authorisation.  Possible values: Approved, Rejected, Hold. .</param>
+        /// <param name="PreAuthResponseCode">Alphanumeric code returned by the issuer or payment gateway during the pre-authorization stage of a transaction. .</param>
+        public Ptsv2paymentsProcessingInformation(List<string> ActionList = default(List<string>), bool? EnableEscrowOption = default(bool?), List<string> ActionTokenTypes = default(List<string>), string BinSource = default(string), bool? Capture = false, string ProcessorId = default(string), string BusinessApplicationId = default(string), string CommerceIndicator = default(string), string CommerceIndicatorLabel = default(string), string PaymentSolution = default(string), string ReconciliationId = default(string), string LinkId = default(string), string PurchaseLevel = default(string), int? TransactionTimeout = default(int?), string IntentsId = default(string), string ReportGroup = default(string), string VisaCheckoutId = default(string), string IndustryDataType = default(string), ProcessingInfoAuthorizationOptions AuthorizationOptions = default(ProcessingInfoAuthorizationOptions), Ptsv2paymentsProcessingInformationCardVerification CardVerification = default(Ptsv2paymentsProcessingInformationCardVerification), Ptsv2paymentsProcessingInformationCaptureOptions CaptureOptions = default(Ptsv2paymentsProcessingInformationCaptureOptions), Ptsv2paymentsProcessingInformationRecurringOptions RecurringOptions = default(Ptsv2paymentsProcessingInformationRecurringOptions), Ptsv2paymentsProcessingInformationBankTransferOptions BankTransferOptions = default(Ptsv2paymentsProcessingInformationBankTransferOptions), Ptsv2paymentsProcessingInformationPurchaseOptions PurchaseOptions = default(Ptsv2paymentsProcessingInformationPurchaseOptions), Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer ElectronicBenefitsTransfer = default(Ptsv2paymentsProcessingInformationElectronicBenefitsTransfer), Ptsv2paymentsProcessingInformationLoanOptions LoanOptions = default(Ptsv2paymentsProcessingInformationLoanOptions), string WalletType = default(string), string NationalNetDomesticData = default(string), string MerchantVerificationValue = default(string), Ptsv2paymentsProcessingInformationJapanPaymentOptions JapanPaymentOptions = default(Ptsv2paymentsProcessingInformationJapanPaymentOptions), string MobileRemotePaymentType = default(string), string ExtendedCreditTotalCount = default(string), string NetworkRoutingOrder = default(string), bool? PayByPointsIndicator = default(bool?), int? Timeout = default(int?), bool? IsReturnAuthRecordEnabled = default(bool?), string NetworkPartnerId = default(string), string PaymentType = default(string), string EnablerId = default(string), string ProcessingInstruction = default(string), string TransactionTypeIndicator = default(string), string PurposeOfPayment = default(string), string LanguageCode = default(string), string OriginalPaymentId = default(string), string AmexIndirectModelType = default(string), decimal? WalletTransactionIntent = default(decimal?), decimal? DestinationType = default(decimal?), Ptsv2paymentsProcessingInformationProgramIndicators ProgramIndicators = default(Ptsv2paymentsProcessingInformationProgramIndicators), string InquiryType = default(string), string PreAuthStatus = default(string), string PreAuthResponseCode = default(string))
         {
             this.ActionList = ActionList;
             this.EnableEscrowOption = EnableEscrowOption;
@@ -142,6 +144,8 @@ namespace CyberSource.Model
             this.DestinationType = DestinationType;
             this.ProgramIndicators = ProgramIndicators;
             this.InquiryType = InquiryType;
+            this.PreAuthStatus = PreAuthStatus;
+            this.PreAuthResponseCode = PreAuthResponseCode;
         }
         
         /// <summary>
@@ -527,6 +531,22 @@ namespace CyberSource.Model
         public string InquiryType { get; set; }
 
         /// <summary>
+        /// Outcome of a pre-authorization process. Used when processing payment outside of CyberSource and sent to Decision Manager post-authorisation.  Possible values: Approved, Rejected, Hold. 
+        /// </summary>
+        /// <value>Outcome of a pre-authorization process. Used when processing payment outside of CyberSource and sent to Decision Manager post-authorisation.  Possible values: Approved, Rejected, Hold. </value>
+        [JsonPropertyName("preAuthStatus")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string PreAuthStatus { get; set; }
+
+        /// <summary>
+        /// Alphanumeric code returned by the issuer or payment gateway during the pre-authorization stage of a transaction. 
+        /// </summary>
+        /// <value>Alphanumeric code returned by the issuer or payment gateway during the pre-authorization stage of a transaction. </value>
+        [JsonPropertyName("preAuthResponseCode")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string PreAuthResponseCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -583,6 +603,8 @@ namespace CyberSource.Model
             if (DestinationType != null) sb.Append("  DestinationType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "destinationType", DestinationType.ToString())).Append("\n");
             if (ProgramIndicators != null) sb.Append("  ProgramIndicators: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "programIndicators", ProgramIndicators.ToString())).Append("\n");
             if (InquiryType != null) sb.Append("  InquiryType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "inquiryType", InquiryType.ToString())).Append("\n");
+            if (PreAuthStatus != null) sb.Append("  PreAuthStatus: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "preAuthStatus", PreAuthStatus.ToString())).Append("\n");
+            if (PreAuthResponseCode != null) sb.Append("  PreAuthResponseCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsProcessingInformation", "preAuthResponseCode", PreAuthResponseCode.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -868,6 +890,16 @@ namespace CyberSource.Model
                     this.InquiryType == other.InquiryType ||
                     this.InquiryType != null &&
                     this.InquiryType.Equals(other.InquiryType)
+                ) && 
+                (
+                    this.PreAuthStatus == other.PreAuthStatus ||
+                    this.PreAuthStatus != null &&
+                    this.PreAuthStatus.Equals(other.PreAuthStatus)
+                ) && 
+                (
+                    this.PreAuthResponseCode == other.PreAuthResponseCode ||
+                    this.PreAuthResponseCode != null &&
+                    this.PreAuthResponseCode.Equals(other.PreAuthResponseCode)
                 );
         }
 
@@ -982,6 +1014,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.ProgramIndicators.GetHashCode();
                 if (this.InquiryType != null)
                     hash = hash * 59 + this.InquiryType.GetHashCode();
+                if (this.PreAuthStatus != null)
+                    hash = hash * 59 + this.PreAuthStatus.GetHashCode();
+                if (this.PreAuthResponseCode != null)
+                    hash = hash * 59 + this.PreAuthResponseCode.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

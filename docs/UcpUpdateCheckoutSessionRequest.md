@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **LineItems** | [**List&lt;Iccv1checkoutsessionsLineItems&gt;**](Iccv1checkoutsessionsLineItems.md) | Replacement line item list. When provided, replaces the entire cart. | [optional] 
 **Buyer** | [**UcpUpdateCheckoutSessionBuyer**](UcpUpdateCheckoutSessionBuyer.md) |  | [optional] 
 **Currency** | **string** | ISO 4217 currency code for the session (e.g. &#x60;USD&#x60;, &#x60;EUR&#x60;). | [optional] 
-**Payment** | [**Iccv1checkoutsessionssessionIdPayment**](Iccv1checkoutsessionssessionIdPayment.md) |  | [optional] 
-**Fulfillment** | [**Iccv1checkoutsessionssessionIdFulfillment**](Iccv1checkoutsessionssessionIdFulfillment.md) |  | [optional] 
-**Discounts** | [**Iccv1checkoutsessionssessionIdDiscounts**](Iccv1checkoutsessionssessionIdDiscounts.md) |  | [optional] 
+**Payment** | [**Iccv1UpdateCheckoutsessionsPayment**](Iccv1UpdateCheckoutsessionsPayment.md) |  | [optional] 
+**Fulfillment** | [**Iccv1UpdateCheckoutSessionsFulfillment**](Iccv1UpdateCheckoutSessionsFulfillment.md) |  | [optional] 
+**Discounts** | [**Iccv1UpdateCheckoutSessionsDiscounts**](Iccv1UpdateCheckoutSessionsDiscounts.md) |  | [optional] 
 
 ## Extensibility
 

@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="EnableTransactionReferenceNumber">To enable merchant to send in transaction reference number (unique reconciliation ID)..</param>
         /// <param name="PaymentTypes">Valid values are: * VISA * MASTERCARD * AMERICAN_EXPRESS * CUP * EFTPOS * DINERS_CLUB * DISCOVER * JCB .</param>
         /// <param name="Currencies">Three-character [ISO 4217 ALPHA-3 Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf).</param>
-        public CardProcessingConfigCommonAcquirers(string InstitutionId = default(string), string InterbankCardAssociationId = default(string), string DiscoverInstitutionId = default(string), string CountryCode = default(string), string FileDestinationBin = default(string), string MerchantVerificationValue = default(string), string MerchantId = default(string), string TerminalId = default(string), bool? AllowMultipleBills = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CardProcessingConfigCommonCurrencies> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies>))
+        public CardProcessingConfigCommonAcquirers(string InstitutionId = default(string), string InterbankCardAssociationId = default(string), string DiscoverInstitutionId = default(string), string CountryCode = default(string), string FileDestinationBin = default(string), string MerchantVerificationValue = default(string), string MerchantId = default(string), string TerminalId = default(string), bool? AllowMultipleBills = default(bool?), bool? EnableTransactionReferenceNumber = default(bool?), Dictionary<string, CardProcessingConfigCommonPaymentTypes> PaymentTypes = default(Dictionary<string, CardProcessingConfigCommonPaymentTypes>), Dictionary<string, CurrencyConfiguration> Currencies = default(Dictionary<string, CurrencyConfiguration>))
         {
             this.InstitutionId = InstitutionId;
             this.InterbankCardAssociationId = InterbankCardAssociationId;
@@ -156,7 +156,7 @@ namespace CyberSource.Model
         /// <value>Three-character [ISO 4217 ALPHA-3 Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)</value>
         [JsonPropertyName("currencies")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, CardProcessingConfigCommonCurrencies> Currencies { get; set; }
+        public Dictionary<string, CurrencyConfiguration> Currencies { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

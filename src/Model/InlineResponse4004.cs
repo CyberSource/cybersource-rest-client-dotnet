@@ -39,68 +39,55 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4004" /> class.
         /// </summary>
-        /// <param name="Id">A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. .</param>
-        /// <param name="SubmitTimeStampUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Status">Possible values: - INVALID_REQUEST  (required).</param>
-        /// <param name="Reason">The reason of the status.  Possible values: - INVALID_DATA - MISSING_FIELD .</param>
-        /// <param name="Message">The detail message related to the status and reason listed above. .</param>
+        /// <param name="CorrelationId">CorrelationId.</param>
         /// <param name="Details">Details.</param>
-        public InlineResponse4004(string Id = default(string), string SubmitTimeStampUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<InlineResponse2013ErrorInformationDetails> Details = default(List<InlineResponse2013ErrorInformationDetails>))
+        /// <param name="InformationLink">InformationLink.</param>
+        /// <param name="Message">Message (required).</param>
+        /// <param name="Reason">Possible values: - INVALID_APIKEY - INVALID_SHIPPING_INPUT_PARAMS - CAPTURE_CONTEXT_INVALID - CAPTURE_CONTEXT_EXPIRED - SDK_XHR_ERROR - UNIFIEDPAYMENTS_VALIDATION_PARAMS - UNIFIEDPAYMENTS_VALIDATION_FIELDS - UNIFIEDPAYMENT_PAYMENT_PARAMITERS - CREATE_TOKEN_TIMEOUT - CREATE_TOKEN_XHR_ERROR - SHOW_LOAD_CONTAINER_SELECTOR - SHOW_LOAD_INVALID_CONTAINER - SHOW_TOKEN_TIMEOUT - SHOW_TOKEN_XHR_ERROR - SHOW_PAYMENT_TIMEOUT (required).</param>
+        public InlineResponse4004(string CorrelationId = default(string), List<Flex400ErrorResponseDetails> Details = default(List<Flex400ErrorResponseDetails>), string InformationLink = default(string), string Message = default(string), string Reason = default(string))
         {
-            this.Id = Id;
-            this.SubmitTimeStampUtc = SubmitTimeStampUtc;
-            this.Status = Status;
-            this.Reason = Reason;
-            this.Message = Message;
+            this.CorrelationId = CorrelationId;
             this.Details = Details;
+            this.InformationLink = InformationLink;
+            this.Message = Message;
+            this.Reason = Reason;
         }
         
         /// <summary>
-        /// A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. 
+        /// Gets or Sets CorrelationId
         /// </summary>
-        /// <value>A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. </value>
-        [JsonPropertyName("id")]
+        [JsonPropertyName("correlationId")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
-        /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [JsonPropertyName("submitTimeStampUtc")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SubmitTimeStampUtc { get; set; }
-
-        /// <summary>
-        /// Possible values: - INVALID_REQUEST 
-        /// </summary>
-        /// <value>Possible values: - INVALID_REQUEST </value>
-        [JsonPropertyName("status")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Status { get; set; }
-
-        /// <summary>
-        /// The reason of the status.  Possible values: - INVALID_DATA - MISSING_FIELD 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values: - INVALID_DATA - MISSING_FIELD </value>
-        [JsonPropertyName("reason")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Reason { get; set; }
-
-        /// <summary>
-        /// The detail message related to the status and reason listed above. 
-        /// </summary>
-        /// <value>The detail message related to the status and reason listed above. </value>
-        [JsonPropertyName("message")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Message { get; set; }
+        public string CorrelationId { get; set; }
 
         /// <summary>
         /// Gets or Sets Details
         /// </summary>
         [JsonPropertyName("details")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<InlineResponse2013ErrorInformationDetails> Details { get; set; }
+        public List<Flex400ErrorResponseDetails> Details { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InformationLink
+        /// </summary>
+        [JsonPropertyName("informationLink")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string InformationLink { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Message
+        /// </summary>
+        [JsonPropertyName("message")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Message { get; set; }
+
+        /// <summary>
+        /// Possible values: - INVALID_APIKEY - INVALID_SHIPPING_INPUT_PARAMS - CAPTURE_CONTEXT_INVALID - CAPTURE_CONTEXT_EXPIRED - SDK_XHR_ERROR - UNIFIEDPAYMENTS_VALIDATION_PARAMS - UNIFIEDPAYMENTS_VALIDATION_FIELDS - UNIFIEDPAYMENT_PAYMENT_PARAMITERS - CREATE_TOKEN_TIMEOUT - CREATE_TOKEN_XHR_ERROR - SHOW_LOAD_CONTAINER_SELECTOR - SHOW_LOAD_INVALID_CONTAINER - SHOW_TOKEN_TIMEOUT - SHOW_TOKEN_XHR_ERROR - SHOW_PAYMENT_TIMEOUT
+        /// </summary>
+        /// <value>Possible values: - INVALID_APIKEY - INVALID_SHIPPING_INPUT_PARAMS - CAPTURE_CONTEXT_INVALID - CAPTURE_CONTEXT_EXPIRED - SDK_XHR_ERROR - UNIFIEDPAYMENTS_VALIDATION_PARAMS - UNIFIEDPAYMENTS_VALIDATION_FIELDS - UNIFIEDPAYMENT_PAYMENT_PARAMITERS - CREATE_TOKEN_TIMEOUT - CREATE_TOKEN_XHR_ERROR - SHOW_LOAD_CONTAINER_SELECTOR - SHOW_LOAD_INVALID_CONTAINER - SHOW_TOKEN_TIMEOUT - SHOW_TOKEN_XHR_ERROR - SHOW_PAYMENT_TIMEOUT</value>
+        [JsonPropertyName("reason")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,12 +97,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4004 {\n");
-            if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "id", Id.ToString())).Append("\n");
-            if (SubmitTimeStampUtc != null) sb.Append("  SubmitTimeStampUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "submitTimeStampUtc", SubmitTimeStampUtc.ToString())).Append("\n");
-            if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "status", Status.ToString())).Append("\n");
-            if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "reason", Reason.ToString())).Append("\n");
-            if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "message", Message.ToString())).Append("\n");
+            if (CorrelationId != null) sb.Append("  CorrelationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "correlationId", CorrelationId.ToString())).Append("\n");
             if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "details", Details.ToString())).Append("\n");
+            if (InformationLink != null) sb.Append("  InformationLink: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "informationLink", InformationLink.ToString())).Append("\n");
+            if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "message", Message.ToString())).Append("\n");
+            if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4004", "reason", Reason.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -158,24 +144,19 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.CorrelationId == other.CorrelationId ||
+                    this.CorrelationId != null &&
+                    this.CorrelationId.Equals(other.CorrelationId)
                 ) && 
                 (
-                    this.SubmitTimeStampUtc == other.SubmitTimeStampUtc ||
-                    this.SubmitTimeStampUtc != null &&
-                    this.SubmitTimeStampUtc.Equals(other.SubmitTimeStampUtc)
+                    this.Details == other.Details ||
+                    this.Details != null &&
+                    this.Details.SequenceEqual(other.Details)
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
-                ) && 
-                (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.InformationLink == other.InformationLink ||
+                    this.InformationLink != null &&
+                    this.InformationLink.Equals(other.InformationLink)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -183,9 +164,9 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
                 );
         }
 
@@ -202,18 +183,16 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
-                if (this.SubmitTimeStampUtc != null)
-                    hash = hash * 59 + this.SubmitTimeStampUtc.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
+                if (this.CorrelationId != null)
+                    hash = hash * 59 + this.CorrelationId.GetHashCode();
                 if (this.Details != null)
                     hash = hash * 59 + this.Details.GetHashCode();
+                if (this.InformationLink != null)
+                    hash = hash * 59 + this.InformationLink.GetHashCode();
+                if (this.Message != null)
+                    hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

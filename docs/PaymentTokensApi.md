@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="retrieveordeletepaymenttoken"></a>
 # **RetrieveOrDeletePaymentToken**
-> InlineResponse201 RetrieveOrDeletePaymentToken (Request request)
+> RetrieveOrDeletePaymentTokenResponse RetrieveOrDeletePaymentToken (PaymentTokenRequest paymentTokenRequest)
 
 Retrieve or Delete Payment Token
 
@@ -30,12 +30,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new PaymentTokensApi();
-            var request = new Request(); // Request | 
+            var paymentTokenRequest = new PaymentTokenRequest(); // PaymentTokenRequest | 
 
             try
             {
                 // Retrieve or Delete Payment Token
-                InlineResponse201 result = apiInstance.RetrieveOrDeletePaymentToken(request);
+                RetrieveOrDeletePaymentTokenResponse result = apiInstance.RetrieveOrDeletePaymentToken(paymentTokenRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -51,11 +51,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**Request**](Request.md)|  | 
+ **paymentTokenRequest** | [**PaymentTokenRequest**](PaymentTokenRequest.md)|  | 
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**RetrieveOrDeletePaymentTokenResponse**](RetrieveOrDeletePaymentTokenResponse.md)
 
 ### Authorization
 

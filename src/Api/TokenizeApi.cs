@@ -39,8 +39,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizeRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        InlineResponse200 Tokenize(PostTokenizeRequest postTokenizeRequest, string profileId = null);
+        /// <returns>PostTokenizeResponse</returns>
+        PostTokenizeResponse Tokenize(PostTokenizeRequest postTokenizeRequest, string profileId = null);
 
         /// <summary>
         /// Tokenize
@@ -51,8 +51,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizeRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> TokenizeWithHttpInfo(PostTokenizeRequest postTokenizeRequest, string profileId = null);
+        /// <returns>ApiResponse of PostTokenizeResponse</returns>
+        ApiResponse<PostTokenizeResponse> TokenizeWithHttpInfo(PostTokenizeRequest postTokenizeRequest, string profileId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -64,8 +64,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizeRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> TokenizeAsync(PostTokenizeRequest postTokenizeRequest, string profileId = null);
+        /// <returns>Task of PostTokenizeResponse</returns>
+        System.Threading.Tasks.Task<PostTokenizeResponse> TokenizeAsync(PostTokenizeRequest postTokenizeRequest, string profileId = null);
 
         /// <summary>
         /// Tokenize
@@ -76,8 +76,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizeRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> TokenizeAsyncWithHttpInfo(PostTokenizeRequest postTokenizeRequest, string profileId = null);
+        /// <returns>Task of ApiResponse (PostTokenizeResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PostTokenizeResponse>> TokenizeAsyncWithHttpInfo(PostTokenizeRequest postTokenizeRequest, string profileId = null);
         #endregion Asynchronous Operations
     }
 
@@ -110,12 +110,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizeRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>InlineResponse200</returns>
-        public InlineResponse200 Tokenize(PostTokenizeRequest postTokenizeRequest, string profileId = null)
+        /// <returns>PostTokenizeResponse</returns>
+        public PostTokenizeResponse Tokenize(PostTokenizeRequest postTokenizeRequest, string profileId = null)
         {
             logger.LogDebug("CALLING API \"Tokenize\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse200> localVarResponse = TokenizeWithHttpInfo(postTokenizeRequest, profileId);
+            ApiResponse<PostTokenizeResponse> localVarResponse = TokenizeWithHttpInfo(postTokenizeRequest, profileId);
             logger.LogDebug("CALLING API \"Tokenize\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -127,8 +127,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizeRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > TokenizeWithHttpInfo(PostTokenizeRequest postTokenizeRequest, string profileId = null)
+        /// <returns>ApiResponse of PostTokenizeResponse</returns>
+        public ApiResponse< PostTokenizeResponse > TokenizeWithHttpInfo(PostTokenizeRequest postTokenizeRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -185,7 +185,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -216,9 +216,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<PostTokenizeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse200) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+                (PostTokenizeResponse) ApiClient.Deserialize(localVarResponse, typeof(PostTokenizeResponse))); // Return statement
         }
 
         /// <summary>
@@ -227,12 +227,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizeRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of InlineResponse200</returns>
-        public async Task<InlineResponse200> TokenizeAsync(PostTokenizeRequest postTokenizeRequest, string profileId = null)
+        /// <returns>Task of PostTokenizeResponse</returns>
+        public async Task<PostTokenizeResponse> TokenizeAsync(PostTokenizeRequest postTokenizeRequest, string profileId = null)
         {
             logger.LogDebug("CALLING API \"TokenizeAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse200> localVarResponse = await TokenizeAsyncWithHttpInfo(postTokenizeRequest, profileId);
+            ApiResponse<PostTokenizeResponse> localVarResponse = await TokenizeAsyncWithHttpInfo(postTokenizeRequest, profileId);
             logger.LogDebug("CALLING API \"TokenizeAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -245,8 +245,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizeRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async Task<ApiResponse<InlineResponse200>> TokenizeAsyncWithHttpInfo(PostTokenizeRequest postTokenizeRequest, string profileId = null)
+        /// <returns>Task of ApiResponse (PostTokenizeResponse)</returns>
+        public async Task<ApiResponse<PostTokenizeResponse>> TokenizeAsyncWithHttpInfo(PostTokenizeRequest postTokenizeRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -303,7 +303,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -334,9 +334,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+            return new ApiResponse<PostTokenizeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse200) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200))); // Return statement
+                (PostTokenizeResponse) ApiClient.Deserialize(localVarResponse, typeof(PostTokenizeResponse))); // Return statement
         }
     }
 }

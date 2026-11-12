@@ -74,7 +74,7 @@ namespace CyberSource.Test
             //string referenceType = null;
             //MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest = null;
             //var response = instance.CreateMerchantDefinedFieldDefinition(referenceType, merchantDefinedFieldDefinitionRequest);
-            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
+            //Assert.IsInstanceOf<List<MerchantDefinedFieldWithIdResponse>> (response, "response is List<MerchantDefinedFieldWithIdResponse>");
         }
         
         /// <summary>
@@ -85,9 +85,9 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string referenceType = null;
-            //MerchantDefinedFieldDefinitionRequest1 merchantDefinedFieldDefinitionRequest = null;
-            //var response = instance.CreatePblMerchantDefinedFieldDefinition(referenceType, merchantDefinedFieldDefinitionRequest);
-            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
+            //PblMerchantDefinedFieldDefinitionRequest pblMerchantDefinedFieldDefinitionRequest = null;
+            //var response = instance.CreatePblMerchantDefinedFieldDefinition(referenceType, pblMerchantDefinedFieldDefinitionRequest);
+            //Assert.IsInstanceOf<List<MerchantDefinedFieldWithIdResponse>> (response, "response is List<MerchantDefinedFieldWithIdResponse>");
         }
         
         /// <summary>
@@ -125,7 +125,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string referenceType = null;
             //var response = instance.GetMerchantDefinedFieldsDefinitions(referenceType);
-            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
+            //Assert.IsInstanceOf<List<MerchantDefinedFieldWithIdResponse>> (response, "response is List<MerchantDefinedFieldWithIdResponse>");
         }
         
         /// <summary>
@@ -137,7 +137,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string referenceType = null;
             //var response = instance.GetPblMerchantDefinedFieldsDefinitions(referenceType);
-            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
+            //Assert.IsInstanceOf<List<MerchantDefinedFieldWithIdResponse>> (response, "response is List<MerchantDefinedFieldWithIdResponse>");
         }
         
         /// <summary>
@@ -149,9 +149,9 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string referenceType = null;
             //long? id = null;
-            //MerchantDefinedFieldCore merchantDefinedFieldCore = null;
-            //var response = instance.PutMerchantDefinedFieldsDefinitions(referenceType, id, merchantDefinedFieldCore);
-            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
+            //UpdateMerchantDefinedFieldCoreByIdRequest updateMerchantDefinedFieldCoreByIdRequest = null;
+            //var response = instance.PutMerchantDefinedFieldsDefinitions(referenceType, id, updateMerchantDefinedFieldCoreByIdRequest);
+            //Assert.IsInstanceOf<List<MerchantDefinedFieldWithIdResponse>> (response, "response is List<MerchantDefinedFieldWithIdResponse>");
         }
         
         /// <summary>
@@ -163,9 +163,9 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string referenceType = null;
             //long? id = null;
-            //MerchantDefinedFieldCore1 merchantDefinedFieldCore = null;
-            //var response = instance.PutPblMerchantDefinedFieldsDefinitions(referenceType, id, merchantDefinedFieldCore);
-            //Assert.IsInstanceOf<List<InlineResponse2004>> (response, "response is List<InlineResponse2004>");
+            //UpdatePblMerchantDefinedFieldCoreByIdRequest updatePblMerchantDefinedFieldCoreByIdRequest = null;
+            //var response = instance.PutPblMerchantDefinedFieldsDefinitions(referenceType, id, updatePblMerchantDefinedFieldCoreByIdRequest);
+            //Assert.IsInstanceOf<List<MerchantDefinedFieldWithIdResponse>> (response, "response is List<MerchantDefinedFieldWithIdResponse>");
         }
         
     }

@@ -98,7 +98,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CreateSessionReq createSessionReq = null;
             //var response = instance.CreateSessionRequest(createSessionReq);
-            //Assert.IsInstanceOf<PtsV2PaymentsPost201Response2> (response, "response is PtsV2PaymentsPost201Response2");
+            //Assert.IsInstanceOf<CreateSessionResponse> (response, "response is CreateSessionResponse");
         }
         
         /// <summary>
@@ -124,7 +124,7 @@ namespace CyberSource.Test
             //string id = null;
             //RefreshPaymentStatusRequest refreshPaymentStatusRequest = null;
             //var response = instance.RefreshPaymentStatus(id, refreshPaymentStatusRequest);
-            //Assert.IsInstanceOf<PtsV2PaymentsPost201Response1> (response, "response is PtsV2PaymentsPost201Response1");
+            //Assert.IsInstanceOf<RefreshPaymentStatusResponse> (response, "response is RefreshPaymentStatusResponse");
         }
         
         /// <summary>
@@ -137,7 +137,7 @@ namespace CyberSource.Test
             //CreateSessionRequest createSessionRequest = null;
             //string id = null;
             //var response = instance.UpdateSessionRequest(createSessionRequest, id);
-            //Assert.IsInstanceOf<PtsV2PaymentsPost201Response2> (response, "response is PtsV2PaymentsPost201Response2");
+            //Assert.IsInstanceOf<CreateSessionResponse> (response, "response is CreateSessionResponse");
         }
         
     }

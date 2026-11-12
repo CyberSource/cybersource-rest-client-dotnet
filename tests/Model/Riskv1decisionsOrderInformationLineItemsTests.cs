@@ -153,6 +153,14 @@ namespace CyberSource.Test
             // TODO unit test for the property 'DistributorProductSku'
         }
         /// <summary>
+        /// Test the property 'ProductType'
+        /// </summary>
+        [Test]
+        public void ProductTypeTest()
+        {
+            // TODO unit test for the property 'ProductType'
+        }
+        /// <summary>
         /// Test the property 'Passenger'
         /// </summary>
         [Test]

@@ -43,7 +43,8 @@ namespace CyberSource.Model
         /// <param name="PaymentAccountDate">Date applicable only for PAYMENT_ACCOUNT_EXISTS in paymentAccountHistory .</param>
         /// <param name="TransactionCountDay">Number of transaction (successful or abandoned) for this cardholder account within the last 24 hours. Recommended for Discover ProtectBuy. .</param>
         /// <param name="TransactionCountYear">Number of transaction (successful or abandoned) for this cardholder account within the last year. Recommended for Discover ProtectBuy. .</param>
-        public Ptsv2paymentsRiskInformationBuyerHistory(Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount CustomerAccount = default(Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount), Ptsv2paymentsRiskInformationBuyerHistoryAccountHistory AccountHistory = default(Ptsv2paymentsRiskInformationBuyerHistoryAccountHistory), int? AccountPurchases = default(int?), int? AddCardAttempts = default(int?), bool? PriorSuspiciousActivity = default(bool?), string PaymentAccountHistory = default(string), int? PaymentAccountDate = default(int?), int? TransactionCountDay = default(int?), int? TransactionCountYear = default(int?))
+        /// <param name="FailedPaymentAttemptsCount">Number of failed payment attempts linked to order.</param>
+        public Ptsv2paymentsRiskInformationBuyerHistory(Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount CustomerAccount = default(Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount), Ptsv2paymentsRiskInformationBuyerHistoryAccountHistory AccountHistory = default(Ptsv2paymentsRiskInformationBuyerHistoryAccountHistory), int? AccountPurchases = default(int?), int? AddCardAttempts = default(int?), bool? PriorSuspiciousActivity = default(bool?), string PaymentAccountHistory = default(string), int? PaymentAccountDate = default(int?), int? TransactionCountDay = default(int?), int? TransactionCountYear = default(int?), decimal? FailedPaymentAttemptsCount = default(decimal?))
         {
             this.CustomerAccount = CustomerAccount;
             this.AccountHistory = AccountHistory;
@@ -54,6 +55,7 @@ namespace CyberSource.Model
             this.PaymentAccountDate = PaymentAccountDate;
             this.TransactionCountDay = TransactionCountDay;
             this.TransactionCountYear = TransactionCountYear;
+            this.FailedPaymentAttemptsCount = FailedPaymentAttemptsCount;
         }
         
         /// <summary>
@@ -127,6 +129,14 @@ namespace CyberSource.Model
         public int? TransactionCountYear { get; set; }
 
         /// <summary>
+        /// Number of failed payment attempts linked to order
+        /// </summary>
+        /// <value>Number of failed payment attempts linked to order</value>
+        [JsonPropertyName("failedPaymentAttemptsCount")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public decimal? FailedPaymentAttemptsCount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -143,6 +153,7 @@ namespace CyberSource.Model
             if (PaymentAccountDate != null) sb.Append("  PaymentAccountDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistory", "paymentAccountDate", PaymentAccountDate.ToString())).Append("\n");
             if (TransactionCountDay != null) sb.Append("  TransactionCountDay: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistory", "transactionCountDay", TransactionCountDay.ToString())).Append("\n");
             if (TransactionCountYear != null) sb.Append("  TransactionCountYear: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistory", "transactionCountYear", TransactionCountYear.ToString())).Append("\n");
+            if (FailedPaymentAttemptsCount != null) sb.Append("  FailedPaymentAttemptsCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistory", "failedPaymentAttemptsCount", FailedPaymentAttemptsCount.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -228,6 +239,11 @@ namespace CyberSource.Model
                     this.TransactionCountYear == other.TransactionCountYear ||
                     this.TransactionCountYear != null &&
                     this.TransactionCountYear.Equals(other.TransactionCountYear)
+                ) && 
+                (
+                    this.FailedPaymentAttemptsCount == other.FailedPaymentAttemptsCount ||
+                    this.FailedPaymentAttemptsCount != null &&
+                    this.FailedPaymentAttemptsCount.Equals(other.FailedPaymentAttemptsCount)
                 );
         }
 
@@ -262,6 +278,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.TransactionCountDay.GetHashCode();
                 if (this.TransactionCountYear != null)
                     hash = hash * 59 + this.TransactionCountYear.GetHashCode();
+                if (this.FailedPaymentAttemptsCount != null)
+                    hash = hash * 59 + this.FailedPaymentAttemptsCount.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

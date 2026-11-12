@@ -40,7 +40,13 @@ namespace CyberSource.Model
         /// <param name="PasswordHistory">This only applies for EXISTING_ACCOUNT in creationHistory. The values from the enum can be: - PASSWORD_CHANGED_NOW - PASSWORD_CHANGED_PAST - PASSWORD_NEVER_CHANGED .</param>
         /// <param name="CreateDate">Date the cardholder opened the account. Recommended for Discover ProtectBuy. This only applies for EXISTING_ACCOUNT in creationHistory. .</param>
         /// <param name="PasswordChangeDate">Date the cardholder last changed or reset password on account. Recommended for Discover ProtectBuy. This only applies for PASSWORD_CHANGED_PAST in passwordHistory. .</param>
-        public Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount(string LastChangeDate = default(string), string CreationHistory = default(string), string ModificationHistory = default(string), string PasswordHistory = default(string), string CreateDate = default(string), string PasswordChangeDate = default(string))
+        /// <param name="PreviousLogin">PreviousLogin.</param>
+        /// <param name="PreviousOrder">PreviousOrder.</param>
+        /// <param name="PaymentMethodsCount">Number of Payment methods (all types) created on customer account.</param>
+        /// <param name="TotalOrdersCount">Number of total orders made by this customer account.</param>
+        /// <param name="ProofOfIdReceived">True if the customer provided a proof of any id.</param>
+        /// <param name="LastEmailChangeDate">Date of last email change. Format: &#39;YYYYMMDD&#39; .</param>
+        public Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount(string LastChangeDate = default(string), string CreationHistory = default(string), string ModificationHistory = default(string), string PasswordHistory = default(string), string CreateDate = default(string), string PasswordChangeDate = default(string), Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccountPreviousLogin PreviousLogin = default(Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccountPreviousLogin), Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccountPreviousOrder PreviousOrder = default(Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccountPreviousOrder), decimal? PaymentMethodsCount = default(decimal?), decimal? TotalOrdersCount = default(decimal?), bool? ProofOfIdReceived = default(bool?), string LastEmailChangeDate = default(string))
         {
             this.LastChangeDate = LastChangeDate;
             this.CreationHistory = CreationHistory;
@@ -48,6 +54,12 @@ namespace CyberSource.Model
             this.PasswordHistory = PasswordHistory;
             this.CreateDate = CreateDate;
             this.PasswordChangeDate = PasswordChangeDate;
+            this.PreviousLogin = PreviousLogin;
+            this.PreviousOrder = PreviousOrder;
+            this.PaymentMethodsCount = PaymentMethodsCount;
+            this.TotalOrdersCount = TotalOrdersCount;
+            this.ProofOfIdReceived = ProofOfIdReceived;
+            this.LastEmailChangeDate = LastEmailChangeDate;
         }
         
         /// <summary>
@@ -99,6 +111,52 @@ namespace CyberSource.Model
         public string PasswordChangeDate { get; set; }
 
         /// <summary>
+        /// Gets or Sets PreviousLogin
+        /// </summary>
+        [JsonPropertyName("previousLogin")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccountPreviousLogin PreviousLogin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PreviousOrder
+        /// </summary>
+        [JsonPropertyName("previousOrder")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccountPreviousOrder PreviousOrder { get; set; }
+
+        /// <summary>
+        /// Number of Payment methods (all types) created on customer account
+        /// </summary>
+        /// <value>Number of Payment methods (all types) created on customer account</value>
+        [JsonPropertyName("paymentMethodsCount")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public decimal? PaymentMethodsCount { get; set; }
+
+        /// <summary>
+        /// Number of total orders made by this customer account
+        /// </summary>
+        /// <value>Number of total orders made by this customer account</value>
+        [JsonPropertyName("totalOrdersCount")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public decimal? TotalOrdersCount { get; set; }
+
+        /// <summary>
+        /// True if the customer provided a proof of any id
+        /// </summary>
+        /// <value>True if the customer provided a proof of any id</value>
+        [JsonPropertyName("proofOfIdReceived")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? ProofOfIdReceived { get; set; }
+
+        /// <summary>
+        /// Date of last email change. Format: &#39;YYYYMMDD&#39; 
+        /// </summary>
+        /// <value>Date of last email change. Format: &#39;YYYYMMDD&#39; </value>
+        [JsonPropertyName("lastEmailChangeDate")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string LastEmailChangeDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,6 +170,12 @@ namespace CyberSource.Model
             if (PasswordHistory != null) sb.Append("  PasswordHistory: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount", "passwordHistory", PasswordHistory.ToString())).Append("\n");
             if (CreateDate != null) sb.Append("  CreateDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount", "createDate", CreateDate.ToString())).Append("\n");
             if (PasswordChangeDate != null) sb.Append("  PasswordChangeDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount", "passwordChangeDate", PasswordChangeDate.ToString())).Append("\n");
+            if (PreviousLogin != null) sb.Append("  PreviousLogin: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount", "previousLogin", PreviousLogin.ToString())).Append("\n");
+            if (PreviousOrder != null) sb.Append("  PreviousOrder: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount", "previousOrder", PreviousOrder.ToString())).Append("\n");
+            if (PaymentMethodsCount != null) sb.Append("  PaymentMethodsCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount", "paymentMethodsCount", PaymentMethodsCount.ToString())).Append("\n");
+            if (TotalOrdersCount != null) sb.Append("  TotalOrdersCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount", "totalOrdersCount", TotalOrdersCount.ToString())).Append("\n");
+            if (ProofOfIdReceived != null) sb.Append("  ProofOfIdReceived: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount", "proofOfIdReceived", ProofOfIdReceived.ToString())).Append("\n");
+            if (LastEmailChangeDate != null) sb.Append("  LastEmailChangeDate: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformationBuyerHistoryCustomerAccount", "lastEmailChangeDate", LastEmailChangeDate.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -182,6 +246,36 @@ namespace CyberSource.Model
                     this.PasswordChangeDate == other.PasswordChangeDate ||
                     this.PasswordChangeDate != null &&
                     this.PasswordChangeDate.Equals(other.PasswordChangeDate)
+                ) && 
+                (
+                    this.PreviousLogin == other.PreviousLogin ||
+                    this.PreviousLogin != null &&
+                    this.PreviousLogin.Equals(other.PreviousLogin)
+                ) && 
+                (
+                    this.PreviousOrder == other.PreviousOrder ||
+                    this.PreviousOrder != null &&
+                    this.PreviousOrder.Equals(other.PreviousOrder)
+                ) && 
+                (
+                    this.PaymentMethodsCount == other.PaymentMethodsCount ||
+                    this.PaymentMethodsCount != null &&
+                    this.PaymentMethodsCount.Equals(other.PaymentMethodsCount)
+                ) && 
+                (
+                    this.TotalOrdersCount == other.TotalOrdersCount ||
+                    this.TotalOrdersCount != null &&
+                    this.TotalOrdersCount.Equals(other.TotalOrdersCount)
+                ) && 
+                (
+                    this.ProofOfIdReceived == other.ProofOfIdReceived ||
+                    this.ProofOfIdReceived != null &&
+                    this.ProofOfIdReceived.Equals(other.ProofOfIdReceived)
+                ) && 
+                (
+                    this.LastEmailChangeDate == other.LastEmailChangeDate ||
+                    this.LastEmailChangeDate != null &&
+                    this.LastEmailChangeDate.Equals(other.LastEmailChangeDate)
                 );
         }
 
@@ -210,6 +304,18 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.CreateDate.GetHashCode();
                 if (this.PasswordChangeDate != null)
                     hash = hash * 59 + this.PasswordChangeDate.GetHashCode();
+                if (this.PreviousLogin != null)
+                    hash = hash * 59 + this.PreviousLogin.GetHashCode();
+                if (this.PreviousOrder != null)
+                    hash = hash * 59 + this.PreviousOrder.GetHashCode();
+                if (this.PaymentMethodsCount != null)
+                    hash = hash * 59 + this.PaymentMethodsCount.GetHashCode();
+                if (this.TotalOrdersCount != null)
+                    hash = hash * 59 + this.TotalOrdersCount.GetHashCode();
+                if (this.ProofOfIdReceived != null)
+                    hash = hash * 59 + this.ProofOfIdReceived.GetHashCode();
+                if (this.LastEmailChangeDate != null)
+                    hash = hash * 59 + this.LastEmailChangeDate.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

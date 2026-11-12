@@ -37,9 +37,9 @@ namespace CyberSource.Api
         /// This API can be used in two flavours - for retrieval or deletion of vault id. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
-        /// <returns>InlineResponse201</returns>
-        InlineResponse201 RetrieveOrDeletePaymentToken(Request request);
+        /// <param name="paymentTokenRequest"></param>
+        /// <returns>RetrieveOrDeletePaymentTokenResponse</returns>
+        RetrieveOrDeletePaymentTokenResponse RetrieveOrDeletePaymentToken(PaymentTokenRequest paymentTokenRequest);
 
         /// <summary>
         /// Retrieve or Delete Payment Token
@@ -48,9 +48,9 @@ namespace CyberSource.Api
         /// This API can be used in two flavours - for retrieval or deletion of vault id. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        ApiResponse<InlineResponse201> RetrieveOrDeletePaymentTokenWithHttpInfo(Request request);
+        /// <param name="paymentTokenRequest"></param>
+        /// <returns>ApiResponse of RetrieveOrDeletePaymentTokenResponse</returns>
+        ApiResponse<RetrieveOrDeletePaymentTokenResponse> RetrieveOrDeletePaymentTokenWithHttpInfo(PaymentTokenRequest paymentTokenRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -60,9 +60,9 @@ namespace CyberSource.Api
         /// This API can be used in two flavours - for retrieval or deletion of vault id. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
-        /// <returns>Task of InlineResponse201</returns>
-        System.Threading.Tasks.Task<InlineResponse201> RetrieveOrDeletePaymentTokenAsync(Request request);
+        /// <param name="paymentTokenRequest"></param>
+        /// <returns>Task of RetrieveOrDeletePaymentTokenResponse</returns>
+        System.Threading.Tasks.Task<RetrieveOrDeletePaymentTokenResponse> RetrieveOrDeletePaymentTokenAsync(PaymentTokenRequest paymentTokenRequest);
 
         /// <summary>
         /// Retrieve or Delete Payment Token
@@ -71,9 +71,9 @@ namespace CyberSource.Api
         /// This API can be used in two flavours - for retrieval or deletion of vault id. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> RetrieveOrDeletePaymentTokenAsyncWithHttpInfo(Request request);
+        /// <param name="paymentTokenRequest"></param>
+        /// <returns>Task of ApiResponse (RetrieveOrDeletePaymentTokenResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RetrieveOrDeletePaymentTokenResponse>> RetrieveOrDeletePaymentTokenAsyncWithHttpInfo(PaymentTokenRequest paymentTokenRequest);
         #endregion Asynchronous Operations
     }
 
@@ -104,13 +104,13 @@ namespace CyberSource.Api
         /// Retrieve or Delete Payment Token This API can be used in two flavours - for retrieval or deletion of vault id. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
-        /// <returns>InlineResponse201</returns>
-        public InlineResponse201 RetrieveOrDeletePaymentToken(Request request)
+        /// <param name="paymentTokenRequest"></param>
+        /// <returns>RetrieveOrDeletePaymentTokenResponse</returns>
+        public RetrieveOrDeletePaymentTokenResponse RetrieveOrDeletePaymentToken(PaymentTokenRequest paymentTokenRequest)
         {
             logger.LogDebug("CALLING API \"RetrieveOrDeletePaymentToken\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse201> localVarResponse = RetrieveOrDeletePaymentTokenWithHttpInfo(request);
+            ApiResponse<RetrieveOrDeletePaymentTokenResponse> localVarResponse = RetrieveOrDeletePaymentTokenWithHttpInfo(paymentTokenRequest);
             logger.LogDebug("CALLING API \"RetrieveOrDeletePaymentToken\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -120,17 +120,17 @@ namespace CyberSource.Api
         /// Retrieve or Delete Payment Token This API can be used in two flavours - for retrieval or deletion of vault id. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
-        /// <returns>ApiResponse of InlineResponse201</returns>
-        public ApiResponse< InlineResponse201 > RetrieveOrDeletePaymentTokenWithHttpInfo(Request request)
+        /// <param name="paymentTokenRequest"></param>
+        /// <returns>ApiResponse of RetrieveOrDeletePaymentTokenResponse</returns>
+        public ApiResponse< RetrieveOrDeletePaymentTokenResponse > RetrieveOrDeletePaymentTokenWithHttpInfo(PaymentTokenRequest paymentTokenRequest)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'request' is set
-            if (request == null)
+            // verify the required parameter 'paymentTokenRequest' is set
+            if (paymentTokenRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'request' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
-                throw new ApiException(400, "Missing required parameter 'request' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
+                logger.LogError("ApiException : Missing required parameter 'paymentTokenRequest' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
+                throw new ApiException(400, "Missing required parameter 'paymentTokenRequest' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
             }
 
             var localVarPath = $"/pts/v2/payment-tokens";
@@ -158,15 +158,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (request != null && request.GetType() != typeof(byte[]))
+            if (paymentTokenRequest != null && paymentTokenRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                request = (Request)sdkTracker.InsertDeveloperIdTracker(request, request.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(request); // http body (model) parameter
+                paymentTokenRequest = (PaymentTokenRequest)sdkTracker.InsertDeveloperIdTracker(paymentTokenRequest, paymentTokenRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(paymentTokenRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = request; // byte array
+                localVarPostBody = paymentTokenRequest; // byte array
             }
 
 
@@ -175,7 +175,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -206,22 +206,22 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse201>(localVarStatusCode,
+            return new ApiResponse<RetrieveOrDeletePaymentTokenResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse201) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201))); // Return statement
+                (RetrieveOrDeletePaymentTokenResponse) ApiClient.Deserialize(localVarResponse, typeof(RetrieveOrDeletePaymentTokenResponse))); // Return statement
         }
 
         /// <summary>
         /// Retrieve or Delete Payment Token This API can be used in two flavours - for retrieval or deletion of vault id. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
-        /// <returns>Task of InlineResponse201</returns>
-        public async Task<InlineResponse201> RetrieveOrDeletePaymentTokenAsync(Request request)
+        /// <param name="paymentTokenRequest"></param>
+        /// <returns>Task of RetrieveOrDeletePaymentTokenResponse</returns>
+        public async Task<RetrieveOrDeletePaymentTokenResponse> RetrieveOrDeletePaymentTokenAsync(PaymentTokenRequest paymentTokenRequest)
         {
             logger.LogDebug("CALLING API \"RetrieveOrDeletePaymentTokenAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse201> localVarResponse = await RetrieveOrDeletePaymentTokenAsyncWithHttpInfo(request);
+            ApiResponse<RetrieveOrDeletePaymentTokenResponse> localVarResponse = await RetrieveOrDeletePaymentTokenAsyncWithHttpInfo(paymentTokenRequest);
             logger.LogDebug("CALLING API \"RetrieveOrDeletePaymentTokenAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -232,17 +232,17 @@ namespace CyberSource.Api
         /// Retrieve or Delete Payment Token This API can be used in two flavours - for retrieval or deletion of vault id. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="request"></param>
-        /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        public async Task<ApiResponse<InlineResponse201>> RetrieveOrDeletePaymentTokenAsyncWithHttpInfo(Request request)
+        /// <param name="paymentTokenRequest"></param>
+        /// <returns>Task of ApiResponse (RetrieveOrDeletePaymentTokenResponse)</returns>
+        public async Task<ApiResponse<RetrieveOrDeletePaymentTokenResponse>> RetrieveOrDeletePaymentTokenAsyncWithHttpInfo(PaymentTokenRequest paymentTokenRequest)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'request' is set
-            if (request == null)
+            // verify the required parameter 'paymentTokenRequest' is set
+            if (paymentTokenRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'request' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
-                throw new ApiException(400, "Missing required parameter 'request' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
+                logger.LogError("ApiException : Missing required parameter 'paymentTokenRequest' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
+                throw new ApiException(400, "Missing required parameter 'paymentTokenRequest' when calling PaymentTokensApi->RetrieveOrDeletePaymentToken");
             }
 
             var localVarPath = $"/pts/v2/payment-tokens";
@@ -270,15 +270,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
             }
 
-            if (request != null && request.GetType() != typeof(byte[]))
+            if (paymentTokenRequest != null && paymentTokenRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                request = (Request)sdkTracker.InsertDeveloperIdTracker(request, request.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(request); // http body (model) parameter
+                paymentTokenRequest = (PaymentTokenRequest)sdkTracker.InsertDeveloperIdTracker(paymentTokenRequest, paymentTokenRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(paymentTokenRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = request; // byte array
+                localVarPostBody = paymentTokenRequest; // byte array
             }
 
 
@@ -287,7 +287,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -318,9 +318,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse201>(localVarStatusCode,
+            return new ApiResponse<RetrieveOrDeletePaymentTokenResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse201) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse201))); // Return statement
+                (RetrieveOrDeletePaymentTokenResponse) ApiClient.Deserialize(localVarResponse, typeof(RetrieveOrDeletePaymentTokenResponse))); // Return statement
         }
     }
 }

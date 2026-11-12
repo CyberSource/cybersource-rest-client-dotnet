@@ -34,19 +34,29 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TmsMerchantInformationMerchantDescriptor" /> class.
         /// </summary>
-        /// <param name="AlternateName">Alternate contact information for your business,such as an email address or URL. This value might be displayed on the cardholder&#39;s statement. When you do not include this value in your capture or credit request, the merchant URL from your CyberSource account is used. Important This value must consist of English characters .</param>
-        public TmsMerchantInformationMerchantDescriptor(string AlternateName = default(string))
+        /// <param name="Name">Merchant&#39;s name.</param>
+        /// <param name="Url">Address of company&#39;s website provided by merchant.</param>
+        public TmsMerchantInformationMerchantDescriptor(string Name = default(string), string Url = default(string))
         {
-            this.AlternateName = AlternateName;
+            this.Name = Name;
+            this.Url = Url;
         }
         
         /// <summary>
-        /// Alternate contact information for your business,such as an email address or URL. This value might be displayed on the cardholder&#39;s statement. When you do not include this value in your capture or credit request, the merchant URL from your CyberSource account is used. Important This value must consist of English characters 
+        /// Merchant&#39;s name
         /// </summary>
-        /// <value>Alternate contact information for your business,such as an email address or URL. This value might be displayed on the cardholder&#39;s statement. When you do not include this value in your capture or credit request, the merchant URL from your CyberSource account is used. Important This value must consist of English characters </value>
-        [JsonPropertyName("alternateName")]
+        /// <value>Merchant&#39;s name</value>
+        [JsonPropertyName("name")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string AlternateName { get; set; }
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Address of company&#39;s website provided by merchant
+        /// </summary>
+        /// <value>Address of company&#39;s website provided by merchant</value>
+        [JsonPropertyName("url")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,7 +66,8 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TmsMerchantInformationMerchantDescriptor {\n");
-            if (AlternateName != null) sb.Append("  AlternateName: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsMerchantInformationMerchantDescriptor", "alternateName", AlternateName.ToString())).Append("\n");
+            if (Name != null) sb.Append("  Name: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsMerchantInformationMerchantDescriptor", "name", Name.ToString())).Append("\n");
+            if (Url != null) sb.Append("  Url: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("TmsMerchantInformationMerchantDescriptor", "url", Url.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -99,9 +110,14 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.AlternateName == other.AlternateName ||
-                    this.AlternateName != null &&
-                    this.AlternateName.Equals(other.AlternateName)
+                    this.Name == other.Name ||
+                    this.Name != null &&
+                    this.Name.Equals(other.Name)
+                ) && 
+                (
+                    this.Url == other.Url ||
+                    this.Url != null &&
+                    this.Url.Equals(other.Url)
                 );
         }
 
@@ -118,8 +134,10 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.AlternateName != null)
-                    hash = hash * 59 + this.AlternateName.GetHashCode();
+                if (this.Name != null)
+                    hash = hash * 59 + this.Name.GetHashCode();
+                if (this.Url != null)
+                    hash = hash * 59 + this.Url.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="cancelcheckout"></a>
 # **CancelCheckout**
-> InlineResponse20018 CancelCheckout (string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+> CancelCheckoutResponse CancelCheckout (string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
 
 Cancel Checkout ACP
 
@@ -46,7 +46,7 @@ namespace Example
             try
             {
                 // Cancel Checkout ACP
-                InlineResponse20018 result = apiInstance.CancelCheckout(sessionId, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+                CancelCheckoutResponse result = apiInstance.CancelCheckout(sessionId, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**CancelCheckoutResponse**](CancelCheckoutResponse.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ No authorization required
 
 <a name="completecheckout"></a>
 # **CompleteCheckout**
-> InlineResponse20017 CompleteCheckout (string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+> CompleteCheckoutResponse CompleteCheckout (string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
 
 Complete Checkout ACP
 
@@ -122,7 +122,7 @@ namespace Example
             try
             {
                 // Complete Checkout ACP
-                InlineResponse20017 result = apiInstance.CompleteCheckout(sessionId, acpCompleteCheckoutRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+                CompleteCheckoutResponse result = apiInstance.CompleteCheckout(sessionId, acpCompleteCheckoutRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**CompleteCheckoutResponse**](CompleteCheckoutResponse.md)
 
 ### Authorization
 
@@ -165,7 +165,7 @@ No authorization required
 
 <a name="createcheckoutsession"></a>
 # **CreateCheckoutSession**
-> InlineResponse20112 CreateCheckoutSession (AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+> CheckoutSessionResponse CreateCheckoutSession (AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
 
 Create Checkout Session ACP
 
@@ -198,7 +198,7 @@ namespace Example
             try
             {
                 // Create Checkout Session ACP
-                InlineResponse20112 result = apiInstance.CreateCheckoutSession(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+                CheckoutSessionResponse result = apiInstance.CreateCheckoutSession(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20112**](InlineResponse20112.md)
+[**CheckoutSessionResponse**](CheckoutSessionResponse.md)
 
 ### Authorization
 
@@ -240,7 +240,7 @@ No authorization required
 
 <a name="getcheckoutsession"></a>
 # **GetCheckoutSession**
-> InlineResponse20112 GetCheckoutSession (string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+> CheckoutSessionResponse GetCheckoutSession (string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
 
 Get Checkout Session ACP
 
@@ -274,7 +274,7 @@ namespace Example
             try
             {
                 // Get Checkout Session ACP
-                InlineResponse20112 result = apiInstance.GetCheckoutSession(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+                CheckoutSessionResponse result = apiInstance.GetCheckoutSession(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20112**](InlineResponse20112.md)
+[**CheckoutSessionResponse**](CheckoutSessionResponse.md)
 
 ### Authorization
 
@@ -317,7 +317,7 @@ No authorization required
 
 <a name="updatecheckoutsession"></a>
 # **UpdateCheckoutSession**
-> InlineResponse20112 UpdateCheckoutSession (string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+> CheckoutSessionResponse UpdateCheckoutSession (string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
 
 Update Checkout Session ACP
 
@@ -351,7 +351,7 @@ namespace Example
             try
             {
                 // Update Checkout Session ACP
-                InlineResponse20112 result = apiInstance.UpdateCheckoutSession(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+                CheckoutSessionResponse result = apiInstance.UpdateCheckoutSession(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20112**](InlineResponse20112.md)
+[**CheckoutSessionResponse**](CheckoutSessionResponse.md)
 
 ### Authorization
 

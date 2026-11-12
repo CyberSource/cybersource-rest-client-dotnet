@@ -35,9 +35,19 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Riskv1decisionsProcessingInformation" /> class.
         /// </summary>
         /// <param name="ActionList">- Use &#x60;CONSUMER_AUTHENTICATION&#x60; to use Payer Authentication along with Decision Manager. For any other value, only Decision Manager will run. - Use &#x60;WATCHLIST_SCREENING&#x60;  when you want to call Watchlist Screening service. .</param>
-        public Riskv1decisionsProcessingInformation(List<string> ActionList = default(List<string>))
+        /// <param name="BusinessApplicationId">Required for AFT and OCT transactions.  Given below is a list of all the BAI values available. However, the processors may support only few specific BAI values.  - AA : Account-to-account  - BB : Supplier Payments - BI : Bank-Initiated P2P Money Transfer - BP : Non-Card Bill Pay/Bill Pay - CD : Cash Deposit - CP : Credit card Bill Payment - FD : Funds disbursement  - FT : Funds transfer - GD : Government Disbursement - GP : Gambling payout (non-online gambling) - LO : Loyalty credits and rebates - MD : Merchant Settlement - OG : Online Gambling Payout - PD : Payroll and pension disbursement - PP : Person-to-Person or Peer-to-Peer - TU : Top up, prepaid load - WT : Digital wallet  .</param>
+        /// <param name="PurposeOfPayment">This field is applicable for AFT and OCT transactions. For list of supported values, please refer to Developer Guide. .</param>
+        /// <param name="PreAuthStatus">Outcome of a pre-authorization process. Used when processing payment outside of CyberSource and sent to Decision Manager post-authorisation. Possible values: Approved, Rejected, Hold. .</param>
+        /// <param name="PreAuthResponseCode">Alphanumeric code returned by the issuer or payment gateway during the pre-authorization stage of a transaction. .</param>
+        /// <param name="AuthorizationOptions">AuthorizationOptions.</param>
+        public Riskv1decisionsProcessingInformation(List<string> ActionList = default(List<string>), string BusinessApplicationId = default(string), string PurposeOfPayment = default(string), string PreAuthStatus = default(string), string PreAuthResponseCode = default(string), Riskv1decisionsProcessingInformationAuthorizationOptions AuthorizationOptions = default(Riskv1decisionsProcessingInformationAuthorizationOptions))
         {
             this.ActionList = ActionList;
+            this.BusinessApplicationId = BusinessApplicationId;
+            this.PurposeOfPayment = PurposeOfPayment;
+            this.PreAuthStatus = PreAuthStatus;
+            this.PreAuthResponseCode = PreAuthResponseCode;
+            this.AuthorizationOptions = AuthorizationOptions;
         }
         
         /// <summary>
@@ -49,6 +59,45 @@ namespace CyberSource.Model
         public List<string> ActionList { get; set; }
 
         /// <summary>
+        /// Required for AFT and OCT transactions.  Given below is a list of all the BAI values available. However, the processors may support only few specific BAI values.  - AA : Account-to-account  - BB : Supplier Payments - BI : Bank-Initiated P2P Money Transfer - BP : Non-Card Bill Pay/Bill Pay - CD : Cash Deposit - CP : Credit card Bill Payment - FD : Funds disbursement  - FT : Funds transfer - GD : Government Disbursement - GP : Gambling payout (non-online gambling) - LO : Loyalty credits and rebates - MD : Merchant Settlement - OG : Online Gambling Payout - PD : Payroll and pension disbursement - PP : Person-to-Person or Peer-to-Peer - TU : Top up, prepaid load - WT : Digital wallet  
+        /// </summary>
+        /// <value>Required for AFT and OCT transactions.  Given below is a list of all the BAI values available. However, the processors may support only few specific BAI values.  - AA : Account-to-account  - BB : Supplier Payments - BI : Bank-Initiated P2P Money Transfer - BP : Non-Card Bill Pay/Bill Pay - CD : Cash Deposit - CP : Credit card Bill Payment - FD : Funds disbursement  - FT : Funds transfer - GD : Government Disbursement - GP : Gambling payout (non-online gambling) - LO : Loyalty credits and rebates - MD : Merchant Settlement - OG : Online Gambling Payout - PD : Payroll and pension disbursement - PP : Person-to-Person or Peer-to-Peer - TU : Top up, prepaid load - WT : Digital wallet  </value>
+        [JsonPropertyName("businessApplicationId")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string BusinessApplicationId { get; set; }
+
+        /// <summary>
+        /// This field is applicable for AFT and OCT transactions. For list of supported values, please refer to Developer Guide. 
+        /// </summary>
+        /// <value>This field is applicable for AFT and OCT transactions. For list of supported values, please refer to Developer Guide. </value>
+        [JsonPropertyName("purposeOfPayment")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string PurposeOfPayment { get; set; }
+
+        /// <summary>
+        /// Outcome of a pre-authorization process. Used when processing payment outside of CyberSource and sent to Decision Manager post-authorisation. Possible values: Approved, Rejected, Hold. 
+        /// </summary>
+        /// <value>Outcome of a pre-authorization process. Used when processing payment outside of CyberSource and sent to Decision Manager post-authorisation. Possible values: Approved, Rejected, Hold. </value>
+        [JsonPropertyName("preAuthStatus")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string PreAuthStatus { get; set; }
+
+        /// <summary>
+        /// Alphanumeric code returned by the issuer or payment gateway during the pre-authorization stage of a transaction. 
+        /// </summary>
+        /// <value>Alphanumeric code returned by the issuer or payment gateway during the pre-authorization stage of a transaction. </value>
+        [JsonPropertyName("preAuthResponseCode")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string PreAuthResponseCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AuthorizationOptions
+        /// </summary>
+        [JsonPropertyName("authorizationOptions")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Riskv1decisionsProcessingInformationAuthorizationOptions AuthorizationOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -57,6 +106,11 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsProcessingInformation {\n");
             if (ActionList != null) sb.Append("  ActionList: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsProcessingInformation", "actionList", ActionList.ToString())).Append("\n");
+            if (BusinessApplicationId != null) sb.Append("  BusinessApplicationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsProcessingInformation", "businessApplicationId", BusinessApplicationId.ToString())).Append("\n");
+            if (PurposeOfPayment != null) sb.Append("  PurposeOfPayment: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsProcessingInformation", "purposeOfPayment", PurposeOfPayment.ToString())).Append("\n");
+            if (PreAuthStatus != null) sb.Append("  PreAuthStatus: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsProcessingInformation", "preAuthStatus", PreAuthStatus.ToString())).Append("\n");
+            if (PreAuthResponseCode != null) sb.Append("  PreAuthResponseCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsProcessingInformation", "preAuthResponseCode", PreAuthResponseCode.ToString())).Append("\n");
+            if (AuthorizationOptions != null) sb.Append("  AuthorizationOptions: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsProcessingInformation", "authorizationOptions", AuthorizationOptions.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -102,6 +156,31 @@ namespace CyberSource.Model
                     this.ActionList == other.ActionList ||
                     this.ActionList != null &&
                     this.ActionList.SequenceEqual(other.ActionList)
+                ) && 
+                (
+                    this.BusinessApplicationId == other.BusinessApplicationId ||
+                    this.BusinessApplicationId != null &&
+                    this.BusinessApplicationId.Equals(other.BusinessApplicationId)
+                ) && 
+                (
+                    this.PurposeOfPayment == other.PurposeOfPayment ||
+                    this.PurposeOfPayment != null &&
+                    this.PurposeOfPayment.Equals(other.PurposeOfPayment)
+                ) && 
+                (
+                    this.PreAuthStatus == other.PreAuthStatus ||
+                    this.PreAuthStatus != null &&
+                    this.PreAuthStatus.Equals(other.PreAuthStatus)
+                ) && 
+                (
+                    this.PreAuthResponseCode == other.PreAuthResponseCode ||
+                    this.PreAuthResponseCode != null &&
+                    this.PreAuthResponseCode.Equals(other.PreAuthResponseCode)
+                ) && 
+                (
+                    this.AuthorizationOptions == other.AuthorizationOptions ||
+                    this.AuthorizationOptions != null &&
+                    this.AuthorizationOptions.Equals(other.AuthorizationOptions)
                 );
         }
 
@@ -120,6 +199,16 @@ namespace CyberSource.Model
                 // consistent with Equals.
                 if (this.ActionList != null)
                     hash = hash * 59 + this.ActionList.GetHashCode();
+                if (this.BusinessApplicationId != null)
+                    hash = hash * 59 + this.BusinessApplicationId.GetHashCode();
+                if (this.PurposeOfPayment != null)
+                    hash = hash * 59 + this.PurposeOfPayment.GetHashCode();
+                if (this.PreAuthStatus != null)
+                    hash = hash * 59 + this.PreAuthStatus.GetHashCode();
+                if (this.PreAuthResponseCode != null)
+                    hash = hash * 59 + this.PreAuthResponseCode.GetHashCode();
+                if (this.AuthorizationOptions != null)
+                    hash = hash * 59 + this.AuthorizationOptions.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

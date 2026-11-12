@@ -40,8 +40,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetCardArtAsset(string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>CardArtAssetResponse</returns>
+        CardArtAssetResponse GetCardArtAsset(string instrumentIdentifierId, string tokenProvider, string assetType);
 
         /// <summary>
         /// Retrieve Card Art
@@ -53,8 +53,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetCardArtAssetWithHttpInfo(string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>ApiResponse of CardArtAssetResponse</returns>
+        ApiResponse<CardArtAssetResponse> GetCardArtAssetWithHttpInfo(string instrumentIdentifierId, string tokenProvider, string assetType);
         /// <summary>
         /// Retrieve a Tokenized Card
         /// </summary>
@@ -64,8 +64,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetTokenizedCard(string tokenizedCardId, string profileId = null);
+        /// <returns>GetTokenizedCardResponse</returns>
+        GetTokenizedCardResponse GetTokenizedCard(string tokenizedCardId, string profileId = null);
 
         /// <summary>
         /// Retrieve a Tokenized Card
@@ -76,8 +76,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetTokenizedCardWithHttpInfo(string tokenizedCardId, string profileId = null);
+        /// <returns>ApiResponse of GetTokenizedCardResponse</returns>
+        ApiResponse<GetTokenizedCardResponse> GetTokenizedCardWithHttpInfo(string tokenizedCardId, string profileId = null);
         /// <summary>
         /// Simulate Issuer Life Cycle Management Events
         /// </summary>
@@ -114,7 +114,7 @@ namespace CyberSource.Api
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>string</returns>
-        string PostTokenPaymentCredentials(string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null);
+        string PostTokenPaymentCredentials(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
 
         /// <summary>
         /// Generate Payment Credentials v2
@@ -127,7 +127,7 @@ namespace CyberSource.Api
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PostTokenPaymentCredentialsWithHttpInfo(string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null);
+        ApiResponse<string> PostTokenPaymentCredentialsWithHttpInfo(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
         /// <summary>
         /// Generate Payment Credentials Latest Version v3
         /// </summary>
@@ -136,10 +136,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
-        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="postPaymentCredentialsV3Request"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>InlineResponse2011</returns>
-        InlineResponse2011 PostTokenPaymentCredentialsV3(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
+        /// <returns>PostPaymentCredentialsResponse</returns>
+        PostPaymentCredentialsResponse PostTokenPaymentCredentialsV3(string tokenId, PostPaymentCredentialsV3Request postPaymentCredentialsV3Request, string profileId = null);
 
         /// <summary>
         /// Generate Payment Credentials Latest Version v3
@@ -149,10 +149,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
-        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="postPaymentCredentialsV3Request"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2011</returns>
-        ApiResponse<InlineResponse2011> PostTokenPaymentCredentialsV3WithHttpInfo(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
+        /// <returns>ApiResponse of PostPaymentCredentialsResponse</returns>
+        ApiResponse<PostPaymentCredentialsResponse> PostTokenPaymentCredentialsV3WithHttpInfo(string tokenId, PostPaymentCredentialsV3Request postPaymentCredentialsV3Request, string profileId = null);
         /// <summary>
         /// Create a Tokenized Card
         /// </summary>
@@ -162,8 +162,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 PostTokenizedCard(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
+        /// <returns>GetTokenizedCardResponse</returns>
+        GetTokenizedCardResponse PostTokenizedCard(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
 
         /// <summary>
         /// Create a Tokenized Card
@@ -174,8 +174,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> PostTokenizedCardWithHttpInfo(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
+        /// <returns>ApiResponse of GetTokenizedCardResponse</returns>
+        ApiResponse<GetTokenizedCardResponse> PostTokenizedCardWithHttpInfo(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
         /// <summary>
         /// Delete a Tokenized Card
         /// </summary>
@@ -213,8 +213,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetCardArtAssetAsync(string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>Task of CardArtAssetResponse</returns>
+        System.Threading.Tasks.Task<CardArtAssetResponse> GetCardArtAssetAsync(string instrumentIdentifierId, string tokenProvider, string assetType);
 
         /// <summary>
         /// Retrieve Card Art
@@ -226,8 +226,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCardArtAssetAsyncWithHttpInfo(string instrumentIdentifierId, string tokenProvider, string assetType);
+        /// <returns>Task of ApiResponse (CardArtAssetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CardArtAssetResponse>> GetCardArtAssetAsyncWithHttpInfo(string instrumentIdentifierId, string tokenProvider, string assetType);
         /// <summary>
         /// Retrieve a Tokenized Card
         /// </summary>
@@ -237,8 +237,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetTokenizedCardAsync(string tokenizedCardId, string profileId = null);
+        /// <returns>Task of GetTokenizedCardResponse</returns>
+        System.Threading.Tasks.Task<GetTokenizedCardResponse> GetTokenizedCardAsync(string tokenizedCardId, string profileId = null);
 
         /// <summary>
         /// Retrieve a Tokenized Card
@@ -249,8 +249,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetTokenizedCardAsyncWithHttpInfo(string tokenizedCardId, string profileId = null);
+        /// <returns>Task of ApiResponse (GetTokenizedCardResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetTokenizedCardResponse>> GetTokenizedCardAsyncWithHttpInfo(string tokenizedCardId, string profileId = null);
         /// <summary>
         /// Simulate Issuer Life Cycle Management Events
         /// </summary>
@@ -287,7 +287,7 @@ namespace CyberSource.Api
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PostTokenPaymentCredentialsAsync(string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null);
+        System.Threading.Tasks.Task<string> PostTokenPaymentCredentialsAsync(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
 
         /// <summary>
         /// Generate Payment Credentials v2
@@ -300,7 +300,7 @@ namespace CyberSource.Api
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo(string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null);
+        System.Threading.Tasks.Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
         /// <summary>
         /// Generate Payment Credentials Latest Version v3
         /// </summary>
@@ -309,10 +309,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
-        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="postPaymentCredentialsV3Request"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of InlineResponse2011</returns>
-        System.Threading.Tasks.Task<InlineResponse2011> PostTokenPaymentCredentialsV3Async(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
+        /// <returns>Task of PostPaymentCredentialsResponse</returns>
+        System.Threading.Tasks.Task<PostPaymentCredentialsResponse> PostTokenPaymentCredentialsV3Async(string tokenId, PostPaymentCredentialsV3Request postPaymentCredentialsV3Request, string profileId = null);
 
         /// <summary>
         /// Generate Payment Credentials Latest Version v3
@@ -322,10 +322,10 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
-        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="postPaymentCredentialsV3Request"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> PostTokenPaymentCredentialsV3AsyncWithHttpInfo(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null);
+        /// <returns>Task of ApiResponse (PostPaymentCredentialsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PostPaymentCredentialsResponse>> PostTokenPaymentCredentialsV3AsyncWithHttpInfo(string tokenId, PostPaymentCredentialsV3Request postPaymentCredentialsV3Request, string profileId = null);
         /// <summary>
         /// Create a Tokenized Card
         /// </summary>
@@ -335,8 +335,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> PostTokenizedCardAsync(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
+        /// <returns>Task of GetTokenizedCardResponse</returns>
+        System.Threading.Tasks.Task<GetTokenizedCardResponse> PostTokenizedCardAsync(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
 
         /// <summary>
         /// Create a Tokenized Card
@@ -347,8 +347,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PostTokenizedCardAsyncWithHttpInfo(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
+        /// <returns>Task of ApiResponse (GetTokenizedCardResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetTokenizedCardResponse>> PostTokenizedCardAsyncWithHttpInfo(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null);
         /// <summary>
         /// Delete a Tokenized Card
         /// </summary>
@@ -407,12 +407,12 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetCardArtAsset(string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>CardArtAssetResponse</returns>
+        public CardArtAssetResponse GetCardArtAsset(string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             logger.LogDebug("CALLING API \"GetCardArtAsset\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2002> localVarResponse = GetCardArtAssetWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
+            ApiResponse<CardArtAssetResponse> localVarResponse = GetCardArtAssetWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
             logger.LogDebug("CALLING API \"GetCardArtAsset\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -425,8 +425,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse< InlineResponse2002 > GetCardArtAssetWithHttpInfo(string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>ApiResponse of CardArtAssetResponse</returns>
+        public ApiResponse< CardArtAssetResponse > GetCardArtAssetWithHttpInfo(string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -513,7 +513,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -542,9 +542,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
+            return new ApiResponse<CardArtAssetResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2002) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002))); // Return statement
+                (CardArtAssetResponse) ApiClient.Deserialize(localVarResponse, typeof(CardArtAssetResponse))); // Return statement
         }
 
         /// <summary>
@@ -554,12 +554,12 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        public async Task<InlineResponse2002> GetCardArtAssetAsync(string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>Task of CardArtAssetResponse</returns>
+        public async Task<CardArtAssetResponse> GetCardArtAssetAsync(string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             logger.LogDebug("CALLING API \"GetCardArtAssetAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2002> localVarResponse = await GetCardArtAssetAsyncWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
+            ApiResponse<CardArtAssetResponse> localVarResponse = await GetCardArtAssetAsyncWithHttpInfo(instrumentIdentifierId, tokenProvider, assetType);
             logger.LogDebug("CALLING API \"GetCardArtAssetAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -573,8 +573,8 @@ namespace CyberSource.Api
         /// <param name="instrumentIdentifierId">The Id of an Instrument Identifier.</param>
         /// <param name="tokenProvider">The token provider.</param>
         /// <param name="assetType">The type of asset.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async Task<ApiResponse<InlineResponse2002>> GetCardArtAssetAsyncWithHttpInfo(string instrumentIdentifierId, string tokenProvider, string assetType)
+        /// <returns>Task of ApiResponse (CardArtAssetResponse)</returns>
+        public async Task<ApiResponse<CardArtAssetResponse>> GetCardArtAssetAsyncWithHttpInfo(string instrumentIdentifierId, string tokenProvider, string assetType)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -660,7 +660,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -689,9 +689,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
+            return new ApiResponse<CardArtAssetResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2002) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002))); // Return statement
+                (CardArtAssetResponse) ApiClient.Deserialize(localVarResponse, typeof(CardArtAssetResponse))); // Return statement
         }
         /// <summary>
         /// Retrieve a Tokenized Card |**Tokenized Cards**&lt;br&gt;A Tokenized Card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. This API returns the details of a tokenized card stored in TMS. You can use this API to check the status of a tokenized card and retrieve details such as the last four digits of the underlying card, expiration date, and card type. 
@@ -699,12 +699,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetTokenizedCard(string tokenizedCardId, string profileId = null)
+        /// <returns>GetTokenizedCardResponse</returns>
+        public GetTokenizedCardResponse GetTokenizedCard(string tokenizedCardId, string profileId = null)
         {
             logger.LogDebug("CALLING API \"GetTokenizedCard\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2001> localVarResponse = GetTokenizedCardWithHttpInfo(tokenizedCardId, profileId);
+            ApiResponse<GetTokenizedCardResponse> localVarResponse = GetTokenizedCardWithHttpInfo(tokenizedCardId, profileId);
             logger.LogDebug("CALLING API \"GetTokenizedCard\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -716,8 +716,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse< InlineResponse2001 > GetTokenizedCardWithHttpInfo(string tokenizedCardId, string profileId = null)
+        /// <returns>ApiResponse of GetTokenizedCardResponse</returns>
+        public ApiResponse< GetTokenizedCardResponse > GetTokenizedCardWithHttpInfo(string tokenizedCardId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -785,7 +785,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -814,9 +814,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<GetTokenizedCardResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2001) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001))); // Return statement
+                (GetTokenizedCardResponse) ApiClient.Deserialize(localVarResponse, typeof(GetTokenizedCardResponse))); // Return statement
         }
 
         /// <summary>
@@ -825,12 +825,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async Task<InlineResponse2001> GetTokenizedCardAsync(string tokenizedCardId, string profileId = null)
+        /// <returns>Task of GetTokenizedCardResponse</returns>
+        public async Task<GetTokenizedCardResponse> GetTokenizedCardAsync(string tokenizedCardId, string profileId = null)
         {
             logger.LogDebug("CALLING API \"GetTokenizedCardAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2001> localVarResponse = await GetTokenizedCardAsyncWithHttpInfo(tokenizedCardId, profileId);
+            ApiResponse<GetTokenizedCardResponse> localVarResponse = await GetTokenizedCardAsyncWithHttpInfo(tokenizedCardId, profileId);
             logger.LogDebug("CALLING API \"GetTokenizedCardAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -843,8 +843,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenizedCardId">The Id of a tokenized card.</param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async Task<ApiResponse<InlineResponse2001>> GetTokenizedCardAsyncWithHttpInfo(string tokenizedCardId, string profileId = null)
+        /// <returns>Task of ApiResponse (GetTokenizedCardResponse)</returns>
+        public async Task<ApiResponse<GetTokenizedCardResponse>> GetTokenizedCardAsyncWithHttpInfo(string tokenizedCardId, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -911,7 +911,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -940,9 +940,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<GetTokenizedCardResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2001) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001))); // Return statement
+                (GetTokenizedCardResponse) ApiClient.Deserialize(localVarResponse, typeof(GetTokenizedCardResponse))); // Return statement
         }
         /// <summary>
         /// Simulate Issuer Life Cycle Management Events **Lifecycle Management Events**&lt;br&gt;Simulates an issuer life cycle manegement event for updates on the tokenized card. The events that can be simulated are: - Token status changes (e.g. active, suspended, deleted) - Updates to the underlying card, including card art changes, expiration date changes, and card number suffix. **Note:** This is only available in CAS environment. 
@@ -1042,7 +1042,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1178,7 +1178,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1222,7 +1222,7 @@ namespace CyberSource.Api
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>string</returns>
-        public string PostTokenPaymentCredentials(string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
+        public string PostTokenPaymentCredentials(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
         {
             logger.LogDebug("CALLING API \"PostTokenPaymentCredentials\" STARTED");
             this.SetStatusCode(null);
@@ -1240,7 +1240,7 @@ namespace CyberSource.Api
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>ApiResponse of string</returns>
-        public ApiResponse< string > PostTokenPaymentCredentialsWithHttpInfo(string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
+        public ApiResponse< string > PostTokenPaymentCredentialsWithHttpInfo(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1295,7 +1295,7 @@ namespace CyberSource.Api
             if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest1)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
                 localVarPostBody = ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
             }
             else
@@ -1309,7 +1309,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1353,7 +1353,7 @@ namespace CyberSource.Api
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of string</returns>
-        public async Task<string> PostTokenPaymentCredentialsAsync(string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
+        public async Task<string> PostTokenPaymentCredentialsAsync(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
         {
             logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsAsync\" STARTED");
             this.SetStatusCode(null);
@@ -1372,7 +1372,7 @@ namespace CyberSource.Api
         /// <param name="postPaymentCredentialsRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo(string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
+        public async Task<ApiResponse<string>> PostTokenPaymentCredentialsAsyncWithHttpInfo(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1427,7 +1427,7 @@ namespace CyberSource.Api
             if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest1)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
                 localVarPostBody = ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
             }
             else
@@ -1441,7 +1441,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1481,14 +1481,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
-        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="postPaymentCredentialsV3Request"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>InlineResponse2011</returns>
-        public InlineResponse2011 PostTokenPaymentCredentialsV3(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        /// <returns>PostPaymentCredentialsResponse</returns>
+        public PostPaymentCredentialsResponse PostTokenPaymentCredentialsV3(string tokenId, PostPaymentCredentialsV3Request postPaymentCredentialsV3Request, string profileId = null)
         {
             logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsV3\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2011> localVarResponse = PostTokenPaymentCredentialsV3WithHttpInfo(tokenId, postPaymentCredentialsRequest, profileId);
+            ApiResponse<PostPaymentCredentialsResponse> localVarResponse = PostTokenPaymentCredentialsV3WithHttpInfo(tokenId, postPaymentCredentialsV3Request, profileId);
             logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsV3\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1499,10 +1499,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
-        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="postPaymentCredentialsV3Request"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2011</returns>
-        public ApiResponse< InlineResponse2011 > PostTokenPaymentCredentialsV3WithHttpInfo(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        /// <returns>ApiResponse of PostPaymentCredentialsResponse</returns>
+        public ApiResponse< PostPaymentCredentialsResponse > PostTokenPaymentCredentialsV3WithHttpInfo(string tokenId, PostPaymentCredentialsV3Request postPaymentCredentialsV3Request, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1512,11 +1512,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
             }
-            // verify the required parameter 'postPaymentCredentialsRequest' is set
-            if (postPaymentCredentialsRequest == null)
+            // verify the required parameter 'postPaymentCredentialsV3Request' is set
+            if (postPaymentCredentialsV3Request == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
-                throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
+                logger.LogError("ApiException : Missing required parameter 'postPaymentCredentialsV3Request' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
+                throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsV3Request' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
             }
 
             var localVarPath = $"/tms/v3/tokens/{tokenId}/payment-credentials";
@@ -1554,15 +1554,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("profile-id", ApiClient.ParameterToString(profileId)); // header parameter
             }
 
-            if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
+            if (postPaymentCredentialsV3Request != null && postPaymentCredentialsV3Request.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
+                postPaymentCredentialsV3Request = (PostPaymentCredentialsV3Request)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsV3Request, postPaymentCredentialsV3Request.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(postPaymentCredentialsV3Request); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = postPaymentCredentialsRequest; // byte array
+                localVarPostBody = postPaymentCredentialsV3Request; // byte array
             }
 
 
@@ -1571,7 +1571,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1602,9 +1602,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+            return new ApiResponse<PostPaymentCredentialsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2011) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011))); // Return statement
+                (PostPaymentCredentialsResponse) ApiClient.Deserialize(localVarResponse, typeof(PostPaymentCredentialsResponse))); // Return statement
         }
 
         /// <summary>
@@ -1612,14 +1612,14 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
-        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="postPaymentCredentialsV3Request"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of InlineResponse2011</returns>
-        public async Task<InlineResponse2011> PostTokenPaymentCredentialsV3Async(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        /// <returns>Task of PostPaymentCredentialsResponse</returns>
+        public async Task<PostPaymentCredentialsResponse> PostTokenPaymentCredentialsV3Async(string tokenId, PostPaymentCredentialsV3Request postPaymentCredentialsV3Request, string profileId = null)
         {
             logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsV3Async\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2011> localVarResponse = await PostTokenPaymentCredentialsV3AsyncWithHttpInfo(tokenId, postPaymentCredentialsRequest, profileId);
+            ApiResponse<PostPaymentCredentialsResponse> localVarResponse = await PostTokenPaymentCredentialsV3AsyncWithHttpInfo(tokenId, postPaymentCredentialsV3Request, profileId);
             logger.LogDebug("CALLING API \"PostTokenPaymentCredentialsV3Async\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1631,10 +1631,10 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tokenId">The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.</param>
-        /// <param name="postPaymentCredentialsRequest"></param>
+        /// <param name="postPaymentCredentialsV3Request"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        public async Task<ApiResponse<InlineResponse2011>> PostTokenPaymentCredentialsV3AsyncWithHttpInfo(string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+        /// <returns>Task of ApiResponse (PostPaymentCredentialsResponse)</returns>
+        public async Task<ApiResponse<PostPaymentCredentialsResponse>> PostTokenPaymentCredentialsV3AsyncWithHttpInfo(string tokenId, PostPaymentCredentialsV3Request postPaymentCredentialsV3Request, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1644,11 +1644,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
                 throw new ApiException(400, "Missing required parameter 'tokenId' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
             }
-            // verify the required parameter 'postPaymentCredentialsRequest' is set
-            if (postPaymentCredentialsRequest == null)
+            // verify the required parameter 'postPaymentCredentialsV3Request' is set
+            if (postPaymentCredentialsV3Request == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
-                throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsRequest' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
+                logger.LogError("ApiException : Missing required parameter 'postPaymentCredentialsV3Request' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
+                throw new ApiException(400, "Missing required parameter 'postPaymentCredentialsV3Request' when calling NetworkTokensApi->PostTokenPaymentCredentialsV3");
             }
 
             var localVarPath = $"/tms/v3/tokens/{tokenId}/payment-credentials";
@@ -1686,15 +1686,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("profile-id", ApiClient.ParameterToString(profileId)); // header parameter
             }
 
-            if (postPaymentCredentialsRequest != null && postPaymentCredentialsRequest.GetType() != typeof(byte[]))
+            if (postPaymentCredentialsV3Request != null && postPaymentCredentialsV3Request.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                postPaymentCredentialsRequest = (PostPaymentCredentialsRequest)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsRequest, postPaymentCredentialsRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(postPaymentCredentialsRequest); // http body (model) parameter
+                postPaymentCredentialsV3Request = (PostPaymentCredentialsV3Request)sdkTracker.InsertDeveloperIdTracker(postPaymentCredentialsV3Request, postPaymentCredentialsV3Request.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(postPaymentCredentialsV3Request); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = postPaymentCredentialsRequest; // byte array
+                localVarPostBody = postPaymentCredentialsV3Request; // byte array
             }
 
 
@@ -1703,7 +1703,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1734,9 +1734,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2011>(localVarStatusCode,
+            return new ApiResponse<PostPaymentCredentialsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2011) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2011))); // Return statement
+                (PostPaymentCredentialsResponse) ApiClient.Deserialize(localVarResponse, typeof(PostPaymentCredentialsResponse))); // Return statement
         }
         /// <summary>
         /// Create a Tokenized Card **Tokenized cards**&lt;br&gt;A Tokenized card represents a network token. Network tokens perform better than regular card numbers and they are not necessarily invalidated when a cardholder loses their card, or it expires. This API submits a request to the card association to create a network token. If successful, a tokenized card will be created in TMS to represent the network token. 
@@ -1744,12 +1744,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 PostTokenizedCard(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
+        /// <returns>GetTokenizedCardResponse</returns>
+        public GetTokenizedCardResponse PostTokenizedCard(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
         {
             logger.LogDebug("CALLING API \"PostTokenizedCard\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2001> localVarResponse = PostTokenizedCardWithHttpInfo(postTokenizedCardRequest, profileId);
+            ApiResponse<GetTokenizedCardResponse> localVarResponse = PostTokenizedCardWithHttpInfo(postTokenizedCardRequest, profileId);
             logger.LogDebug("CALLING API \"PostTokenizedCard\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1761,8 +1761,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse< InlineResponse2001 > PostTokenizedCardWithHttpInfo(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
+        /// <returns>ApiResponse of GetTokenizedCardResponse</returns>
+        public ApiResponse< GetTokenizedCardResponse > PostTokenizedCardWithHttpInfo(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1819,7 +1819,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1850,9 +1850,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<GetTokenizedCardResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2001) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001))); // Return statement
+                (GetTokenizedCardResponse) ApiClient.Deserialize(localVarResponse, typeof(GetTokenizedCardResponse))); // Return statement
         }
 
         /// <summary>
@@ -1861,12 +1861,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async Task<InlineResponse2001> PostTokenizedCardAsync(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
+        /// <returns>Task of GetTokenizedCardResponse</returns>
+        public async Task<GetTokenizedCardResponse> PostTokenizedCardAsync(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
         {
             logger.LogDebug("CALLING API \"PostTokenizedCardAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2001> localVarResponse = await PostTokenizedCardAsyncWithHttpInfo(postTokenizedCardRequest, profileId);
+            ApiResponse<GetTokenizedCardResponse> localVarResponse = await PostTokenizedCardAsyncWithHttpInfo(postTokenizedCardRequest, profileId);
             logger.LogDebug("CALLING API \"PostTokenizedCardAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1879,8 +1879,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postTokenizedCardRequest"></param>
         /// <param name="profileId">The Id of a profile containing user specific TMS configuration. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async Task<ApiResponse<InlineResponse2001>> PostTokenizedCardAsyncWithHttpInfo(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
+        /// <returns>Task of ApiResponse (GetTokenizedCardResponse)</returns>
+        public async Task<ApiResponse<GetTokenizedCardResponse>> PostTokenizedCardAsyncWithHttpInfo(PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1937,7 +1937,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1968,9 +1968,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<GetTokenizedCardResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2001) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001))); // Return statement
+                (GetTokenizedCardResponse) ApiClient.Deserialize(localVarResponse, typeof(GetTokenizedCardResponse))); // Return statement
         }
         /// <summary>
         /// Delete a Tokenized Card This API attempts to delete a network token from the card association with a specified reason. | If successful, the corresponding tokenized card will be deleted. | The reason for deletion can be specified to provide context for the deletion operation. 
@@ -2058,7 +2058,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2182,7 +2182,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {

@@ -39,13 +39,17 @@ namespace CyberSource.Model
         /// <param name="Customer">Customer.</param>
         /// <param name="Bank">Bank.</param>
         /// <param name="Method">Method of payment used for the order. This field can contain one of the following values:   - &#x60;consumer&#x60; (default): Customer credit card   - &#x60;corporate&#x60;: Corporate credit card   - &#x60;debit&#x60;: Debit card, such as a Maestro (UK Domestic) card   - &#x60;cod&#x60;: Collect on delivery   - &#x60;check&#x60;: Electronic check   - &#x60;p2p&#x60;: Person-to-person payment   - &#x60;private1&#x60;: Private label credit card   - &#x60;other&#x60;: Other payment method .</param>
-        public Riskv1decisionsPaymentInformation(Riskv1decisionsPaymentInformationCard Card = default(Riskv1decisionsPaymentInformationCard), Riskv1decisionsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1decisionsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), string Method = default(string))
+        /// <param name="PaymentType">PaymentType.</param>
+        /// <param name="PaymentAccountReference">PaymentAccountReference.</param>
+        public Riskv1decisionsPaymentInformation(Riskv1decisionsPaymentInformationCard Card = default(Riskv1decisionsPaymentInformationCard), Riskv1decisionsPaymentInformationTokenizedCard TokenizedCard = default(Riskv1decisionsPaymentInformationTokenizedCard), Ptsv2paymentsPaymentInformationCustomer Customer = default(Ptsv2paymentsPaymentInformationCustomer), Ptsv2paymentsPaymentInformationBank Bank = default(Ptsv2paymentsPaymentInformationBank), string Method = default(string), Ptsv2refreshpaymentstatusidPaymentInformationPaymentType PaymentType = default(Ptsv2refreshpaymentstatusidPaymentInformationPaymentType), Riskv1decisionsPaymentInformationPaymentAccountReference PaymentAccountReference = default(Riskv1decisionsPaymentInformationPaymentAccountReference))
         {
             this.Card = Card;
             this.TokenizedCard = TokenizedCard;
             this.Customer = Customer;
             this.Bank = Bank;
             this.Method = Method;
+            this.PaymentType = PaymentType;
+            this.PaymentAccountReference = PaymentAccountReference;
         }
         
         /// <summary>
@@ -85,6 +89,20 @@ namespace CyberSource.Model
         public string Method { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentType
+        /// </summary>
+        [JsonPropertyName("paymentType")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Ptsv2refreshpaymentstatusidPaymentInformationPaymentType PaymentType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentAccountReference
+        /// </summary>
+        [JsonPropertyName("paymentAccountReference")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Riskv1decisionsPaymentInformationPaymentAccountReference PaymentAccountReference { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -97,6 +115,8 @@ namespace CyberSource.Model
             if (Customer != null) sb.Append("  Customer: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsPaymentInformation", "customer", Customer.ToString())).Append("\n");
             if (Bank != null) sb.Append("  Bank: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsPaymentInformation", "bank", Bank.ToString())).Append("\n");
             if (Method != null) sb.Append("  Method: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsPaymentInformation", "method", Method.ToString())).Append("\n");
+            if (PaymentType != null) sb.Append("  PaymentType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsPaymentInformation", "paymentType", PaymentType.ToString())).Append("\n");
+            if (PaymentAccountReference != null) sb.Append("  PaymentAccountReference: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsPaymentInformation", "paymentAccountReference", PaymentAccountReference.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -162,6 +182,16 @@ namespace CyberSource.Model
                     this.Method == other.Method ||
                     this.Method != null &&
                     this.Method.Equals(other.Method)
+                ) && 
+                (
+                    this.PaymentType == other.PaymentType ||
+                    this.PaymentType != null &&
+                    this.PaymentType.Equals(other.PaymentType)
+                ) && 
+                (
+                    this.PaymentAccountReference == other.PaymentAccountReference ||
+                    this.PaymentAccountReference != null &&
+                    this.PaymentAccountReference.Equals(other.PaymentAccountReference)
                 );
         }
 
@@ -188,6 +218,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Bank.GetHashCode();
                 if (this.Method != null)
                     hash = hash * 59 + this.Method.GetHashCode();
+                if (this.PaymentType != null)
+                    hash = hash * 59 + this.PaymentType.GetHashCode();
+                if (this.PaymentAccountReference != null)
+                    hash = hash * 59 + this.PaymentAccountReference.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

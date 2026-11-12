@@ -202,8 +202,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updatePayments">Modify payments of a subscription</param>
-        /// <returns>GetSubscriptionsPaymentsResponse1</returns>
-        GetSubscriptionsPaymentsResponse1 SubscriptionsIdPaymentsPut(string id, UpdatePayments updatePayments);
+        /// <returns>UpdateSubscriptionsPaymentsResponse</returns>
+        UpdateSubscriptionsPaymentsResponse SubscriptionsIdPaymentsPut(string id, UpdatePayments updatePayments);
 
         /// <summary>
         /// Update Payments for a subscription
@@ -214,8 +214,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updatePayments">Modify payments of a subscription</param>
-        /// <returns>ApiResponse of GetSubscriptionsPaymentsResponse1</returns>
-        ApiResponse<GetSubscriptionsPaymentsResponse1> SubscriptionsIdPaymentsPutWithHttpInfo(string id, UpdatePayments updatePayments);
+        /// <returns>ApiResponse of UpdateSubscriptionsPaymentsResponse</returns>
+        ApiResponse<UpdateSubscriptionsPaymentsResponse> SubscriptionsIdPaymentsPutWithHttpInfo(string id, UpdatePayments updatePayments);
         /// <summary>
         /// Suspend a Subscription
         /// </summary>
@@ -434,8 +434,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updatePayments">Modify payments of a subscription</param>
-        /// <returns>Task of GetSubscriptionsPaymentsResponse1</returns>
-        System.Threading.Tasks.Task<GetSubscriptionsPaymentsResponse1> SubscriptionsIdPaymentsPutAsync(string id, UpdatePayments updatePayments);
+        /// <returns>Task of UpdateSubscriptionsPaymentsResponse</returns>
+        System.Threading.Tasks.Task<UpdateSubscriptionsPaymentsResponse> SubscriptionsIdPaymentsPutAsync(string id, UpdatePayments updatePayments);
 
         /// <summary>
         /// Update Payments for a subscription
@@ -446,8 +446,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updatePayments">Modify payments of a subscription</param>
-        /// <returns>Task of ApiResponse (GetSubscriptionsPaymentsResponse1)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetSubscriptionsPaymentsResponse1>> SubscriptionsIdPaymentsPutAsyncWithHttpInfo(string id, UpdatePayments updatePayments);
+        /// <returns>Task of ApiResponse (UpdateSubscriptionsPaymentsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpdateSubscriptionsPaymentsResponse>> SubscriptionsIdPaymentsPutAsyncWithHttpInfo(string id, UpdatePayments updatePayments);
         /// <summary>
         /// Suspend a Subscription
         /// </summary>
@@ -614,7 +614,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -744,7 +744,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -865,7 +865,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -987,7 +987,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1097,7 +1097,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1211,7 +1211,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1368,7 +1368,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1524,7 +1524,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1645,7 +1645,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1767,7 +1767,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1874,7 +1874,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1982,7 +1982,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2124,7 +2124,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2267,7 +2267,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2306,12 +2306,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updatePayments">Modify payments of a subscription</param>
-        /// <returns>GetSubscriptionsPaymentsResponse1</returns>
-        public GetSubscriptionsPaymentsResponse1 SubscriptionsIdPaymentsPut(string id, UpdatePayments updatePayments)
+        /// <returns>UpdateSubscriptionsPaymentsResponse</returns>
+        public UpdateSubscriptionsPaymentsResponse SubscriptionsIdPaymentsPut(string id, UpdatePayments updatePayments)
         {
             logger.LogDebug("CALLING API \"SubscriptionsIdPaymentsPut\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<GetSubscriptionsPaymentsResponse1> localVarResponse = SubscriptionsIdPaymentsPutWithHttpInfo(id, updatePayments);
+            ApiResponse<UpdateSubscriptionsPaymentsResponse> localVarResponse = SubscriptionsIdPaymentsPutWithHttpInfo(id, updatePayments);
             logger.LogDebug("CALLING API \"SubscriptionsIdPaymentsPut\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2323,8 +2323,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updatePayments">Modify payments of a subscription</param>
-        /// <returns>ApiResponse of GetSubscriptionsPaymentsResponse1</returns>
-        public ApiResponse< GetSubscriptionsPaymentsResponse1 > SubscriptionsIdPaymentsPutWithHttpInfo(string id, UpdatePayments updatePayments)
+        /// <returns>ApiResponse of UpdateSubscriptionsPaymentsResponse</returns>
+        public ApiResponse< UpdateSubscriptionsPaymentsResponse > SubscriptionsIdPaymentsPutWithHttpInfo(string id, UpdatePayments updatePayments)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2388,7 +2388,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2419,9 +2419,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<GetSubscriptionsPaymentsResponse1>(localVarStatusCode,
+            return new ApiResponse<UpdateSubscriptionsPaymentsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (GetSubscriptionsPaymentsResponse1) ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionsPaymentsResponse1))); // Return statement
+                (UpdateSubscriptionsPaymentsResponse) ApiClient.Deserialize(localVarResponse, typeof(UpdateSubscriptionsPaymentsResponse))); // Return statement
         }
 
         /// <summary>
@@ -2430,12 +2430,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updatePayments">Modify payments of a subscription</param>
-        /// <returns>Task of GetSubscriptionsPaymentsResponse1</returns>
-        public async Task<GetSubscriptionsPaymentsResponse1> SubscriptionsIdPaymentsPutAsync(string id, UpdatePayments updatePayments)
+        /// <returns>Task of UpdateSubscriptionsPaymentsResponse</returns>
+        public async Task<UpdateSubscriptionsPaymentsResponse> SubscriptionsIdPaymentsPutAsync(string id, UpdatePayments updatePayments)
         {
             logger.LogDebug("CALLING API \"SubscriptionsIdPaymentsPutAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<GetSubscriptionsPaymentsResponse1> localVarResponse = await SubscriptionsIdPaymentsPutAsyncWithHttpInfo(id, updatePayments);
+            ApiResponse<UpdateSubscriptionsPaymentsResponse> localVarResponse = await SubscriptionsIdPaymentsPutAsyncWithHttpInfo(id, updatePayments);
             logger.LogDebug("CALLING API \"SubscriptionsIdPaymentsPutAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2448,8 +2448,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Subscription Id</param>
         /// <param name="updatePayments">Modify payments of a subscription</param>
-        /// <returns>Task of ApiResponse (GetSubscriptionsPaymentsResponse1)</returns>
-        public async Task<ApiResponse<GetSubscriptionsPaymentsResponse1>> SubscriptionsIdPaymentsPutAsyncWithHttpInfo(string id, UpdatePayments updatePayments)
+        /// <returns>Task of ApiResponse (UpdateSubscriptionsPaymentsResponse)</returns>
+        public async Task<ApiResponse<UpdateSubscriptionsPaymentsResponse>> SubscriptionsIdPaymentsPutAsyncWithHttpInfo(string id, UpdatePayments updatePayments)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2513,7 +2513,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2544,9 +2544,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<GetSubscriptionsPaymentsResponse1>(localVarStatusCode,
+            return new ApiResponse<UpdateSubscriptionsPaymentsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (GetSubscriptionsPaymentsResponse1) ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionsPaymentsResponse1))); // Return statement
+                (UpdateSubscriptionsPaymentsResponse) ApiClient.Deserialize(localVarResponse, typeof(UpdateSubscriptionsPaymentsResponse))); // Return statement
         }
         /// <summary>
         /// Suspend a Subscription Suspend a Subscription 
@@ -2636,7 +2636,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2758,7 +2758,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2882,7 +2882,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -3010,7 +3010,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {

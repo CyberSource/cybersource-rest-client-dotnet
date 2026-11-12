@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="createqueryapi"></a>
 # **CreateQueryApi**
-> InlineResponse2014 CreateQueryApi (string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
+> CreateQueryApiResponse CreateQueryApi (string id, CreateQueryApiRequest createQueryApiRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
 
 Query Transaction Details
 
@@ -31,7 +31,7 @@ namespace Example
         {
             var apiInstance = new TransactionQueryApi();
             var id = id_example;  // string | This is the CyberSource Request ID generated for successfully processed AFT/OCT that needs to be queried. 
-            var body = new Body1(); // Body1 | 
+            var createQueryApiRequest = new CreateQueryApiRequest(); // CreateQueryApiRequest | 
             var contentType = contentType_example;  // string | 
             var xRequestid = xRequestid_example;  // string | 
             var vCMerchantId = vCMerchantId_example;  // string | 
@@ -44,7 +44,7 @@ namespace Example
             try
             {
                 // Query Transaction Details
-                InlineResponse2014 result = apiInstance.CreateQueryApi(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
+                CreateQueryApiResponse result = apiInstance.CreateQueryApi(id, createQueryApiRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -61,7 +61,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| This is the CyberSource Request ID generated for successfully processed AFT/OCT that needs to be queried.  | 
- **body** | [**Body1**](Body1.md)|  | 
+ **createQueryApiRequest** | [**CreateQueryApiRequest**](CreateQueryApiRequest.md)|  | 
  **contentType** | **string**|  | 
  **xRequestid** | **string**|  | 
  **vCMerchantId** | **string**|  | 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2014**](InlineResponse2014.md)
+[**CreateQueryApiResponse**](CreateQueryApiResponse.md)
 
 ### Authorization
 

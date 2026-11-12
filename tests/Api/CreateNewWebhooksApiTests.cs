@@ -65,6 +65,18 @@ namespace CyberSource.Test
 
         
         /// <summary>
+        /// Test CreateWebhookSubscription
+        /// </summary>
+        [Test]
+        public void CreateWebhookSubscriptionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CreateWebhook createWebhook = null;
+            //var response = instance.CreateWebhookSubscription(createWebhook);
+            //Assert.IsInstanceOf<CreateWebhookSubscriptionResponse> (response, "response is CreateWebhookSubscriptionResponse");
+        }
+        
+        /// <summary>
         /// Test FindProductsToSubscribe
         /// </summary>
         [Test]
@@ -73,19 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string organizationId = null;
             //var response = instance.FindProductsToSubscribe(organizationId);
-            //Assert.IsInstanceOf<List<InlineResponse2006>> (response, "response is List<InlineResponse2006>");
-        }
-        
-        /// <summary>
-        /// Test NotificationSubscriptionsV2WebhooksPost
-        /// </summary>
-        [Test]
-        public void NotificationSubscriptionsV2WebhooksPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CreateWebhook createWebhook = null;
-            //var response = instance.NotificationSubscriptionsV2WebhooksPost(createWebhook);
-            //Assert.IsInstanceOf<InlineResponse2018> (response, "response is InlineResponse2018");
+            //Assert.IsInstanceOf<List<ProductCatalogProduct>> (response, "response is List<ProductCatalogProduct>");
         }
         
         /// <summary>
@@ -100,7 +100,7 @@ namespace CyberSource.Test
             //string vCPermissions = null;
             //SaveSymEgressKey saveSymEgressKey = null;
             //var response = instance.SaveSymEgressKey(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
-            //Assert.IsInstanceOf<InlineResponse2017> (response, "response is InlineResponse2017");
+            //Assert.IsInstanceOf<SaveSymEgressKeyResponse> (response, "response is SaveSymEgressKeyResponse");
         }
         
     }

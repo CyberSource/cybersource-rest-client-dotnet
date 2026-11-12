@@ -82,8 +82,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionReq"></param>
-        /// <returns>PtsV2PaymentsPost201Response2</returns>
-        PtsV2PaymentsPost201Response2 CreateSessionRequest(CreateSessionReq createSessionReq);
+        /// <returns>CreateSessionResponse</returns>
+        CreateSessionResponse CreateSessionRequest(CreateSessionReq createSessionReq);
 
         /// <summary>
         /// Create Alternative Payments Sessions Request
@@ -93,8 +93,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionReq"></param>
-        /// <returns>ApiResponse of PtsV2PaymentsPost201Response2</returns>
-        ApiResponse<PtsV2PaymentsPost201Response2> CreateSessionRequestWithHttpInfo(CreateSessionReq createSessionReq);
+        /// <returns>ApiResponse of CreateSessionResponse</returns>
+        ApiResponse<CreateSessionResponse> CreateSessionRequestWithHttpInfo(CreateSessionReq createSessionReq);
         /// <summary>
         /// Increment an Authorization
         /// </summary>
@@ -127,8 +127,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment id whose status needs to be checked and updated.</param>
         /// <param name="refreshPaymentStatusRequest"></param>
-        /// <returns>PtsV2PaymentsPost201Response1</returns>
-        PtsV2PaymentsPost201Response1 RefreshPaymentStatus(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
+        /// <returns>RefreshPaymentStatusResponse</returns>
+        RefreshPaymentStatusResponse RefreshPaymentStatus(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
 
         /// <summary>
         /// Check a Payment Status
@@ -139,8 +139,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment id whose status needs to be checked and updated.</param>
         /// <param name="refreshPaymentStatusRequest"></param>
-        /// <returns>ApiResponse of PtsV2PaymentsPost201Response1</returns>
-        ApiResponse<PtsV2PaymentsPost201Response1> RefreshPaymentStatusWithHttpInfo(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
+        /// <returns>ApiResponse of RefreshPaymentStatusResponse</returns>
+        ApiResponse<RefreshPaymentStatusResponse> RefreshPaymentStatusWithHttpInfo(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
         /// <summary>
         /// Update Alternative Payments Sessions Request
         /// </summary>
@@ -150,8 +150,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>PtsV2PaymentsPost201Response2</returns>
-        PtsV2PaymentsPost201Response2 UpdateSessionRequest(CreateSessionRequest createSessionRequest, string id);
+        /// <returns>CreateSessionResponse</returns>
+        CreateSessionResponse UpdateSessionRequest(CreateSessionRequest createSessionRequest, string id);
 
         /// <summary>
         /// Update Alternative Payments Sessions Request
@@ -162,8 +162,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>ApiResponse of PtsV2PaymentsPost201Response2</returns>
-        ApiResponse<PtsV2PaymentsPost201Response2> UpdateSessionRequestWithHttpInfo(CreateSessionRequest createSessionRequest, string id);
+        /// <returns>ApiResponse of CreateSessionResponse</returns>
+        ApiResponse<CreateSessionResponse> UpdateSessionRequestWithHttpInfo(CreateSessionRequest createSessionRequest, string id);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -218,8 +218,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionReq"></param>
-        /// <returns>Task of PtsV2PaymentsPost201Response2</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsPost201Response2> CreateSessionRequestAsync(CreateSessionReq createSessionReq);
+        /// <returns>Task of CreateSessionResponse</returns>
+        System.Threading.Tasks.Task<CreateSessionResponse> CreateSessionRequestAsync(CreateSessionReq createSessionReq);
 
         /// <summary>
         /// Create Alternative Payments Sessions Request
@@ -229,8 +229,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionReq"></param>
-        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response2)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response2>> CreateSessionRequestAsyncWithHttpInfo(CreateSessionReq createSessionReq);
+        /// <returns>Task of ApiResponse (CreateSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateSessionResponse>> CreateSessionRequestAsyncWithHttpInfo(CreateSessionReq createSessionReq);
         /// <summary>
         /// Increment an Authorization
         /// </summary>
@@ -263,8 +263,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment id whose status needs to be checked and updated.</param>
         /// <param name="refreshPaymentStatusRequest"></param>
-        /// <returns>Task of PtsV2PaymentsPost201Response1</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsPost201Response1> RefreshPaymentStatusAsync(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
+        /// <returns>Task of RefreshPaymentStatusResponse</returns>
+        System.Threading.Tasks.Task<RefreshPaymentStatusResponse> RefreshPaymentStatusAsync(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
 
         /// <summary>
         /// Check a Payment Status
@@ -275,8 +275,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment id whose status needs to be checked and updated.</param>
         /// <param name="refreshPaymentStatusRequest"></param>
-        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response1)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response1>> RefreshPaymentStatusAsyncWithHttpInfo(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
+        /// <returns>Task of ApiResponse (RefreshPaymentStatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RefreshPaymentStatusResponse>> RefreshPaymentStatusAsyncWithHttpInfo(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest);
         /// <summary>
         /// Update Alternative Payments Sessions Request
         /// </summary>
@@ -286,8 +286,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>Task of PtsV2PaymentsPost201Response2</returns>
-        System.Threading.Tasks.Task<PtsV2PaymentsPost201Response2> UpdateSessionRequestAsync(CreateSessionRequest createSessionRequest, string id);
+        /// <returns>Task of CreateSessionResponse</returns>
+        System.Threading.Tasks.Task<CreateSessionResponse> UpdateSessionRequestAsync(CreateSessionRequest createSessionRequest, string id);
 
         /// <summary>
         /// Update Alternative Payments Sessions Request
@@ -298,8 +298,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response2)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2PaymentsPost201Response2>> UpdateSessionRequestAsyncWithHttpInfo(CreateSessionRequest createSessionRequest, string id);
+        /// <returns>Task of ApiResponse (CreateSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateSessionResponse>> UpdateSessionRequestAsyncWithHttpInfo(CreateSessionRequest createSessionRequest, string id);
         #endregion Asynchronous Operations
     }
 
@@ -415,7 +415,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -541,7 +541,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -651,7 +651,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -763,7 +763,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -803,12 +803,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionReq"></param>
-        /// <returns>PtsV2PaymentsPost201Response2</returns>
-        public PtsV2PaymentsPost201Response2 CreateSessionRequest(CreateSessionReq createSessionReq)
+        /// <returns>CreateSessionResponse</returns>
+        public CreateSessionResponse CreateSessionRequest(CreateSessionReq createSessionReq)
         {
             logger.LogDebug("CALLING API \"CreateSessionRequest\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = CreateSessionRequestWithHttpInfo(createSessionReq);
+            ApiResponse<CreateSessionResponse> localVarResponse = CreateSessionRequestWithHttpInfo(createSessionReq);
             logger.LogDebug("CALLING API \"CreateSessionRequest\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -819,8 +819,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionReq"></param>
-        /// <returns>ApiResponse of PtsV2PaymentsPost201Response2</returns>
-        public ApiResponse< PtsV2PaymentsPost201Response2 > CreateSessionRequestWithHttpInfo(CreateSessionReq createSessionReq)
+        /// <returns>ApiResponse of CreateSessionResponse</returns>
+        public ApiResponse< CreateSessionResponse > CreateSessionRequestWithHttpInfo(CreateSessionReq createSessionReq)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -873,7 +873,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -904,9 +904,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2PaymentsPost201Response2>(localVarStatusCode,
+            return new ApiResponse<CreateSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (PtsV2PaymentsPost201Response2) ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2))); // Return statement
+                (CreateSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateSessionResponse))); // Return statement
         }
 
         /// <summary>
@@ -914,12 +914,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionReq"></param>
-        /// <returns>Task of PtsV2PaymentsPost201Response2</returns>
-        public async Task<PtsV2PaymentsPost201Response2> CreateSessionRequestAsync(CreateSessionReq createSessionReq)
+        /// <returns>Task of CreateSessionResponse</returns>
+        public async Task<CreateSessionResponse> CreateSessionRequestAsync(CreateSessionReq createSessionReq)
         {
             logger.LogDebug("CALLING API \"CreateSessionRequestAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = await CreateSessionRequestAsyncWithHttpInfo(createSessionReq);
+            ApiResponse<CreateSessionResponse> localVarResponse = await CreateSessionRequestAsyncWithHttpInfo(createSessionReq);
             logger.LogDebug("CALLING API \"CreateSessionRequestAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -931,8 +931,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionReq"></param>
-        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response2)</returns>
-        public async Task<ApiResponse<PtsV2PaymentsPost201Response2>> CreateSessionRequestAsyncWithHttpInfo(CreateSessionReq createSessionReq)
+        /// <returns>Task of ApiResponse (CreateSessionResponse)</returns>
+        public async Task<ApiResponse<CreateSessionResponse>> CreateSessionRequestAsyncWithHttpInfo(CreateSessionReq createSessionReq)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -985,7 +985,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1016,9 +1016,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2PaymentsPost201Response2>(localVarStatusCode,
+            return new ApiResponse<CreateSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (PtsV2PaymentsPost201Response2) ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2))); // Return statement
+                (CreateSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateSessionResponse))); // Return statement
         }
         /// <summary>
         /// Increment an Authorization Use this service to authorize additional charges in a lodging or autorental transaction. Include the ID returned from the original authorization in the PATCH request to add additional charges to that authorization. 
@@ -1109,7 +1109,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1235,7 +1235,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1276,12 +1276,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment id whose status needs to be checked and updated.</param>
         /// <param name="refreshPaymentStatusRequest"></param>
-        /// <returns>PtsV2PaymentsPost201Response1</returns>
-        public PtsV2PaymentsPost201Response1 RefreshPaymentStatus(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
+        /// <returns>RefreshPaymentStatusResponse</returns>
+        public RefreshPaymentStatusResponse RefreshPaymentStatus(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
         {
             logger.LogDebug("CALLING API \"RefreshPaymentStatus\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2PaymentsPost201Response1> localVarResponse = RefreshPaymentStatusWithHttpInfo(id, refreshPaymentStatusRequest);
+            ApiResponse<RefreshPaymentStatusResponse> localVarResponse = RefreshPaymentStatusWithHttpInfo(id, refreshPaymentStatusRequest);
             logger.LogDebug("CALLING API \"RefreshPaymentStatus\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1293,8 +1293,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment id whose status needs to be checked and updated.</param>
         /// <param name="refreshPaymentStatusRequest"></param>
-        /// <returns>ApiResponse of PtsV2PaymentsPost201Response1</returns>
-        public ApiResponse< PtsV2PaymentsPost201Response1 > RefreshPaymentStatusWithHttpInfo(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
+        /// <returns>ApiResponse of RefreshPaymentStatusResponse</returns>
+        public ApiResponse< RefreshPaymentStatusResponse > RefreshPaymentStatusWithHttpInfo(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1359,7 +1359,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1390,9 +1390,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2PaymentsPost201Response1>(localVarStatusCode,
+            return new ApiResponse<RefreshPaymentStatusResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (PtsV2PaymentsPost201Response1) ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response1))); // Return statement
+                (RefreshPaymentStatusResponse) ApiClient.Deserialize(localVarResponse, typeof(RefreshPaymentStatusResponse))); // Return statement
         }
 
         /// <summary>
@@ -1401,12 +1401,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment id whose status needs to be checked and updated.</param>
         /// <param name="refreshPaymentStatusRequest"></param>
-        /// <returns>Task of PtsV2PaymentsPost201Response1</returns>
-        public async Task<PtsV2PaymentsPost201Response1> RefreshPaymentStatusAsync(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
+        /// <returns>Task of RefreshPaymentStatusResponse</returns>
+        public async Task<RefreshPaymentStatusResponse> RefreshPaymentStatusAsync(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
         {
             logger.LogDebug("CALLING API \"RefreshPaymentStatusAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2PaymentsPost201Response1> localVarResponse = await RefreshPaymentStatusAsyncWithHttpInfo(id, refreshPaymentStatusRequest);
+            ApiResponse<RefreshPaymentStatusResponse> localVarResponse = await RefreshPaymentStatusAsyncWithHttpInfo(id, refreshPaymentStatusRequest);
             logger.LogDebug("CALLING API \"RefreshPaymentStatusAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1419,8 +1419,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The payment id whose status needs to be checked and updated.</param>
         /// <param name="refreshPaymentStatusRequest"></param>
-        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response1)</returns>
-        public async Task<ApiResponse<PtsV2PaymentsPost201Response1>> RefreshPaymentStatusAsyncWithHttpInfo(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
+        /// <returns>Task of ApiResponse (RefreshPaymentStatusResponse)</returns>
+        public async Task<ApiResponse<RefreshPaymentStatusResponse>> RefreshPaymentStatusAsyncWithHttpInfo(string id, RefreshPaymentStatusRequest refreshPaymentStatusRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1485,7 +1485,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1516,9 +1516,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2PaymentsPost201Response1>(localVarStatusCode,
+            return new ApiResponse<RefreshPaymentStatusResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (PtsV2PaymentsPost201Response1) ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response1))); // Return statement
+                (RefreshPaymentStatusResponse) ApiClient.Deserialize(localVarResponse, typeof(RefreshPaymentStatusResponse))); // Return statement
         }
         /// <summary>
         /// Update Alternative Payments Sessions Request Update Alternative Payments Sessions Request
@@ -1526,12 +1526,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>PtsV2PaymentsPost201Response2</returns>
-        public PtsV2PaymentsPost201Response2 UpdateSessionRequest(CreateSessionRequest createSessionRequest, string id)
+        /// <returns>CreateSessionResponse</returns>
+        public CreateSessionResponse UpdateSessionRequest(CreateSessionRequest createSessionRequest, string id)
         {
             logger.LogDebug("CALLING API \"UpdateSessionRequest\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = UpdateSessionRequestWithHttpInfo(createSessionRequest, id);
+            ApiResponse<CreateSessionResponse> localVarResponse = UpdateSessionRequestWithHttpInfo(createSessionRequest, id);
             logger.LogDebug("CALLING API \"UpdateSessionRequest\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1543,8 +1543,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>ApiResponse of PtsV2PaymentsPost201Response2</returns>
-        public ApiResponse< PtsV2PaymentsPost201Response2 > UpdateSessionRequestWithHttpInfo(CreateSessionRequest createSessionRequest, string id)
+        /// <returns>ApiResponse of CreateSessionResponse</returns>
+        public ApiResponse< CreateSessionResponse > UpdateSessionRequestWithHttpInfo(CreateSessionRequest createSessionRequest, string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1609,7 +1609,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1640,9 +1640,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2PaymentsPost201Response2>(localVarStatusCode,
+            return new ApiResponse<CreateSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (PtsV2PaymentsPost201Response2) ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2))); // Return statement
+                (CreateSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateSessionResponse))); // Return statement
         }
 
         /// <summary>
@@ -1651,12 +1651,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>Task of PtsV2PaymentsPost201Response2</returns>
-        public async Task<PtsV2PaymentsPost201Response2> UpdateSessionRequestAsync(CreateSessionRequest createSessionRequest, string id)
+        /// <returns>Task of CreateSessionResponse</returns>
+        public async Task<CreateSessionResponse> UpdateSessionRequestAsync(CreateSessionRequest createSessionRequest, string id)
         {
             logger.LogDebug("CALLING API \"UpdateSessionRequestAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2PaymentsPost201Response2> localVarResponse = await UpdateSessionRequestAsyncWithHttpInfo(createSessionRequest, id);
+            ApiResponse<CreateSessionResponse> localVarResponse = await UpdateSessionRequestAsyncWithHttpInfo(createSessionRequest, id);
             logger.LogDebug("CALLING API \"UpdateSessionRequestAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1669,8 +1669,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
         /// <param name="id">The payment ID. This ID is returned from a previous payment request.</param>
-        /// <returns>Task of ApiResponse (PtsV2PaymentsPost201Response2)</returns>
-        public async Task<ApiResponse<PtsV2PaymentsPost201Response2>> UpdateSessionRequestAsyncWithHttpInfo(CreateSessionRequest createSessionRequest, string id)
+        /// <returns>Task of ApiResponse (CreateSessionResponse)</returns>
+        public async Task<ApiResponse<CreateSessionResponse>> UpdateSessionRequestAsyncWithHttpInfo(CreateSessionRequest createSessionRequest, string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1735,7 +1735,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1766,9 +1766,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2PaymentsPost201Response2>(localVarStatusCode,
+            return new ApiResponse<CreateSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (PtsV2PaymentsPost201Response2) ApiClient.Deserialize(localVarResponse, typeof(PtsV2PaymentsPost201Response2))); // Return statement
+                (CreateSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateSessionResponse))); // Return statement
         }
     }
 }

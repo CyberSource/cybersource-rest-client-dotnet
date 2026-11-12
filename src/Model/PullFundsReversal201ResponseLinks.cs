@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="PullFundsReversal201ResponseLinks" /> class.
         /// </summary>
         /// <param name="Self">Self.</param>
-        public PullFundsReversal201ResponseLinks(PullFundsReversal201ResponseLinksSelf Self = default(PullFundsReversal201ResponseLinksSelf))
+        public PullFundsReversal201ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf11 Self = default(PtsV2PaymentsPost201ResponseLinksSelf11))
         {
             this.Self = Self;
         }
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("self")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PullFundsReversal201ResponseLinksSelf Self { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf11 Self { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

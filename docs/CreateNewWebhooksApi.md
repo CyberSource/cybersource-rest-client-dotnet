@@ -4,14 +4,75 @@ All URIs are relative to *https://apitest.cybersource.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateWebhookSubscription**](CreateNewWebhooksApi.md#createwebhooksubscription) | **POST** /notification-subscriptions/v2/webhooks | Create a New Webhook Subscription
 [**FindProductsToSubscribe**](CreateNewWebhooksApi.md#findproductstosubscribe) | **GET** /notification-subscriptions/v2/products/{organizationId} | Find Products You Can Subscribe To
-[**NotificationSubscriptionsV2WebhooksPost**](CreateNewWebhooksApi.md#notificationsubscriptionsv2webhookspost) | **POST** /notification-subscriptions/v2/webhooks | Create a New Webhook Subscription
 [**SaveSymEgressKey**](CreateNewWebhooksApi.md#savesymegresskey) | **POST** /kms/egress/v2/keys-sym | Create Webhook Security Keys
 
 
+<a name="createwebhooksubscription"></a>
+# **CreateWebhookSubscription**
+> CreateWebhookSubscriptionResponse CreateWebhookSubscription (CreateWebhook createWebhook = null)
+
+Create a New Webhook Subscription
+
+Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \"Create Webhook using oAuth with Client Credentials\" - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \"Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\" to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \"Create Webhook using oAuth with JWT\" 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using CyberSource.Api;
+using CyberSource.Client;
+using CyberSource.Model;
+
+namespace Example
+{
+    public class CreateWebhookSubscriptionExample
+    {
+        public void main()
+        {
+            var apiInstance = new CreateNewWebhooksApi();
+            var createWebhook = new CreateWebhook(); // CreateWebhook | The webhook payload (optional) 
+
+            try
+            {
+                // Create a New Webhook Subscription
+                CreateWebhookSubscriptionResponse result = apiInstance.CreateWebhookSubscription(createWebhook);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling CreateNewWebhooksApi.CreateWebhookSubscription: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createWebhook** | [**CreateWebhook**](CreateWebhook.md)| The webhook payload | [optional] 
+
+### Return type
+
+[**CreateWebhookSubscriptionResponse**](CreateWebhookSubscriptionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=utf-8
+ - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="findproductstosubscribe"></a>
 # **FindProductsToSubscribe**
-> List<InlineResponse2006> FindProductsToSubscribe (string organizationId)
+> List<ProductCatalogProduct> FindProductsToSubscribe (string organizationId)
 
 Find Products You Can Subscribe To
 
@@ -37,7 +98,7 @@ namespace Example
             try
             {
                 // Find Products You Can Subscribe To
-                List&lt;InlineResponse2006&gt; result = apiInstance.FindProductsToSubscribe(organizationId);
+                List&lt;ProductCatalogProduct&gt; result = apiInstance.FindProductsToSubscribe(organizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2006>**](InlineResponse2006.md)
+[**List<ProductCatalogProduct>**](ProductCatalogProduct.md)
 
 ### Authorization
 
@@ -70,70 +131,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="notificationsubscriptionsv2webhookspost"></a>
-# **NotificationSubscriptionsV2WebhooksPost**
-> InlineResponse2018 NotificationSubscriptionsV2WebhooksPost (CreateWebhook createWebhook = null)
-
-Create a New Webhook Subscription
-
-Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \"Create Webhook using oAuth with Client Credentials\" - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \"Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\" to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \"Create Webhook using oAuth with JWT\" 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using CyberSource.Api;
-using CyberSource.Client;
-using CyberSource.Model;
-
-namespace Example
-{
-    public class NotificationSubscriptionsV2WebhooksPostExample
-    {
-        public void main()
-        {
-            var apiInstance = new CreateNewWebhooksApi();
-            var createWebhook = new CreateWebhook(); // CreateWebhook | The webhook payload (optional) 
-
-            try
-            {
-                // Create a New Webhook Subscription
-                InlineResponse2018 result = apiInstance.NotificationSubscriptionsV2WebhooksPost(createWebhook);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling CreateNewWebhooksApi.NotificationSubscriptionsV2WebhooksPost: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createWebhook** | [**CreateWebhook**](CreateWebhook.md)| The webhook payload | [optional] 
-
-### Return type
-
-[**InlineResponse2018**](InlineResponse2018.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=utf-8
- - **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="savesymegresskey"></a>
 # **SaveSymEgressKey**
-> InlineResponse2017 SaveSymEgressKey (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
+> SaveSymEgressKeyResponse SaveSymEgressKey (string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
 
 Create Webhook Security Keys
 
@@ -162,7 +162,7 @@ namespace Example
             try
             {
                 // Create Webhook Security Keys
-                InlineResponse2017 result = apiInstance.SaveSymEgressKey(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
+                SaveSymEgressKeyResponse result = apiInstance.SaveSymEgressKey(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2017**](InlineResponse2017.md)
+[**SaveSymEgressKeyResponse**](SaveSymEgressKeyResponse.md)
 
 ### Authorization
 

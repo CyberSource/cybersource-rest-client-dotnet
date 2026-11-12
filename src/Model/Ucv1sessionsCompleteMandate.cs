@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="Tms">Tms.</param>
         /// <param name="DecisionManager">Configure Unified Checkout to determine whether Decision Manager is invoked during service orchestration.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Setting this value to True indicates that device fingerprinting will be executed to add additional information for risk service Setting this value to False (or not provided) indicates that you do not wish to run device fingerprinting and skip decision manager services.&lt;br&gt;&lt;br&gt;  Optional field: This field can be configured through the Merchant Experience screens in the Business Center. The configured value may be overridden on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         /// <param name="ConsumerAuthentication">Configure Unified Checkout to determine whether Consumer Authentication is invoked during service orchestration.  Possible values:   - PASSKEY  - 3DS  - NONE&lt;br&gt;&lt;br&gt;  Setting this value to PASSKEY performs Payer Authentication with an existing Visa Payment Passkey or create a new Passkey (Post a traditional 3DS Authentication) attempt to perform authentication using the Payer Authentication Service.&lt;br&gt; Setting this value to 3DS will attempt to perform authentication using the Payer Authentication Service.&lt;br&gt; Setting this value to NONE indicates that you do not wish to perform authentication using the Payer Authentication Service.&lt;br&gt;&lt;br&gt;  Optional field: This field can be configured through the Merchant Experience screens in the Business Center. The configured value may be overridden on a per‑transaction basis in the uc/v1/sessions API request. .</param>
-        /// <param name="Suppress">Controls whether the Complete Mandate experience or related processing is suppressed. .</param>
+        /// <param name="Suppress">Controls whether the Complete Mandate experience or related processing is suppressed.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Optional field: This field can be configured through the Merchant Experience screens in the Business Center. The configured value may be overridden on a per‑transaction basis in the uc/v1/sessions API request. .</param>
         public Ucv1sessionsCompleteMandate(string Type = default(string), Ucv1sessionsCompleteMandateTms Tms = default(Ucv1sessionsCompleteMandateTms), bool? DecisionManager = default(bool?), string ConsumerAuthentication = default(string), bool? Suppress = default(bool?))
         {
             this.Type = Type;
@@ -80,9 +80,9 @@ namespace CyberSource.Model
         public string ConsumerAuthentication { get; set; }
 
         /// <summary>
-        /// Controls whether the Complete Mandate experience or related processing is suppressed. 
+        /// Controls whether the Complete Mandate experience or related processing is suppressed.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Optional field: This field can be configured through the Merchant Experience screens in the Business Center. The configured value may be overridden on a per‑transaction basis in the uc/v1/sessions API request. 
         /// </summary>
-        /// <value>Controls whether the Complete Mandate experience or related processing is suppressed. </value>
+        /// <value>Controls whether the Complete Mandate experience or related processing is suppressed.  Possible values:  - True  - False&lt;br&gt;&lt;br&gt;  Optional field: This field can be configured through the Merchant Experience screens in the Business Center. The configured value may be overridden on a per‑transaction basis in the uc/v1/sessions API request. </value>
         [JsonPropertyName("suppress")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool? Suppress { get; set; }

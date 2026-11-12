@@ -152,6 +152,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'WalletId'
         }
+        /// <summary>
+        /// Test the property 'Loyalty'
+        /// </summary>
+        [Test]
+        public void LoyaltyTest()
+        {
+            // TODO unit test for the property 'Loyalty'
+        }
 
     }
 

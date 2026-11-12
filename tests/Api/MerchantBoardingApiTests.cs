@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string registrationId = null;
             //var response = instance.GetRegistration(registrationId);
-            //Assert.IsInstanceOf<InlineResponse2005> (response, "response is InlineResponse2005");
+            //Assert.IsInstanceOf<BoardingRegistrationGetResponse> (response, "response is BoardingRegistrationGetResponse");
         }
         
         /// <summary>
@@ -87,7 +87,7 @@ namespace CyberSource.Test
             //PatchRegistrationBody patchRegistrationBody = null;
             //string vCIdempotencyId = null;
             //var response = instance.PatchRegistration(registrationId, patchRegistrationBody, vCIdempotencyId);
-            //Assert.IsInstanceOf<InlineResponse2005> (response, "response is InlineResponse2005");
+            //Assert.IsInstanceOf<BoardingRegistrationGetResponse> (response, "response is BoardingRegistrationGetResponse");
         }
         
         /// <summary>
@@ -100,7 +100,7 @@ namespace CyberSource.Test
             //PostRegistrationBody postRegistrationBody = null;
             //string vCIdempotencyId = null;
             //var response = instance.PostRegistration(postRegistrationBody, vCIdempotencyId);
-            //Assert.IsInstanceOf<InlineResponse2016> (response, "response is InlineResponse2016");
+            //Assert.IsInstanceOf<BoardingRegistrationCreateResponse> (response, "response is BoardingRegistrationCreateResponse");
         }
         
     }

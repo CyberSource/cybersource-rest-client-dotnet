@@ -79,7 +79,7 @@ No authorization required
 
 <a name="addmerchantkey"></a>
 # **AddMerchantKey**
-> ActivateMerchantKeyResponse200 AddMerchantKey (string merchantId, KeyRequest1 keyRequest)
+> ActivateMerchantKeyResponse200 AddMerchantKey (string merchantId, AddMerchantKeyRequest addMerchantKeyRequest)
 
 Add a key to a merchant
 
@@ -101,12 +101,12 @@ namespace Example
         {
             var apiInstance = new MerchantRegistrationApi();
             var merchantId = merchantId_example;  // string | Unique merchant identifier (UUID)
-            var keyRequest = new KeyRequest1(); // KeyRequest1 | Key creation request
+            var addMerchantKeyRequest = new AddMerchantKeyRequest(); // AddMerchantKeyRequest | Key creation request
 
             try
             {
                 // Add a key to a merchant
-                ActivateMerchantKeyResponse200 result = apiInstance.AddMerchantKey(merchantId, keyRequest);
+                ActivateMerchantKeyResponse200 result = apiInstance.AddMerchantKey(merchantId, addMerchantKeyRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -123,7 +123,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **merchantId** | **string**| Unique merchant identifier (UUID) | 
- **keyRequest** | [**KeyRequest1**](KeyRequest1.md)| Key creation request | 
+ **addMerchantKeyRequest** | [**AddMerchantKeyRequest**](AddMerchantKeyRequest.md)| Key creation request | 
 
 ### Return type
 
@@ -453,7 +453,7 @@ No authorization required
 
 <a name="updatemerchantkey"></a>
 # **UpdateMerchantKey**
-> ActivateMerchantKeyResponse200 UpdateMerchantKey (string merchantId, string keyId, KeyUpdate1 keyUpdate)
+> ActivateMerchantKeyResponse200 UpdateMerchantKey (string merchantId, string keyId, UpdateMerchantKeyRequest updateMerchantKeyRequest)
 
 Update a merchant key
 
@@ -476,12 +476,12 @@ namespace Example
             var apiInstance = new MerchantRegistrationApi();
             var merchantId = merchantId_example;  // string | Unique merchant identifier (UUID)
             var keyId = keyId_example;  // string | Unique key identifier (UUID)
-            var keyUpdate = new KeyUpdate1(); // KeyUpdate1 | Key update request
+            var updateMerchantKeyRequest = new UpdateMerchantKeyRequest(); // UpdateMerchantKeyRequest | Key update request
 
             try
             {
                 // Update a merchant key
-                ActivateMerchantKeyResponse200 result = apiInstance.UpdateMerchantKey(merchantId, keyId, keyUpdate);
+                ActivateMerchantKeyResponse200 result = apiInstance.UpdateMerchantKey(merchantId, keyId, updateMerchantKeyRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **merchantId** | **string**| Unique merchant identifier (UUID) | 
  **keyId** | **string**| Unique key identifier (UUID) | 
- **keyUpdate** | [**KeyUpdate1**](KeyUpdate1.md)| Key update request | 
+ **updateMerchantKeyRequest** | [**UpdateMerchantKeyRequest**](UpdateMerchantKeyRequest.md)| Key update request | 
 
 ### Return type
 

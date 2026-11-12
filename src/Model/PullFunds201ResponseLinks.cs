@@ -40,7 +40,7 @@ namespace CyberSource.Model
         /// <param name="Customer">Customer.</param>
         /// <param name="PaymentInstrument">PaymentInstrument.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
-        public PullFunds201ResponseLinks(PullFunds201ResponseLinksSelf Self = default(PullFunds201ResponseLinksSelf), PullFunds201ResponseLinksReversal Reversal = default(PullFunds201ResponseLinksReversal), PullFunds201ResponseLinksRefund Refund = default(PullFunds201ResponseLinksRefund), PullFunds201ResponseLinksCustomer Customer = default(PullFunds201ResponseLinksCustomer), PullFunds201ResponseLinksPaymentInstrument PaymentInstrument = default(PullFunds201ResponseLinksPaymentInstrument), PullFunds201ResponseLinksInstrumentIdentifier InstrumentIdentifier = default(PullFunds201ResponseLinksInstrumentIdentifier))
+        public PullFunds201ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf5 Self = default(PtsV2PaymentsPost201ResponseLinksSelf5), PtsV2PaymentsPost201ResponseLinksSelf6 Reversal = default(PtsV2PaymentsPost201ResponseLinksSelf6), PtsV2PaymentsPost201ResponseLinksSelf7 Refund = default(PtsV2PaymentsPost201ResponseLinksSelf7), PtsV2PaymentsPost201ResponseLinksSelf8 Customer = default(PtsV2PaymentsPost201ResponseLinksSelf8), PtsV2PaymentsPost201ResponseLinksSelf9 PaymentInstrument = default(PtsV2PaymentsPost201ResponseLinksSelf9), PtsV2PaymentsPost201ResponseLinksSelf10 InstrumentIdentifier = default(PtsV2PaymentsPost201ResponseLinksSelf10))
         {
             this.Self = Self;
             this.Reversal = Reversal;
@@ -55,42 +55,42 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("self")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PullFunds201ResponseLinksSelf Self { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf5 Self { get; set; }
 
         /// <summary>
         /// Gets or Sets Reversal
         /// </summary>
         [JsonPropertyName("reversal")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PullFunds201ResponseLinksReversal Reversal { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf6 Reversal { get; set; }
 
         /// <summary>
         /// Gets or Sets Refund
         /// </summary>
         [JsonPropertyName("refund")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PullFunds201ResponseLinksRefund Refund { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf7 Refund { get; set; }
 
         /// <summary>
         /// Gets or Sets Customer
         /// </summary>
         [JsonPropertyName("customer")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PullFunds201ResponseLinksCustomer Customer { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf8 Customer { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentInstrument
         /// </summary>
         [JsonPropertyName("paymentInstrument")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PullFunds201ResponseLinksPaymentInstrument PaymentInstrument { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf9 PaymentInstrument { get; set; }
 
         /// <summary>
         /// Gets or Sets InstrumentIdentifier
         /// </summary>
         [JsonPropertyName("instrumentIdentifier")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PullFunds201ResponseLinksInstrumentIdentifier InstrumentIdentifier { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf10 InstrumentIdentifier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

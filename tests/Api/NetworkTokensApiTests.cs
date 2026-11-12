@@ -75,7 +75,7 @@ namespace CyberSource.Test
             //string tokenProvider = null;
             //string assetType = null;
             //var response = instance.GetCardArtAsset(instrumentIdentifierId, tokenProvider, assetType);
-            //Assert.IsInstanceOf<InlineResponse2002> (response, "response is InlineResponse2002");
+            //Assert.IsInstanceOf<CardArtAssetResponse> (response, "response is CardArtAssetResponse");
         }
         
         /// <summary>
@@ -88,7 +88,7 @@ namespace CyberSource.Test
             //string tokenizedCardId = null;
             //string profileId = null;
             //var response = instance.GetTokenizedCard(tokenizedCardId, profileId);
-            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf<GetTokenizedCardResponse> (response, "response is GetTokenizedCardResponse");
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tokenId = null;
-            //PostPaymentCredentialsRequest1 postPaymentCredentialsRequest = null;
+            //PostPaymentCredentialsRequest postPaymentCredentialsRequest = null;
             //string profileId = null;
             //var response = instance.PostTokenPaymentCredentials(tokenId, postPaymentCredentialsRequest, profileId);
             //Assert.IsInstanceOf<string> (response, "response is string");
@@ -127,10 +127,10 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tokenId = null;
-            //PostPaymentCredentialsRequest postPaymentCredentialsRequest = null;
+            //PostPaymentCredentialsV3Request postPaymentCredentialsV3Request = null;
             //string profileId = null;
-            //var response = instance.PostTokenPaymentCredentialsV3(tokenId, postPaymentCredentialsRequest, profileId);
-            //Assert.IsInstanceOf<InlineResponse2011> (response, "response is InlineResponse2011");
+            //var response = instance.PostTokenPaymentCredentialsV3(tokenId, postPaymentCredentialsV3Request, profileId);
+            //Assert.IsInstanceOf<PostPaymentCredentialsResponse> (response, "response is PostPaymentCredentialsResponse");
         }
         
         /// <summary>
@@ -143,7 +143,7 @@ namespace CyberSource.Test
             //PostTokenizedCardRequest postTokenizedCardRequest = null;
             //string profileId = null;
             //var response = instance.PostTokenizedCard(postTokenizedCardRequest, profileId);
-            //Assert.IsInstanceOf<InlineResponse2001> (response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf<GetTokenizedCardResponse> (response, "response is GetTokenizedCardResponse");
         }
         
         /// <summary>

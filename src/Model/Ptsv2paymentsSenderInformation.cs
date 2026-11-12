@@ -46,7 +46,8 @@ namespace CyberSource.Model
         /// <param name="Account">Account.</param>
         /// <param name="PostalCode">Postal code of sender. .</param>
         /// <param name="TaxIdNumber">CPF or CNPJ of the cash-in recipient. \&quot;Cadastro de Pessoas Físicas\&quot;, which translates to the \&quot;Natural Persons Register.\&quot; It is the individual taxpayer registry identification number in Brazil, similar to a Social Security Number (SSN) in the United States or a National Insurance Number in the UK. .</param>
-        public Ptsv2paymentsSenderInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string AliasName = default(string), string ReferenceNumber = default(string), Ptsv2paymentsSenderInformationAccount Account = default(Ptsv2paymentsSenderInformationAccount), string PostalCode = default(string), decimal? TaxIdNumber = default(decimal?))
+        /// <param name="Email">Sender&#39;s email address, including the full domain name. .</param>
+        public Ptsv2paymentsSenderInformation(string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string CountryCode = default(string), string AliasName = default(string), string ReferenceNumber = default(string), Ptsv2paymentsSenderInformationAccount Account = default(Ptsv2paymentsSenderInformationAccount), string PostalCode = default(string), decimal? TaxIdNumber = default(decimal?), string Email = default(string))
         {
             this.FirstName = FirstName;
             this.MiddleName = MiddleName;
@@ -60,6 +61,7 @@ namespace CyberSource.Model
             this.Account = Account;
             this.PostalCode = PostalCode;
             this.TaxIdNumber = TaxIdNumber;
+            this.Email = Email;
         }
         
         /// <summary>
@@ -158,6 +160,14 @@ namespace CyberSource.Model
         public decimal? TaxIdNumber { get; set; }
 
         /// <summary>
+        /// Sender&#39;s email address, including the full domain name. 
+        /// </summary>
+        /// <value>Sender&#39;s email address, including the full domain name. </value>
+        [JsonPropertyName("email")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Email { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -177,6 +187,7 @@ namespace CyberSource.Model
             if (Account != null) sb.Append("  Account: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsSenderInformation", "account", Account.ToString())).Append("\n");
             if (PostalCode != null) sb.Append("  PostalCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsSenderInformation", "postalCode", PostalCode.ToString())).Append("\n");
             if (TaxIdNumber != null) sb.Append("  TaxIdNumber: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsSenderInformation", "taxIdNumber", TaxIdNumber.ToString())).Append("\n");
+            if (Email != null) sb.Append("  Email: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsSenderInformation", "email", Email.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -277,6 +288,11 @@ namespace CyberSource.Model
                     this.TaxIdNumber == other.TaxIdNumber ||
                     this.TaxIdNumber != null &&
                     this.TaxIdNumber.Equals(other.TaxIdNumber)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
                 );
         }
 
@@ -317,6 +333,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.PostalCode.GetHashCode();
                 if (this.TaxIdNumber != null)
                     hash = hash * 59 + this.TaxIdNumber.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

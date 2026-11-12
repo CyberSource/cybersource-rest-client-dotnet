@@ -75,7 +75,7 @@ namespace CyberSource.Test
             //int? page = null;
             //int? size = null;
             //var response = instance.GetAllProducts(getAllProductsRequest, page, size);
-            //Assert.IsInstanceOf<InlineResponse20020> (response, "response is InlineResponse20020");
+            //Assert.IsInstanceOf<ProductCatalogResponse> (response, "response is ProductCatalogResponse");
         }
         
         /// <summary>
@@ -88,7 +88,7 @@ namespace CyberSource.Test
             //Guid? jobId = null;
             //Object getFeedJobStatusRequest = null;
             //var response = instance.GetFeedJobStatus(jobId, getFeedJobStatusRequest);
-            //Assert.IsInstanceOf<InlineResponse20019> (response, "response is InlineResponse20019");
+            //Assert.IsInstanceOf<FeedJobStatusResponse> (response, "response is FeedJobStatusResponse");
         }
         
         /// <summary>
@@ -101,7 +101,7 @@ namespace CyberSource.Test
             //string productId = null;
             //Object getProductRequest = null;
             //var response = instance.GetProduct(productId, getProductRequest);
-            //Assert.IsInstanceOf<InlineResponse20021> (response, "response is InlineResponse20021");
+            //Assert.IsInstanceOf<ProductDetailResponse> (response, "response is ProductDetailResponse");
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //ProductFeedRequest productFeedRequest = null;
             //var response = instance.SubmitProductFeedJson(productFeedRequest);
-            //Assert.IsInstanceOf<InlineResponse2021> (response, "response is InlineResponse2021");
+            //Assert.IsInstanceOf<ProductAcceptedFeedResponse> (response, "response is ProductAcceptedFeedResponse");
         }
         
     }

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MerchantDescriptor** | [**PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor**](PtsV2PaymentsPost201Response1OrderInformationMerchantDescriptor.md) |  | [optional] 
+**MerchantDescriptor** | [**RefreshPaymentStatusResponseOrderInformationMerchantDescriptor**](RefreshPaymentStatusResponseOrderInformationMerchantDescriptor.md) |  | [optional] 
 
 ## Extensibility
 

@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="SessionType">Will have 2 values, &#39;U&#39; (Update) , &#39;N&#39; (New). Any other values will be rejected. Default will be &#39;N&#39; .</param>
         /// <param name="PaymentFlowMode">Whether merchant wants to pass the flow Inline or want to invoke Klarna Hosted Page .</param>
-        /// <param name="ActionList">Possible values are one or more of follows:   - &#x60;AP_SESSIONS&#x60;: Use this when Alternative Payment Sessions service is requested. .</param>
+        /// <param name="ActionList">Possible values are one or more of follows:  - &#x60;AP_SESSIONS&#x60;: Use this when Alternative Payment Sessions service is requested. .</param>
         public Ptsv2paymentreferencesProcessingInformation(string SessionType = default(string), string PaymentFlowMode = default(string), List<string> ActionList = default(List<string>))
         {
             this.SessionType = SessionType;
@@ -61,9 +61,9 @@ namespace CyberSource.Model
         public string PaymentFlowMode { get; set; }
 
         /// <summary>
-        /// Possible values are one or more of follows:   - &#x60;AP_SESSIONS&#x60;: Use this when Alternative Payment Sessions service is requested. 
+        /// Possible values are one or more of follows:  - &#x60;AP_SESSIONS&#x60;: Use this when Alternative Payment Sessions service is requested. 
         /// </summary>
-        /// <value>Possible values are one or more of follows:   - &#x60;AP_SESSIONS&#x60;: Use this when Alternative Payment Sessions service is requested. </value>
+        /// <value>Possible values are one or more of follows:  - &#x60;AP_SESSIONS&#x60;: Use this when Alternative Payment Sessions service is requested. </value>
         [JsonPropertyName("actionList")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<string> ActionList { get; set; }

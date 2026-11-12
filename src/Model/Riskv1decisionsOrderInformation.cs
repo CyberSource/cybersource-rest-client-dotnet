@@ -44,8 +44,9 @@ namespace CyberSource.Model
         /// <param name="ReturnsAccepted">Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. .</param>
         /// <param name="LineItems">This array contains detailed information about individual products in the order..</param>
         /// <param name="BillTo">BillTo.</param>
+        /// <param name="Vouchers">Array of voucher/coupon information used in the order.</param>
         /// <param name="TotalOffersCount">Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 .</param>
-        public Riskv1decisionsOrderInformation(Riskv1decisionsOrderInformationAmountDetails AmountDetails = default(Riskv1decisionsOrderInformationAmountDetails), string PreOrder = default(string), string PreOrderDate = default(string), string CutoffDateTime = default(string), bool? Reordered = default(bool?), Riskv1decisionsOrderInformationShippingDetails ShippingDetails = default(Riskv1decisionsOrderInformationShippingDetails), Riskv1decisionsOrderInformationShipTo ShipTo = default(Riskv1decisionsOrderInformationShipTo), bool? ReturnsAccepted = default(bool?), List<Riskv1decisionsOrderInformationLineItems> LineItems = default(List<Riskv1decisionsOrderInformationLineItems>), Riskv1decisionsOrderInformationBillTo BillTo = default(Riskv1decisionsOrderInformationBillTo), string TotalOffersCount = default(string))
+        public Riskv1decisionsOrderInformation(Riskv1decisionsOrderInformationAmountDetails AmountDetails = default(Riskv1decisionsOrderInformationAmountDetails), string PreOrder = default(string), string PreOrderDate = default(string), string CutoffDateTime = default(string), bool? Reordered = default(bool?), Riskv1decisionsOrderInformationShippingDetails ShippingDetails = default(Riskv1decisionsOrderInformationShippingDetails), Riskv1decisionsBundledOrderInformationShipTo ShipTo = default(Riskv1decisionsBundledOrderInformationShipTo), bool? ReturnsAccepted = default(bool?), List<Riskv1decisionsOrderInformationLineItems> LineItems = default(List<Riskv1decisionsOrderInformationLineItems>), Riskv1decisionsOrderInformationBillTo BillTo = default(Riskv1decisionsOrderInformationBillTo), List<Riskv1decisionsOrderInformationVouchers> Vouchers = default(List<Riskv1decisionsOrderInformationVouchers>), string TotalOffersCount = default(string))
         {
             this.AmountDetails = AmountDetails;
             this.PreOrder = PreOrder;
@@ -57,6 +58,7 @@ namespace CyberSource.Model
             this.ReturnsAccepted = ReturnsAccepted;
             this.LineItems = LineItems;
             this.BillTo = BillTo;
+            this.Vouchers = Vouchers;
             this.TotalOffersCount = TotalOffersCount;
         }
         
@@ -111,7 +113,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("shipTo")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Riskv1decisionsOrderInformationShipTo ShipTo { get; set; }
+        public Riskv1decisionsBundledOrderInformationShipTo ShipTo { get; set; }
 
         /// <summary>
         /// Boolean that indicates whether returns are accepted for this order. This field can contain one of the following values: - true: Returns are accepted for this order. - false: Returns are not accepted for this order. 
@@ -135,6 +137,14 @@ namespace CyberSource.Model
         [JsonPropertyName("billTo")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public Riskv1decisionsOrderInformationBillTo BillTo { get; set; }
+
+        /// <summary>
+        /// Array of voucher/coupon information used in the order
+        /// </summary>
+        /// <value>Array of voucher/coupon information used in the order</value>
+        [JsonPropertyName("vouchers")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<Riskv1decisionsOrderInformationVouchers> Vouchers { get; set; }
 
         /// <summary>
         /// Total number of articles/items in the order as a numeric decimal count. Possible values: 00 - 99 
@@ -162,6 +172,7 @@ namespace CyberSource.Model
             if (ReturnsAccepted != null) sb.Append("  ReturnsAccepted: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformation", "returnsAccepted", ReturnsAccepted.ToString())).Append("\n");
             if (LineItems != null) sb.Append("  LineItems: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformation", "lineItems", LineItems.ToString())).Append("\n");
             if (BillTo != null) sb.Append("  BillTo: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformation", "billTo", BillTo.ToString())).Append("\n");
+            if (Vouchers != null) sb.Append("  Vouchers: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformation", "vouchers", Vouchers.ToString())).Append("\n");
             if (TotalOffersCount != null) sb.Append("  TotalOffersCount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformation", "totalOffersCount", TotalOffersCount.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
@@ -255,6 +266,11 @@ namespace CyberSource.Model
                     this.BillTo.Equals(other.BillTo)
                 ) && 
                 (
+                    this.Vouchers == other.Vouchers ||
+                    this.Vouchers != null &&
+                    this.Vouchers.SequenceEqual(other.Vouchers)
+                ) && 
+                (
                     this.TotalOffersCount == other.TotalOffersCount ||
                     this.TotalOffersCount != null &&
                     this.TotalOffersCount.Equals(other.TotalOffersCount)
@@ -294,6 +310,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.LineItems.GetHashCode();
                 if (this.BillTo != null)
                     hash = hash * 59 + this.BillTo.GetHashCode();
+                if (this.Vouchers != null)
+                    hash = hash * 59 + this.Vouchers.GetHashCode();
                 if (this.TotalOffersCount != null)
                     hash = hash * 59 + this.TotalOffersCount.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
