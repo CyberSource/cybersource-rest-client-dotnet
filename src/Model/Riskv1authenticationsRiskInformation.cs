@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Riskv1authenticationsRiskInformation" /> class.
         /// </summary>
         /// <param name="BuyerHistory">BuyerHistory.</param>
-        public Riskv1authenticationsRiskInformation(Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory = default(Ptsv2paymentsRiskInformationBuyerHistory))
+        public Riskv1authenticationsRiskInformation(Riskv1decisionsRiskInformationBuyerHistory BuyerHistory = default(Riskv1decisionsRiskInformationBuyerHistory))
         {
             this.BuyerHistory = BuyerHistory;
         }
@@ -45,7 +45,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("buyerHistory")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory { get; set; }
+        public Riskv1decisionsRiskInformationBuyerHistory BuyerHistory { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -71,15 +71,15 @@ namespace CyberSource.Test
         public void CreateFxRatesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Body body = null;
+            //CreateFxRatesRequest createFxRatesRequest = null;
             //string contentType = null;
             //string xRequestid = null;
             //string vCMerchantId = null;
             //string vCPermissions = null;
             //string vCCorrelationId = null;
             //string vCOrganizationId = null;
-            //var response = instance.CreateFxRates(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
-            //Assert.IsInstanceOf<InlineResponse2013> (response, "response is InlineResponse2013");
+            //var response = instance.CreateFxRates(createFxRatesRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
+            //Assert.IsInstanceOf<CreateFxRatesResponse> (response, "response is CreateFxRatesResponse");
         }
         
     }

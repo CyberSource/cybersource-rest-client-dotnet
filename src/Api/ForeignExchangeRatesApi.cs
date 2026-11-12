@@ -37,15 +37,15 @@ namespace CyberSource.Api
         /// Retrieve current foreign exchange rates for cross-border payouts. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="createFxRatesRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>InlineResponse2013</returns>
-        InlineResponse2013 CreateFxRates(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
+        /// <returns>CreateFxRatesResponse</returns>
+        CreateFxRatesResponse CreateFxRates(CreateFxRatesRequest createFxRatesRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
 
         /// <summary>
         /// Retrieve Foreign Exchange Rates
@@ -54,15 +54,15 @@ namespace CyberSource.Api
         /// Retrieve current foreign exchange rates for cross-border payouts. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="createFxRatesRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        ApiResponse<InlineResponse2013> CreateFxRatesWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
+        /// <returns>ApiResponse of CreateFxRatesResponse</returns>
+        ApiResponse<CreateFxRatesResponse> CreateFxRatesWithHttpInfo(CreateFxRatesRequest createFxRatesRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -72,15 +72,15 @@ namespace CyberSource.Api
         /// Retrieve current foreign exchange rates for cross-border payouts. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="createFxRatesRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>Task of InlineResponse2013</returns>
-        System.Threading.Tasks.Task<InlineResponse2013> CreateFxRatesAsync(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
+        /// <returns>Task of CreateFxRatesResponse</returns>
+        System.Threading.Tasks.Task<CreateFxRatesResponse> CreateFxRatesAsync(CreateFxRatesRequest createFxRatesRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
 
         /// <summary>
         /// Retrieve Foreign Exchange Rates
@@ -89,15 +89,15 @@ namespace CyberSource.Api
         /// Retrieve current foreign exchange rates for cross-border payouts. 
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="createFxRatesRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> CreateFxRatesAsyncWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
+        /// <returns>Task of ApiResponse (CreateFxRatesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateFxRatesResponse>> CreateFxRatesAsyncWithHttpInfo(CreateFxRatesRequest createFxRatesRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId);
         #endregion Asynchronous Operations
     }
 
@@ -128,19 +128,19 @@ namespace CyberSource.Api
         /// Retrieve Foreign Exchange Rates Retrieve current foreign exchange rates for cross-border payouts. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="createFxRatesRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>InlineResponse2013</returns>
-        public InlineResponse2013 CreateFxRates(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
+        /// <returns>CreateFxRatesResponse</returns>
+        public CreateFxRatesResponse CreateFxRates(CreateFxRatesRequest createFxRatesRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
             logger.LogDebug("CALLING API \"CreateFxRates\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2013> localVarResponse = CreateFxRatesWithHttpInfo(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
+            ApiResponse<CreateFxRatesResponse> localVarResponse = CreateFxRatesWithHttpInfo(createFxRatesRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
             logger.LogDebug("CALLING API \"CreateFxRates\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -150,23 +150,23 @@ namespace CyberSource.Api
         /// Retrieve Foreign Exchange Rates Retrieve current foreign exchange rates for cross-border payouts. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="createFxRatesRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>ApiResponse of InlineResponse2013</returns>
-        public ApiResponse< InlineResponse2013 > CreateFxRatesWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
+        /// <returns>ApiResponse of CreateFxRatesResponse</returns>
+        public ApiResponse< CreateFxRatesResponse > CreateFxRatesWithHttpInfo(CreateFxRatesRequest createFxRatesRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'createFxRatesRequest' is set
+            if (createFxRatesRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'body' when calling ForeignExchangeRatesApi->CreateFxRates");
-                throw new ApiException(400, "Missing required parameter 'body' when calling ForeignExchangeRatesApi->CreateFxRates");
+                logger.LogError("ApiException : Missing required parameter 'createFxRatesRequest' when calling ForeignExchangeRatesApi->CreateFxRates");
+                throw new ApiException(400, "Missing required parameter 'createFxRatesRequest' when calling ForeignExchangeRatesApi->CreateFxRates");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
@@ -259,15 +259,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("v-c-organization-id", ApiClient.ParameterToString(vCOrganizationId)); // header parameter
             }
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (createFxRatesRequest != null && createFxRatesRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                body = (Body)sdkTracker.InsertDeveloperIdTracker(body, body.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(body); // http body (model) parameter
+                createFxRatesRequest = (CreateFxRatesRequest)sdkTracker.InsertDeveloperIdTracker(createFxRatesRequest, createFxRatesRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(createFxRatesRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = createFxRatesRequest; // byte array
             }
 
 
@@ -276,7 +276,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -307,28 +307,28 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+            return new ApiResponse<CreateFxRatesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2013) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
+                (CreateFxRatesResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateFxRatesResponse))); // Return statement
         }
 
         /// <summary>
         /// Retrieve Foreign Exchange Rates Retrieve current foreign exchange rates for cross-border payouts. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="createFxRatesRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>Task of InlineResponse2013</returns>
-        public async Task<InlineResponse2013> CreateFxRatesAsync(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
+        /// <returns>Task of CreateFxRatesResponse</returns>
+        public async Task<CreateFxRatesResponse> CreateFxRatesAsync(CreateFxRatesRequest createFxRatesRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
             logger.LogDebug("CALLING API \"CreateFxRatesAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2013> localVarResponse = await CreateFxRatesAsyncWithHttpInfo(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
+            ApiResponse<CreateFxRatesResponse> localVarResponse = await CreateFxRatesAsyncWithHttpInfo(createFxRatesRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
             logger.LogDebug("CALLING API \"CreateFxRatesAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -339,23 +339,23 @@ namespace CyberSource.Api
         /// Retrieve Foreign Exchange Rates Retrieve current foreign exchange rates for cross-border payouts. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="createFxRatesRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
         /// <param name="vCPermissions"></param>
         /// <param name="vCCorrelationId"></param>
         /// <param name="vCOrganizationId"></param>
-        /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        public async Task<ApiResponse<InlineResponse2013>> CreateFxRatesAsyncWithHttpInfo(Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
+        /// <returns>Task of ApiResponse (CreateFxRatesResponse)</returns>
+        public async Task<ApiResponse<CreateFxRatesResponse>> CreateFxRatesAsyncWithHttpInfo(CreateFxRatesRequest createFxRatesRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
         {
             LogUtility logUtility = new LogUtility();
 
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'createFxRatesRequest' is set
+            if (createFxRatesRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'body' when calling ForeignExchangeRatesApi->CreateFxRates");
-                throw new ApiException(400, "Missing required parameter 'body' when calling ForeignExchangeRatesApi->CreateFxRates");
+                logger.LogError("ApiException : Missing required parameter 'createFxRatesRequest' when calling ForeignExchangeRatesApi->CreateFxRates");
+                throw new ApiException(400, "Missing required parameter 'createFxRatesRequest' when calling ForeignExchangeRatesApi->CreateFxRates");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
@@ -448,15 +448,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("v-c-organization-id", ApiClient.ParameterToString(vCOrganizationId)); // header parameter
             }
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (createFxRatesRequest != null && createFxRatesRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                body = (Body)sdkTracker.InsertDeveloperIdTracker(body, body.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(body); // http body (model) parameter
+                createFxRatesRequest = (CreateFxRatesRequest)sdkTracker.InsertDeveloperIdTracker(createFxRatesRequest, createFxRatesRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(createFxRatesRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = createFxRatesRequest; // byte array
             }
 
 
@@ -465,7 +465,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -496,9 +496,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2013>(localVarStatusCode,
+            return new ApiResponse<CreateFxRatesResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2013) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2013))); // Return statement
+                (CreateFxRatesResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateFxRatesResponse))); // Return statement
         }
     }
 }

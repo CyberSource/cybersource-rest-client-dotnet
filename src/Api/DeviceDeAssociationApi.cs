@@ -59,8 +59,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deviceDeAssociateV3Request">deviceId that has to be de-associated to the destination organizationId.</param>
-        /// <returns>List&lt;InlineResponse20010&gt;</returns>
-        List<InlineResponse20010> PostDeAssociateV3Terminal(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request);
+        /// <returns>List&lt;DeviceDeAssociateV3Response&gt;</returns>
+        List<DeviceDeAssociateV3Response> PostDeAssociateV3Terminal(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request);
 
         /// <summary>
         /// De-associate a device from merchant to account or reseller and from account to reseller
@@ -70,8 +70,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deviceDeAssociateV3Request">deviceId that has to be de-associated to the destination organizationId.</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse20010&gt;</returns>
-        ApiResponse<List<InlineResponse20010>> PostDeAssociateV3TerminalWithHttpInfo(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request);
+        /// <returns>ApiResponse of List&lt;DeviceDeAssociateV3Response&gt;</returns>
+        ApiResponse<List<DeviceDeAssociateV3Response>> PostDeAssociateV3TerminalWithHttpInfo(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -103,8 +103,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deviceDeAssociateV3Request">deviceId that has to be de-associated to the destination organizationId.</param>
-        /// <returns>Task of List&lt;InlineResponse20010&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse20010>> PostDeAssociateV3TerminalAsync(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request);
+        /// <returns>Task of List&lt;DeviceDeAssociateV3Response&gt;</returns>
+        System.Threading.Tasks.Task<List<DeviceDeAssociateV3Response>> PostDeAssociateV3TerminalAsync(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request);
 
         /// <summary>
         /// De-associate a device from merchant to account or reseller and from account to reseller
@@ -114,8 +114,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deviceDeAssociateV3Request">deviceId that has to be de-associated to the destination organizationId.</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse20010&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse20010>>> PostDeAssociateV3TerminalAsyncWithHttpInfo(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request);
+        /// <returns>Task of ApiResponse (List&lt;DeviceDeAssociateV3Response&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<DeviceDeAssociateV3Response>>> PostDeAssociateV3TerminalAsyncWithHttpInfo(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request);
         #endregion Asynchronous Operations
     }
 
@@ -213,7 +213,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -322,7 +322,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -363,12 +363,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deviceDeAssociateV3Request">deviceId that has to be de-associated to the destination organizationId.</param>
-        /// <returns>List&lt;InlineResponse20010&gt;</returns>
-        public List<InlineResponse20010> PostDeAssociateV3Terminal(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
+        /// <returns>List&lt;DeviceDeAssociateV3Response&gt;</returns>
+        public List<DeviceDeAssociateV3Response> PostDeAssociateV3Terminal(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
         {
             logger.LogDebug("CALLING API \"PostDeAssociateV3Terminal\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse20010>> localVarResponse = PostDeAssociateV3TerminalWithHttpInfo(deviceDeAssociateV3Request);
+            ApiResponse<List<DeviceDeAssociateV3Response>> localVarResponse = PostDeAssociateV3TerminalWithHttpInfo(deviceDeAssociateV3Request);
             logger.LogDebug("CALLING API \"PostDeAssociateV3Terminal\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -379,8 +379,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deviceDeAssociateV3Request">deviceId that has to be de-associated to the destination organizationId.</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse20010&gt;</returns>
-        public ApiResponse< List<InlineResponse20010> > PostDeAssociateV3TerminalWithHttpInfo(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
+        /// <returns>ApiResponse of List&lt;DeviceDeAssociateV3Response&gt;</returns>
+        public ApiResponse< List<DeviceDeAssociateV3Response> > PostDeAssociateV3TerminalWithHttpInfo(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -432,7 +432,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -463,9 +463,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse20010>>(localVarStatusCode,
+            return new ApiResponse<List<DeviceDeAssociateV3Response>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse20010>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse20010>))); // Return statement
+                (List<DeviceDeAssociateV3Response>) ApiClient.Deserialize(localVarResponse, typeof(List<DeviceDeAssociateV3Response>))); // Return statement
         }
 
         /// <summary>
@@ -473,12 +473,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deviceDeAssociateV3Request">deviceId that has to be de-associated to the destination organizationId.</param>
-        /// <returns>Task of List&lt;InlineResponse20010&gt;</returns>
-        public async Task<List<InlineResponse20010>> PostDeAssociateV3TerminalAsync(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
+        /// <returns>Task of List&lt;DeviceDeAssociateV3Response&gt;</returns>
+        public async Task<List<DeviceDeAssociateV3Response>> PostDeAssociateV3TerminalAsync(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
         {
             logger.LogDebug("CALLING API \"PostDeAssociateV3TerminalAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse20010>> localVarResponse = await PostDeAssociateV3TerminalAsyncWithHttpInfo(deviceDeAssociateV3Request);
+            ApiResponse<List<DeviceDeAssociateV3Response>> localVarResponse = await PostDeAssociateV3TerminalAsyncWithHttpInfo(deviceDeAssociateV3Request);
             logger.LogDebug("CALLING API \"PostDeAssociateV3TerminalAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -490,8 +490,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deviceDeAssociateV3Request">deviceId that has to be de-associated to the destination organizationId.</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse20010&gt;)</returns>
-        public async Task<ApiResponse<List<InlineResponse20010>>> PostDeAssociateV3TerminalAsyncWithHttpInfo(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
+        /// <returns>Task of ApiResponse (List&lt;DeviceDeAssociateV3Response&gt;)</returns>
+        public async Task<ApiResponse<List<DeviceDeAssociateV3Response>>> PostDeAssociateV3TerminalAsyncWithHttpInfo(List<DeviceDeAssociateV3Request> deviceDeAssociateV3Request)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -543,7 +543,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -574,9 +574,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse20010>>(localVarStatusCode,
+            return new ApiResponse<List<DeviceDeAssociateV3Response>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse20010>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse20010>))); // Return statement
+                (List<DeviceDeAssociateV3Response>) ApiClient.Deserialize(localVarResponse, typeof(List<DeviceDeAssociateV3Response>))); // Return statement
         }
     }
 }

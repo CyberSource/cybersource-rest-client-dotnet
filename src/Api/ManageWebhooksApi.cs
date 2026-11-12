@@ -59,8 +59,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>InlineResponse2018</returns>
-        InlineResponse2018 GetWebhookSubscriptionById(string webhookId);
+        /// <returns>CreateWebhookSubscriptionResponse</returns>
+        CreateWebhookSubscriptionResponse GetWebhookSubscriptionById(string webhookId);
 
         /// <summary>
         /// Get Details On a Single Webhook
@@ -70,8 +70,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>ApiResponse of InlineResponse2018</returns>
-        ApiResponse<InlineResponse2018> GetWebhookSubscriptionByIdWithHttpInfo(string webhookId);
+        /// <returns>ApiResponse of CreateWebhookSubscriptionResponse</returns>
+        ApiResponse<CreateWebhookSubscriptionResponse> GetWebhookSubscriptionByIdWithHttpInfo(string webhookId);
         /// <summary>
         /// Get Details On All Created Webhooks
         /// </summary>
@@ -82,8 +82,8 @@ namespace CyberSource.Api
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <param name="productId">The Product Identifier. (optional)</param>
         /// <param name="eventType">The Event Type. (optional)</param>
-        /// <returns>List&lt;InlineResponse2007&gt;</returns>
-        List<InlineResponse2007> GetWebhookSubscriptionsByOrg(string organizationId, string productId = null, string eventType = null);
+        /// <returns>List&lt;WebhookSubscription&gt;</returns>
+        List<WebhookSubscription> GetWebhookSubscriptionsByOrg(string organizationId, string productId = null, string eventType = null);
 
         /// <summary>
         /// Get Details On All Created Webhooks
@@ -95,52 +95,8 @@ namespace CyberSource.Api
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <param name="productId">The Product Identifier. (optional)</param>
         /// <param name="eventType">The Event Type. (optional)</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2007&gt;</returns>
-        ApiResponse<List<InlineResponse2007>> GetWebhookSubscriptionsByOrgWithHttpInfo(string organizationId, string productId = null, string eventType = null);
-        /// <summary>
-        /// Test a Webhook Configuration
-        /// </summary>
-        /// <remarks>
-        /// Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>InlineResponse2019</returns>
-        InlineResponse2019 NotificationSubscriptionsV1WebhooksWebhookIdPost(string webhookId);
-
-        /// <summary>
-        /// Test a Webhook Configuration
-        /// </summary>
-        /// <remarks>
-        /// Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>ApiResponse of InlineResponse2019</returns>
-        ApiResponse<InlineResponse2019> NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo(string webhookId);
-        /// <summary>
-        /// Update a Webhook Subscription
-        /// </summary>
-        /// <remarks>
-        /// Update a Webhook Subscription.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>InlineResponse2008</returns>
-        InlineResponse2008 NotificationSubscriptionsV2WebhooksWebhookIdPatch(string webhookId, UpdateWebhook updateWebhook = null);
-
-        /// <summary>
-        /// Update a Webhook Subscription
-        /// </summary>
-        /// <remarks>
-        /// Update a Webhook Subscription.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        ApiResponse<InlineResponse2008> NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo(string webhookId, UpdateWebhook updateWebhook = null);
+        /// <returns>ApiResponse of List&lt;WebhookSubscription&gt;</returns>
+        ApiResponse<List<WebhookSubscription>> GetWebhookSubscriptionsByOrgWithHttpInfo(string organizationId, string productId = null, string eventType = null);
         /// <summary>
         /// Update a Webhook Status
         /// </summary>
@@ -175,8 +131,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>InlineResponse20110</returns>
-        InlineResponse20110 SaveAsymEgressKey(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
+        /// <returns>SaveAsymEgressKeyResponse</returns>
+        SaveAsymEgressKeyResponse SaveAsymEgressKey(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
 
         /// <summary>
         /// Message Level Encryption
@@ -189,8 +145,52 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20110</returns>
-        ApiResponse<InlineResponse20110> SaveAsymEgressKeyWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
+        /// <returns>ApiResponse of SaveAsymEgressKeyResponse</returns>
+        ApiResponse<SaveAsymEgressKeyResponse> SaveAsymEgressKeyWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
+        /// <summary>
+        /// Test a Webhook Configuration
+        /// </summary>
+        /// <remarks>
+        /// Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <returns>TestWebhookSubscriptionResponse</returns>
+        TestWebhookSubscriptionResponse TestWebhookSubscription(string webhookId);
+
+        /// <summary>
+        /// Test a Webhook Configuration
+        /// </summary>
+        /// <remarks>
+        /// Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <returns>ApiResponse of TestWebhookSubscriptionResponse</returns>
+        ApiResponse<TestWebhookSubscriptionResponse> TestWebhookSubscriptionWithHttpInfo(string webhookId);
+        /// <summary>
+        /// Update a Webhook Subscription
+        /// </summary>
+        /// <remarks>
+        /// Update a Webhook Subscription.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <returns>UpdateWebhookSubscriptionResponse</returns>
+        UpdateWebhookSubscriptionResponse UpdateWebhookSubscription(string webhookId, UpdateWebhook updateWebhook = null);
+
+        /// <summary>
+        /// Update a Webhook Subscription
+        /// </summary>
+        /// <remarks>
+        /// Update a Webhook Subscription.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <returns>ApiResponse of UpdateWebhookSubscriptionResponse</returns>
+        ApiResponse<UpdateWebhookSubscriptionResponse> UpdateWebhookSubscriptionWithHttpInfo(string webhookId, UpdateWebhook updateWebhook = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -222,8 +222,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of InlineResponse2018</returns>
-        System.Threading.Tasks.Task<InlineResponse2018> GetWebhookSubscriptionByIdAsync(string webhookId);
+        /// <returns>Task of CreateWebhookSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<CreateWebhookSubscriptionResponse> GetWebhookSubscriptionByIdAsync(string webhookId);
 
         /// <summary>
         /// Get Details On a Single Webhook
@@ -233,8 +233,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2018>> GetWebhookSubscriptionByIdAsyncWithHttpInfo(string webhookId);
+        /// <returns>Task of ApiResponse (CreateWebhookSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateWebhookSubscriptionResponse>> GetWebhookSubscriptionByIdAsyncWithHttpInfo(string webhookId);
         /// <summary>
         /// Get Details On All Created Webhooks
         /// </summary>
@@ -245,8 +245,8 @@ namespace CyberSource.Api
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <param name="productId">The Product Identifier. (optional)</param>
         /// <param name="eventType">The Event Type. (optional)</param>
-        /// <returns>Task of List&lt;InlineResponse2007&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2007>> GetWebhookSubscriptionsByOrgAsync(string organizationId, string productId = null, string eventType = null);
+        /// <returns>Task of List&lt;WebhookSubscription&gt;</returns>
+        System.Threading.Tasks.Task<List<WebhookSubscription>> GetWebhookSubscriptionsByOrgAsync(string organizationId, string productId = null, string eventType = null);
 
         /// <summary>
         /// Get Details On All Created Webhooks
@@ -258,52 +258,8 @@ namespace CyberSource.Api
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <param name="productId">The Product Identifier. (optional)</param>
         /// <param name="eventType">The Event Type. (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2007&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2007>>> GetWebhookSubscriptionsByOrgAsyncWithHttpInfo(string organizationId, string productId = null, string eventType = null);
-        /// <summary>
-        /// Test a Webhook Configuration
-        /// </summary>
-        /// <remarks>
-        /// Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>Task of InlineResponse2019</returns>
-        System.Threading.Tasks.Task<InlineResponse2019> NotificationSubscriptionsV1WebhooksWebhookIdPostAsync(string webhookId);
-
-        /// <summary>
-        /// Test a Webhook Configuration
-        /// </summary>
-        /// <remarks>
-        /// Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2019)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2019>> NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo(string webhookId);
-        /// <summary>
-        /// Update a Webhook Subscription
-        /// </summary>
-        /// <remarks>
-        /// Update a Webhook Subscription.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        System.Threading.Tasks.Task<InlineResponse2008> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync(string webhookId, UpdateWebhook updateWebhook = null);
-
-        /// <summary>
-        /// Update a Webhook Subscription
-        /// </summary>
-        /// <remarks>
-        /// Update a Webhook Subscription.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo(string webhookId, UpdateWebhook updateWebhook = null);
+        /// <returns>Task of ApiResponse (List&lt;WebhookSubscription&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<WebhookSubscription>>> GetWebhookSubscriptionsByOrgAsyncWithHttpInfo(string organizationId, string productId = null, string eventType = null);
         /// <summary>
         /// Update a Webhook Status
         /// </summary>
@@ -338,8 +294,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>Task of InlineResponse20110</returns>
-        System.Threading.Tasks.Task<InlineResponse20110> SaveAsymEgressKeyAsync(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
+        /// <returns>Task of SaveAsymEgressKeyResponse</returns>
+        System.Threading.Tasks.Task<SaveAsymEgressKeyResponse> SaveAsymEgressKeyAsync(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
 
         /// <summary>
         /// Message Level Encryption
@@ -352,8 +308,52 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20110)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20110>> SaveAsymEgressKeyAsyncWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
+        /// <returns>Task of ApiResponse (SaveAsymEgressKeyResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SaveAsymEgressKeyResponse>> SaveAsymEgressKeyAsyncWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null);
+        /// <summary>
+        /// Test a Webhook Configuration
+        /// </summary>
+        /// <remarks>
+        /// Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <returns>Task of TestWebhookSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<TestWebhookSubscriptionResponse> TestWebhookSubscriptionAsync(string webhookId);
+
+        /// <summary>
+        /// Test a Webhook Configuration
+        /// </summary>
+        /// <remarks>
+        /// Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <returns>Task of ApiResponse (TestWebhookSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TestWebhookSubscriptionResponse>> TestWebhookSubscriptionAsyncWithHttpInfo(string webhookId);
+        /// <summary>
+        /// Update a Webhook Subscription
+        /// </summary>
+        /// <remarks>
+        /// Update a Webhook Subscription.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <returns>Task of UpdateWebhookSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<UpdateWebhookSubscriptionResponse> UpdateWebhookSubscriptionAsync(string webhookId, UpdateWebhook updateWebhook = null);
+
+        /// <summary>
+        /// Update a Webhook Subscription
+        /// </summary>
+        /// <remarks>
+        /// Update a Webhook Subscription.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <returns>Task of ApiResponse (UpdateWebhookSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpdateWebhookSubscriptionResponse>> UpdateWebhookSubscriptionAsyncWithHttpInfo(string webhookId, UpdateWebhook updateWebhook = null);
         #endregion Asynchronous Operations
     }
 
@@ -462,7 +462,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -579,7 +579,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -618,12 +618,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>InlineResponse2018</returns>
-        public InlineResponse2018 GetWebhookSubscriptionById(string webhookId)
+        /// <returns>CreateWebhookSubscriptionResponse</returns>
+        public CreateWebhookSubscriptionResponse GetWebhookSubscriptionById(string webhookId)
         {
             logger.LogDebug("CALLING API \"GetWebhookSubscriptionById\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2018> localVarResponse = GetWebhookSubscriptionByIdWithHttpInfo(webhookId);
+            ApiResponse<CreateWebhookSubscriptionResponse> localVarResponse = GetWebhookSubscriptionByIdWithHttpInfo(webhookId);
             logger.LogDebug("CALLING API \"GetWebhookSubscriptionById\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -634,8 +634,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>ApiResponse of InlineResponse2018</returns>
-        public ApiResponse< InlineResponse2018 > GetWebhookSubscriptionByIdWithHttpInfo(string webhookId)
+        /// <returns>ApiResponse of CreateWebhookSubscriptionResponse</returns>
+        public ApiResponse< CreateWebhookSubscriptionResponse > GetWebhookSubscriptionByIdWithHttpInfo(string webhookId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -698,7 +698,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -727,9 +727,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2018>(localVarStatusCode,
+            return new ApiResponse<CreateWebhookSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2018))); // Return statement
+                (CreateWebhookSubscriptionResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateWebhookSubscriptionResponse))); // Return statement
         }
 
         /// <summary>
@@ -737,12 +737,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of InlineResponse2018</returns>
-        public async Task<InlineResponse2018> GetWebhookSubscriptionByIdAsync(string webhookId)
+        /// <returns>Task of CreateWebhookSubscriptionResponse</returns>
+        public async Task<CreateWebhookSubscriptionResponse> GetWebhookSubscriptionByIdAsync(string webhookId)
         {
             logger.LogDebug("CALLING API \"GetWebhookSubscriptionByIdAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2018> localVarResponse = await GetWebhookSubscriptionByIdAsyncWithHttpInfo(webhookId);
+            ApiResponse<CreateWebhookSubscriptionResponse> localVarResponse = await GetWebhookSubscriptionByIdAsyncWithHttpInfo(webhookId);
             logger.LogDebug("CALLING API \"GetWebhookSubscriptionByIdAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -754,8 +754,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webhookId">The webhook Identifier</param>
-        /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
-        public async Task<ApiResponse<InlineResponse2018>> GetWebhookSubscriptionByIdAsyncWithHttpInfo(string webhookId)
+        /// <returns>Task of ApiResponse (CreateWebhookSubscriptionResponse)</returns>
+        public async Task<ApiResponse<CreateWebhookSubscriptionResponse>> GetWebhookSubscriptionByIdAsyncWithHttpInfo(string webhookId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -817,7 +817,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -846,9 +846,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2018>(localVarStatusCode,
+            return new ApiResponse<CreateWebhookSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2018))); // Return statement
+                (CreateWebhookSubscriptionResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateWebhookSubscriptionResponse))); // Return statement
         }
         /// <summary>
         /// Get Details On All Created Webhooks Retrieve a list of all previously created webhooks.
@@ -857,12 +857,12 @@ namespace CyberSource.Api
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <param name="productId">The Product Identifier. (optional)</param>
         /// <param name="eventType">The Event Type. (optional)</param>
-        /// <returns>List&lt;InlineResponse2007&gt;</returns>
-        public List<InlineResponse2007> GetWebhookSubscriptionsByOrg(string organizationId, string productId = null, string eventType = null)
+        /// <returns>List&lt;WebhookSubscription&gt;</returns>
+        public List<WebhookSubscription> GetWebhookSubscriptionsByOrg(string organizationId, string productId = null, string eventType = null)
         {
             logger.LogDebug("CALLING API \"GetWebhookSubscriptionsByOrg\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2007>> localVarResponse = GetWebhookSubscriptionsByOrgWithHttpInfo(organizationId, productId, eventType);
+            ApiResponse<List<WebhookSubscription>> localVarResponse = GetWebhookSubscriptionsByOrgWithHttpInfo(organizationId, productId, eventType);
             logger.LogDebug("CALLING API \"GetWebhookSubscriptionsByOrg\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -875,8 +875,8 @@ namespace CyberSource.Api
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <param name="productId">The Product Identifier. (optional)</param>
         /// <param name="eventType">The Event Type. (optional)</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2007&gt;</returns>
-        public ApiResponse< List<InlineResponse2007> > GetWebhookSubscriptionsByOrgWithHttpInfo(string organizationId, string productId = null, string eventType = null)
+        /// <returns>ApiResponse of List&lt;WebhookSubscription&gt;</returns>
+        public ApiResponse< List<WebhookSubscription> > GetWebhookSubscriptionsByOrgWithHttpInfo(string organizationId, string productId = null, string eventType = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -951,7 +951,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -980,9 +980,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2007>>(localVarStatusCode,
+            return new ApiResponse<List<WebhookSubscription>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2007>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2007>))); // Return statement
+                (List<WebhookSubscription>) ApiClient.Deserialize(localVarResponse, typeof(List<WebhookSubscription>))); // Return statement
         }
 
         /// <summary>
@@ -992,12 +992,12 @@ namespace CyberSource.Api
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <param name="productId">The Product Identifier. (optional)</param>
         /// <param name="eventType">The Event Type. (optional)</param>
-        /// <returns>Task of List&lt;InlineResponse2007&gt;</returns>
-        public async Task<List<InlineResponse2007>> GetWebhookSubscriptionsByOrgAsync(string organizationId, string productId = null, string eventType = null)
+        /// <returns>Task of List&lt;WebhookSubscription&gt;</returns>
+        public async Task<List<WebhookSubscription>> GetWebhookSubscriptionsByOrgAsync(string organizationId, string productId = null, string eventType = null)
         {
             logger.LogDebug("CALLING API \"GetWebhookSubscriptionsByOrgAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2007>> localVarResponse = await GetWebhookSubscriptionsByOrgAsyncWithHttpInfo(organizationId, productId, eventType);
+            ApiResponse<List<WebhookSubscription>> localVarResponse = await GetWebhookSubscriptionsByOrgAsyncWithHttpInfo(organizationId, productId, eventType);
             logger.LogDebug("CALLING API \"GetWebhookSubscriptionsByOrgAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1011,8 +1011,8 @@ namespace CyberSource.Api
         /// <param name="organizationId">The Organization Identifier.</param>
         /// <param name="productId">The Product Identifier. (optional)</param>
         /// <param name="eventType">The Event Type. (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2007&gt;)</returns>
-        public async Task<ApiResponse<List<InlineResponse2007>>> GetWebhookSubscriptionsByOrgAsyncWithHttpInfo(string organizationId, string productId = null, string eventType = null)
+        /// <returns>Task of ApiResponse (List&lt;WebhookSubscription&gt;)</returns>
+        public async Task<ApiResponse<List<WebhookSubscription>>> GetWebhookSubscriptionsByOrgAsyncWithHttpInfo(string organizationId, string productId = null, string eventType = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1086,7 +1086,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1115,482 +1115,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2007>>(localVarStatusCode,
+            return new ApiResponse<List<WebhookSubscription>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2007>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2007>))); // Return statement
-        }
-        /// <summary>
-        /// Test a Webhook Configuration Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>InlineResponse2019</returns>
-        public InlineResponse2019 NotificationSubscriptionsV1WebhooksWebhookIdPost(string webhookId)
-        {
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPost\" STARTED");
-            this.SetStatusCode(null);
-            ApiResponse<InlineResponse2019> localVarResponse = NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo(webhookId);
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPost\" ENDED");
-            this.SetStatusCode(localVarResponse.StatusCode);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Test a Webhook Configuration Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>ApiResponse of InlineResponse2019</returns>
-        public ApiResponse< InlineResponse2019 > NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo(string webhookId)
-        {
-            LogUtility logUtility = new LogUtility();
-
-            // verify the required parameter 'webhookId' is set
-            if (webhookId == null)
-            {
-                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV1WebhooksWebhookIdPost");
-                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV1WebhooksWebhookIdPost");
-            }
-
-            var localVarPath = $"/notification-subscriptions/v1/webhooks/{webhookId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-            {
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
-
-            if (webhookId != null)
-            {
-                localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
-            }
-            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
-
-            if (new HttpMethod("POST") == new HttpMethod("POST"))
-            {
-                localVarPostBody = "{}";
-            }
-            else
-            {
-                localVarPostBody = null;
-            }
-
-            string[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
-            if (null != filePostBodyAndDelimiter)
-            {
-                localVarPostBody = filePostBodyAndDelimiter[0];
-                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
-            }
-
-
-            string inboundMLEStatus = "false";
-            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "NotificationSubscriptionsV1WebhooksWebhookIdPost,NotificationSubscriptionsV1WebhooksWebhookIdPostAsync,NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo,NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo"))
-            {
-                try
-                {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
-                }
-                catch (Exception e)
-                {
-                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
-                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
-                }
-            }
-
-            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "NotificationSubscriptionsV1WebhooksWebhookIdPost,NotificationSubscriptionsV1WebhooksWebhookIdPostAsync,NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo,NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo");
-
-
-            // make the HTTP request
-            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
-                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("NotificationSubscriptionsV1WebhooksWebhookIdPost", localVarResponse);
-                if (exception != null)
-                {
-                    logger.LogError("Exception : {Message}", exception.Message);
-                    throw exception;
-                }
-            }
-
-            return new ApiResponse<InlineResponse2019>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2019) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2019))); // Return statement
-        }
-
-        /// <summary>
-        /// Test a Webhook Configuration Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>Task of InlineResponse2019</returns>
-        public async Task<InlineResponse2019> NotificationSubscriptionsV1WebhooksWebhookIdPostAsync(string webhookId)
-        {
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPostAsync\" STARTED");
-            this.SetStatusCode(null);
-            ApiResponse<InlineResponse2019> localVarResponse = await NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo(webhookId);
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV1WebhooksWebhookIdPostAsync\" ENDED");
-            this.SetStatusCode(localVarResponse.StatusCode);
-            return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Test a Webhook Configuration Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2019)</returns>
-        public async Task<ApiResponse<InlineResponse2019>> NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo(string webhookId)
-        {
-            LogUtility logUtility = new LogUtility();
-
-            // verify the required parameter 'webhookId' is set
-            if (webhookId == null)
-            {
-                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV1WebhooksWebhookIdPost");
-                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV1WebhooksWebhookIdPost");
-            }
-
-            var localVarPath = $"/notification-subscriptions/v1/webhooks/{webhookId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-            {
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
-
-            if (webhookId != null)
-            {
-                localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
-            }
-            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
-
-            if (new HttpMethod("POST") == new HttpMethod("POST"))
-            {
-                localVarPostBody = "{}";
-            }
-            else
-            {
-                localVarPostBody = null;
-            }
-
-            string[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
-            if (null != filePostBodyAndDelimiter)
-            {
-                localVarPostBody = filePostBodyAndDelimiter[0];
-                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
-            }
-
-            string inboundMLEStatus = "false";
-            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "NotificationSubscriptionsV1WebhooksWebhookIdPost,NotificationSubscriptionsV1WebhooksWebhookIdPostAsync,NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo,NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo"))
-            {
-                try
-                {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
-                }
-                catch (Exception e)
-                {
-                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
-                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
-                }
-            }
-
-            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "NotificationSubscriptionsV1WebhooksWebhookIdPost,NotificationSubscriptionsV1WebhooksWebhookIdPostAsync,NotificationSubscriptionsV1WebhooksWebhookIdPostWithHttpInfo,NotificationSubscriptionsV1WebhooksWebhookIdPostAsyncWithHttpInfo");
-
-
-            // make the HTTP request
-            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
-                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("NotificationSubscriptionsV1WebhooksWebhookIdPost", localVarResponse);
-                if (exception != null)
-                {
-                    logger.LogError("Exception : {Message}", exception.Message);
-                    throw exception;
-                }
-            }
-
-            return new ApiResponse<InlineResponse2019>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2019) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2019))); // Return statement
-        }
-        /// <summary>
-        /// Update a Webhook Subscription Update a Webhook Subscription.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>InlineResponse2008</returns>
-        public InlineResponse2008 NotificationSubscriptionsV2WebhooksWebhookIdPatch(string webhookId, UpdateWebhook updateWebhook = null)
-        {
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatch\" STARTED");
-            this.SetStatusCode(null);
-            ApiResponse<InlineResponse2008> localVarResponse = NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo(webhookId, updateWebhook);
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatch\" ENDED");
-            this.SetStatusCode(localVarResponse.StatusCode);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update a Webhook Subscription Update a Webhook Subscription.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        public ApiResponse< InlineResponse2008 > NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo(string webhookId, UpdateWebhook updateWebhook = null)
-        {
-            LogUtility logUtility = new LogUtility();
-
-            // verify the required parameter 'webhookId' is set
-            if (webhookId == null)
-            {
-                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdPatch");
-                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdPatch");
-            }
-
-            var localVarPath = $"/notification-subscriptions/v2/webhooks/{webhookId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-            {
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
-
-            if (webhookId != null)
-            {
-                localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
-            }
-            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
-
-            if (updateWebhook != null && updateWebhook.GetType() != typeof(byte[]))
-            {
-                SdkTracker sdkTracker = new SdkTracker();
-                updateWebhook = (UpdateWebhook)sdkTracker.InsertDeveloperIdTracker(updateWebhook, updateWebhook.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(updateWebhook); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = updateWebhook; // byte array
-            }
-
-
-            string inboundMLEStatus = "false";
-            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "NotificationSubscriptionsV2WebhooksWebhookIdPatch,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync,NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo"))
-            {
-                try
-                {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
-                }
-                catch (Exception e)
-                {
-                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
-                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
-                }
-            }
-
-            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "NotificationSubscriptionsV2WebhooksWebhookIdPatch,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync,NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo");
-
-            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
-
-
-            // make the HTTP request
-            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
-                new HttpMethod("PATCH"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("NotificationSubscriptionsV2WebhooksWebhookIdPatch", localVarResponse);
-                if (exception != null)
-                {
-                    logger.LogError("Exception : {Message}", exception.Message);
-                    throw exception;
-                }
-            }
-
-            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2008) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008))); // Return statement
-        }
-
-        /// <summary>
-        /// Update a Webhook Subscription Update a Webhook Subscription.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        public async Task<InlineResponse2008> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync(string webhookId, UpdateWebhook updateWebhook = null)
-        {
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync\" STARTED");
-            this.SetStatusCode(null);
-            ApiResponse<InlineResponse2008> localVarResponse = await NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo(webhookId, updateWebhook);
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync\" ENDED");
-            this.SetStatusCode(localVarResponse.StatusCode);
-            return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Update a Webhook Subscription Update a Webhook Subscription.
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookId">The Webhook Identifier.</param>
-        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        public async Task<ApiResponse<InlineResponse2008>> NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo(string webhookId, UpdateWebhook updateWebhook = null)
-        {
-            LogUtility logUtility = new LogUtility();
-
-            // verify the required parameter 'webhookId' is set
-            if (webhookId == null)
-            {
-                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdPatch");
-                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->NotificationSubscriptionsV2WebhooksWebhookIdPatch");
-            }
-
-            var localVarPath = $"/notification-subscriptions/v2/webhooks/{webhookId}";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-            {
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
-
-            if (webhookId != null)
-            {
-                localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
-            }
-            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
-
-            if (updateWebhook != null && updateWebhook.GetType() != typeof(byte[]))
-            {
-                SdkTracker sdkTracker = new SdkTracker();
-                updateWebhook = (UpdateWebhook)sdkTracker.InsertDeveloperIdTracker(updateWebhook, updateWebhook.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(updateWebhook); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = updateWebhook; // byte array
-            }
-
-
-            string inboundMLEStatus = "false";
-            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "NotificationSubscriptionsV2WebhooksWebhookIdPatch,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync,NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo"))
-            {
-                try
-                {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
-                }
-                catch (Exception e)
-                {
-                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
-                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
-                }
-            }
-
-            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "NotificationSubscriptionsV2WebhooksWebhookIdPatch,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsync,NotificationSubscriptionsV2WebhooksWebhookIdPatchWithHttpInfo,NotificationSubscriptionsV2WebhooksWebhookIdPatchAsyncWithHttpInfo");
-
-            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
-
-
-            // make the HTTP request
-            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
-                new HttpMethod("PATCH"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("NotificationSubscriptionsV2WebhooksWebhookIdPatch", localVarResponse);
-                if (exception != null)
-                {
-                    logger.LogError("Exception : {Message}", exception.Message);
-                    throw exception;
-                }
-            }
-
-            return new ApiResponse<InlineResponse2008>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2008) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008))); // Return statement
+                (List<WebhookSubscription>) ApiClient.Deserialize(localVarResponse, typeof(List<WebhookSubscription>))); // Return statement
         }
         /// <summary>
         /// Update a Webhook Status Users can update the status of a webhook subscription by calling this endpoint.   The webhookId parameter in the URL path identifies the specific webhook subscription to be updated. The request body accepts the values ACTIVE or INACTIVE. If the subscription is set to INACTIVE, webhooks will not be delivered until the subscription is activated again. 
@@ -1671,7 +1198,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1788,7 +1315,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1832,12 +1359,12 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>InlineResponse20110</returns>
-        public InlineResponse20110 SaveAsymEgressKey(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
+        /// <returns>SaveAsymEgressKeyResponse</returns>
+        public SaveAsymEgressKeyResponse SaveAsymEgressKey(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
             logger.LogDebug("CALLING API \"SaveAsymEgressKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20110> localVarResponse = SaveAsymEgressKeyWithHttpInfo(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
+            ApiResponse<SaveAsymEgressKeyResponse> localVarResponse = SaveAsymEgressKeyWithHttpInfo(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
             logger.LogDebug("CALLING API \"SaveAsymEgressKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1851,8 +1378,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20110</returns>
-        public ApiResponse< InlineResponse20110 > SaveAsymEgressKeyWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
+        /// <returns>ApiResponse of SaveAsymEgressKeyResponse</returns>
+        public ApiResponse< SaveAsymEgressKeyResponse > SaveAsymEgressKeyWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1919,7 +1446,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1950,9 +1477,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20110>(localVarStatusCode,
+            return new ApiResponse<SaveAsymEgressKeyResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20110) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20110))); // Return statement
+                (SaveAsymEgressKeyResponse) ApiClient.Deserialize(localVarResponse, typeof(SaveAsymEgressKeyResponse))); // Return statement
         }
 
         /// <summary>
@@ -1963,12 +1490,12 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>Task of InlineResponse20110</returns>
-        public async Task<InlineResponse20110> SaveAsymEgressKeyAsync(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
+        /// <returns>Task of SaveAsymEgressKeyResponse</returns>
+        public async Task<SaveAsymEgressKeyResponse> SaveAsymEgressKeyAsync(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
             logger.LogDebug("CALLING API \"SaveAsymEgressKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20110> localVarResponse = await SaveAsymEgressKeyAsyncWithHttpInfo(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
+            ApiResponse<SaveAsymEgressKeyResponse> localVarResponse = await SaveAsymEgressKeyAsyncWithHttpInfo(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
             logger.LogDebug("CALLING API \"SaveAsymEgressKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1983,8 +1510,8 @@ namespace CyberSource.Api
         /// <param name="vCCorrelationId">A globally unique id associated with your request (optional)</param>
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20110)</returns>
-        public async Task<ApiResponse<InlineResponse20110>> SaveAsymEgressKeyAsyncWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
+        /// <returns>Task of ApiResponse (SaveAsymEgressKeyResponse)</returns>
+        public async Task<ApiResponse<SaveAsymEgressKeyResponse>> SaveAsymEgressKeyAsyncWithHttpInfo(SaveAsymEgressKey saveAsymEgressKey, string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2051,7 +1578,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2082,9 +1609,482 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20110>(localVarStatusCode,
+            return new ApiResponse<SaveAsymEgressKeyResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20110) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20110))); // Return statement
+                (SaveAsymEgressKeyResponse) ApiClient.Deserialize(localVarResponse, typeof(SaveAsymEgressKeyResponse))); // Return statement
+        }
+        /// <summary>
+        /// Test a Webhook Configuration Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <returns>TestWebhookSubscriptionResponse</returns>
+        public TestWebhookSubscriptionResponse TestWebhookSubscription(string webhookId)
+        {
+            logger.LogDebug("CALLING API \"TestWebhookSubscription\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<TestWebhookSubscriptionResponse> localVarResponse = TestWebhookSubscriptionWithHttpInfo(webhookId);
+            logger.LogDebug("CALLING API \"TestWebhookSubscription\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Test a Webhook Configuration Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <returns>ApiResponse of TestWebhookSubscriptionResponse</returns>
+        public ApiResponse< TestWebhookSubscriptionResponse > TestWebhookSubscriptionWithHttpInfo(string webhookId)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'webhookId' is set
+            if (webhookId == null)
+            {
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->TestWebhookSubscription");
+                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->TestWebhookSubscription");
+            }
+
+            var localVarPath = $"/notification-subscriptions/v1/webhooks/{webhookId}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (webhookId != null)
+            {
+                localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
+            }
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
+
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+
+            string[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if (null != filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
+            }
+
+
+            string inboundMLEStatus = "false";
+            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "TestWebhookSubscription,TestWebhookSubscriptionAsync,TestWebhookSubscriptionWithHttpInfo,TestWebhookSubscriptionAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
+                }
+                catch (Exception e)
+                {
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
+                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "TestWebhookSubscription,TestWebhookSubscriptionAsync,TestWebhookSubscriptionWithHttpInfo,TestWebhookSubscriptionAsyncWithHttpInfo");
+
+
+            // make the HTTP request
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TestWebhookSubscription", localVarResponse);
+                if (exception != null)
+                {
+                    logger.LogError("Exception : {Message}", exception.Message);
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<TestWebhookSubscriptionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (TestWebhookSubscriptionResponse) ApiClient.Deserialize(localVarResponse, typeof(TestWebhookSubscriptionResponse))); // Return statement
+        }
+
+        /// <summary>
+        /// Test a Webhook Configuration Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <returns>Task of TestWebhookSubscriptionResponse</returns>
+        public async Task<TestWebhookSubscriptionResponse> TestWebhookSubscriptionAsync(string webhookId)
+        {
+            logger.LogDebug("CALLING API \"TestWebhookSubscriptionAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<TestWebhookSubscriptionResponse> localVarResponse = await TestWebhookSubscriptionAsyncWithHttpInfo(webhookId);
+            logger.LogDebug("CALLING API \"TestWebhookSubscriptionAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Test a Webhook Configuration Test the webhook configuration by sending a sample webhook. Calling this endpoint sends a sample webhook to the endpoint identified in the user&#39;s subscription.   It will contain sample values for the product &amp; eventType based on values present in your subscription along with a sample message in the payload.   Based on the webhook response users can make any necessary modifications or rest assured knowing their setup is configured correctly. 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <returns>Task of ApiResponse (TestWebhookSubscriptionResponse)</returns>
+        public async Task<ApiResponse<TestWebhookSubscriptionResponse>> TestWebhookSubscriptionAsyncWithHttpInfo(string webhookId)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'webhookId' is set
+            if (webhookId == null)
+            {
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->TestWebhookSubscription");
+                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->TestWebhookSubscription");
+            }
+
+            var localVarPath = $"/notification-subscriptions/v1/webhooks/{webhookId}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (webhookId != null)
+            {
+                localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
+            }
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
+
+            if (new HttpMethod("POST") == new HttpMethod("POST"))
+            {
+                localVarPostBody = "{}";
+            }
+            else
+            {
+                localVarPostBody = null;
+            }
+
+            string[] filePostBodyAndDelimiter = MultipartHelpers.BuildPostBodyForFiles(localVarFileParams);
+            if (null != filePostBodyAndDelimiter)
+            {
+                localVarPostBody = filePostBodyAndDelimiter[0];
+                localVarHttpContentType = "multipart/form-data; boundary=" + filePostBodyAndDelimiter[1];
+            }
+
+            string inboundMLEStatus = "false";
+            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "TestWebhookSubscription,TestWebhookSubscriptionAsync,TestWebhookSubscriptionWithHttpInfo,TestWebhookSubscriptionAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
+                }
+                catch (Exception e)
+                {
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
+                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "TestWebhookSubscription,TestWebhookSubscriptionAsync,TestWebhookSubscriptionWithHttpInfo,TestWebhookSubscriptionAsyncWithHttpInfo");
+
+
+            // make the HTTP request
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TestWebhookSubscription", localVarResponse);
+                if (exception != null)
+                {
+                    logger.LogError("Exception : {Message}", exception.Message);
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<TestWebhookSubscriptionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (TestWebhookSubscriptionResponse) ApiClient.Deserialize(localVarResponse, typeof(TestWebhookSubscriptionResponse))); // Return statement
+        }
+        /// <summary>
+        /// Update a Webhook Subscription Update a Webhook Subscription.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <returns>UpdateWebhookSubscriptionResponse</returns>
+        public UpdateWebhookSubscriptionResponse UpdateWebhookSubscription(string webhookId, UpdateWebhook updateWebhook = null)
+        {
+            logger.LogDebug("CALLING API \"UpdateWebhookSubscription\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<UpdateWebhookSubscriptionResponse> localVarResponse = UpdateWebhookSubscriptionWithHttpInfo(webhookId, updateWebhook);
+            logger.LogDebug("CALLING API \"UpdateWebhookSubscription\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a Webhook Subscription Update a Webhook Subscription.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <returns>ApiResponse of UpdateWebhookSubscriptionResponse</returns>
+        public ApiResponse< UpdateWebhookSubscriptionResponse > UpdateWebhookSubscriptionWithHttpInfo(string webhookId, UpdateWebhook updateWebhook = null)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'webhookId' is set
+            if (webhookId == null)
+            {
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->UpdateWebhookSubscription");
+                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->UpdateWebhookSubscription");
+            }
+
+            var localVarPath = $"/notification-subscriptions/v2/webhooks/{webhookId}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (webhookId != null)
+            {
+                localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
+            }
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
+
+            if (updateWebhook != null && updateWebhook.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                updateWebhook = (UpdateWebhook)sdkTracker.InsertDeveloperIdTracker(updateWebhook, updateWebhook.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(updateWebhook); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updateWebhook; // byte array
+            }
+
+
+            string inboundMLEStatus = "false";
+            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "UpdateWebhookSubscription,UpdateWebhookSubscriptionAsync,UpdateWebhookSubscriptionWithHttpInfo,UpdateWebhookSubscriptionAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
+                }
+                catch (Exception e)
+                {
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
+                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "UpdateWebhookSubscription,UpdateWebhookSubscriptionAsync,UpdateWebhookSubscriptionWithHttpInfo,UpdateWebhookSubscriptionAsyncWithHttpInfo");
+
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
+
+
+            // make the HTTP request
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("PATCH"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateWebhookSubscription", localVarResponse);
+                if (exception != null)
+                {
+                    logger.LogError("Exception : {Message}", exception.Message);
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<UpdateWebhookSubscriptionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (UpdateWebhookSubscriptionResponse) ApiClient.Deserialize(localVarResponse, typeof(UpdateWebhookSubscriptionResponse))); // Return statement
+        }
+
+        /// <summary>
+        /// Update a Webhook Subscription Update a Webhook Subscription.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <returns>Task of UpdateWebhookSubscriptionResponse</returns>
+        public async Task<UpdateWebhookSubscriptionResponse> UpdateWebhookSubscriptionAsync(string webhookId, UpdateWebhook updateWebhook = null)
+        {
+            logger.LogDebug("CALLING API \"UpdateWebhookSubscriptionAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<UpdateWebhookSubscriptionResponse> localVarResponse = await UpdateWebhookSubscriptionAsyncWithHttpInfo(webhookId, updateWebhook);
+            logger.LogDebug("CALLING API \"UpdateWebhookSubscriptionAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a Webhook Subscription Update a Webhook Subscription.
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="webhookId">The Webhook Identifier.</param>
+        /// <param name="updateWebhook">The webhook payload or changes to apply. (optional)</param>
+        /// <returns>Task of ApiResponse (UpdateWebhookSubscriptionResponse)</returns>
+        public async Task<ApiResponse<UpdateWebhookSubscriptionResponse>> UpdateWebhookSubscriptionAsyncWithHttpInfo(string webhookId, UpdateWebhook updateWebhook = null)
+        {
+            LogUtility logUtility = new LogUtility();
+
+            // verify the required parameter 'webhookId' is set
+            if (webhookId == null)
+            {
+                logger.LogError("ApiException : Missing required parameter 'webhookId' when calling ManageWebhooksApi->UpdateWebhookSubscription");
+                throw new ApiException(400, "Missing required parameter 'webhookId' when calling ManageWebhooksApi->UpdateWebhookSubscription");
+            }
+
+            var localVarPath = $"/notification-subscriptions/v2/webhooks/{webhookId}";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (webhookId != null)
+            {
+                localVarPathParams.Add("webhookId", ApiClient.ParameterToString(webhookId)); // path parameter
+            }
+            logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
+
+            if (updateWebhook != null && updateWebhook.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                updateWebhook = (UpdateWebhook)sdkTracker.InsertDeveloperIdTracker(updateWebhook, updateWebhook.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(updateWebhook); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updateWebhook; // byte array
+            }
+
+
+            string inboundMLEStatus = "false";
+            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "UpdateWebhookSubscription,UpdateWebhookSubscriptionAsync,UpdateWebhookSubscriptionWithHttpInfo,UpdateWebhookSubscriptionAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
+                }
+                catch (Exception e)
+                {
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
+                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "UpdateWebhookSubscription,UpdateWebhookSubscriptionAsync,UpdateWebhookSubscriptionWithHttpInfo,UpdateWebhookSubscriptionAsyncWithHttpInfo");
+
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
+
+
+            // make the HTTP request
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("PATCH"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateWebhookSubscription", localVarResponse);
+                if (exception != null)
+                {
+                    logger.LogError("Exception : {Message}", exception.Message);
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<UpdateWebhookSubscriptionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (UpdateWebhookSubscriptionResponse) ApiClient.Deserialize(localVarResponse, typeof(UpdateWebhookSubscriptionResponse))); // Return statement
         }
     }
 }

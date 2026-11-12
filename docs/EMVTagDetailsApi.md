@@ -67,7 +67,7 @@ No authorization required
 
 <a name="parseemvtags"></a>
 # **ParseEmvTags**
-> TssV2PostEmvTags200Response ParseEmvTags (Body2 body)
+> TssV2PostEmvTags200Response ParseEmvTags (ParseEmvTagsRequest parseEmvTagsRequest)
 
 Parse an EMV String
 
@@ -88,12 +88,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new EMVTagDetailsApi();
-            var body = new Body2(); // Body2 | 
+            var parseEmvTagsRequest = new ParseEmvTagsRequest(); // ParseEmvTagsRequest | 
 
             try
             {
                 // Parse an EMV String
-                TssV2PostEmvTags200Response result = apiInstance.ParseEmvTags(body);
+                TssV2PostEmvTags200Response result = apiInstance.ParseEmvTags(parseEmvTagsRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -109,7 +109,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body2**](Body2.md)|  | 
+ **parseEmvTagsRequest** | [**ParseEmvTagsRequest**](ParseEmvTagsRequest.md)|  | 
 
 ### Return type
 

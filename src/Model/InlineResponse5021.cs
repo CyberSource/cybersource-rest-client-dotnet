@@ -34,58 +34,49 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse5021" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="Status">The status of the submitted transaction. Possible values: - &#x60;SERVER_ERROR&#x60; .</param>
-        /// <param name="Reason">The reason of the status. Possible Values: - &#x60;INTERNAL_SERVICE_ERROR&#x60; .</param>
-        /// <param name="Message">Application failed..</param>
-        /// <param name="Details">Details.</param>
-        public InlineResponse5021(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
+        /// <param name="SubmitTimeUtc">Time verification was requested  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) .</param>
+        /// <param name="Status">The status of the submitted transaction. Possible values:   - &#x60;SERVER_ERROR&#x60; .</param>
+        /// <param name="Message">The detail message related to the status and reason.</param>
+        /// <param name="Reason">The reason of the status.  Possible values:   - &#x60;SYSTEM_ERROR&#x60;   - &#x60;SERVER_TIMEOUT&#x60;   - &#x60;SERVICE_TIMEOUT&#x60; .</param>
+        public InlineResponse5021(string SubmitTimeUtc = default(string), string Status = default(string), string Message = default(string), string Reason = default(string))
         {
             this.SubmitTimeUtc = SubmitTimeUtc;
             this.Status = Status;
-            this.Reason = Reason;
             this.Message = Message;
-            this.Details = Details;
+            this.Reason = Reason;
         }
         
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
+        /// Time verification was requested  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
+        /// <value>Time verification was requested  Format: &#x60;YYYY-MM-DDThhmmssZ&#x60;, where: - &#x60;T&#x60;:  Separates the date and the time - &#x60;Z&#x60;:  Indicates Coordinated Universal Time (UTC), also known as Greenwich Mean Time (GMT)  Example:  &#x60;2020-01-11T224757Z&#x60; equals January 11, 2020, at 22:47:57 (10:47:57 p.m.) </value>
         [JsonPropertyName("submitTimeUtc")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string SubmitTimeUtc { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction. Possible values: - &#x60;SERVER_ERROR&#x60; 
+        /// The status of the submitted transaction. Possible values:   - &#x60;SERVER_ERROR&#x60; 
         /// </summary>
-        /// <value>The status of the submitted transaction. Possible values: - &#x60;SERVER_ERROR&#x60; </value>
+        /// <value>The status of the submitted transaction. Possible values:   - &#x60;SERVER_ERROR&#x60; </value>
         [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Status { get; set; }
 
         /// <summary>
-        /// The reason of the status. Possible Values: - &#x60;INTERNAL_SERVICE_ERROR&#x60; 
+        /// The detail message related to the status and reason
         /// </summary>
-        /// <value>The reason of the status. Possible Values: - &#x60;INTERNAL_SERVICE_ERROR&#x60; </value>
-        [JsonPropertyName("reason")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Reason { get; set; }
-
-        /// <summary>
-        /// Application failed.
-        /// </summary>
-        /// <value>Application failed.</value>
+        /// <value>The detail message related to the status and reason</value>
         [JsonPropertyName("message")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets Details
+        /// The reason of the status.  Possible values:   - &#x60;SYSTEM_ERROR&#x60;   - &#x60;SERVER_TIMEOUT&#x60;   - &#x60;SERVICE_TIMEOUT&#x60; 
         /// </summary>
-        [JsonPropertyName("details")]
+        /// <value>The reason of the status.  Possible values:   - &#x60;SYSTEM_ERROR&#x60;   - &#x60;SERVER_TIMEOUT&#x60;   - &#x60;SERVICE_TIMEOUT&#x60; </value>
+        [JsonPropertyName("reason")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
+        public string Reason { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,9 +88,8 @@ namespace CyberSource.Model
             sb.Append("class InlineResponse5021 {\n");
             if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5021", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
             if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5021", "status", Status.ToString())).Append("\n");
-            if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5021", "reason", Reason.ToString())).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5021", "message", Message.ToString())).Append("\n");
-            if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5021", "details", Details.ToString())).Append("\n");
+            if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse5021", "reason", Reason.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -152,19 +142,14 @@ namespace CyberSource.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
-                ) && 
-                (
                     this.Message == other.Message ||
                     this.Message != null &&
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
                 );
         }
 
@@ -185,12 +170,10 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

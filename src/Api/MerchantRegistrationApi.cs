@@ -61,9 +61,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addMerchantKeyRequest">Key creation request</param>
         /// <returns>ActivateMerchantKeyResponse200</returns>
-        ActivateMerchantKeyResponse200 AddMerchantKey(string merchantId, KeyRequest1 keyRequest);
+        ActivateMerchantKeyResponse200 AddMerchantKey(string merchantId, AddMerchantKeyRequest addMerchantKeyRequest);
 
         /// <summary>
         /// Add a key to a merchant
@@ -73,9 +73,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addMerchantKeyRequest">Key creation request</param>
         /// <returns>ApiResponse of ActivateMerchantKeyResponse200</returns>
-        ApiResponse<ActivateMerchantKeyResponse200> AddMerchantKeyWithHttpInfo(string merchantId, KeyRequest1 keyRequest);
+        ApiResponse<ActivateMerchantKeyResponse200> AddMerchantKeyWithHttpInfo(string merchantId, AddMerchantKeyRequest addMerchantKeyRequest);
         /// <summary>
         /// Get a merchant
         /// </summary>
@@ -196,9 +196,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
         /// <param name="keyId">Unique key identifier (UUID)</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateMerchantKeyRequest">Key update request</param>
         /// <returns>ActivateMerchantKeyResponse200</returns>
-        ActivateMerchantKeyResponse200 UpdateMerchantKey(string merchantId, string keyId, KeyUpdate1 keyUpdate);
+        ActivateMerchantKeyResponse200 UpdateMerchantKey(string merchantId, string keyId, UpdateMerchantKeyRequest updateMerchantKeyRequest);
 
         /// <summary>
         /// Update a merchant key
@@ -209,9 +209,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
         /// <param name="keyId">Unique key identifier (UUID)</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateMerchantKeyRequest">Key update request</param>
         /// <returns>ApiResponse of ActivateMerchantKeyResponse200</returns>
-        ApiResponse<ActivateMerchantKeyResponse200> UpdateMerchantKeyWithHttpInfo(string merchantId, string keyId, KeyUpdate1 keyUpdate);
+        ApiResponse<ActivateMerchantKeyResponse200> UpdateMerchantKeyWithHttpInfo(string merchantId, string keyId, UpdateMerchantKeyRequest updateMerchantKeyRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -245,9 +245,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addMerchantKeyRequest">Key creation request</param>
         /// <returns>Task of ActivateMerchantKeyResponse200</returns>
-        System.Threading.Tasks.Task<ActivateMerchantKeyResponse200> AddMerchantKeyAsync(string merchantId, KeyRequest1 keyRequest);
+        System.Threading.Tasks.Task<ActivateMerchantKeyResponse200> AddMerchantKeyAsync(string merchantId, AddMerchantKeyRequest addMerchantKeyRequest);
 
         /// <summary>
         /// Add a key to a merchant
@@ -257,9 +257,9 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addMerchantKeyRequest">Key creation request</param>
         /// <returns>Task of ApiResponse (ActivateMerchantKeyResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ActivateMerchantKeyResponse200>> AddMerchantKeyAsyncWithHttpInfo(string merchantId, KeyRequest1 keyRequest);
+        System.Threading.Tasks.Task<ApiResponse<ActivateMerchantKeyResponse200>> AddMerchantKeyAsyncWithHttpInfo(string merchantId, AddMerchantKeyRequest addMerchantKeyRequest);
         /// <summary>
         /// Get a merchant
         /// </summary>
@@ -380,9 +380,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
         /// <param name="keyId">Unique key identifier (UUID)</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateMerchantKeyRequest">Key update request</param>
         /// <returns>Task of ActivateMerchantKeyResponse200</returns>
-        System.Threading.Tasks.Task<ActivateMerchantKeyResponse200> UpdateMerchantKeyAsync(string merchantId, string keyId, KeyUpdate1 keyUpdate);
+        System.Threading.Tasks.Task<ActivateMerchantKeyResponse200> UpdateMerchantKeyAsync(string merchantId, string keyId, UpdateMerchantKeyRequest updateMerchantKeyRequest);
 
         /// <summary>
         /// Update a merchant key
@@ -393,9 +393,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
         /// <param name="keyId">Unique key identifier (UUID)</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateMerchantKeyRequest">Key update request</param>
         /// <returns>Task of ApiResponse (ActivateMerchantKeyResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ActivateMerchantKeyResponse200>> UpdateMerchantKeyAsyncWithHttpInfo(string merchantId, string keyId, KeyUpdate1 keyUpdate);
+        System.Threading.Tasks.Task<ApiResponse<ActivateMerchantKeyResponse200>> UpdateMerchantKeyAsyncWithHttpInfo(string merchantId, string keyId, UpdateMerchantKeyRequest updateMerchantKeyRequest);
         #endregion Asynchronous Operations
     }
 
@@ -521,7 +521,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -654,7 +654,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -692,13 +692,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addMerchantKeyRequest">Key creation request</param>
         /// <returns>ActivateMerchantKeyResponse200</returns>
-        public ActivateMerchantKeyResponse200 AddMerchantKey(string merchantId, KeyRequest1 keyRequest)
+        public ActivateMerchantKeyResponse200 AddMerchantKey(string merchantId, AddMerchantKeyRequest addMerchantKeyRequest)
         {
             logger.LogDebug("CALLING API \"AddMerchantKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<ActivateMerchantKeyResponse200> localVarResponse = AddMerchantKeyWithHttpInfo(merchantId, keyRequest);
+            ApiResponse<ActivateMerchantKeyResponse200> localVarResponse = AddMerchantKeyWithHttpInfo(merchantId, addMerchantKeyRequest);
             logger.LogDebug("CALLING API \"AddMerchantKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -709,9 +709,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addMerchantKeyRequest">Key creation request</param>
         /// <returns>ApiResponse of ActivateMerchantKeyResponse200</returns>
-        public ApiResponse< ActivateMerchantKeyResponse200 > AddMerchantKeyWithHttpInfo(string merchantId, KeyRequest1 keyRequest)
+        public ApiResponse< ActivateMerchantKeyResponse200 > AddMerchantKeyWithHttpInfo(string merchantId, AddMerchantKeyRequest addMerchantKeyRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -721,11 +721,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'merchantId' when calling MerchantRegistrationApi->AddMerchantKey");
                 throw new ApiException(400, "Missing required parameter 'merchantId' when calling MerchantRegistrationApi->AddMerchantKey");
             }
-            // verify the required parameter 'keyRequest' is set
-            if (keyRequest == null)
+            // verify the required parameter 'addMerchantKeyRequest' is set
+            if (addMerchantKeyRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'keyRequest' when calling MerchantRegistrationApi->AddMerchantKey");
-                throw new ApiException(400, "Missing required parameter 'keyRequest' when calling MerchantRegistrationApi->AddMerchantKey");
+                logger.LogError("ApiException : Missing required parameter 'addMerchantKeyRequest' when calling MerchantRegistrationApi->AddMerchantKey");
+                throw new ApiException(400, "Missing required parameter 'addMerchantKeyRequest' when calling MerchantRegistrationApi->AddMerchantKey");
             }
 
             var localVarPath = $"/icc/v1/merchants/{merchantId}/keys";
@@ -758,15 +758,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (keyRequest != null && keyRequest.GetType() != typeof(byte[]))
+            if (addMerchantKeyRequest != null && addMerchantKeyRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                keyRequest = (KeyRequest1)sdkTracker.InsertDeveloperIdTracker(keyRequest, keyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(keyRequest); // http body (model) parameter
+                addMerchantKeyRequest = (AddMerchantKeyRequest)sdkTracker.InsertDeveloperIdTracker(addMerchantKeyRequest, addMerchantKeyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(addMerchantKeyRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = keyRequest; // byte array
+                localVarPostBody = addMerchantKeyRequest; // byte array
             }
 
 
@@ -775,7 +775,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -816,13 +816,13 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addMerchantKeyRequest">Key creation request</param>
         /// <returns>Task of ActivateMerchantKeyResponse200</returns>
-        public async Task<ActivateMerchantKeyResponse200> AddMerchantKeyAsync(string merchantId, KeyRequest1 keyRequest)
+        public async Task<ActivateMerchantKeyResponse200> AddMerchantKeyAsync(string merchantId, AddMerchantKeyRequest addMerchantKeyRequest)
         {
             logger.LogDebug("CALLING API \"AddMerchantKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<ActivateMerchantKeyResponse200> localVarResponse = await AddMerchantKeyAsyncWithHttpInfo(merchantId, keyRequest);
+            ApiResponse<ActivateMerchantKeyResponse200> localVarResponse = await AddMerchantKeyAsyncWithHttpInfo(merchantId, addMerchantKeyRequest);
             logger.LogDebug("CALLING API \"AddMerchantKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -834,9 +834,9 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
-        /// <param name="keyRequest">Key creation request</param>
+        /// <param name="addMerchantKeyRequest">Key creation request</param>
         /// <returns>Task of ApiResponse (ActivateMerchantKeyResponse200)</returns>
-        public async Task<ApiResponse<ActivateMerchantKeyResponse200>> AddMerchantKeyAsyncWithHttpInfo(string merchantId, KeyRequest1 keyRequest)
+        public async Task<ApiResponse<ActivateMerchantKeyResponse200>> AddMerchantKeyAsyncWithHttpInfo(string merchantId, AddMerchantKeyRequest addMerchantKeyRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -846,11 +846,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'merchantId' when calling MerchantRegistrationApi->AddMerchantKey");
                 throw new ApiException(400, "Missing required parameter 'merchantId' when calling MerchantRegistrationApi->AddMerchantKey");
             }
-            // verify the required parameter 'keyRequest' is set
-            if (keyRequest == null)
+            // verify the required parameter 'addMerchantKeyRequest' is set
+            if (addMerchantKeyRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'keyRequest' when calling MerchantRegistrationApi->AddMerchantKey");
-                throw new ApiException(400, "Missing required parameter 'keyRequest' when calling MerchantRegistrationApi->AddMerchantKey");
+                logger.LogError("ApiException : Missing required parameter 'addMerchantKeyRequest' when calling MerchantRegistrationApi->AddMerchantKey");
+                throw new ApiException(400, "Missing required parameter 'addMerchantKeyRequest' when calling MerchantRegistrationApi->AddMerchantKey");
             }
 
             var localVarPath = $"/icc/v1/merchants/{merchantId}/keys";
@@ -883,15 +883,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (keyRequest != null && keyRequest.GetType() != typeof(byte[]))
+            if (addMerchantKeyRequest != null && addMerchantKeyRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                keyRequest = (KeyRequest1)sdkTracker.InsertDeveloperIdTracker(keyRequest, keyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(keyRequest); // http body (model) parameter
+                addMerchantKeyRequest = (AddMerchantKeyRequest)sdkTracker.InsertDeveloperIdTracker(addMerchantKeyRequest, addMerchantKeyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(addMerchantKeyRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = keyRequest; // byte array
+                localVarPostBody = addMerchantKeyRequest; // byte array
             }
 
 
@@ -900,7 +900,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1020,7 +1020,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1139,7 +1139,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1271,7 +1271,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1404,7 +1404,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1530,7 +1530,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1657,7 +1657,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1764,7 +1764,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1875,7 +1875,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1998,7 +1998,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2123,7 +2123,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2164,13 +2164,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
         /// <param name="keyId">Unique key identifier (UUID)</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateMerchantKeyRequest">Key update request</param>
         /// <returns>ActivateMerchantKeyResponse200</returns>
-        public ActivateMerchantKeyResponse200 UpdateMerchantKey(string merchantId, string keyId, KeyUpdate1 keyUpdate)
+        public ActivateMerchantKeyResponse200 UpdateMerchantKey(string merchantId, string keyId, UpdateMerchantKeyRequest updateMerchantKeyRequest)
         {
             logger.LogDebug("CALLING API \"UpdateMerchantKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<ActivateMerchantKeyResponse200> localVarResponse = UpdateMerchantKeyWithHttpInfo(merchantId, keyId, keyUpdate);
+            ApiResponse<ActivateMerchantKeyResponse200> localVarResponse = UpdateMerchantKeyWithHttpInfo(merchantId, keyId, updateMerchantKeyRequest);
             logger.LogDebug("CALLING API \"UpdateMerchantKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2182,9 +2182,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
         /// <param name="keyId">Unique key identifier (UUID)</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateMerchantKeyRequest">Key update request</param>
         /// <returns>ApiResponse of ActivateMerchantKeyResponse200</returns>
-        public ApiResponse< ActivateMerchantKeyResponse200 > UpdateMerchantKeyWithHttpInfo(string merchantId, string keyId, KeyUpdate1 keyUpdate)
+        public ApiResponse< ActivateMerchantKeyResponse200 > UpdateMerchantKeyWithHttpInfo(string merchantId, string keyId, UpdateMerchantKeyRequest updateMerchantKeyRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2200,11 +2200,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'keyId' when calling MerchantRegistrationApi->UpdateMerchantKey");
                 throw new ApiException(400, "Missing required parameter 'keyId' when calling MerchantRegistrationApi->UpdateMerchantKey");
             }
-            // verify the required parameter 'keyUpdate' is set
-            if (keyUpdate == null)
+            // verify the required parameter 'updateMerchantKeyRequest' is set
+            if (updateMerchantKeyRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'keyUpdate' when calling MerchantRegistrationApi->UpdateMerchantKey");
-                throw new ApiException(400, "Missing required parameter 'keyUpdate' when calling MerchantRegistrationApi->UpdateMerchantKey");
+                logger.LogError("ApiException : Missing required parameter 'updateMerchantKeyRequest' when calling MerchantRegistrationApi->UpdateMerchantKey");
+                throw new ApiException(400, "Missing required parameter 'updateMerchantKeyRequest' when calling MerchantRegistrationApi->UpdateMerchantKey");
             }
 
             var localVarPath = $"/icc/v1/merchants/{merchantId}/keys/{keyId}";
@@ -2243,15 +2243,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (keyUpdate != null && keyUpdate.GetType() != typeof(byte[]))
+            if (updateMerchantKeyRequest != null && updateMerchantKeyRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                keyUpdate = (KeyUpdate1)sdkTracker.InsertDeveloperIdTracker(keyUpdate, keyUpdate.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(keyUpdate); // http body (model) parameter
+                updateMerchantKeyRequest = (UpdateMerchantKeyRequest)sdkTracker.InsertDeveloperIdTracker(updateMerchantKeyRequest, updateMerchantKeyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(updateMerchantKeyRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = keyUpdate; // byte array
+                localVarPostBody = updateMerchantKeyRequest; // byte array
             }
 
 
@@ -2260,7 +2260,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2302,13 +2302,13 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
         /// <param name="keyId">Unique key identifier (UUID)</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateMerchantKeyRequest">Key update request</param>
         /// <returns>Task of ActivateMerchantKeyResponse200</returns>
-        public async Task<ActivateMerchantKeyResponse200> UpdateMerchantKeyAsync(string merchantId, string keyId, KeyUpdate1 keyUpdate)
+        public async Task<ActivateMerchantKeyResponse200> UpdateMerchantKeyAsync(string merchantId, string keyId, UpdateMerchantKeyRequest updateMerchantKeyRequest)
         {
             logger.LogDebug("CALLING API \"UpdateMerchantKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<ActivateMerchantKeyResponse200> localVarResponse = await UpdateMerchantKeyAsyncWithHttpInfo(merchantId, keyId, keyUpdate);
+            ApiResponse<ActivateMerchantKeyResponse200> localVarResponse = await UpdateMerchantKeyAsyncWithHttpInfo(merchantId, keyId, updateMerchantKeyRequest);
             logger.LogDebug("CALLING API \"UpdateMerchantKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -2321,9 +2321,9 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="merchantId">Unique merchant identifier (UUID)</param>
         /// <param name="keyId">Unique key identifier (UUID)</param>
-        /// <param name="keyUpdate">Key update request</param>
+        /// <param name="updateMerchantKeyRequest">Key update request</param>
         /// <returns>Task of ApiResponse (ActivateMerchantKeyResponse200)</returns>
-        public async Task<ApiResponse<ActivateMerchantKeyResponse200>> UpdateMerchantKeyAsyncWithHttpInfo(string merchantId, string keyId, KeyUpdate1 keyUpdate)
+        public async Task<ApiResponse<ActivateMerchantKeyResponse200>> UpdateMerchantKeyAsyncWithHttpInfo(string merchantId, string keyId, UpdateMerchantKeyRequest updateMerchantKeyRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2339,11 +2339,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'keyId' when calling MerchantRegistrationApi->UpdateMerchantKey");
                 throw new ApiException(400, "Missing required parameter 'keyId' when calling MerchantRegistrationApi->UpdateMerchantKey");
             }
-            // verify the required parameter 'keyUpdate' is set
-            if (keyUpdate == null)
+            // verify the required parameter 'updateMerchantKeyRequest' is set
+            if (updateMerchantKeyRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'keyUpdate' when calling MerchantRegistrationApi->UpdateMerchantKey");
-                throw new ApiException(400, "Missing required parameter 'keyUpdate' when calling MerchantRegistrationApi->UpdateMerchantKey");
+                logger.LogError("ApiException : Missing required parameter 'updateMerchantKeyRequest' when calling MerchantRegistrationApi->UpdateMerchantKey");
+                throw new ApiException(400, "Missing required parameter 'updateMerchantKeyRequest' when calling MerchantRegistrationApi->UpdateMerchantKey");
             }
 
             var localVarPath = $"/icc/v1/merchants/{merchantId}/keys/{keyId}";
@@ -2382,15 +2382,15 @@ namespace CyberSource.Api
             }
             logger.LogDebug("HTTP Request Body :{NewLine}{Message}", Environment.NewLine, logUtility.ConvertDictionaryToStringWithMasking(localVarPathParams));
 
-            if (keyUpdate != null && keyUpdate.GetType() != typeof(byte[]))
+            if (updateMerchantKeyRequest != null && updateMerchantKeyRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                keyUpdate = (KeyUpdate1)sdkTracker.InsertDeveloperIdTracker(keyUpdate, keyUpdate.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(keyUpdate); // http body (model) parameter
+                updateMerchantKeyRequest = (UpdateMerchantKeyRequest)sdkTracker.InsertDeveloperIdTracker(updateMerchantKeyRequest, updateMerchantKeyRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(updateMerchantKeyRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = keyUpdate; // byte array
+                localVarPostBody = updateMerchantKeyRequest; // byte array
             }
 
 
@@ -2399,7 +2399,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {

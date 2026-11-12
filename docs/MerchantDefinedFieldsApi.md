@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="createmerchantdefinedfielddefinition"></a>
 # **CreateMerchantDefinedFieldDefinition**
-> List<InlineResponse2004> CreateMerchantDefinedFieldDefinition (string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
+> List<MerchantDefinedFieldWithIdResponse> CreateMerchantDefinedFieldDefinition (string referenceType, MerchantDefinedFieldDefinitionRequest merchantDefinedFieldDefinitionRequest)
 
 Create merchant defined field for a given reference type
 
@@ -41,7 +41,7 @@ namespace Example
             try
             {
                 // Create merchant defined field for a given reference type
-                List&lt;InlineResponse2004&gt; result = apiInstance.CreateMerchantDefinedFieldDefinition(referenceType, merchantDefinedFieldDefinitionRequest);
+                List&lt;MerchantDefinedFieldWithIdResponse&gt; result = apiInstance.CreateMerchantDefinedFieldDefinition(referenceType, merchantDefinedFieldDefinitionRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2004>**](InlineResponse2004.md)
+[**List<MerchantDefinedFieldWithIdResponse>**](MerchantDefinedFieldWithIdResponse.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ No authorization required
 
 <a name="createpblmerchantdefinedfielddefinition"></a>
 # **CreatePblMerchantDefinedFieldDefinition**
-> List<InlineResponse2004> CreatePblMerchantDefinedFieldDefinition (string referenceType, MerchantDefinedFieldDefinitionRequest1 merchantDefinedFieldDefinitionRequest)
+> List<MerchantDefinedFieldWithIdResponse> CreatePblMerchantDefinedFieldDefinition (string referenceType, PblMerchantDefinedFieldDefinitionRequest pblMerchantDefinedFieldDefinitionRequest)
 
 Create a PayByLink merchant defined field for a given reference type
 
@@ -99,12 +99,12 @@ namespace Example
         {
             var apiInstance = new MerchantDefinedFieldsApi();
             var referenceType = referenceType_example;  // string | The reference type for which the merchant defined field is to be created. Available values are Purchase and Donation
-            var merchantDefinedFieldDefinitionRequest = new MerchantDefinedFieldDefinitionRequest1(); // MerchantDefinedFieldDefinitionRequest1 | 
+            var pblMerchantDefinedFieldDefinitionRequest = new PblMerchantDefinedFieldDefinitionRequest(); // PblMerchantDefinedFieldDefinitionRequest | 
 
             try
             {
                 // Create a PayByLink merchant defined field for a given reference type
-                List&lt;InlineResponse2004&gt; result = apiInstance.CreatePblMerchantDefinedFieldDefinition(referenceType, merchantDefinedFieldDefinitionRequest);
+                List&lt;MerchantDefinedFieldWithIdResponse&gt; result = apiInstance.CreatePblMerchantDefinedFieldDefinition(referenceType, pblMerchantDefinedFieldDefinitionRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -121,11 +121,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **referenceType** | **string**| The reference type for which the merchant defined field is to be created. Available values are Purchase and Donation | 
- **merchantDefinedFieldDefinitionRequest** | [**MerchantDefinedFieldDefinitionRequest1**](MerchantDefinedFieldDefinitionRequest1.md)|  | 
+ **pblMerchantDefinedFieldDefinitionRequest** | [**PblMerchantDefinedFieldDefinitionRequest**](PblMerchantDefinedFieldDefinitionRequest.md)|  | 
 
 ### Return type
 
-[**List<InlineResponse2004>**](InlineResponse2004.md)
+[**List<MerchantDefinedFieldWithIdResponse>**](MerchantDefinedFieldWithIdResponse.md)
 
 ### Authorization
 
@@ -260,7 +260,7 @@ No authorization required
 
 <a name="getmerchantdefinedfieldsdefinitions"></a>
 # **GetMerchantDefinedFieldsDefinitions**
-> List<InlineResponse2004> GetMerchantDefinedFieldsDefinitions (string referenceType)
+> List<MerchantDefinedFieldWithIdResponse> GetMerchantDefinedFieldsDefinitions (string referenceType)
 
 Get all merchant defined fields for a given reference type
 
@@ -284,7 +284,7 @@ namespace Example
             try
             {
                 // Get all merchant defined fields for a given reference type
-                List&lt;InlineResponse2004&gt; result = apiInstance.GetMerchantDefinedFieldsDefinitions(referenceType);
+                List&lt;MerchantDefinedFieldWithIdResponse&gt; result = apiInstance.GetMerchantDefinedFieldsDefinitions(referenceType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2004>**](InlineResponse2004.md)
+[**List<MerchantDefinedFieldWithIdResponse>**](MerchantDefinedFieldWithIdResponse.md)
 
 ### Authorization
 
@@ -319,7 +319,7 @@ No authorization required
 
 <a name="getpblmerchantdefinedfieldsdefinitions"></a>
 # **GetPblMerchantDefinedFieldsDefinitions**
-> List<InlineResponse2004> GetPblMerchantDefinedFieldsDefinitions (string referenceType)
+> List<MerchantDefinedFieldWithIdResponse> GetPblMerchantDefinedFieldsDefinitions (string referenceType)
 
 Get all PayByLink merchant defined fields for a given reference type
 
@@ -343,7 +343,7 @@ namespace Example
             try
             {
                 // Get all PayByLink merchant defined fields for a given reference type
-                List&lt;InlineResponse2004&gt; result = apiInstance.GetPblMerchantDefinedFieldsDefinitions(referenceType);
+                List&lt;MerchantDefinedFieldWithIdResponse&gt; result = apiInstance.GetPblMerchantDefinedFieldsDefinitions(referenceType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<InlineResponse2004>**](InlineResponse2004.md)
+[**List<MerchantDefinedFieldWithIdResponse>**](MerchantDefinedFieldWithIdResponse.md)
 
 ### Authorization
 
@@ -378,7 +378,7 @@ No authorization required
 
 <a name="putmerchantdefinedfieldsdefinitions"></a>
 # **PutMerchantDefinedFieldsDefinitions**
-> List<InlineResponse2004> PutMerchantDefinedFieldsDefinitions (string referenceType, long? id, MerchantDefinedFieldCore merchantDefinedFieldCore)
+> List<MerchantDefinedFieldWithIdResponse> PutMerchantDefinedFieldsDefinitions (string referenceType, long? id, UpdateMerchantDefinedFieldCoreByIdRequest updateMerchantDefinedFieldCoreByIdRequest)
 
 Update a MerchantDefinedField by ID
 
@@ -399,12 +399,12 @@ namespace Example
             var apiInstance = new MerchantDefinedFieldsApi();
             var referenceType = referenceType_example;  // string | 
             var id = 789;  // long? | 
-            var merchantDefinedFieldCore = new MerchantDefinedFieldCore(); // MerchantDefinedFieldCore | 
+            var updateMerchantDefinedFieldCoreByIdRequest = new UpdateMerchantDefinedFieldCoreByIdRequest(); // UpdateMerchantDefinedFieldCoreByIdRequest | 
 
             try
             {
                 // Update a MerchantDefinedField by ID
-                List&lt;InlineResponse2004&gt; result = apiInstance.PutMerchantDefinedFieldsDefinitions(referenceType, id, merchantDefinedFieldCore);
+                List&lt;MerchantDefinedFieldWithIdResponse&gt; result = apiInstance.PutMerchantDefinedFieldsDefinitions(referenceType, id, updateMerchantDefinedFieldCoreByIdRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -422,11 +422,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **referenceType** | **string**|  | 
  **id** | **long?**|  | 
- **merchantDefinedFieldCore** | [**MerchantDefinedFieldCore**](MerchantDefinedFieldCore.md)|  | 
+ **updateMerchantDefinedFieldCoreByIdRequest** | [**UpdateMerchantDefinedFieldCoreByIdRequest**](UpdateMerchantDefinedFieldCoreByIdRequest.md)|  | 
 
 ### Return type
 
-[**List<InlineResponse2004>**](InlineResponse2004.md)
+[**List<MerchantDefinedFieldWithIdResponse>**](MerchantDefinedFieldWithIdResponse.md)
 
 ### Authorization
 
@@ -441,7 +441,7 @@ No authorization required
 
 <a name="putpblmerchantdefinedfieldsdefinitions"></a>
 # **PutPblMerchantDefinedFieldsDefinitions**
-> List<InlineResponse2004> PutPblMerchantDefinedFieldsDefinitions (string referenceType, long? id, MerchantDefinedFieldCore1 merchantDefinedFieldCore)
+> List<MerchantDefinedFieldWithIdResponse> PutPblMerchantDefinedFieldsDefinitions (string referenceType, long? id, UpdatePblMerchantDefinedFieldCoreByIdRequest updatePblMerchantDefinedFieldCoreByIdRequest)
 
 Update a PayByLink MerchantDefinedField by ID
 
@@ -462,12 +462,12 @@ namespace Example
             var apiInstance = new MerchantDefinedFieldsApi();
             var referenceType = referenceType_example;  // string | 
             var id = 789;  // long? | 
-            var merchantDefinedFieldCore = new MerchantDefinedFieldCore1(); // MerchantDefinedFieldCore1 | 
+            var updatePblMerchantDefinedFieldCoreByIdRequest = new UpdatePblMerchantDefinedFieldCoreByIdRequest(); // UpdatePblMerchantDefinedFieldCoreByIdRequest | 
 
             try
             {
                 // Update a PayByLink MerchantDefinedField by ID
-                List&lt;InlineResponse2004&gt; result = apiInstance.PutPblMerchantDefinedFieldsDefinitions(referenceType, id, merchantDefinedFieldCore);
+                List&lt;MerchantDefinedFieldWithIdResponse&gt; result = apiInstance.PutPblMerchantDefinedFieldsDefinitions(referenceType, id, updatePblMerchantDefinedFieldCoreByIdRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -485,11 +485,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **referenceType** | **string**|  | 
  **id** | **long?**|  | 
- **merchantDefinedFieldCore** | [**MerchantDefinedFieldCore1**](MerchantDefinedFieldCore1.md)|  | 
+ **updatePblMerchantDefinedFieldCoreByIdRequest** | [**UpdatePblMerchantDefinedFieldCoreByIdRequest**](UpdatePblMerchantDefinedFieldCoreByIdRequest.md)|  | 
 
 ### Return type
 
-[**List<InlineResponse2004>**](InlineResponse2004.md)
+[**List<MerchantDefinedFieldWithIdResponse>**](MerchantDefinedFieldWithIdResponse.md)
 
 ### Authorization
 

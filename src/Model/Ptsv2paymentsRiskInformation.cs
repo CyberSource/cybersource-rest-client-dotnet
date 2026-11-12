@@ -38,12 +38,20 @@ namespace CyberSource.Model
         /// <param name="EventType">Specifies one of the following types of events: - login - account_creation - account_update For regular payment transactions, do not send this field. .</param>
         /// <param name="BuyerHistory">BuyerHistory.</param>
         /// <param name="AuxiliaryData">AuxiliaryData.</param>
-        public Ptsv2paymentsRiskInformation(Ptsv2paymentsRiskInformationProfile Profile = default(Ptsv2paymentsRiskInformationProfile), string EventType = default(string), Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory = default(Ptsv2paymentsRiskInformationBuyerHistory), List<Ptsv2paymentsRiskInformationAuxiliaryData> AuxiliaryData = default(List<Ptsv2paymentsRiskInformationAuxiliaryData>))
+        /// <param name="Store">Store.</param>
+        /// <param name="AuthenticationType">• 01 &#x3D; Static Passcode • 02 &#x3D; SMS OTP • 03 &#x3D; Key fob or EMV card reader OTP • 04 &#x3D; App OTP • 05 &#x3D; OTP Other • 07 &#x3D; OOB Biometrics • 08 &#x3D; OOB Login • 09 &#x3D; OOB Other • 10 &#x3D; Other • 11 &#x3D; Push Confirmation • 12 &#x3D; Decoupled • 13 &#x3D; WebAuthn • 14 &#x3D; SPC • 15 &#x3D; Behavioural biometrics .</param>
+        /// <param name="PickupDays">Number of days between transaction date and rental pickup date .</param>
+        /// <param name="ExternalScore">ExternalScore.</param>
+        public Ptsv2paymentsRiskInformation(Ptsv2paymentsRiskInformationProfile Profile = default(Ptsv2paymentsRiskInformationProfile), string EventType = default(string), Ptsv2paymentsRiskInformationBuyerHistory BuyerHistory = default(Ptsv2paymentsRiskInformationBuyerHistory), List<Ptsv2paymentsRiskInformationAuxiliaryData> AuxiliaryData = default(List<Ptsv2paymentsRiskInformationAuxiliaryData>), Ptsv2paymentsRiskInformationStore Store = default(Ptsv2paymentsRiskInformationStore), string AuthenticationType = default(string), decimal? PickupDays = default(decimal?), Ptsv2paymentsRiskInformationExternalScore ExternalScore = default(Ptsv2paymentsRiskInformationExternalScore))
         {
             this.Profile = Profile;
             this.EventType = EventType;
             this.BuyerHistory = BuyerHistory;
             this.AuxiliaryData = AuxiliaryData;
+            this.Store = Store;
+            this.AuthenticationType = AuthenticationType;
+            this.PickupDays = PickupDays;
+            this.ExternalScore = ExternalScore;
         }
         
         /// <summary>
@@ -76,6 +84,36 @@ namespace CyberSource.Model
         public List<Ptsv2paymentsRiskInformationAuxiliaryData> AuxiliaryData { get; set; }
 
         /// <summary>
+        /// Gets or Sets Store
+        /// </summary>
+        [JsonPropertyName("store")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Ptsv2paymentsRiskInformationStore Store { get; set; }
+
+        /// <summary>
+        /// • 01 &#x3D; Static Passcode • 02 &#x3D; SMS OTP • 03 &#x3D; Key fob or EMV card reader OTP • 04 &#x3D; App OTP • 05 &#x3D; OTP Other • 07 &#x3D; OOB Biometrics • 08 &#x3D; OOB Login • 09 &#x3D; OOB Other • 10 &#x3D; Other • 11 &#x3D; Push Confirmation • 12 &#x3D; Decoupled • 13 &#x3D; WebAuthn • 14 &#x3D; SPC • 15 &#x3D; Behavioural biometrics 
+        /// </summary>
+        /// <value>• 01 &#x3D; Static Passcode • 02 &#x3D; SMS OTP • 03 &#x3D; Key fob or EMV card reader OTP • 04 &#x3D; App OTP • 05 &#x3D; OTP Other • 07 &#x3D; OOB Biometrics • 08 &#x3D; OOB Login • 09 &#x3D; OOB Other • 10 &#x3D; Other • 11 &#x3D; Push Confirmation • 12 &#x3D; Decoupled • 13 &#x3D; WebAuthn • 14 &#x3D; SPC • 15 &#x3D; Behavioural biometrics </value>
+        [JsonPropertyName("authenticationType")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string AuthenticationType { get; set; }
+
+        /// <summary>
+        /// Number of days between transaction date and rental pickup date 
+        /// </summary>
+        /// <value>Number of days between transaction date and rental pickup date </value>
+        [JsonPropertyName("pickupDays")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public decimal? PickupDays { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExternalScore
+        /// </summary>
+        [JsonPropertyName("externalScore")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Ptsv2paymentsRiskInformationExternalScore ExternalScore { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -87,6 +125,10 @@ namespace CyberSource.Model
             if (EventType != null) sb.Append("  EventType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformation", "eventType", EventType.ToString())).Append("\n");
             if (BuyerHistory != null) sb.Append("  BuyerHistory: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformation", "buyerHistory", BuyerHistory.ToString())).Append("\n");
             if (AuxiliaryData != null) sb.Append("  AuxiliaryData: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformation", "auxiliaryData", AuxiliaryData.ToString())).Append("\n");
+            if (Store != null) sb.Append("  Store: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformation", "store", Store.ToString())).Append("\n");
+            if (AuthenticationType != null) sb.Append("  AuthenticationType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformation", "authenticationType", AuthenticationType.ToString())).Append("\n");
+            if (PickupDays != null) sb.Append("  PickupDays: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformation", "pickupDays", PickupDays.ToString())).Append("\n");
+            if (ExternalScore != null) sb.Append("  ExternalScore: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsRiskInformation", "externalScore", ExternalScore.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -147,6 +189,26 @@ namespace CyberSource.Model
                     this.AuxiliaryData == other.AuxiliaryData ||
                     this.AuxiliaryData != null &&
                     this.AuxiliaryData.SequenceEqual(other.AuxiliaryData)
+                ) && 
+                (
+                    this.Store == other.Store ||
+                    this.Store != null &&
+                    this.Store.Equals(other.Store)
+                ) && 
+                (
+                    this.AuthenticationType == other.AuthenticationType ||
+                    this.AuthenticationType != null &&
+                    this.AuthenticationType.Equals(other.AuthenticationType)
+                ) && 
+                (
+                    this.PickupDays == other.PickupDays ||
+                    this.PickupDays != null &&
+                    this.PickupDays.Equals(other.PickupDays)
+                ) && 
+                (
+                    this.ExternalScore == other.ExternalScore ||
+                    this.ExternalScore != null &&
+                    this.ExternalScore.Equals(other.ExternalScore)
                 );
         }
 
@@ -171,6 +233,14 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.BuyerHistory.GetHashCode();
                 if (this.AuxiliaryData != null)
                     hash = hash * 59 + this.AuxiliaryData.GetHashCode();
+                if (this.Store != null)
+                    hash = hash * 59 + this.Store.GetHashCode();
+                if (this.AuthenticationType != null)
+                    hash = hash * 59 + this.AuthenticationType.GetHashCode();
+                if (this.PickupDays != null)
+                    hash = hash * 59 + this.PickupDays.GetHashCode();
+                if (this.ExternalScore != null)
+                    hash = hash * 59 + this.ExternalScore.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

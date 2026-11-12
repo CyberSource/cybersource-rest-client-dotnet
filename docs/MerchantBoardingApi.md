@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getregistration"></a>
 # **GetRegistration**
-> InlineResponse2005 GetRegistration (string registrationId)
+> BoardingRegistrationGetResponse GetRegistration (string registrationId)
 
 Gets all the information on a boarding registration
 
@@ -37,7 +37,7 @@ namespace Example
             try
             {
                 // Gets all the information on a boarding registration
-                InlineResponse2005 result = apiInstance.GetRegistration(registrationId);
+                BoardingRegistrationGetResponse result = apiInstance.GetRegistration(registrationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**BoardingRegistrationGetResponse**](BoardingRegistrationGetResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ No authorization required
 
 <a name="patchregistration"></a>
 # **PatchRegistration**
-> InlineResponse2005 PatchRegistration (string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
+> BoardingRegistrationGetResponse PatchRegistration (string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
 
 Updates the information on a boarding registration
 
@@ -100,7 +100,7 @@ namespace Example
             try
             {
                 // Updates the information on a boarding registration
-                InlineResponse2005 result = apiInstance.PatchRegistration(registrationId, patchRegistrationBody, vCIdempotencyId);
+                BoardingRegistrationGetResponse result = apiInstance.PatchRegistration(registrationId, patchRegistrationBody, vCIdempotencyId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**BoardingRegistrationGetResponse**](BoardingRegistrationGetResponse.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ No authorization required
 
 <a name="postregistration"></a>
 # **PostRegistration**
-> InlineResponse2016 PostRegistration (PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+> BoardingRegistrationCreateResponse PostRegistration (PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
 
 Create a boarding registration
 
@@ -164,7 +164,7 @@ namespace Example
             try
             {
                 // Create a boarding registration
-                InlineResponse2016 result = apiInstance.PostRegistration(postRegistrationBody, vCIdempotencyId);
+                BoardingRegistrationCreateResponse result = apiInstance.PostRegistration(postRegistrationBody, vCIdempotencyId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2016**](InlineResponse2016.md)
+[**BoardingRegistrationCreateResponse**](BoardingRegistrationCreateResponse.md)
 
 ### Authorization
 

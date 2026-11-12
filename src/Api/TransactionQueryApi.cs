@@ -38,7 +38,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">This is the CyberSource Request ID generated for successfully processed AFT/OCT that needs to be queried. </param>
-        /// <param name="body"></param>
+        /// <param name="createQueryApiRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
@@ -47,8 +47,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>InlineResponse2014</returns>
-        InlineResponse2014 CreateQueryApi(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
+        /// <returns>CreateQueryApiResponse</returns>
+        CreateQueryApiResponse CreateQueryApi(string id, CreateQueryApiRequest createQueryApiRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
 
         /// <summary>
         /// Query Transaction Details
@@ -58,7 +58,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">This is the CyberSource Request ID generated for successfully processed AFT/OCT that needs to be queried. </param>
-        /// <param name="body"></param>
+        /// <param name="createQueryApiRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
@@ -67,8 +67,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        ApiResponse<InlineResponse2014> CreateQueryApiWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
+        /// <returns>ApiResponse of CreateQueryApiResponse</returns>
+        ApiResponse<CreateQueryApiResponse> CreateQueryApiWithHttpInfo(string id, CreateQueryApiRequest createQueryApiRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -79,7 +79,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">This is the CyberSource Request ID generated for successfully processed AFT/OCT that needs to be queried. </param>
-        /// <param name="body"></param>
+        /// <param name="createQueryApiRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
@@ -88,8 +88,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>Task of InlineResponse2014</returns>
-        System.Threading.Tasks.Task<InlineResponse2014> CreateQueryApiAsync(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
+        /// <returns>Task of CreateQueryApiResponse</returns>
+        System.Threading.Tasks.Task<CreateQueryApiResponse> CreateQueryApiAsync(string id, CreateQueryApiRequest createQueryApiRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
 
         /// <summary>
         /// Query Transaction Details
@@ -99,7 +99,7 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">This is the CyberSource Request ID generated for successfully processed AFT/OCT that needs to be queried. </param>
-        /// <param name="body"></param>
+        /// <param name="createQueryApiRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
@@ -108,8 +108,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2014>> CreateQueryApiAsyncWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
+        /// <returns>Task of ApiResponse (CreateQueryApiResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateQueryApiResponse>> CreateQueryApiAsyncWithHttpInfo(string id, CreateQueryApiRequest createQueryApiRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null);
         #endregion Asynchronous Operations
     }
 
@@ -141,7 +141,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">This is the CyberSource Request ID generated for successfully processed AFT/OCT that needs to be queried. </param>
-        /// <param name="body"></param>
+        /// <param name="createQueryApiRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
@@ -150,12 +150,12 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>InlineResponse2014</returns>
-        public InlineResponse2014 CreateQueryApi(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
+        /// <returns>CreateQueryApiResponse</returns>
+        public CreateQueryApiResponse CreateQueryApi(string id, CreateQueryApiRequest createQueryApiRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
         {
             logger.LogDebug("CALLING API \"CreateQueryApi\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2014> localVarResponse = CreateQueryApiWithHttpInfo(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
+            ApiResponse<CreateQueryApiResponse> localVarResponse = CreateQueryApiWithHttpInfo(id, createQueryApiRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
             logger.LogDebug("CALLING API \"CreateQueryApi\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -166,7 +166,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">This is the CyberSource Request ID generated for successfully processed AFT/OCT that needs to be queried. </param>
-        /// <param name="body"></param>
+        /// <param name="createQueryApiRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
@@ -175,8 +175,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2014</returns>
-        public ApiResponse< InlineResponse2014 > CreateQueryApiWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
+        /// <returns>ApiResponse of CreateQueryApiResponse</returns>
+        public ApiResponse< CreateQueryApiResponse > CreateQueryApiWithHttpInfo(string id, CreateQueryApiRequest createQueryApiRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -186,11 +186,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'id' when calling TransactionQueryApi->CreateQueryApi");
                 throw new ApiException(400, "Missing required parameter 'id' when calling TransactionQueryApi->CreateQueryApi");
             }
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'createQueryApiRequest' is set
+            if (createQueryApiRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'body' when calling TransactionQueryApi->CreateQueryApi");
-                throw new ApiException(400, "Missing required parameter 'body' when calling TransactionQueryApi->CreateQueryApi");
+                logger.LogError("ApiException : Missing required parameter 'createQueryApiRequest' when calling TransactionQueryApi->CreateQueryApi");
+                throw new ApiException(400, "Missing required parameter 'createQueryApiRequest' when calling TransactionQueryApi->CreateQueryApi");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
@@ -301,15 +301,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("v-c-organization-id", ApiClient.ParameterToString(vCOrganizationId)); // header parameter
             }
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (createQueryApiRequest != null && createQueryApiRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                body = (Body1)sdkTracker.InsertDeveloperIdTracker(body, body.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(body); // http body (model) parameter
+                createQueryApiRequest = (CreateQueryApiRequest)sdkTracker.InsertDeveloperIdTracker(createQueryApiRequest, createQueryApiRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(createQueryApiRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = createQueryApiRequest; // byte array
             }
 
 
@@ -318,7 +318,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -349,9 +349,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
+            return new ApiResponse<CreateQueryApiResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2014) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
+                (CreateQueryApiResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateQueryApiResponse))); // Return statement
         }
 
         /// <summary>
@@ -359,7 +359,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">This is the CyberSource Request ID generated for successfully processed AFT/OCT that needs to be queried. </param>
-        /// <param name="body"></param>
+        /// <param name="createQueryApiRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
@@ -368,12 +368,12 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>Task of InlineResponse2014</returns>
-        public async Task<InlineResponse2014> CreateQueryApiAsync(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
+        /// <returns>Task of CreateQueryApiResponse</returns>
+        public async Task<CreateQueryApiResponse> CreateQueryApiAsync(string id, CreateQueryApiRequest createQueryApiRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
         {
             logger.LogDebug("CALLING API \"CreateQueryApiAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2014> localVarResponse = await CreateQueryApiAsyncWithHttpInfo(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
+            ApiResponse<CreateQueryApiResponse> localVarResponse = await CreateQueryApiAsyncWithHttpInfo(id, createQueryApiRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
             logger.LogDebug("CALLING API \"CreateQueryApiAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -385,7 +385,7 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">This is the CyberSource Request ID generated for successfully processed AFT/OCT that needs to be queried. </param>
-        /// <param name="body"></param>
+        /// <param name="createQueryApiRequest"></param>
         /// <param name="contentType"></param>
         /// <param name="xRequestid"></param>
         /// <param name="vCMerchantId"></param>
@@ -394,8 +394,8 @@ namespace CyberSource.Api
         /// <param name="vCOrganizationId"></param>
         /// <param name="limit">The maximum number of options to be retrieved from the processor and displayed to the consumer.  (optional)</param>
         /// <param name="offset">Offset from the first item in the list of options received from the processor. If you want to display the options in multiple lists, this number represents the first option displayed in each list.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2014)</returns>
-        public async Task<ApiResponse<InlineResponse2014>> CreateQueryApiAsyncWithHttpInfo(string id, Body1 body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
+        /// <returns>Task of ApiResponse (CreateQueryApiResponse)</returns>
+        public async Task<ApiResponse<CreateQueryApiResponse>> CreateQueryApiAsyncWithHttpInfo(string id, CreateQueryApiRequest createQueryApiRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId, int? limit = null, int? offset = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -405,11 +405,11 @@ namespace CyberSource.Api
                 logger.LogError("ApiException : Missing required parameter 'id' when calling TransactionQueryApi->CreateQueryApi");
                 throw new ApiException(400, "Missing required parameter 'id' when calling TransactionQueryApi->CreateQueryApi");
             }
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'createQueryApiRequest' is set
+            if (createQueryApiRequest == null)
             {
-                logger.LogError("ApiException : Missing required parameter 'body' when calling TransactionQueryApi->CreateQueryApi");
-                throw new ApiException(400, "Missing required parameter 'body' when calling TransactionQueryApi->CreateQueryApi");
+                logger.LogError("ApiException : Missing required parameter 'createQueryApiRequest' when calling TransactionQueryApi->CreateQueryApi");
+                throw new ApiException(400, "Missing required parameter 'createQueryApiRequest' when calling TransactionQueryApi->CreateQueryApi");
             }
             // verify the required parameter 'contentType' is set
             if (contentType == null)
@@ -520,15 +520,15 @@ namespace CyberSource.Api
                 localVarHeaderParams.Add("v-c-organization-id", ApiClient.ParameterToString(vCOrganizationId)); // header parameter
             }
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (createQueryApiRequest != null && createQueryApiRequest.GetType() != typeof(byte[]))
             {
                 SdkTracker sdkTracker = new SdkTracker();
-                body = (Body1)sdkTracker.InsertDeveloperIdTracker(body, body.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(body); // http body (model) parameter
+                createQueryApiRequest = (CreateQueryApiRequest)sdkTracker.InsertDeveloperIdTracker(createQueryApiRequest, createQueryApiRequest.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(createQueryApiRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = createQueryApiRequest; // byte array
             }
 
 
@@ -537,7 +537,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -568,9 +568,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2014>(localVarStatusCode,
+            return new ApiResponse<CreateQueryApiResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2014) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2014))); // Return statement
+                (CreateQueryApiResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateQueryApiResponse))); // Return statement
         }
     }
 }

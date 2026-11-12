@@ -72,6 +72,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'AutoCheckEnrollment'
         }
+        /// <summary>
+        /// Test the property 'AllowedCardNetworks'
+        /// </summary>
+        [Test]
+        public void AllowedCardNetworksTest()
+        {
+            // TODO unit test for the property 'AllowedCardNetworks'
+        }
 
     }
 

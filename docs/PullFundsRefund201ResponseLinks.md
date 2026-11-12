@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Self** | [**PullFundsRefund201ResponseLinksSelf**](PullFundsRefund201ResponseLinksSelf.md) |  | [optional] 
+**Self** | [**PtsV2PaymentsPost201ResponseLinksSelf12**](PtsV2PaymentsPost201ResponseLinksSelf12.md) |  | [optional] 
 
 ## Extensibility
 

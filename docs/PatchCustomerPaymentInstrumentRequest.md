@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **MerchantInformation** | [**TmsMerchantInformation**](TmsMerchantInformation.md) |  | [optional] 
 **InstrumentIdentifier** | [**DefaultPaymentInstrumentInstrumentIdentifier**](DefaultPaymentInstrumentInstrumentIdentifier.md) |  | [optional] 
 **Metadata** | [**DefaultPaymentInstrumentMetadata**](DefaultPaymentInstrumentMetadata.md) |  | [optional] 
-**Embedded** | [**Tmsv1paymentinstrumentsEmbedded**](Tmsv1paymentinstrumentsEmbedded.md) |  | [optional] 
+**Embedded** | [**PaymentInstrumentEmbedded2**](PaymentInstrumentEmbedded2.md) |  | [optional] 
 
 ## Extensibility
 

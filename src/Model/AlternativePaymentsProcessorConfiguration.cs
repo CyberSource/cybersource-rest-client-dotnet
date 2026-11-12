@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="AlternativePaymentsProcessorConfiguration" /> class.
         /// </summary>
         /// <param name="PaymentMethods">Payment methods supported by the processor. The following values are supported: - klarna - CREDIT_CARD - DEBIT_CARD .</param>
-        public AlternativePaymentsProcessorConfiguration(Dictionary<string, PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsPaymentMethods> PaymentMethods = default(Dictionary<string, PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsPaymentMethods>))
+        public AlternativePaymentsProcessorConfiguration(Dictionary<string, AlternativePaymentsPaymentMethodConfiguration> PaymentMethods = default(Dictionary<string, AlternativePaymentsPaymentMethodConfiguration>))
         {
             this.PaymentMethods = PaymentMethods;
         }
@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <value>Payment methods supported by the processor. The following values are supported: - klarna - CREDIT_CARD - DEBIT_CARD </value>
         [JsonPropertyName("paymentMethods")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, PaymentsProductsAlternativePaymentMethodsConfigurationInformationConfigurationsPaymentMethods> PaymentMethods { get; set; }
+        public Dictionary<string, AlternativePaymentsPaymentMethodConfiguration> PaymentMethods { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

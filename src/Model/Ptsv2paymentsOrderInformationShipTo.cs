@@ -53,7 +53,8 @@ namespace CyberSource.Model
         /// <param name="DestinationTypes">Shipping destination of item. Example: Commercial, Residential, Store .</param>
         /// <param name="DestinationCode">Indicates destination chosen for the transaction. Possible values: - 01- Ship to cardholder billing address - 02- Ship to another verified address on file with merchant - 03- Ship to address that is different than billing address - 04- Ship to store (store address should be populated on request) - 05- Digital goods - 06- Travel and event tickets, not shipped - 07- Other .</param>
         /// <param name="Method">Shipping method for the product. Possible values: - lowcost: Lowest-cost service - sameday: Courier or same-day service - oneday: Next-day or overnight service - twoday: Two-day service - threeday: Three-day service - pickup: Store pick-up - other: Other shipping method - none: No shipping method because product is a service or subscription Required for American Express SafeKey (U.S.). .</param>
-        public Ptsv2paymentsOrderInformationShipTo(string Title = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string County = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string PhoneNumber = default(string), string Email = default(string), string Company = default(string), string DestinationTypes = default(string), int? DestinationCode = default(int?), string Method = default(string))
+        /// <param name="CarrierName">Name of carrier (UPS, FedEx, USPS, etc.) .</param>
+        public Ptsv2paymentsOrderInformationShipTo(string Title = default(string), string FirstName = default(string), string MiddleName = default(string), string LastName = default(string), string Address1 = default(string), string Address2 = default(string), string Locality = default(string), string AdministrativeArea = default(string), string PostalCode = default(string), string County = default(string), string Country = default(string), string District = default(string), string BuildingNumber = default(string), string PhoneNumber = default(string), string Email = default(string), string Company = default(string), string DestinationTypes = default(string), int? DestinationCode = default(int?), string Method = default(string), string CarrierName = default(string))
         {
             this.Title = Title;
             this.FirstName = FirstName;
@@ -74,6 +75,7 @@ namespace CyberSource.Model
             this.DestinationTypes = DestinationTypes;
             this.DestinationCode = DestinationCode;
             this.Method = Method;
+            this.CarrierName = CarrierName;
         }
         
         /// <summary>
@@ -229,6 +231,14 @@ namespace CyberSource.Model
         public string Method { get; set; }
 
         /// <summary>
+        /// Name of carrier (UPS, FedEx, USPS, etc.) 
+        /// </summary>
+        /// <value>Name of carrier (UPS, FedEx, USPS, etc.) </value>
+        [JsonPropertyName("carrierName")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string CarrierName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -255,6 +265,7 @@ namespace CyberSource.Model
             if (DestinationTypes != null) sb.Append("  DestinationTypes: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformationShipTo", "destinationTypes", DestinationTypes.ToString())).Append("\n");
             if (DestinationCode != null) sb.Append("  DestinationCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformationShipTo", "destinationCode", DestinationCode.ToString())).Append("\n");
             if (Method != null) sb.Append("  Method: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformationShipTo", "method", Method.ToString())).Append("\n");
+            if (CarrierName != null) sb.Append("  CarrierName: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsOrderInformationShipTo", "carrierName", CarrierName.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -390,6 +401,11 @@ namespace CyberSource.Model
                     this.Method == other.Method ||
                     this.Method != null &&
                     this.Method.Equals(other.Method)
+                ) && 
+                (
+                    this.CarrierName == other.CarrierName ||
+                    this.CarrierName != null &&
+                    this.CarrierName.Equals(other.CarrierName)
                 );
         }
 
@@ -444,6 +460,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DestinationCode.GetHashCode();
                 if (this.Method != null)
                     hash = hash * 59 + this.Method.GetHashCode();
+                if (this.CarrierName != null)
+                    hash = hash * 59 + this.CarrierName.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

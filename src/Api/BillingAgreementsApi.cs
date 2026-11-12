@@ -62,8 +62,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intimateBillingAgreement"></param>
         /// <param name="id">ID for intimation of Billing Agreement</param>
-        /// <returns>PtsV2CreditsPost201Response1</returns>
-        PtsV2CreditsPost201Response1 BillingAgreementsIntimation(IntimateBillingAgreement intimateBillingAgreement, string id);
+        /// <returns>IntimateBillingAgreementResponse</returns>
+        IntimateBillingAgreementResponse BillingAgreementsIntimation(IntimateBillingAgreement intimateBillingAgreement, string id);
 
         /// <summary>
         /// Standing Instruction intimation
@@ -74,8 +74,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intimateBillingAgreement"></param>
         /// <param name="id">ID for intimation of Billing Agreement</param>
-        /// <returns>ApiResponse of PtsV2CreditsPost201Response1</returns>
-        ApiResponse<PtsV2CreditsPost201Response1> BillingAgreementsIntimationWithHttpInfo(IntimateBillingAgreement intimateBillingAgreement, string id);
+        /// <returns>ApiResponse of IntimateBillingAgreementResponse</returns>
+        ApiResponse<IntimateBillingAgreementResponse> BillingAgreementsIntimationWithHttpInfo(IntimateBillingAgreement intimateBillingAgreement, string id);
         /// <summary>
         /// Create a Billing Agreement
         /// </summary>
@@ -131,8 +131,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intimateBillingAgreement"></param>
         /// <param name="id">ID for intimation of Billing Agreement</param>
-        /// <returns>Task of PtsV2CreditsPost201Response1</returns>
-        System.Threading.Tasks.Task<PtsV2CreditsPost201Response1> BillingAgreementsIntimationAsync(IntimateBillingAgreement intimateBillingAgreement, string id);
+        /// <returns>Task of IntimateBillingAgreementResponse</returns>
+        System.Threading.Tasks.Task<IntimateBillingAgreementResponse> BillingAgreementsIntimationAsync(IntimateBillingAgreement intimateBillingAgreement, string id);
 
         /// <summary>
         /// Standing Instruction intimation
@@ -143,8 +143,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intimateBillingAgreement"></param>
         /// <param name="id">ID for intimation of Billing Agreement</param>
-        /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response1)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PtsV2CreditsPost201Response1>> BillingAgreementsIntimationAsyncWithHttpInfo(IntimateBillingAgreement intimateBillingAgreement, string id);
+        /// <returns>Task of ApiResponse (IntimateBillingAgreementResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IntimateBillingAgreementResponse>> BillingAgreementsIntimationAsyncWithHttpInfo(IntimateBillingAgreement intimateBillingAgreement, string id);
         /// <summary>
         /// Create a Billing Agreement
         /// </summary>
@@ -281,7 +281,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -407,7 +407,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -448,12 +448,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intimateBillingAgreement"></param>
         /// <param name="id">ID for intimation of Billing Agreement</param>
-        /// <returns>PtsV2CreditsPost201Response1</returns>
-        public PtsV2CreditsPost201Response1 BillingAgreementsIntimation(IntimateBillingAgreement intimateBillingAgreement, string id)
+        /// <returns>IntimateBillingAgreementResponse</returns>
+        public IntimateBillingAgreementResponse BillingAgreementsIntimation(IntimateBillingAgreement intimateBillingAgreement, string id)
         {
             logger.LogDebug("CALLING API \"BillingAgreementsIntimation\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2CreditsPost201Response1> localVarResponse = BillingAgreementsIntimationWithHttpInfo(intimateBillingAgreement, id);
+            ApiResponse<IntimateBillingAgreementResponse> localVarResponse = BillingAgreementsIntimationWithHttpInfo(intimateBillingAgreement, id);
             logger.LogDebug("CALLING API \"BillingAgreementsIntimation\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -465,8 +465,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intimateBillingAgreement"></param>
         /// <param name="id">ID for intimation of Billing Agreement</param>
-        /// <returns>ApiResponse of PtsV2CreditsPost201Response1</returns>
-        public ApiResponse< PtsV2CreditsPost201Response1 > BillingAgreementsIntimationWithHttpInfo(IntimateBillingAgreement intimateBillingAgreement, string id)
+        /// <returns>ApiResponse of IntimateBillingAgreementResponse</returns>
+        public ApiResponse< IntimateBillingAgreementResponse > BillingAgreementsIntimationWithHttpInfo(IntimateBillingAgreement intimateBillingAgreement, string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -531,7 +531,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -562,9 +562,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2CreditsPost201Response1>(localVarStatusCode,
+            return new ApiResponse<IntimateBillingAgreementResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (PtsV2CreditsPost201Response1) ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1))); // Return statement
+                (IntimateBillingAgreementResponse) ApiClient.Deserialize(localVarResponse, typeof(IntimateBillingAgreementResponse))); // Return statement
         }
 
         /// <summary>
@@ -573,12 +573,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intimateBillingAgreement"></param>
         /// <param name="id">ID for intimation of Billing Agreement</param>
-        /// <returns>Task of PtsV2CreditsPost201Response1</returns>
-        public async Task<PtsV2CreditsPost201Response1> BillingAgreementsIntimationAsync(IntimateBillingAgreement intimateBillingAgreement, string id)
+        /// <returns>Task of IntimateBillingAgreementResponse</returns>
+        public async Task<IntimateBillingAgreementResponse> BillingAgreementsIntimationAsync(IntimateBillingAgreement intimateBillingAgreement, string id)
         {
             logger.LogDebug("CALLING API \"BillingAgreementsIntimationAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<PtsV2CreditsPost201Response1> localVarResponse = await BillingAgreementsIntimationAsyncWithHttpInfo(intimateBillingAgreement, id);
+            ApiResponse<IntimateBillingAgreementResponse> localVarResponse = await BillingAgreementsIntimationAsyncWithHttpInfo(intimateBillingAgreement, id);
             logger.LogDebug("CALLING API \"BillingAgreementsIntimationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -591,8 +591,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intimateBillingAgreement"></param>
         /// <param name="id">ID for intimation of Billing Agreement</param>
-        /// <returns>Task of ApiResponse (PtsV2CreditsPost201Response1)</returns>
-        public async Task<ApiResponse<PtsV2CreditsPost201Response1>> BillingAgreementsIntimationAsyncWithHttpInfo(IntimateBillingAgreement intimateBillingAgreement, string id)
+        /// <returns>Task of ApiResponse (IntimateBillingAgreementResponse)</returns>
+        public async Task<ApiResponse<IntimateBillingAgreementResponse>> BillingAgreementsIntimationAsyncWithHttpInfo(IntimateBillingAgreement intimateBillingAgreement, string id)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -657,7 +657,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -688,9 +688,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<PtsV2CreditsPost201Response1>(localVarStatusCode,
+            return new ApiResponse<IntimateBillingAgreementResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (PtsV2CreditsPost201Response1) ApiClient.Deserialize(localVarResponse, typeof(PtsV2CreditsPost201Response1))); // Return statement
+                (IntimateBillingAgreementResponse) ApiClient.Deserialize(localVarResponse, typeof(IntimateBillingAgreementResponse))); // Return statement
         }
         /// <summary>
         /// Create a Billing Agreement #### Standing Instruction: Standing Instruction with or without Token. Transaction amount in case First payment is coming along with registration. Only 2 decimal places allowed  #### Create Mandate: You can create a mandate through the direct debit mandate flow. Possible create mandate status values:   - Pending—the create mandate request was successfully processed.   - Failed—the create mandate request was not accepted.  #### Import Mandate: In the Bacs scheme, a mandate is created with a status of active. Direct debit collections can be made against it immediately. You can import a mandate to the CyberSource database when:   - You have existing customers with signed, active mandates   - You manage mandates outside of CyberSource.  When you import an existing mandate to the CyberSource database, provide a unique value for the mandate ID or the request results in an error. If an import mandate request is not accepted, the import mandate status value is failed. 
@@ -767,7 +767,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -879,7 +879,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {

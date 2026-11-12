@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getaccountinfo"></a>
 # **GetAccountInfo**
-> InlineResponse2015 GetAccountInfo (CreateBinLookupRequest createBinLookupRequest)
+> GetAccountInfoResponse GetAccountInfo (CreateBinLookupRequest createBinLookupRequest)
 
 BIN Lookup API
 
@@ -35,7 +35,7 @@ namespace Example
             try
             {
                 // BIN Lookup API
-                InlineResponse2015 result = apiInstance.GetAccountInfo(createBinLookupRequest);
+                GetAccountInfoResponse result = apiInstance.GetAccountInfo(createBinLookupRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2015**](InlineResponse2015.md)
+[**GetAccountInfoResponse**](GetAccountInfoResponse.md)
 
 ### Authorization
 

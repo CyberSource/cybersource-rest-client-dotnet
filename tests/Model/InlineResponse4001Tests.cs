@@ -65,28 +65,12 @@ namespace CyberSource.Test
         }
 
         /// <summary>
-        /// Test the property 'CorrelationId'
+        /// Test the property 'Code'
         /// </summary>
         [Test]
-        public void CorrelationIdTest()
+        public void CodeTest()
         {
-            // TODO unit test for the property 'CorrelationId'
-        }
-        /// <summary>
-        /// Test the property 'Details'
-        /// </summary>
-        [Test]
-        public void DetailsTest()
-        {
-            // TODO unit test for the property 'Details'
-        }
-        /// <summary>
-        /// Test the property 'InformationLink'
-        /// </summary>
-        [Test]
-        public void InformationLinkTest()
-        {
-            // TODO unit test for the property 'InformationLink'
+            // TODO unit test for the property 'Code'
         }
         /// <summary>
         /// Test the property 'Message'
@@ -97,12 +81,36 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Message'
         }
         /// <summary>
-        /// Test the property 'Reason'
+        /// Test the property 'LocalizationKey'
         /// </summary>
         [Test]
-        public void ReasonTest()
+        public void LocalizationKeyTest()
         {
-            // TODO unit test for the property 'Reason'
+            // TODO unit test for the property 'LocalizationKey'
+        }
+        /// <summary>
+        /// Test the property 'CorrelationId'
+        /// </summary>
+        [Test]
+        public void CorrelationIdTest()
+        {
+            // TODO unit test for the property 'CorrelationId'
+        }
+        /// <summary>
+        /// Test the property 'Detail'
+        /// </summary>
+        [Test]
+        public void DetailTest()
+        {
+            // TODO unit test for the property 'Detail'
+        }
+        /// <summary>
+        /// Test the property 'Fields'
+        /// </summary>
+        [Test]
+        public void FieldsTest()
+        {
+            // TODO unit test for the property 'Fields'
         }
 
     }

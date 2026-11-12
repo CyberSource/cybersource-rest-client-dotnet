@@ -38,8 +38,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>InlineResponse20015</returns>
-        InlineResponse20015 BankAccountValidationRequest(AccountValidationsRequest accountValidationsRequest);
+        /// <returns>BankAccountValidationResponse</returns>
+        BankAccountValidationResponse BankAccountValidationRequest(AccountValidationsRequest accountValidationsRequest);
 
         /// <summary>
         /// Visa Bank Account Validation Service
@@ -49,8 +49,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>ApiResponse of InlineResponse20015</returns>
-        ApiResponse<InlineResponse20015> BankAccountValidationRequestWithHttpInfo(AccountValidationsRequest accountValidationsRequest);
+        /// <returns>ApiResponse of BankAccountValidationResponse</returns>
+        ApiResponse<BankAccountValidationResponse> BankAccountValidationRequestWithHttpInfo(AccountValidationsRequest accountValidationsRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -61,8 +61,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>Task of InlineResponse20015</returns>
-        System.Threading.Tasks.Task<InlineResponse20015> BankAccountValidationRequestAsync(AccountValidationsRequest accountValidationsRequest);
+        /// <returns>Task of BankAccountValidationResponse</returns>
+        System.Threading.Tasks.Task<BankAccountValidationResponse> BankAccountValidationRequestAsync(AccountValidationsRequest accountValidationsRequest);
 
         /// <summary>
         /// Visa Bank Account Validation Service
@@ -72,8 +72,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> BankAccountValidationRequestAsyncWithHttpInfo(AccountValidationsRequest accountValidationsRequest);
+        /// <returns>Task of ApiResponse (BankAccountValidationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BankAccountValidationResponse>> BankAccountValidationRequestAsyncWithHttpInfo(AccountValidationsRequest accountValidationsRequest);
         #endregion Asynchronous Operations
     }
 
@@ -105,12 +105,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>InlineResponse20015</returns>
-        public InlineResponse20015 BankAccountValidationRequest(AccountValidationsRequest accountValidationsRequest)
+        /// <returns>BankAccountValidationResponse</returns>
+        public BankAccountValidationResponse BankAccountValidationRequest(AccountValidationsRequest accountValidationsRequest)
         {
             logger.LogDebug("CALLING API \"BankAccountValidationRequest\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20015> localVarResponse = BankAccountValidationRequestWithHttpInfo(accountValidationsRequest);
+            ApiResponse<BankAccountValidationResponse> localVarResponse = BankAccountValidationRequestWithHttpInfo(accountValidationsRequest);
             logger.LogDebug("CALLING API \"BankAccountValidationRequest\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -121,8 +121,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>ApiResponse of InlineResponse20015</returns>
-        public ApiResponse< InlineResponse20015 > BankAccountValidationRequestWithHttpInfo(AccountValidationsRequest accountValidationsRequest)
+        /// <returns>ApiResponse of BankAccountValidationResponse</returns>
+        public ApiResponse< BankAccountValidationResponse > BankAccountValidationRequestWithHttpInfo(AccountValidationsRequest accountValidationsRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -174,7 +174,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -205,9 +205,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20015>(localVarStatusCode,
+            return new ApiResponse<BankAccountValidationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20015) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20015))); // Return statement
+                (BankAccountValidationResponse) ApiClient.Deserialize(localVarResponse, typeof(BankAccountValidationResponse))); // Return statement
         }
 
         /// <summary>
@@ -215,12 +215,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>Task of InlineResponse20015</returns>
-        public async Task<InlineResponse20015> BankAccountValidationRequestAsync(AccountValidationsRequest accountValidationsRequest)
+        /// <returns>Task of BankAccountValidationResponse</returns>
+        public async Task<BankAccountValidationResponse> BankAccountValidationRequestAsync(AccountValidationsRequest accountValidationsRequest)
         {
             logger.LogDebug("CALLING API \"BankAccountValidationRequestAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20015> localVarResponse = await BankAccountValidationRequestAsyncWithHttpInfo(accountValidationsRequest);
+            ApiResponse<BankAccountValidationResponse> localVarResponse = await BankAccountValidationRequestAsyncWithHttpInfo(accountValidationsRequest);
             logger.LogDebug("CALLING API \"BankAccountValidationRequestAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -232,8 +232,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationsRequest"></param>
-        /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
-        public async Task<ApiResponse<InlineResponse20015>> BankAccountValidationRequestAsyncWithHttpInfo(AccountValidationsRequest accountValidationsRequest)
+        /// <returns>Task of ApiResponse (BankAccountValidationResponse)</returns>
+        public async Task<ApiResponse<BankAccountValidationResponse>> BankAccountValidationRequestAsyncWithHttpInfo(AccountValidationsRequest accountValidationsRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -285,7 +285,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -316,9 +316,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20015>(localVarStatusCode,
+            return new ApiResponse<BankAccountValidationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20015) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20015))); // Return statement
+                (BankAccountValidationResponse) ApiClient.Deserialize(localVarResponse, typeof(BankAccountValidationResponse))); // Return statement
         }
     }
 }

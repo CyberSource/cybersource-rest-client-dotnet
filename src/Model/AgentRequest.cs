@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="TokenRequestorId">Token Requestor ID (TRID) assigned by Visa (required).</param>
         /// <param name="AgentMetadata">Free-form metadata object for agent context (e.g., AI framework, language, runtime). Max 10KB..</param>
         /// <param name="Keys">Optional array of public keys to register alongside the agent. Keys are created in ***deactivated*** state and must be activated separately via POST /agents/{agentId}/keys/{keyId}/activate. .</param>
-        public AgentRequest(string Name = default(string), string Domain = default(string), string Description = default(string), string ContactEmail = default(string), string TokenRequestorId = default(string), Object AgentMetadata = default(Object), List<Iccv1agentsKeys> Keys = default(List<Iccv1agentsKeys>))
+        public AgentRequest(string Name = default(string), string Domain = default(string), string Description = default(string), string ContactEmail = default(string), string TokenRequestorId = default(string), Object AgentMetadata = default(Object), List<AddAgentKeyRequest> Keys = default(List<AddAgentKeyRequest>))
         {
             this.Name = Name;
             this.Domain = Domain;
@@ -111,7 +111,7 @@ namespace CyberSource.Model
         /// <value>Optional array of public keys to register alongside the agent. Keys are created in ***deactivated*** state and must be activated separately via POST /agents/{agentId}/keys/{keyId}/activate. </value>
         [JsonPropertyName("keys")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<Iccv1agentsKeys> Keys { get; set; }
+        public List<AddAgentKeyRequest> Keys { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

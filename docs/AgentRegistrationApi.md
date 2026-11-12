@@ -79,7 +79,7 @@ No authorization required
 
 <a name="addagentkey"></a>
 # **AddAgentKey**
-> AddAgentKeyResponse201 AddAgentKey (string agentId, KeyRequest keyRequest)
+> AddAgentKeyResponse201 AddAgentKey (string agentId, AddAgentKeyRequest addAgentKeyRequest)
 
 Add a key to an agent
 
@@ -101,12 +101,12 @@ namespace Example
         {
             var apiInstance = new AgentRegistrationApi();
             var agentId = agentId_example;  // string | Unique agent identifier
-            var keyRequest = new KeyRequest(); // KeyRequest | Key creation request
+            var addAgentKeyRequest = new AddAgentKeyRequest(); // AddAgentKeyRequest | Key creation request
 
             try
             {
                 // Add a key to an agent
-                AddAgentKeyResponse201 result = apiInstance.AddAgentKey(agentId, keyRequest);
+                AddAgentKeyResponse201 result = apiInstance.AddAgentKey(agentId, addAgentKeyRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -123,7 +123,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **agentId** | **string**| Unique agent identifier | 
- **keyRequest** | [**KeyRequest**](KeyRequest.md)| Key creation request | 
+ **addAgentKeyRequest** | [**AddAgentKeyRequest**](AddAgentKeyRequest.md)| Key creation request | 
 
 ### Return type
 
@@ -455,7 +455,7 @@ No authorization required
 
 <a name="updateagentkey"></a>
 # **UpdateAgentKey**
-> AddAgentKeyResponse201 UpdateAgentKey (string agentId, string keyId, KeyUpdate keyUpdate)
+> AddAgentKeyResponse201 UpdateAgentKey (string agentId, string keyId, UpdateAgentKeyRequest updateAgentKeyRequest)
 
 Update a key
 
@@ -478,12 +478,12 @@ namespace Example
             var apiInstance = new AgentRegistrationApi();
             var agentId = agentId_example;  // string | Unique agent identifier
             var keyId = keyId_example;  // string | Unique key identifier
-            var keyUpdate = new KeyUpdate(); // KeyUpdate | Key update request
+            var updateAgentKeyRequest = new UpdateAgentKeyRequest(); // UpdateAgentKeyRequest | Key update request
 
             try
             {
                 // Update a key
-                AddAgentKeyResponse201 result = apiInstance.UpdateAgentKey(agentId, keyId, keyUpdate);
+                AddAgentKeyResponse201 result = apiInstance.UpdateAgentKey(agentId, keyId, updateAgentKeyRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **agentId** | **string**| Unique agent identifier | 
  **keyId** | **string**| Unique key identifier | 
- **keyUpdate** | [**KeyUpdate**](KeyUpdate.md)| Key update request | 
+ **updateAgentKeyRequest** | [**UpdateAgentKeyRequest**](UpdateAgentKeyRequest.md)| Key update request | 
 
 ### Return type
 

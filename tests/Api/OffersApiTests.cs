@@ -78,7 +78,7 @@ namespace CyberSource.Test
             //string vCOrganizationId = null;
             //OfferRequest offerRequest = null;
             //var response = instance.CreateOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, offerRequest);
-            //Assert.IsInstanceOf<InlineResponse20111> (response, "response is InlineResponse20111");
+            //Assert.IsInstanceOf<CreateOfferResponse> (response, "response is CreateOfferResponse");
         }
         
         /// <summary>
@@ -95,7 +95,7 @@ namespace CyberSource.Test
             //string vCOrganizationId = null;
             //string id = null;
             //var response = instance.GetOffer(contentType, xRequestid, vCMerchantId, vCCorrelationId, vCOrganizationId, id);
-            //Assert.IsInstanceOf<InlineResponse20016> (response, "response is InlineResponse20016");
+            //Assert.IsInstanceOf<GetOfferResponse> (response, "response is GetOfferResponse");
         }
         
     }

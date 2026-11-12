@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="createfollowonsubscription"></a>
 # **CreateFollowOnSubscription**
-> CreateSubscriptionResponse CreateFollowOnSubscription (string requestId, CreateSubscriptionRequest1 createSubscriptionRequest)
+> CreateSubscriptionResponse CreateFollowOnSubscription (string requestId, CreateFollowOnSubscriptionRequest createFollowOnSubscriptionRequest)
 
 Create a Follow-On Subscription
 
@@ -32,12 +32,12 @@ namespace Example
         {
             var apiInstance = new SubscriptionsFollowOnsApi();
             var requestId = requestId_example;  // string | Request Id of an existing successful Transaction
-            var createSubscriptionRequest = new CreateSubscriptionRequest1(); // CreateSubscriptionRequest1 | 
+            var createFollowOnSubscriptionRequest = new CreateFollowOnSubscriptionRequest(); // CreateFollowOnSubscriptionRequest | 
 
             try
             {
                 // Create a Follow-On Subscription
-                CreateSubscriptionResponse result = apiInstance.CreateFollowOnSubscription(requestId, createSubscriptionRequest);
+                CreateSubscriptionResponse result = apiInstance.CreateFollowOnSubscription(requestId, createFollowOnSubscriptionRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -54,7 +54,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestId** | **string**| Request Id of an existing successful Transaction | 
- **createSubscriptionRequest** | [**CreateSubscriptionRequest1**](CreateSubscriptionRequest1.md)|  | 
+ **createFollowOnSubscriptionRequest** | [**CreateFollowOnSubscriptionRequest**](CreateFollowOnSubscriptionRequest.md)|  | 
 
 ### Return type
 
@@ -73,7 +73,7 @@ No authorization required
 
 <a name="getfollowonsubscription"></a>
 # **GetFollowOnSubscription**
-> GetSubscriptionResponse1 GetFollowOnSubscription (string requestId)
+> GetFollowOnSubscriptionResponse GetFollowOnSubscription (string requestId)
 
 Get a Follow-On Subscription
 
@@ -99,7 +99,7 @@ namespace Example
             try
             {
                 // Get a Follow-On Subscription
-                GetSubscriptionResponse1 result = apiInstance.GetFollowOnSubscription(requestId);
+                GetFollowOnSubscriptionResponse result = apiInstance.GetFollowOnSubscription(requestId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSubscriptionResponse1**](GetSubscriptionResponse1.md)
+[**GetFollowOnSubscriptionResponse**](GetFollowOnSubscriptionResponse.md)
 
 ### Authorization
 

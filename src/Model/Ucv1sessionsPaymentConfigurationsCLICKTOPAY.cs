@@ -35,9 +35,11 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ucv1sessionsPaymentConfigurationsCLICKTOPAY" /> class.
         /// </summary>
         /// <param name="AutoCheckEnrollment">Where Click to Pay is the payment type selected by the customer and the customer manually enters their card, the option to enroll their card in Click to Pay will be auto-checked if this field is set to \&quot;true\&quot;. &lt;br&gt;&lt;br&gt;  This is only available where the merchant and cardholder are based in the following countries and the billing type is set to \&quot;FULL\&quot; or \&quot;PARTIAL\&quot;.   - UAE   - Argentina   - Brazil   - Chile   - Colombia   - Kuwait   - Mexico   - Peru   - Qatar   - Saudi Arabia   - Ukraine   - South Africa&lt;br&gt;&lt;br&gt;  If false, this is not present or not supported in the market.  Enrollment in Click to Pay is not checked for the customer when completing manual card entry.&lt;br&gt;&lt;br&gt; Optional field: This field can be configured through the Merchant Experience Screens in the Business Center.  The configured value may be overridden on a per transaction basis in the uc/v1/sessions API request. .</param>
-        public Ucv1sessionsPaymentConfigurationsCLICKTOPAY(bool? AutoCheckEnrollment = default(bool?))
+        /// <param name="AllowedCardNetworks">allowedCardNetworks (optional): Specifies the card networks eligible for Click to Pay. When provided, only the listed networks invoke Click to Pay; when omitted, all Click to Pay–supported networks in the top-level allowedCardNetworks configuration are eligible.&lt;br&gt;&lt;br&gt;  Optional field: This field can be configured through the Merchant Experience Screens in the Business Center.  The configured value may be overridden on a per transaction basis in the uc/v1/sessions API request. .</param>
+        public Ucv1sessionsPaymentConfigurationsCLICKTOPAY(bool? AutoCheckEnrollment = default(bool?), List<string> AllowedCardNetworks = default(List<string>))
         {
             this.AutoCheckEnrollment = AutoCheckEnrollment;
+            this.AllowedCardNetworks = AllowedCardNetworks;
         }
         
         /// <summary>
@@ -49,6 +51,14 @@ namespace CyberSource.Model
         public bool? AutoCheckEnrollment { get; set; }
 
         /// <summary>
+        /// allowedCardNetworks (optional): Specifies the card networks eligible for Click to Pay. When provided, only the listed networks invoke Click to Pay; when omitted, all Click to Pay–supported networks in the top-level allowedCardNetworks configuration are eligible.&lt;br&gt;&lt;br&gt;  Optional field: This field can be configured through the Merchant Experience Screens in the Business Center.  The configured value may be overridden on a per transaction basis in the uc/v1/sessions API request. 
+        /// </summary>
+        /// <value>allowedCardNetworks (optional): Specifies the card networks eligible for Click to Pay. When provided, only the listed networks invoke Click to Pay; when omitted, all Click to Pay–supported networks in the top-level allowedCardNetworks configuration are eligible.&lt;br&gt;&lt;br&gt;  Optional field: This field can be configured through the Merchant Experience Screens in the Business Center.  The configured value may be overridden on a per transaction basis in the uc/v1/sessions API request. </value>
+        [JsonPropertyName("allowedCardNetworks")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<string> AllowedCardNetworks { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -57,6 +67,7 @@ namespace CyberSource.Model
             var sb = new StringBuilder();
             sb.Append("class Ucv1sessionsPaymentConfigurationsCLICKTOPAY {\n");
             if (AutoCheckEnrollment != null) sb.Append("  AutoCheckEnrollment: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsPaymentConfigurationsCLICKTOPAY", "autoCheckEnrollment", AutoCheckEnrollment.ToString())).Append("\n");
+            if (AllowedCardNetworks != null) sb.Append("  AllowedCardNetworks: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ucv1sessionsPaymentConfigurationsCLICKTOPAY", "allowedCardNetworks", AllowedCardNetworks.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -102,6 +113,11 @@ namespace CyberSource.Model
                     this.AutoCheckEnrollment == other.AutoCheckEnrollment ||
                     this.AutoCheckEnrollment != null &&
                     this.AutoCheckEnrollment.Equals(other.AutoCheckEnrollment)
+                ) && 
+                (
+                    this.AllowedCardNetworks == other.AllowedCardNetworks ||
+                    this.AllowedCardNetworks != null &&
+                    this.AllowedCardNetworks.SequenceEqual(other.AllowedCardNetworks)
                 );
         }
 
@@ -120,6 +136,8 @@ namespace CyberSource.Model
                 // consistent with Equals.
                 if (this.AutoCheckEnrollment != null)
                     hash = hash * 59 + this.AutoCheckEnrollment.GetHashCode();
+                if (this.AllowedCardNetworks != null)
+                    hash = hash * 59 + this.AllowedCardNetworks.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

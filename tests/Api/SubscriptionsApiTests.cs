@@ -166,7 +166,7 @@ namespace CyberSource.Test
             //string id = null;
             //UpdatePayments updatePayments = null;
             //var response = instance.SubscriptionsIdPaymentsPut(id, updatePayments);
-            //Assert.IsInstanceOf<GetSubscriptionsPaymentsResponse1> (response, "response is GetSubscriptionsPaymentsResponse1");
+            //Assert.IsInstanceOf<UpdateSubscriptionsPaymentsResponse> (response, "response is UpdateSubscriptionsPaymentsResponse");
         }
         
         /// <summary>

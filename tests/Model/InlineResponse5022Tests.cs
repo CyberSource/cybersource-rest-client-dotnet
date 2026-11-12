@@ -73,12 +73,12 @@ namespace CyberSource.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'SubmitTimeStampUtc'
+        /// Test the property 'SubmitTimeUtc'
         /// </summary>
         [Test]
-        public void SubmitTimeStampUtcTest()
+        public void SubmitTimeUtcTest()
         {
-            // TODO unit test for the property 'SubmitTimeStampUtc'
+            // TODO unit test for the property 'SubmitTimeUtc'
         }
         /// <summary>
         /// Test the property 'Status'

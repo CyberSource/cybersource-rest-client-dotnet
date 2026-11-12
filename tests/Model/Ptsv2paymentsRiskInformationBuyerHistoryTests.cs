@@ -136,6 +136,14 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'TransactionCountYear'
         }
+        /// <summary>
+        /// Test the property 'FailedPaymentAttemptsCount'
+        /// </summary>
+        [Test]
+        public void FailedPaymentAttemptsCountTest()
+        {
+            // TODO unit test for the property 'FailedPaymentAttemptsCount'
+        }
 
     }
 

@@ -38,7 +38,7 @@ namespace CyberSource.Model
         /// <param name="Customer">Customer.</param>
         /// <param name="PaymentInstrument">PaymentInstrument.</param>
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
-        public PushFunds201ResponseLinks(PushFunds201ResponseLinksSelf Self = default(PushFunds201ResponseLinksSelf), PushFunds201ResponseLinksCustomer Customer = default(PushFunds201ResponseLinksCustomer), PushFunds201ResponseLinksPaymentInstrument PaymentInstrument = default(PushFunds201ResponseLinksPaymentInstrument), PushFunds201ResponseLinksInstrumentIdentifier InstrumentIdentifier = default(PushFunds201ResponseLinksInstrumentIdentifier))
+        public PushFunds201ResponseLinks(PtsV2PaymentsPost201ResponseLinksSelf1 Self = default(PtsV2PaymentsPost201ResponseLinksSelf1), PtsV2PaymentsPost201ResponseLinksSelf2 Customer = default(PtsV2PaymentsPost201ResponseLinksSelf2), PtsV2PaymentsPost201ResponseLinksSelf3 PaymentInstrument = default(PtsV2PaymentsPost201ResponseLinksSelf3), PtsV2PaymentsPost201ResponseLinksSelf4 InstrumentIdentifier = default(PtsV2PaymentsPost201ResponseLinksSelf4))
         {
             this.Self = Self;
             this.Customer = Customer;
@@ -51,28 +51,28 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("self")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PushFunds201ResponseLinksSelf Self { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf1 Self { get; set; }
 
         /// <summary>
         /// Gets or Sets Customer
         /// </summary>
         [JsonPropertyName("customer")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PushFunds201ResponseLinksCustomer Customer { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf2 Customer { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentInstrument
         /// </summary>
         [JsonPropertyName("paymentInstrument")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PushFunds201ResponseLinksPaymentInstrument PaymentInstrument { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf3 PaymentInstrument { get; set; }
 
         /// <summary>
         /// Gets or Sets InstrumentIdentifier
         /// </summary>
         [JsonPropertyName("instrumentIdentifier")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public PushFunds201ResponseLinksInstrumentIdentifier InstrumentIdentifier { get; set; }
+        public PtsV2PaymentsPost201ResponseLinksSelf4 InstrumentIdentifier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

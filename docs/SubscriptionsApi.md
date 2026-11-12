@@ -459,7 +459,7 @@ No authorization required
 
 <a name="subscriptionsidpaymentsput"></a>
 # **SubscriptionsIdPaymentsPut**
-> GetSubscriptionsPaymentsResponse1 SubscriptionsIdPaymentsPut (string id, UpdatePayments updatePayments)
+> UpdateSubscriptionsPaymentsResponse SubscriptionsIdPaymentsPut (string id, UpdatePayments updatePayments)
 
 Update Payments for a subscription
 
@@ -486,7 +486,7 @@ namespace Example
             try
             {
                 // Update Payments for a subscription
-                GetSubscriptionsPaymentsResponse1 result = apiInstance.SubscriptionsIdPaymentsPut(id, updatePayments);
+                UpdateSubscriptionsPaymentsResponse result = apiInstance.SubscriptionsIdPaymentsPut(id, updatePayments);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSubscriptionsPaymentsResponse1**](GetSubscriptionsPaymentsResponse1.md)
+[**UpdateSubscriptionsPaymentsResponse**](UpdateSubscriptionsPaymentsResponse.md)
 
 ### Authorization
 

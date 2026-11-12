@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="getcardartasset"></a>
 # **GetCardArtAsset**
-> InlineResponse2002 GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType)
+> CardArtAssetResponse GetCardArtAsset (string instrumentIdentifierId, string tokenProvider, string assetType)
 
 Retrieve Card Art
 
@@ -43,7 +43,7 @@ namespace Example
             try
             {
                 // Retrieve Card Art
-                InlineResponse2002 result = apiInstance.GetCardArtAsset(instrumentIdentifierId, tokenProvider, assetType);
+                CardArtAssetResponse result = apiInstance.GetCardArtAsset(instrumentIdentifierId, tokenProvider, assetType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**CardArtAssetResponse**](CardArtAssetResponse.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ No authorization required
 
 <a name="gettokenizedcard"></a>
 # **GetTokenizedCard**
-> InlineResponse2001 GetTokenizedCard (string tokenizedCardId, string profileId = null)
+> GetTokenizedCardResponse GetTokenizedCard (string tokenizedCardId, string profileId = null)
 
 Retrieve a Tokenized Card
 
@@ -107,7 +107,7 @@ namespace Example
             try
             {
                 // Retrieve a Tokenized Card
-                InlineResponse2001 result = apiInstance.GetTokenizedCard(tokenizedCardId, profileId);
+                GetTokenizedCardResponse result = apiInstance.GetTokenizedCard(tokenizedCardId, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**GetTokenizedCardResponse**](GetTokenizedCardResponse.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ No authorization required
 
 <a name="posttokenpaymentcredentials"></a>
 # **PostTokenPaymentCredentials**
-> string PostTokenPaymentCredentials (string tokenId, PostPaymentCredentialsRequest1 postPaymentCredentialsRequest, string profileId = null)
+> string PostTokenPaymentCredentials (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
 
 Generate Payment Credentials v2
 
@@ -229,7 +229,7 @@ namespace Example
         {
             var apiInstance = new NetworkTokensApi();
             var tokenId = tokenId_example;  // string | The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.
-            var postPaymentCredentialsRequest = new PostPaymentCredentialsRequest1(); // PostPaymentCredentialsRequest1 | 
+            var postPaymentCredentialsRequest = new PostPaymentCredentialsRequest(); // PostPaymentCredentialsRequest | 
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
 
             try
@@ -252,7 +252,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tokenId** | **string**| The Id of a token representing a Customer, Payment Instrument or Instrument Identifier. | 
- **postPaymentCredentialsRequest** | [**PostPaymentCredentialsRequest1**](PostPaymentCredentialsRequest1.md)|  | 
+ **postPaymentCredentialsRequest** | [**PostPaymentCredentialsRequest**](PostPaymentCredentialsRequest.md)|  | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
 
 ### Return type
@@ -272,7 +272,7 @@ No authorization required
 
 <a name="posttokenpaymentcredentialsv3"></a>
 # **PostTokenPaymentCredentialsV3**
-> InlineResponse2011 PostTokenPaymentCredentialsV3 (string tokenId, PostPaymentCredentialsRequest postPaymentCredentialsRequest, string profileId = null)
+> PostPaymentCredentialsResponse PostTokenPaymentCredentialsV3 (string tokenId, PostPaymentCredentialsV3Request postPaymentCredentialsV3Request, string profileId = null)
 
 Generate Payment Credentials Latest Version v3
 
@@ -294,13 +294,13 @@ namespace Example
         {
             var apiInstance = new NetworkTokensApi();
             var tokenId = tokenId_example;  // string | The Id of a token representing a Customer, Payment Instrument or Instrument Identifier.
-            var postPaymentCredentialsRequest = new PostPaymentCredentialsRequest(); // PostPaymentCredentialsRequest | 
+            var postPaymentCredentialsV3Request = new PostPaymentCredentialsV3Request(); // PostPaymentCredentialsV3Request | 
             var profileId = profileId_example;  // string | The Id of a profile containing user specific TMS configuration. (optional) 
 
             try
             {
                 // Generate Payment Credentials Latest Version v3
-                InlineResponse2011 result = apiInstance.PostTokenPaymentCredentialsV3(tokenId, postPaymentCredentialsRequest, profileId);
+                PostPaymentCredentialsResponse result = apiInstance.PostTokenPaymentCredentialsV3(tokenId, postPaymentCredentialsV3Request, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -317,12 +317,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tokenId** | **string**| The Id of a token representing a Customer, Payment Instrument or Instrument Identifier. | 
- **postPaymentCredentialsRequest** | [**PostPaymentCredentialsRequest**](PostPaymentCredentialsRequest.md)|  | 
+ **postPaymentCredentialsV3Request** | [**PostPaymentCredentialsV3Request**](PostPaymentCredentialsV3Request.md)|  | 
  **profileId** | **string**| The Id of a profile containing user specific TMS configuration. | [optional] 
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**PostPaymentCredentialsResponse**](PostPaymentCredentialsResponse.md)
 
 ### Authorization
 
@@ -337,7 +337,7 @@ No authorization required
 
 <a name="posttokenizedcard"></a>
 # **PostTokenizedCard**
-> InlineResponse2001 PostTokenizedCard (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
+> GetTokenizedCardResponse PostTokenizedCard (PostTokenizedCardRequest postTokenizedCardRequest, string profileId = null)
 
 Create a Tokenized Card
 
@@ -364,7 +364,7 @@ namespace Example
             try
             {
                 // Create a Tokenized Card
-                InlineResponse2001 result = apiInstance.PostTokenizedCard(postTokenizedCardRequest, profileId);
+                GetTokenizedCardResponse result = apiInstance.PostTokenizedCard(postTokenizedCardRequest, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**GetTokenizedCardResponse**](GetTokenizedCardResponse.md)
 
 ### Authorization
 

@@ -39,13 +39,15 @@ namespace CyberSource.Model
         /// <param name="HashedPassword">The merchant&#39;s password that CyberSource hashes and stores as a hashed password. .</param>
         /// <param name="DateOfBirth">Recipient&#39;s date of birth. **Format**: &#x60;YYYYMMDD&#x60;.  This field is a &#x60;pass-through&#x60;, which means that CyberSource ensures that the value is eight numeric characters but otherwise does not verify the value or modify it in any way before sending it to the processor. If the field is not required for the transaction, CyberSource does not forward it to the processor. .</param>
         /// <param name="PersonalIdentification">PersonalIdentification.</param>
-        public Riskv1decisionsBuyerInformation(string MerchantCustomerId = default(string), string Username = default(string), string HashedPassword = default(string), string DateOfBirth = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>))
+        /// <param name="Loyalty">Loyalty.</param>
+        public Riskv1decisionsBuyerInformation(string MerchantCustomerId = default(string), string Username = default(string), string HashedPassword = default(string), string DateOfBirth = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), Riskv1decisionsBuyerInformationLoyalty Loyalty = default(Riskv1decisionsBuyerInformationLoyalty))
         {
             this.MerchantCustomerId = MerchantCustomerId;
             this.Username = Username;
             this.HashedPassword = HashedPassword;
             this.DateOfBirth = DateOfBirth;
             this.PersonalIdentification = PersonalIdentification;
+            this.Loyalty = Loyalty;
         }
         
         /// <summary>
@@ -88,6 +90,13 @@ namespace CyberSource.Model
         public List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification { get; set; }
 
         /// <summary>
+        /// Gets or Sets Loyalty
+        /// </summary>
+        [JsonPropertyName("loyalty")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Riskv1decisionsBuyerInformationLoyalty Loyalty { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -100,6 +109,7 @@ namespace CyberSource.Model
             if (HashedPassword != null) sb.Append("  HashedPassword: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsBuyerInformation", "hashedPassword", HashedPassword.ToString())).Append("\n");
             if (DateOfBirth != null) sb.Append("  DateOfBirth: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsBuyerInformation", "dateOfBirth", DateOfBirth.ToString())).Append("\n");
             if (PersonalIdentification != null) sb.Append("  PersonalIdentification: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsBuyerInformation", "personalIdentification", PersonalIdentification.ToString())).Append("\n");
+            if (Loyalty != null) sb.Append("  Loyalty: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsBuyerInformation", "loyalty", Loyalty.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -165,6 +175,11 @@ namespace CyberSource.Model
                     this.PersonalIdentification == other.PersonalIdentification ||
                     this.PersonalIdentification != null &&
                     this.PersonalIdentification.SequenceEqual(other.PersonalIdentification)
+                ) && 
+                (
+                    this.Loyalty == other.Loyalty ||
+                    this.Loyalty != null &&
+                    this.Loyalty.Equals(other.Loyalty)
                 );
         }
 
@@ -191,6 +206,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.DateOfBirth.GetHashCode();
                 if (this.PersonalIdentification != null)
                     hash = hash * 59 + this.PersonalIdentification.GetHashCode();
+                if (this.Loyalty != null)
+                    hash = hash * 59 + this.Loyalty.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

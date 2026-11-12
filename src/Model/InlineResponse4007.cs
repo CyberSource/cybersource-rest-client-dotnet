@@ -26,7 +26,7 @@ using SwaggerDateConverter = CyberSource.Client.SwaggerDateConverter;
 namespace CyberSource.Model
 {
     /// <summary>
-    /// InlineResponse4007
+    /// Standard error response returned for all 4xx and 5xx status codes.
     /// </summary>
     [DataContract]
     public partial class InlineResponse4007 :  ModelExtensions, IEquatable<InlineResponse4007>, IValidatableObject
@@ -34,58 +34,59 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4007" /> class.
         /// </summary>
-        /// <param name="SubmitTimeUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. .</param>
-        /// <param name="Status">The status of the submitted transaction.  Possible values:  - INVALID_REQUEST .</param>
-        /// <param name="Reason">The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_FOLLOW_ON_TRANSACTION_STATUS .</param>
-        /// <param name="Message">The detail message related to the status and reason listed above..</param>
-        /// <param name="Details">Details.</param>
-        public InlineResponse4007(string SubmitTimeUtc = default(string), string Status = default(string), string Reason = default(string), string Message = default(string), List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details = default(List<PtsV2PaymentsPost201ResponseErrorInformationDetails>))
+        /// <param name="Error">Machine-readable error code (e.g. &#x60;BAD_REQUEST&#x60;, &#x60;NOT_FOUND&#x60;, &#x60;INTERNAL_ERROR&#x60;)..</param>
+        /// <param name="Message">Human-readable description of what went wrong and how to fix it..</param>
+        /// <param name="Status">HTTP status code..</param>
+        /// <param name="Timestamp">ISO 8601 timestamp when the error occurred..</param>
+        /// <param name="Path">The request path that produced this error..</param>
+        public InlineResponse4007(string Error = default(string), string Message = default(string), int? Status = default(int?), DateTime? Timestamp = default(DateTime?), string Path = default(string))
         {
-            this.SubmitTimeUtc = SubmitTimeUtc;
-            this.Status = Status;
-            this.Reason = Reason;
+            this.Error = Error;
             this.Message = Message;
-            this.Details = Details;
+            this.Status = Status;
+            this.Timestamp = Timestamp;
+            this.Path = Path;
         }
         
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. 
+        /// Machine-readable error code (e.g. &#x60;BAD_REQUEST&#x60;, &#x60;NOT_FOUND&#x60;, &#x60;INTERNAL_ERROR&#x60;).
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DDThh:mm:ssZ&#x60; **Example** &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The &#x60;T&#x60; separates the date and the time. The &#x60;Z&#x60; indicates UTC.  Returned by Cybersource for all services. </value>
-        [JsonPropertyName("submitTimeUtc")]
+        /// <value>Machine-readable error code (e.g. &#x60;BAD_REQUEST&#x60;, &#x60;NOT_FOUND&#x60;, &#x60;INTERNAL_ERROR&#x60;).</value>
+        [JsonPropertyName("error")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SubmitTimeUtc { get; set; }
+        public string Error { get; set; }
 
         /// <summary>
-        /// The status of the submitted transaction.  Possible values:  - INVALID_REQUEST 
+        /// Human-readable description of what went wrong and how to fix it.
         /// </summary>
-        /// <value>The status of the submitted transaction.  Possible values:  - INVALID_REQUEST </value>
-        [JsonPropertyName("status")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Status { get; set; }
-
-        /// <summary>
-        /// The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_FOLLOW_ON_TRANSACTION_STATUS 
-        /// </summary>
-        /// <value>The reason of the status.  Possible values:  - MISSING_FIELD  - INVALID_DATA  - DUPLICATE_REQUEST  - INVALID_MERCHANT_CONFIGURATION  - PROCESSOR_UNAVAILABLE  - INVALID_FOLLOW_ON_TRANSACTION_STATUS </value>
-        [JsonPropertyName("reason")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Reason { get; set; }
-
-        /// <summary>
-        /// The detail message related to the status and reason listed above.
-        /// </summary>
-        /// <value>The detail message related to the status and reason listed above.</value>
+        /// <value>Human-readable description of what went wrong and how to fix it.</value>
         [JsonPropertyName("message")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets Details
+        /// HTTP status code.
         /// </summary>
-        [JsonPropertyName("details")]
+        /// <value>HTTP status code.</value>
+        [JsonPropertyName("status")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<PtsV2PaymentsPost201ResponseErrorInformationDetails> Details { get; set; }
+        public int? Status { get; set; }
+
+        /// <summary>
+        /// ISO 8601 timestamp when the error occurred.
+        /// </summary>
+        /// <value>ISO 8601 timestamp when the error occurred.</value>
+        [JsonPropertyName("timestamp")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public DateTime? Timestamp { get; set; }
+
+        /// <summary>
+        /// The request path that produced this error.
+        /// </summary>
+        /// <value>The request path that produced this error.</value>
+        [JsonPropertyName("path")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Path { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -95,11 +96,11 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4007 {\n");
-            if (SubmitTimeUtc != null) sb.Append("  SubmitTimeUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4007", "submitTimeUtc", SubmitTimeUtc.ToString())).Append("\n");
-            if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4007", "status", Status.ToString())).Append("\n");
-            if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4007", "reason", Reason.ToString())).Append("\n");
+            if (Error != null) sb.Append("  Error: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4007", "error", Error.ToString())).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4007", "message", Message.ToString())).Append("\n");
-            if (Details != null) sb.Append("  Details: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4007", "details", Details.ToString())).Append("\n");
+            if (Status != null) sb.Append("  Status: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4007", "status", Status.ToString())).Append("\n");
+            if (Timestamp != null) sb.Append("  Timestamp: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4007", "timestamp", Timestamp.ToString())).Append("\n");
+            if (Path != null) sb.Append("  Path: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4007", "path", Path.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -142,19 +143,9 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.SubmitTimeUtc == other.SubmitTimeUtc ||
-                    this.SubmitTimeUtc != null &&
-                    this.SubmitTimeUtc.Equals(other.SubmitTimeUtc)
-                ) && 
-                (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
-                ) && 
-                (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.Error == other.Error ||
+                    this.Error != null &&
+                    this.Error.Equals(other.Error)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -162,9 +153,19 @@ namespace CyberSource.Model
                     this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.Details == other.Details ||
-                    this.Details != null &&
-                    this.Details.SequenceEqual(other.Details)
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.Timestamp == other.Timestamp ||
+                    this.Timestamp != null &&
+                    this.Timestamp.Equals(other.Timestamp)
+                ) && 
+                (
+                    this.Path == other.Path ||
+                    this.Path != null &&
+                    this.Path.Equals(other.Path)
                 );
         }
 
@@ -181,16 +182,16 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.SubmitTimeUtc != null)
-                    hash = hash * 59 + this.SubmitTimeUtc.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
+                if (this.Error != null)
+                    hash = hash * 59 + this.Error.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
-                if (this.Details != null)
-                    hash = hash * 59 + this.Details.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Timestamp != null)
+                    hash = hash * 59 + this.Timestamp.GetHashCode();
+                if (this.Path != null)
+                    hash = hash * 59 + this.Path.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

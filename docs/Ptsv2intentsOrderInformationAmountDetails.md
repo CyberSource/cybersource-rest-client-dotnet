@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ShippingDiscountAmount** | **string** | Shipping discount amount for the transaction.   | [optional] 
 **TaxAmount** | **string** | Total tax amount.   | [optional] 
 **InsuranceAmount** | **string** | Amount being charged for the insurance fee.   | [optional] 
-**DutyAmount** | **string** | Amount being charged as duty amount.              | [optional] 
+**DutyAmount** | **string** | Amount being charged as duty amount.  | [optional] 
 
 ## Extensibility
 

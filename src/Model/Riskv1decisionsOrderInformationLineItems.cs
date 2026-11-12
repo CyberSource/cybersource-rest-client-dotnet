@@ -45,12 +45,13 @@ namespace CyberSource.Model
         /// <param name="ProductCode">Type of product. The value for this field is used to identify the product category (electronic, handling, physical, service, or shipping). The default value is &#x60;default&#x60;.  If you are performing an authorization transaction (&#x60;processingOptions.capture&#x60; is set to &#x60;false&#x60;), and you set this field to a value other than &#x60;default&#x60; or one of the values related to shipping and/or handling, then &#x60;orderInformation.lineItems[].quantity&#x60;, &#x60;orderInformation.lineItems[].productName&#x60;, and &#x60;orderInformation.lineItems[].productSku&#x60; fields are required.  Optional field.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes.  The Product Codes for the tax service are located in the Cybersource Tax Codes guide. Contact Customer Support to request the guide. If you don&#39;t send a tax service Product Code in your tax request, product-based rules or exemptions will not be applied and the transaction will default to fully taxable in the locations where you&#39;ve indicated you need to collect tax [by way of nexus, no nexus, or seller registration number fields]. .</param>
         /// <param name="Gift">This field is only used in DM service.  Determines whether to assign risk to the order if the billing and shipping addresses specify different cities, states, or countries. This field can contain one of the following values: - true: Orders are assigned only slight additional risk if billing and shipping addresses are different. - false: Orders are assigned higher additional risk if billing and shipping addresses are different. .</param>
         /// <param name="DistributorProductSku">Product&#39;s identifier code. This field is inserted into the outgoing message without being parsed or formatted. This field is included as Distributor product SKU (Offer) in the list of API fields with which you can create custom rules. .</param>
+        /// <param name="ProductType">Type of product (e.g., Prepaid, Postpaid, Electronic Devices, Flight, Hotel)..</param>
         /// <param name="Passenger">Passenger.</param>
         /// <param name="ShippingDestinationTypes">Destination to where the item will be shipped. Example: Commercial, Residential, Store .</param>
         /// <param name="TaxAmount">Total tax to apply to the product. This value cannot be negative. The tax amount and the offer amount must be in the same currency. The tax amount field is additive.  The following example uses a two-exponent currency such as USD:   1. You include each line item in your request.  ..- 1st line item has amount&#x3D;10.00, quantity&#x3D;1, and taxAmount&#x3D;0.80  ..- 2nd line item has amount&#x3D;20.00, quantity&#x3D;1, and taxAmount&#x3D;1.60  2. The total amount authorized will be 32.40, not 30.00 with 2.40 of tax included.  Optional field.  #### Airlines processing Tax portion of the order amount. This value cannot exceed 99999999999999 (fourteen 9s). Format: English characters only. Optional request field for a line item.  #### Tax Calculation Optional field for U.S., Canadian, international tax, and value added taxes.  Note if you send this field in your tax request, the value in the field will override the tax engine .</param>
         /// <param name="AllowedExportCountries">AllowedExportCountries.</param>
         /// <param name="RestrictedExportCountries">RestrictedExportCountries.</param>
-        public Riskv1decisionsOrderInformationLineItems(string TotalAmount = default(string), string UnitPrice = default(string), int? Quantity = default(int?), int? GiftCardCurrency = default(int?), string ProductSKU = default(string), string ProductRisk = default(string), string ProductDescription = default(string), string ProductName = default(string), string ProductCode = default(string), bool? Gift = default(bool?), string DistributorProductSku = default(string), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), string ShippingDestinationTypes = default(string), string TaxAmount = default(string), List<string> AllowedExportCountries = default(List<string>), List<string> RestrictedExportCountries = default(List<string>))
+        public Riskv1decisionsOrderInformationLineItems(string TotalAmount = default(string), string UnitPrice = default(string), int? Quantity = default(int?), int? GiftCardCurrency = default(int?), string ProductSKU = default(string), string ProductRisk = default(string), string ProductDescription = default(string), string ProductName = default(string), string ProductCode = default(string), bool? Gift = default(bool?), string DistributorProductSku = default(string), string ProductType = default(string), Ptsv2paymentsOrderInformationPassenger Passenger = default(Ptsv2paymentsOrderInformationPassenger), string ShippingDestinationTypes = default(string), string TaxAmount = default(string), List<string> AllowedExportCountries = default(List<string>), List<string> RestrictedExportCountries = default(List<string>))
         {
             this.TotalAmount = TotalAmount;
             this.UnitPrice = UnitPrice;
@@ -63,6 +64,7 @@ namespace CyberSource.Model
             this.ProductCode = ProductCode;
             this.Gift = Gift;
             this.DistributorProductSku = DistributorProductSku;
+            this.ProductType = ProductType;
             this.Passenger = Passenger;
             this.ShippingDestinationTypes = ShippingDestinationTypes;
             this.TaxAmount = TaxAmount;
@@ -159,6 +161,14 @@ namespace CyberSource.Model
         public string DistributorProductSku { get; set; }
 
         /// <summary>
+        /// Type of product (e.g., Prepaid, Postpaid, Electronic Devices, Flight, Hotel).
+        /// </summary>
+        /// <value>Type of product (e.g., Prepaid, Postpaid, Electronic Devices, Flight, Hotel).</value>
+        [JsonPropertyName("productType")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string ProductType { get; set; }
+
+        /// <summary>
         /// Gets or Sets Passenger
         /// </summary>
         [JsonPropertyName("passenger")]
@@ -214,6 +224,7 @@ namespace CyberSource.Model
             if (ProductCode != null) sb.Append("  ProductCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformationLineItems", "productCode", ProductCode.ToString())).Append("\n");
             if (Gift != null) sb.Append("  Gift: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformationLineItems", "gift", Gift.ToString())).Append("\n");
             if (DistributorProductSku != null) sb.Append("  DistributorProductSku: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformationLineItems", "distributorProductSku", DistributorProductSku.ToString())).Append("\n");
+            if (ProductType != null) sb.Append("  ProductType: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformationLineItems", "productType", ProductType.ToString())).Append("\n");
             if (Passenger != null) sb.Append("  Passenger: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformationLineItems", "passenger", Passenger.ToString())).Append("\n");
             if (ShippingDestinationTypes != null) sb.Append("  ShippingDestinationTypes: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformationLineItems", "shippingDestinationTypes", ShippingDestinationTypes.ToString())).Append("\n");
             if (TaxAmount != null) sb.Append("  TaxAmount: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsOrderInformationLineItems", "taxAmount", TaxAmount.ToString())).Append("\n");
@@ -316,6 +327,11 @@ namespace CyberSource.Model
                     this.DistributorProductSku.Equals(other.DistributorProductSku)
                 ) && 
                 (
+                    this.ProductType == other.ProductType ||
+                    this.ProductType != null &&
+                    this.ProductType.Equals(other.ProductType)
+                ) && 
+                (
                     this.Passenger == other.Passenger ||
                     this.Passenger != null &&
                     this.Passenger.Equals(other.Passenger)
@@ -377,6 +393,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.Gift.GetHashCode();
                 if (this.DistributorProductSku != null)
                     hash = hash * 59 + this.DistributorProductSku.GetHashCode();
+                if (this.ProductType != null)
+                    hash = hash * 59 + this.ProductType.GetHashCode();
                 if (this.Passenger != null)
                     hash = hash * 59 + this.Passenger.GetHashCode();
                 if (this.ShippingDestinationTypes != null)

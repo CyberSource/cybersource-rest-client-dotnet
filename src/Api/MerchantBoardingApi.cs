@@ -38,8 +38,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 GetRegistration(string registrationId);
+        /// <returns>BoardingRegistrationGetResponse</returns>
+        BoardingRegistrationGetResponse GetRegistration(string registrationId);
 
         /// <summary>
         /// Gets all the information on a boarding registration
@@ -49,8 +49,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> GetRegistrationWithHttpInfo(string registrationId);
+        /// <returns>ApiResponse of BoardingRegistrationGetResponse</returns>
+        ApiResponse<BoardingRegistrationGetResponse> GetRegistrationWithHttpInfo(string registrationId);
         /// <summary>
         /// Updates the information on a boarding registration
         /// </summary>
@@ -61,8 +61,8 @@ namespace CyberSource.Api
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
         /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 PatchRegistration(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>BoardingRegistrationGetResponse</returns>
+        BoardingRegistrationGetResponse PatchRegistration(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
 
         /// <summary>
         /// Updates the information on a boarding registration
@@ -74,8 +74,8 @@ namespace CyberSource.Api
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
         /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> PatchRegistrationWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>ApiResponse of BoardingRegistrationGetResponse</returns>
+        ApiResponse<BoardingRegistrationGetResponse> PatchRegistrationWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
         /// <summary>
         /// Create a boarding registration
         /// </summary>
@@ -85,8 +85,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>InlineResponse2016</returns>
-        InlineResponse2016 PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>BoardingRegistrationCreateResponse</returns>
+        BoardingRegistrationCreateResponse PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
 
         /// <summary>
         /// Create a boarding registration
@@ -97,8 +97,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2016</returns>
-        ApiResponse<InlineResponse2016> PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>ApiResponse of BoardingRegistrationCreateResponse</returns>
+        ApiResponse<BoardingRegistrationCreateResponse> PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -109,8 +109,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> GetRegistrationAsync(string registrationId);
+        /// <returns>Task of BoardingRegistrationGetResponse</returns>
+        System.Threading.Tasks.Task<BoardingRegistrationGetResponse> GetRegistrationAsync(string registrationId);
 
         /// <summary>
         /// Gets all the information on a boarding registration
@@ -120,8 +120,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetRegistrationAsyncWithHttpInfo(string registrationId);
+        /// <returns>Task of ApiResponse (BoardingRegistrationGetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BoardingRegistrationGetResponse>> GetRegistrationAsyncWithHttpInfo(string registrationId);
         /// <summary>
         /// Updates the information on a boarding registration
         /// </summary>
@@ -132,8 +132,8 @@ namespace CyberSource.Api
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
         /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> PatchRegistrationAsync(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>Task of BoardingRegistrationGetResponse</returns>
+        System.Threading.Tasks.Task<BoardingRegistrationGetResponse> PatchRegistrationAsync(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
 
         /// <summary>
         /// Updates the information on a boarding registration
@@ -145,8 +145,8 @@ namespace CyberSource.Api
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
         /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PatchRegistrationAsyncWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>Task of ApiResponse (BoardingRegistrationGetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BoardingRegistrationGetResponse>> PatchRegistrationAsyncWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null);
         /// <summary>
         /// Create a boarding registration
         /// </summary>
@@ -156,8 +156,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of InlineResponse2016</returns>
-        System.Threading.Tasks.Task<InlineResponse2016> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>Task of BoardingRegistrationCreateResponse</returns>
+        System.Threading.Tasks.Task<BoardingRegistrationCreateResponse> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
 
         /// <summary>
         /// Create a boarding registration
@@ -168,8 +168,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2016>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
+        /// <returns>Task of ApiResponse (BoardingRegistrationCreateResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BoardingRegistrationCreateResponse>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null);
         #endregion Asynchronous Operations
     }
 
@@ -201,12 +201,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 GetRegistration(string registrationId)
+        /// <returns>BoardingRegistrationGetResponse</returns>
+        public BoardingRegistrationGetResponse GetRegistration(string registrationId)
         {
             logger.LogDebug("CALLING API \"GetRegistration\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2005> localVarResponse = GetRegistrationWithHttpInfo(registrationId);
+            ApiResponse<BoardingRegistrationGetResponse> localVarResponse = GetRegistrationWithHttpInfo(registrationId);
             logger.LogDebug("CALLING API \"GetRegistration\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -217,8 +217,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse< InlineResponse2005 > GetRegistrationWithHttpInfo(string registrationId)
+        /// <returns>ApiResponse of BoardingRegistrationGetResponse</returns>
+        public ApiResponse< BoardingRegistrationGetResponse > GetRegistrationWithHttpInfo(string registrationId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -281,7 +281,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -310,9 +310,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<BoardingRegistrationGetResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2005) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+                (BoardingRegistrationGetResponse) ApiClient.Deserialize(localVarResponse, typeof(BoardingRegistrationGetResponse))); // Return statement
         }
 
         /// <summary>
@@ -320,12 +320,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async Task<InlineResponse2005> GetRegistrationAsync(string registrationId)
+        /// <returns>Task of BoardingRegistrationGetResponse</returns>
+        public async Task<BoardingRegistrationGetResponse> GetRegistrationAsync(string registrationId)
         {
             logger.LogDebug("CALLING API \"GetRegistrationAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2005> localVarResponse = await GetRegistrationAsyncWithHttpInfo(registrationId);
+            ApiResponse<BoardingRegistrationGetResponse> localVarResponse = await GetRegistrationAsyncWithHttpInfo(registrationId);
             logger.LogDebug("CALLING API \"GetRegistrationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -337,8 +337,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async Task<ApiResponse<InlineResponse2005>> GetRegistrationAsyncWithHttpInfo(string registrationId)
+        /// <returns>Task of ApiResponse (BoardingRegistrationGetResponse)</returns>
+        public async Task<ApiResponse<BoardingRegistrationGetResponse>> GetRegistrationAsyncWithHttpInfo(string registrationId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -400,7 +400,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -429,9 +429,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<BoardingRegistrationGetResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2005) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+                (BoardingRegistrationGetResponse) ApiClient.Deserialize(localVarResponse, typeof(BoardingRegistrationGetResponse))); // Return statement
         }
         /// <summary>
         /// Updates the information on a boarding registration This end point will partially update a boarding registration 
@@ -440,12 +440,12 @@ namespace CyberSource.Api
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
         /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 PatchRegistration(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>BoardingRegistrationGetResponse</returns>
+        public BoardingRegistrationGetResponse PatchRegistration(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
         {
             logger.LogDebug("CALLING API \"PatchRegistration\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2005> localVarResponse = PatchRegistrationWithHttpInfo(registrationId, patchRegistrationBody, vCIdempotencyId);
+            ApiResponse<BoardingRegistrationGetResponse> localVarResponse = PatchRegistrationWithHttpInfo(registrationId, patchRegistrationBody, vCIdempotencyId);
             logger.LogDebug("CALLING API \"PatchRegistration\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -458,8 +458,8 @@ namespace CyberSource.Api
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
         /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse< InlineResponse2005 > PatchRegistrationWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>ApiResponse of BoardingRegistrationGetResponse</returns>
+        public ApiResponse< BoardingRegistrationGetResponse > PatchRegistrationWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -528,7 +528,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -559,9 +559,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<BoardingRegistrationGetResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2005) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+                (BoardingRegistrationGetResponse) ApiClient.Deserialize(localVarResponse, typeof(BoardingRegistrationGetResponse))); // Return statement
         }
 
         /// <summary>
@@ -571,12 +571,12 @@ namespace CyberSource.Api
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
         /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async Task<InlineResponse2005> PatchRegistrationAsync(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>Task of BoardingRegistrationGetResponse</returns>
+        public async Task<BoardingRegistrationGetResponse> PatchRegistrationAsync(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
         {
             logger.LogDebug("CALLING API \"PatchRegistrationAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2005> localVarResponse = await PatchRegistrationAsyncWithHttpInfo(registrationId, patchRegistrationBody, vCIdempotencyId);
+            ApiResponse<BoardingRegistrationGetResponse> localVarResponse = await PatchRegistrationAsyncWithHttpInfo(registrationId, patchRegistrationBody, vCIdempotencyId);
             logger.LogDebug("CALLING API \"PatchRegistrationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -590,8 +590,8 @@ namespace CyberSource.Api
         /// <param name="registrationId">Identifies the boarding registration to be updated</param>
         /// <param name="patchRegistrationBody">Boarding registration data to be patched</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async Task<ApiResponse<InlineResponse2005>> PatchRegistrationAsyncWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>Task of ApiResponse (BoardingRegistrationGetResponse)</returns>
+        public async Task<ApiResponse<BoardingRegistrationGetResponse>> PatchRegistrationAsyncWithHttpInfo(string registrationId, PatchRegistrationBody patchRegistrationBody, string vCIdempotencyId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -660,7 +660,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -691,9 +691,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2005>(localVarStatusCode,
+            return new ApiResponse<BoardingRegistrationGetResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2005) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2005))); // Return statement
+                (BoardingRegistrationGetResponse) ApiClient.Deserialize(localVarResponse, typeof(BoardingRegistrationGetResponse))); // Return statement
         }
         /// <summary>
         /// Create a boarding registration Boarding Product is specifically for resellers who onboard merchants to resell their services to merchants and help integrate REST API into their systems.  The Boarding API is designed to simplify and streamline the onboarding process of merchants by enabling administrators and developers to: 1. Enable and Configure Products: The API helps in adding new products to an existing organization and configuring them to suit specific needs. 2. Update Merchant Information: The API allows for updating an organization&#39;s information efficiently. 3. Manage Payment Integration: It provides templates for secure payment integration and management. 
@@ -701,12 +701,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>InlineResponse2016</returns>
-        public InlineResponse2016 PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>BoardingRegistrationCreateResponse</returns>
+        public BoardingRegistrationCreateResponse PostRegistration(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
             logger.LogDebug("CALLING API \"PostRegistration\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2016> localVarResponse = PostRegistrationWithHttpInfo(postRegistrationBody, vCIdempotencyId);
+            ApiResponse<BoardingRegistrationCreateResponse> localVarResponse = PostRegistrationWithHttpInfo(postRegistrationBody, vCIdempotencyId);
             logger.LogDebug("CALLING API \"PostRegistration\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -718,8 +718,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2016</returns>
-        public ApiResponse< InlineResponse2016 > PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>ApiResponse of BoardingRegistrationCreateResponse</returns>
+        public ApiResponse< BoardingRegistrationCreateResponse > PostRegistrationWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -776,7 +776,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -807,9 +807,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+            return new ApiResponse<BoardingRegistrationCreateResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2016) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016))); // Return statement
+                (BoardingRegistrationCreateResponse) ApiClient.Deserialize(localVarResponse, typeof(BoardingRegistrationCreateResponse))); // Return statement
         }
 
         /// <summary>
@@ -818,12 +818,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of InlineResponse2016</returns>
-        public async Task<InlineResponse2016> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>Task of BoardingRegistrationCreateResponse</returns>
+        public async Task<BoardingRegistrationCreateResponse> PostRegistrationAsync(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
             logger.LogDebug("CALLING API \"PostRegistrationAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2016> localVarResponse = await PostRegistrationAsyncWithHttpInfo(postRegistrationBody, vCIdempotencyId);
+            ApiResponse<BoardingRegistrationCreateResponse> localVarResponse = await PostRegistrationAsyncWithHttpInfo(postRegistrationBody, vCIdempotencyId);
             logger.LogDebug("CALLING API \"PostRegistrationAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -836,8 +836,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postRegistrationBody">Boarding registration data</param>
         /// <param name="vCIdempotencyId">defines idempotency of the request (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2016)</returns>
-        public async Task<ApiResponse<InlineResponse2016>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
+        /// <returns>Task of ApiResponse (BoardingRegistrationCreateResponse)</returns>
+        public async Task<ApiResponse<BoardingRegistrationCreateResponse>> PostRegistrationAsyncWithHttpInfo(PostRegistrationBody postRegistrationBody, string vCIdempotencyId = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -894,7 +894,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -925,9 +925,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2016>(localVarStatusCode,
+            return new ApiResponse<BoardingRegistrationCreateResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2016) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2016))); // Return statement
+                (BoardingRegistrationCreateResponse) ApiClient.Deserialize(localVarResponse, typeof(BoardingRegistrationCreateResponse))); // Return statement
         }
     }
 }

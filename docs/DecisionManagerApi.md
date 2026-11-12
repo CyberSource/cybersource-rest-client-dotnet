@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="actiondecisionmanagercase"></a>
 # **ActionDecisionManagerCase**
-> InlineResponse2003 ActionDecisionManagerCase (string id, CaseManagementActionsRequest caseManagementActionsRequest)
+> CaseManagementActionsResponse ActionDecisionManagerCase (string id, CaseManagementActionsRequest caseManagementActionsRequest)
 
 Take action on a DM post-transactional case
 
@@ -40,7 +40,7 @@ namespace Example
             try
             {
                 // Take action on a DM post-transactional case
-                InlineResponse2003 result = apiInstance.ActionDecisionManagerCase(id, caseManagementActionsRequest);
+                CaseManagementActionsResponse result = apiInstance.ActionDecisionManagerCase(id, caseManagementActionsRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**CaseManagementActionsResponse**](CaseManagementActionsResponse.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ No authorization required
 
 <a name="commentdecisionmanagercase"></a>
 # **CommentDecisionManagerCase**
-> InlineResponse2012 CommentDecisionManagerCase (string id, CaseManagementCommentsRequest caseManagementCommentsRequest)
+> CommentDecisionManagerCaseResponse CommentDecisionManagerCase (string id, CaseManagementCommentsRequest caseManagementCommentsRequest)
 
 Add a comment to a DM post-transactional case
 
@@ -166,7 +166,7 @@ namespace Example
             try
             {
                 // Add a comment to a DM post-transactional case
-                InlineResponse2012 result = apiInstance.CommentDecisionManagerCase(id, caseManagementCommentsRequest);
+                CommentDecisionManagerCaseResponse result = apiInstance.CommentDecisionManagerCase(id, caseManagementCommentsRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**CommentDecisionManagerCaseResponse**](CommentDecisionManagerCaseResponse.md)
 
 ### Authorization
 

@@ -34,14 +34,24 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Riskv1decisionsMerchantInformation" /> class.
         /// </summary>
+        /// <param name="CategoryCode">MCC code of the merchant or transaction.</param>
         /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
         /// <param name="MerchantName">Your company&#39;s name as you want it to appear to the customer in the issuing bank&#39;s authentication form. This value overrides the value specified by your merchant bank. .</param>
-        public Riskv1decisionsMerchantInformation(Riskv1decisionsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Riskv1decisionsMerchantInformationMerchantDescriptor), string MerchantName = default(string))
+        public Riskv1decisionsMerchantInformation(string CategoryCode = default(string), Riskv1decisionsMerchantInformationMerchantDescriptor MerchantDescriptor = default(Riskv1decisionsMerchantInformationMerchantDescriptor), string MerchantName = default(string))
         {
+            this.CategoryCode = CategoryCode;
             this.MerchantDescriptor = MerchantDescriptor;
             this.MerchantName = MerchantName;
         }
         
+        /// <summary>
+        /// MCC code of the merchant or transaction
+        /// </summary>
+        /// <value>MCC code of the merchant or transaction</value>
+        [JsonPropertyName("categoryCode")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string CategoryCode { get; set; }
+
         /// <summary>
         /// Gets or Sets MerchantDescriptor
         /// </summary>
@@ -65,6 +75,7 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Riskv1decisionsMerchantInformation {\n");
+            if (CategoryCode != null) sb.Append("  CategoryCode: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsMerchantInformation", "categoryCode", CategoryCode.ToString())).Append("\n");
             if (MerchantDescriptor != null) sb.Append("  MerchantDescriptor: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsMerchantInformation", "merchantDescriptor", MerchantDescriptor.ToString())).Append("\n");
             if (MerchantName != null) sb.Append("  MerchantName: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Riskv1decisionsMerchantInformation", "merchantName", MerchantName.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
@@ -109,6 +120,11 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
+                    this.CategoryCode == other.CategoryCode ||
+                    this.CategoryCode != null &&
+                    this.CategoryCode.Equals(other.CategoryCode)
+                ) && 
+                (
                     this.MerchantDescriptor == other.MerchantDescriptor ||
                     this.MerchantDescriptor != null &&
                     this.MerchantDescriptor.Equals(other.MerchantDescriptor)
@@ -133,6 +149,8 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
+                if (this.CategoryCode != null)
+                    hash = hash * 59 + this.CategoryCode.GetHashCode();
                 if (this.MerchantDescriptor != null)
                     hash = hash * 59 + this.MerchantDescriptor.GetHashCode();
                 if (this.MerchantName != null)

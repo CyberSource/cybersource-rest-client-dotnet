@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="tokenize"></a>
 # **Tokenize**
-> InlineResponse200 Tokenize (PostTokenizeRequest postTokenizeRequest, string profileId = null)
+> PostTokenizeResponse Tokenize (PostTokenizeRequest postTokenizeRequest, string profileId = null)
 
 Tokenize
 
@@ -36,7 +36,7 @@ namespace Example
             try
             {
                 // Tokenize
-                InlineResponse200 result = apiInstance.Tokenize(postTokenizeRequest, profileId);
+                PostTokenizeResponse result = apiInstance.Tokenize(postTokenizeRequest, profileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**PostTokenizeResponse**](PostTokenizeResponse.md)
 
 ### Authorization
 

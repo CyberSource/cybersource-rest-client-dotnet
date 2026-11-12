@@ -85,8 +85,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string agentId = null;
-            //KeyRequest keyRequest = null;
-            //var response = instance.AddAgentKey(agentId, keyRequest);
+            //AddAgentKeyRequest addAgentKeyRequest = null;
+            //var response = instance.AddAgentKey(agentId, addAgentKeyRequest);
             //Assert.IsInstanceOf<AddAgentKeyResponse201> (response, "response is AddAgentKeyResponse201");
         }
         
@@ -163,8 +163,8 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string agentId = null;
             //string keyId = null;
-            //KeyUpdate keyUpdate = null;
-            //var response = instance.UpdateAgentKey(agentId, keyId, keyUpdate);
+            //UpdateAgentKeyRequest updateAgentKeyRequest = null;
+            //var response = instance.UpdateAgentKey(agentId, keyId, updateAgentKeyRequest);
             //Assert.IsInstanceOf<AddAgentKeyResponse201> (response, "response is AddAgentKeyResponse201");
         }
         

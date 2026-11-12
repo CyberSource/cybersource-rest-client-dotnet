@@ -40,8 +40,8 @@ namespace CyberSource.Api
         /// <param name="getAllProductsRequest">Empty request body.</param>
         /// <param name="page">Page number to retrieve (0-based). Defaults to 0. (optional, default to 0)</param>
         /// <param name="size">Number of products per page. Defaults to 300. Server enforces a maximum of 1000; values above 1000 are capped.  (optional, default to 300)</param>
-        /// <returns>InlineResponse20020</returns>
-        InlineResponse20020 GetAllProducts(Object getAllProductsRequest, int? page = null, int? size = null);
+        /// <returns>ProductCatalogResponse</returns>
+        ProductCatalogResponse GetAllProducts(Object getAllProductsRequest, int? page = null, int? size = null);
 
         /// <summary>
         /// Get All Products
@@ -53,8 +53,8 @@ namespace CyberSource.Api
         /// <param name="getAllProductsRequest">Empty request body.</param>
         /// <param name="page">Page number to retrieve (0-based). Defaults to 0. (optional, default to 0)</param>
         /// <param name="size">Number of products per page. Defaults to 300. Server enforces a maximum of 1000; values above 1000 are capped.  (optional, default to 300)</param>
-        /// <returns>ApiResponse of InlineResponse20020</returns>
-        ApiResponse<InlineResponse20020> GetAllProductsWithHttpInfo(Object getAllProductsRequest, int? page = null, int? size = null);
+        /// <returns>ApiResponse of ProductCatalogResponse</returns>
+        ApiResponse<ProductCatalogResponse> GetAllProductsWithHttpInfo(Object getAllProductsRequest, int? page = null, int? size = null);
         /// <summary>
         /// Get Feed Job Status
         /// </summary>
@@ -64,8 +64,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">Unique identifier of the feed submission job, returned by the Ingest Product Feed endpoint. </param>
         /// <param name="getFeedJobStatusRequest">Empty request body.</param>
-        /// <returns>InlineResponse20019</returns>
-        InlineResponse20019 GetFeedJobStatus(Guid? jobId, Object getFeedJobStatusRequest);
+        /// <returns>FeedJobStatusResponse</returns>
+        FeedJobStatusResponse GetFeedJobStatus(Guid? jobId, Object getFeedJobStatusRequest);
 
         /// <summary>
         /// Get Feed Job Status
@@ -76,8 +76,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">Unique identifier of the feed submission job, returned by the Ingest Product Feed endpoint. </param>
         /// <param name="getFeedJobStatusRequest">Empty request body.</param>
-        /// <returns>ApiResponse of InlineResponse20019</returns>
-        ApiResponse<InlineResponse20019> GetFeedJobStatusWithHttpInfo(Guid? jobId, Object getFeedJobStatusRequest);
+        /// <returns>ApiResponse of FeedJobStatusResponse</returns>
+        ApiResponse<FeedJobStatusResponse> GetFeedJobStatusWithHttpInfo(Guid? jobId, Object getFeedJobStatusRequest);
         /// <summary>
         /// Get Product by ID
         /// </summary>
@@ -87,8 +87,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">The unique product identifier (SKU) assigned by the merchant and provided during feed ingestion. Example: &#x60;SKU-1001&#x60;. </param>
         /// <param name="getProductRequest">Empty request body.</param>
-        /// <returns>InlineResponse20021</returns>
-        InlineResponse20021 GetProduct(string productId, Object getProductRequest);
+        /// <returns>ProductDetailResponse</returns>
+        ProductDetailResponse GetProduct(string productId, Object getProductRequest);
 
         /// <summary>
         /// Get Product by ID
@@ -99,8 +99,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">The unique product identifier (SKU) assigned by the merchant and provided during feed ingestion. Example: &#x60;SKU-1001&#x60;. </param>
         /// <param name="getProductRequest">Empty request body.</param>
-        /// <returns>ApiResponse of InlineResponse20021</returns>
-        ApiResponse<InlineResponse20021> GetProductWithHttpInfo(string productId, Object getProductRequest);
+        /// <returns>ApiResponse of ProductDetailResponse</returns>
+        ApiResponse<ProductDetailResponse> GetProductWithHttpInfo(string productId, Object getProductRequest);
         /// <summary>
         /// Ingest Product Feed
         /// </summary>
@@ -109,8 +109,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productFeedRequest">Product feed payload. The &#x60;products&#x60; array is required and must contain at least one product. See &#x60;ProductInput&#x60; for the full list of required fields. </param>
-        /// <returns>InlineResponse2021</returns>
-        InlineResponse2021 SubmitProductFeedJson(ProductFeedRequest productFeedRequest);
+        /// <returns>ProductAcceptedFeedResponse</returns>
+        ProductAcceptedFeedResponse SubmitProductFeedJson(ProductFeedRequest productFeedRequest);
 
         /// <summary>
         /// Ingest Product Feed
@@ -120,8 +120,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productFeedRequest">Product feed payload. The &#x60;products&#x60; array is required and must contain at least one product. See &#x60;ProductInput&#x60; for the full list of required fields. </param>
-        /// <returns>ApiResponse of InlineResponse2021</returns>
-        ApiResponse<InlineResponse2021> SubmitProductFeedJsonWithHttpInfo(ProductFeedRequest productFeedRequest);
+        /// <returns>ApiResponse of ProductAcceptedFeedResponse</returns>
+        ApiResponse<ProductAcceptedFeedResponse> SubmitProductFeedJsonWithHttpInfo(ProductFeedRequest productFeedRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -134,8 +134,8 @@ namespace CyberSource.Api
         /// <param name="getAllProductsRequest">Empty request body.</param>
         /// <param name="page">Page number to retrieve (0-based). Defaults to 0. (optional, default to 0)</param>
         /// <param name="size">Number of products per page. Defaults to 300. Server enforces a maximum of 1000; values above 1000 are capped.  (optional, default to 300)</param>
-        /// <returns>Task of InlineResponse20020</returns>
-        System.Threading.Tasks.Task<InlineResponse20020> GetAllProductsAsync(Object getAllProductsRequest, int? page = null, int? size = null);
+        /// <returns>Task of ProductCatalogResponse</returns>
+        System.Threading.Tasks.Task<ProductCatalogResponse> GetAllProductsAsync(Object getAllProductsRequest, int? page = null, int? size = null);
 
         /// <summary>
         /// Get All Products
@@ -147,8 +147,8 @@ namespace CyberSource.Api
         /// <param name="getAllProductsRequest">Empty request body.</param>
         /// <param name="page">Page number to retrieve (0-based). Defaults to 0. (optional, default to 0)</param>
         /// <param name="size">Number of products per page. Defaults to 300. Server enforces a maximum of 1000; values above 1000 are capped.  (optional, default to 300)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetAllProductsAsyncWithHttpInfo(Object getAllProductsRequest, int? page = null, int? size = null);
+        /// <returns>Task of ApiResponse (ProductCatalogResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProductCatalogResponse>> GetAllProductsAsyncWithHttpInfo(Object getAllProductsRequest, int? page = null, int? size = null);
         /// <summary>
         /// Get Feed Job Status
         /// </summary>
@@ -158,8 +158,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">Unique identifier of the feed submission job, returned by the Ingest Product Feed endpoint. </param>
         /// <param name="getFeedJobStatusRequest">Empty request body.</param>
-        /// <returns>Task of InlineResponse20019</returns>
-        System.Threading.Tasks.Task<InlineResponse20019> GetFeedJobStatusAsync(Guid? jobId, Object getFeedJobStatusRequest);
+        /// <returns>Task of FeedJobStatusResponse</returns>
+        System.Threading.Tasks.Task<FeedJobStatusResponse> GetFeedJobStatusAsync(Guid? jobId, Object getFeedJobStatusRequest);
 
         /// <summary>
         /// Get Feed Job Status
@@ -170,8 +170,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">Unique identifier of the feed submission job, returned by the Ingest Product Feed endpoint. </param>
         /// <param name="getFeedJobStatusRequest">Empty request body.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> GetFeedJobStatusAsyncWithHttpInfo(Guid? jobId, Object getFeedJobStatusRequest);
+        /// <returns>Task of ApiResponse (FeedJobStatusResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FeedJobStatusResponse>> GetFeedJobStatusAsyncWithHttpInfo(Guid? jobId, Object getFeedJobStatusRequest);
         /// <summary>
         /// Get Product by ID
         /// </summary>
@@ -181,8 +181,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">The unique product identifier (SKU) assigned by the merchant and provided during feed ingestion. Example: &#x60;SKU-1001&#x60;. </param>
         /// <param name="getProductRequest">Empty request body.</param>
-        /// <returns>Task of InlineResponse20021</returns>
-        System.Threading.Tasks.Task<InlineResponse20021> GetProductAsync(string productId, Object getProductRequest);
+        /// <returns>Task of ProductDetailResponse</returns>
+        System.Threading.Tasks.Task<ProductDetailResponse> GetProductAsync(string productId, Object getProductRequest);
 
         /// <summary>
         /// Get Product by ID
@@ -193,8 +193,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">The unique product identifier (SKU) assigned by the merchant and provided during feed ingestion. Example: &#x60;SKU-1001&#x60;. </param>
         /// <param name="getProductRequest">Empty request body.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetProductAsyncWithHttpInfo(string productId, Object getProductRequest);
+        /// <returns>Task of ApiResponse (ProductDetailResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProductDetailResponse>> GetProductAsyncWithHttpInfo(string productId, Object getProductRequest);
         /// <summary>
         /// Ingest Product Feed
         /// </summary>
@@ -203,8 +203,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productFeedRequest">Product feed payload. The &#x60;products&#x60; array is required and must contain at least one product. See &#x60;ProductInput&#x60; for the full list of required fields. </param>
-        /// <returns>Task of InlineResponse2021</returns>
-        System.Threading.Tasks.Task<InlineResponse2021> SubmitProductFeedJsonAsync(ProductFeedRequest productFeedRequest);
+        /// <returns>Task of ProductAcceptedFeedResponse</returns>
+        System.Threading.Tasks.Task<ProductAcceptedFeedResponse> SubmitProductFeedJsonAsync(ProductFeedRequest productFeedRequest);
 
         /// <summary>
         /// Ingest Product Feed
@@ -214,8 +214,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productFeedRequest">Product feed payload. The &#x60;products&#x60; array is required and must contain at least one product. See &#x60;ProductInput&#x60; for the full list of required fields. </param>
-        /// <returns>Task of ApiResponse (InlineResponse2021)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2021>> SubmitProductFeedJsonAsyncWithHttpInfo(ProductFeedRequest productFeedRequest);
+        /// <returns>Task of ApiResponse (ProductAcceptedFeedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProductAcceptedFeedResponse>> SubmitProductFeedJsonAsyncWithHttpInfo(ProductFeedRequest productFeedRequest);
         #endregion Asynchronous Operations
     }
 
@@ -249,12 +249,12 @@ namespace CyberSource.Api
         /// <param name="getAllProductsRequest">Empty request body.</param>
         /// <param name="page">Page number to retrieve (0-based). Defaults to 0. (optional, default to 0)</param>
         /// <param name="size">Number of products per page. Defaults to 300. Server enforces a maximum of 1000; values above 1000 are capped.  (optional, default to 300)</param>
-        /// <returns>InlineResponse20020</returns>
-        public InlineResponse20020 GetAllProducts(Object getAllProductsRequest, int? page = null, int? size = null)
+        /// <returns>ProductCatalogResponse</returns>
+        public ProductCatalogResponse GetAllProducts(Object getAllProductsRequest, int? page = null, int? size = null)
         {
             logger.LogDebug("CALLING API \"GetAllProducts\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20020> localVarResponse = GetAllProductsWithHttpInfo(getAllProductsRequest, page, size);
+            ApiResponse<ProductCatalogResponse> localVarResponse = GetAllProductsWithHttpInfo(getAllProductsRequest, page, size);
             logger.LogDebug("CALLING API \"GetAllProducts\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -267,8 +267,8 @@ namespace CyberSource.Api
         /// <param name="getAllProductsRequest">Empty request body.</param>
         /// <param name="page">Page number to retrieve (0-based). Defaults to 0. (optional, default to 0)</param>
         /// <param name="size">Number of products per page. Defaults to 300. Server enforces a maximum of 1000; values above 1000 are capped.  (optional, default to 300)</param>
-        /// <returns>ApiResponse of InlineResponse20020</returns>
-        public ApiResponse< InlineResponse20020 > GetAllProductsWithHttpInfo(Object getAllProductsRequest, int? page = null, int? size = null)
+        /// <returns>ApiResponse of ProductCatalogResponse</returns>
+        public ApiResponse< ProductCatalogResponse > GetAllProductsWithHttpInfo(Object getAllProductsRequest, int? page = null, int? size = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -332,7 +332,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -363,9 +363,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20020>(localVarStatusCode,
+            return new ApiResponse<ProductCatalogResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20020) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20020))); // Return statement
+                (ProductCatalogResponse) ApiClient.Deserialize(localVarResponse, typeof(ProductCatalogResponse))); // Return statement
         }
 
         /// <summary>
@@ -375,12 +375,12 @@ namespace CyberSource.Api
         /// <param name="getAllProductsRequest">Empty request body.</param>
         /// <param name="page">Page number to retrieve (0-based). Defaults to 0. (optional, default to 0)</param>
         /// <param name="size">Number of products per page. Defaults to 300. Server enforces a maximum of 1000; values above 1000 are capped.  (optional, default to 300)</param>
-        /// <returns>Task of InlineResponse20020</returns>
-        public async Task<InlineResponse20020> GetAllProductsAsync(Object getAllProductsRequest, int? page = null, int? size = null)
+        /// <returns>Task of ProductCatalogResponse</returns>
+        public async Task<ProductCatalogResponse> GetAllProductsAsync(Object getAllProductsRequest, int? page = null, int? size = null)
         {
             logger.LogDebug("CALLING API \"GetAllProductsAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20020> localVarResponse = await GetAllProductsAsyncWithHttpInfo(getAllProductsRequest, page, size);
+            ApiResponse<ProductCatalogResponse> localVarResponse = await GetAllProductsAsyncWithHttpInfo(getAllProductsRequest, page, size);
             logger.LogDebug("CALLING API \"GetAllProductsAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -394,8 +394,8 @@ namespace CyberSource.Api
         /// <param name="getAllProductsRequest">Empty request body.</param>
         /// <param name="page">Page number to retrieve (0-based). Defaults to 0. (optional, default to 0)</param>
         /// <param name="size">Number of products per page. Defaults to 300. Server enforces a maximum of 1000; values above 1000 are capped.  (optional, default to 300)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
-        public async Task<ApiResponse<InlineResponse20020>> GetAllProductsAsyncWithHttpInfo(Object getAllProductsRequest, int? page = null, int? size = null)
+        /// <returns>Task of ApiResponse (ProductCatalogResponse)</returns>
+        public async Task<ApiResponse<ProductCatalogResponse>> GetAllProductsAsyncWithHttpInfo(Object getAllProductsRequest, int? page = null, int? size = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -459,7 +459,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -490,9 +490,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20020>(localVarStatusCode,
+            return new ApiResponse<ProductCatalogResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20020) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20020))); // Return statement
+                (ProductCatalogResponse) ApiClient.Deserialize(localVarResponse, typeof(ProductCatalogResponse))); // Return statement
         }
         /// <summary>
         /// Get Feed Job Status Returns the processing and syndication status of a previously submitted product feed job.  Use this to poll the &#x60;jobId&#x60; returned by the Ingest Product Feed endpoint until processing and syndication complete. 
@@ -500,12 +500,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">Unique identifier of the feed submission job, returned by the Ingest Product Feed endpoint. </param>
         /// <param name="getFeedJobStatusRequest">Empty request body.</param>
-        /// <returns>InlineResponse20019</returns>
-        public InlineResponse20019 GetFeedJobStatus(Guid? jobId, Object getFeedJobStatusRequest)
+        /// <returns>FeedJobStatusResponse</returns>
+        public FeedJobStatusResponse GetFeedJobStatus(Guid? jobId, Object getFeedJobStatusRequest)
         {
             logger.LogDebug("CALLING API \"GetFeedJobStatus\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20019> localVarResponse = GetFeedJobStatusWithHttpInfo(jobId, getFeedJobStatusRequest);
+            ApiResponse<FeedJobStatusResponse> localVarResponse = GetFeedJobStatusWithHttpInfo(jobId, getFeedJobStatusRequest);
             logger.LogDebug("CALLING API \"GetFeedJobStatus\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -517,8 +517,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">Unique identifier of the feed submission job, returned by the Ingest Product Feed endpoint. </param>
         /// <param name="getFeedJobStatusRequest">Empty request body.</param>
-        /// <returns>ApiResponse of InlineResponse20019</returns>
-        public ApiResponse< InlineResponse20019 > GetFeedJobStatusWithHttpInfo(Guid? jobId, Object getFeedJobStatusRequest)
+        /// <returns>ApiResponse of FeedJobStatusResponse</returns>
+        public ApiResponse< FeedJobStatusResponse > GetFeedJobStatusWithHttpInfo(Guid? jobId, Object getFeedJobStatusRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -582,7 +582,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -613,9 +613,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20019>(localVarStatusCode,
+            return new ApiResponse<FeedJobStatusResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20019) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20019))); // Return statement
+                (FeedJobStatusResponse) ApiClient.Deserialize(localVarResponse, typeof(FeedJobStatusResponse))); // Return statement
         }
 
         /// <summary>
@@ -624,12 +624,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">Unique identifier of the feed submission job, returned by the Ingest Product Feed endpoint. </param>
         /// <param name="getFeedJobStatusRequest">Empty request body.</param>
-        /// <returns>Task of InlineResponse20019</returns>
-        public async Task<InlineResponse20019> GetFeedJobStatusAsync(Guid? jobId, Object getFeedJobStatusRequest)
+        /// <returns>Task of FeedJobStatusResponse</returns>
+        public async Task<FeedJobStatusResponse> GetFeedJobStatusAsync(Guid? jobId, Object getFeedJobStatusRequest)
         {
             logger.LogDebug("CALLING API \"GetFeedJobStatusAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20019> localVarResponse = await GetFeedJobStatusAsyncWithHttpInfo(jobId, getFeedJobStatusRequest);
+            ApiResponse<FeedJobStatusResponse> localVarResponse = await GetFeedJobStatusAsyncWithHttpInfo(jobId, getFeedJobStatusRequest);
             logger.LogDebug("CALLING API \"GetFeedJobStatusAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -642,8 +642,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobId">Unique identifier of the feed submission job, returned by the Ingest Product Feed endpoint. </param>
         /// <param name="getFeedJobStatusRequest">Empty request body.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
-        public async Task<ApiResponse<InlineResponse20019>> GetFeedJobStatusAsyncWithHttpInfo(Guid? jobId, Object getFeedJobStatusRequest)
+        /// <returns>Task of ApiResponse (FeedJobStatusResponse)</returns>
+        public async Task<ApiResponse<FeedJobStatusResponse>> GetFeedJobStatusAsyncWithHttpInfo(Guid? jobId, Object getFeedJobStatusRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -707,7 +707,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -738,9 +738,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20019>(localVarStatusCode,
+            return new ApiResponse<FeedJobStatusResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20019) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20019))); // Return statement
+                (FeedJobStatusResponse) ApiClient.Deserialize(localVarResponse, typeof(FeedJobStatusResponse))); // Return statement
         }
         /// <summary>
         /// Get Product by ID Retrieves a single product from the ACG catalog by its unique product identifier (SKU).  Use this to verify that a product was ingested correctly, inspect its current field values, or check its syndication-eligibility flags (&#x60;is_eligible_search&#x60;, &#x60;is_eligible_checkout&#x60;). 
@@ -748,12 +748,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">The unique product identifier (SKU) assigned by the merchant and provided during feed ingestion. Example: &#x60;SKU-1001&#x60;. </param>
         /// <param name="getProductRequest">Empty request body.</param>
-        /// <returns>InlineResponse20021</returns>
-        public InlineResponse20021 GetProduct(string productId, Object getProductRequest)
+        /// <returns>ProductDetailResponse</returns>
+        public ProductDetailResponse GetProduct(string productId, Object getProductRequest)
         {
             logger.LogDebug("CALLING API \"GetProduct\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20021> localVarResponse = GetProductWithHttpInfo(productId, getProductRequest);
+            ApiResponse<ProductDetailResponse> localVarResponse = GetProductWithHttpInfo(productId, getProductRequest);
             logger.LogDebug("CALLING API \"GetProduct\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -765,8 +765,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">The unique product identifier (SKU) assigned by the merchant and provided during feed ingestion. Example: &#x60;SKU-1001&#x60;. </param>
         /// <param name="getProductRequest">Empty request body.</param>
-        /// <returns>ApiResponse of InlineResponse20021</returns>
-        public ApiResponse< InlineResponse20021 > GetProductWithHttpInfo(string productId, Object getProductRequest)
+        /// <returns>ApiResponse of ProductDetailResponse</returns>
+        public ApiResponse< ProductDetailResponse > GetProductWithHttpInfo(string productId, Object getProductRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -830,7 +830,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -861,9 +861,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20021>(localVarStatusCode,
+            return new ApiResponse<ProductDetailResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20021) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20021))); // Return statement
+                (ProductDetailResponse) ApiClient.Deserialize(localVarResponse, typeof(ProductDetailResponse))); // Return statement
         }
 
         /// <summary>
@@ -872,12 +872,12 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">The unique product identifier (SKU) assigned by the merchant and provided during feed ingestion. Example: &#x60;SKU-1001&#x60;. </param>
         /// <param name="getProductRequest">Empty request body.</param>
-        /// <returns>Task of InlineResponse20021</returns>
-        public async Task<InlineResponse20021> GetProductAsync(string productId, Object getProductRequest)
+        /// <returns>Task of ProductDetailResponse</returns>
+        public async Task<ProductDetailResponse> GetProductAsync(string productId, Object getProductRequest)
         {
             logger.LogDebug("CALLING API \"GetProductAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20021> localVarResponse = await GetProductAsyncWithHttpInfo(productId, getProductRequest);
+            ApiResponse<ProductDetailResponse> localVarResponse = await GetProductAsyncWithHttpInfo(productId, getProductRequest);
             logger.LogDebug("CALLING API \"GetProductAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -890,8 +890,8 @@ namespace CyberSource.Api
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">The unique product identifier (SKU) assigned by the merchant and provided during feed ingestion. Example: &#x60;SKU-1001&#x60;. </param>
         /// <param name="getProductRequest">Empty request body.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
-        public async Task<ApiResponse<InlineResponse20021>> GetProductAsyncWithHttpInfo(string productId, Object getProductRequest)
+        /// <returns>Task of ApiResponse (ProductDetailResponse)</returns>
+        public async Task<ApiResponse<ProductDetailResponse>> GetProductAsyncWithHttpInfo(string productId, Object getProductRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -955,7 +955,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -986,21 +986,21 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20021>(localVarStatusCode,
+            return new ApiResponse<ProductDetailResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20021) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20021))); // Return statement
+                (ProductDetailResponse) ApiClient.Deserialize(localVarResponse, typeof(ProductDetailResponse))); // Return statement
         }
         /// <summary>
         /// Ingest Product Feed Submits a merchant product catalog to ACG for asynchronous processing and syndication to all configured protocol backends (e.g. Google Merchant Center).  **Processing pipeline:** 1. The request is accepted immediately and a &#x60;jobId&#x60; is returned — validation, ingestion,    and syndication all happen asynchronously in the background. 2. Each product is validated against UCP/ACP schema requirements (required fields, format rules) 3. Valid products are saved to the ACG catalog 4. An async syndication job is triggered to push the catalog to configured backends  **Supported content types:** &#x60;application/json&#x60; (this endpoint). CSV and JSONL uploads are also supported via file upload endpoints.  **Note:** This endpoint no longer returns per-product validation results or syndication outcomes synchronously — only the &#x60;jobId&#x60; acknowledgement shown below. Use that &#x60;jobId&#x60; to track processing and syndication status. 
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productFeedRequest">Product feed payload. The &#x60;products&#x60; array is required and must contain at least one product. See &#x60;ProductInput&#x60; for the full list of required fields. </param>
-        /// <returns>InlineResponse2021</returns>
-        public InlineResponse2021 SubmitProductFeedJson(ProductFeedRequest productFeedRequest)
+        /// <returns>ProductAcceptedFeedResponse</returns>
+        public ProductAcceptedFeedResponse SubmitProductFeedJson(ProductFeedRequest productFeedRequest)
         {
             logger.LogDebug("CALLING API \"SubmitProductFeedJson\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2021> localVarResponse = SubmitProductFeedJsonWithHttpInfo(productFeedRequest);
+            ApiResponse<ProductAcceptedFeedResponse> localVarResponse = SubmitProductFeedJsonWithHttpInfo(productFeedRequest);
             logger.LogDebug("CALLING API \"SubmitProductFeedJson\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1011,8 +1011,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productFeedRequest">Product feed payload. The &#x60;products&#x60; array is required and must contain at least one product. See &#x60;ProductInput&#x60; for the full list of required fields. </param>
-        /// <returns>ApiResponse of InlineResponse2021</returns>
-        public ApiResponse< InlineResponse2021 > SubmitProductFeedJsonWithHttpInfo(ProductFeedRequest productFeedRequest)
+        /// <returns>ApiResponse of ProductAcceptedFeedResponse</returns>
+        public ApiResponse< ProductAcceptedFeedResponse > SubmitProductFeedJsonWithHttpInfo(ProductFeedRequest productFeedRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1064,7 +1064,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1095,9 +1095,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2021>(localVarStatusCode,
+            return new ApiResponse<ProductAcceptedFeedResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2021) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2021))); // Return statement
+                (ProductAcceptedFeedResponse) ApiClient.Deserialize(localVarResponse, typeof(ProductAcceptedFeedResponse))); // Return statement
         }
 
         /// <summary>
@@ -1105,12 +1105,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productFeedRequest">Product feed payload. The &#x60;products&#x60; array is required and must contain at least one product. See &#x60;ProductInput&#x60; for the full list of required fields. </param>
-        /// <returns>Task of InlineResponse2021</returns>
-        public async Task<InlineResponse2021> SubmitProductFeedJsonAsync(ProductFeedRequest productFeedRequest)
+        /// <returns>Task of ProductAcceptedFeedResponse</returns>
+        public async Task<ProductAcceptedFeedResponse> SubmitProductFeedJsonAsync(ProductFeedRequest productFeedRequest)
         {
             logger.LogDebug("CALLING API \"SubmitProductFeedJsonAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2021> localVarResponse = await SubmitProductFeedJsonAsyncWithHttpInfo(productFeedRequest);
+            ApiResponse<ProductAcceptedFeedResponse> localVarResponse = await SubmitProductFeedJsonAsyncWithHttpInfo(productFeedRequest);
             logger.LogDebug("CALLING API \"SubmitProductFeedJsonAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1122,8 +1122,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productFeedRequest">Product feed payload. The &#x60;products&#x60; array is required and must contain at least one product. See &#x60;ProductInput&#x60; for the full list of required fields. </param>
-        /// <returns>Task of ApiResponse (InlineResponse2021)</returns>
-        public async Task<ApiResponse<InlineResponse2021>> SubmitProductFeedJsonAsyncWithHttpInfo(ProductFeedRequest productFeedRequest)
+        /// <returns>Task of ApiResponse (ProductAcceptedFeedResponse)</returns>
+        public async Task<ApiResponse<ProductAcceptedFeedResponse>> SubmitProductFeedJsonAsyncWithHttpInfo(ProductFeedRequest productFeedRequest)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1175,7 +1175,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1206,9 +1206,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2021>(localVarStatusCode,
+            return new ApiResponse<ProductAcceptedFeedResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2021) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2021))); // Return statement
+                (ProductAcceptedFeedResponse) ApiClient.Deserialize(localVarResponse, typeof(ProductAcceptedFeedResponse))); // Return statement
         }
     }
 }

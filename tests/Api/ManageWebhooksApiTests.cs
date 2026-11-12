@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string webhookId = null;
             //var response = instance.GetWebhookSubscriptionById(webhookId);
-            //Assert.IsInstanceOf<InlineResponse2018> (response, "response is InlineResponse2018");
+            //Assert.IsInstanceOf<CreateWebhookSubscriptionResponse> (response, "response is CreateWebhookSubscriptionResponse");
         }
         
         /// <summary>
@@ -99,32 +99,7 @@ namespace CyberSource.Test
             //string productId = null;
             //string eventType = null;
             //var response = instance.GetWebhookSubscriptionsByOrg(organizationId, productId, eventType);
-            //Assert.IsInstanceOf<List<InlineResponse2007>> (response, "response is List<InlineResponse2007>");
-        }
-        
-        /// <summary>
-        /// Test NotificationSubscriptionsV1WebhooksWebhookIdPost
-        /// </summary>
-        [Test]
-        public void NotificationSubscriptionsV1WebhooksWebhookIdPostTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string webhookId = null;
-            //var response = instance.NotificationSubscriptionsV1WebhooksWebhookIdPost(webhookId);
-            //Assert.IsInstanceOf<InlineResponse2019> (response, "response is InlineResponse2019");
-        }
-        
-        /// <summary>
-        /// Test NotificationSubscriptionsV2WebhooksWebhookIdPatch
-        /// </summary>
-        [Test]
-        public void NotificationSubscriptionsV2WebhooksWebhookIdPatchTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string webhookId = null;
-            //UpdateWebhook updateWebhook = null;
-            //var response = instance.NotificationSubscriptionsV2WebhooksWebhookIdPatch(webhookId, updateWebhook);
-            //Assert.IsInstanceOf<InlineResponse2008> (response, "response is InlineResponse2008");
+            //Assert.IsInstanceOf<List<WebhookSubscription>> (response, "response is List<WebhookSubscription>");
         }
         
         /// <summary>
@@ -152,7 +127,32 @@ namespace CyberSource.Test
             //string vCSenderOrganizationId = null;
             //string vCPermissions = null;
             //var response = instance.SaveAsymEgressKey(saveAsymEgressKey, vCCorrelationId, vCSenderOrganizationId, vCPermissions);
-            //Assert.IsInstanceOf<InlineResponse20110> (response, "response is InlineResponse20110");
+            //Assert.IsInstanceOf<SaveAsymEgressKeyResponse> (response, "response is SaveAsymEgressKeyResponse");
+        }
+        
+        /// <summary>
+        /// Test TestWebhookSubscription
+        /// </summary>
+        [Test]
+        public void TestWebhookSubscriptionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string webhookId = null;
+            //var response = instance.TestWebhookSubscription(webhookId);
+            //Assert.IsInstanceOf<TestWebhookSubscriptionResponse> (response, "response is TestWebhookSubscriptionResponse");
+        }
+        
+        /// <summary>
+        /// Test UpdateWebhookSubscription
+        /// </summary>
+        [Test]
+        public void UpdateWebhookSubscriptionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string webhookId = null;
+            //UpdateWebhook updateWebhook = null;
+            //var response = instance.UpdateWebhookSubscription(webhookId, updateWebhook);
+            //Assert.IsInstanceOf<UpdateWebhookSubscriptionResponse> (response, "response is UpdateWebhookSubscriptionResponse");
         }
         
     }

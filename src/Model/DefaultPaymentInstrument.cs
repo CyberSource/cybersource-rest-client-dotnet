@@ -46,7 +46,7 @@ namespace CyberSource.Model
         /// <param name="InstrumentIdentifier">InstrumentIdentifier.</param>
         /// <param name="Metadata">Metadata.</param>
         /// <param name="Embedded">Embedded.</param>
-        public DefaultPaymentInstrument(DefaultPaymentInstrumentLinks Links = default(DefaultPaymentInstrumentLinks), string Id = default(string), bool? Default = default(bool?), DefaultPaymentInstrumentBankAccount BankAccount = default(DefaultPaymentInstrumentBankAccount), DefaultPaymentInstrumentCard Card = default(DefaultPaymentInstrumentCard), DefaultPaymentInstrumentBuyerInformation BuyerInformation = default(DefaultPaymentInstrumentBuyerInformation), DefaultPaymentInstrumentBillTo BillTo = default(DefaultPaymentInstrumentBillTo), TmsPaymentInstrumentProcessingInfo ProcessingInformation = default(TmsPaymentInstrumentProcessingInfo), TmsMerchantInformation MerchantInformation = default(TmsMerchantInformation), DefaultPaymentInstrumentInstrumentIdentifier InstrumentIdentifier = default(DefaultPaymentInstrumentInstrumentIdentifier), DefaultPaymentInstrumentMetadata Metadata = default(DefaultPaymentInstrumentMetadata), DefaultPaymentInstrumentEmbedded Embedded = default(DefaultPaymentInstrumentEmbedded))
+        public DefaultPaymentInstrument(DefaultPaymentInstrumentLinks Links = default(DefaultPaymentInstrumentLinks), string Id = default(string), bool? Default = default(bool?), DefaultPaymentInstrumentBankAccount BankAccount = default(DefaultPaymentInstrumentBankAccount), DefaultPaymentInstrumentCard Card = default(DefaultPaymentInstrumentCard), DefaultPaymentInstrumentBuyerInformation BuyerInformation = default(DefaultPaymentInstrumentBuyerInformation), DefaultPaymentInstrumentBillTo BillTo = default(DefaultPaymentInstrumentBillTo), TmsPaymentInstrumentProcessingInfo ProcessingInformation = default(TmsPaymentInstrumentProcessingInfo), TmsMerchantInformation MerchantInformation = default(TmsMerchantInformation), DefaultPaymentInstrumentInstrumentIdentifier InstrumentIdentifier = default(DefaultPaymentInstrumentInstrumentIdentifier), DefaultPaymentInstrumentMetadata Metadata = default(DefaultPaymentInstrumentMetadata), PaymentInstrumentEmbedded Embedded = default(PaymentInstrumentEmbedded))
         {
             this.Links = Links;
             this.Id = Id;
@@ -173,7 +173,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("_embedded")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public DefaultPaymentInstrumentEmbedded Embedded { get; set; }
+        public PaymentInstrumentEmbedded Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

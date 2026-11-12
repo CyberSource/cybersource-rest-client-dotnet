@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **DefaultPaymentInstrument** | [**Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument**](Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument.md) |  | [optional] 
 **DefaultShippingAddress** | [**Tmsv2tokenizeTokenInformationCustomerDefaultShippingAddress**](Tmsv2tokenizeTokenInformationCustomerDefaultShippingAddress.md) |  | [optional] 
 **Metadata** | [**Tmsv2tokenizeTokenInformationCustomerMetadata**](Tmsv2tokenizeTokenInformationCustomerMetadata.md) |  | [optional] 
-**Embedded** | [**Tmsv2customersEmbedded**](Tmsv2customersEmbedded.md) |  | [optional] 
+**Embedded** | [**Tmsv2tokenizeTokenInformationCustomerEmbedded1**](Tmsv2tokenizeTokenInformationCustomerEmbedded1.md) |  | [optional] 
 
 ## Extensibility
 

@@ -31,27 +31,6 @@ namespace CyberSource.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Find Products You Can Subscribe To
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>List&lt;InlineResponse2006&gt;</returns>
-        List<InlineResponse2006> FindProductsToSubscribe(string organizationId);
-
-        /// <summary>
-        /// Find Products You Can Subscribe To
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2006&gt;</returns>
-        ApiResponse<List<InlineResponse2006>> FindProductsToSubscribeWithHttpInfo(string organizationId);
-        /// <summary>
         /// Create a New Webhook Subscription
         /// </summary>
         /// <remarks>
@@ -59,8 +38,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>InlineResponse2018</returns>
-        InlineResponse2018 NotificationSubscriptionsV2WebhooksPost(CreateWebhook createWebhook = null);
+        /// <returns>CreateWebhookSubscriptionResponse</returns>
+        CreateWebhookSubscriptionResponse CreateWebhookSubscription(CreateWebhook createWebhook = null);
 
         /// <summary>
         /// Create a New Webhook Subscription
@@ -70,8 +49,29 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2018</returns>
-        ApiResponse<InlineResponse2018> NotificationSubscriptionsV2WebhooksPostWithHttpInfo(CreateWebhook createWebhook = null);
+        /// <returns>ApiResponse of CreateWebhookSubscriptionResponse</returns>
+        ApiResponse<CreateWebhookSubscriptionResponse> CreateWebhookSubscriptionWithHttpInfo(CreateWebhook createWebhook = null);
+        /// <summary>
+        /// Find Products You Can Subscribe To
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="organizationId">The Organization Identifier.</param>
+        /// <returns>List&lt;ProductCatalogProduct&gt;</returns>
+        List<ProductCatalogProduct> FindProductsToSubscribe(string organizationId);
+
+        /// <summary>
+        /// Find Products You Can Subscribe To
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="organizationId">The Organization Identifier.</param>
+        /// <returns>ApiResponse of List&lt;ProductCatalogProduct&gt;</returns>
+        ApiResponse<List<ProductCatalogProduct>> FindProductsToSubscribeWithHttpInfo(string organizationId);
         /// <summary>
         /// Create Webhook Security Keys
         /// </summary>
@@ -83,8 +83,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>InlineResponse2017</returns>
-        InlineResponse2017 SaveSymEgressKey(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>SaveSymEgressKeyResponse</returns>
+        SaveSymEgressKeyResponse SaveSymEgressKey(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
 
         /// <summary>
         /// Create Webhook Security Keys
@@ -97,32 +97,11 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2017</returns>
-        ApiResponse<InlineResponse2017> SaveSymEgressKeyWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>ApiResponse of SaveSymEgressKeyResponse</returns>
+        ApiResponse<SaveSymEgressKeyResponse> SaveSymEgressKeyWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Find Products You Can Subscribe To
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of List&lt;InlineResponse2006&gt;</returns>
-        System.Threading.Tasks.Task<List<InlineResponse2006>> FindProductsToSubscribeAsync(string organizationId);
-
-        /// <summary>
-        /// Find Products You Can Subscribe To
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
-        /// </remarks>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2006&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineResponse2006>>> FindProductsToSubscribeAsyncWithHttpInfo(string organizationId);
-        /// <summary>
         /// Create a New Webhook Subscription
         /// </summary>
         /// <remarks>
@@ -130,8 +109,8 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>Task of InlineResponse2018</returns>
-        System.Threading.Tasks.Task<InlineResponse2018> NotificationSubscriptionsV2WebhooksPostAsync(CreateWebhook createWebhook = null);
+        /// <returns>Task of CreateWebhookSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<CreateWebhookSubscriptionResponse> CreateWebhookSubscriptionAsync(CreateWebhook createWebhook = null);
 
         /// <summary>
         /// Create a New Webhook Subscription
@@ -141,8 +120,29 @@ namespace CyberSource.Api
         /// </remarks>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2018>> NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo(CreateWebhook createWebhook = null);
+        /// <returns>Task of ApiResponse (CreateWebhookSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateWebhookSubscriptionResponse>> CreateWebhookSubscriptionAsyncWithHttpInfo(CreateWebhook createWebhook = null);
+        /// <summary>
+        /// Find Products You Can Subscribe To
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="organizationId">The Organization Identifier.</param>
+        /// <returns>Task of List&lt;ProductCatalogProduct&gt;</returns>
+        System.Threading.Tasks.Task<List<ProductCatalogProduct>> FindProductsToSubscribeAsync(string organizationId);
+
+        /// <summary>
+        /// Find Products You Can Subscribe To
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
+        /// </remarks>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="organizationId">The Organization Identifier.</param>
+        /// <returns>Task of ApiResponse (List&lt;ProductCatalogProduct&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<ProductCatalogProduct>>> FindProductsToSubscribeAsyncWithHttpInfo(string organizationId);
         /// <summary>
         /// Create Webhook Security Keys
         /// </summary>
@@ -154,8 +154,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of InlineResponse2017</returns>
-        System.Threading.Tasks.Task<InlineResponse2017> SaveSymEgressKeyAsync(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>Task of SaveSymEgressKeyResponse</returns>
+        System.Threading.Tasks.Task<SaveSymEgressKeyResponse> SaveSymEgressKeyAsync(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
 
         /// <summary>
         /// Create Webhook Security Keys
@@ -168,8 +168,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2017>> SaveSymEgressKeyAsyncWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
+        /// <returns>Task of ApiResponse (SaveSymEgressKeyResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SaveSymEgressKeyResponse>> SaveSymEgressKeyAsyncWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null);
         #endregion Asynchronous Operations
     }
 
@@ -197,16 +197,224 @@ namespace CyberSource.Api
         }
 
         /// <summary>
+        /// Create a New Webhook Subscription Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \&quot;Create Webhook using oAuth with Client Credentials\&quot; - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \&quot;Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\&quot; to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \&quot;Create Webhook using oAuth with JWT\&quot; 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <returns>CreateWebhookSubscriptionResponse</returns>
+        public CreateWebhookSubscriptionResponse CreateWebhookSubscription(CreateWebhook createWebhook = null)
+        {
+            logger.LogDebug("CALLING API \"CreateWebhookSubscription\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<CreateWebhookSubscriptionResponse> localVarResponse = CreateWebhookSubscriptionWithHttpInfo(createWebhook);
+            logger.LogDebug("CALLING API \"CreateWebhookSubscription\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a New Webhook Subscription Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \&quot;Create Webhook using oAuth with Client Credentials\&quot; - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \&quot;Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\&quot; to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \&quot;Create Webhook using oAuth with JWT\&quot; 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <returns>ApiResponse of CreateWebhookSubscriptionResponse</returns>
+        public ApiResponse< CreateWebhookSubscriptionResponse > CreateWebhookSubscriptionWithHttpInfo(CreateWebhook createWebhook = null)
+        {
+            LogUtility logUtility = new LogUtility();
+
+
+            var localVarPath = $"/notification-subscriptions/v2/webhooks";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (createWebhook != null && createWebhook.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                createWebhook = (CreateWebhook)sdkTracker.InsertDeveloperIdTracker(createWebhook, createWebhook.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(createWebhook); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createWebhook; // byte array
+            }
+
+
+            string inboundMLEStatus = "false";
+            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreateWebhookSubscription,CreateWebhookSubscriptionAsync,CreateWebhookSubscriptionWithHttpInfo,CreateWebhookSubscriptionAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
+                }
+                catch (Exception e)
+                {
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
+                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateWebhookSubscription,CreateWebhookSubscriptionAsync,CreateWebhookSubscriptionWithHttpInfo,CreateWebhookSubscriptionAsyncWithHttpInfo");
+
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
+
+
+            // make the HTTP request
+            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateWebhookSubscription", localVarResponse);
+                if (exception != null)
+                {
+                    logger.LogError("Exception : {Message}", exception.Message);
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<CreateWebhookSubscriptionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (CreateWebhookSubscriptionResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateWebhookSubscriptionResponse))); // Return statement
+        }
+
+        /// <summary>
+        /// Create a New Webhook Subscription Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \&quot;Create Webhook using oAuth with Client Credentials\&quot; - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \&quot;Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\&quot; to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \&quot;Create Webhook using oAuth with JWT\&quot; 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <returns>Task of CreateWebhookSubscriptionResponse</returns>
+        public async Task<CreateWebhookSubscriptionResponse> CreateWebhookSubscriptionAsync(CreateWebhook createWebhook = null)
+        {
+            logger.LogDebug("CALLING API \"CreateWebhookSubscriptionAsync\" STARTED");
+            this.SetStatusCode(null);
+            ApiResponse<CreateWebhookSubscriptionResponse> localVarResponse = await CreateWebhookSubscriptionAsyncWithHttpInfo(createWebhook);
+            logger.LogDebug("CALLING API \"CreateWebhookSubscriptionAsync\" ENDED");
+            this.SetStatusCode(localVarResponse.StatusCode);
+            return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create a New Webhook Subscription Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \&quot;Create Webhook using oAuth with Client Credentials\&quot; - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \&quot;Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\&quot; to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \&quot;Create Webhook using oAuth with JWT\&quot; 
+        /// </summary>
+        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createWebhook">The webhook payload (optional)</param>
+        /// <returns>Task of ApiResponse (CreateWebhookSubscriptionResponse)</returns>
+        public async Task<ApiResponse<CreateWebhookSubscriptionResponse>> CreateWebhookSubscriptionAsyncWithHttpInfo(CreateWebhook createWebhook = null)
+        {
+            LogUtility logUtility = new LogUtility();
+
+
+            var localVarPath = $"/notification-subscriptions/v2/webhooks";
+            var localVarPathParams = new Dictionary<string, string>();
+            var localVarQueryParams = new Dictionary<string, string>();
+            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
+            var localVarFormParams = new Dictionary<string, string>();
+            var localVarFileParams = new Dictionary<string, FileParameter>();
+            object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            string[] localVarHttpContentTypes = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            string[] localVarHttpHeaderAccepts = new string[] {
+                "application/json;charset=utf-8"
+            };
+            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+            {
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+            }
+
+            if (createWebhook != null && createWebhook.GetType() != typeof(byte[]))
+            {
+                SdkTracker sdkTracker = new SdkTracker();
+                createWebhook = (CreateWebhook)sdkTracker.InsertDeveloperIdTracker(createWebhook, createWebhook.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
+                localVarPostBody = ApiClient.Serialize(createWebhook); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createWebhook; // byte array
+            }
+
+
+            string inboundMLEStatus = "false";
+            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "CreateWebhookSubscription,CreateWebhookSubscriptionAsync,CreateWebhookSubscriptionWithHttpInfo,CreateWebhookSubscriptionAsyncWithHttpInfo"))
+            {
+                try
+                {
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
+                }
+                catch (Exception e)
+                {
+                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
+                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
+                }
+            }
+
+            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "CreateWebhookSubscription,CreateWebhookSubscriptionAsync,CreateWebhookSubscriptionWithHttpInfo,CreateWebhookSubscriptionAsyncWithHttpInfo");
+
+            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
+
+
+            // make the HTTP request
+            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
+                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateWebhookSubscription", localVarResponse);
+                if (exception != null)
+                {
+                    logger.LogError("Exception : {Message}", exception.Message);
+                    throw exception;
+                }
+            }
+
+            return new ApiResponse<CreateWebhookSubscriptionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
+                (CreateWebhookSubscriptionResponse) ApiClient.Deserialize(localVarResponse, typeof(CreateWebhookSubscriptionResponse))); // Return statement
+        }
+        /// <summary>
         /// Find Products You Can Subscribe To Retrieve a list of products and event types that your account is eligible for. These products and events are the ones that you may subscribe to in the next step of creating webhooks.
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>List&lt;InlineResponse2006&gt;</returns>
-        public List<InlineResponse2006> FindProductsToSubscribe(string organizationId)
+        /// <returns>List&lt;ProductCatalogProduct&gt;</returns>
+        public List<ProductCatalogProduct> FindProductsToSubscribe(string organizationId)
         {
             logger.LogDebug("CALLING API \"FindProductsToSubscribe\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2006>> localVarResponse = FindProductsToSubscribeWithHttpInfo(organizationId);
+            ApiResponse<List<ProductCatalogProduct>> localVarResponse = FindProductsToSubscribeWithHttpInfo(organizationId);
             logger.LogDebug("CALLING API \"FindProductsToSubscribe\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -217,8 +425,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>ApiResponse of List&lt;InlineResponse2006&gt;</returns>
-        public ApiResponse< List<InlineResponse2006> > FindProductsToSubscribeWithHttpInfo(string organizationId)
+        /// <returns>ApiResponse of List&lt;ProductCatalogProduct&gt;</returns>
+        public ApiResponse< List<ProductCatalogProduct> > FindProductsToSubscribeWithHttpInfo(string organizationId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -281,7 +489,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -310,9 +518,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2006>>(localVarStatusCode,
+            return new ApiResponse<List<ProductCatalogProduct>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2006>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2006>))); // Return statement
+                (List<ProductCatalogProduct>) ApiClient.Deserialize(localVarResponse, typeof(List<ProductCatalogProduct>))); // Return statement
         }
 
         /// <summary>
@@ -320,12 +528,12 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of List&lt;InlineResponse2006&gt;</returns>
-        public async Task<List<InlineResponse2006>> FindProductsToSubscribeAsync(string organizationId)
+        /// <returns>Task of List&lt;ProductCatalogProduct&gt;</returns>
+        public async Task<List<ProductCatalogProduct>> FindProductsToSubscribeAsync(string organizationId)
         {
             logger.LogDebug("CALLING API \"FindProductsToSubscribeAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<List<InlineResponse2006>> localVarResponse = await FindProductsToSubscribeAsyncWithHttpInfo(organizationId);
+            ApiResponse<List<ProductCatalogProduct>> localVarResponse = await FindProductsToSubscribeAsyncWithHttpInfo(organizationId);
             logger.LogDebug("CALLING API \"FindProductsToSubscribeAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -337,8 +545,8 @@ namespace CyberSource.Api
         /// </summary>
         /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="organizationId">The Organization Identifier.</param>
-        /// <returns>Task of ApiResponse (List&lt;InlineResponse2006&gt;)</returns>
-        public async Task<ApiResponse<List<InlineResponse2006>>> FindProductsToSubscribeAsyncWithHttpInfo(string organizationId)
+        /// <returns>Task of ApiResponse (List&lt;ProductCatalogProduct&gt;)</returns>
+        public async Task<ApiResponse<List<ProductCatalogProduct>>> FindProductsToSubscribeAsyncWithHttpInfo(string organizationId)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -400,7 +608,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -429,217 +637,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<List<InlineResponse2006>>(localVarStatusCode,
+            return new ApiResponse<List<ProductCatalogProduct>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (List<InlineResponse2006>) ApiClient.Deserialize(localVarResponse, typeof(List<InlineResponse2006>))); // Return statement
-        }
-        /// <summary>
-        /// Create a New Webhook Subscription Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \&quot;Create Webhook using oAuth with Client Credentials\&quot; - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \&quot;Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\&quot; to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \&quot;Create Webhook using oAuth with JWT\&quot; 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>InlineResponse2018</returns>
-        public InlineResponse2018 NotificationSubscriptionsV2WebhooksPost(CreateWebhook createWebhook = null)
-        {
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksPost\" STARTED");
-            this.SetStatusCode(null);
-            ApiResponse<InlineResponse2018> localVarResponse = NotificationSubscriptionsV2WebhooksPostWithHttpInfo(createWebhook);
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksPost\" ENDED");
-            this.SetStatusCode(localVarResponse.StatusCode);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create a New Webhook Subscription Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \&quot;Create Webhook using oAuth with Client Credentials\&quot; - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \&quot;Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\&quot; to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \&quot;Create Webhook using oAuth with JWT\&quot; 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2018</returns>
-        public ApiResponse< InlineResponse2018 > NotificationSubscriptionsV2WebhooksPostWithHttpInfo(CreateWebhook createWebhook = null)
-        {
-            LogUtility logUtility = new LogUtility();
-
-
-            var localVarPath = $"/notification-subscriptions/v2/webhooks";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-            {
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
-
-            if (createWebhook != null && createWebhook.GetType() != typeof(byte[]))
-            {
-                SdkTracker sdkTracker = new SdkTracker();
-                createWebhook = (CreateWebhook)sdkTracker.InsertDeveloperIdTracker(createWebhook, createWebhook.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(createWebhook); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = createWebhook; // byte array
-            }
-
-
-            string inboundMLEStatus = "false";
-            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "NotificationSubscriptionsV2WebhooksPost,NotificationSubscriptionsV2WebhooksPostAsync,NotificationSubscriptionsV2WebhooksPostWithHttpInfo,NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo"))
-            {
-                try
-                {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
-                }
-                catch (Exception e)
-                {
-                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
-                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
-                }
-            }
-
-            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "NotificationSubscriptionsV2WebhooksPost,NotificationSubscriptionsV2WebhooksPostAsync,NotificationSubscriptionsV2WebhooksPostWithHttpInfo,NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo");
-
-            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
-
-
-            // make the HTTP request
-            HttpResponseMessage localVarResponse = (HttpResponseMessage) ApiClient.CallApi(localVarPath,
-                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("NotificationSubscriptionsV2WebhooksPost", localVarResponse);
-                if (exception != null)
-                {
-                    logger.LogError("Exception : {Message}", exception.Message);
-                    throw exception;
-                }
-            }
-
-            return new ApiResponse<InlineResponse2018>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2018))); // Return statement
-        }
-
-        /// <summary>
-        /// Create a New Webhook Subscription Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \&quot;Create Webhook using oAuth with Client Credentials\&quot; - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \&quot;Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\&quot; to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \&quot;Create Webhook using oAuth with JWT\&quot; 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>Task of InlineResponse2018</returns>
-        public async Task<InlineResponse2018> NotificationSubscriptionsV2WebhooksPostAsync(CreateWebhook createWebhook = null)
-        {
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksPostAsync\" STARTED");
-            this.SetStatusCode(null);
-            ApiResponse<InlineResponse2018> localVarResponse = await NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo(createWebhook);
-            logger.LogDebug("CALLING API \"NotificationSubscriptionsV2WebhooksPostAsync\" ENDED");
-            this.SetStatusCode(localVarResponse.StatusCode);
-            return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Create a New Webhook Subscription Create a new webhook subscription. Before creating a webhook, ensure that a signature key has been created.  For the example \&quot;Create Webhook using oAuth with Client Credentials\&quot; - for clients who have more than one oAuth Provider and have different client secrets that they would like to config for a given webhook, they may do so by overriding the keyId inside security config of webhook subscription. See the Developer Center examples section titled \&quot;Webhook Security - Create or Store Egress Symmetric Key - Store oAuth Credentials For Symmetric Key\&quot; to store these oAuth credentials that CYBS will need for oAuth.  For JWT authentication, attach your oAuth details to the webhook subscription. See the example \&quot;Create Webhook using oAuth with JWT\&quot; 
-        /// </summary>
-        /// <exception cref="CyberSource.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createWebhook">The webhook payload (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2018)</returns>
-        public async Task<ApiResponse<InlineResponse2018>> NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo(CreateWebhook createWebhook = null)
-        {
-            LogUtility logUtility = new LogUtility();
-
-
-            var localVarPath = $"/notification-subscriptions/v2/webhooks";
-            var localVarPathParams = new Dictionary<string, string>();
-            var localVarQueryParams = new Dictionary<string, string>();
-            var localVarHeaderParams = new Dictionary<string, string>(Configuration.MerchantLegacySettings.DefaultHeader);
-            var localVarFormParams = new Dictionary<string, string>();
-            var localVarFileParams = new Dictionary<string, FileParameter>();
-            object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            string[] localVarHttpContentTypes = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpContentType = ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            string[] localVarHttpHeaderAccepts = new string[] {
-                "application/json;charset=utf-8"
-            };
-            string localVarHttpHeaderAccept = ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-            {
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-            }
-
-            if (createWebhook != null && createWebhook.GetType() != typeof(byte[]))
-            {
-                SdkTracker sdkTracker = new SdkTracker();
-                createWebhook = (CreateWebhook)sdkTracker.InsertDeveloperIdTracker(createWebhook, createWebhook.GetType().Name, Configuration.MerchantCredentialSettings.RunEnvironment, Configuration.MerchantNetworkSettings.DefaultDeveloperId);
-                localVarPostBody = ApiClient.Serialize(createWebhook); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = createWebhook; // byte array
-            }
-
-
-            string inboundMLEStatus = "false";
-            if (MLEUtility.CheckIsMLEForAPI(Configuration.MerchantMLESettings, inboundMLEStatus, "NotificationSubscriptionsV2WebhooksPost,NotificationSubscriptionsV2WebhooksPostAsync,NotificationSubscriptionsV2WebhooksPostWithHttpInfo,NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo"))
-            {
-                try
-                {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
-                }
-                catch (Exception e)
-                {
-                    logger.LogError(e, "Failed to encrypt request body: {Message}", e.Message);
-                    throw new Exception($"Failed to encrypt request body: {e.Message}", e);
-                }
-            }
-
-            bool isResponseMLEForApi = MLEUtility.CheckIsResponseMLEForAPI(Configuration.MerchantMLESettings, "NotificationSubscriptionsV2WebhooksPost,NotificationSubscriptionsV2WebhooksPostAsync,NotificationSubscriptionsV2WebhooksPostWithHttpInfo,NotificationSubscriptionsV2WebhooksPostAsyncWithHttpInfo");
-
-            logger.LogDebug("HTTP Request Body :\n{Message}", JsonCompactor.CompactJsonForPrinting(logUtility.MaskSensitiveData(localVarPostBody.ToString())));
-
-
-            // make the HTTP request
-            HttpResponseMessage localVarResponse = (HttpResponseMessage)await ApiClient.CallApiAsync(localVarPath,
-                new HttpMethod("POST"), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType, isResponseMLEForApi);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("NotificationSubscriptionsV2WebhooksPost", localVarResponse);
-                if (exception != null)
-                {
-                    logger.LogError("Exception : {Message}", exception.Message);
-                    throw exception;
-                }
-            }
-
-            return new ApiResponse<InlineResponse2018>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2018))); // Return statement
+                (List<ProductCatalogProduct>) ApiClient.Deserialize(localVarResponse, typeof(List<ProductCatalogProduct>))); // Return statement
         }
         /// <summary>
         /// Create Webhook Security Keys Create security keys that CyberSource will use internally to connect to your servers and validate messages using a digital signature.  Select the CREATE example for CyberSource to generate the key on our server and maintain it for you as well. Remember to save the key in the API response, so that you can use it to validate messages later. 
@@ -649,12 +649,12 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>InlineResponse2017</returns>
-        public InlineResponse2017 SaveSymEgressKey(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>SaveSymEgressKeyResponse</returns>
+        public SaveSymEgressKeyResponse SaveSymEgressKey(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             logger.LogDebug("CALLING API \"SaveSymEgressKey\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2017> localVarResponse = SaveSymEgressKeyWithHttpInfo(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
+            ApiResponse<SaveSymEgressKeyResponse> localVarResponse = SaveSymEgressKeyWithHttpInfo(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
             logger.LogDebug("CALLING API \"SaveSymEgressKey\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -668,8 +668,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2017</returns>
-        public ApiResponse< InlineResponse2017 > SaveSymEgressKeyWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>ApiResponse of SaveSymEgressKeyResponse</returns>
+        public ApiResponse< SaveSymEgressKeyResponse > SaveSymEgressKeyWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -730,7 +730,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -761,9 +761,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
+            return new ApiResponse<SaveSymEgressKeyResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017))); // Return statement
+                (SaveSymEgressKeyResponse) ApiClient.Deserialize(localVarResponse, typeof(SaveSymEgressKeyResponse))); // Return statement
         }
 
         /// <summary>
@@ -774,12 +774,12 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of InlineResponse2017</returns>
-        public async Task<InlineResponse2017> SaveSymEgressKeyAsync(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>Task of SaveSymEgressKeyResponse</returns>
+        public async Task<SaveSymEgressKeyResponse> SaveSymEgressKeyAsync(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             logger.LogDebug("CALLING API \"SaveSymEgressKeyAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse2017> localVarResponse = await SaveSymEgressKeyAsyncWithHttpInfo(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
+            ApiResponse<SaveSymEgressKeyResponse> localVarResponse = await SaveSymEgressKeyAsyncWithHttpInfo(vCCorrelationId, vCSenderOrganizationId, vCPermissions, saveSymEgressKey);
             logger.LogDebug("CALLING API \"SaveSymEgressKeyAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -794,8 +794,8 @@ namespace CyberSource.Api
         /// <param name="vCSenderOrganizationId">Sender organization id (optional)</param>
         /// <param name="vCPermissions">Encoded user permissions returned by the CGK, for the entity user who initiated the boarding (optional)</param>
         /// <param name="saveSymEgressKey">Provide egress Symmetric key information to save (create or store or refresh) (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2017)</returns>
-        public async Task<ApiResponse<InlineResponse2017>> SaveSymEgressKeyAsyncWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
+        /// <returns>Task of ApiResponse (SaveSymEgressKeyResponse)</returns>
+        public async Task<ApiResponse<SaveSymEgressKeyResponse>> SaveSymEgressKeyAsyncWithHttpInfo(string vCCorrelationId = null, string vCSenderOrganizationId = null, string vCPermissions = null, SaveSymEgressKey saveSymEgressKey = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -856,7 +856,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -887,9 +887,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse2017>(localVarStatusCode,
+            return new ApiResponse<SaveSymEgressKeyResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse2017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2017))); // Return statement
+                (SaveSymEgressKeyResponse) ApiClient.Deserialize(localVarResponse, typeof(SaveSymEgressKeyResponse))); // Return statement
         }
     }
 }

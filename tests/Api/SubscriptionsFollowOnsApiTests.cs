@@ -72,8 +72,8 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string requestId = null;
-            //CreateSubscriptionRequest1 createSubscriptionRequest = null;
-            //var response = instance.CreateFollowOnSubscription(requestId, createSubscriptionRequest);
+            //CreateFollowOnSubscriptionRequest createFollowOnSubscriptionRequest = null;
+            //var response = instance.CreateFollowOnSubscription(requestId, createFollowOnSubscriptionRequest);
             //Assert.IsInstanceOf<CreateSubscriptionResponse> (response, "response is CreateSubscriptionResponse");
         }
         
@@ -86,7 +86,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string requestId = null;
             //var response = instance.GetFollowOnSubscription(requestId);
-            //Assert.IsInstanceOf<GetSubscriptionResponse1> (response, "response is GetSubscriptionResponse1");
+            //Assert.IsInstanceOf<GetFollowOnSubscriptionResponse> (response, "response is GetFollowOnSubscriptionResponse");
         }
         
     }

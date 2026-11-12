@@ -35,7 +35,7 @@ namespace CyberSource.Model
         /// Initializes a new instance of the <see cref="Ucv1sessionsDataMerchantInformation" /> class.
         /// </summary>
         /// <param name="MerchantDescriptor">MerchantDescriptor.</param>
-        /// <param name="VatRegistrationNumber">Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.  #### CyberSource through VisaNet For CtV processors, the maximum length is 20. .</param>
+        /// <param name="VatRegistrationNumber">Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes. .</param>
         public Ucv1sessionsDataMerchantInformation(Ucv1sessionsDataMerchantInformationMerchantDescriptor MerchantDescriptor = default(Ucv1sessionsDataMerchantInformationMerchantDescriptor), string VatRegistrationNumber = default(string))
         {
             this.MerchantDescriptor = MerchantDescriptor;
@@ -50,9 +50,9 @@ namespace CyberSource.Model
         public Ucv1sessionsDataMerchantInformationMerchantDescriptor MerchantDescriptor { get; set; }
 
         /// <summary>
-        /// Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.  #### CyberSource through VisaNet For CtV processors, the maximum length is 20. 
+        /// Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes. 
         /// </summary>
-        /// <value>Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes.  #### CyberSource through VisaNet For CtV processors, the maximum length is 20. </value>
+        /// <value>Your government-assigned tax identification number.  #### Tax Calculation Required field for value added tax only. Not applicable to U.S. and Canadian taxes. </value>
         [JsonPropertyName("vatRegistrationNumber")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string VatRegistrationNumber { get; set; }

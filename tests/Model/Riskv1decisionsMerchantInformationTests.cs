@@ -65,6 +65,14 @@ namespace CyberSource.Test
         }
 
         /// <summary>
+        /// Test the property 'CategoryCode'
+        /// </summary>
+        [Test]
+        public void CategoryCodeTest()
+        {
+            // TODO unit test for the property 'CategoryCode'
+        }
+        /// <summary>
         /// Test the property 'MerchantDescriptor'
         /// </summary>
         [Test]

@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string sessionId = null;
             //var response = instance.UcpCancelCheckout(sessionId);
-            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
+            //Assert.IsInstanceOf<UcpCheckoutSessionResponse> (response, "response is UcpCheckoutSessionResponse");
         }
         
         /// <summary>
@@ -87,7 +87,7 @@ namespace CyberSource.Test
             //string idempotencyKey = null;
             //UcpCompleteCheckoutRequest ucpCompleteCheckoutRequest = null;
             //var response = instance.UcpCompleteCheckout(sessionId, idempotencyKey, ucpCompleteCheckoutRequest);
-            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
+            //Assert.IsInstanceOf<UcpCheckoutSessionResponse> (response, "response is UcpCheckoutSessionResponse");
         }
         
         /// <summary>
@@ -100,7 +100,7 @@ namespace CyberSource.Test
             //UcpCreateCheckoutSessionRequest ucpCreateCheckoutSessionRequest = null;
             //string idempotencyKey = null;
             //var response = instance.UcpCreateCheckoutSession(ucpCreateCheckoutSessionRequest, idempotencyKey);
-            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
+            //Assert.IsInstanceOf<UcpCheckoutSessionResponse> (response, "response is UcpCheckoutSessionResponse");
         }
         
         /// <summary>
@@ -113,7 +113,7 @@ namespace CyberSource.Test
             //string sessionId = null;
             //Object ucpGetCheckoutSessionRequest = null;
             //var response = instance.UcpGetCheckoutSession(sessionId, ucpGetCheckoutSessionRequest);
-            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
+            //Assert.IsInstanceOf<UcpCheckoutSessionResponse> (response, "response is UcpCheckoutSessionResponse");
         }
         
         /// <summary>
@@ -127,7 +127,7 @@ namespace CyberSource.Test
             //UcpUpdateCheckoutSessionRequest ucpUpdateCheckoutSessionRequest = null;
             //string idempotencyKey = null;
             //var response = instance.UcpUpdateCheckoutSession(sessionId, ucpUpdateCheckoutSessionRequest, idempotencyKey);
-            //Assert.IsInstanceOf<InlineResponse20113> (response, "response is InlineResponse20113");
+            //Assert.IsInstanceOf<UcpCheckoutSessionResponse> (response, "response is UcpCheckoutSessionResponse");
         }
         
     }

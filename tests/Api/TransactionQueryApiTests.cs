@@ -72,7 +72,7 @@ namespace CyberSource.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string id = null;
-            //Body1 body = null;
+            //CreateQueryApiRequest createQueryApiRequest = null;
             //string contentType = null;
             //string xRequestid = null;
             //string vCMerchantId = null;
@@ -81,8 +81,8 @@ namespace CyberSource.Test
             //string vCOrganizationId = null;
             //int? limit = null;
             //int? offset = null;
-            //var response = instance.CreateQueryApi(id, body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
-            //Assert.IsInstanceOf<InlineResponse2014> (response, "response is InlineResponse2014");
+            //var response = instance.CreateQueryApi(id, createQueryApiRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId, limit, offset);
+            //Assert.IsInstanceOf<CreateQueryApiResponse> (response, "response is CreateQueryApiResponse");
         }
         
     }

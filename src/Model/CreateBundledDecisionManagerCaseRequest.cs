@@ -48,6 +48,9 @@ namespace CyberSource.Model
         /// <param name="DeviceInformation">DeviceInformation.</param>
         /// <param name="RiskInformation">RiskInformation.</param>
         /// <param name="TravelInformation">TravelInformation.</param>
+        /// <param name="RecipientInformation">RecipientInformation.</param>
+        /// <param name="SenderInformation">SenderInformation.</param>
+        /// <param name="AggregatorInformation">AggregatorInformation.</param>
         /// <param name="MerchantDefinedInformation">MerchantDefinedInformation.</param>
         /// <param name="MerchantInformation">MerchantInformation.</param>
         /// <param name="AcquirerInformation">AcquirerInformation.</param>
@@ -55,7 +58,7 @@ namespace CyberSource.Model
         /// <param name="ConsumerAuthenticationInformation">ConsumerAuthenticationInformation.</param>
         /// <param name="WatchlistScreeningInformation">WatchlistScreeningInformation.</param>
         /// <param name="TokenInformation">TokenInformation.</param>
-        public CreateBundledDecisionManagerCaseRequest(Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation), Riskv1decisionsProcessorInformation ProcessorInformation = default(Riskv1decisionsProcessorInformation), Riskv1decisionsProcessingInformation ProcessingInformation = default(Riskv1decisionsProcessingInformation), Riskv1decisionsPaymentInformation PaymentInformation = default(Riskv1decisionsPaymentInformation), Riskv1decisionsOrderInformation OrderInformation = default(Riskv1decisionsOrderInformation), Riskv1decisionsBuyerInformation BuyerInformation = default(Riskv1decisionsBuyerInformation), Riskv1decisionsDeviceInformation DeviceInformation = default(Riskv1decisionsDeviceInformation), Riskv1decisionsRiskInformation RiskInformation = default(Riskv1decisionsRiskInformation), Riskv1decisionsTravelInformation TravelInformation = default(Riskv1decisionsTravelInformation), List<Riskv1decisionsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Riskv1decisionsMerchantDefinedInformation>), Riskv1decisionsMerchantInformation MerchantInformation = default(Riskv1decisionsMerchantInformation), Riskv1decisionsAcquirerInformation AcquirerInformation = default(Riskv1decisionsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation), Riskv1decisionsConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1decisionsConsumerAuthenticationInformation), Ptsv2paymentsWatchlistScreeningInformation WatchlistScreeningInformation = default(Ptsv2paymentsWatchlistScreeningInformation), Riskv1decisionsTokenInformation TokenInformation = default(Riskv1decisionsTokenInformation))
+        public CreateBundledDecisionManagerCaseRequest(Riskv1decisionsClientReferenceInformation ClientReferenceInformation = default(Riskv1decisionsClientReferenceInformation), Riskv1decisionsProcessorInformation ProcessorInformation = default(Riskv1decisionsProcessorInformation), Riskv1decisionsProcessingInformation ProcessingInformation = default(Riskv1decisionsProcessingInformation), Riskv1decisionsPaymentInformation PaymentInformation = default(Riskv1decisionsPaymentInformation), Riskv1decisionsOrderInformation OrderInformation = default(Riskv1decisionsOrderInformation), Riskv1decisionsBuyerInformation BuyerInformation = default(Riskv1decisionsBuyerInformation), Riskv1decisionsDeviceInformation DeviceInformation = default(Riskv1decisionsDeviceInformation), Riskv1decisionsRiskInformation RiskInformation = default(Riskv1decisionsRiskInformation), Riskv1decisionsTravelInformation TravelInformation = default(Riskv1decisionsTravelInformation), Riskv1decisionsRecipientInformation RecipientInformation = default(Riskv1decisionsRecipientInformation), Riskv1decisionsSenderInformation SenderInformation = default(Riskv1decisionsSenderInformation), Riskv1decisionsAggregatorInformation AggregatorInformation = default(Riskv1decisionsAggregatorInformation), List<Riskv1decisionsMerchantDefinedInformation> MerchantDefinedInformation = default(List<Riskv1decisionsMerchantDefinedInformation>), Riskv1decisionsMerchantInformation MerchantInformation = default(Riskv1decisionsMerchantInformation), Riskv1decisionsAcquirerInformation AcquirerInformation = default(Riskv1decisionsAcquirerInformation), Ptsv2paymentsRecurringPaymentInformation RecurringPaymentInformation = default(Ptsv2paymentsRecurringPaymentInformation), Riskv1decisionsBundledConsumerAuthenticationInformation ConsumerAuthenticationInformation = default(Riskv1decisionsBundledConsumerAuthenticationInformation), Ptsv2paymentsWatchlistScreeningInformation WatchlistScreeningInformation = default(Ptsv2paymentsWatchlistScreeningInformation), Riskv1decisionsTokenInformation TokenInformation = default(Riskv1decisionsTokenInformation))
         {
             this.ClientReferenceInformation = ClientReferenceInformation;
             this.ProcessorInformation = ProcessorInformation;
@@ -66,6 +69,9 @@ namespace CyberSource.Model
             this.DeviceInformation = DeviceInformation;
             this.RiskInformation = RiskInformation;
             this.TravelInformation = TravelInformation;
+            this.RecipientInformation = RecipientInformation;
+            this.SenderInformation = SenderInformation;
+            this.AggregatorInformation = AggregatorInformation;
             this.MerchantDefinedInformation = MerchantDefinedInformation;
             this.MerchantInformation = MerchantInformation;
             this.AcquirerInformation = AcquirerInformation;
@@ -139,6 +145,27 @@ namespace CyberSource.Model
         public Riskv1decisionsTravelInformation TravelInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets RecipientInformation
+        /// </summary>
+        [JsonPropertyName("recipientInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Riskv1decisionsRecipientInformation RecipientInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SenderInformation
+        /// </summary>
+        [JsonPropertyName("senderInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Riskv1decisionsSenderInformation SenderInformation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AggregatorInformation
+        /// </summary>
+        [JsonPropertyName("aggregatorInformation")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Riskv1decisionsAggregatorInformation AggregatorInformation { get; set; }
+
+        /// <summary>
         /// Gets or Sets MerchantDefinedInformation
         /// </summary>
         [JsonPropertyName("merchantDefinedInformation")]
@@ -171,7 +198,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("consumerAuthenticationInformation")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Riskv1decisionsConsumerAuthenticationInformation ConsumerAuthenticationInformation { get; set; }
+        public Riskv1decisionsBundledConsumerAuthenticationInformation ConsumerAuthenticationInformation { get; set; }
 
         /// <summary>
         /// Gets or Sets WatchlistScreeningInformation
@@ -204,6 +231,9 @@ namespace CyberSource.Model
             if (DeviceInformation != null) sb.Append("  DeviceInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBundledDecisionManagerCaseRequest", "deviceInformation", DeviceInformation.ToString())).Append("\n");
             if (RiskInformation != null) sb.Append("  RiskInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBundledDecisionManagerCaseRequest", "riskInformation", RiskInformation.ToString())).Append("\n");
             if (TravelInformation != null) sb.Append("  TravelInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBundledDecisionManagerCaseRequest", "travelInformation", TravelInformation.ToString())).Append("\n");
+            if (RecipientInformation != null) sb.Append("  RecipientInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBundledDecisionManagerCaseRequest", "recipientInformation", RecipientInformation.ToString())).Append("\n");
+            if (SenderInformation != null) sb.Append("  SenderInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBundledDecisionManagerCaseRequest", "senderInformation", SenderInformation.ToString())).Append("\n");
+            if (AggregatorInformation != null) sb.Append("  AggregatorInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBundledDecisionManagerCaseRequest", "aggregatorInformation", AggregatorInformation.ToString())).Append("\n");
             if (MerchantDefinedInformation != null) sb.Append("  MerchantDefinedInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBundledDecisionManagerCaseRequest", "merchantDefinedInformation", MerchantDefinedInformation.ToString())).Append("\n");
             if (MerchantInformation != null) sb.Append("  MerchantInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBundledDecisionManagerCaseRequest", "merchantInformation", MerchantInformation.ToString())).Append("\n");
             if (AcquirerInformation != null) sb.Append("  AcquirerInformation: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("CreateBundledDecisionManagerCaseRequest", "acquirerInformation", AcquirerInformation.ToString())).Append("\n");
@@ -298,6 +328,21 @@ namespace CyberSource.Model
                     this.TravelInformation.Equals(other.TravelInformation)
                 ) && 
                 (
+                    this.RecipientInformation == other.RecipientInformation ||
+                    this.RecipientInformation != null &&
+                    this.RecipientInformation.Equals(other.RecipientInformation)
+                ) && 
+                (
+                    this.SenderInformation == other.SenderInformation ||
+                    this.SenderInformation != null &&
+                    this.SenderInformation.Equals(other.SenderInformation)
+                ) && 
+                (
+                    this.AggregatorInformation == other.AggregatorInformation ||
+                    this.AggregatorInformation != null &&
+                    this.AggregatorInformation.Equals(other.AggregatorInformation)
+                ) && 
+                (
                     this.MerchantDefinedInformation == other.MerchantDefinedInformation ||
                     this.MerchantDefinedInformation != null &&
                     this.MerchantDefinedInformation.SequenceEqual(other.MerchantDefinedInformation)
@@ -365,6 +410,12 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.RiskInformation.GetHashCode();
                 if (this.TravelInformation != null)
                     hash = hash * 59 + this.TravelInformation.GetHashCode();
+                if (this.RecipientInformation != null)
+                    hash = hash * 59 + this.RecipientInformation.GetHashCode();
+                if (this.SenderInformation != null)
+                    hash = hash * 59 + this.SenderInformation.GetHashCode();
+                if (this.AggregatorInformation != null)
+                    hash = hash * 59 + this.AggregatorInformation.GetHashCode();
                 if (this.MerchantDefinedInformation != null)
                     hash = hash * 59 + this.MerchantDefinedInformation.GetHashCode();
                 if (this.MerchantInformation != null)

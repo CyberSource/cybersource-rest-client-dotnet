@@ -43,7 +43,7 @@ namespace CyberSource.Model
         /// <param name="RetryPolicy">RetryPolicy.</param>
         /// <param name="NotificationScope">The webhook scope. 1. SELF The Webhook is used to deliver webhooks for only this Organization (or Merchant). 2. DESCENDANTS The Webhook is used to deliver webhooks for this Organization and its children. This field is optional.    Possible values: - SELF - DESCENDANTS (default to &quot;DESCENDANTS&quot;).</param>
         /// <param name="SecurityPolicy">SecurityPolicy.</param>
-        public CreateWebhook(string Name = default(string), string Description = default(string), string OrganizationId = default(string), List<Notificationsubscriptionsv2webhooksProducts1> Products = default(List<Notificationsubscriptionsv2webhooksProducts1>), string WebhookUrl = default(string), string HealthCheckUrl = default(string), Notificationsubscriptionsv2webhooksRetryPolicy RetryPolicy = default(Notificationsubscriptionsv2webhooksRetryPolicy), string NotificationScope = "DESCENDANTS", Notificationsubscriptionsv2webhooksSecurityPolicy SecurityPolicy = default(Notificationsubscriptionsv2webhooksSecurityPolicy))
+        public CreateWebhook(string Name = default(string), string Description = default(string), string OrganizationId = default(string), List<CreateWebhookRequestProductItem> Products = default(List<CreateWebhookRequestProductItem>), string WebhookUrl = default(string), string HealthCheckUrl = default(string), Notificationsubscriptionsv2webhooksRetryPolicy RetryPolicy = default(Notificationsubscriptionsv2webhooksRetryPolicy), string NotificationScope = "DESCENDANTS", Notificationsubscriptionsv2webhooksSecurityPolicy SecurityPolicy = default(Notificationsubscriptionsv2webhooksSecurityPolicy))
         {
             this.Name = Name;
             this.Description = Description;
@@ -94,7 +94,7 @@ namespace CyberSource.Model
         /// <value>To see the valid productId and eventTypes, call the \&quot;Create and Manage Webhooks - Retrieve a list of event types\&quot; endpoint.</value>
         [JsonPropertyName("products")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public List<Notificationsubscriptionsv2webhooksProducts1> Products { get; set; }
+        public List<CreateWebhookRequestProductItem> Products { get; set; }
 
         /// <summary>
         /// The client&#39;s endpoint (URL) to receive webhooks.

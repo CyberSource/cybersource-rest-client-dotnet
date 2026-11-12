@@ -72,6 +72,46 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'ActionList'
         }
+        /// <summary>
+        /// Test the property 'BusinessApplicationId'
+        /// </summary>
+        [Test]
+        public void BusinessApplicationIdTest()
+        {
+            // TODO unit test for the property 'BusinessApplicationId'
+        }
+        /// <summary>
+        /// Test the property 'PurposeOfPayment'
+        /// </summary>
+        [Test]
+        public void PurposeOfPaymentTest()
+        {
+            // TODO unit test for the property 'PurposeOfPayment'
+        }
+        /// <summary>
+        /// Test the property 'PreAuthStatus'
+        /// </summary>
+        [Test]
+        public void PreAuthStatusTest()
+        {
+            // TODO unit test for the property 'PreAuthStatus'
+        }
+        /// <summary>
+        /// Test the property 'PreAuthResponseCode'
+        /// </summary>
+        [Test]
+        public void PreAuthResponseCodeTest()
+        {
+            // TODO unit test for the property 'PreAuthResponseCode'
+        }
+        /// <summary>
+        /// Test the property 'AuthorizationOptions'
+        /// </summary>
+        [Test]
+        public void AuthorizationOptionsTest()
+        {
+            // TODO unit test for the property 'AuthorizationOptions'
+        }
 
     }
 

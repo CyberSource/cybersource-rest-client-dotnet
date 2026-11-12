@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getallproducts"></a>
 # **GetAllProducts**
-> InlineResponse20020 GetAllProducts (Object getAllProductsRequest, int? page = null, int? size = null)
+> ProductCatalogResponse GetAllProducts (Object getAllProductsRequest, int? page = null, int? size = null)
 
 Get All Products
 
@@ -40,7 +40,7 @@ namespace Example
             try
             {
                 // Get All Products
-                InlineResponse20020 result = apiInstance.GetAllProducts(getAllProductsRequest, page, size);
+                ProductCatalogResponse result = apiInstance.GetAllProducts(getAllProductsRequest, page, size);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**ProductCatalogResponse**](ProductCatalogResponse.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ No authorization required
 
 <a name="getfeedjobstatus"></a>
 # **GetFeedJobStatus**
-> InlineResponse20019 GetFeedJobStatus (Guid? jobId, Object getFeedJobStatusRequest)
+> FeedJobStatusResponse GetFeedJobStatus (Guid? jobId, Object getFeedJobStatusRequest)
 
 Get Feed Job Status
 
@@ -104,7 +104,7 @@ namespace Example
             try
             {
                 // Get Feed Job Status
-                InlineResponse20019 result = apiInstance.GetFeedJobStatus(jobId, getFeedJobStatusRequest);
+                FeedJobStatusResponse result = apiInstance.GetFeedJobStatus(jobId, getFeedJobStatusRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**FeedJobStatusResponse**](FeedJobStatusResponse.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ No authorization required
 
 <a name="getproduct"></a>
 # **GetProduct**
-> InlineResponse20021 GetProduct (string productId, Object getProductRequest)
+> ProductDetailResponse GetProduct (string productId, Object getProductRequest)
 
 Get Product by ID
 
@@ -167,7 +167,7 @@ namespace Example
             try
             {
                 // Get Product by ID
-                InlineResponse20021 result = apiInstance.GetProduct(productId, getProductRequest);
+                ProductDetailResponse result = apiInstance.GetProduct(productId, getProductRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**ProductDetailResponse**](ProductDetailResponse.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ No authorization required
 
 <a name="submitproductfeedjson"></a>
 # **SubmitProductFeedJson**
-> InlineResponse2021 SubmitProductFeedJson (ProductFeedRequest productFeedRequest)
+> ProductAcceptedFeedResponse SubmitProductFeedJson (ProductFeedRequest productFeedRequest)
 
 Ingest Product Feed
 
@@ -229,7 +229,7 @@ namespace Example
             try
             {
                 // Ingest Product Feed
-                InlineResponse2021 result = apiInstance.SubmitProductFeedJson(productFeedRequest);
+                ProductAcceptedFeedResponse result = apiInstance.SubmitProductFeedJson(productFeedRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2021**](InlineResponse2021.md)
+[**ProductAcceptedFeedResponse**](ProductAcceptedFeedResponse.md)
 
 ### Authorization
 

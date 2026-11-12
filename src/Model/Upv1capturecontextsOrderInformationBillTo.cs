@@ -52,7 +52,7 @@ namespace CyberSource.Model
         /// <param name="NameSuffix">Customer&#39;s name suffix. .</param>
         /// <param name="Title">Title. .</param>
         /// <param name="PhoneNumber">Customer&#39;s phone number. .</param>
-        /// <param name="PhoneType">Customer&#39;s phone number type.  #### For Payouts: This field may be sent only for FDC Compass.  Possible Values: * day * home * night * work .</param>
+        /// <param name="PhoneType">Customer&#39;s phone number type.  Possible Values: * day * home * night * work .</param>
         public Upv1capturecontextsOrderInformationBillTo(string Address1 = default(string), string Address2 = default(string), string Address3 = default(string), string Address4 = default(string), string AdministrativeArea = default(string), string BuildingNumber = default(string), string Country = default(string), string District = default(string), string Locality = default(string), string PostalCode = default(string), Upv1capturecontextsOrderInformationBillToCompany Company = default(Upv1capturecontextsOrderInformationBillToCompany), string Email = default(string), string FirstName = default(string), string LastName = default(string), string MiddleName = default(string), string NameSuffix = default(string), string Title = default(string), string PhoneNumber = default(string), string PhoneType = default(string))
         {
             this.Address1 = Address1;
@@ -220,9 +220,9 @@ namespace CyberSource.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Customer&#39;s phone number type.  #### For Payouts: This field may be sent only for FDC Compass.  Possible Values: * day * home * night * work 
+        /// Customer&#39;s phone number type.  Possible Values: * day * home * night * work 
         /// </summary>
-        /// <value>Customer&#39;s phone number type.  #### For Payouts: This field may be sent only for FDC Compass.  Possible Values: * day * home * night * work </value>
+        /// <value>Customer&#39;s phone number type.  Possible Values: * day * home * night * work </value>
         [JsonPropertyName("phoneType")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string PhoneType { get; set; }

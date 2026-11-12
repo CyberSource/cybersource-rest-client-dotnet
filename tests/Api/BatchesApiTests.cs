@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string batchId = null;
             //var response = instance.GetBatchReport(batchId);
-            //Assert.IsInstanceOf<InlineResponse20014> (response, "response is InlineResponse20014");
+            //Assert.IsInstanceOf<BatchReportResponse> (response, "response is BatchReportResponse");
         }
         
         /// <summary>
@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string batchId = null;
             //var response = instance.GetBatchStatus(batchId);
-            //Assert.IsInstanceOf<InlineResponse20013> (response, "response is InlineResponse20013");
+            //Assert.IsInstanceOf<BatchStatusResponse> (response, "response is BatchStatusResponse");
         }
         
         /// <summary>
@@ -100,7 +100,7 @@ namespace CyberSource.Test
             //string fromDate = null;
             //string toDate = null;
             //var response = instance.GetBatchesList(offset, limit, fromDate, toDate);
-            //Assert.IsInstanceOf<InlineResponse20012> (response, "response is InlineResponse20012");
+            //Assert.IsInstanceOf<BatchesListResponse> (response, "response is BatchesListResponse");
         }
         
         /// <summary>
@@ -110,9 +110,9 @@ namespace CyberSource.Test
         public void PostBatchTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Body body = null;
-            //var response = instance.PostBatch(body);
-            //Assert.IsInstanceOf<InlineResponse202> (response, "response is InlineResponse202");
+            //PostBatchRequest postBatchRequest = null;
+            //var response = instance.PostBatch(postBatchRequest);
+            //Assert.IsInstanceOf<BatchCreateResponse> (response, "response is BatchCreateResponse");
         }
         
     }

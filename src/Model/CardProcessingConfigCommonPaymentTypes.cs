@@ -36,7 +36,7 @@ namespace CyberSource.Model
         /// </summary>
         /// <param name="Enabled">Enabled.</param>
         /// <param name="Currencies">Three-character [ISO 4217 ALPHA-3 Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf).</param>
-        public CardProcessingConfigCommonPaymentTypes(bool? Enabled = default(bool?), Dictionary<string, CardProcessingConfigCommonCurrencies> Currencies = default(Dictionary<string, CardProcessingConfigCommonCurrencies>))
+        public CardProcessingConfigCommonPaymentTypes(bool? Enabled = default(bool?), Dictionary<string, CurrencyConfiguration> Currencies = default(Dictionary<string, CurrencyConfiguration>))
         {
             this.Enabled = Enabled;
             this.Currencies = Currencies;
@@ -55,7 +55,7 @@ namespace CyberSource.Model
         /// <value>Three-character [ISO 4217 ALPHA-3 Standard Currency Codes.](http://apps.cybersource.com/library/documentation/sbc/quickref/currencies.pdf)</value>
         [JsonPropertyName("currencies")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Dictionary<string, CardProcessingConfigCommonCurrencies> Currencies { get; set; }
+        public Dictionary<string, CurrencyConfiguration> Currencies { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

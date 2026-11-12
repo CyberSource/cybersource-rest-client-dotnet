@@ -44,7 +44,7 @@ namespace CyberSource.Model
         /// <param name="DefaultShippingAddress">DefaultShippingAddress.</param>
         /// <param name="Metadata">Metadata.</param>
         /// <param name="Embedded">Embedded.</param>
-        public PatchCustomerRequest(Tmsv2tokenizeTokenInformationCustomerLinks Links = default(Tmsv2tokenizeTokenInformationCustomerLinks), string Id = default(string), Tmsv2tokenizeTokenInformationCustomerObjectInformation ObjectInformation = default(Tmsv2tokenizeTokenInformationCustomerObjectInformation), Tmsv2tokenizeTokenInformationCustomerBuyerInformation BuyerInformation = default(Tmsv2tokenizeTokenInformationCustomerBuyerInformation), Tmsv2tokenizeTokenInformationCustomerClientReferenceInformation ClientReferenceInformation = default(Tmsv2tokenizeTokenInformationCustomerClientReferenceInformation), List<Tmsv2tokenizeTokenInformationCustomerMerchantDefinedInformation> MerchantDefinedInformation = default(List<Tmsv2tokenizeTokenInformationCustomerMerchantDefinedInformation>), Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument DefaultPaymentInstrument = default(Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument), Tmsv2tokenizeTokenInformationCustomerDefaultShippingAddress DefaultShippingAddress = default(Tmsv2tokenizeTokenInformationCustomerDefaultShippingAddress), Tmsv2tokenizeTokenInformationCustomerMetadata Metadata = default(Tmsv2tokenizeTokenInformationCustomerMetadata), Tmsv2customersEmbedded Embedded = default(Tmsv2customersEmbedded))
+        public PatchCustomerRequest(Tmsv2tokenizeTokenInformationCustomerLinks Links = default(Tmsv2tokenizeTokenInformationCustomerLinks), string Id = default(string), Tmsv2tokenizeTokenInformationCustomerObjectInformation ObjectInformation = default(Tmsv2tokenizeTokenInformationCustomerObjectInformation), Tmsv2tokenizeTokenInformationCustomerBuyerInformation BuyerInformation = default(Tmsv2tokenizeTokenInformationCustomerBuyerInformation), Tmsv2tokenizeTokenInformationCustomerClientReferenceInformation ClientReferenceInformation = default(Tmsv2tokenizeTokenInformationCustomerClientReferenceInformation), List<Tmsv2tokenizeTokenInformationCustomerMerchantDefinedInformation> MerchantDefinedInformation = default(List<Tmsv2tokenizeTokenInformationCustomerMerchantDefinedInformation>), Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument DefaultPaymentInstrument = default(Tmsv2tokenizeTokenInformationCustomerDefaultPaymentInstrument), Tmsv2tokenizeTokenInformationCustomerDefaultShippingAddress DefaultShippingAddress = default(Tmsv2tokenizeTokenInformationCustomerDefaultShippingAddress), Tmsv2tokenizeTokenInformationCustomerMetadata Metadata = default(Tmsv2tokenizeTokenInformationCustomerMetadata), Tmsv2tokenizeTokenInformationCustomerEmbedded1 Embedded = default(Tmsv2tokenizeTokenInformationCustomerEmbedded1))
         {
             this.Links = Links;
             this.Id = Id;
@@ -128,7 +128,7 @@ namespace CyberSource.Model
         /// </summary>
         [JsonPropertyName("_embedded")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public Tmsv2customersEmbedded Embedded { get; set; }
+        public Tmsv2tokenizeTokenInformationCustomerEmbedded1 Embedded { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

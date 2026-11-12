@@ -45,7 +45,8 @@ namespace CyberSource.Model
         /// <param name="NoteToSeller">Note to the recipient of the funds in this transaction.</param>
         /// <param name="MobilePhone">Cardholder&#39;s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions. .</param>
         /// <param name="WalletId">The one-time identification code of the Alipay wallet user.  It is scanned from the barcode that is shown by the mobile application. .</param>
-        public Ptsv2paymentsBuyerInformation(string MerchantCustomerId = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string CompanyTaxId = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), string HashedPassword = default(string), string Gender = default(string), string Language = default(string), string NoteToSeller = default(string), int? MobilePhone = default(int?), string WalletId = default(string))
+        /// <param name="Loyalty">Loyalty.</param>
+        public Ptsv2paymentsBuyerInformation(string MerchantCustomerId = default(string), string DateOfBirth = default(string), string VatRegistrationNumber = default(string), string CompanyTaxId = default(string), List<Ptsv2paymentsBuyerInformationPersonalIdentification> PersonalIdentification = default(List<Ptsv2paymentsBuyerInformationPersonalIdentification>), string HashedPassword = default(string), string Gender = default(string), string Language = default(string), string NoteToSeller = default(string), int? MobilePhone = default(int?), string WalletId = default(string), Ptsv2paymentsBuyerInformationLoyalty Loyalty = default(Ptsv2paymentsBuyerInformationLoyalty))
         {
             this.MerchantCustomerId = MerchantCustomerId;
             this.DateOfBirth = DateOfBirth;
@@ -58,6 +59,7 @@ namespace CyberSource.Model
             this.NoteToSeller = NoteToSeller;
             this.MobilePhone = MobilePhone;
             this.WalletId = WalletId;
+            this.Loyalty = Loyalty;
         }
         
         /// <summary>
@@ -148,6 +150,13 @@ namespace CyberSource.Model
         public string WalletId { get; set; }
 
         /// <summary>
+        /// Gets or Sets Loyalty
+        /// </summary>
+        [JsonPropertyName("loyalty")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Ptsv2paymentsBuyerInformationLoyalty Loyalty { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -166,6 +175,7 @@ namespace CyberSource.Model
             if (NoteToSeller != null) sb.Append("  NoteToSeller: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsBuyerInformation", "noteToSeller", NoteToSeller.ToString())).Append("\n");
             if (MobilePhone != null) sb.Append("  MobilePhone: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsBuyerInformation", "mobilePhone", MobilePhone.ToString())).Append("\n");
             if (WalletId != null) sb.Append("  WalletId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsBuyerInformation", "walletId", WalletId.ToString())).Append("\n");
+            if (Loyalty != null) sb.Append("  Loyalty: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("Ptsv2paymentsBuyerInformation", "loyalty", Loyalty.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
             return sb.ToString();
@@ -261,6 +271,11 @@ namespace CyberSource.Model
                     this.WalletId == other.WalletId ||
                     this.WalletId != null &&
                     this.WalletId.Equals(other.WalletId)
+                ) && 
+                (
+                    this.Loyalty == other.Loyalty ||
+                    this.Loyalty != null &&
+                    this.Loyalty.Equals(other.Loyalty)
                 );
         }
 
@@ -299,6 +314,8 @@ namespace CyberSource.Model
                     hash = hash * 59 + this.MobilePhone.GetHashCode();
                 if (this.WalletId != null)
                     hash = hash * 59 + this.WalletId.GetHashCode();
+                if (this.Loyalty != null)
+                    hash = hash * 59 + this.Loyalty.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();
                 return hash;
             }

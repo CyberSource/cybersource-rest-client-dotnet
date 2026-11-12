@@ -45,8 +45,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20018</returns>
-        InlineResponse20018 CancelCheckout(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>CancelCheckoutResponse</returns>
+        CancelCheckoutResponse CancelCheckout(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Cancel Checkout ACP
@@ -63,8 +63,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20018</returns>
-        ApiResponse<InlineResponse20018> CancelCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>ApiResponse of CancelCheckoutResponse</returns>
+        ApiResponse<CancelCheckoutResponse> CancelCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Complete Checkout ACP
         /// </summary>
@@ -81,8 +81,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20017</returns>
-        InlineResponse20017 CompleteCheckout(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>CompleteCheckoutResponse</returns>
+        CompleteCheckoutResponse CompleteCheckout(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Complete Checkout ACP
@@ -100,8 +100,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20017</returns>
-        ApiResponse<InlineResponse20017> CompleteCheckoutWithHttpInfo(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>ApiResponse of CompleteCheckoutResponse</returns>
+        ApiResponse<CompleteCheckoutResponse> CompleteCheckoutWithHttpInfo(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Create Checkout Session ACP
         /// </summary>
@@ -117,8 +117,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20112</returns>
-        InlineResponse20112 CreateCheckoutSession(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>CheckoutSessionResponse</returns>
+        CheckoutSessionResponse CreateCheckoutSession(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Create Checkout Session ACP
@@ -135,8 +135,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20112</returns>
-        ApiResponse<InlineResponse20112> CreateCheckoutSessionWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>ApiResponse of CheckoutSessionResponse</returns>
+        ApiResponse<CheckoutSessionResponse> CreateCheckoutSessionWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Get Checkout Session ACP
         /// </summary>
@@ -153,8 +153,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20112</returns>
-        InlineResponse20112 GetCheckoutSession(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>CheckoutSessionResponse</returns>
+        CheckoutSessionResponse GetCheckoutSession(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Get Checkout Session ACP
@@ -172,8 +172,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20112</returns>
-        ApiResponse<InlineResponse20112> GetCheckoutSessionWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>ApiResponse of CheckoutSessionResponse</returns>
+        ApiResponse<CheckoutSessionResponse> GetCheckoutSessionWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Update Checkout Session ACP
         /// </summary>
@@ -190,8 +190,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20112</returns>
-        InlineResponse20112 UpdateCheckoutSession(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>CheckoutSessionResponse</returns>
+        CheckoutSessionResponse UpdateCheckoutSession(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Update Checkout Session ACP
@@ -209,8 +209,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20112</returns>
-        ApiResponse<InlineResponse20112> UpdateCheckoutSessionWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>ApiResponse of CheckoutSessionResponse</returns>
+        ApiResponse<CheckoutSessionResponse> UpdateCheckoutSessionWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -228,8 +228,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20018</returns>
-        System.Threading.Tasks.Task<InlineResponse20018> CancelCheckoutAsync(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of CancelCheckoutResponse</returns>
+        System.Threading.Tasks.Task<CancelCheckoutResponse> CancelCheckoutAsync(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Cancel Checkout ACP
@@ -246,8 +246,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20018)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20018>> CancelCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of ApiResponse (CancelCheckoutResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CancelCheckoutResponse>> CancelCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Complete Checkout ACP
         /// </summary>
@@ -264,8 +264,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20017</returns>
-        System.Threading.Tasks.Task<InlineResponse20017> CompleteCheckoutAsync(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of CompleteCheckoutResponse</returns>
+        System.Threading.Tasks.Task<CompleteCheckoutResponse> CompleteCheckoutAsync(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Complete Checkout ACP
@@ -283,8 +283,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20017)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20017>> CompleteCheckoutAsyncWithHttpInfo(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of ApiResponse (CompleteCheckoutResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CompleteCheckoutResponse>> CompleteCheckoutAsyncWithHttpInfo(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Create Checkout Session ACP
         /// </summary>
@@ -300,8 +300,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20112</returns>
-        System.Threading.Tasks.Task<InlineResponse20112> CreateCheckoutSessionAsync(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of CheckoutSessionResponse</returns>
+        System.Threading.Tasks.Task<CheckoutSessionResponse> CreateCheckoutSessionAsync(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Create Checkout Session ACP
@@ -318,8 +318,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20112>> CreateCheckoutSessionAsyncWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of ApiResponse (CheckoutSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CheckoutSessionResponse>> CreateCheckoutSessionAsyncWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Get Checkout Session ACP
         /// </summary>
@@ -336,8 +336,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20112</returns>
-        System.Threading.Tasks.Task<InlineResponse20112> GetCheckoutSessionAsync(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of CheckoutSessionResponse</returns>
+        System.Threading.Tasks.Task<CheckoutSessionResponse> GetCheckoutSessionAsync(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Get Checkout Session ACP
@@ -355,8 +355,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20112>> GetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of ApiResponse (CheckoutSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CheckoutSessionResponse>> GetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         /// <summary>
         /// Update Checkout Session ACP
         /// </summary>
@@ -373,8 +373,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20112</returns>
-        System.Threading.Tasks.Task<InlineResponse20112> UpdateCheckoutSessionAsync(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of CheckoutSessionResponse</returns>
+        System.Threading.Tasks.Task<CheckoutSessionResponse> UpdateCheckoutSessionAsync(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
 
         /// <summary>
         /// Update Checkout Session ACP
@@ -392,8 +392,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20112>> UpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
+        /// <returns>Task of ApiResponse (CheckoutSessionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CheckoutSessionResponse>> UpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null);
         #endregion Asynchronous Operations
     }
 
@@ -432,12 +432,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20018</returns>
-        public InlineResponse20018 CancelCheckout(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>CancelCheckoutResponse</returns>
+        public CancelCheckoutResponse CancelCheckout(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"CancelCheckout\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20018> localVarResponse = CancelCheckoutWithHttpInfo(sessionId, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<CancelCheckoutResponse> localVarResponse = CancelCheckoutWithHttpInfo(sessionId, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"CancelCheckout\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -455,8 +455,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20018</returns>
-        public ApiResponse< InlineResponse20018 > CancelCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>ApiResponse of CancelCheckoutResponse</returns>
+        public ApiResponse< CancelCheckoutResponse > CancelCheckoutWithHttpInfo(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -554,7 +554,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -583,9 +583,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20018>(localVarStatusCode,
+            return new ApiResponse<CancelCheckoutResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20018))); // Return statement
+                (CancelCheckoutResponse) ApiClient.Deserialize(localVarResponse, typeof(CancelCheckoutResponse))); // Return statement
         }
 
         /// <summary>
@@ -600,12 +600,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20018</returns>
-        public async Task<InlineResponse20018> CancelCheckoutAsync(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of CancelCheckoutResponse</returns>
+        public async Task<CancelCheckoutResponse> CancelCheckoutAsync(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"CancelCheckoutAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20018> localVarResponse = await CancelCheckoutAsyncWithHttpInfo(sessionId, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<CancelCheckoutResponse> localVarResponse = await CancelCheckoutAsyncWithHttpInfo(sessionId, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"CancelCheckoutAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -624,8 +624,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20018)</returns>
-        public async Task<ApiResponse<InlineResponse20018>> CancelCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of ApiResponse (CancelCheckoutResponse)</returns>
+        public async Task<ApiResponse<CancelCheckoutResponse>> CancelCheckoutAsyncWithHttpInfo(string sessionId, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -722,7 +722,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -751,9 +751,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20018>(localVarStatusCode,
+            return new ApiResponse<CancelCheckoutResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20018) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20018))); // Return statement
+                (CancelCheckoutResponse) ApiClient.Deserialize(localVarResponse, typeof(CancelCheckoutResponse))); // Return statement
         }
         /// <summary>
         /// Complete Checkout ACP **Final step of the ACP checkout flow.**  Submits payment and buyer information to place the order with the merchant. On success, the session transitions to &#x60;completed&#x60; and an &#x60;order_id&#x60; is returned confirming the merchant accepted the order.  Once completed, the session is immutable — it cannot be updated or cancelled.  **Payment token:** The &#x60;payment.token&#x60; must be a valid token from the payment provider configured for the merchant (e.g. a tokenized card from Stripe or Braintree). ACG forwards the token to the merchant&#39;s payment processor — it is never stored. 
@@ -768,12 +768,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20017</returns>
-        public InlineResponse20017 CompleteCheckout(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>CompleteCheckoutResponse</returns>
+        public CompleteCheckoutResponse CompleteCheckout(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"CompleteCheckout\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20017> localVarResponse = CompleteCheckoutWithHttpInfo(sessionId, acpCompleteCheckoutRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<CompleteCheckoutResponse> localVarResponse = CompleteCheckoutWithHttpInfo(sessionId, acpCompleteCheckoutRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"CompleteCheckout\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -792,8 +792,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20017</returns>
-        public ApiResponse< InlineResponse20017 > CompleteCheckoutWithHttpInfo(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>ApiResponse of CompleteCheckoutResponse</returns>
+        public ApiResponse< CompleteCheckoutResponse > CompleteCheckoutWithHttpInfo(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -892,7 +892,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -923,9 +923,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20017>(localVarStatusCode,
+            return new ApiResponse<CompleteCheckoutResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20017))); // Return statement
+                (CompleteCheckoutResponse) ApiClient.Deserialize(localVarResponse, typeof(CompleteCheckoutResponse))); // Return statement
         }
 
         /// <summary>
@@ -941,12 +941,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20017</returns>
-        public async Task<InlineResponse20017> CompleteCheckoutAsync(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of CompleteCheckoutResponse</returns>
+        public async Task<CompleteCheckoutResponse> CompleteCheckoutAsync(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"CompleteCheckoutAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20017> localVarResponse = await CompleteCheckoutAsyncWithHttpInfo(sessionId, acpCompleteCheckoutRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<CompleteCheckoutResponse> localVarResponse = await CompleteCheckoutAsyncWithHttpInfo(sessionId, acpCompleteCheckoutRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"CompleteCheckoutAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -966,8 +966,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20017)</returns>
-        public async Task<ApiResponse<InlineResponse20017>> CompleteCheckoutAsyncWithHttpInfo(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of ApiResponse (CompleteCheckoutResponse)</returns>
+        public async Task<ApiResponse<CompleteCheckoutResponse>> CompleteCheckoutAsyncWithHttpInfo(string sessionId, AcpCompleteCheckoutRequest acpCompleteCheckoutRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1066,7 +1066,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1097,9 +1097,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20017>(localVarStatusCode,
+            return new ApiResponse<CompleteCheckoutResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20017) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20017))); // Return statement
+                (CompleteCheckoutResponse) ApiClient.Deserialize(localVarResponse, typeof(CompleteCheckoutResponse))); // Return statement
         }
         /// <summary>
         /// Create Checkout Session ACP **Step 1 of the ACP checkout flow.**  Initiates a new ACP checkout session with the buyer&#39;s cart. ACG validates item availability against the merchant&#39;s catalog, calculates initial pricing and tax, and returns a session object with a unique &#x60;id&#x60;.  **Store the &#x60;id&#x60;** — every subsequent call in this checkout flow (update, complete, cancel) requires it.  The session remains active for 30 minutes. A new session must be created after expiry.  **Idempotency:** Supply an &#x60;Idempotency-Key&#x60; header to safely retry this call without creating duplicate sessions. 
@@ -1113,12 +1113,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20112</returns>
-        public InlineResponse20112 CreateCheckoutSession(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>CheckoutSessionResponse</returns>
+        public CheckoutSessionResponse CreateCheckoutSession(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"CreateCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20112> localVarResponse = CreateCheckoutSessionWithHttpInfo(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<CheckoutSessionResponse> localVarResponse = CreateCheckoutSessionWithHttpInfo(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"CreateCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1136,8 +1136,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20112</returns>
-        public ApiResponse< InlineResponse20112 > CreateCheckoutSessionWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>ApiResponse of CheckoutSessionResponse</returns>
+        public ApiResponse< CheckoutSessionResponse > CreateCheckoutSessionWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1224,7 +1224,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1255,9 +1255,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+            return new ApiResponse<CheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
+                (CheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(CheckoutSessionResponse))); // Return statement
         }
 
         /// <summary>
@@ -1272,12 +1272,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20112</returns>
-        public async Task<InlineResponse20112> CreateCheckoutSessionAsync(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of CheckoutSessionResponse</returns>
+        public async Task<CheckoutSessionResponse> CreateCheckoutSessionAsync(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"CreateCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20112> localVarResponse = await CreateCheckoutSessionAsyncWithHttpInfo(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<CheckoutSessionResponse> localVarResponse = await CreateCheckoutSessionAsyncWithHttpInfo(acpCreateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"CreateCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1296,8 +1296,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
-        public async Task<ApiResponse<InlineResponse20112>> CreateCheckoutSessionAsyncWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of ApiResponse (CheckoutSessionResponse)</returns>
+        public async Task<ApiResponse<CheckoutSessionResponse>> CreateCheckoutSessionAsyncWithHttpInfo(AcpCreateCheckoutSessionRequest acpCreateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1384,7 +1384,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1415,9 +1415,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+            return new ApiResponse<CheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
+                (CheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(CheckoutSessionResponse))); // Return statement
         }
         /// <summary>
         /// Get Checkout Session ACP Retrieves the current state of an ACP checkout session, including line items, buyer information,  and current totals.  Use this to: - Verify session status before presenting a checkout summary to the buyer - Resume an interrupted checkout flow - Poll for status after an async operation - Confirm a session has not expired before submitting payment 
@@ -1432,12 +1432,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20112</returns>
-        public InlineResponse20112 GetCheckoutSession(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>CheckoutSessionResponse</returns>
+        public CheckoutSessionResponse GetCheckoutSession(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"GetCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20112> localVarResponse = GetCheckoutSessionWithHttpInfo(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<CheckoutSessionResponse> localVarResponse = GetCheckoutSessionWithHttpInfo(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"GetCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1456,8 +1456,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20112</returns>
-        public ApiResponse< InlineResponse20112 > GetCheckoutSessionWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>ApiResponse of CheckoutSessionResponse</returns>
+        public ApiResponse< CheckoutSessionResponse > GetCheckoutSessionWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1556,7 +1556,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1587,9 +1587,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+            return new ApiResponse<CheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
+                (CheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(CheckoutSessionResponse))); // Return statement
         }
 
         /// <summary>
@@ -1605,12 +1605,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20112</returns>
-        public async Task<InlineResponse20112> GetCheckoutSessionAsync(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of CheckoutSessionResponse</returns>
+        public async Task<CheckoutSessionResponse> GetCheckoutSessionAsync(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"GetCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20112> localVarResponse = await GetCheckoutSessionAsyncWithHttpInfo(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<CheckoutSessionResponse> localVarResponse = await GetCheckoutSessionAsyncWithHttpInfo(sessionId, acpGetCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"GetCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1630,8 +1630,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
-        public async Task<ApiResponse<InlineResponse20112>> GetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of ApiResponse (CheckoutSessionResponse)</returns>
+        public async Task<ApiResponse<CheckoutSessionResponse>> GetCheckoutSessionAsyncWithHttpInfo(string sessionId, Object acpGetCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1730,7 +1730,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1761,9 +1761,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+            return new ApiResponse<CheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
+                (CheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(CheckoutSessionResponse))); // Return statement
         }
         /// <summary>
         /// Update Checkout Session ACP Modifies an active ACP checkout session and returns the updated session state with recalculated totals.  Use this to: - Add, remove, or change quantities of cart items - Apply or remove discount codes - Update the buyer&#39;s shipping address or contact details - Trigger re-calculation of shipping costs and tax  Only fields included in the request body are updated — omitted fields retain their current values.  **Idempotency:** Supply an &#x60;Idempotency-Key&#x60; to safely retry updates without applying them twice. 
@@ -1778,12 +1778,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>InlineResponse20112</returns>
-        public InlineResponse20112 UpdateCheckoutSession(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>CheckoutSessionResponse</returns>
+        public CheckoutSessionResponse UpdateCheckoutSession(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"UpdateCheckoutSession\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20112> localVarResponse = UpdateCheckoutSessionWithHttpInfo(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<CheckoutSessionResponse> localVarResponse = UpdateCheckoutSessionWithHttpInfo(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"UpdateCheckoutSession\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1802,8 +1802,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20112</returns>
-        public ApiResponse< InlineResponse20112 > UpdateCheckoutSessionWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>ApiResponse of CheckoutSessionResponse</returns>
+        public ApiResponse< CheckoutSessionResponse > UpdateCheckoutSessionWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -1902,7 +1902,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -1933,9 +1933,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+            return new ApiResponse<CheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
+                (CheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(CheckoutSessionResponse))); // Return statement
         }
 
         /// <summary>
@@ -1951,12 +1951,12 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of InlineResponse20112</returns>
-        public async Task<InlineResponse20112> UpdateCheckoutSessionAsync(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of CheckoutSessionResponse</returns>
+        public async Task<CheckoutSessionResponse> UpdateCheckoutSessionAsync(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             logger.LogDebug("CALLING API \"UpdateCheckoutSessionAsync\" STARTED");
             this.SetStatusCode(null);
-            ApiResponse<InlineResponse20112> localVarResponse = await UpdateCheckoutSessionAsyncWithHttpInfo(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
+            ApiResponse<CheckoutSessionResponse> localVarResponse = await UpdateCheckoutSessionAsyncWithHttpInfo(sessionId, acpUpdateCheckoutSessionRequest, idempotencyKey, acceptLanguage, userAgent, requestId, signature, timestamp, aPIVersion);
             logger.LogDebug("CALLING API \"UpdateCheckoutSessionAsync\" ENDED");
             this.SetStatusCode(localVarResponse.StatusCode);
             return localVarResponse.Data;
@@ -1976,8 +1976,8 @@ namespace CyberSource.Api
         /// <param name="signature">Request signature for payload integrity verification.  (optional)</param>
         /// <param name="timestamp">ISO 8601 timestamp of when the request was generated. Used in conjunction with Signature for replay protection.  (optional)</param>
         /// <param name="aPIVersion">ACP specification version the client is targeting (e.g. &#x60;2024-01-01&#x60;). When omitted, the latest supported version is assumed.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20112)</returns>
-        public async Task<ApiResponse<InlineResponse20112>> UpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
+        /// <returns>Task of ApiResponse (CheckoutSessionResponse)</returns>
+        public async Task<ApiResponse<CheckoutSessionResponse>> UpdateCheckoutSessionAsyncWithHttpInfo(string sessionId, AcpUpdateCheckoutSessionRequest acpUpdateCheckoutSessionRequest, string idempotencyKey = null, string acceptLanguage = null, string userAgent = null, string requestId = null, string signature = null, string timestamp = null, string aPIVersion = null)
         {
             LogUtility logUtility = new LogUtility();
 
@@ -2076,7 +2076,7 @@ namespace CyberSource.Api
             {
                 try
                 {
-                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory);
+                    localVarPostBody = MLEUtility.EncryptRequestPayload(Configuration.MerchantCredentialSettings, Configuration.MerchantMLESettings, localVarPostBody, loggerFactory, localVarHttpContentType);
                 }
                 catch (Exception e)
                 {
@@ -2107,9 +2107,9 @@ namespace CyberSource.Api
                 }
             }
 
-            return new ApiResponse<InlineResponse20112>(localVarStatusCode,
+            return new ApiResponse<CheckoutSessionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => string.Join(", ", x.Value)),
-                (InlineResponse20112) ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20112))); // Return statement
+                (CheckoutSessionResponse) ApiClient.Deserialize(localVarResponse, typeof(CheckoutSessionResponse))); // Return statement
         }
     }
 }

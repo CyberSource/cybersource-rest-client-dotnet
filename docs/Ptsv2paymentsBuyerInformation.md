@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **NoteToSeller** | **string** | Note to the recipient of the funds in this transaction | [optional] 
 **MobilePhone** | **int?** | Cardholder&#39;s mobile phone number. **Important** Required for Visa Secure transactions in Brazil. Do not use this request field for any other types of transactions.  | [optional] 
 **WalletId** | **string** | The one-time identification code of the Alipay wallet user.  It is scanned from the barcode that is shown by the mobile application.  | [optional] 
+**Loyalty** | [**Ptsv2paymentsBuyerInformationLoyalty**](Ptsv2paymentsBuyerInformationLoyalty.md) |  | [optional] 
 
 ## Extensibility
 

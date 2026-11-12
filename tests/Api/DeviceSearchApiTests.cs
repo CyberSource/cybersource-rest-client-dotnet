@@ -73,7 +73,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //PostDeviceSearchRequest postDeviceSearchRequest = null;
             //var response = instance.PostSearchQuery(postDeviceSearchRequest);
-            //Assert.IsInstanceOf<InlineResponse2009> (response, "response is InlineResponse2009");
+            //Assert.IsInstanceOf<DeviceSearchResponse> (response, "response is DeviceSearchResponse");
         }
         
         /// <summary>
@@ -85,7 +85,7 @@ namespace CyberSource.Test
             // TODO uncomment below to test the method and replace null with proper value
             //PostDeviceSearchRequestV3 postDeviceSearchRequestV3 = null;
             //var response = instance.PostSearchQueryV3(postDeviceSearchRequestV3);
-            //Assert.IsInstanceOf<InlineResponse20011> (response, "response is InlineResponse20011");
+            //Assert.IsInstanceOf<DeviceSearchV3Response> (response, "response is DeviceSearchV3Response");
         }
         
     }

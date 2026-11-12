@@ -456,6 +456,22 @@ namespace CyberSource.Test
         {
             // TODO unit test for the property 'InquiryType'
         }
+        /// <summary>
+        /// Test the property 'PreAuthStatus'
+        /// </summary>
+        [Test]
+        public void PreAuthStatusTest()
+        {
+            // TODO unit test for the property 'PreAuthStatus'
+        }
+        /// <summary>
+        /// Test the property 'PreAuthResponseCode'
+        /// </summary>
+        [Test]
+        public void PreAuthResponseCodeTest()
+        {
+            // TODO unit test for the property 'PreAuthResponseCode'
+        }
 
     }
 

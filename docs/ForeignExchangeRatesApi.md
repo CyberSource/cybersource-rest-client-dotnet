@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="createfxrates"></a>
 # **CreateFxRates**
-> InlineResponse2013 CreateFxRates (Body body, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
+> CreateFxRatesResponse CreateFxRates (CreateFxRatesRequest createFxRatesRequest, string contentType, string xRequestid, string vCMerchantId, string vCPermissions, string vCCorrelationId, string vCOrganizationId)
 
 Retrieve Foreign Exchange Rates
 
@@ -30,7 +30,7 @@ namespace Example
         public void main()
         {
             var apiInstance = new ForeignExchangeRatesApi();
-            var body = new Body(); // Body | 
+            var createFxRatesRequest = new CreateFxRatesRequest(); // CreateFxRatesRequest | 
             var contentType = contentType_example;  // string | 
             var xRequestid = xRequestid_example;  // string | 
             var vCMerchantId = vCMerchantId_example;  // string | 
@@ -41,7 +41,7 @@ namespace Example
             try
             {
                 // Retrieve Foreign Exchange Rates
-                InlineResponse2013 result = apiInstance.CreateFxRates(body, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
+                CreateFxRatesResponse result = apiInstance.CreateFxRates(createFxRatesRequest, contentType, xRequestid, vCMerchantId, vCPermissions, vCCorrelationId, vCOrganizationId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +57,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body**](Body.md)|  | 
+ **createFxRatesRequest** | [**CreateFxRatesRequest**](CreateFxRatesRequest.md)|  | 
  **contentType** | **string**|  | 
  **xRequestid** | **string**|  | 
  **vCMerchantId** | **string**|  | 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**CreateFxRatesResponse**](CreateFxRatesResponse.md)
 
 ### Authorization
 

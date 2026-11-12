@@ -34,46 +34,71 @@ namespace CyberSource.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse4011" /> class.
         /// </summary>
-        /// <param name="Id">A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. .</param>
-        /// <param name="SubmitTimeStampUtc">Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. .</param>
-        /// <param name="Reason">The reason of the status.  Possible values: - UNAUTHORIZED .</param>
-        /// <param name="Message">The detail message related to the status and reason listed above. .</param>
-        public InlineResponse4011(string Id = default(string), string SubmitTimeStampUtc = default(string), string Reason = default(string), string Message = default(string))
+        /// <param name="Links">Links.</param>
+        /// <param name="Code">Valid Values:   * FORBIDDEN_RESPONSE   * VALIDATION_ERROR   * UNSUPPORTED_MEDIA_TYPE   * MALFORMED_PAYLOAD_ERROR   * SERVER_ERROR .</param>
+        /// <param name="CorrelationId">CorrelationId.</param>
+        /// <param name="Detail">Detail.</param>
+        /// <param name="Fields">Fields.</param>
+        /// <param name="LocalizationKey">Valid Values:   * cybsapi.forbidden.response   * cybsapi.validation.error   * cybsapi.media.notsupported .</param>
+        /// <param name="Message">Message.</param>
+        public InlineResponse4011(InlineResponse4011Links Links = default(InlineResponse4011Links), string Code = default(string), string CorrelationId = default(string), string Detail = default(string), List<InlineResponse4011Fields> Fields = default(List<InlineResponse4011Fields>), string LocalizationKey = default(string), string Message = default(string))
         {
-            this.Id = Id;
-            this.SubmitTimeStampUtc = SubmitTimeStampUtc;
-            this.Reason = Reason;
+            this.Links = Links;
+            this.Code = Code;
+            this.CorrelationId = CorrelationId;
+            this.Detail = Detail;
+            this.Fields = Fields;
+            this.LocalizationKey = LocalizationKey;
             this.Message = Message;
         }
         
         /// <summary>
-        /// A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. 
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>A unique identification number to identify the submitted request. It is also appended to the endpoint of the resource. </value>
-        [JsonPropertyName("id")]
+        [JsonPropertyName("_links")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Id { get; set; }
+        public InlineResponse4011Links Links { get; set; }
 
         /// <summary>
-        /// Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. 
+        /// Valid Values:   * FORBIDDEN_RESPONSE   * VALIDATION_ERROR   * UNSUPPORTED_MEDIA_TYPE   * MALFORMED_PAYLOAD_ERROR   * SERVER_ERROR 
         /// </summary>
-        /// <value>Time of request in UTC. Format: &#x60;YYYY-MM-DD&#39;T&#39;HH:mm:ssZ&#x60;  Example: &#x60;2016-08-11T22:47:57Z&#x60; equals August 11, 2016, at 22:47:57 (10:47:57 p.m.). The T separates the date and the time. The Z indicates UTC. </value>
-        [JsonPropertyName("submitTimeStampUtc")]
+        /// <value>Valid Values:   * FORBIDDEN_RESPONSE   * VALIDATION_ERROR   * UNSUPPORTED_MEDIA_TYPE   * MALFORMED_PAYLOAD_ERROR   * SERVER_ERROR </value>
+        [JsonPropertyName("code")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string SubmitTimeStampUtc { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
-        /// The reason of the status.  Possible values: - UNAUTHORIZED 
+        /// Gets or Sets CorrelationId
         /// </summary>
-        /// <value>The reason of the status.  Possible values: - UNAUTHORIZED </value>
-        [JsonPropertyName("reason")]
+        [JsonPropertyName("correlationId")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Reason { get; set; }
+        public string CorrelationId { get; set; }
 
         /// <summary>
-        /// The detail message related to the status and reason listed above. 
+        /// Gets or Sets Detail
         /// </summary>
-        /// <value>The detail message related to the status and reason listed above. </value>
+        [JsonPropertyName("detail")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string Detail { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Fields
+        /// </summary>
+        [JsonPropertyName("fields")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<InlineResponse4011Fields> Fields { get; set; }
+
+        /// <summary>
+        /// Valid Values:   * cybsapi.forbidden.response   * cybsapi.validation.error   * cybsapi.media.notsupported 
+        /// </summary>
+        /// <value>Valid Values:   * cybsapi.forbidden.response   * cybsapi.validation.error   * cybsapi.media.notsupported </value>
+        [JsonPropertyName("localizationKey")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string LocalizationKey { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Message
+        /// </summary>
         [JsonPropertyName("message")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string Message { get; set; }
@@ -86,9 +111,12 @@ namespace CyberSource.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse4011 {\n");
-            if (Id != null) sb.Append("  Id: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4011", "id", Id.ToString())).Append("\n");
-            if (SubmitTimeStampUtc != null) sb.Append("  SubmitTimeStampUtc: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4011", "submitTimeStampUtc", SubmitTimeStampUtc.ToString())).Append("\n");
-            if (Reason != null) sb.Append("  Reason: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4011", "reason", Reason.ToString())).Append("\n");
+            if (Links != null) sb.Append("  Links: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4011", "_links", Links.ToString())).Append("\n");
+            if (Code != null) sb.Append("  Code: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4011", "code", Code.ToString())).Append("\n");
+            if (CorrelationId != null) sb.Append("  CorrelationId: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4011", "correlationId", CorrelationId.ToString())).Append("\n");
+            if (Detail != null) sb.Append("  Detail: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4011", "detail", Detail.ToString())).Append("\n");
+            if (Fields != null) sb.Append("  Fields: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4011", "fields", Fields.ToString())).Append("\n");
+            if (LocalizationKey != null) sb.Append("  LocalizationKey: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4011", "localizationKey", LocalizationKey.ToString())).Append("\n");
             if (Message != null) sb.Append("  Message: ").Append(CyberSource.Utilities.SensitiveFieldMaskingUtility.MaskFieldValue("InlineResponse4011", "message", Message.ToString())).Append("\n");
             sb.Append(ToStringExtraFields());
             sb.Append("}\n");
@@ -132,19 +160,34 @@ namespace CyberSource.Model
             // ExtraFieldsEqual leads so models with no declared properties still compare.
             return ExtraFieldsEqual(other) && 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Links == other.Links ||
+                    this.Links != null &&
+                    this.Links.Equals(other.Links)
                 ) && 
                 (
-                    this.SubmitTimeStampUtc == other.SubmitTimeStampUtc ||
-                    this.SubmitTimeStampUtc != null &&
-                    this.SubmitTimeStampUtc.Equals(other.SubmitTimeStampUtc)
+                    this.Code == other.Code ||
+                    this.Code != null &&
+                    this.Code.Equals(other.Code)
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.CorrelationId == other.CorrelationId ||
+                    this.CorrelationId != null &&
+                    this.CorrelationId.Equals(other.CorrelationId)
+                ) && 
+                (
+                    this.Detail == other.Detail ||
+                    this.Detail != null &&
+                    this.Detail.Equals(other.Detail)
+                ) && 
+                (
+                    this.Fields == other.Fields ||
+                    this.Fields != null &&
+                    this.Fields.SequenceEqual(other.Fields)
+                ) && 
+                (
+                    this.LocalizationKey == other.LocalizationKey ||
+                    this.LocalizationKey != null &&
+                    this.LocalizationKey.Equals(other.LocalizationKey)
                 ) && 
                 (
                     this.Message == other.Message ||
@@ -166,12 +209,18 @@ namespace CyberSource.Model
                 // Suitable nullity checks etc, of course :)
                 // Value-based hash over declared properties AND the overflow store, kept
                 // consistent with Equals.
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
-                if (this.SubmitTimeStampUtc != null)
-                    hash = hash * 59 + this.SubmitTimeStampUtc.GetHashCode();
-                if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
+                if (this.Links != null)
+                    hash = hash * 59 + this.Links.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
+                if (this.CorrelationId != null)
+                    hash = hash * 59 + this.CorrelationId.GetHashCode();
+                if (this.Detail != null)
+                    hash = hash * 59 + this.Detail.GetHashCode();
+                if (this.Fields != null)
+                    hash = hash * 59 + this.Fields.GetHashCode();
+                if (this.LocalizationKey != null)
+                    hash = hash * 59 + this.LocalizationKey.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
                 hash = hash * 59 + GetExtraFieldsHashCode();

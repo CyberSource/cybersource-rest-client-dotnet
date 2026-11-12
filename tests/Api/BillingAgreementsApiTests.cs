@@ -87,7 +87,7 @@ namespace CyberSource.Test
             //IntimateBillingAgreement intimateBillingAgreement = null;
             //string id = null;
             //var response = instance.BillingAgreementsIntimation(intimateBillingAgreement, id);
-            //Assert.IsInstanceOf<PtsV2CreditsPost201Response1> (response, "response is PtsV2CreditsPost201Response1");
+            //Assert.IsInstanceOf<IntimateBillingAgreementResponse> (response, "response is IntimateBillingAgreementResponse");
         }
         
         /// <summary>

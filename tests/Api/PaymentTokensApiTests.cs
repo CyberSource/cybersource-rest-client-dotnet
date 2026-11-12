@@ -71,9 +71,9 @@ namespace CyberSource.Test
         public void RetrieveOrDeletePaymentTokenTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Request request = null;
-            //var response = instance.RetrieveOrDeletePaymentToken(request);
-            //Assert.IsInstanceOf<InlineResponse201> (response, "response is InlineResponse201");
+            //PaymentTokenRequest paymentTokenRequest = null;
+            //var response = instance.RetrieveOrDeletePaymentToken(paymentTokenRequest);
+            //Assert.IsInstanceOf<RetrieveOrDeletePaymentTokenResponse> (response, "response is RetrieveOrDeletePaymentTokenResponse");
         }
         
     }
